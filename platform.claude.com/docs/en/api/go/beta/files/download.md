@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/files/download -->
 
----
-title: Download File
-url: https://platform.claude.com/docs/en/api/go/beta/files/download
----
-
-## Download File
+# Download File
 
 `client.Beta.Files.Download(ctx, fileID, query) (*Response, error)`
 
-**get** `/v1/files/{file_id}/content`
+**GET** `/v1/files/{file_id}/content`
 
 Download File
 
-### Parameters
+## Parameters
 
 - `fileID string`
 
@@ -21,7 +16,7 @@ Download File
 
 - `query BetaFileDownloadParams`
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -97,11 +92,11 @@ Download File
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaFileDownloadResponse interface{…}`
 
-### Example
+## Example
 
 ```go
 package main

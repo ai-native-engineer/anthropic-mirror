@@ -4,13 +4,13 @@
 
 Our research teams investigate the safety, inner workings, and societal impacts of AI models—so that artificial intelligence has a positive impact as it becomes increasingly capable.
 
-Research teams:[Alignment](https://www.anthropic.com/research/team/alignment)[Economic Research](https://www.anthropic.com/research/team/economic-research)[Interpretability](https://www.anthropic.com/research/team/interpretability)[Societal Impacts](https://www.anthropic.com/research/team/societal-impacts)[Frontier Red Team](https://www.anthropic.com/research/team/frontier-red-team)
+Research teams:[Alignment](https://www.anthropic.com/research/team/alignment)[Economics](https://www.anthropic.com/research/team/economics)[Interpretability](https://www.anthropic.com/research/team/interpretability)[Societal Impacts](https://www.anthropic.com/research/team/societal-impacts)[Frontier Red Team](https://www.anthropic.com/research/team/frontier-red-team)
 
 ### Alignment
 
 The Alignment team works to understand the risks of AI models and develop ways to ensure that future ones remain helpful, honest, and harmless.
 
-### Economic Research
+### Economics
 
 The Economic Research team studies how AI is reshaping the economy, including work, productivity, and economic opportunity.
 
@@ -34,7 +34,15 @@ ScienceAug 10, 2026
 
 An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.](https://www.anthropic.com/research/riemann-zeta)
 
-[InterpretabilityJul 6, 2026
+[ScienceAug 18, 2026
+
+#### How Claude is accelerating protein design and analytical chemistry
+
+In this post, we share two results that show how Claude can help life scientists increase the pace of their research.](https://www.anthropic.com/research/Claude-accelerates-protein-design)[Economic ResearchAug 12, 2026
+
+#### Reviewing the evidence on worker retraining programs
+
+We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)[InterpretabilityJul 6, 2026
 
 #### A global workspace in language models
 
@@ -42,15 +50,7 @@ New interpretability research reveals an emergent mental workspace in Claude tha
 
 #### Teaching Claude why
 
-New research on how we've reduced agentic misalignment.](https://www.anthropic.com/research/teaching-claude-why)[ResearchApr 24, 2026
-
-#### Project Deal
-
-We created a marketplace for employees in our San Francisco office, with one big twist. We tasked Claude with buying, selling and negotiating on our colleagues’ behalf.](https://www.anthropic.com/features/project-deal)[Societal ImpactsMar 18, 2026
-
-#### What 81,000 people want from AI
-
-We invited Claude.ai users to share how they use AI, what they dream it could make possible, and what they fear it might do. Nearly 81,000 people participated—the largest and most multilingual qualitative study of its kind. Here's what we found.](https://www.anthropic.com/81k-interviews)
+New research on how we've reduced agentic misalignment.](https://www.anthropic.com/research/teaching-claude-why)
 
 ## Publications
 

@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/claude-agent-sdk-07-hosting-the-agent -->
 
-#  Hosting your agent
+#  Hosting your agent
 
 You've built a research agent in [notebook 00(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./00_The_one_liner_research_agent.ipynb). It runs on your laptop. Now someone else needs to use it: a teammate, a cron job, a web app, a customer. That means it has to run *somewhere other than your terminal*, stay up, keep conversations alive across restarts, and not leak your API key.
 
@@ -18,13 +18,13 @@ The agent code, the container image, and the HTTP interface are **identical** ac
 
 All the deployment code lives in [`hosting/`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./hosting/) next to this notebook.
 
-##  Before you start: should you be using the Agent SDK?
+##  Before you start: should you be using the Agent SDK?
 
 If you're building a **customer-facing chat product**, look at [Claude Managed Agents(opens in new tab)](https://platform.claude.com/docs/en/managed-agents/overview) first. You get hosting, sessions, and a UI out of the box, and you can skip most of this notebook.
 
 The Agent SDK is the right choice when you need **programmatic control**: batch and job-shaped agents, internal tools, agents embedded in your own backend, or regulated environments where you have to own the infrastructure. If that's you, read on.
 
-##  The mental model
+##  The mental model
 
 Three nouns to keep straight:
 
@@ -35,8 +35,6 @@ Three nouns to keep straight:
 Unlike in-process SDKs (OpenAI Agents SDK, Google ADK) where an "agent" is an object you instantiate inside your web server, a Claude Agent SDK agent **is** a process. That makes isolation trivial (one container = one blast radius) but means hosting is a distributed-systems problem, not a `pip install` problem.
 
 Every deployment, at any tier, has to do the same four jobs:
-
-
 
 ┌────────────────────────────────────────────────────────────────────┐
 
@@ -59,21 +57,17 @@ Every deployment, at any tier, has to do the same four jobs:
 
 Tier 1 does all four by hand. Tier 2 delegates spawn+lifecycle to Modal. Tier 3 delegates all four to Kubernetes plus a small gateway. The agent container never changes.
 
-##  The agent we're deploying
+##  The agent we're deploying
 
 We're reusing [`research_agent/agent.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./research_agent/agent.py) from notebook 00, the one-liner research agent with `WebSearch` and `Read`. If you haven't done notebook 00, do it first; this notebook assumes the agent already works.
 
 The only thing `hosting/` adds is a thin HTTP server and a Dockerfile. The system prompt comes straight from `research_agent.agent`; we import it rather than copy it. One deliberate difference: the hosted server narrows the tool list to `WebSearch` only. There is no upload path on a server, so the only files `Read` could reach are other sessions' transcripts and the container's own environment, and a prompt-injected web result could walk the agent into leaking them. The comment in `server.py` spells out the reasoning.
-
-
 
 from research\_agent.agent import DEFAULT\_MODEL, RESEARCH\_SYSTEM\_PROMPT
 
 print(f"model: {DEFAULT\_MODEL}")
 
 print(RESEARCH\_SYSTEM\_PROMPT)
-
-
 
 ```
 model: claude-opus-4-6
@@ -85,11 +79,9 @@ When providing research findings:
 - Group sources in a "Sources:" section at the end of your response
 ```
 
-###  Setup
+###  Setup
 
 Create `hosting/.env` with your API key. This file is gitignored.
-
-
 
 %%bash
 
@@ -103,8 +95,6 @@ grep -q '^ANTHROPIC\_API\_KEY=sk-ant-' hosting/.env \
 
 && echo '✅ key looks set'
 
-
-
 ```
 Edit hosting/.env and set ANTHROPIC_API_KEY, then re-run this cell.
 
@@ -113,7 +103,7 @@ Edit hosting/.env and set ANTHROPIC_API_KEY, then re-run this cell.
 
 ---
 
-##  Tier 1a — Ephemeral: one prompt, one container, done
+##  Tier 1a — Ephemeral: one prompt, one container, done
 
 The simplest possible deployment: a container that runs the agent **once** on a prompt from an env var, prints the result, and exits. No server, no sessions, no state.
 
@@ -123,13 +113,9 @@ This is enough for a lot of real work: invoice processing, nightly report genera
 
 The [`Dockerfile`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./hosting/Dockerfile) packages the agent, the SDK, and the Claude Code CLI the SDK drives under the hood. The build context is `claude_agent_sdk/` (this directory), not `hosting/`, because the image needs `research_agent/` and `utils/` too:
 
-
-
 %%bash
 
 docker build -f hosting/Dockerfile -t research-agent . | tail -n 3
-
-
 
 ```
 #0 building with "orbstack" instance using docker driver
@@ -201,8 +187,6 @@ ing layers done
 #15 DONE 0.0s
 ```
 
-
-
 %%bash
 
 docker run --rm --env-file hosting/.env \
@@ -210,8 +194,6 @@ docker run --rm --env-file hosting/.env \
 -e PROMPT='What is the Claude Agent SDK, in one paragraph?' \
 
 research-agent
-
-
 
 ```
 🤖 Thinking...
@@ -262,13 +244,11 @@ That's it. `entrypoint.sh` sees no `serve` argument, so [`run_once.py`(opens in 
 
 ---
 
-##  Tier 1b — Hybrid: add a server so conversations can continue
+##  Tier 1b — Hybrid: add a server so conversations can continue
 
 Ephemeral mode can't hold a conversation; every `docker run` starts a fresh session. For a chat-shaped agent you need a long-lived process that accepts follow-ups and resumes the right session each time.
 
 [`hosting/server.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./hosting/server.py) is a ~100-line FastAPI app that does exactly that and nothing more. The interface is the contract every tier conforms to:
-
-
 
 GET /health → 200 {"status": "ok"}
 
@@ -281,8 +261,6 @@ Two things worth noticing in `server.py`:
 
 Start it with docker-compose, which also mounts `./sessions` at `/data` so transcripts survive restarts:
 
-
-
 %%bash
 
 cd hosting/docker && docker compose up --build -d
@@ -290,8 +268,6 @@ cd hosting/docker && docker compose up --build -d
 sleep 3
 
 curl -s http://localhost:8000/health
-
-
 
 ```
 Image research-agent Building
@@ -390,8 +366,6 @@ DONE 0.0s
 
 Send a prompt and stream the response (`-N` disables curl's buffering so you see events as they arrive):
 
-
-
 %%bash
 
 curl -N -s -X POST http://localhost:8000/sessions/demo-1/messages \
@@ -399,8 +373,6 @@ curl -N -s -X POST http://localhost:8000/sessions/demo-1/messages \
 -H 'Content-Type: application/json' \
 
 -d '{"prompt":"What are the three most interesting AI agent trends right now?"}'
-
-
 
 ```
 event: message
@@ -423,8 +395,6 @@ data:
 
 Now a follow-up to the **same** `session_id`. The agent remembers the first turn because the server resumed the session:
 
-
-
 %%bash
 
 curl -N -s -X POST http://localhost:8000/sessions/demo-1/messages \
@@ -432,8 +402,6 @@ curl -N -s -X POST http://localhost:8000/sessions/demo-1/messages \
 -H 'Content-Type: application/json' \
 
 -d '{"prompt":"Tell me more about the second one."}'
-
-
 
 ```
 event: message
@@ -456,8 +424,6 @@ data:
 
 Restart the container and send *another* follow-up. The volume mount kept `/data`, so the conversation survives:
 
-
-
 %%bash
 
 cd hosting/docker && docker compose restart && sleep 3
@@ -467,8 +433,6 @@ curl -N -s -X POST http://localhost:8000/sessions/demo-1/messages \
 -H 'Content-Type: application/json' \
 
 -d '{"prompt":"Summarize what we have discussed so far."}'
-
-
 
 ```
 Container docker-research-agent-1 Restarting
@@ -557,15 +521,11 @@ event: done
 data:
 ```
 
-
-
 %%bash
 
 # Teardown tier 1
 
 cd hosting/docker && docker compose down
-
-
 
 ```
 Container docker-research-agent-1 Stopping
@@ -582,15 +542,13 @@ Container docker-research-agent-1 Stopping
 
 ---
 
-##  Tier 2 — Modal: same image, now it's a URL
+##  Tier 2 — Modal: same image, now it's a URL
 
 Tier 1 runs on your machine. Tier 2 runs the **same Dockerfile** on [Modal(opens in new tab)](https://modal.com) via `modal.Sandbox`, which gives you a public HTTPS URL, scale-to-zero, and no servers to manage.
 
 That URL is *public*: anyone who has it can spend your API budget. Tiers 1 and 3 assume an authenticating gateway in front; tier 2 has no gateway, so `modal_app.py` generates a per-deploy bearer token and passes it as `AGENT_AUTH_TOKEN`. `server.py` only enforces the token when that env var is set, so the other tiers are unaffected.
 
 [`hosting/modal/modal_app.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./hosting/modal/modal_app.py) is short because nothing about the agent changes:
-
-
 
 app = modal.App.lookup("research-agent-hosting", create\_if\_missing=True)
 
@@ -626,21 +584,15 @@ Persistence uses a `modal.Volume` mounted at `/data`, the same `CLAUDE_CONFIG_DI
 
 One-time setup, **in your terminal** (`modal setup` opens a browser, so it can't run from a notebook cell):
 
-
-
 pip install modal
 
 modal setup
 
 Then create the secret Modal will inject as `ANTHROPIC_API_KEY`:
 
-
-
 %%bash
 
 modal secret create anthropic ANTHROPIC\_API\_KEY="$(grep ANTHROPIC\_API\_KEY hosting/.env | cut -d= -f2)"
-
-
 
 ```
 Created a new secret 'anthropic' with the key 'ANTHROPIC_API_KEY'
@@ -667,8 +619,6 @@ _API_KEY")48;2;39;40
 ;34m
 ```
 
-
-
 %%bash
 
 python hosting/modal/modal\_app.py | tee /tmp/modal\_deploy.out
@@ -678,8 +628,6 @@ MODAL\_URL=$(awk '/^url:/ {print $2}' /tmp/modal\_deploy.out)
 MODAL\_TOKEN=$(awk '/^token:/ {print $2}' /tmp/modal\_deploy.out)
 
 { echo "MODAL\_URL=$MODAL\_URL"; echo "MODAL\_TOKEN=$MODAL\_TOKEN"; } > /tmp/modal\_url.env
-
-
 
 ```
 sandbox: sb-7R7zQ7TtX0h9eKZ8qslvwo
@@ -700,8 +648,6 @@ Try it:
     -d '{"prompt":"What are the latest AI agent trends?"}'
 ```
 
-
-
 %%bash
 
 source /tmp/modal\_url.env
@@ -713,8 +659,6 @@ curl -N -s -X POST "$MODAL\_URL/sessions/demo-1/messages" \
 -H 'Content-Type: application/json' \
 
 -d '{"prompt":"Give me a one-sentence summary of the Claude Agent SDK."}'
-
-
 
 ```
 event: message
@@ -739,13 +683,9 @@ Same interface, same image, different host. When nothing's calling it, Modal sca
 
 Teardown so you aren't billed for idle resources:
 
-
-
 %%bash
 
 python hosting/modal/teardown.py
-
-
 
 ```
 terminating sandbox sb-7R7zQ7TtX0h9eKZ8qslvwo
@@ -754,7 +694,7 @@ deleted volume research-agent-sessions
 
 ---
 
-##  Tier 3 — Kubernetes: when you need to own the infrastructure
+##  Tier 3 — Kubernetes: when you need to own the infrastructure
 
 Tier 3 is for multi-tenant production, regulated environments, or anywhere you need full control over networking, isolation, and cost. The agent image and interface are still identical; what's new is the machinery *around* it:
 
@@ -764,8 +704,6 @@ Tier 3 is for multi-tenant production, regulated environments, or anywhere you n
 * **Egress lockdown** (NetworkPolicy + an allowlisting proxy) so a prompt-injected agent can reach `api.anthropic.com` and nothing else.
 
 The full manifests, gateway, and a step-by-step architecture walkthrough live in [`hosting/kubernetes/`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./hosting/kubernetes/). It runs end-to-end on a local [kind(opens in new tab)](https://kind.sigs.k8s.io/) cluster with no cloud account:
-
-
 
 cd hosting/kubernetes
 
@@ -777,15 +715,13 @@ The quickstart prints bearer tokens for two demo tenants (`alice` and `bob`). Th
 
 ---
 
-##  Making it production-ready
+##  Making it production-ready
 
 Two production concerns you can wire up in a few lines each. The cells below show the code; the [hosting docs(opens in new tab)](https://code.claude.com/docs/en/agent-sdk/hosting) cover the full production checklist (auth, graceful shutdown, idle-timeout tuning, autoscaling, cost controls).
 
-###  Observability
+###  Observability
 
 The SDK emits OpenTelemetry spans for every turn and tool call. Point it at your collector with two env vars, with no code changes to `server.py` ([docs(opens in new tab)](https://code.claude.com/docs/en/agent-sdk/observability)):
-
-
 
 # In docker-compose.yml / modal\_app.py / your k8s Deployment:
 
@@ -793,21 +729,21 @@ The SDK emits OpenTelemetry spans for every turn and tool call. Point it at your
 
 # OTEL\_SERVICE\_NAME=research-agent
 
-###  Liveness
+###  Liveness
 
 `GET /health` is already in `server.py`. Point your orchestrator's liveness probe at it (compose `healthcheck:`, Modal health checks, k8s `livenessProbe`).
 
-###  Persistence beyond a volume
+###  Persistence beyond a volume
 
 The `/data` volume mount is fine for single-host and Modal. For multi-host production, use a [`SessionStore` adapter(opens in new tab)](https://code.claude.com/docs/en/agent-sdk/session-storage) that mirrors transcripts to shared storage (S3, Postgres, Redis). Note that SessionStore is a mirror; the local disk write always happens first, and mirror failures emit `mirror_error` without interrupting the agent.
 
-###  Wire format
+###  Wire format
 
 `server.py` streams raw SDK message types. That's fine for a cookbook; for a real API you'd define a stable wire format so SDK version bumps don't break clients.
 
 ---
 
-##  Choosing your tier
+##  Choosing your tier
 
 | Tier | What it gives you | Pick it when | Move up when |
 | --- | --- | --- | --- |
@@ -819,13 +755,11 @@ The [hosting guide(opens in new tab)](https://code.claude.com/docs/en/agent-sdk/
 
 ---
 
-##  Appendix — Porting to other providers
+##  Appendix — Porting to other providers
 
 Same `hosting/Dockerfile`, different deploy command. Each of these exposes port 8000 and gives you a URL; mount something at `/data` for persistence.
 
 **Fly Machines**
-
-
 
 fly launch --dockerfile hosting/Dockerfile --no-deploy # run from claude\_agent\_sdk/
 
@@ -834,8 +768,6 @@ fly volumes create data --size 1
 fly deploy
 
 **E2B**
-
-
 
 from e2b import Sandbox
 
@@ -847,8 +779,6 @@ url = sbx.get\_host(8000)
 
 **Daytona**
 
-
-
 from daytona import Daytona, CreateSandboxFromImageParams
 
 sbx = Daytona().create(CreateSandboxFromImageParams(image="research-agent"))
@@ -857,15 +787,11 @@ sbx.process.exec("./hosting/entrypoint.sh serve")
 
 **Cloudflare Containers**
 
-
-
 // wrangler.toml points at hosting/Dockerfile
 
 export class Agent extends Container { defaultPort = 8000 }
 
 **Vercel Sandbox**
-
-
 
 import { Sandbox } from "@vercel/sandbox";
 

@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-pinecone-rag-using-pinecone -->
 
-#  Retrieval-Augmented Generation using Pinecone
+#  Retrieval-Augmented Generation using Pinecone
 
 This notebook demonstrates how to connect Claude with the data in your Pinecone vector database through a technique called retrieval-augmented generation (RAG). We will cover the following steps:
 
@@ -9,15 +9,11 @@ This notebook demonstrates how to connect Claude with the data in your Pinecone 
 3. Retrieving information from the vector database
 4. Using Claude to answer questions with information from the database
 
-##  Setup
+##  Setup
 
 First, let's install the necessary libraries and set the API keys we will need to use in this notebook. We will need to get a [Claude API key(opens in new tab)](https://docs.claude.com/claude/reference/getting-started-with-the-api), a free [Pinecone API key(opens in new tab)](https://docs.pinecone.io/docs/quickstart), and a free [Voyage AI API key(opens in new tab)](https://docs.voyageai.com/install/).
 
-
-
 %pip install anthropic datasets pinecone-client voyageai
-
-
 
 # Insert your API keys here
 
@@ -27,11 +23,9 @@ PINECONE\_API\_KEY = "<YOUR\_PINECONE\_API\_KEY>"
 
 VOYAGE\_API\_KEY = "<YOUR\_VOYAGE\_API\_KEY>"
 
-##  Download the dataset
+##  Download the dataset
 
 Now let's download the Amazon products dataset which has over 10k Amazon product descriptions and load it into a DataFrame.
-
-
 
 import pandas as pd
 
@@ -61,11 +55,9 @@ display(df.head())
 
 len(df)
 
-##  Vector Database
+##  Vector Database
 
 To create our vector database, we first need a free API key from Pinecone. Once we have the key, we can initialize the database as follows:
-
-
 
 from pinecone import Pinecone
 
@@ -73,15 +65,11 @@ pc = Pinecone(api\_key=PINECONE\_API\_KEY)
 
 Next, we set up our index specification, which allows us to define the cloud provider and region where we want to deploy our index. You can find a list of all available providers and regions [here(opens in new tab)](https://www.pinecone.io/docs/data-types/metadata/).
 
-
-
 from pinecone import ServerlessSpec
 
 spec = ServerlessSpec(cloud="aws", region="us-west-2")
 
 Then, we initialize the index. We will be using Voyage's "voyage-2" model for creating the embeddings, so we set the dimension to 1024.
-
-
 
 import time
 
@@ -125,13 +113,11 @@ index.describe\_index\_stats()
 
 We should see that the new Pinecone index has a total\_vector\_count of 0, as we haven't added any vectors yet.
 
-##  Embeddings
+##  Embeddings
 
 To get started with Voyage's embeddings, go [here(opens in new tab)](https://www.voyageai.com) to get an API key.
 
 Now let's set up our Voyage client and demonstrate how to create an embedding using the `embed` method. To learn more about using Voyage embeddings with Claude, see [this notebook(opens in new tab)](https://github.com/anthropics/anthropic-cookbook/blob/main/third_party/VoyageAI/how_to_create_embeddings.md).
-
-
 
 import voyageai
 
@@ -145,11 +131,9 @@ print(result.embeddings[0])
 
 print(result.embeddings[1])
 
-##  Uploading data to the Pinecone index
+##  Uploading data to the Pinecone index
 
 With our embedding model set up, we can now take our product descriptions, embed them, and upload the embeddings to the Pinecone index.
-
-
 
 from time import sleep
 
@@ -199,11 +183,9 @@ to\_upsert = list(zip(ids\_batch, embeds, metadata\_batch, strict=False))
 
 index.upsert(vectors=to\_upsert)
 
-##  Making queries
+##  Making queries
 
 With our index populated, we can start making queries to get results. We can take a natural language question, embed it, and query it against the index to return semantically similar product descriptions.
-
-
 
 USER\_QUESTION = (
 
@@ -216,8 +198,6 @@ question\_embed = vo.embed([USER\_QUESTION], model="voyage-2", input\_type="quer
 results = index.query(vector=question\_embed.embeddings, top\_k=5, include\_metadata=True)
 
 results
-
-
 
 ```
 {'matches': [{'id': 'description_1771',
@@ -318,11 +298,9 @@ results
  'usage': {'read_units': 6}}
 ```
 
-##  Optimizing search
+##  Optimizing search
 
 These results are good, but we can optimize them even further. Using Claude, we can take the user's question and generate search keywords from it. This allows us to perform a wide, diverse search over the index to get more relevant product descriptions.
-
-
 
 import anthropic
 
@@ -342,8 +320,6 @@ max\_tokens\_to\_sample=1024,
 
 return completion.completion
 
-
-
 def create\_keyword\_prompt(question):
 
 return f"""\n\nHuman: Given a question, generate a list of 5 very diverse search keywords that can be used to search for products on Amazon.
@@ -354,13 +330,9 @@ Output your keywords as a JSON that has one property "keywords" that is a list o
 
 With our Anthropic client setup and our prompt created, we can now begin to generate keywords from the question. We will output the keywords in a JSON object so we can easily parse them from Claude's output.
 
-
-
 keyword\_json = "{" + get\_completion(create\_keyword\_prompt(USER\_QUESTION))
 
 print(keyword\_json)
-
-
 
 import json
 
@@ -373,8 +345,6 @@ keywords\_list = data["keywords"]
 print(keywords\_list)
 
 Now with our keywords in a list, let's embed each one, query it against the index, and return the top 3 most relevant product descriptions.
-
-
 
 results\_list = []
 
@@ -396,11 +366,9 @@ results\_list.append(search\_result["metadata"]["description"])
 
 print(len(results\_list))
 
-##  Answering with Claude
+##  Answering with Claude
 
 Now that we have a list of product descriptions, let's format them into a search template Claude has been trained with and pass the formatted descriptions into another prompt.
-
-
 
 # Formatting search results
 
@@ -426,13 +394,9 @@ return f"""\n\nHuman: {format\_results(results\_list)} Using the search results 
 
 Finally, let's ask the original user's question and get our answer from Claude.
 
-
-
 answer = get\_completion(create\_answer\_prompt(results\_list, USER\_QUESTION))
 
 print(answer)
-
-
 
 ```
 To get your daughter more interested in science, I would recommend getting her an age-appropriate science kit or set that allows for hands-on exploration and experimentation. For example, for a younger child you could try a beginner chemistry set, magnet set, or crystal growing kit. For an older child, look for kits that tackle more advanced scientific principles like physics, engineering, robotics, etc. The key is choosing something that sparks her natural curiosity and lets her actively investigate concepts through activities, observations, and discovery. Supplement the kits with science books, museum visits, documentaries, and conversations about science she encounters in everyday life. Making science fun and engaging is crucial for building her interest.

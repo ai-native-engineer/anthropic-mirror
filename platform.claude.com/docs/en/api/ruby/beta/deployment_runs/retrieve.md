@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/deployment_runs/retrieve -->
 
----
-title: Get Deployment Run
-url: https://platform.claude.com/docs/en/api/ruby/beta/deployment_runs/retrieve
----
-
-## Get Deployment Run
+# Get Deployment Run
 
 `beta.deployment_runs.retrieve(deployment_run_id, **kwargs) -> BetaManagedAgentsDeploymentRun`
 
-**get** `/v1/deployment_runs/{deployment_run_id}`
+**GET** `/v1/deployment_runs/{deployment_run_id}`
 
 Get Deployment Run
 
-### Parameters
+## Parameters
 
 - `deployment_run_id: String`
 
@@ -93,7 +88,7 @@ Get Deployment Run
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsDeploymentRun`
 
@@ -111,13 +106,15 @@ Get Deployment Run
 
     - `type: :agent`
 
-      - `:agent`
-
     - `version: Integer`
+
+      format: int32
 
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `deployment_id: String`
 
@@ -137,8 +134,6 @@ Get Deployment Run
 
       - `type: :environment_archived_error`
 
-        - `:environment_archived_error`
-
     - `class BetaManagedAgentsAgentArchivedRunError`
 
       The deployment's agent was archived.
@@ -148,8 +143,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `type: :agent_archived_error`
-
-        - `:agent_archived_error`
 
     - `class BetaManagedAgentsEnvironmentNotFoundRunError`
 
@@ -161,8 +154,6 @@ Get Deployment Run
 
       - `type: :environment_not_found_error`
 
-        - `:environment_not_found_error`
-
     - `class BetaManagedAgentsVaultNotFoundRunError`
 
       A vault referenced by the deployment no longer exists.
@@ -172,8 +163,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `type: :vault_not_found_error`
-
-        - `:vault_not_found_error`
 
     - `class BetaManagedAgentsVaultArchivedRunError`
 
@@ -185,8 +174,6 @@ Get Deployment Run
 
       - `type: :vault_archived_error`
 
-        - `:vault_archived_error`
-
     - `class BetaManagedAgentsFileNotFoundRunError`
 
       A file resource referenced by the deployment no longer exists.
@@ -196,8 +183,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `type: :file_not_found_error`
-
-        - `:file_not_found_error`
 
     - `class BetaManagedAgentsMemoryStoreArchivedRunError`
 
@@ -209,8 +194,6 @@ Get Deployment Run
 
       - `type: :memory_store_archived_error`
 
-        - `:memory_store_archived_error`
-
     - `class BetaManagedAgentsSkillNotFoundRunError`
 
       A skill referenced by the deployment's agent no longer exists.
@@ -220,8 +203,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `type: :skill_not_found_error`
-
-        - `:skill_not_found_error`
 
     - `class BetaManagedAgentsSessionResourceNotFoundRunError`
 
@@ -233,8 +214,6 @@ Get Deployment Run
 
       - `type: :session_resource_not_found_error`
 
-        - `:session_resource_not_found_error`
-
     - `class BetaManagedAgentsWorkspaceArchivedRunError`
 
       The deployment's workspace was archived.
@@ -244,8 +223,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `type: :workspace_archived_error`
-
-        - `:workspace_archived_error`
 
     - `class BetaManagedAgentsOrganizationDisabledRunError`
 
@@ -257,8 +234,6 @@ Get Deployment Run
 
       - `type: :organization_disabled_error`
 
-        - `:organization_disabled_error`
-
     - `class BetaManagedAgentsSessionRateLimitedRunError`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
@@ -268,8 +243,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `type: :session_rate_limited_error`
-
-        - `:session_rate_limited_error`
 
     - `class BetaManagedAgentsSessionCreationRejectedRunError`
 
@@ -281,8 +254,6 @@ Get Deployment Run
 
       - `type: :session_creation_rejected_error`
 
-        - `:session_creation_rejected_error`
-
     - `class BetaManagedAgentsUnknownRunError`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
@@ -292,8 +263,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `type: :unknown_error`
-
-        - `:unknown_error`
 
     - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
 
@@ -305,8 +274,6 @@ Get Deployment Run
 
       - `type: :self_hosted_resources_unsupported_error`
 
-        - `:self_hosted_resources_unsupported_error`
-
     - `class BetaManagedAgentsMCPEgressBlockedRunError`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
@@ -316,8 +283,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `type: :mcp_egress_blocked_error`
-
-        - `:mcp_egress_blocked_error`
 
   - `session_id: String`
 
@@ -335,9 +300,9 @@ Get Deployment Run
 
         A timestamp in RFC 3339 format
 
-      - `type: :schedule`
+        format: date-time
 
-        - `:schedule`
+      - `type: :schedule`
 
     - `class BetaManagedAgentsManualTriggerContext`
 
@@ -345,13 +310,9 @@ Get Deployment Run
 
       - `type: :manual`
 
-        - `:manual`
-
   - `type: :deployment_run`
 
-    - `:deployment_run`
-
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -363,7 +324,7 @@ beta_managed_agents_deployment_run = anthropic.beta.deployment_runs.retrieve("de
 puts(beta_managed_agents_deployment_run)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

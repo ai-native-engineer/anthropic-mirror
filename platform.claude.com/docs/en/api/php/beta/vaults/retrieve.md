@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/retrieve -->
 
----
-title: Get Vault
-url: https://platform.claude.com/docs/en/api/php/beta/vaults/retrieve
----
-
-## Get Vault
+# Get Vault
 
 `$client->beta->vaults->retrieve(string vaultID, ?list<AnthropicBeta> betas): BetaManagedAgentsVault`
 
-**get** `/v1/vaults/{vault_id}`
+**GET** `/v1/vaults/{vault_id}`
 
 Get Vault
 
-### Parameters
+## Parameters
 
 - `vaultID: string`
 
@@ -21,7 +16,7 @@ Get Vault
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsVault`
 
@@ -51,7 +46,7 @@ Get Vault
 
     A timestamp in RFC 3339 format
 
-### Example
+## Example
 
 ```php
 <?php
@@ -68,7 +63,7 @@ $betaManagedAgentsVault = $client->beta->vaults->retrieve(
 var_dump($betaManagedAgentsVault);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

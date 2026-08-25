@@ -18,7 +18,7 @@ Save on your Pro plan subscription by switching from monthly to annual billing. 
 * You can cancel your subscription at any time from your billing settings. See [How do I cancel my paid Claude subscription?](https://support.anthropic.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription) for more information.
 
 * [How do I sign up for the Pro plan?](https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan)
-* [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
 * [How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)
-* [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
 * [Change your Team plan from monthly to annual billing](https://support.claude.com/en/articles/12083917-change-your-team-plan-from-monthly-to-annual-billing)
+* [Understanding your Pro or Max plan invoices](https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices)
+* [Understanding your Team plan invoices](https://support.claude.com/en/articles/16607668-understanding-your-team-plan-invoices)

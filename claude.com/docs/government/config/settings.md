@@ -36,6 +36,14 @@ Controls whether the [Compliance API](https://claude.com/docs/government/org-adm
 
 **Set at the tenant level only.** This setting is read-only for organization owners.
 
+###  Organization instructions
+
+Instructions that Claude follows for everyone in your organization, in every product: Claude Desktop (Chat, Cowork, and Code), the Claude Code command-line tool, and Claude for Microsoft 365. Use them for rules that should apply to every conversation, such as compliance requirements, data handling, or formatting standards. Enter the instructions as plain text.
+A change takes effect from each member’s next message, including in conversations that are already open, and needs no application update or restart. Members do not see the instructions in their applications. Instructions set at the organization level replace the tenant’s instructions for that organization rather than adding to them, so repeat anything from the tenant level that should still apply. A tenant administrator who wants the same instructions in every organization can set them at the tenant level and [lock](https://claude.com/docs/government/config/overview#locks) the setting.
+Organization instructions guide how Claude responds, and they are not an enforced restriction. To restrict what Claude can do, for example which network hosts it can reach, use **Allowed network hosts** and the other settings on this page.
+
+**Set at the tenant and organization levels only.** This setting cannot be set for a group.
+
 ###  Telemetry endpoint (Claude Desktop)
 
 The base address of the collector where Claude Desktop sends usage telemetry using the [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP), for example `https://otel-collector.example.gov:4318`. Claude Desktop appends the OTLP request paths `/v1/logs` and `/v1/metrics` itself, so enter the address without those suffixes. Leaving the value empty disables telemetry.

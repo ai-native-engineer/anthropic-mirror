@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/vaults/credentials/retrieve -->
 
----
-title: Get Credential
-url: https://platform.claude.com/docs/en/api/typescript/beta/vaults/credentials/retrieve
----
+# Get Credential
 
-## Get Credential
+`client.beta.vaults.credentials.retrieve(credentialID, params, options?): BetaManagedAgentsCredential`
 
-`client.beta.vaults.credentials.retrieve(stringcredentialID, CredentialRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsCredential`
-
-**get** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+**GET** `/v1/vaults/{vault_id}/credentials/{credential_id}`
 
 Get Credential
 
-### Parameters
+## Parameters
 
 - `credentialID: string`
 
@@ -99,7 +94,7 @@ Get Credential
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsCredential`
 
@@ -112,6 +107,8 @@ Get Credential
   - `archived_at: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
@@ -127,11 +124,11 @@ Get Credential
 
       - `type: "mcp_oauth"`
 
-        - `"mcp_oauth"`
-
       - `expires_at?: string | null`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
@@ -155,23 +152,17 @@ Get Credential
 
             - `type: "none"`
 
-              - `"none"`
-
           - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `type: "client_secret_basic"`
 
-              - `"client_secret_basic"`
-
           - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
             - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
 
         - `resource?: string | null`
 
@@ -190,8 +181,6 @@ Get Credential
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
-        - `"static_bearer"`
 
     - `BetaManagedAgentsEnvironmentVariableAuthResponse`
 
@@ -219,8 +208,6 @@ Get Credential
 
           - `type: "unrestricted"`
 
-            - `"unrestricted"`
-
         - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
@@ -231,19 +218,17 @@ Get Credential
 
           - `type: "limited"`
 
-            - `"limited"`
-
       - `secret_name: string`
 
         Name of the environment variable.
 
       - `type: "environment_variable"`
 
-        - `"environment_variable"`
-
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `metadata: Record<string, string>`
 
@@ -251,11 +236,11 @@ Get Credential
 
   - `type: "vault_credential"`
 
-    - `"vault_credential"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `vault_id: string`
 
@@ -265,7 +250,7 @@ Get Credential
 
     Human-readable name for the credential.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -282,7 +267,7 @@ const betaManagedAgentsCredential = await client.beta.vaults.credentials.retriev
 console.log(betaManagedAgentsCredential.id);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/deployments/list -->
 
----
-title: List Deployments
-url: https://platform.claude.com/docs/en/api/ruby/beta/deployments/list
----
-
-## List Deployments
+# List Deployments
 
 `beta.deployments.list(**kwargs) -> PageCursor<BetaManagedAgentsDeployment>`
 
-**get** `/v1/deployments`
+**GET** `/v1/deployments`
 
 List Deployments
 
-### Parameters
+## Parameters
 
 - `agent_id: String`
 
@@ -23,9 +18,13 @@ List Deployments
 
   Return deployments created at or after this time (inclusive).
 
+  format: date-time
+
 - `created_at_lte: Time`
 
   Return deployments created at or before this time (inclusive).
+
+  format: date-time
 
 - `include_archived: bool`
 
@@ -34,6 +33,8 @@ List Deployments
 - `limit: Integer`
 
   Maximum results per page. Default 20, maximum 100.
+
+  format: int32
 
 - `page: String`
 
@@ -123,7 +124,7 @@ List Deployments
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsDeployment`
 
@@ -141,17 +142,21 @@ List Deployments
 
     - `type: :agent`
 
-      - `:agent`
-
     - `version: Integer`
+
+      format: int32
 
   - `archived_at: Time`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: String`
 
@@ -181,9 +186,9 @@ List Deployments
 
             The text content.
 
-          - `type: :text`
+            minLength: 1
 
-            - `:text`
+          - `type: :text`
 
         - `class BetaManagedAgentsImageBlock`
 
@@ -201,13 +206,15 @@ List Deployments
 
                 Base64-encoded image data.
 
+                minLength: 1
+
               - `media_type: String`
 
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-              - `type: :base64`
+                minLength: 1
 
-                - `:base64`
+              - `type: :base64`
 
             - `class BetaManagedAgentsURLImageSource`
 
@@ -215,11 +222,11 @@ List Deployments
 
               - `type: :url`
 
-                - `:url`
-
               - `url: String`
 
                 URL of the image to fetch.
+
+                minLength: 1
 
             - `class BetaManagedAgentsFileImageSource`
 
@@ -229,13 +236,11 @@ List Deployments
 
                 ID of a previously uploaded file.
 
+                minLength: 1
+
               - `type: :file`
 
-                - `:file`
-
           - `type: :image`
-
-            - `:image`
 
         - `class BetaManagedAgentsDocumentBlock`
 
@@ -253,13 +258,15 @@ List Deployments
 
                 Base64-encoded document data.
 
+                minLength: 1
+
               - `media_type: String`
 
                 MIME type of the document (e.g., "application/pdf").
 
-              - `type: :base64`
+                minLength: 1
 
-                - `:base64`
+              - `type: :base64`
 
             - `class BetaManagedAgentsPlainTextDocumentSource`
 
@@ -269,15 +276,13 @@ List Deployments
 
                 The plain text content.
 
+                minLength: 1
+
               - `media_type: :"text/plain"`
 
                 MIME type of the text content. Must be "text/plain".
 
-                - `:"text/plain"`
-
               - `type: :text`
-
-                - `:text`
 
             - `class BetaManagedAgentsURLDocumentSource`
 
@@ -285,11 +290,11 @@ List Deployments
 
               - `type: :url`
 
-                - `:url`
-
               - `url: String`
 
                 URL of the document to fetch.
+
+                minLength: 1
 
             - `class BetaManagedAgentsFileDocumentSource`
 
@@ -299,13 +304,11 @@ List Deployments
 
                 ID of a previously uploaded file.
 
+                minLength: 1
+
               - `type: :file`
 
-                - `:file`
-
           - `type: :document`
-
-            - `:document`
 
           - `context: String`
 
@@ -321,11 +324,7 @@ List Deployments
 
           - `type: :redacted`
 
-            - `:redacted`
-
       - `type: :"user.message"`
-
-        - `:"user.message"`
 
     - `class BetaManagedAgentsDeploymentUserDefineOutcomeEvent`
 
@@ -349,8 +348,6 @@ List Deployments
 
           - `type: :file`
 
-            - `:file`
-
         - `class BetaManagedAgentsTextRubric`
 
           Rubric content provided inline as text.
@@ -361,15 +358,13 @@ List Deployments
 
           - `type: :text`
 
-            - `:text`
-
       - `type: :"user.define_outcome"`
-
-        - `:"user.define_outcome"`
 
       - `max_iterations: Integer`
 
         Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
 
     - `class BetaManagedAgentsDeploymentSystemMessageEvent`
 
@@ -383,13 +378,11 @@ List Deployments
 
           The text content.
 
+          minLength: 1
+
         - `type: :text`
 
-          - `:text`
-
       - `type: :"system.message"`
-
-        - `:"system.message"`
 
   - `metadata: Hash[Symbol, String]`
 
@@ -409,8 +402,6 @@ List Deployments
 
       - `type: :manual`
 
-        - `:manual`
-
     - `class BetaManagedAgentsErrorDeploymentPausedReason`
 
       A scheduled fire recorded a failed run whose error auto-pauses the deployment.
@@ -425,15 +416,11 @@ List Deployments
 
           - `type: :environment_archived_error`
 
-            - `:environment_archived_error`
-
         - `class BetaManagedAgentsAgentArchivedDeploymentPausedReasonError`
 
           The deployment's agent was archived.
 
           - `type: :agent_archived_error`
-
-            - `:agent_archived_error`
 
         - `class BetaManagedAgentsEnvironmentNotFoundDeploymentPausedReasonError`
 
@@ -441,15 +428,11 @@ List Deployments
 
           - `type: :environment_not_found_error`
 
-            - `:environment_not_found_error`
-
         - `class BetaManagedAgentsVaultNotFoundDeploymentPausedReasonError`
 
           A vault referenced by the deployment no longer exists.
 
           - `type: :vault_not_found_error`
-
-            - `:vault_not_found_error`
 
         - `class BetaManagedAgentsFileNotFoundDeploymentPausedReasonError`
 
@@ -457,15 +440,11 @@ List Deployments
 
           - `type: :file_not_found_error`
 
-            - `:file_not_found_error`
-
         - `class BetaManagedAgentsSessionResourceNotFoundDeploymentPausedReasonError`
 
           A referenced resource no longer exists and its kind was not reported.
 
           - `type: :session_resource_not_found_error`
-
-            - `:session_resource_not_found_error`
 
         - `class BetaManagedAgentsWorkspaceArchivedDeploymentPausedReasonError`
 
@@ -473,15 +452,11 @@ List Deployments
 
           - `type: :workspace_archived_error`
 
-            - `:workspace_archived_error`
-
         - `class BetaManagedAgentsOrganizationDisabledDeploymentPausedReasonError`
 
           The deployment's organization is disabled.
 
           - `type: :organization_disabled_error`
-
-            - `:organization_disabled_error`
 
         - `class BetaManagedAgentsMemoryStoreArchivedDeploymentPausedReasonError`
 
@@ -489,15 +464,11 @@ List Deployments
 
           - `type: :memory_store_archived_error`
 
-            - `:memory_store_archived_error`
-
         - `class BetaManagedAgentsSkillNotFoundDeploymentPausedReasonError`
 
           A skill referenced by the deployment's agent no longer exists.
 
           - `type: :skill_not_found_error`
-
-            - `:skill_not_found_error`
 
         - `class BetaManagedAgentsVaultArchivedDeploymentPausedReasonError`
 
@@ -505,15 +476,11 @@ List Deployments
 
           - `type: :vault_archived_error`
 
-            - `:vault_archived_error`
-
         - `class BetaManagedAgentsUnknownDeploymentPausedReasonError`
 
           An unrecognized error auto-paused the deployment. A fallback variant; matches a run whose `error.type` is `unknown_error`.
 
           - `type: :unknown_error`
-
-            - `:unknown_error`
 
         - `class BetaManagedAgentsSelfHostedResourcesUnsupportedDeploymentPausedReasonError`
 
@@ -521,19 +488,13 @@ List Deployments
 
           - `type: :self_hosted_resources_unsupported_error`
 
-            - `:self_hosted_resources_unsupported_error`
-
         - `class BetaManagedAgentsMCPEgressBlockedDeploymentPausedReasonError`
 
           An MCP server host used by the deployment's agent is blocked by the environment's network policy.
 
           - `type: :mcp_egress_blocked_error`
 
-            - `:mcp_egress_blocked_error`
-
       - `type: :error`
-
-        - `:error`
 
   - `resources: Array[BetaManagedAgentsSessionResourceConfig]`
 
@@ -544,8 +505,6 @@ List Deployments
       A GitHub repository mounted into each session's container. The authorization token is write-only and never returned.
 
       - `type: :github_repository`
-
-        - `:github_repository`
 
       - `url: String`
 
@@ -561,9 +520,9 @@ List Deployments
 
             Branch name to check out.
 
-          - `type: :branch`
+            minLength: 1, maxLength: 255
 
-            - `:branch`
+          - `type: :branch`
 
         - `class BetaManagedAgentsCommitCheckout`
 
@@ -571,9 +530,9 @@ List Deployments
 
             Full commit SHA to check out.
 
-          - `type: :commit`
+            minLength: 7, maxLength: 64
 
-            - `:commit`
+          - `type: :commit`
 
       - `mount_path: String`
 
@@ -589,8 +548,6 @@ List Deployments
 
       - `type: :file`
 
-        - `:file`
-
       - `mount_path: String`
 
         Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
@@ -604,8 +561,6 @@ List Deployments
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: :memory_store`
-
-        - `:memory_store`
 
       - `access: :read_write | :read_only`
 
@@ -627,17 +582,21 @@ List Deployments
 
       5-field POSIX cron expression: minute hour day-of-month month day-of-week (e.g., "0 9 * * 1-5" for weekdays at 9am). Day-of-week is 0-7 where 0 and 7 both mean Sunday. Extended cron syntax - seconds or year fields, and the special characters L, W, #, and ? - is not supported, nor are predefined shortcuts (@daily).
 
+      minLength: 1, maxLength: 256
+
     - `timezone: String`
 
       IANA timezone identifier (e.g., "America/Los_Angeles", "UTC").
 
-    - `type: :cron`
+      minLength: 1
 
-      - `:cron`
+    - `type: :cron`
 
     - `last_run_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `upcoming_runs_at: Array[Time]`
 
@@ -653,11 +612,11 @@ List Deployments
 
   - `type: :deployment`
 
-    - `:deployment`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `vault_ids: Array[String]`
 
@@ -679,13 +638,9 @@ List Deployments
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `:USD`
-
     - `type: :limit`
 
-      - `:limit`
-
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -697,7 +652,7 @@ page = anthropic.beta.deployments.list
 puts(page)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

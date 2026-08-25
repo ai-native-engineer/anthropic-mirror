@@ -1,18 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/patterns-agents-async-multi-agent-orchestration -->
 
-#  Async Multi-Agent Orchestration with Claude
+#  Async Multi-Agent Orchestration with Claude
 
 This cookbook shows the **shape** of the two multi-agent orchestration patterns behind the multi-agent results in the Claude Opus 4.8 system card: a **fixed N-agent team** and **async subagents**. There is no domain task here — just the messaging and subagent mechanics, so you can see exactly which tools fire and in what order, then drop your own tools and task in.
 
 Everything runs on the public [Anthropic Python SDK(opens in new tab)](https://github.com/anthropics/anthropic-sdk-python) + `asyncio`, with any API key, typically in under thirty seconds.
 
-##  Setup
-
-
+##  Setup
 
 %pip install -qU anthropic
-
-
 
 import asyncio
 
@@ -26,13 +22,11 @@ MODEL = "claude-opus-4-8" # swap for the newest Claude model available to you
 
 client = anthropic.AsyncAnthropic() # reads ANTHROPIC\_API\_KEY from env
 
-##  Shared building blocks
+##  Shared building blocks
 
-###  The message hub
+###  The message hub
 
 Every agent gets an inbox list and an `asyncio.Event` for blocking waits. `drain` empties an inbox and returns the structured messages; `render` formats them as text for appending to a tool result.
-
-
 
 class Hub:
 
@@ -100,11 +94,9 @@ f'<agent-message from="{m["from"]}">\n{m["content"]}\n</agent-message>' for m in
 
 return f"\n\n[Messages received while you were working:]\n{body}"
 
-###  Messaging tools
+###  Messaging tools
 
 Every agent in both patterns gets these two.
-
-
 
 SEND\_MESSAGE = {
 
@@ -154,11 +146,9 @@ WAIT\_FOR\_MESSAGE = {
 
 BASE\_TOOLS = [SEND\_MESSAGE, WAIT\_FOR\_MESSAGE]
 
-###  The base agent loop
+###  The base agent loop
 
 One function runs any agent: a standard tool-use loop that dispatches `send_message` / `wait_for_message` against the hub, routes any extra tools through `extra_dispatch`, and **appends the drained inbox to the last tool result** — so agents never poll; messages arrive inline. Each tool call and inbox delivery is printed live so you can watch the orchestration unfold; a summary trace prints at the end.
-
-
 
 TRACE: dict[str, list[str]] = defaultdict(list)
 
@@ -304,11 +294,9 @@ TRACE.clear()
 
 ---
 
-##  Part 1 · Fixed N-Agent Team
+##  Part 1 · Fixed N-Agent Team
 
 Three agents — one **lead** and two **helpers** — each given a one-line persona. All they do is introduce themselves to each other via `send_message`; the lead writes a one-sentence summary and ends the run. No domain tool: this is purely the messaging path.
-
-
 
 TEAM\_SYSTEM = "You are {name}, one of 3 agents working together (peers: {peers})."
 
@@ -382,15 +370,11 @@ t.cancel()
 
 await asyncio.gather(\*helper\_tasks, return\_exceptions=True)
 
-
-
 answer = await run\_team()
 
 print(f"\n[lead final answer]\n{answer}\n\nTool-call summary:")
 
 print\_trace()
-
-
 
 ```
 [helper1] send_message({'recipient_ids': ['lead', 'helper2'], 'content': "Hi all, I…) → delivered to ['lead', 'helper2']
@@ -419,11 +403,9 @@ Tool-call summary:
 
 ---
 
-##  Part 2 · Async Subagents (dynamic spawn)
+##  Part 2 · Async Subagents (dynamic spawn)
 
 Now give the lead **subagent tools** and a trivial client-side `sleep(seconds)` tool. The lead spawns three helpers; each sleeps *N* seconds, `send_message`s "done" to the lead, then `wait_for_message`s for further instructions. The spawn call returns immediately; the lead checks `get_status` while they run, collects their reports via `wait_for_message`, then `kill_subagents` all three to dismiss them. No domain logic — just the full spawn / status / collect / kill path.
-
-
 
 SLEEP = {
 
@@ -522,8 +504,6 @@ s = int(block.input["seconds"])
 await asyncio.sleep(s)
 
 return f"slept {s}s"
-
-
 
 async def run\_spawn\_lead() -> str:
 
@@ -637,15 +617,11 @@ t.cancel()
 
 await asyncio.gather(\*helpers.values(), return\_exceptions=True)
 
-
-
 answer = await run\_spawn\_lead()
 
 print(f"\n[lead final answer]\n{answer}\n\nTool-call summary:")
 
 print\_trace()
-
-
 
 ```
 [lead] create_subagents({'base_instruction': 'You are a helper agent. Follow your sp…) → spawned: helper1, helper2, helper3
@@ -676,7 +652,7 @@ Tool-call summary:
 
 ---
 
-##  Next steps
+##  Next steps
 
 Swap in your own domain tools — add them to `tools` and a handler to `extra_dispatch`. The `Hub`, `run_agent`, and the two team runners above are all you need; the rest is your task and your tools.
 

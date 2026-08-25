@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/messages/batches/create -->
 
----
-title: Create a Message Batch
-url: https://platform.claude.com/docs/en/api/php/messages/batches/create
----
-
-## Create a Message Batch
+# Create a Message Batch
 
 `$client->messages->batches->create(list<Request> requests, ?string userProfileID): MessageBatch`
 
-**post** `/v1/messages/batches`
+**POST** `/v1/messages/batches`
 
 Send a batch of Message creation requests.
 
@@ -17,7 +12,7 @@ The Message Batches API can be used to process multiple Messages API requests at
 
 Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
-### Parameters
+## Parameters
 
 - `requests: list<Request>`
 
@@ -27,7 +22,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
-### Returns
+## Returns
 
 - `MessageBatch`
 
@@ -81,7 +76,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     For Message Batches, this is always `"message_batch"`.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -163,7 +158,7 @@ $messageBatch = $client->messages->batches->create(
 var_dump($messageBatch);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

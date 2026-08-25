@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/models -->
 
----
-title: Models
-url: https://platform.claude.com/docs/en/api/cli/models
----
-
 # Models
 
 ## List Models
 
 `$ ant models list`
 
-**get** `/v1/models`
+**GET** `/v1/models`
 
 List available models.
 
@@ -33,13 +28,15 @@ The Models API response can be used to determine which models are available for 
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
+  maximum: 1000, minimum: 1
+
 - `--beta: optional array of AnthropicBeta`
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
 ### Returns
 
-- `ListResponse_ModelInfo_: object { data, first_id, has_more, last_id }`
+- `ListResponse_ModelInfo_: object`
 
   - `data: array of ModelInfo`
 
@@ -47,11 +44,11 @@ The Models API response can be used to determine which models are available for 
 
       Unique model identifier.
 
-    - `capabilities: object { batch, citations, code_execution, 6 more }`
+    - `capabilities: object`
 
       Model capability information.
 
-      - `batch: object { supported }`
+      - `batch: object`
 
         Whether the model supports the Batch API.
 
@@ -59,7 +56,7 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-      - `citations: object { supported }`
+      - `citations: object`
 
         Whether the model supports citation generation.
 
@@ -67,7 +64,7 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-      - `code_execution: object { supported }`
+      - `code_execution: object`
 
         Whether the model supports code execution tools.
 
@@ -75,11 +72,11 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-      - `context_management: object { clear_thinking_20251015, clear_tool_uses_20250919, compact_20260112, supported }`
+      - `context_management: object`
 
         Context management support and available strategies.
 
-        - `clear_thinking_20251015: object { supported }`
+        - `clear_thinking_20251015: object`
 
           Indicates whether a capability is supported.
 
@@ -87,7 +84,7 @@ The Models API response can be used to determine which models are available for 
 
             Whether this capability is supported by the model.
 
-        - `clear_tool_uses_20250919: object { supported }`
+        - `clear_tool_uses_20250919: object`
 
           Indicates whether a capability is supported.
 
@@ -95,7 +92,7 @@ The Models API response can be used to determine which models are available for 
 
             Whether this capability is supported by the model.
 
-        - `compact_20260112: object { supported }`
+        - `compact_20260112: object`
 
           Indicates whether a capability is supported.
 
@@ -107,11 +104,11 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-      - `effort: object { high, low, max, 3 more }`
+      - `effort: object`
 
         Effort (reasoning_effort) support and available levels.
 
-        - `high: object { supported }`
+        - `high: object`
 
           Whether the model supports high effort level.
 
@@ -119,7 +116,7 @@ The Models API response can be used to determine which models are available for 
 
             Whether this capability is supported by the model.
 
-        - `low: object { supported }`
+        - `low: object`
 
           Whether the model supports low effort level.
 
@@ -127,7 +124,7 @@ The Models API response can be used to determine which models are available for 
 
             Whether this capability is supported by the model.
 
-        - `max: object { supported }`
+        - `max: object`
 
           Whether the model supports max effort level.
 
@@ -135,7 +132,7 @@ The Models API response can be used to determine which models are available for 
 
             Whether this capability is supported by the model.
 
-        - `medium: object { supported }`
+        - `medium: object`
 
           Whether the model supports medium effort level.
 
@@ -147,7 +144,7 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-        - `xhigh: object { supported }`
+        - `xhigh: object`
 
           Indicates whether a capability is supported.
 
@@ -155,7 +152,7 @@ The Models API response can be used to determine which models are available for 
 
             Whether this capability is supported by the model.
 
-      - `image_input: object { supported }`
+      - `image_input: object`
 
         Whether the model accepts image content blocks.
 
@@ -163,7 +160,7 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-      - `pdf_input: object { supported }`
+      - `pdf_input: object`
 
         Whether the model accepts PDF content blocks.
 
@@ -171,7 +168,7 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-      - `structured_outputs: object { supported }`
+      - `structured_outputs: object`
 
         Whether the model supports structured output / JSON mode / strict tool schemas.
 
@@ -179,7 +176,7 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-      - `thinking: object { supported, types }`
+      - `thinking: object`
 
         Thinking capability and supported type configurations.
 
@@ -187,11 +184,11 @@ The Models API response can be used to determine which models are available for 
 
           Whether this capability is supported by the model.
 
-        - `types: object { adaptive, enabled }`
+        - `types: object`
 
           Supported thinking type configurations.
 
-          - `adaptive: object { supported }`
+          - `adaptive: object`
 
             Whether the model supports thinking with type 'adaptive' (auto).
 
@@ -199,7 +196,7 @@ The Models API response can be used to determine which models are available for 
 
               Whether this capability is supported by the model.
 
-          - `enabled: object { supported }`
+          - `enabled: object`
 
             Whether the model supports thinking with type 'enabled'.
 
@@ -210,6 +207,8 @@ The Models API response can be used to determine which models are available for 
     - `created_at: string`
 
       RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
+
+      format: date-time
 
     - `display_name: string`
 
@@ -243,12 +242,12 @@ The Models API response can be used to determine which models are available for 
 
 ### Example
 
-```cli
+```bash
 ant models list \
   --api-key my-anthropic-api-key
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -333,7 +332,7 @@ ant models list \
 
 `$ ant models retrieve`
 
-**get** `/v1/models/{model_id}`
+**GET** `/v1/models/{model_id}`
 
 Get a specific model.
 
@@ -351,17 +350,17 @@ The Models API response can be used to determine information about a specific mo
 
 ### Returns
 
-- `model_info: object { id, capabilities, created_at, 4 more }`
+- `model_info: object`
 
   - `id: string`
 
     Unique model identifier.
 
-  - `capabilities: object { batch, citations, code_execution, 6 more }`
+  - `capabilities: object`
 
     Model capability information.
 
-    - `batch: object { supported }`
+    - `batch: object`
 
       Whether the model supports the Batch API.
 
@@ -369,7 +368,7 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-    - `citations: object { supported }`
+    - `citations: object`
 
       Whether the model supports citation generation.
 
@@ -377,7 +376,7 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-    - `code_execution: object { supported }`
+    - `code_execution: object`
 
       Whether the model supports code execution tools.
 
@@ -385,11 +384,11 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-    - `context_management: object { clear_thinking_20251015, clear_tool_uses_20250919, compact_20260112, supported }`
+    - `context_management: object`
 
       Context management support and available strategies.
 
-      - `clear_thinking_20251015: object { supported }`
+      - `clear_thinking_20251015: object`
 
         Indicates whether a capability is supported.
 
@@ -397,7 +396,7 @@ The Models API response can be used to determine information about a specific mo
 
           Whether this capability is supported by the model.
 
-      - `clear_tool_uses_20250919: object { supported }`
+      - `clear_tool_uses_20250919: object`
 
         Indicates whether a capability is supported.
 
@@ -405,7 +404,7 @@ The Models API response can be used to determine information about a specific mo
 
           Whether this capability is supported by the model.
 
-      - `compact_20260112: object { supported }`
+      - `compact_20260112: object`
 
         Indicates whether a capability is supported.
 
@@ -417,11 +416,11 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-    - `effort: object { high, low, max, 3 more }`
+    - `effort: object`
 
       Effort (reasoning_effort) support and available levels.
 
-      - `high: object { supported }`
+      - `high: object`
 
         Whether the model supports high effort level.
 
@@ -429,7 +428,7 @@ The Models API response can be used to determine information about a specific mo
 
           Whether this capability is supported by the model.
 
-      - `low: object { supported }`
+      - `low: object`
 
         Whether the model supports low effort level.
 
@@ -437,7 +436,7 @@ The Models API response can be used to determine information about a specific mo
 
           Whether this capability is supported by the model.
 
-      - `max: object { supported }`
+      - `max: object`
 
         Whether the model supports max effort level.
 
@@ -445,7 +444,7 @@ The Models API response can be used to determine information about a specific mo
 
           Whether this capability is supported by the model.
 
-      - `medium: object { supported }`
+      - `medium: object`
 
         Whether the model supports medium effort level.
 
@@ -457,7 +456,7 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-      - `xhigh: object { supported }`
+      - `xhigh: object`
 
         Indicates whether a capability is supported.
 
@@ -465,7 +464,7 @@ The Models API response can be used to determine information about a specific mo
 
           Whether this capability is supported by the model.
 
-    - `image_input: object { supported }`
+    - `image_input: object`
 
       Whether the model accepts image content blocks.
 
@@ -473,7 +472,7 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-    - `pdf_input: object { supported }`
+    - `pdf_input: object`
 
       Whether the model accepts PDF content blocks.
 
@@ -481,7 +480,7 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-    - `structured_outputs: object { supported }`
+    - `structured_outputs: object`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
 
@@ -489,7 +488,7 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-    - `thinking: object { supported, types }`
+    - `thinking: object`
 
       Thinking capability and supported type configurations.
 
@@ -497,11 +496,11 @@ The Models API response can be used to determine information about a specific mo
 
         Whether this capability is supported by the model.
 
-      - `types: object { adaptive, enabled }`
+      - `types: object`
 
         Supported thinking type configurations.
 
-        - `adaptive: object { supported }`
+        - `adaptive: object`
 
           Whether the model supports thinking with type 'adaptive' (auto).
 
@@ -509,7 +508,7 @@ The Models API response can be used to determine information about a specific mo
 
             Whether this capability is supported by the model.
 
-        - `enabled: object { supported }`
+        - `enabled: object`
 
           Whether the model supports thinking with type 'enabled'.
 
@@ -520,6 +519,8 @@ The Models API response can be used to determine information about a specific mo
   - `created_at: string`
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
+
+    format: date-time
 
   - `display_name: string`
 
@@ -541,13 +542,13 @@ The Models API response can be used to determine information about a specific mo
 
 ### Example
 
-```cli
+```bash
 ant models retrieve \
   --api-key my-anthropic-api-key \
   --model-id model_id
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -621,11 +622,11 @@ ant models retrieve \
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Capability Support
 
-- `capability_support: object { supported }`
+- `capability_support: object`
 
   Indicates whether a capability is supported.
 
@@ -635,11 +636,11 @@ ant models retrieve \
 
 ### Context Management Capability
 
-- `context_management_capability: object { clear_thinking_20251015, clear_tool_uses_20250919, compact_20260112, supported }`
+- `context_management_capability: object`
 
   Context management capability details.
 
-  - `clear_thinking_20251015: object { supported }`
+  - `clear_thinking_20251015: object`
 
     Indicates whether a capability is supported.
 
@@ -647,7 +648,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `clear_tool_uses_20250919: object { supported }`
+  - `clear_tool_uses_20250919: object`
 
     Indicates whether a capability is supported.
 
@@ -655,7 +656,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `compact_20260112: object { supported }`
+  - `compact_20260112: object`
 
     Indicates whether a capability is supported.
 
@@ -669,11 +670,11 @@ ant models retrieve \
 
 ### Effort Capability
 
-- `effort_capability: object { high, low, max, 3 more }`
+- `effort_capability: object`
 
   Effort (reasoning_effort) capability details.
 
-  - `high: object { supported }`
+  - `high: object`
 
     Whether the model supports high effort level.
 
@@ -681,7 +682,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `low: object { supported }`
+  - `low: object`
 
     Whether the model supports low effort level.
 
@@ -689,7 +690,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `max: object { supported }`
+  - `max: object`
 
     Whether the model supports max effort level.
 
@@ -697,7 +698,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `medium: object { supported }`
+  - `medium: object`
 
     Whether the model supports medium effort level.
 
@@ -709,7 +710,7 @@ ant models retrieve \
 
     Whether this capability is supported by the model.
 
-  - `xhigh: object { supported }`
+  - `xhigh: object`
 
     Indicates whether a capability is supported.
 
@@ -719,11 +720,11 @@ ant models retrieve \
 
 ### Model Capabilities
 
-- `model_capabilities: object { batch, citations, code_execution, 6 more }`
+- `model_capabilities: object`
 
   Model capability information.
 
-  - `batch: object { supported }`
+  - `batch: object`
 
     Whether the model supports the Batch API.
 
@@ -731,7 +732,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `citations: object { supported }`
+  - `citations: object`
 
     Whether the model supports citation generation.
 
@@ -739,7 +740,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `code_execution: object { supported }`
+  - `code_execution: object`
 
     Whether the model supports code execution tools.
 
@@ -747,11 +748,11 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `context_management: object { clear_thinking_20251015, clear_tool_uses_20250919, compact_20260112, supported }`
+  - `context_management: object`
 
     Context management support and available strategies.
 
-    - `clear_thinking_20251015: object { supported }`
+    - `clear_thinking_20251015: object`
 
       Indicates whether a capability is supported.
 
@@ -759,7 +760,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `clear_tool_uses_20250919: object { supported }`
+    - `clear_tool_uses_20250919: object`
 
       Indicates whether a capability is supported.
 
@@ -767,7 +768,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `compact_20260112: object { supported }`
+    - `compact_20260112: object`
 
       Indicates whether a capability is supported.
 
@@ -779,11 +780,11 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `effort: object { high, low, max, 3 more }`
+  - `effort: object`
 
     Effort (reasoning_effort) support and available levels.
 
-    - `high: object { supported }`
+    - `high: object`
 
       Whether the model supports high effort level.
 
@@ -791,7 +792,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `low: object { supported }`
+    - `low: object`
 
       Whether the model supports low effort level.
 
@@ -799,7 +800,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `max: object { supported }`
+    - `max: object`
 
       Whether the model supports max effort level.
 
@@ -807,7 +808,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `medium: object { supported }`
+    - `medium: object`
 
       Whether the model supports medium effort level.
 
@@ -819,7 +820,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-    - `xhigh: object { supported }`
+    - `xhigh: object`
 
       Indicates whether a capability is supported.
 
@@ -827,7 +828,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-  - `image_input: object { supported }`
+  - `image_input: object`
 
     Whether the model accepts image content blocks.
 
@@ -835,7 +836,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `pdf_input: object { supported }`
+  - `pdf_input: object`
 
     Whether the model accepts PDF content blocks.
 
@@ -843,7 +844,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `structured_outputs: object { supported }`
+  - `structured_outputs: object`
 
     Whether the model supports structured output / JSON mode / strict tool schemas.
 
@@ -851,7 +852,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `thinking: object { supported, types }`
+  - `thinking: object`
 
     Thinking capability and supported type configurations.
 
@@ -859,11 +860,11 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-    - `types: object { adaptive, enabled }`
+    - `types: object`
 
       Supported thinking type configurations.
 
-      - `adaptive: object { supported }`
+      - `adaptive: object`
 
         Whether the model supports thinking with type 'adaptive' (auto).
 
@@ -871,7 +872,7 @@ ant models retrieve \
 
           Whether this capability is supported by the model.
 
-      - `enabled: object { supported }`
+      - `enabled: object`
 
         Whether the model supports thinking with type 'enabled'.
 
@@ -881,17 +882,17 @@ ant models retrieve \
 
 ### Model Info
 
-- `model_info: object { id, capabilities, created_at, 4 more }`
+- `model_info: object`
 
   - `id: string`
 
     Unique model identifier.
 
-  - `capabilities: object { batch, citations, code_execution, 6 more }`
+  - `capabilities: object`
 
     Model capability information.
 
-    - `batch: object { supported }`
+    - `batch: object`
 
       Whether the model supports the Batch API.
 
@@ -899,7 +900,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `citations: object { supported }`
+    - `citations: object`
 
       Whether the model supports citation generation.
 
@@ -907,7 +908,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `code_execution: object { supported }`
+    - `code_execution: object`
 
       Whether the model supports code execution tools.
 
@@ -915,11 +916,11 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `context_management: object { clear_thinking_20251015, clear_tool_uses_20250919, compact_20260112, supported }`
+    - `context_management: object`
 
       Context management support and available strategies.
 
-      - `clear_thinking_20251015: object { supported }`
+      - `clear_thinking_20251015: object`
 
         Indicates whether a capability is supported.
 
@@ -927,7 +928,7 @@ ant models retrieve \
 
           Whether this capability is supported by the model.
 
-      - `clear_tool_uses_20250919: object { supported }`
+      - `clear_tool_uses_20250919: object`
 
         Indicates whether a capability is supported.
 
@@ -935,7 +936,7 @@ ant models retrieve \
 
           Whether this capability is supported by the model.
 
-      - `compact_20260112: object { supported }`
+      - `compact_20260112: object`
 
         Indicates whether a capability is supported.
 
@@ -947,11 +948,11 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `effort: object { high, low, max, 3 more }`
+    - `effort: object`
 
       Effort (reasoning_effort) support and available levels.
 
-      - `high: object { supported }`
+      - `high: object`
 
         Whether the model supports high effort level.
 
@@ -959,7 +960,7 @@ ant models retrieve \
 
           Whether this capability is supported by the model.
 
-      - `low: object { supported }`
+      - `low: object`
 
         Whether the model supports low effort level.
 
@@ -967,7 +968,7 @@ ant models retrieve \
 
           Whether this capability is supported by the model.
 
-      - `max: object { supported }`
+      - `max: object`
 
         Whether the model supports max effort level.
 
@@ -975,7 +976,7 @@ ant models retrieve \
 
           Whether this capability is supported by the model.
 
-      - `medium: object { supported }`
+      - `medium: object`
 
         Whether the model supports medium effort level.
 
@@ -987,7 +988,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-      - `xhigh: object { supported }`
+      - `xhigh: object`
 
         Indicates whether a capability is supported.
 
@@ -995,7 +996,7 @@ ant models retrieve \
 
           Whether this capability is supported by the model.
 
-    - `image_input: object { supported }`
+    - `image_input: object`
 
       Whether the model accepts image content blocks.
 
@@ -1003,7 +1004,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `pdf_input: object { supported }`
+    - `pdf_input: object`
 
       Whether the model accepts PDF content blocks.
 
@@ -1011,7 +1012,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `structured_outputs: object { supported }`
+    - `structured_outputs: object`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
 
@@ -1019,7 +1020,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `thinking: object { supported, types }`
+    - `thinking: object`
 
       Thinking capability and supported type configurations.
 
@@ -1027,11 +1028,11 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-      - `types: object { adaptive, enabled }`
+      - `types: object`
 
         Supported thinking type configurations.
 
-        - `adaptive: object { supported }`
+        - `adaptive: object`
 
           Whether the model supports thinking with type 'adaptive' (auto).
 
@@ -1039,7 +1040,7 @@ ant models retrieve \
 
             Whether this capability is supported by the model.
 
-        - `enabled: object { supported }`
+        - `enabled: object`
 
           Whether the model supports thinking with type 'enabled'.
 
@@ -1050,6 +1051,8 @@ ant models retrieve \
   - `created_at: string`
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
+
+    format: date-time
 
   - `display_name: string`
 
@@ -1071,7 +1074,7 @@ ant models retrieve \
 
 ### Thinking Capability
 
-- `thinking_capability: object { supported, types }`
+- `thinking_capability: object`
 
   Thinking capability details.
 
@@ -1079,11 +1082,11 @@ ant models retrieve \
 
     Whether this capability is supported by the model.
 
-  - `types: object { adaptive, enabled }`
+  - `types: object`
 
     Supported thinking type configurations.
 
-    - `adaptive: object { supported }`
+    - `adaptive: object`
 
       Whether the model supports thinking with type 'adaptive' (auto).
 
@@ -1091,7 +1094,7 @@ ant models retrieve \
 
         Whether this capability is supported by the model.
 
-    - `enabled: object { supported }`
+    - `enabled: object`
 
       Whether the model supports thinking with type 'enabled'.
 
@@ -1101,11 +1104,11 @@ ant models retrieve \
 
 ### Thinking Types
 
-- `thinking_types: object { adaptive, enabled }`
+- `thinking_types: object`
 
   Supported thinking type configurations.
 
-  - `adaptive: object { supported }`
+  - `adaptive: object`
 
     Whether the model supports thinking with type 'adaptive' (auto).
 
@@ -1113,7 +1116,7 @@ ant models retrieve \
 
       Whether this capability is supported by the model.
 
-  - `enabled: object { supported }`
+  - `enabled: object`
 
     Whether the model supports thinking with type 'enabled'.
 

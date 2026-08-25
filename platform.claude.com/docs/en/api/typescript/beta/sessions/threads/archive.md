@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads/archive -->
 
----
-title: Archive Session Thread
-url: https://platform.claude.com/docs/en/api/typescript/beta/sessions/threads/archive
----
+# Archive Session Thread
 
-## Archive Session Thread
+`client.beta.sessions.threads.archive(threadID, params, options?): BetaManagedAgentsSessionThread`
 
-`client.beta.sessions.threads.archive(stringthreadID, ThreadArchiveParamsparams, RequestOptionsoptions?): BetaManagedAgentsSessionThread`
-
-**post** `/v1/sessions/{session_id}/threads/{thread_id}/archive`
+**POST** `/v1/sessions/{session_id}/threads/{thread_id}/archive`
 
 Archive Session Thread
 
-### Parameters
+## Parameters
 
 - `threadID: string`
 
@@ -99,7 +94,7 @@ Archive Session Thread
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsSessionThread`
 
@@ -126,8 +121,6 @@ Archive Session Thread
         - `name: string`
 
         - `type: "url"`
-
-          - `"url"`
 
         - `url: string`
 
@@ -207,15 +200,11 @@ Archive Session Thread
 
             - `type: "low"`
 
-              - `"low"`
-
           - `BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: "medium"`
-
-              - `"medium"`
 
           - `BetaManagedAgentsEffortHigh`
 
@@ -223,23 +212,17 @@ Archive Session Thread
 
             - `type: "high"`
 
-              - `"high"`
-
           - `BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: "xhigh"`
 
-              - `"xhigh"`
-
           - `BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: "max"`
-
-              - `"max"`
 
         - `inference_geo?: string`
 
@@ -265,8 +248,6 @@ Archive Session Thread
 
           - `type: "anthropic"`
 
-            - `"anthropic"`
-
           - `version: string`
 
         - `BetaManagedAgentsCustomSkill`
@@ -276,8 +257,6 @@ Archive Session Thread
           - `skill_id: string`
 
           - `type: "custom"`
-
-            - `"custom"`
 
           - `version: string`
 
@@ -297,8 +276,6 @@ Archive Session Thread
 
               - `name: "bash"`
 
-                - `"bash"`
-
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
@@ -309,19 +286,13 @@ Archive Session Thread
 
                   - `type: "always_allow"`
 
-                    - `"always_allow"`
-
                 - `BetaManagedAgentsAlwaysAskPolicy`
 
                   Tool calls require user confirmation before execution.
 
                   - `type: "always_ask"`
 
-                    - `"always_ask"`
-
               - `type: "bash"`
-
-                - `"bash"`
 
             - `BetaManagedAgentsEditToolConfig`
 
@@ -330,8 +301,6 @@ Archive Session Thread
               - `enabled: boolean`
 
               - `name: "edit"`
-
-                - `"edit"`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -347,8 +316,6 @@ Archive Session Thread
 
               - `type: "edit"`
 
-                - `"edit"`
-
             - `BetaManagedAgentsReadToolConfig`
 
               Configuration for the read tool.
@@ -356,8 +323,6 @@ Archive Session Thread
               - `enabled: boolean`
 
               - `name: "read"`
-
-                - `"read"`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -373,8 +338,6 @@ Archive Session Thread
 
               - `type: "read"`
 
-                - `"read"`
-
             - `BetaManagedAgentsWriteToolConfig`
 
               Configuration for the write tool.
@@ -382,8 +345,6 @@ Archive Session Thread
               - `enabled: boolean`
 
               - `name: "write"`
-
-                - `"write"`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -399,8 +360,6 @@ Archive Session Thread
 
               - `type: "write"`
 
-                - `"write"`
-
             - `BetaManagedAgentsGlobToolConfig`
 
               Configuration for the glob tool.
@@ -408,8 +367,6 @@ Archive Session Thread
               - `enabled: boolean`
 
               - `name: "glob"`
-
-                - `"glob"`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -425,8 +382,6 @@ Archive Session Thread
 
               - `type: "glob"`
 
-                - `"glob"`
-
             - `BetaManagedAgentsGrepToolConfig`
 
               Configuration for the grep tool.
@@ -434,8 +389,6 @@ Archive Session Thread
               - `enabled: boolean`
 
               - `name: "grep"`
-
-                - `"grep"`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -451,8 +404,6 @@ Archive Session Thread
 
               - `type: "grep"`
 
-                - `"grep"`
-
             - `BetaManagedAgentsWebFetchToolConfig`
 
               Configuration for the web_fetch tool.
@@ -460,8 +411,6 @@ Archive Session Thread
               - `enabled: boolean`
 
               - `name: "web_fetch"`
-
-                - `"web_fetch"`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -477,13 +426,13 @@ Archive Session Thread
 
               - `type: "web_fetch"`
 
-                - `"web_fetch"`
-
               - `allowed_domains?: Array<string>`
 
               - `blocked_domains?: Array<string>`
 
               - `max_content_tokens?: number | null`
+
+                format: int32
 
             - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -492,8 +441,6 @@ Archive Session Thread
               - `enabled: boolean`
 
               - `name: "web_search"`
-
-                - `"web_search"`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -509,8 +456,6 @@ Archive Session Thread
 
               - `type: "web_search"`
 
-                - `"web_search"`
-
               - `allowed_domains?: Array<string>`
 
               - `blocked_domains?: Array<string>`
@@ -523,11 +468,11 @@ Archive Session Thread
 
                   Location precision. Only "approximate" is supported.
 
-                  - `"approximate"`
-
                 - `city?: string | null`
 
                   City name.
+
+                  minLength: 1, maxLength: 255
 
                 - `country?: string | null`
 
@@ -537,9 +482,13 @@ Archive Session Thread
 
                   Region or state name.
 
+                  minLength: 1, maxLength: 255
+
                 - `timezone?: string | null`
 
                   IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                  minLength: 1, maxLength: 255
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -560,8 +509,6 @@ Archive Session Thread
                 Tool calls require user confirmation before execution.
 
           - `type: "agent_toolset_20260401"`
-
-            - `"agent_toolset_20260401"`
 
         - `BetaManagedAgentsMCPToolset`
 
@@ -605,8 +552,6 @@ Archive Session Thread
 
           - `type: "mcp_toolset"`
 
-            - `"mcp_toolset"`
-
         - `BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
@@ -619,8 +564,6 @@ Archive Session Thread
 
             - `type: "object"`
 
-              - `"object"`
-
             - `properties?: Record<string, unknown> | null`
 
             - `required?: Array<string> | null`
@@ -629,13 +572,11 @@ Archive Session Thread
 
           - `type: "custom"`
 
-            - `"custom"`
-
       - `type: "agent"`
 
-        - `"agent"`
-
       - `version: number`
+
+        format: int32
 
     - `BetaManagedAgentsAdvisor`
 
@@ -647,15 +588,17 @@ Archive Session Thread
 
       - `type: "advisor"`
 
-        - `"advisor"`
-
   - `archived_at: string | null`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `parent_thread_id: string | null`
 
@@ -673,13 +616,19 @@ Archive Session Thread
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
 
+      format: double
+
     - `duration_seconds?: number`
 
       Elapsed time since thread creation in seconds. For archived threads, frozen at the final update.
 
+      format: double
+
     - `startup_seconds?: number`
 
       Time in seconds for the thread to begin running. Zero for child threads, which start immediately.
+
+      format: double
 
   - `status: BetaManagedAgentsSessionThreadStatus`
 
@@ -695,11 +644,11 @@ Archive Session Thread
 
   - `type: "session_thread"`
 
-    - `"session_thread"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `usage: BetaManagedAgentsSessionThreadUsage | null`
 
@@ -709,6 +658,8 @@ Archive Session Thread
 
       Cumulative time in seconds this thread spent in running status. Equal to `stats.active_seconds`; surfaced here so a thread's usage carries every quantity its cost is priced on.
 
+      format: double
+
     - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -717,17 +668,25 @@ Archive Session Thread
 
         Tokens used to create 1-hour ephemeral cache entries.
 
+        format: int32
+
       - `ephemeral_5m_input_tokens?: number`
 
         Tokens used to create 5-minute ephemeral cache entries.
+
+        format: int32
 
     - `cache_read_input_tokens?: number`
 
       Total tokens read from prompt cache.
 
+      format: int32
+
     - `input_tokens?: number`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `list_cost?: BetaMonetaryAmount | null`
 
@@ -741,11 +700,11 @@ Archive Session Thread
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `"USD"`
-
     - `output_tokens?: number`
 
       Total output tokens generated across all turns.
+
+      format: int32
 
     - `server_tool_use?: BetaManagedAgentsServerToolUsage | null`
 
@@ -755,11 +714,15 @@ Archive Session Thread
 
         Number of server-executed web fetch requests.
 
+        format: int32
+
       - `web_search_requests?: number`
 
         Number of server-executed web search requests.
 
-### Example
+        format: int32
+
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -776,7 +739,7 @@ const betaManagedAgentsSessionThread = await client.beta.sessions.threads.archiv
 console.log(betaManagedAgentsSessionThread.id);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

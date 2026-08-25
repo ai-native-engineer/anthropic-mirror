@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/skills/list -->
 
----
-title: List Skills
-url: https://platform.claude.com/docs/en/api/typescript/beta/skills/list
----
+# List Skills
 
-## List Skills
+`client.beta.skills.list(params?, options?): PageCursor<SkillListResponse>`
 
-`client.beta.skills.list(SkillListParamsparams?, RequestOptionsoptions?): PageCursor<SkillListResponse>`
-
-**get** `/v1/skills`
+**GET** `/v1/skills`
 
 List Skills
 
-### Parameters
+## Parameters
 
 - `params: SkillListParams`
 
@@ -114,7 +109,7 @@ List Skills
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `SkillListResponse`
 
@@ -155,11 +150,13 @@ List Skills
 
     For Skills, this is always `"skill"`.
 
+    default: skill
+
   - `updated_at: string`
 
     ISO 8601 timestamp of when the skill was last updated.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -174,7 +171,7 @@ for await (const skillListResponse of client.beta.skills.list()) {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

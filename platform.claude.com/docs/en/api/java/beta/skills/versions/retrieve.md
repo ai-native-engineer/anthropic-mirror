@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/skills/versions/retrieve -->
 
----
-title: Get Skill Version
-url: https://platform.claude.com/docs/en/api/java/beta/skills/versions/retrieve
----
+# Get Skill Version
 
-## Get Skill Version
+`VersionRetrieveResponse beta().skills().versions().retrieve(params, requestOptions = RequestOptions.none())`
 
-`VersionRetrieveResponse beta().skills().versions().retrieve(VersionRetrieveParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**get** `/v1/skills/{skill_id}/versions/{version}`
+**GET** `/v1/skills/{skill_id}/versions/{version}`
 
 Get Skill Version
 
-### Parameters
+## Parameters
 
 - `VersionRetrieveParams params`
 
@@ -101,7 +96,7 @@ Get Skill Version
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+## Returns
 
 - `class VersionRetrieveResponse:`
 
@@ -149,7 +144,7 @@ Get Skill Version
 
     Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -174,7 +169,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

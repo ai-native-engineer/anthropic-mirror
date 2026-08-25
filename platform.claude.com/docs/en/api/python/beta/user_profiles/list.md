@@ -1,23 +1,20 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/user_profiles/list -->
 
----
-title: List User Profiles
-url: https://platform.claude.com/docs/en/api/python/beta/user_profiles/list
----
+# List User Profiles
 
-## List User Profiles
+`beta.user_profiles.list(**kwargs)  -> SyncPageCursor[BetaUserProfile]`
 
-`beta.user_profiles.list(UserProfileListParams**kwargs)  -> SyncPageCursor[BetaUserProfile]`
-
-**get** `/v1/user_profiles`
+**GET** `/v1/user_profiles`
 
 List User Profiles
 
-### Parameters
+## Parameters
 
 - `limit: Optional[int]`
 
   Query parameter for limit
+
+  format: int32
 
 - `order: Optional[Literal["asc", "desc"]]`
 
@@ -107,7 +104,7 @@ List User Profiles
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaUserProfile: …`
 
@@ -118,6 +115,8 @@ List User Profiles
   - `created_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `metadata: Dict[str, str]`
 
@@ -141,11 +140,11 @@ List User Profiles
 
     Object type. Always `user_profile`.
 
-    - `"user_profile"`
-
   - `updated_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: Optional[Literal["application", "passthrough"]]`
 
@@ -173,7 +172,7 @@ List User Profiles
 
     - `"internal"`
 
-### Example
+## Example
 
 ```python
 import os
@@ -189,7 +188,7 @@ page = page.data[0]
 print(page.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

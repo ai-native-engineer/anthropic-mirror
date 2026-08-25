@@ -1,14 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/multimodal-how-to-transcribe-text -->
 
-#  How to transcribe documents with Claude
+#  How to transcribe documents with Claude
 
 Claude 3 is great at reading unstructured text and information within images and PDFs and turning it into structured text. We'll take a look at a few examples but first let's setup the code we need to run the notebook.
 
-
-
 %pip install anthropic IPython
-
-
 
 import base64
 
@@ -30,19 +26,15 @@ base64\_string = base\_64\_encoded\_data.decode("utf-8")
 
 return base64\_string
 
-##  Transcribing typed text
+##  Transcribing typed text
 
 The advantage of using Claude 3 over traditional OCR systems is that you can specify exactly what you want to transcribe due to Claude 3's advanced reasoning capabilities. For this image, let’s transcribe just the code in the answer.
-
-
 
 from IPython.display import Image
 
 Image(filename="../images/transcribe/stack\_overflow.png")
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-how-to-transcribe-text/multimodal-how-to-transcribe-text_cell4_out0_36902276.png)
-
-
 
 message\_list = [
 
@@ -80,8 +72,6 @@ response = client.messages.create(model=MODEL\_NAME, max\_tokens=2048, messages=
 
 print(response.content[0].text)
 
-
-
 ```
 import os
 import base64
@@ -94,17 +84,13 @@ with open(image, "rb") as image_file:
 file = encoded_string
 ```
 
-##  Transcribing handwritten text
+##  Transcribing handwritten text
 
 That's good but let's try something a little harder. Claude 3 excels at transcribing handwritten text as well. Let's ask Claude 3 to transcribe this handwritten prescription note.
-
-
 
 Image(filename="../images/transcribe/school\_notes.png")
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-how-to-transcribe-text/multimodal-how-to-transcribe-text_cell7_out0_a28fbe7d.png)
-
-
 
 message\_list = [
 
@@ -148,8 +134,6 @@ response = client.messages.create(model=MODEL\_NAME, max\_tokens=2048, messages=
 
 print(response.content[0].text)
 
-
-
 ```
 Levels of Cellular Organization
 1) Cells group together to make tissue.
@@ -177,17 +161,13 @@ of tissue
 ground
 ```
 
-##  Transcribing forms
+##  Transcribing forms
 
 How about we try a combination of typed and handwritten text? This is common across a variety of documents like insurance and report forms.
-
-
 
 Image(filename="../images/transcribe/vehicle\_form.jpg")
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-how-to-transcribe-text/multimodal-how-to-transcribe-text_cell10_out0_592ce176.jpeg)
-
-
 
 message\_list = [
 
@@ -224,8 +204,6 @@ message\_list = [
 response = client.messages.create(model=MODEL\_NAME, max\_tokens=2048, messages=message\_list)
 
 print(response.content[0].text)
-
-
 
 ```
 VEHICLE INCIDENT REPORT FORM
@@ -272,17 +250,13 @@ _______________________________________________________________
 Page 1 of 2
 ```
 
-##  Complicated document QA
+##  Complicated document QA
 
 With Claude 3 we can go beyond just transcription and ask specific questions about our information in our unstructured documents.
-
-
 
 Image(filename="../images/transcribe/page.jpeg")
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-how-to-transcribe-text/multimodal-how-to-transcribe-text_cell13_out0_bedb4922.jpeg)
-
-
 
 message\_list = [
 
@@ -320,23 +294,17 @@ response = client.messages.create(model=MODEL\_NAME, max\_tokens=2048, messages=
 
 print(response.content[0].text)
 
-
-
 ```
 According to the hierarchy of importance pyramid for Live Rep Support shown in the image, the most critical issue is Product Quality/Liability Issues. This is positioned at the very bottom of the pyramid, indicating it is the most critical or important issue for live rep support to handle.
 ```
 
-##  Unstructured information -> JSON
+##  Unstructured information -> JSON
 
 Let's take a look at how you can use Claude to turn unstructured information in an image into a structured JSON output.
-
-
 
 Image(filename="../images/transcribe/org\_chart.jpeg")
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-how-to-transcribe-text/multimodal-how-to-transcribe-text_cell16_out0_12c40e24.jpeg)
-
-
 
 message\_list = [
 
@@ -379,8 +347,6 @@ message\_list = [
 response = client.messages.create(model=MODEL\_NAME, max\_tokens=2048, messages=message\_list)
 
 print(response.content[0].text)
-
-
 
 ```
 {

@@ -58,7 +58,7 @@ To validate your design system, create a test project and see if the output matc
 
 Once you’re satisfied with the design system quality, make sure the “Published” toggle is switched on. After publishing, any projects created from the Claude Design homescreen while in your organization will use your design system instead of the default.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1787426100&signature=ec3860b012697d25987a45c3a87429b250cdf73bc77c9a2cddfd37509920a8e6&req=diIvEcx8moFfXvMW1HO4zWNHF%2FWPDD0WIQKNMXlu0T91YKkGZPCXWLK8AcJ5%0AIJSxMJhKAlYt5956yN0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1787426100&signature=ec3860b012697d25987a45c3a87429b250cdf73bc77c9a2cddfd37509920a8e6&req=diIvEcx8moFfXvMW1HO4zWNHF%2FWPDD0WIQKNMXlu0T91YKkGZPCXWLK8AcJ5%0AIJSxMJhKAlYt5956yN0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1787622300&signature=7c6cb67f5711effc26220eed3ffe71d1cf958ee222e06a8998847cfb5d5a08e3&req=diIvEcx8moFfXvMW1HO4zWNHF%2FWNDDkUIQKNMXlu0T8aiox2fj%2F4LCh0DW%2Bb%0AqN292f9B6FSl3sd4W3E%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1787622300&signature=7c6cb67f5711effc26220eed3ffe71d1cf958ee222e06a8998847cfb5d5a08e3&req=diIvEcx8moFfXvMW1HO4zWNHF%2FWNDDkUIQKNMXlu0T8aiox2fj%2F4LCh0DW%2Bb%0AqN292f9B6FSl3sd4W3E%3D%0A)
 
 ---
 

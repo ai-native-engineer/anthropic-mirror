@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/deployments/pause -->
 
----
-title: Pause Deployment
-url: https://platform.claude.com/docs/en/api/php/beta/deployments/pause
----
-
-## Pause Deployment
+# Pause Deployment
 
 `$client->beta->deployments->pause(string deploymentID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeployment`
 
-**post** `/v1/deployments/{deployment_id}/pause`
+**POST** `/v1/deployments/{deployment_id}/pause`
 
 Pause Deployment
 
-### Parameters
+## Parameters
 
 - `deploymentID: string`
 
@@ -21,7 +16,7 @@ Pause Deployment
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsDeployment`
 
@@ -91,7 +86,7 @@ Pause Deployment
 
     A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -108,7 +103,7 @@ $betaManagedAgentsDeployment = $client->beta->deployments->pause(
 var_dump($betaManagedAgentsDeployment);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

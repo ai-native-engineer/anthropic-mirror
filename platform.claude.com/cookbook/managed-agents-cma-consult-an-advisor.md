@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-consult-an-advisor -->
 
-#  Advisor: let a working agent consult a stronger model mid-turn
+#  Advisor: let a working agent consult a stronger model mid-turn
 
 Running every turn on your most capable model is the safe choice and the expensive one. Running on a mid-tier model is cheap until the agent hits the one decision in the task that needed more judgment, and by then it has committed. The usual fix is to build your own escalation: detect the hard case, package the context, call a bigger model, splice the answer back in.
 
@@ -13,17 +13,13 @@ This notebook walks through:
 * reading a consultation off the event stream and its cost off the thread
 * what changes when the advisor's output comes back redacted
 
-##  1. Set up the client
+##  1. Set up the client
 
 The advisor entry lives in the `multiagent` block, under the standard `managed-agents-2026-04-01` beta header. The typed roster shape needs `anthropic>=0.121.0`.
-
-
 
 %%capture
 
 %pip install -qU "anthropic>=0.121.0" python-dotenv
-
-
 
 import os
 
@@ -41,7 +37,7 @@ ADVISOR\_MODEL = os.environ.get("COOKBOOK\_ADVISOR\_MODEL", "claude-opus-5")
 
 client = anthropic.Anthropic()
 
-##  2. Give a Sonnet agent an Opus advisor
+##  2. Give a Sonnet agent an Opus advisor
 
 You declare the advisor in the roster, not as a tool definition and not as an agent you create separately. The entry goes in `multiagent.agents` alongside any specialists, and a roster that holds nothing but the advisor entry is valid: the agent consults but spawns no subagents. A few rules the server enforces at save time:
 
@@ -50,8 +46,6 @@ You declare the advisor in the roster, not as a tool definition and not as an ag
 * The entry occupies the name `anthropic.advisor` in the roster, so no specialist can use that name.
 
 At runtime the platform surfaces the entry to the working model as an `advisor` tool. The tool takes no input, because the advisor reads the whole conversation up to the call rather than a query the working model writes. So the system prompt is where you set the consultation policy: what it controls is when the model reaches for the tool.
-
-
 
 SYSTEM = """You are a backend engineer designing HTTP APIs.
 
@@ -99,20 +93,16 @@ print(f"{designer.name}: {designer.id} v{designer.version}")
 
 print("roster:", [entry.to\_dict() for entry in designer.multiagent.agents])
 
-
-
 ```
 api_designer: agent_staging_018FvRjvrM6ASGuXXcDTAvdH v1
 roster: [{'model': 'claude-opus-5', 'type': 'advisor'}]
 ```
 
-##  3. Hand it a task with a hard call inside
+##  3. Hand it a task with a hard call inside
 
 An idempotency scheme for a money-moving endpoint is the kind of decision the prompt told the agent to escalate: cheap to write, expensive to change after clients ship against it. The rest of the design is routine, so a well-calibrated agent consults on that and drafts the remainder itself.
 
 Consultation spend is bounded only by the consulting turn: advisor tokens bill in addition to the working model's, and there is no per-consultation cap. The session carries a `budget` so an over-eager escalation habit pauses at a known ceiling instead of running up the bill (the mechanics are in [`CMA_cap_session_spend.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_cap_session_spend.ipynb)).
-
-
 
 env = client.beta.environments.create(
 
@@ -170,17 +160,13 @@ betas=BETAS,
 
 print(session.id, session.status)
 
-
-
 ```
 sesn_staging_013TqQwzrbUZDX1KJW2b9KnC running
 ```
 
-##  4. Watch a consultation on the primary stream
+##  4. Watch a consultation on the primary stream
 
 A consultation is not an `agent.tool_use` event. It surfaces as a thread lifecycle on the primary stream, with `agent_name` set to `anthropic.advisor`:
-
-
 
 session.thread\_created agent\_name: anthropic.advisor
 
@@ -193,8 +179,6 @@ session.thread\_status\_idle agent\_name: anthropic.advisor
 session.thread\_status\_terminated agent\_name: anthropic.advisor
 
 The consulting thread stays `running` the whole time. The advice is delivered at the point of the call and sampling continues, so from the outside the primary thread pauses, an advisor thread appears and disappears, and the primary thread resumes with the guidance folded in. Each consultation is a fresh thread that terminates itself when it delivers.
-
-
 
 def advice\_text(content):
 
@@ -240,8 +224,6 @@ break
 
 print(f"\nconsultations this turn: {consultations}")
 
-
-
 ```
 --- consulting advisor #1 (sthr_staging_01PnQEQPc1nLxUK4S2vcVbCL) ---
 
@@ -277,13 +259,11 @@ All of this reflects the advisor's review — the biggest change from my initial
 consultations this turn: 1
 ```
 
-##  5. Price the consultations
+##  5. Price the consultations
 
 Because every consultation is a real session thread, its cost is on the thread rather than folded invisibly into the primary thread's numbers. Pull each advisor thread by the id from its `session.thread_created` event and read its `usage`. The token counts are there, and so is `usage.list_cost`: the thread's tokens priced at the advisor model's public list price, as an integer string in minor units of USD (`"131"` is $1.31), so the cost comes off the API instead of a rate card you maintain. Those tokens are billed in addition to the primary thread's, and they are already counted in the session-level `usage` aggregate, which carries a `list_cost` of its own.
 
 A completed consultation is a `terminated` thread. It stays retrievable, but its `agent` is not the usual snapshotted agent: no Agent resource backs a platform advisor, so the thread carries the roster entry itself, `{"type": "advisor", "model": ...}`. That `agent.type` of `"advisor"` is the reliable way to tell a platform advisor thread apart from an ordinary child, more so than the name.
-
-
 
 from decimal import Decimal
 
@@ -341,8 +321,6 @@ f"cost={usd(total.list\_cost)} (advisor included)"
 
 )
 
-
-
 ```
 sthr_staging_01PnQEQPc1nLxUK4S2vcVbCL  agent.type=advisor  model=claude-opus-5  status=terminated  in=603 out=2468  $0.07
 
@@ -350,11 +328,9 @@ advisor tokens: in=603 out=2468  cost=$0.07
 session total:  in=15553 out=8491  cost=$0.21  (advisor included)
 ```
 
-##  6. Read the design
+##  6. Read the design
 
 The agent wrote the final document with the `write` tool. Pull it from the event log and look at the idempotency section, which is where the consultation landed.
-
-
 
 design = ""
 
@@ -381,8 +357,6 @@ print(line)
 print()
 
 print(design[:1200])
-
-
 
 ```
 # Refunds API Design
@@ -427,7 +401,7 @@ visually distinct from payment IDs (`pi_...`). Never expose database auto-increm
 - `Idempotency-Key` is **required** on `POST .../refunds`. Cl
 ```
 
-##  7. When the advice comes back redacted
+##  7. When the advice comes back redacted
 
 Whether you get to read a consultation is a property of the advisor model, set by the same Anthropic policy that governs the Messages API advisor tool. For a model whose output the policy withholds, the delivery event carries `[{"type": "redacted"}]` placeholder blocks instead of text, and the advisor thread's own `agent.message` events are placeholders too.
 
@@ -435,11 +409,9 @@ Redaction changes what you observe, not what the agent uses. The working model r
 
 Since the policy can change without an API change, treat the `text` and `redacted` arms as equally normal in anything that consumes these events.
 
-##  8. An advisor next to a specialist team
+##  8. An advisor next to a specialist team
 
 The advisor entry shares the `agents` array with ordinary roster members, so a coordinator can delegate to specialists and consult a stronger model in the same session. Only the primary thread consults. The specialists it spawns run without an advisor of their own, and advisor threads are exempt from the concurrency bound on child threads, so a coordinator already at its child limit can still consult.
-
-
 
 client.beta.agents.create(
 
@@ -473,9 +445,7 @@ betas=BETAS,
 
 The coordinator pattern itself, per-role tool scoping and the delegation event types, is covered in [`CMA_coordinate_specialist_team.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_coordinate_specialist_team.ipynb). The advisor is fixed for a session at creation: changing it on the agent affects sessions created afterward, not one already running.
 
-##  9. Clean up
-
-
+##  9. Clean up
 
 from utilities import wait\_for\_idle\_status
 
@@ -486,8 +456,6 @@ client.beta.sessions.archive(session.id, betas=BETAS)
 client.beta.environments.archive(env.id, betas=BETAS)
 
 print("archived")
-
-
 
 ```
 archived

@@ -541,13 +541,13 @@ Sara, Science Teacher
 
 ![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
-“As a 9th grade educator seeking tools to reinforce humanist learning, Claude has demonstrated a keen eye towards identifying learning strategies. From classroom simulations, to IEP meeting notes, to the intricacies of lesson planning, strategic application of Claude’s educational tools lets teachers stay in command of the classroom and across systems!”
+“As a 9th grade educator seeking tools to reinforce humanist learning, Claude has demonstrated a keen eye towards identifying learning strategies. From classroom simulations to the intricacies of lesson planning, strategic application of Claude's educational tools lets teachers stay in command of the classroom and across systems!”
 
 Justin, Learning Specialist
 
 ![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
-“Claude sparked my interest even more when it used the student assessment data I inputted to help me create goals that my upcoming students should focus on over the summer.”
+“Claude sparked my interest even more when it used the de-identified student assessment data I inputted to help me create goals that my upcoming students should focus on over the summer.”
 
 S. Campbell, K-12 Teacher
 

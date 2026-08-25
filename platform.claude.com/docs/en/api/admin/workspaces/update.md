@@ -1,23 +1,18 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/workspaces/update -->
 
----
-title: Update Workspace
-url: https://platform.claude.com/docs/en/api/admin/workspaces/update
----
+# Update Workspace
 
-## Update Workspace
-
-**post** `/v1/organizations/workspaces/{workspace_id}`
+**POST** `/v1/organizations/workspaces/{workspace_id}`
 
 Update Workspace
 
-### Path Parameters
+## Path parameters
 
 - `workspace_id: string`
 
-### Body Parameters
+## Body parameters
 
-- `data_residency: optional object { allowed_inference_geos, default_inference_geo }  or null`
+- `data_residency: optional object or null`
 
   Data residency configuration for the workspace.
 
@@ -32,8 +27,6 @@ Update Workspace
       - `"us"`
 
     - `"unrestricted"`
-
-      - `"unrestricted"`
 
   - `default_inference_geo: optional "global" or "us" or null`
 
@@ -57,13 +50,15 @@ Update Workspace
 
   Name of the Workspace.
 
+  maxLength: 40, minLength: 1
+
 - `tags: optional map[string] or null`
 
   User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
 
-### Returns
+## Returns
 
-- `Workspace object { id, archived_at, compartment_id, 7 more }`
+- `Workspace object`
 
   - `id: string`
 
@@ -72,6 +67,8 @@ Update Workspace
   - `archived_at: string or null`
 
     RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+    format: date-time
 
   - `compartment_id: string`
 
@@ -86,7 +83,9 @@ Update Workspace
 
     RFC 3339 datetime string indicating when the Workspace was created.
 
-  - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
+    format: date-time
+
+  - `data_residency: object`
 
     Data residency configuration.
 
@@ -97,8 +96,6 @@ Update Workspace
       - `array of string`
 
       - `"unrestricted"`
-
-        - `"unrestricted"`
 
     - `default_inference_geo: string`
 
@@ -136,11 +133,11 @@ Update Workspace
 
     For Workspaces, this is always `"workspace"`.
 
-    - `"workspace"`
+    default: workspace
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
@@ -154,7 +151,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
         }'
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

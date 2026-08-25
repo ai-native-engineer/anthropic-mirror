@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/user_profiles/create_enrollment_url -->
 
----
-title: Create Enrollment URL
-url: https://platform.claude.com/docs/en/api/python/beta/user_profiles/create_enrollment_url
----
+# Create Enrollment URL
 
-## Create Enrollment URL
+`beta.user_profiles.create_enrollment_url(user_profile_id, **kwargs)  -> BetaUserProfileEnrollmentURL`
 
-`beta.user_profiles.create_enrollment_url(struser_profile_id, UserProfileCreateEnrollmentURLParams**kwargs)  -> BetaUserProfileEnrollmentURL`
-
-**post** `/v1/user_profiles/{user_profile_id}/enrollment_url`
+**POST** `/v1/user_profiles/{user_profile_id}/enrollment_url`
 
 Create Enrollment URL
 
-### Parameters
+## Parameters
 
 - `user_profile_id: str`
 
@@ -93,7 +88,7 @@ Create Enrollment URL
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaUserProfileEnrollmentURL: …`
 
@@ -101,17 +96,17 @@ Create Enrollment URL
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `type: Literal["enrollment_url"]`
 
     Object type. Always `enrollment_url`.
-
-    - `"enrollment_url"`
 
   - `url: str`
 
     Enrollment URL to send to the end user. Valid until `expires_at`.
 
-### Example
+## Example
 
 ```python
 import os
@@ -128,7 +123,7 @@ beta_user_profile_enrollment_url = client.beta.user_profiles.create_enrollment_u
 print(beta_user_profile_enrollment_url.expires_at)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

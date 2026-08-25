@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/multimodal-crop-tool -->
 
-#  Giving Claude a Zoom Tool for Reading Fine Image Detail
+#  Giving Claude a Zoom Tool for Reading Fine Image Detail
 
-##  Introduction
+##  Introduction
 
 When a detail in an image is too small to make out, you lean in and look closer. Claude can't do that on its own: it sees an image once, at a fixed effective resolution, and when a chart label or a pair of closely spaced lines is too small at that resolution, no amount of prompting recovers it.
 
@@ -20,19 +20,19 @@ Charts are this notebook's running example, but the same pattern applies anywher
 
 ![The zoom-tool loop: one user message carries the question and the chart image to Claude; Claude sees the image in 28-by-28-pixel patches, and when a detail is too small it calls zoom(x1, y1, x2, y2) in pixel coordinates; your handle_zoom() implementation crops that region from the full-resolution original and returns it magnified; the exchange repeats until Claude answers — here, that the Widget-E line is higher.](https://platform.claude.com/cookbook/images/notebooks/multimodal-crop-tool/architecture_diagram.png)
 
-##  The Results, Up Front
+##  The Results, Up Front
 
-###  An example problem
+###  An example problem
 
 ![A dense six-series line chart of monthly production by product line, with a tiny peak annotation and several close crossings.](https://platform.claude.com/cookbook/images/notebooks/multimodal-crop-tool/example_problem.png)
 
 **At month 48, which product line has the higher value: Widget-A or Widget-E?** At that month the two lines sit about 26 units apart — roughly 8 pixels in this rendering — right next to a genuine crossing. (This is a demonstration problem this notebook generates for itself, in the style of the dense real-world charts the benchmark below uses; the benchmark's own questions are a held-out evaluation set and are not reproduced here.)
 
-###  With and without the tool
+###  With and without the tool
 
 Asked cold, the model answers **Widget-A** — confidently, usually narrating the nearby crossing as if it had already happened — and it is wrong in 36 of 40 recorded attempts (90%). Given the zoom tool, it zooms in on the crossing repeatedly, each crop tighter than the last, reads the ordering from the magnified view, and answers **Widget-E** — correctly, in 40 of 40 recorded attempts (100%) with exactly the code this notebook builds. (Those are repeated runs of this one demonstration problem; the benchmark numbers below are a separate, single-pass measurement.) You will run exactly this exchange yourself later in the notebook.
 
-###  The numbers
+###  The numbers
 
 The same pattern, measured on [Chartography(opens in new tab)](https://huggingface.co/datasets/surgeai/chartography) — a public benchmark from Surge AI of 100 chart-reading questions over dense, real-world charts — by asking every question twice per model (with and without the tool) and grading free-form answers with a model judge per the dataset card. Each bar below is one model in one condition — accuracy over all 100 questions — and the arrows mark what adding the tool changes; mean per-question costs are in the figure note. The tool buys its accuracy with extra tokens: each zoom call re-sends the conversation plus a magnified crop.
 
@@ -42,7 +42,7 @@ These numbers come from running the benchmark against the public Claude API with
 
 > **Note:** Chartography is a held-out evaluation set — don't use it for training (the [dataset card(opens in new tab)](https://huggingface.co/datasets/surgeai/chartography) ships a canary string for exactly that purpose). Prompts, golden answers, and metadata are © Surge AI, CC BY 4.0. Chart images sourced from the web remain the property of their original rights holders; this cookbook redistributes nothing from the dataset.
 
-##  Prerequisites
+##  Prerequisites
 
 **Required Knowledge:**
 
@@ -54,19 +54,13 @@ These numbers come from running the benchmark against the public Claude API with
 * Python 3.11 or higher
 * Anthropic API key ([get one here(opens in new tab)](https://console.anthropic.com))
 
-##  Setup
-
-
+##  Setup
 
 %pip install -q anthropic pillow matplotlib
-
-
 
 ```
 Note: you may need to restart the kernel to use updated packages.
 ```
-
-
 
 import base64
 
@@ -86,11 +80,9 @@ client = Anthropic()
 
 MODEL = "claude-fable-5"
 
-##  Create a Demo Chart
+##  Create a Demo Chart
 
 We'll draw the kind of chart the zoom tool exists for: six series, a dense grid, and the answer to our question printed in deliberately tiny type. Generating it ourselves means we know the ground truth exactly — and that the annotation is genuinely too small to read in the full view.
-
-
 
 import matplotlib.pyplot as plt
 
@@ -184,8 +176,6 @@ chart\_image.save(\_buf, format="PNG")
 
 display(Image(data=\_buf.getvalue(), width=560))
 
-
-
 ```
 Chart size: (1325, 777)
 Question: What exact value is annotated at the peak of the Widget-C line?
@@ -193,7 +183,7 @@ Question: What exact value is annotated at the peak of the Widget-C line?
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-crop-tool/multimodal-crop-tool_cell7_out1_93fe0e4a.png)
 
-##  How Claude Sees Images — and Why Pixel Coordinates
+##  How Claude Sees Images — and Why Pixel Coordinates
 
 Two facts about [how Claude processes images(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/vision#evaluate-image-size) shape the design of the tool:
 
@@ -205,7 +195,7 @@ The coordinates guide provides a reference implementation, `resized_size()`, tha
 * **Before uploading:** resize the image we show Claude, so that the zoom coordinates it sends us map 1:1 onto the image we have.
 * **When zooming:** scale the cropped region *up* to the largest size within the budget, so every element in it gets as many patches as possible.
 
-##  Define the Zoom Tool
+##  Define the Zoom Tool
 
 The flow for each zoom call:
 
@@ -218,8 +208,6 @@ Cropping from the original rather than from the downscaled copy means the zoom w
 One practical detail: zoomed crops are returned as JPEG rather than PNG. Tool results accumulate in the conversation, and a few full-budget PNG crops of a detailed chart can exceed the API's [32 MB request size limit(opens in new tab)](https://platform.claude.com/docs/en/api/overview#request-size-limits). (For conversations that accumulate many large images, the [Files API(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/files) keeps request payloads small regardless of history length.)
 
 The next cell is self-contained — schema and implementation, no other cells needed — so you can copy it directly into your own project.
-
-
 
 # The zoom tool: schema + implementation. This cell is self-contained (it needs
 
@@ -551,8 +539,6 @@ f"of the original, returned magnified to {zoomed.width}x{zoomed.height}px."
 
 Let's test the zoom tool manually before handing it to Claude — zooming into the upper region of the chart where the peak annotation sits:
 
-
-
 def show\_tool\_result(blocks: Iterable[Mapping[str, Any]], show\_text: bool = True) -> None:
 
 """Print the text and display the images among a tool result's content blocks.
@@ -585,8 +571,6 @@ result = handle\_zoom(chart\_image, view.size, x1=0, y1=0, x2=view.width, y2=int
 
 show\_tool\_result(result)
 
-
-
 ```
 Original size: (1325, 777), size Claude sees: (1325, 777)
 Zoomed into (0,0)-(1325,233) of the image you see at 1325x777px: a 1325x233px region of the original, returned magnified to 2576x453px.
@@ -594,7 +578,7 @@ Zoomed into (0,0)-(1325,233) of the image you see at 1325x777px: a 1325x233px re
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-crop-tool/multimodal-crop-tool_cell12_out1_2ddac3c9.jpeg)
 
-##  The Agentic Loop
+##  The Agentic Loop
 
 Now we connect everything: send the image to Claude with the zoom tool available, and let Claude call it until it has an answer. The SDK's `tool_runner` drives the exchange — it calls our `zoom` function whenever the model asks, feeds the magnified crop back, and stops when the model answers (or after `max_iterations`, a guard against runaway loops).
 
@@ -605,8 +589,6 @@ Three details matter here:
 * `@beta_tool` builds the tool's schema from the function's signature and docstring — to add a second tool, decorate another function and add it to the `tools` list; the runner dispatches by name.
 
 One wrinkle: the API can pause a very long turn server-side (`stop_reason == "pause_turn"`), and the runner does not yet resume these itself — the small loop around it below replays the transcript and continues when that happens.
-
-
 
 from anthropic import beta\_tool
 
@@ -850,11 +832,9 @@ print(f"[Assistant] {block.text}")
 
 return answer
 
-##  Demo: Chart Analysis
+##  Demo: Chart Analysis
 
 Let's ask Claude to analyze our chart. Watch how it uses the zoom tool to examine specific regions.
-
-
 
 print(f"Question: {question}\n")
 
@@ -863,8 +843,6 @@ print("Claude's analysis:\n")
 final\_answer = ask\_with\_zoom\_tool(chart\_image, question)
 
 print(f"\nGround truth (we drew it): {answer}")
-
-
 
 ```
 Question: What exact value is annotated at the peak of the Widget-C line?
@@ -880,15 +858,13 @@ Ground truth (we drew it): peak: 6,053 units
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-crop-tool/multimodal-crop-tool_cell16_out2_d35d858c.jpeg)
 
-##  When the Full View Lies
+##  When the Full View Lies
 
 Reading small text is only half the failure mode — the other half is *geometry*. At month 48 of this same chart, the Widget-A and Widget-E lines sit about 26 units apart: roughly 8 pixels in this rendering, a fraction of one 28×28 patch, with a genuine crossing nearby to confuse matters further. An ordering question at that separation physically cannot be resolved at patch granularity.
 
 Ask without the tool, and Claude confidently picks the wrong line — in 36 of 40 recorded runs. With the zoom tool, it magnifies the crossing region (zooming in repeatedly, each crop tighter than the last) and gets it right — in 40 of 40.
 
 > **Note:** this near-tie contrast is tuned for `claude-fable-5`, the strongest chart reader in the benchmark above. Smaller models miss it much more often even with the tool — in our runs, `claude-sonnet-5` called this crossing correctly only once in 10 attempts with the tool available. The zoom recovers the pixels; calling an almost-touching crossing still takes the model's best visual reasoning.
-
-
 
 question\_2 = "At month 48, which product line has the higher value: Widget-A or Widget-E?"
 
@@ -956,8 +932,6 @@ gap = abs(series["Widget-E"][48] - series["Widget-A"][48])
 
 print(f"\nGround truth (from the data): {higher} is higher at month 48, by about {gap:.0f} units.")
 
-
-
 ```
 WITHOUT the tool:
 **Widget-A** has the higher value at month 48. The blue Widget-A line is rising steeply at that point (around ~5,350 units), having just crossed above the purple Widget-E line, which is declining (around ~5,300 units). The two lines cross at roughly month 47, so by month 48 Widget-A is slightly above Widget-E.
@@ -983,17 +957,15 @@ Here is that exchange in motion — the full view, the model's zoom call, and th
 
 ![Animated walkthrough of the zoom exchange: the full chart appears with the question; without the tool, the model answers Widget-A, marked wrong; the view then zooms in twice, each crop tighter than the last, until the magnified crossing shows the Widget-E line still above Widget-A at month 48; with the tool, the model answers Widget-E, marked correct.](https://platform.claude.com/cookbook/images/notebooks/multimodal-crop-tool/zoom_demo.gif)
 
-##  Multi-Image Conversations
+##  Multi-Image Conversations
 
 When a conversation contains several images, the tool needs to know *which* image to zoom into. The schema above already includes an optional `image_index` parameter (0 for the first image, 1 for the second, and so on), and `ask_with_zoom_tool()` accepts a list:
-
-
 
 ask\_with\_zoom\_tool([chart\_image, other\_chart], "Which of the two charts has more categories?")
 
 Each image is labeled with its index and pixel dimensions in the prompt, so Claude can name the image it wants and use the right coordinate space for it.
 
-##  Summary
+##  Summary
 
 The zoom tool pattern:
 
@@ -1004,13 +976,11 @@ The zoom tool pattern:
 
 This works because Claude can see the full image first, identify the regions that need closer inspection, and re-read them magnified. The trade-off: each zoom call adds a model round-trip and the zoomed image costs visual tokens, so expect better accuracy on detail-bound questions in exchange for higher latency and token usage. (And if you run Claude in an agent framework with code execution, you may not need to build any of this: an agent that can run code will typically write its own crop-and-magnify script on demand — the same pattern, self-served.)
 
-##  Appendix: The Loop, By Hand
+##  Appendix: The Loop, By Hand
 
 `tool_runner` is a convenience; everything it does can be written out with plain `client.messages.create` calls, and seeing the mechanics once is worth it — this is also where you control every edge case yourself: executing tool calls whenever they appear (even on a token-capped turn), resuming server-paused turns, giving the model one plain turn to answer when a token-capped turn produced neither a tool call nor any text, and dispatching tool names explicitly (unknown names get an error result back, so a model that hallucinates a tool can recover).
 
 The version below is equivalent to the runner version in the common path, with two deliberate differences: the runner bounds iterations at 20 and pause-turn re-entries at 5, while this version runs until the model stops — add your own cap for production use.
-
-
 
 from anthropic.types import (
 

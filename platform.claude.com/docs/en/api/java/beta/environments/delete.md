@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/environments/delete -->
 
----
-title: Delete Environment
-url: https://platform.claude.com/docs/en/api/java/beta/environments/delete
----
+# Delete Environment
 
-## Delete Environment
+`BetaEnvironmentDeleteResponse beta().environments().delete(params = EnvironmentDeleteParams.none(), requestOptions = RequestOptions.none())`
 
-`BetaEnvironmentDeleteResponse beta().environments().delete(EnvironmentDeleteParamsparams = EnvironmentDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
-
-**delete** `/v1/environments/{environment_id}`
+**DELETE** `/v1/environments/{environment_id}`
 
 Delete an environment by ID. Returns a confirmation of the deletion.
 
-### Parameters
+## Parameters
 
 - `EnvironmentDeleteParams params`
 
@@ -91,7 +86,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+## Returns
 
 - `class BetaEnvironmentDeleteResponse:`
 
@@ -105,9 +100,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     The type of response
 
-    - `ENVIRONMENT_DELETED("environment_deleted")`
-
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -128,7 +121,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

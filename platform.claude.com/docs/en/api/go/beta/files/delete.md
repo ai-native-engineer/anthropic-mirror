@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/files/delete -->
 
----
-title: Delete File
-url: https://platform.claude.com/docs/en/api/go/beta/files/delete
----
-
-## Delete File
+# Delete File
 
 `client.Beta.Files.Delete(ctx, fileID, body) (*BetaDeletedFile, error)`
 
-**delete** `/v1/files/{file_id}`
+**DELETE** `/v1/files/{file_id}`
 
 Delete File
 
-### Parameters
+## Parameters
 
 - `fileID string`
 
@@ -21,7 +16,7 @@ Delete File
 
 - `body BetaFileDeleteParams`
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -97,7 +92,7 @@ Delete File
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaDeletedFile struct{…}`
 
@@ -105,15 +100,15 @@ Delete File
 
     ID of the deleted file.
 
-  - `Type BetaDeletedFileType`
+  - `Type BetaDeletedFileType Optional`
 
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
 
-    - `const BetaDeletedFileTypeFileDeleted BetaDeletedFileType = "file_deleted"`
+    default: file_deleted
 
-### Example
+## Example
 
 ```go
 package main
@@ -142,7 +137,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

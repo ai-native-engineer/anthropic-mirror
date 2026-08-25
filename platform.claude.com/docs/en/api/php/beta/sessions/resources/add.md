@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/resources/add -->
 
----
-title: Add Session Resource
-url: https://platform.claude.com/docs/en/api/php/beta/sessions/resources/add
----
-
-## Add Session Resource
+# Add Session Resource
 
 `$client->beta->sessions->resources->add(string sessionID, string fileID, Type type, ?string mountPath, ?list<AnthropicBeta> betas): ManagedAgentsFileResource`
 
-**post** `/v1/sessions/{session_id}/resources`
+**POST** `/v1/sessions/{session_id}/resources`
 
 Add Session Resource
 
-### Parameters
+## Parameters
 
 - `sessionID: string`
 
@@ -31,7 +26,7 @@ Add Session Resource
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `ManagedAgentsFileResource`
 
@@ -51,7 +46,7 @@ Add Session Resource
 
     A timestamp in RFC 3339 format
 
-### Example
+## Example
 
 ```php
 <?php
@@ -71,7 +66,7 @@ $betaManagedAgentsFileResource = $client->beta->sessions->resources->add(
 var_dump($betaManagedAgentsFileResource);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

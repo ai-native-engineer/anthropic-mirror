@@ -112,6 +112,18 @@ More about Cowork
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d23008bbc20c0ffaeb6f_43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
+
+Jun 18, 2026
+
+### Centrally manage authorization for MCP connectors
+
+Enterprise AI
+
+[Centrally manage authorization for MCP connectors](#) Centrally manage authorization for MCP connectors
+
+[Centrally manage authorization for MCP connectors](https://claude.com/blog/enterprise-managed-auth) Centrally manage authorization for MCP connectors
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 Aug 21, 2026
@@ -147,18 +159,6 @@ Product announcements
 [Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
 
 [Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d223de65e7dcca8267d8_ea364001be6bf6d2e86b58109ead6a779d5771a7-1000x1000.svg)
-
-Aug 20, 2026
-
-### Anthropic’s approach to teaching and learning AI
-
-Product announcements
-
-[Anthropic’s approach to teaching and learning AI](#)Anthropic’s approach to teaching and learning AI
-
-[Anthropic’s approach to teaching and learning AI](https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai)Anthropic’s approach to teaching and learning AI
 
 ## Transform how your organization operates with Claude
 

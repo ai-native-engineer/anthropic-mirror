@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-automatic-context-compaction -->
 
-#  Automatic Context Compaction
+#  Automatic Context Compaction
 
 Long-running agentic tasks can often exceed context limits. Tool heavy workflows or long conversations quickly consume the token context window. In [Effective Context Engineering for AI Agents(opens in new tab)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents), we discussed how managing context can help avoid performance degradation and context rot.
 
@@ -8,7 +8,7 @@ The Claude Agent Python SDK can help manage this context by automatically compre
 
 In this cookbook, we'll demonstrate context compaction through an **agentic customer service workflow**. Imagine you've built an AI customer service agent tasked with processing a queue of support tickets. For each ticket, you must classify the issue, search the knowledge base, set priority, route to the appropriate team, draft a response, and mark it complete. As you process ticket after ticket, the conversation history fills with classifications, knowledge base searches, and drafted responses—quickly consuming thousands of tokens.
 
-##  What is Context Compaction?
+##  What is Context Compaction?
 
 When building agentic workflows with tool use, conversations can grow very large as the agent iterates on complex tasks. The `compaction_control` parameter provides automatic context management by:
 
@@ -18,13 +18,13 @@ When building agentic workflows with tool use, conversations can grow very large
 4. Clearing the conversation history and resuming with only the summary
 5. Continuing the task with the compressed context
 
-##  By the end of this cookbook, you'll be able to:
+##  By the end of this cookbook, you'll be able to:
 
 * Understand how to effectively manage context limits in iterative workflows
 * Write agents that leverage automatic context compaction
 * Design workflows that maintain focus across multiple iterations
 
-##  Prerequisites
+##  Prerequisites
 
 Before following this guide, ensure you have:
 
@@ -42,11 +42,9 @@ Before following this guide, ensure you have:
 >
 > This cookbook covers **SDK-based compaction**, which is useful if you're using an older model or want to use a different (cheaper) model for summarization.
 
-##  Setup
+##  Setup
 
 First, install the required dependencies:
-
-
 
 # %pip install -qU anthropic python-dotenv
 
@@ -56,15 +54,13 @@ Note: Ensure your .env file contains:
 
 Load your environment variables and configure the client. We also load a helper utility to visualize Claude message responses.
 
-
-
 from dotenv import load\_dotenv
 
 load\_dotenv()
 
 MODEL = "claude-sonnet-4-6"
 
-##  Setting the Stage
+##  Setting the Stage
 
 In [utils/customer\_service\_tools.py(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/tool_use/utils/customer_service_tools.py), we've defined several functions for processing customer support tickets:
 
@@ -80,8 +76,6 @@ For a customer service agent, these tools enable processing tickets systematical
 
 The `beta_tool` decorator is used on the tools to make them accessible to the Claude agent. The decorator extracts the function arguments and docstring and provides these to Claude as tool metadata.
 
-
-
 import anthropic
 
 from anthropic import beta\_tool
@@ -93,8 +87,6 @@ def get\_next\_ticket() -> dict:
 """Retrieve the next unprocessed support ticket from the queue."""
 
 ...
-
-
 
 import anthropic
 
@@ -138,7 +130,7 @@ mark\_complete,
 
 ]
 
-##  Baseline: Running Without Compaction
+##  Baseline: Running Without Compaction
 
 Let's start with a realistic customer service scenario: Processing a queue of support tickets.
 
@@ -158,8 +150,6 @@ The workflow looks like this:
 **The Challenge**: With 5 tickets in the queue, and each requiring 7 tool calls, Claude will make 35 or more tool calls. The results from each step including classification knowledge base search, and drafted responses accumulate in the conversation history. Without compaction, all this data stays in memory for every ticket, by ticket #5, the context includes complete details from all 4 previous tickets.
 
 Let's run this workflow **without compaction** first and observe what happens:
-
-
 
 from anthropic.types.beta import BetaMessageParam
 
@@ -267,8 +257,6 @@ print(f"Total tokens: {total\_input + total\_output:,}")
 
 print(f"{'=' \* 60}")
 
-
-
 ```
 Turn  1: Input=  1,537 tokens | Output=   57 tokens | Messages= 1 | Cumulative In=   1,537
 Turn  2: Input=  1,760 tokens | Output=  102 tokens | Messages= 3 | Cumulative In=   3,297
@@ -324,11 +312,7 @@ This leads to high token consumption and potential context limits being reached 
 
 Let's review Claude's final response after processing all 5 tickets without compaction:
 
-
-
 print(message.content[-1].text)
-
-
 
 ```
 ---
@@ -365,7 +349,7 @@ Each ticket was:
 The queue is now empty and all tickets have been processed!
 ```
 
-###  Understanding the Problem
+###  Understanding the Problem
 
 In the baseline workflow above, Claude had to:
 
@@ -386,7 +370,7 @@ In the baseline workflow above, Claude had to:
 
 Let's see how automatic context compaction solves this problem.
 
-##  Enabling Automatic Context Compaction
+##  Enabling Automatic Context Compaction
 
 Let's run the exact same customer service workflow, but with automatic context compaction enabled. We simply add the `compaction_control` parameter to our tool runner.
 
@@ -404,8 +388,6 @@ For this customer service workflow, we'll use a **5,000 token threshold**. This 
 3. **Start fresh** when processing the next batch of tickets
 
 This mimics how a real support agent works: resolve the ticket, document it briefly, move to the next case.
-
-
 
 # Re-initialize queue and run with compaction
 
@@ -500,8 +482,6 @@ print(f"Output tokens: {total\_output\_compact:,}")
 print(f"Total tokens: {total\_input\_compact + total\_output\_compact:,}")
 
 print(f"{'=' \* 60}")
-
-
 
 ```
 Turn  1: Input=  1,537 tokens | Output=   57 tokens | Messages= 1 | Cumulative In=   1,537
@@ -680,11 +660,7 @@ Compared to the baseline version, we only used 79,000 tokens. We've also printed
 
 Let's look at the final response after processing all 5 tickets with compaction enabled.
 
-
-
 print(message.content[-1].text)
-
-
 
 ```
 Perfect! **ALL 5 TICKETS HAVE BEEN SUCCESSFULLY COMPLETED!** 🎉
@@ -720,7 +696,7 @@ Perfect! **ALL 5 TICKETS HAVE BEEN SUCCESSFULLY COMPLETED!** 🎉
 All tickets have been properly classified, prioritized, routed to the appropriate teams, and have draft responses ready for team review! 🎊
 ```
 
-###  Comparing Results
+###  Comparing Results
 
 With compaction enabled, we can see a clear differece between the two runs in token savings, while preserving the quality of the workflow and final summary.
 
@@ -745,8 +721,6 @@ Here's what changed with automatic context compaction:
 5. **Natural workflow** - This mirrors how real support agents work: resolve a ticket, document it briefly in the system, close it, move to the next one. You don't keep every knowledge base article and full response draft open while working on new tickets.
 
 Let's visualize the token savings:
-
-
 
 # Compare baseline vs compaction
 
@@ -786,8 +760,6 @@ savings\_percent = (
 
 print(f"\n💰 Token Savings: {token\_savings:,} tokens ({savings\_percent:.1f}% reduction)")
 
-
-
 ```
 ======================================================================
 TOKEN USAGE COMPARISON
@@ -803,7 +775,7 @@ Compactions:                                   N/A                   2
 💰 Token Savings: 122,392 tokens (58.6% reduction)
 ```
 
-##  How Compaction Works Under the Hood
+##  How Compaction Works Under the Hood
 
 When the `tool_runner` detects that token usage has exceeded the threshold, it automatically:
 
@@ -817,15 +789,13 @@ When the `tool_runner` detects that token usage has exceeded the threshold, it a
 4. **Clears history** - The entire conversation history (including all tool results) is replaced with just the summary
 5. **Resumes processing** - Claude continues working with the compressed context, processing the next batch of tickets
 
-##  Customizing Compaction Configuration
+##  Customizing Compaction Configuration
 
 You can customize how compaction works to fit your specific use case. Here are the key configuration options:
 
-###  Adjusting the Threshold
+###  Adjusting the Threshold
 
 The `context_token_threshold` determines when compaction triggers:
-
-
 
 compaction\_control={
 
@@ -855,11 +825,9 @@ Here some general guidelines:
 
 **For ticket processing**: The 5k threshold works well because each ticket's workflow generates substantial tool results, but tickets are independent. After resolving Ticket A, you don't need its detailed KB searches when processing Ticket B.
 
-###  Using a Different Model for Summarization
+###  Using a Different Model for Summarization
 
 You can also use a faster/cheaper model for generating summaries:
-
-
 
 compaction\_control={
 
@@ -869,7 +837,7 @@ compaction\_control={
 
 }
 
-###  Custom Summary Prompts
+###  Custom Summary Prompts
 
 You can provide a custom prompt to guide how summaries are generated. This is especially useful for customer service workflows where you need to preserve specific types of information.
 
@@ -880,8 +848,6 @@ For example, we could define a custom prompt based on our requirements:
 * **Teams routed to**
 * **Progress status** (tickets completed, tickets remaining)
 * **Next steps** in the workflow
-
-
 
 compaction\_control={
 
@@ -913,7 +879,7 @@ Format with clear sections and wrap in <summary></summary> tags."""
 
 }
 
-##  Compaction Without Tools: Simple Chat Loop
+##  Compaction Without Tools: Simple Chat Loop
 
 While the examples above focus on tool-heavy agentic workflows, context compaction is also valuable for **simple conversational applications** where users drive the conversation.
 
@@ -939,8 +905,6 @@ Without compaction, by turn 50 you're sending the entire conversation history (a
 4. Continue the conversation with compressed context
 
 Let's see how to implement this:
-
-
 
 #!/usr/bin/env python3
 
@@ -1136,8 +1100,6 @@ print(f"Final conversation messages: {messages[-1].get('content')}")
 
 print("\nDemo complete! In a real application, this loop would continue with user input.")
 
-
-
 ```
 Chat with Claude (type 'quit' to exit, or just hit Enter to continue)
 This is a demonstration - try having a conversation and watch compaction trigger
@@ -1146,7 +1108,7 @@ This is a demonstration - try having a conversation and watch compaction trigger
 You: Help me understand how Python decorators work
 ```
 
-###  Understanding the Chat Loop Pattern
+###  Understanding the Chat Loop Pattern
 
 The example above demonstrates manual compaction in a conversational context. Here's how it works:
 
@@ -1183,11 +1145,11 @@ The example above demonstrates manual compaction in a conversational context. He
 
 This pattern gives you full control over when and how compaction happens, making it ideal for conversational applications where the SDK's automatic tool-runner compaction isn't available.
 
-##  Limitations and Considerations
+##  Limitations and Considerations
 
 While automatic context compaction is powerful, there are important limitations to understand:
 
-###  Server-Side Sampling Loops
+###  Server-Side Sampling Loops
 
 **Current Limitation**: Compaction does not work optimally with server-side sampling loops, such as server-side web search tools.
 
@@ -1201,7 +1163,7 @@ This feature works best with:
 * ❌ Server-side Extended Thinking
 * ❌ Server-side web search tools
 
-###  Information Loss
+###  Information Loss
 
 **Trade-off**: Summaries inherently lose some information. While Claude is good at identifying key points, some details will be compressed or omitted.
 
@@ -1218,7 +1180,7 @@ This is usually acceptable, you don't need every KB article and full response te
 * Set higher thresholds for tasks requiring extensive historical context
 * Structure your tasks to be modular (each phase builds on summaries, not raw details)
 
-###  When NOT to Use Compaction
+###  When NOT to Use Compaction
 
 Avoid compaction for:
 
@@ -1227,7 +1189,7 @@ Avoid compaction for:
 3. **Server-side sampling workflows**: As mentioned above, wait for this limitation to be addressed
 4. **Highly iterative refinement**: Tasks where each step critically depends on exact details from all previous steps
 
-###  When TO Use Compaction
+###  When TO Use Compaction
 
 Compaction is ideal for:
 
@@ -1244,11 +1206,11 @@ Compaction is ideal for:
 * Natural compaction points exist (after completing several tickets)
 * The workflow is iterative and sequential
 
-##  Summary
+##  Summary
 
 Automatic context compaction is a powerful feature that enables long-running agentic workflows to exceed typical context limits. In this cookbook, we've explored compaction through a customer service ticket processing workflow.
 
-###  Next Steps
+###  Next Steps
 
 Try implementing compaction in your own workflows:
 

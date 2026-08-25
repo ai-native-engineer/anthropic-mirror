@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/environments/work/stats -->
 
----
-title: Get Queue Statistics
-url: https://platform.claude.com/docs/en/api/typescript/beta/environments/work/stats
----
+# Get Queue Statistics
 
-## Get Queue Statistics
+`client.beta.environments.work.stats(environmentID, params?, options?): BetaSelfHostedWorkQueueStats`
 
-`client.beta.environments.work.stats(stringenvironmentID, WorkStatsParamsparams?, RequestOptionsoptions?): BetaSelfHostedWorkQueueStats`
-
-**get** `/v1/environments/{environment_id}/work/stats`
+**GET** `/v1/environments/{environment_id}/work/stats`
 
 Get statistics about the work queue for an environment.
 
-### Parameters
+## Parameters
 
 - `environmentID: string`
 
@@ -95,7 +90,7 @@ Get statistics about the work queue for an environment.
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaSelfHostedWorkQueueStats`
 
@@ -115,17 +110,19 @@ Get statistics about the work queue for an environment.
 
     Number of work items being processed (polled but not acknowledged)
 
+    default: 0
+
   - `type: "work_queue_stats"`
 
     The type of object
 
-    - `"work_queue_stats"`
+    default: work_queue_stats
 
   - `workers_polling: number | null`
 
     Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -141,7 +138,7 @@ const betaSelfHostedWorkQueueStats = await client.beta.environments.work.stats(
 console.log(betaSelfHostedWorkQueueStats.depth);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

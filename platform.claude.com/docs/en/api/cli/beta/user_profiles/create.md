@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/create -->
 
----
-title: Create User Profile
-url: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/create
----
-
-## Create User Profile
+# Create User Profile
 
 `$ ant beta:user-profiles create`
 
-**post** `/v1/user_profiles`
+**POST** `/v1/user_profiles`
 
 Create User Profile
 
-### Parameters
+## Parameters
 
 - `--access-type: optional "application" or "passthrough"`
 
@@ -23,6 +18,8 @@ Create User Profile
 
   Body param: Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
 
+  minLength: 1, maxLength: 255
+
 - `--metadata: optional map[string]`
 
   Body param: Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
@@ -30,6 +27,8 @@ Create User Profile
 - `--name: optional string`
 
   Body param: Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a resold-to company (`relationship` `resold` / `access_type` `passthrough`), that company's name where known. Maximum 255 characters.
+
+  minLength: 1, maxLength: 255
 
 - `--relationship: optional "external" or "resold" or "internal"`
 
@@ -39,9 +38,9 @@ Create User Profile
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `beta_user_profile: object { id, created_at, metadata, 7 more }`
+- `beta_user_profile: object`
 
   - `id: string`
 
@@ -50,6 +49,8 @@ Create User Profile
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `metadata: map[string]`
 
@@ -73,11 +74,11 @@ Create User Profile
 
     Object type. Always `user_profile`.
 
-    - `"user_profile"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: optional "application" or "passthrough"`
 
@@ -105,14 +106,14 @@ Create User Profile
 
     - `"internal"`
 
-### Example
+## Example
 
-```cli
+```bash
 ant beta:user-profiles create \
   --api-key my-anthropic-api-key
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

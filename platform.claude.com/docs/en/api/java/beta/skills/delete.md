@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/skills/delete -->
 
----
-title: Delete Skill
-url: https://platform.claude.com/docs/en/api/java/beta/skills/delete
----
+# Delete Skill
 
-## Delete Skill
+`SkillDeleteResponse beta().skills().delete(params = SkillDeleteParams.none(), requestOptions = RequestOptions.none())`
 
-`SkillDeleteResponse beta().skills().delete(SkillDeleteParamsparams = SkillDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
-
-**delete** `/v1/skills/{skill_id}`
+**DELETE** `/v1/skills/{skill_id}`
 
 Delete Skill
 
-### Parameters
+## Parameters
 
 - `SkillDeleteParams params`
 
@@ -95,7 +90,7 @@ Delete Skill
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+## Returns
 
 - `class SkillDeleteResponse:`
 
@@ -111,7 +106,7 @@ Delete Skill
 
     For Skills, this is always `"skill_deleted"`.
 
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -132,7 +127,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

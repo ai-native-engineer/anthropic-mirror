@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-prompt-caching -->
 
-#  Prompt caching with the Claude API
+#  Prompt caching with the Claude API
 
 Prompt caching lets you store and reuse context within your prompts, reducing latency by >2x and costs by up to 90% for repetitive tasks.
 
@@ -11,19 +11,13 @@ There are two ways to enable prompt caching:
 
 This cookbook demonstrates both approaches, starting with the simpler automatic method.
 
-##  Setup
-
-
+##  Setup
 
 %pip install --upgrade 'anthropic>=0.83.0' bs4 requests python-dotenv --quiet
-
-
 
 ```
 Note: you may need to restart the kernel to use updated packages.
 ```
-
-
 
 import time
 
@@ -46,8 +40,6 @@ MODEL\_NAME = "claude-sonnet-4-6"
 TIMESTAMP = int(time.time())
 
 Let's fetch the full text of *Pride and Prejudice* (~187k tokens) to use as our large context.
-
-
 
 def fetch\_article\_content(url):
 
@@ -79,8 +71,6 @@ print("First 500 characters:")
 
 print(book\_content[:500])
 
-
-
 ```
 Fetched 737526 characters from the book.
 First 500 characters:
@@ -96,8 +86,6 @@ Title:
 ```
 
 We'll also define a small helper to print usage stats:
-
-
 
 def print\_usage(response, elapsed):
 
@@ -125,7 +113,7 @@ print(f" Cache read tokens: {cache\_read}")
 
 ---
 
-##  Example 1: Automatic caching (single turn)
+##  Example 1: Automatic caching (single turn)
 
 Automatic caching is the easiest way to get started. Add `cache_control={"type": "ephemeral"}` at the **top level** of your `messages.create()` call and the system handles the rest — automatically placing the cache breakpoint on the last cacheable block.
 
@@ -135,9 +123,7 @@ We'll compare three scenarios:
 2. **First cached call** — creates the cache entry (similar timing to baseline)
 3. **Second cached call** — reads from cache (the big speedup)
 
-###  Baseline: no caching
-
-
+###  Baseline: no caching
 
 start = time.time()
 
@@ -175,8 +161,6 @@ print(f"Response: {baseline\_response.content[0].text}")
 
 print\_usage(baseline\_response, baseline\_time)
 
-
-
 ```
 Response: Pride and Prejudice
   Time:                4.89s
@@ -184,11 +168,9 @@ Response: Pride and Prejudice
   Output tokens:       8
 ```
 
-###  First call with automatic caching (cache write)
+###  First call with automatic caching (cache write)
 
 The only change is the top-level `cache_control` parameter. The first call writes to the cache, so timing is similar to the baseline.
-
-
 
 start = time.time()
 
@@ -228,8 +210,6 @@ print(f"Response: {write\_response.content[0].text}")
 
 print\_usage(write\_response, write\_time)
 
-
-
 ```
 Response: Pride and Prejudice
   Time:                4.28s
@@ -238,11 +218,9 @@ Response: Pride and Prejudice
   Cache write tokens:  187361
 ```
 
-###  Second call with automatic caching (cache hit)
+###  Second call with automatic caching (cache hit)
 
 Same request again. This time the cached prefix is reused, so you should see a significant speedup.
-
-
 
 start = time.time()
 
@@ -296,8 +274,6 @@ print(f"Cache hit: {hit\_time:.2f}s")
 
 print(f"Speedup: {baseline\_time / hit\_time:.1f}x")
 
-
-
 ```
 Response: Pride and Prejudice
   Time:                1.48s
@@ -316,7 +292,7 @@ Speedup:        3.3x
 
 ---
 
-##  Example 2: Automatic caching in a multi-turn conversation
+##  Example 2: Automatic caching in a multi-turn conversation
 
 Automatic caching really shines in multi-turn conversations. The cache breakpoint **automatically moves forward** as the conversation grows — you don't need to manage any markers yourself.
 
@@ -325,8 +301,6 @@ Automatic caching really shines in multi-turn conversations. The cache breakpoin
 | Request 1 | System + User:A cached (write) |
 | Request 2 | System + User:A read from cache; Asst:B + User:C written to cache |
 | Request 3 | System through User:C read from cache; Asst:D + User:E written to cache |
-
-
 
 system\_message = f"{TIMESTAMP} <file\_contents> {book\_content} </file\_contents>"
 
@@ -381,8 +355,6 @@ print(f"\nAssistant: {assistant\_reply[:200]}{'...' if len(assistant\_reply) > 2
 print()
 
 print\_usage(response, elapsed)
-
-
 
 ```
 ==================================================
@@ -440,7 +412,7 @@ After the first turn, nearly 100% of input tokens are read from cache on every s
 
 ---
 
-##  Example 3: Explicit cache breakpoints
+##  Example 3: Explicit cache breakpoints
 
 For more control, you can place `cache_control` directly on individual content blocks. This is useful when:
 
@@ -451,8 +423,6 @@ For more control, you can place `cache_control` directly on individual content b
 You can also combine both approaches: use explicit breakpoints for your system prompt while automatic caching handles the conversation.
 
 Below, we place `cache_control` directly on the book content block and manually move the breakpoint forward on each turn.
-
-
 
 class ConversationWithExplicitCaching:
 
@@ -562,8 +532,6 @@ print()
 
 print\_usage(response, elapsed)
 
-
-
 ```
 ==================================================
 Turn 1: What is the title of this novel?
@@ -617,7 +585,7 @@ The most central theme is reflected in the title itself. Both M...
 
 ---
 
-##  Choosing an approach
+##  Choosing an approach
 
 |  | Automatic caching | Explicit breakpoints |
 | --- | --- | --- |
@@ -629,7 +597,7 @@ The most central theme is reflected in the title itself. Both M...
 
 **Start with automatic caching.** It covers the majority of use cases with minimal effort. Switch to explicit breakpoints only when you need fine-grained control.
 
-###  Key details
+###  Key details
 
 * **Minimum cacheable length:** 1,024 tokens for Sonnet; 4,096 tokens for Opus and Haiku 4.5
 * **Cache TTL:** 5 minutes by default (refreshed on each hit). A 1-hour TTL is available at 2x base input price.

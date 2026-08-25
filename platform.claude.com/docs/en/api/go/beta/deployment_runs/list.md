@@ -1,59 +1,64 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/deployment_runs/list -->
 
----
-title: List Deployment Runs
-url: https://platform.claude.com/docs/en/api/go/beta/deployment_runs/list
----
-
-## List Deployment Runs
+# List Deployment Runs
 
 `client.Beta.DeploymentRuns.List(ctx, params) (*PageCursor[BetaManagedAgentsDeploymentRun], error)`
 
-**get** `/v1/deployment_runs`
+**GET** `/v1/deployment_runs`
 
 List Deployment Runs
 
-### Parameters
+## Parameters
 
 - `params BetaDeploymentRunListParams`
 
-  - `CreatedAtGt param.Field[Time]`
+  - `CreatedAtGt param.Field[Time] Optional`
 
     Query param: Return runs created strictly after this time (exclusive).
 
-  - `CreatedAtGte param.Field[Time]`
+    format: date-time
+
+  - `CreatedAtGte param.Field[Time] Optional`
 
     Query param: Return runs created at or after this time (inclusive).
 
-  - `CreatedAtLt param.Field[Time]`
+    format: date-time
+
+  - `CreatedAtLt param.Field[Time] Optional`
 
     Query param: Return runs created strictly before this time (exclusive).
 
-  - `CreatedAtLte param.Field[Time]`
+    format: date-time
+
+  - `CreatedAtLte param.Field[Time] Optional`
 
     Query param: Return runs created at or before this time (inclusive).
 
-  - `DeploymentID param.Field[string]`
+    format: date-time
+
+  - `DeploymentID param.Field[string] Optional`
 
     Query param: Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent deployment_id returns 200 with empty data.
 
-  - `HasError param.Field[bool]`
+  - `HasError param.Field[bool] Optional`
 
     Query param: Filter: true for runs with non-null error, false for runs with non-null session_id. Omit for all.
 
-  - `Limit param.Field[int64]`
+  - `Limit param.Field[int64] Optional`
 
     Query param: Maximum results per page. Default 20, maximum 1000.
 
-  - `Page param.Field[string]`
+    format: int32
+
+  - `Page param.Field[string] Optional`
 
     Query param: Opaque pagination cursor. Pass next_page from the previous response. Invalid or expired cursors return 400.
 
-  - `TriggerType param.Field[BetaManagedAgentsTriggerType]`
+  - `TriggerType param.Field[BetaManagedAgentsTriggerType] Optional`
 
     Query param: Filter runs by what triggered them. Omit to return all runs.
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -129,7 +134,7 @@ List Deployment Runs
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaManagedAgentsDeploymentRun struct{…}`
 
@@ -147,13 +152,15 @@ List Deployment Runs
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
-      - `const BetaManagedAgentsAgentReferenceTypeAgent BetaManagedAgentsAgentReferenceType = "agent"`
-
     - `Version int64`
+
+      format: int32
 
   - `CreatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `DeploymentID string`
 
@@ -173,8 +180,6 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsEnvironmentArchivedRunErrorType`
 
-        - `const BetaManagedAgentsEnvironmentArchivedRunErrorTypeEnvironmentArchivedError BetaManagedAgentsEnvironmentArchivedRunErrorType = "environment_archived_error"`
-
     - `type BetaManagedAgentsAgentArchivedRunError struct{…}`
 
       The deployment's agent was archived.
@@ -184,8 +189,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type BetaManagedAgentsAgentArchivedRunErrorType`
-
-        - `const BetaManagedAgentsAgentArchivedRunErrorTypeAgentArchivedError BetaManagedAgentsAgentArchivedRunErrorType = "agent_archived_error"`
 
     - `type BetaManagedAgentsEnvironmentNotFoundRunError struct{…}`
 
@@ -197,8 +200,6 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsEnvironmentNotFoundRunErrorType`
 
-        - `const BetaManagedAgentsEnvironmentNotFoundRunErrorTypeEnvironmentNotFoundError BetaManagedAgentsEnvironmentNotFoundRunErrorType = "environment_not_found_error"`
-
     - `type BetaManagedAgentsVaultNotFoundRunError struct{…}`
 
       A vault referenced by the deployment no longer exists.
@@ -208,8 +209,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type BetaManagedAgentsVaultNotFoundRunErrorType`
-
-        - `const BetaManagedAgentsVaultNotFoundRunErrorTypeVaultNotFoundError BetaManagedAgentsVaultNotFoundRunErrorType = "vault_not_found_error"`
 
     - `type BetaManagedAgentsVaultArchivedRunError struct{…}`
 
@@ -221,8 +220,6 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsVaultArchivedRunErrorType`
 
-        - `const BetaManagedAgentsVaultArchivedRunErrorTypeVaultArchivedError BetaManagedAgentsVaultArchivedRunErrorType = "vault_archived_error"`
-
     - `type BetaManagedAgentsFileNotFoundRunError struct{…}`
 
       A file resource referenced by the deployment no longer exists.
@@ -232,8 +229,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type BetaManagedAgentsFileNotFoundRunErrorType`
-
-        - `const BetaManagedAgentsFileNotFoundRunErrorTypeFileNotFoundError BetaManagedAgentsFileNotFoundRunErrorType = "file_not_found_error"`
 
     - `type BetaManagedAgentsMemoryStoreArchivedRunError struct{…}`
 
@@ -245,8 +240,6 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsMemoryStoreArchivedRunErrorType`
 
-        - `const BetaManagedAgentsMemoryStoreArchivedRunErrorTypeMemoryStoreArchivedError BetaManagedAgentsMemoryStoreArchivedRunErrorType = "memory_store_archived_error"`
-
     - `type BetaManagedAgentsSkillNotFoundRunError struct{…}`
 
       A skill referenced by the deployment's agent no longer exists.
@@ -256,8 +249,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type BetaManagedAgentsSkillNotFoundRunErrorType`
-
-        - `const BetaManagedAgentsSkillNotFoundRunErrorTypeSkillNotFoundError BetaManagedAgentsSkillNotFoundRunErrorType = "skill_not_found_error"`
 
     - `type BetaManagedAgentsSessionResourceNotFoundRunError struct{…}`
 
@@ -269,8 +260,6 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsSessionResourceNotFoundRunErrorType`
 
-        - `const BetaManagedAgentsSessionResourceNotFoundRunErrorTypeSessionResourceNotFoundError BetaManagedAgentsSessionResourceNotFoundRunErrorType = "session_resource_not_found_error"`
-
     - `type BetaManagedAgentsWorkspaceArchivedRunError struct{…}`
 
       The deployment's workspace was archived.
@@ -280,8 +269,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type BetaManagedAgentsWorkspaceArchivedRunErrorType`
-
-        - `const BetaManagedAgentsWorkspaceArchivedRunErrorTypeWorkspaceArchivedError BetaManagedAgentsWorkspaceArchivedRunErrorType = "workspace_archived_error"`
 
     - `type BetaManagedAgentsOrganizationDisabledRunError struct{…}`
 
@@ -293,8 +280,6 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsOrganizationDisabledRunErrorType`
 
-        - `const BetaManagedAgentsOrganizationDisabledRunErrorTypeOrganizationDisabledError BetaManagedAgentsOrganizationDisabledRunErrorType = "organization_disabled_error"`
-
     - `type BetaManagedAgentsSessionRateLimitedRunError struct{…}`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
@@ -304,8 +289,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type BetaManagedAgentsSessionRateLimitedRunErrorType`
-
-        - `const BetaManagedAgentsSessionRateLimitedRunErrorTypeSessionRateLimitedError BetaManagedAgentsSessionRateLimitedRunErrorType = "session_rate_limited_error"`
 
     - `type BetaManagedAgentsSessionCreationRejectedRunError struct{…}`
 
@@ -317,8 +300,6 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsSessionCreationRejectedRunErrorType`
 
-        - `const BetaManagedAgentsSessionCreationRejectedRunErrorTypeSessionCreationRejectedError BetaManagedAgentsSessionCreationRejectedRunErrorType = "session_creation_rejected_error"`
-
     - `type BetaManagedAgentsUnknownRunError struct{…}`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
@@ -328,8 +309,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type BetaManagedAgentsUnknownRunErrorType`
-
-        - `const BetaManagedAgentsUnknownRunErrorTypeUnknownError BetaManagedAgentsUnknownRunErrorType = "unknown_error"`
 
     - `type BetaManagedAgentsSelfHostedResourcesUnsupportedRunError struct{…}`
 
@@ -341,8 +320,6 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsSelfHostedResourcesUnsupportedRunErrorType`
 
-        - `const BetaManagedAgentsSelfHostedResourcesUnsupportedRunErrorTypeSelfHostedResourcesUnsupportedError BetaManagedAgentsSelfHostedResourcesUnsupportedRunErrorType = "self_hosted_resources_unsupported_error"`
-
     - `type BetaManagedAgentsMCPEgressBlockedRunError struct{…}`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
@@ -352,8 +329,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type BetaManagedAgentsMCPEgressBlockedRunErrorType`
-
-        - `const BetaManagedAgentsMCPEgressBlockedRunErrorTypeMCPEgressBlockedError BetaManagedAgentsMCPEgressBlockedRunErrorType = "mcp_egress_blocked_error"`
 
   - `SessionID string`
 
@@ -371,9 +346,9 @@ List Deployment Runs
 
         A timestamp in RFC 3339 format
 
-      - `Type BetaManagedAgentsScheduleTriggerContextType`
+        format: date-time
 
-        - `const BetaManagedAgentsScheduleTriggerContextTypeSchedule BetaManagedAgentsScheduleTriggerContextType = "schedule"`
+      - `Type BetaManagedAgentsScheduleTriggerContextType`
 
     - `type BetaManagedAgentsManualTriggerContext struct{…}`
 
@@ -381,13 +356,9 @@ List Deployment Runs
 
       - `Type BetaManagedAgentsManualTriggerContextType`
 
-        - `const BetaManagedAgentsManualTriggerContextTypeManual BetaManagedAgentsManualTriggerContextType = "manual"`
-
   - `Type BetaManagedAgentsDeploymentRunType`
 
-    - `const BetaManagedAgentsDeploymentRunTypeDeploymentRun BetaManagedAgentsDeploymentRunType = "deployment_run"`
-
-### Example
+## Example
 
 ```go
 package main
@@ -412,7 +383,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-wikipedia-wikipedia-search-cookbook -->
 
-#  Iteratively Searching Wikipedia with Claude
+#  Iteratively Searching Wikipedia with Claude
 
 [DISCLAIMER: This notebook was created using Claude 2 models and is considered legacy.]
 
@@ -16,17 +16,13 @@ What is the approach? Broadly it falls under the category of "tool use". We crea
 
 Let's zoom in on the prompts for tool use and retrieval.
 
-###  Prompts
-
-
+###  Prompts
 
 # Tool Description Prompt
 
 wikipedia\_prompt = """You will be asked a question by a human user. You have access to the following tool to help answer the question. <tool\_description> Search Engine Tool \* The search engine will exclusively search over Wikipedia for pages similar to your query. It returns for each page its title and full page content. Use this tool if you want to get up-to-date and comprehensive information on a topic to help answer queries. Queries should be as atomic as possible -- they only need to address one part of the user's question. For example, if the user's query is "what is the color of a basketball?", your search query should be "basketball". Here's another example: if the user's question is "Who created the first neural network?", your first query should be "neural network". As you can see, these queries are quite short. Think keywords, not phrases. \* At any time, you can make a call to the search engine using the following syntax: <search\_query>query\_word</search\_query>. \* You'll then get results back in <search\_result> tags.</tool\_description>"""
 
 print(wikipedia\_prompt)
-
-
 
 ```
 You will be asked a question by a human user. You have access to the following tool to help answer the question. <tool_description> Search Engine Tool * The search engine will exclusively search over Wikipedia for pages similar to your query. It returns for each page its title and full page content. Use this tool if you want to get up-to-date and comprehensive information on a topic to help answer queries. Queries should be as atomic as possible -- they only need to address one part of the user's question. For example, if the user's query is "what is the color of a basketball?", your search query should be "basketball". Here's another example: if the user's question is "Who created the first neural network?", your first query should be "neural network". As you can see, these queries are quite short. Think keywords, not phrases. * At any time, you can make a call to the search engine using the following syntax: <search_query>query_word</search_query>. * You'll then get results back in <search_result> tags.</tool_description>
@@ -36,8 +32,6 @@ Notice that there is a lot of advice in this prompt about how to search Wikipedi
 
 Another difference is that Wikipedia search returns entire pages. With vector search, you might be getting narrower chunks, so you might want to ask for more results, use a more specific query, or both. The big-picture takeaway is that your results can vary a lot on your choices here so pay attention!
 
-
-
 retrieval\_prompt = """Before beginning to research the user's question, first think for a moment inside <scratchpad> tags about what information is necessary for a well-informed answer. If the user's question is complex, you may need to decompose the query into multiple subqueries and execute them individually. Sometimes the search engine will return empty search results, or the search results may not contain the information you need. In such cases, feel free to try again with a different query.
 
 After each call to the Search Engine Tool, reflect briefly inside <search\_quality></search\_quality> tags about whether you now have enough information to answer, or whether more information is needed. If you have all the relevant information, write it in <information></information> tags, WITHOUT actually answering the question. Otherwise, issue a new search.
@@ -45,8 +39,6 @@ After each call to the Search Engine Tool, reflect briefly inside <search\_quali
 Here is the user's question: <question>{query}</question> Remind yourself to make short queries in your scratchpad as you plan out your strategy."""
 
 print(retrieval\_prompt)
-
-
 
 ```
 Before beginning to research the user's question, first think for a moment inside <scratchpad> tags about what information is necessary for a well-informed answer. If the user's question is complex, you may need to decompose the query into multiple subqueries and execute them individually. Sometimes the search engine will return empty search results, or the search results may not contain the information you need. In such cases, feel free to try again with a different query.
@@ -58,13 +50,9 @@ Here is the user's question: <question>{query}</question> Remind yourself to mak
 
 We use a scratchpad here for the normal chain-of-thought reasons -- it makes Claude come up with a coherent plan to answer the question. The search quality reflection is used to induce Claude to be persistent and not jump the gun by answering the question before gathering all the relevant information. But why are we telling Claude to synthesize the information and not answer right away?
 
-
-
 answer\_prompt = "Here is a user query: <query>{query}</query>. Here is some relevant information: <information>{information}</information>. Please answer the question using the relevant information."
 
 print(answer\_prompt)
-
-
 
 ```
 Here is a user query: <query>{query}</query>. Here is some relevant information: <information>{information}</information>. Please answer the question using the relevant information.
@@ -74,9 +62,7 @@ By extracting the information and presenting it to Claude in a new query, we all
 
 Now follows a bunch of code that implements the pseudocode for searching + retrieving + reprompting.
 
-###  Search Implementation
-
-
+###  Search Implementation
 
 import re
 
@@ -194,8 +180,6 @@ displayable\_search\_results = self.wrap\_search\_results(processed\_search\_res
 
 return displayable\_search\_results
 
-
-
 @dataclass
 
 class WikipediaSearchResult(SearchResult):
@@ -275,8 +259,6 @@ title = page.title
 search\_results.append(WikipediaSearchResult(content=content, title=title))
 
 return search\_results
-
-
 
 def extract\_between\_tags(tag: str, string: str, strip: bool = True) -> list[str]:
 
@@ -476,14 +458,12 @@ prompt=prompt, model=model, temperature=temperature, max\_tokens\_to\_sample=100
 
 return answer
 
-###  Running a Query
+###  Running a Query
 
 We're ready to execute a query! Let's pick something:
 
 * recent, so it's less likely to be in Claude's training data, and
 * compound/complex so it requires multiple searches.
-
-
 
 import os
 
@@ -518,8 +498,6 @@ temperature=0,
 )
 
 print(augmented\_response)
-
-
 
 ```
 Starting prompt:
@@ -573,8 +551,6 @@ Assistant:
 
 Cool, Claude was able to make a plan, execute the queries, and synthesize the information into an accurate answer. Note: without the extra information extraction step, Claude would sometimes determine the release dates of the movies correctly but then get the ordering wrong in its final answer. Let's do another.
 
-
-
 augmented\_response = client.completion\_with\_retrieval(
 
 query="Who won the 2023 NBA championship? Who was that team's best player in the year 2009?",
@@ -592,8 +568,6 @@ temperature=0,
 )
 
 print(augmented\_response)
-
-
 
 ```
 Starting prompt:

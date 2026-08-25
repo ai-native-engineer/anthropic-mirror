@@ -1,10 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/skills-notebooks-03-skills-custom-development -->
 
-#  Building Custom Skills for Claude
+#  Building Custom Skills for Claude
 
 Learn how to create, deploy, and manage custom skills to extend Claude's capabilities with your organization's specialized knowledge and workflows.
 
-##  Table of Contents
+##  Table of Contents
 
 1. [Introduction & Setup](#introduction)
 2. [Understanding Custom Skills Architecture](#architecture)
@@ -15,9 +15,9 @@ Learn how to create, deploy, and manage custom skills to extend Claude's capabil
 7. [Best Practices & Production Tips](#best-practices)
 8. [Troubleshooting](#troubleshooting)
 
-##  1. Introduction & Setup
+##  1. Introduction & Setup
 
-###  What are Custom Skills?
+###  What are Custom Skills?
 
 **Custom skills** are specialized expertise packages you create to teach Claude your organization's unique workflows, domain knowledge, and best practices. Unlike Anthropic's pre-built skills (Excel, PowerPoint, PDF), custom skills allow you to:
 
@@ -26,7 +26,7 @@ Learn how to create, deploy, and manage custom skills to extend Claude's capabil
 * **Automate complex workflows** - Chain together multi-step processes
 * **Maintain intellectual property** - Keep proprietary methods secure
 
-###  Key Benefits
+###  Key Benefits
 
 | Benefit | Description |
 | --- | --- |
@@ -35,7 +35,7 @@ Learn how to create, deploy, and manage custom skills to extend Claude's capabil
 | **Composability** | Combine multiple skills for complex tasks |
 | **Privacy** | Your skills remain private to your organization |
 
-###  Prerequisites
+###  Prerequisites
 
 Before starting, ensure you have:
 
@@ -43,11 +43,9 @@ Before starting, ensure you have:
 * An Anthropic API key with Skills beta access
 * Python environment with the local SDK installed
 
-###  Environment Setup
+###  Environment Setup
 
 Let's set up our environment and import necessary libraries:
-
-
 
 import os
 
@@ -131,13 +129,11 @@ print(f"✓ Output directory: {OUTPUT\_DIR}")
 
 print("\n📝 Skills beta header configured for skill management")
 
-##  2. Understanding Custom Skills Architecture
+##  2. Understanding Custom Skills Architecture
 
-###  Skill Structure
+###  Skill Structure
 
 Every custom skill follows this directory structure:
-
-
 
 skill\_name/
 
@@ -164,7 +160,7 @@ skill\_name/
 
 📖 Read our engineering blog post on [Equipping agents for the real world with Skills(opens in new tab)](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
 
-###  Skills Are Not Just Markdown
+###  Skills Are Not Just Markdown
 
 ![Skills Can Include Scripts and Files](https://platform.claude.com/cookbook/images/notebooks/skills-notebooks-03-skills-custom-development/not-just-markdown.png)
 
@@ -175,7 +171,7 @@ Skills can bundle various file types:
 * **Templates**: Pre-built files that can be customized (Excel templates, document templates)
 * **Resources**: Supporting data files, configuration, or assets
 
-###  SKILL.md Requirements
+###  SKILL.md Requirements
 
 The `SKILL.md` file must include:
 
@@ -190,11 +186,9 @@ The `SKILL.md` file must include:
    * Any constraints or rules
    * Recommended: Keep under 5,000 tokens
 
-###  Additional Documentation Files
+###  Additional Documentation Files
 
 You can include multiple markdown files for better organization:
-
-
 
 skill\_name/
 
@@ -210,7 +204,7 @@ skill\_name/
 
 All `.md` files in the root directory will be available to Claude when the skill is loaded.
 
-###  Bundled Files Example
+###  Bundled Files Example
 
 ![Bundled Files in Skills](https://platform.claude.com/cookbook/images/notebooks/skills-notebooks-03-skills-custom-development/skills-bundled-files.png)
 
@@ -220,7 +214,7 @@ This example shows how Skills can bundle multiple files:
 * **slide-decks.md**: Additional documentation for specific use cases
 * **Scripts and resources**: Can be referenced and used during skill execution
 
-###  Progressive Disclosure
+###  Progressive Disclosure
 
 Skills load in three stages to optimize token usage:
 
@@ -230,9 +224,7 @@ Skills load in three stages to optimize token usage:
 | **2. Instructions** | All .md files | <5,000 tokens recommended | When relevant |
 | **3. Resources** | Scripts & files | As needed | During execution |
 
-###  API Workflow
-
-
+###  API Workflow
 
 # 1. Create skill
 
@@ -266,18 +258,16 @@ container={
 
 )
 
-###  Best Practices
+###  Best Practices
 
 For detailed guidance on skill creation and best practices, see:
 
 * [Claude Skills Best Practices(opens in new tab)](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices)
 * [Skills Documentation(opens in new tab)](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)
 
-###  Create Skill Utility Functions
+###  Create Skill Utility Functions
 
 Let's create helper functions for skill management:
-
-
 
 def create\_skill(client: Anthropic, skill\_path: str, display\_title: str) -> dict[str, Any]:
 
@@ -483,11 +473,11 @@ print(" - delete\_skill()")
 
 print(" - test\_skill()")
 
-###  Check Existing Custom Skills
+###  Check Existing Custom Skills
 
 Let's see if any custom skills already exist in your workspace:
 
-###  ⚠️ Important: Clean Up Existing Skills Before Starting
+###  ⚠️ Important: Clean Up Existing Skills Before Starting
 
 If you're re-running this notebook, you may have skills from a previous session. Skills cannot have duplicate display titles, so you have three options:
 
@@ -496,8 +486,6 @@ If you're re-running this notebook, you may have skills from a previous session.
 3. **Update existing skills with new versions** - See [Skill Management & Versioning](#management) section
 
 Let's check for and optionally clean up existing skills:
-
-
 
 # Check for existing skills that might conflict
 
@@ -575,11 +563,11 @@ else:
 
 print("✅ No existing custom skills found. Ready to create new ones!")
 
-##  3. Example 1: Financial Ratio Calculator
+##  3. Example 1: Financial Ratio Calculator
 
 Let's create our first custom skill - a financial ratio calculator that can analyze company financial health.
 
-###  Skill Overview
+###  Skill Overview
 
 The **Financial Ratio Calculator** skill will:
 
@@ -588,11 +576,9 @@ The **Financial Ratio Calculator** skill will:
 * Generate formatted reports
 * Work with various data formats (CSV, JSON, text)
 
-###  Upload the Financial Analyzer Skill
+###  Upload the Financial Analyzer Skill
 
 Now let's upload our financial analyzer skill to Claude:
-
-
 
 # Upload the Financial Analyzer skill
 
@@ -638,11 +624,9 @@ print(
 
 )
 
-###  Test the Financial Analyzer Skill
+###  Test the Financial Analyzer Skill
 
 Let's test the skill with sample financial data:
-
-
 
 # Test the Financial Analyzer skill
 
@@ -698,11 +682,11 @@ else:
 
 print("⚠️ Please upload the Financial Analyzer skill first (run the previous cell)")
 
-##  4. Example 2: Company Brand Guidelines
+##  4. Example 2: Company Brand Guidelines
 
 Now let's create a skill that ensures all documents follow corporate brand standards.
 
-###  Skill Overview
+###  Skill Overview
 
 The **Brand Guidelines** skill will:
 
@@ -710,8 +694,6 @@ The **Brand Guidelines** skill will:
 * Ensure logo placement and usage
 * Maintain professional tone and messaging
 * Work across all document types (Excel, PowerPoint, PDF)
-
-
 
 # Upload the Brand Guidelines skill
 
@@ -749,11 +731,9 @@ else:
 
 print(f"⚠️ Skill directory not found: {brand\_skill\_path}")
 
-###  Test Brand Guidelines with Document Creation
+###  Test Brand Guidelines with Document Creation
 
 Let's test the brand skill by creating a branded PowerPoint presentation:
-
-
 
 # Test Brand Guidelines skill with PowerPoint creation
 
@@ -841,11 +821,11 @@ else:
 
 print("⚠️ Please upload the Brand Guidelines skill first")
 
-##  5. Example 3: Financial Modeling Suite
+##  5. Example 3: Financial Modeling Suite
 
 Let's create our most advanced skill - a comprehensive financial modeling suite for valuation and risk analysis.
 
-###  Skill Overview
+###  Skill Overview
 
 The **Financial Modeling Suite** skill provides:
 
@@ -856,11 +836,9 @@ The **Financial Modeling Suite** skill provides:
 
 This demonstrates a multi-file skill with complex calculations and professional-grade financial modeling.
 
-###  Upload the Financial Modeling Suite
+###  Upload the Financial Modeling Suite
 
 First, upload the financial modeling skill:
-
-
 
 # Upload the Financial Modeling Suite skill
 
@@ -906,11 +884,9 @@ print(
 
 )
 
-###  Test the Financial Modeling Suite
+###  Test the Financial Modeling Suite
 
 Let's test the advanced modeling capabilities with a DCF valuation request:
-
-
 
 # Test the Financial Modeling Suite with a DCF valuation
 
@@ -1046,15 +1022,13 @@ else:
 
 print("⚠️ Please upload the Financial Modeling Suite skill first (run the previous cell)")
 
-##  6. Skill Management & Versioning
+##  6. Skill Management & Versioning
 
 Managing skills over time requires understanding versioning, updates, and lifecycle management.
 
-###  Listing Your Skills
+###  Listing Your Skills
 
 Get an overview of all custom skills in your workspace:
-
-
 
 # List all your custom skills
 
@@ -1086,15 +1060,13 @@ else:
 
 print("No custom skills found in your workspace.")
 
-###  Creating New Versions
+###  Creating New Versions
 
 Skills support versioning to maintain history and enable rollback. Let's make an enhancement to our Financial Analyzer skill and create a new version.
 
-####  Step 1: Enhance the Financial Analyzer
+####  Step 1: Enhance the Financial Analyzer
 
 We'll add **healthcare industry** benchmarks to make our skill more versatile. This is a real-world scenario where you'd expand a skill's capabilities based on user needs.
-
-
 
 # Add healthcare industry benchmarks to the Financial Analyzer
 
@@ -1174,11 +1146,9 @@ else:
 
 print("⚠️ Please upload the Financial Analyzer skill first (run cells in Section 3)")
 
-####  Step 2: Create a New Version
+####  Step 2: Create a New Version
 
 Now that we've enhanced our skill, let's create a new version to track this change:
-
-
 
 # Create a new version of the enhanced Financial Analyzer skill
 
@@ -1242,11 +1212,9 @@ else:
 
 print("⚠️ Please run the previous cells to upload the skill and make enhancements first")
 
-####  Step 3: Test the New Version
+####  Step 3: Test the New Version
 
 Let's verify our enhancement works by analyzing a healthcare company:
-
-
 
 # Test the enhanced skill with healthcare industry data
 
@@ -1322,11 +1290,9 @@ else:
 
 print("⚠️ Please run the previous cells to create the enhanced version first")
 
-###  Cleanup: Managing Your Skills
+###  Cleanup: Managing Your Skills
 
 When you're done testing or need to clean up your workspace, you can selectively remove skills. Let's review what we've created and provide options for cleanup:
-
-
 
 # Comprehensive skill cleanup with detailed reporting
 
@@ -1490,9 +1456,9 @@ print(f"\n💡 Tip: {len(skills\_to\_cleanup)} skill(s) can be cleaned up when y
 
 # review\_and\_cleanup\_skills(client, dry\_run=False)
 
-##  7. Best Practices & Production Tips
+##  7. Best Practices & Production Tips
 
-###  Skill Design Principles
+###  Skill Design Principles
 
 1. **Single Responsibility**: Each skill should focus on one area of expertise
 2. **Clear Documentation**: SKILL.md should be comprehensive yet concise
@@ -1500,9 +1466,7 @@ print(f"\n💡 Tip: {len(skills\_to\_cleanup)} skill(s) can be cleaned up when y
 4. **Version Control**: Use Git to track skill changes
 5. **Testing**: Always test skills before production deployment
 
-###  Directory Structure Best Practices
-
-
+###  Directory Structure Best Practices
 
 custom\_skills/
 
@@ -1522,7 +1486,7 @@ custom\_skills/
 
 │ └── assets/ # Logos, templates
 
-###  Performance Optimization
+###  Performance Optimization
 
 | Strategy | Impact | Implementation |
 | --- | --- | --- |
@@ -1531,7 +1495,7 @@ custom\_skills/
 | **Skill Composition** | Avoid duplication | Combine skills vs. mega-skill |
 | **Caching** | Faster responses | Reuse skill containers |
 
-###  Security Considerations
+###  Security Considerations
 
 * **API Keys**: Never hardcode credentials in skills
 * **Data Privacy**: Don't include sensitive data in skill files
@@ -1539,11 +1503,11 @@ custom\_skills/
 * **Validation**: Sanitize inputs in scripts
 * **Audit Trail**: Log skill usage for compliance
 
-##  Next Steps
+##  Next Steps
 
 🎉 **Congratulations!** You've learned how to create, deploy, and manage custom skills for Claude.
 
-###  What You've Learned
+###  What You've Learned
 
 * ✅ Custom skill architecture and requirements
 * ✅ Creating skills with SKILL.md and Python scripts
@@ -1552,14 +1516,14 @@ custom\_skills/
 * ✅ Best practices for production deployment
 * ✅ Troubleshooting common issues
 
-###  Continue Your Journey
+###  Continue Your Journey
 
 1. **Experiment**: Modify the example skills for your use cases
 2. **Build**: Create skills for your organization's workflows
 3. **Optimize**: Monitor token usage and performance
 4. **Share**: Document your skills for team collaboration
 
-###  Resources
+###  Resources
 
 * [Claude API Documentation(opens in new tab)](https://docs.anthropic.com/en/api/messages)
 * [Skills Documentation(opens in new tab)](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)
@@ -1567,7 +1531,7 @@ custom\_skills/
 * [Files API Documentation(opens in new tab)](https://docs.claude.com/en/api/files-content)
 * Example Skills Repository (coming soon)
 
-###  Skill Ideas to Try
+###  Skill Ideas to Try
 
 * 📊 **Data Pipeline**: ETL workflows with validation
 * 📝 **Document Templates**: Contracts, proposals, reports

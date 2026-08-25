@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-tool-search-with-embeddings -->
 
-#  Tool Search with Embeddings: Scaling Claude to Thousands of Tools
+#  Tool Search with Embeddings: Scaling Claude to Thousands of Tools
 
 Building Claude applications with dozens of specialized tools quickly hits a wall: providing all tool definitions upfront consumes your context window, increases latency and costs, and makes it harder for Claude to find the right tool. Beyond ~100 tools, this approach becomes impractical.
 
@@ -14,7 +14,7 @@ Semantic tool search solves this by treating tools as discoverable resources. In
 
 This pattern is used in production by teams managing large tool ecosystems where context efficiency is critical. While we'll demonstrate with a small set of tools for clarity, the same approach scales seamlessly to libraries with hundreds or thousands of tools.
 
-##  Prerequisites
+##  Prerequisites
 
 Before following this guide, ensure you have:
 
@@ -28,19 +28,15 @@ Before following this guide, ensure you have:
 * Python 3.11 or higher
 * Anthropic API key ([get one here(opens in new tab)](https://docs.anthropic.com/claude/reference/getting-started-with-the-api))
 
-##  Setup
+##  Setup
 
 First, install the required dependencies:
-
-
 
 # Note: we use -q to avoid printing too much to stdout
 
 # Use --only-binary to avoid build issues with pythran
 
 %pip install --only-binary :all: -q anthropic sentence-transformers numpy python-dotenv
-
-
 
 ```
 huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
@@ -53,13 +49,9 @@ Note: you may need to restart the kernel to use updated packages.
 
 Ensure your `.env` file contains:
 
-
-
 ANTHROPIC\_API\_KEY=your\_key\_here
 
 Load your environment variables and configure the client:
-
-
 
 import json
 
@@ -101,20 +93,16 @@ embedding\_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 
 print("✓ Clients initialized successfully")
 
-
-
 ```
 Loading SentenceTransformer model...
 ✓ Clients initialized successfully
 ```
 
-##  Define Tool Library
+##  Define Tool Library
 
 Before we can implement semantic search, we need tools to search through. We'll create a library of 8 tools across two categories: Weather and Finance.
 
 In production applications, you might manage hundreds or thousands of tools across your internal APIs, database operations, or third-party integrations. The semantic search approach scales to these larger libraries without modification - we're using a small set here purely for demonstration clarity.
-
-
 
 # Define our tool library with 2 domains
 
@@ -422,13 +410,11 @@ TOOL\_LIBRARY = [
 
 print(f"✓ Defined {len(TOOL\_LIBRARY)} tools in the library")
 
-
-
 ```
 ✓ Defined 8 tools in the library
 ```
 
-##  Create Tool Embeddings
+##  Create Tool Embeddings
 
 Semantic search works by comparing the *meaning* of text, rather than just searching for keywords. To enable this, we need to convert each tool definition into an **embedding vector** that captures its semantic meaning.
 
@@ -441,8 +427,6 @@ We picked this model because it is:
 * **Sufficient for tool search** (you can experiment with larger models for better accuracy)
 
 Let's start by creating a function that converts tool definitions into searchable text:
-
-
 
 def tool\_to\_text(tool: dict[str, Any]) -> str:
 
@@ -492,8 +476,6 @@ print("Sample tool text representation:")
 
 print(sample\_text)
 
-
-
 ```
 Sample tool text representation:
 Tool: get_weather
@@ -502,8 +484,6 @@ Parameters: location (string): The city and state, e.g. San Francisco, CA, unit 
 ```
 
 Now let's create embeddings for all our tools:
-
-
 
 # Create embeddings for all tools
 
@@ -523,8 +503,6 @@ print(f" - {tool\_embeddings.shape[0]} tools")
 
 print(f" - {tool\_embeddings.shape[1]} dimensions per embedding")
 
-
-
 ```
 Creating embeddings for all tools...
 ✓ Created embeddings with shape: (8, 384)
@@ -532,7 +510,7 @@ Creating embeddings for all tools...
   - 384 dimensions per embedding
 ```
 
-##  Implement Tool Search
+##  Implement Tool Search
 
 With our tools embedded as vectors, we can now implement semantic search. If two pieces of text have similar meanings, their embedding vectors will be close together in vector space. We measure this "closeness" using **cosine similarity**.
 
@@ -545,8 +523,6 @@ The search process:
 With semantic search, Claude can search using natural language like "I need to check the weather" or "calculate investment returns" rather than exact tool names.
 
 Let's implement the search function and test it with a sample query:
-
-
 
 def search\_tools(query: str, top\_k: int = 5) -> list[dict[str, Any]]:
 
@@ -608,8 +584,6 @@ score = result["similarity\_score"]
 
 print(f"{i}. {tool\_name} (similarity: {score:.3f})")
 
-
-
 ```
 Search query: 'I need to check the weather'
 
@@ -619,13 +593,11 @@ Top 3 matching tools:
 3. get_air_quality (similarity: 0.401)
 ```
 
-##  Define the tool\_search Tool
+##  Define the tool\_search Tool
 
 Now we'll implement the **meta-tool** that allows Claude to discover other tools on demand. When Claude needs a capability it doesn't have, it searches for it using this `tool_search` tool, receives the tool definitions in the result, and can use those newly discovered tools immediately.
 
 This is the only tool we provide to Claude initially:
-
-
 
 # The tool\_search tool definition
 
@@ -667,15 +639,11 @@ TOOL\_SEARCH\_DEFINITION = {
 
 print("✓ Tool search definition created")
 
-
-
 ```
 ✓ Tool search definition created
 ```
 
 Now let's implement the handler that processes `tool_search` calls from Claude and returns discovered tools:
-
-
 
 def handle\_tool\_search(query: str, top\_k: int = 5) -> list[dict[str, Any]]:
 
@@ -719,8 +687,6 @@ for ref in test\_result:
 
 print(f" {ref}")
 
-
-
 ```
 🔍 Tool search: 'stock market data'
    Found 3 tools:
@@ -734,11 +700,9 @@ Returned 3 tool references:
   {'type': 'tool_reference', 'tool_name': 'calculate_compound_interest'}
 ```
 
-##  Mock Tool Execution
+##  Mock Tool Execution
 
 For this demonstration, we'll create mock responses for tool executions. In a real application, these would call actual APIs or services:
-
-
 
 def mock\_tool\_execution(tool\_name: str, tool\_input: dict[str, Any]) -> str:
 
@@ -1046,13 +1010,11 @@ return json.dumps(
 
 print("✓ Mock tool execution function created")
 
-
-
 ```
 ✓ Mock tool execution function created
 ```
 
-##  Implement Conversation Loop
+##  Implement Conversation Loop
 
 Now let's put it all together! We'll create a conversation loop that handles the complete tool search workflow.
 
@@ -1063,8 +1025,6 @@ Now let's put it all together! We'll create a conversation loop that handles the
 3. Claude can then use the discovered tools immediately
 4. When Claude calls a discovered tool, we execute it (using mock responses for this demo)
 5. The loop continues until Claude has a final answer
-
-
 
 def run\_tool\_search\_conversation(user\_message: str, max\_turns: int = 5) -> None:
 
@@ -1230,13 +1190,11 @@ print(f"\n{'=' \* 80}\n")
 
 print("✓ Conversation loop implemented")
 
-
-
 ```
 ✓ Conversation loop implemented
 ```
 
-##  Example 1: Weather Query
+##  Example 1: Weather Query
 
 Let's test with a simple weather question. Claude should:
 
@@ -1244,11 +1202,7 @@ Let's test with a simple weather question. Claude should:
 2. Receive weather tool definitions in the result
 3. Use one of the discovered tools
 
-
-
 run\_tool\_search\_conversation("What's the weather like in Tokyo?")
-
-
 
 ```
 ================================================================================
@@ -1278,19 +1232,15 @@ It's a pleasant day with comfortable temperatures and some cloud cover!
 ================================================================================
 ```
 
-##  Example 2: Finance Query
+##  Example 2: Finance Query
 
 Let's try a financial calculation query that requires discovering and using finance tools:
-
-
 
 run\_tool\_search\_conversation(
 
 "If I invest $10,000 at 5% annual interest for 10 years with monthly compounding, how much will I have?"
 
 )
-
-
 
 ```
 ================================================================================
@@ -1323,7 +1273,7 @@ The monthly compounding means that interest is calculated and added to your prin
 ================================================================================
 ```
 
-##  Conclusion
+##  Conclusion
 
 In this cookbook, we implemented a client-side tool search system that enables Claude to work with large tool libraries efficiently. We covered:
 
@@ -1331,7 +1281,7 @@ In this cookbook, we implemented a client-side tool search system that enables C
 * **Dynamic tool loading**: Returning tool definitions in tool results using Claude's tool search feature, allowing Claude to discover and immediately use new tools mid-conversation
 * **Context optimization**: Reducing initial context from thousands of tokens (19+ tool definitions) to just the single `tool_search` definition, cutting context usage by 90%+
 
-###  Applying This to Your Projects
+###  Applying This to Your Projects
 
 Consider tool search when:
 
@@ -1340,7 +1290,7 @@ Consider tool search when:
 * You need to support **domain-specific APIs** with hundreds of endpoints (database operations, internal microservices, third-party integrations)
 * **Cost and latency optimization** are priorities for your application
 
-###  Next Steps
+###  Next Steps
 
 To take this implementation further:
 
@@ -1350,7 +1300,7 @@ To take this implementation further:
 4. **Add tool metadata**: Include usage statistics, cost information, or reliability scores in your search ranking
 5. **Implement caching**: Cache frequently used tool definitions to reduce repeated searches
 
-###  Further Reading
+###  Further Reading
 
 * [Claude Tool Use Guide(opens in new tab)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) - Comprehensive guide to building with tools
 * [SentenceTransformers Documentation(opens in new tab)](https://www.sbert.net/) - Learn more about embedding models and semantic search

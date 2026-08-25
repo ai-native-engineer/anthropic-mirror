@@ -1,14 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/capabilities-text-to-sql-guide -->
 
-#  Text to SQL with Claude
+#  Text to SQL with Claude
 
-##  Introduction
+##  Introduction
 
 Text to SQL is a natural language processing task that converts human-readable text queries into structured SQL queries. This lets users interact with databases using natural language.
 
 Claude can understand context, interpret complex queries, and generate accurate SQL statements. This guide focuses on using Claude to build a robust Text to SQL system.
 
-##  Why is Text to SQL Useful?
+##  Why is Text to SQL Useful?
 
 Text to SQL is valuable for several reasons:
 
@@ -17,7 +17,7 @@ Text to SQL is valuable for several reasons:
 3. **Integration**: It enables more intuitive interfaces for database interactions in applications and chatbots.
 4. **Complex Query Generation**: LLMs can generate complex SQL queries involving multiple joins, subqueries, and aggregations, which can be time-consuming for humans to write.
 
-##  What This Guide Covers
+##  What This Guide Covers
 
 This guide will walk you through building a Text to SQL system using LLMs. We'll cover:
 
@@ -29,7 +29,7 @@ This guide will walk you through building a Text to SQL system using LLMs. We'll
 
 By the end of this guide, you'll understand how to implement and refine Text to SQL tasks using Claude, and have a framework for applying these techniques to your own projects.
 
-##  Table of Contents
+##  Table of Contents
 
 1. [Introduction](#introduction)
 2. [Setup](#setup)
@@ -41,21 +41,15 @@ By the end of this guide, you'll understand how to implement and refine Text to 
 8. [Evaluations](#evaluations)
 9. [Further Exploration & Next Steps](#further-exploration--next-steps)
 
-##  Setup
+##  Setup
 
 Let's set up our environment and create a test SQLite database with two tables: `employees` and `departments`. We'll use this database throughout our guide.
 
-
-
 %pip install -q anthropic pandas voyageai matplotlib seaborn
-
-
 
 ```
 Note: you may need to restart the kernel to use updated packages.
 ```
-
-
 
 import os
 
@@ -83,9 +77,7 @@ MODEL\_NAME = "claude-sonnet-4-6"
 
 DATABASE\_PATH = "data/data.db"
 
-###  Create a Test Database
-
-
+###  Create a Test Database
 
 import random
 
@@ -327,8 +319,6 @@ print(f"\n{table.capitalize()} table:")
 
 display(df)
 
-
-
 ```
 Database already exists. Skipping creation and population.
 
@@ -364,15 +354,13 @@ Employees table:
 [200 rows x 6 columns]
 ```
 
-##  Creating a Basic Text to SQL Prompt
+##  Creating a Basic Text to SQL Prompt
 
 Now that we have our database set up, let's create a basic prompt for Text to SQL conversion. A good prompt should include:
 
 1. Clear instructions for what we want the model to do
 2. The user's query
 3. The database's schema, so Claude knows how to translate the user's query
-
-
 
 def get\_schema\_info(db\_path):
 
@@ -412,8 +400,6 @@ schema = get\_schema\_info(DATABASE\_PATH)
 
 print(schema)
 
-
-
 ```
 Table: departments
   - id (INTEGER)
@@ -430,8 +416,6 @@ Table: employees
 ```
 
 Now that we have our schema information, let's create a basic prompt:
-
-
 
 def generate\_prompt(schema, query):
 
@@ -467,8 +451,6 @@ prompt = generate\_prompt(schema, user\_query)
 
 print(prompt)
 
-
-
 ```
 You are an AI assistant that converts natural language queries into SQL.
         Given the following SQL database schema:
@@ -498,8 +480,6 @@ Table: employees
 
 Now let's use this prompt with the Claude API to generate SQL:
 
-
-
 def generate\_sql(prompt):
 
 response = client.messages.create(
@@ -526,8 +506,6 @@ print("Generated SQL:")
 
 print(sql)
 
-
-
 ```
 Generated SQL:
 SELECT e.name
@@ -537,8 +515,6 @@ WHERE d.name = 'Engineering';
 ```
 
 Let's test our generated SQL by running it against our database:
-
-
 
 def run\_sql(sql):
 
@@ -555,8 +531,6 @@ result = run\_sql(sql)
 print("Query result:")
 
 display(result)
-
-
 
 ```
 Query result:
@@ -584,13 +558,11 @@ Query result:
 19    Yannick Harris
 ```
 
-##  Improving the Prompt with Examples
+##  Improving the Prompt with Examples
 
 Our basic prompt works, but we can make it more effective by including examples. This technique, called few-shot learning, helps the model understand the task better by providing concrete examples of input-output pairs.
 
 Let's modify our `generate_prompt` function to include some examples:
-
-
 
 def generate\_prompt\_with\_examples(schema, query):
 
@@ -656,8 +628,6 @@ prompt = generate\_prompt\_with\_examples(schema, user\_query)
 
 print(prompt)
 
-
-
 ```
 You are an AI assistant that converts natural language queries into SQL.
         Given the following SQL database schema:
@@ -705,8 +675,6 @@ Table: employees
 
 Now let's use this improved prompt to generate SQL:
 
-
-
 # Generate SQL using the improved prompt
 
 result = generate\_sql(prompt)
@@ -724,8 +692,6 @@ result = run\_sql(sql)
 print("\nQuery result:")
 
 display(result)
-
-
 
 ```
 Generated SQL:
@@ -765,13 +731,11 @@ By including examples in our prompt, we've given the model a better understandin
 
 In the next section, we'll explore how to handle more complex queries and improve the model's reasoning process using chain-of-thought prompting.
 
-##  Using Chain-of-Thought Prompting
+##  Using Chain-of-Thought Prompting
 
 Chain-of-thought prompting encourages the model to break down complex problems into steps. For Text to SQL tasks, this can help with more complex queries that require multiple operations or careful consideration of the database schema.
 
 Let's modify our prompt to incorporate chain-of-thought reasoning using XML tags:
-
-
 
 def generate\_prompt\_with\_cot(schema, query):
 
@@ -859,8 +823,6 @@ prompt = generate\_prompt\_with\_cot(schema, user\_query)
 
 print(prompt)
 
-
-
 ```
 You are an AI assistant that converts natural language queries into SQL.
     Given the following SQL database schema:
@@ -919,8 +881,6 @@ Table: employees
 
 Now let's use this chain-of-thought prompt with XML tags to generate SQL:
 
-
-
 # Generate SQL using the chain-of-thought prompt
 
 result = generate\_sql(prompt)
@@ -950,8 +910,6 @@ query\_result = run\_sql(sql)
 print("\nQuery result:")
 
 display(query\_result)
-
-
 
 ```
 Raw response from Claude:
@@ -1016,13 +974,11 @@ Query result:
 19      Steve Taylor  2020-01-26
 ```
 
-##  Implementing RAG for Complex Database Schemas
+##  Implementing RAG for Complex Database Schemas
 
 As databases grow larger and more complex, providing the entire schema in each prompt becomes impractical. Retrieval Augmented Generation (RAG) can helps manage this complexity by dynamically retrieving the most relevant schema information based on the user's query.
 
 First, lets build a simple VectorDB class that leverages the embedding models created by VoyageAI:
-
-
 
 import json
 
@@ -1176,8 +1132,6 @@ for result in results:
 
 print(f"Similarity: {result['similarity']}, Metadata: {result['metadata']}")
 
-
-
 ```
 Search results:
 Similarity: 0.7318002364429477, Metadata: {'table': 'employees', 'column': 'salary', 'type': 'REAL'}
@@ -1188,8 +1142,6 @@ Similarity: 0.6666317064533499, Metadata: {'table': 'departments', 'column': 'lo
 ```
 
 Now, let's update our prompt generation function to use RAG:
-
-
 
 def generate\_prompt\_with\_rag(query):
 
@@ -1240,8 +1192,6 @@ query\_result = run\_sql(sql)
 print("\nQuery result:")
 
 display(query\_result)
-
-
 
 ```
 Generated prompt:
@@ -1334,7 +1284,7 @@ Query result:
 9             Sales   136531.167826
 ```
 
-##  Implementing Query Self-Improvement
+##  Implementing Query Self-Improvement
 
 Here, we'll build a self-improvement loop with Claude. This lets Claude execute the SQL it generates, analyze the results or errors, and improve the query if necessary.
 
@@ -1347,8 +1297,6 @@ This technique helps with:
 In practice, you might want to adjust the `max_attempts` value based on your specific use case and performance requirements.
 
 Let's start by creating a function that tries to execute the SQL and provides feedback:
-
-
 
 def execute\_sql\_with\_feedback(sql):
 
@@ -1430,8 +1378,6 @@ else:
 
 print("Failed to generate a valid SQL query.")
 
-
-
 ```
 Attempt 1:
 SQL executed successfully!
@@ -1465,7 +1411,7 @@ Query result:
 
 This self-improvement loop makes our Text to SQL system far more reliable for real-world applications.
 
-##  Evaluations
+##  Evaluations
 
 Evaluating Text to SQL systems isn't always straightforward. A SQL query might be written correctly but not give the right answer, or it might work but not be the best way to get the result. Some queries are simple and easy to generate, while others are very complex.
 
@@ -1479,13 +1425,11 @@ The tests in our framework vary in difficulty and evaluate the system across sev
 4. **Result Correctness**: We execute the generated SQL against a test database and compare the results with expected outcomes. This ensures that the query not only looks correct but also produces the right data.
 5. **Handling Complex Queries**: We test the system's ability to handle increasingly complex queries, including multi-table joins, subqueries, window functions, and complex aggregations.
 
-###  Results
+###  Results
 
 We'll use the code below to visualize our results. You can see that Claude 3.5 Sonnet more consistently passes our assertions using the techniques we covered, but it may incur slightly higher latency, cost, or token usage than Claude 3 Haiku.
 
 You can create and use evaluations like this one to make the appropriate tradeoffs based on your use case.
-
-
 
 import matplotlib.pyplot as plt
 
@@ -1599,7 +1543,7 @@ plt.show()
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-text-to-sql-guide/capabilities-text-to-sql-guide_cell32_out0_3c2ce8b6.png)
 
-###  Running Promptfoo
+###  Running Promptfoo
 
 You can run an evaluation with the command `promptfoo eval`. You can render the eval results via the command `promptfoo view`. Here's a preview of what the results look like:
 
@@ -1607,11 +1551,11 @@ You can run an evaluation with the command `promptfoo eval`. You can render the 
 ![image-5.png](attachment:image-5.png)
 ![image.png](attachment:image.png)
 
-##  Further Exploration & Next Steps
+##  Further Exploration & Next Steps
 
 This guide covers the basics of building a Text-to-SQL system with Claude. Here are some directions to explore that can help improve your solution:
 
-###  Refining Retrieval Performance
+###  Refining Retrieval Performance
 
 As databases grow, it's important to make sure your RAG system finds the most relevant and current information:
 
@@ -1620,13 +1564,11 @@ As databases grow, it's important to make sure your RAG system finds the most re
 3. **Regular updates**: Set up a system to update your vector database when schemas change, keeping it current with your database.
 4. **Context-aware embeddings**: Try embedding table relationships and usage patterns, along with their names, to improve search relevance.
 
-###  Adding More Context to Prompts
+###  Adding More Context to Prompts
 
 Giving Claude more information about your data structure and content in prompts, in addition to database schemas, can help it generate better queries:
 
 1. **Data samples**: Include a few rows of actual data for each relevant table in your prompts. For example:
-
-
 
 <data\_sample>
 

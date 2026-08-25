@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-threat-intel-enrichment-agent -->
 
-#  Threat Intelligence Enrichment Agent
+#  Threat Intelligence Enrichment Agent
 
 Security analysts spend hours manually pivoting across threat intelligence sources — querying VirusTotal for a file hash, checking AbuseIPDB for an IP, cross-referencing MITRE ATT&CK, then synthesizing it all into a report. This cookbook shows how to build a Claude-powered agent that automates that entire workflow.
 
@@ -8,38 +8,30 @@ The agent takes raw Indicators of Compromise (IOCs) — IP addresses, file hashe
 
 This pattern is directly applicable whether you're building threat intelligence features into a security product (ISVs) or automating enrichment workflows for an enterprise SOC.
 
-##  What you'll learn
+##  What you'll learn
 
 * How to design tool schemas that give Claude enough context to choose the right intelligence source
 * How to build an agentic loop that lets Claude chain tool calls based on what it discovers
 * How to prompt for multi-source correlation and MITRE ATT&CK mapping
 * How to convert free-text analysis into structured JSON reports for downstream systems
 
-##  Prerequisites
+##  Prerequisites
 
 * Python 3.10+
 * An Anthropic API key — set it in a `.env` file as `ANTHROPIC_API_KEY=sk-ant-...`
 * Familiarity with [Claude's tool use(opens in new tab)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview) is helpful but not required
 
-##  Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 Install the Anthropic SDK and `python-dotenv`. Create a `.env` file in the same directory as this notebook with your API key:
 
-
-
 ANTHROPIC\_API\_KEY=sk-ant-...
 
-
-
 %pip install anthropic python-dotenv --quiet
-
-
 
 ```
 Note: you may need to restart the kernel to use updated packages.
 ```
-
-
 
 import json
 
@@ -53,11 +45,9 @@ client = anthropic.Anthropic()
 
 MODEL\_NAME = "claude-sonnet-4-6"
 
-##  Step 2: Define threat intelligence tools
+##  Step 2: Define threat intelligence tools
 
 We define four tools that represent common threat intelligence data sources. Each tool has a clear description that helps Claude understand when and why to use it — this is critical for effective agentic behavior. In production, these would wrap real API calls; the schemas stay the same.
-
-
 
 # Define tools for threat intelligence gathering
 
@@ -193,8 +183,6 @@ for tool in tools:
 
 print(f" - {tool['name']}: {tool['description'][:80]}...")
 
-
-
 ```
 Defined 4 threat intelligence tools:
   - lookup_ip_reputation: Query IP reputation database to get geolocation, ISP information, abuse history,...
@@ -203,11 +191,9 @@ Defined 4 threat intelligence tools:
   - get_mitre_techniques: Map observed behaviors, malware families, or attack patterns to the MITRE ATT&CK...
 ```
 
-##  Step 3: Build simulated threat intel backends
+##  Step 3: Build simulated threat intel backends
 
 These functions simulate real threat intelligence APIs. Each returns realistic data structures that mirror what you'd get from services like VirusTotal, AbuseIPDB, or a MITRE ATT&CK lookup. To go to production, replace the body of each function with an API call — the interface stays the same.
-
-
 
 # Simulated threat intelligence data sources
 
@@ -809,17 +795,13 @@ print(
 
 )
 
-
-
 ```
 Simulated threat intel backends ready. In production, replace function bodies with real API calls.
 ```
 
-##  Step 4: Create the agent loop
+##  Step 4: Create the agent loop
 
 This is the core orchestration. We give Claude a system prompt that positions it as a senior threat intelligence analyst, then let it decide which tools to call and in what order. The `while` loop continues as long as Claude wants to call tools — it may call one tool, inspect the results, then decide to call another based on what it found. This multi-turn reasoning is what makes this an agent rather than a simple API wrapper.
-
-
 
 SYSTEM\_PROMPT = """You are a senior threat intelligence analyst. When given an Indicator of Compromise (IOC), you systematically investigate it by:
 
@@ -983,17 +965,13 @@ tool\_calls\_made,
 
 print("Agent loop ready.")
 
-
-
 ```
 Agent loop ready.
 ```
 
-##  Step 5: Run the agent on sample IOCs
+##  Step 5: Run the agent on sample IOCs
 
 Let's test the agent with three different IOC types. Watch the tool call trace — Claude will decide which sources to query and may follow up with additional lookups based on what it finds (e.g., looking up a domain discovered in a hash analysis).
-
-
 
 # Three test cases covering different IOC types
 
@@ -1072,8 +1050,6 @@ print(f"\n--- Agent queried {len(tools\_used)} tool(s) ---")
 print(f"\nAnalysis:\n{analysis}")
 
 print()
-
-
 
 ```
 ======================================================================
@@ -1647,11 +1623,9 @@ The domain name `secure-bankofamerica-login.com` is a textbook **combo-squatting
 > **⚖️ LEGAL NOTE:** This domain constitutes potential criminal trademark infringement, computer fraud, and wire fraud under applicable laws. Organizations with affected customers should engage legal counsel for civil injunction options in addition to standard abuse reporting.
 ```
 
-##  Step 6: Generate structured threat reports
+##  Step 6: Generate structured threat reports
 
 The raw agent analysis is great for a human analyst, but downstream systems (SIEMs, ticketing, SOC dashboards) need structured data. This step takes the agent's free-text analysis and transforms it into a standardized JSON report. In production, you could output STIX 2.1 objects or feed directly into your incident response platform.
-
-
 
 REPORT\_SCHEMA = {
 
@@ -1852,8 +1826,6 @@ print(f"\n--- {result['ioc']} ---")
 print(json.dumps(report, indent=2))
 
 print()
-
-
 
 ```
 ======================================================================
@@ -2139,7 +2111,7 @@ print()
 }
 ```
 
-##  Summary and next steps
+##  Summary and next steps
 
 This cookbook demonstrated how to build a threat intelligence enrichment agent that autonomously investigates IOCs by querying multiple data sources, cross-referencing findings, and producing structured reports. The key patterns you can take away:
 
@@ -2148,7 +2120,7 @@ This cookbook demonstrated how to build a threat intelligence enrichment agent t
 * **Multi-source correlation**: The system prompt encourages Claude to pivot across sources (e.g., hash → contacted IPs → IP reputation → MITRE mapping)
 * **Structured output**: Raw analysis is transformed into machine-readable reports for downstream systems
 
-###  Making this production-ready
+###  Making this production-ready
 
 **Swap in real APIs**: Replace mock functions with calls to VirusTotal, AbuseIPDB, Shodan, GreyNoise, URLhaus, DomainTools, or your organization's internal threat intel feeds. The tool schemas and agent loop stay the same.
 
@@ -2162,7 +2134,7 @@ This cookbook demonstrated how to build a threat intelligence enrichment agent t
 
 **Add confidence calibration**: Weight confidence scores based on source reliability, data freshness, and cross-source corroboration. Sources that agree independently should boost confidence.
 
-###  Further reading
+###  Further reading
 
 * [Building effective agents(opens in new tab)](https://anthropic.com/research/building-effective-agents) — Anthropic's research on agent patterns
 * [Tool use documentation(opens in new tab)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/overview) — Complete guide to Claude's tool-use capabilities

@@ -1,21 +1,16 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/environments/work/heartbeat -->
 
----
-title: Record Heartbeat
-url: https://platform.claude.com/docs/en/api/python/beta/environments/work/heartbeat
----
+# Record Heartbeat
 
-## Record Heartbeat
+`beta.environments.work.heartbeat(work_id, **kwargs)  -> BetaSelfHostedWorkHeartbeatResponse`
 
-`beta.environments.work.heartbeat(strwork_id, WorkHeartbeatParams**kwargs)  -> BetaSelfHostedWorkHeartbeatResponse`
-
-**post** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Record a heartbeat for a work item to maintain the lease.
 
-### Parameters
+## Parameters
 
 - `environment_id: str`
 
@@ -105,7 +100,7 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse: …`
 
@@ -141,9 +136,9 @@ Record a heartbeat for a work item to maintain the lease.
 
     The type of response
 
-    - `"work_heartbeat"`
+    default: work_heartbeat
 
-### Example
+## Example
 
 ```python
 import os
@@ -161,7 +156,7 @@ beta_self_hosted_work_heartbeat_response = client.beta.environments.work.heartbe
 print(beta_self_hosted_work_heartbeat_response.last_heartbeat)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

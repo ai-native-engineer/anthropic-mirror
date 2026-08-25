@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/completions -->
 
----
-title: Completions
-url: https://platform.claude.com/docs/en/api/cli/completions
----
-
 # Completions
 
 ## Create a Text Completion
 
 `$ ant completions create`
 
-**post** `/v1/complete`
+**POST** `/v1/complete`
 
 [Legacy] Create a Text Completion.
 
@@ -26,6 +21,8 @@ Future models and features will not be compatible with Text Completions. See our
   Body param: The maximum number of tokens to generate before stopping.
 
   Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
+
+  minimum: 1
 
 - `--model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
 
@@ -53,7 +50,9 @@ Future models and features will not be compatible with Text Completions. See our
 
   See [prompt validation](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) and our guide to [prompt design](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) for more details.
 
-- `--metadata: optional object { user_id }`
+  minLength: 1
+
+- `--metadata: optional object`
 
   Body param: An object describing metadata about the request.
 
@@ -65,7 +64,13 @@ Future models and features will not be compatible with Text Completions. See our
 
   Human:"`, and may include additional built-in stop sequences in the future. By providing the stop_sequences parameter, you may include additional strings that will cause the model to stop generating.
 
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
 - `--temperature: optional number`
+
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Body param: Amount of randomness injected into the response.
 
@@ -73,7 +78,11 @@ Future models and features will not be compatible with Text Completions. See our
 
   Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
+  maximum: 1, minimum: 0
+
 - `--top-k: optional number`
+
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not accept top_k; any value will be rejected with a 400 error.
 
   Body param: Only sample from the top K options for each subsequent token.
 
@@ -81,7 +90,11 @@ Future models and features will not be compatible with Text Completions. See our
 
   Recommended for advanced use cases only.
 
+  minimum: 0
+
 - `--top-p: optional number`
+
+  **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting top_p. A value >= 0.99 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
   Body param: Use nucleus sampling.
 
@@ -89,13 +102,11 @@ Future models and features will not be compatible with Text Completions. See our
 
   Recommended for advanced use cases only.
 
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
+  maximum: 1, minimum: 0
 
 ### Returns
 
-- `completion: object { id, completion, model, 2 more }`
+- `completion: object`
 
   - `id: string`
 
@@ -188,9 +199,42 @@ Future models and features will not be compatible with Text Completions. See our
 
     For Text Completions, this is always `"completion"`.
 
+- `completion: object`
+
+  - `id: string`
+
+    Unique object identifier.
+
+    The format and length of IDs may change over time.
+
+  - `completion: string`
+
+    The resulting completion up to and excluding the stop sequences.
+
+  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+
+    The model that will complete your prompt.
+
+    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+  - `stop_reason: string`
+
+    The reason that we stopped.
+
+    This may be one the following values:
+
+    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+
+  - `type: "completion"`
+
+    Object type.
+
+    For Text Completions, this is always `"completion"`.
+
 ### Example
 
-```cli
+```bash
 ant completions create \
   --api-key my-anthropic-api-key \
   --max-tokens-to-sample 256 \
@@ -202,7 +246,7 @@ Human: Hello, world!
 Assistant:'
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -214,11 +258,11 @@ Assistant:'
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Completion
 
-- `completion: object { id, completion, model, 2 more }`
+- `completion: object`
 
   - `id: string`
 

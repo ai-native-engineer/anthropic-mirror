@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/memory_stores/list -->
 
----
-title: List memory stores
-url: https://platform.claude.com/docs/en/api/typescript/beta/memory_stores/list
----
+# List memory stores
 
-## List memory stores
+`client.beta.memoryStores.list(params?, options?): PageCursor<BetaManagedAgentsMemoryStore>`
 
-`client.beta.memoryStores.list(MemoryStoreListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryStore>`
-
-**get** `/v1/memory_stores`
+**GET** `/v1/memory_stores`
 
 List memory stores
 
-### Parameters
+## Parameters
 
 - `params: MemoryStoreListParams`
 
@@ -21,9 +16,13 @@ List memory stores
 
     Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
 
+    format: date-time
+
   - `"created_at[lte]"?: string`
 
     Query param: Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
+
+    format: date-time
 
   - `include_archived?: boolean`
 
@@ -32,6 +31,8 @@ List memory stores
   - `limit?: number`
 
     Query param: Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
+
+    format: int32
 
   - `page?: string`
 
@@ -113,7 +114,7 @@ List memory stores
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsMemoryStore`
 
@@ -127,21 +128,25 @@ List memory stores
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
 
-    - `"memory_store"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `archived_at?: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description?: string`
 
@@ -151,7 +156,7 @@ List memory stores
 
     Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -166,7 +171,7 @@ for await (const betaManagedAgentsMemoryStore of client.beta.memoryStores.list()
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

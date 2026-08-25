@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/memory_stores/memories/retrieve -->
 
----
-title: Retrieve a memory
-url: https://platform.claude.com/docs/en/api/ruby/beta/memory_stores/memories/retrieve
----
-
-## Retrieve a memory
+# Retrieve a memory
 
 `beta.memory_stores.memories.retrieve(memory_id, **kwargs) -> BetaManagedAgentsMemory`
 
-**get** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**GET** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Retrieve a memory
 
-### Parameters
+## Parameters
 
 - `memory_store_id: String`
 
@@ -103,7 +98,7 @@ Retrieve a memory
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsMemory`
 
@@ -121,9 +116,13 @@ Retrieve a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_store_id: String`
 
@@ -139,17 +138,17 @@ Retrieve a memory
 
   - `type: :memory`
 
-    - `:memory`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `content: String`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -161,7 +160,7 @@ beta_managed_agents_memory = anthropic.beta.memory_stores.memories.retrieve("mem
 puts(beta_managed_agents_memory)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

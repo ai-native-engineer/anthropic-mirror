@@ -242,6 +242,17 @@ Open in Claude
 
 * **Interactive Web Platform:** [AIScientist.Tools(opens in new tab)](https://aiscientist.tools) - Live tool discovery and execution interface for exploring 700+ scientific tools
 * **Video Demonstrations:** Available on [YouTube(opens in new tab)](https://www.youtube.com/watch?v=fManSJlSs60)
+
+<!-- yt-inline:fManSJlSs60 -->
+[![YouTube fManSJlSs60](https://img.youtube.com/vi/fManSJlSs60/hqdefault.jpg)](https://www.youtube.com/watch?v=fManSJlSs60)
+
+<details>
+<summary>자막: YouTube fManSJlSs60</summary>
+
+_(자막 없음)_
+
+</details>
+
 * **GitHub Repository:** [ToolUniverse on GitHub(opens in new tab)](https://github.com/mims-harvard/ToolUniverse) - Complete source code, documentation, and community with 797+ stars
 
 **Documentation and Tutorials**

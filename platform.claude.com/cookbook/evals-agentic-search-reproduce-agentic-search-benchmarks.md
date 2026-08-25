@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/evals-agentic-search-reproduce-agentic-search-benchmarks -->
 
-#  Reproducing Claude's Agentic Search Benchmark Scores
+#  Reproducing Claude's Agentic Search Benchmark Scores
 
 Claude's [published agentic-search scores(opens in new tab)](https://www.anthropic.com/system-cards) (DeepSearchQA, BrowseComp) **are reproducible on the public Messages API**. The key is harness configuration: a handful of API parameters that don't matter for short conversations become load-bearing once an agent is running 30+ tool calls across hundreds of thousands of tokens.
 
@@ -8,13 +8,13 @@ A common reason third-party evaluations come in lower is harness configuration. 
 
 > **Cost & runtime**: the live cells in this notebook run **3 demo questions** (roughly 5–10 minutes, a few dollars in API spend). Reproducing a full 900-question benchmark takes a few hundred dollars and a couple of hours at moderate concurrency; this notebook does not re-execute the full run.
 
-##  By the end of this cookbook, you'll be able to:
+##  By the end of this cookbook, you'll be able to:
 
 * **Build** an agentic search loop using programmatic tool calling, server-side compaction, and task budgets that reproduces Claude's published agentic-search scores.
 * **Understand** why each configuration choice matters for long-horizon agentic tasks.
 * **Adapt** the same harness to BrowseComp, or your own deep-research benchmark, by swapping the dataset, a few config lines, and the grader.
 
-##  Prerequisites
+##  Prerequisites
 
 **Required knowledge**
 
@@ -32,15 +32,11 @@ A common reason third-party evaluations come in lower is harness configuration. 
 * The [Programmatic Tool Calling cookbook(opens in new tab)](https://platform.claude.com/cookbook/tool-use-programmatic-tool-calling-ptc), which introduces the pattern we use here
 * The [Automatic Context Compaction cookbook(opens in new tab)](https://platform.claude.com/cookbook/tool-use-automatic-context-compaction), which we lean on heavily
 
-##  Setup
-
-
+##  Setup
 
 %%capture
 
 %pip install -U "anthropic>=0.111.0" pandas python-dotenv
-
-
 
 import time
 
@@ -88,11 +84,9 @@ timeout=anthropic.Timeout(5.0, read=3600.0, write=600.0, pool=600.0),
 
 )
 
-##  The task
+##  The task
 
 Here are three demo questions in the DeepSearchQA format. Each is answerable, but only after several rounds of searching, reading, and cross-referencing:
-
-
 
 for q in SAMPLE\_QUESTIONS:
 
@@ -101,8 +95,6 @@ print(f"[{q['example\_id']}] ({q['answer\_type']})")
 print(f" Q: {q['problem']}")
 
 print(f" A: {q['answer']}\n")
-
-
 
 ```
 [demo-0] (Single Answer)
@@ -120,11 +112,7 @@ print(f" A: {q['answer']}\n")
 
 We wrap each question in a short prompt that asks Claude to plan freely and put its final answer in `<result>` tags so the grader can extract it cleanly:
 
-
-
 print(USER\_PROMPT\_TEMPLATE.format(question=SAMPLE\_QUESTIONS[0]["problem"]))
-
-
 
 ```
 I want you to answer the following question.
@@ -140,7 +128,7 @@ The model needs to plan, search the web, fetch and read pages, run calculations,
 
 > The three questions above are written for this cookbook (not drawn from DeepSearchQA-900) to keep the live cells fast and cheap. For the real benchmarks, see *Datasets* below.
 
-###  Datasets
+###  Datasets
 
 | Benchmark | Size | Where to get it |
 | --- | --- | --- |
@@ -149,15 +137,13 @@ The model needs to plan, search the web, fetch and read pages, run calculations,
 
 The harness expects each row to have `problem`, `answer`, and `answer_type` fields; map the source schema accordingly when you load it.
 
-##  1. Tools: programmatic tool calling
+##  1. Tools: programmatic tool calling
 
 The single biggest efficiency lever is **[programmatic tool calling(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling)** (PTC): instead of Claude calling `web_search` and `web_fetch` directly and round-tripping each result through the API, Claude writes Python in a `code_execution` sandbox and calls search/fetch *from inside that code*. Only the code's printed summary returns to the conversation.
 
 For deep research this is essential. A single question can issue 50+ fetches. Without PTC every one of those page bodies lands in context; with PTC the model reads them in-sandbox and surfaces only what it needs.
 
 We enable it by listing `code_execution` as the only directly-callable tool, and marking `web_search`/`web_fetch` as callable *from* code execution with their results excluded from the response:
-
-
 
 TOOLS = [
 
@@ -214,11 +200,9 @@ Two details worth calling out:
 * **`code_execution_20260521`** uses a tool prompt that discloses the sandbox's per-cell wall-clock limit, so Claude breaks long-running searches into shorter cells instead of writing one big loop that times out.
 * **`response_inclusion: "excluded"`** keeps `web_search` and `web_fetch` results inside the sandbox; everything else in the response (`thinking`, `text`, `server_tool_use`, code-execution results, `compaction`) round-trips with `model_dump()` in §3.
 
-##  2. Thinking, effort, budget, and compaction
+##  2. Thinking, effort, budget, and compaction
 
 Four request-level parameters tell Claude *how hard to work* and *how to manage its own context*:
-
-
 
 THINKING = {"type": "adaptive"}
 
@@ -272,7 +256,7 @@ CONTEXT\_MANAGEMENT = {
 
 }
 
-###  Why `COMPACT_INSTRUCTIONS` matters so much
+###  Why `COMPACT_INSTRUCTIONS` matters so much
 
 When the conversation reaches the trigger threshold, the API compacts it: a separate model call summarizes the history and the agent continues from the summary. The default summarization prompt is task-agnostic by design; it doesn't know that *for a benchmark*, the original question and the answer-format instruction are the two things that absolutely must survive. [Custom `instructions`(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/compaction#custom-summarization-instructions) are how you tell it.
 
@@ -290,13 +274,11 @@ The other three:
 | `effort` | The model card numbers are reported at the model's highest effort tier |
 | `task_budget.total` | Tells Claude its cumulative output budget across all turns and compactions, so it can pace itself instead of giving up early |
 
-##  3. The round-trip loop
+##  3. The round-trip loop
 
 With server-side tools, each API call can run many tool iterations internally, then return with `stop_reason="pause_turn"` to checkpoint. Our job on the client is just: take the response content, append it as an assistant turn, and call again. We keep going until `stop_reason="end_turn"`.
 
 One helper keeps the request body tidy across turns:
-
-
 
 def truncate\_to\_last\_compaction(messages: list[dict]) -> list[dict]:
 
@@ -333,8 +315,6 @@ return [messages[0], trimmed, \*messages[mi + 1 :]]
 return messages
 
 Now the loop itself. It's a single function, long but with every line doing something a real benchmark run needs:
-
-
 
 def sample(question: str, \*, max\_turns: int = 100) -> dict:
 
@@ -476,7 +456,7 @@ raise RuntimeError(f"unexpected stop\_reason={response.stop\_reason}")
 
 raise RuntimeError(f"did not finish within {max\_turns} turns")
 
-###  Retries
+###  Retries
 
 The SDK [retries automatically(opens in new tab)](https://platform.claude.com/docs/en/api/sdks/python#retries) on connection errors, `408`, `409`, `429`, and `≥500` responses with exponential backoff, and honors the `Retry-After` header the API sends on rate-limit responses. The default is 2 retries; for a full benchmark run we set `max_retries=20` on the client (in *Setup* above) so a brief overload mid-run doesn't score a question as zero.
 
@@ -484,11 +464,9 @@ The SDK [retries automatically(opens in new tab)](https://platform.claude.com/do
 >
 > Similarly, wrap each per-question `sample()` call in a `try/except` so a single `stop_reason="refusal"` or unrecoverable error scores that question as zero instead of aborting the whole run.
 
-##  4. Run one question end-to-end
+##  4. Run one question end-to-end
 
 Let's run the first question. Expect this cell to take a minute or two: behind that single `stream()` call, Claude is writing and executing search code several times.
-
-
 
 result = sample(SAMPLE\_QUESTIONS[0]["problem"])
 
@@ -506,8 +484,6 @@ print()
 
 print("Final <result>:", result["result"])
 
-
-
 ```
 tool_calls=4  elapsed=56s
 tokens: in=130  out=3,842  cache_read=39,703
@@ -517,13 +493,9 @@ Final <result>: **Jamie Dimon**, CEO of **JPMorgan Chase**, had held his CEO pos
 
 The transcript shows the shape of the work. Each turn is a `pause_turn` checkpoint after a batch of in-sandbox tool calls:
 
-
-
 for line in result["transcript"]:
 
 print(line + "\n")
-
-
 
 ```
 --- turn 0 ---
@@ -555,7 +527,7 @@ print(line + "\n")
   usage: in=130 out=3,842 cache_read=39,703 stop=end_turn
 ```
 
-##  5. Grading
+##  5. Grading
 
 Benchmark scoring uses a model-as-judge F1 grader. The grader sees the question, the gold answer, and the extracted `<result>` text, then reports which gold items were found and which extra items appeared that aren't in the gold set. From that we compute precision, recall, and F1.
 
@@ -565,8 +537,6 @@ Two things to get right:
 * **Hold the grader model fixed.** We use `GRADER_MODEL = "claude-opus-4-6"` regardless of `MODEL`. Grading with the model under test makes scores incomparable across models.
 
 The grader prompt is straightforward:
-
-
 
 Your task is to evaluate whether a given response arrived at the correct answer.
 
@@ -604,8 +574,6 @@ Reply in this exact XML format:
 
 Parsing and the precision/recall/F1 arithmetic live in [`utils/agentic_search.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/evals/agentic_search/utils/agentic_search.py); here we just call it:
 
-
-
 grade = grade\_response(client, GRADER\_MODEL, SAMPLE\_QUESTIONS[0], result["text"])
 
 print(f"answer : {grade['extracted\_answer']}")
@@ -616,8 +584,6 @@ print(f"recall : {grade['recall']:.2f}")
 
 print(f"F1 : {grade['f1']:.2f}")
 
-
-
 ```
 answer    : **Jamie Dimon**, CEO of **JPMorgan Chase**, had held his CEO position the longest among the chief executives of the four largest US banks by total assets (JPMorgan Chase, Bank of America, Citigroup, and Wells Fargo) as of Q1 2024. Dimon became JPMorgan Chase's CEO on January 1, 2006 — roughly 18 years by Q1 2024 — compared to Brian Moynihan (Bank of America CEO since January 2010), Charles Scharf (Wells Fargo CEO since October 2019), and Jane Fraser (Citigroup CEO since March 2021).
 precision : 1.00
@@ -625,11 +591,9 @@ recall    : 1.00
 F1        : 1.00
 ```
 
-##  6. Run the demo set
+##  6. Run the demo set
 
 Now all three questions, with usage and F1 in a comparison table. (To run the full 900-question benchmark, replace `SAMPLE_QUESTIONS` with the full dataset and add concurrency; see *Next steps*.)
-
-
 
 rows = []
 
@@ -671,8 +635,6 @@ print(f"\nMean F1: {df['f1'].mean():.2f}")
 
 print(f"Total tokens: {df['in\_tokens'].sum():,} in / {df['out\_tokens'].sum():,} out")
 
-
-
 ```
 id  tool_calls  in_tokens  out_tokens  f1                                                        answer
 demo-0          11        312       10503 1.0  **Jamie Dimon**, CEO of **JPMorgan Chase** (the largest US b
@@ -683,15 +645,13 @@ Mean F1: 1.00
 Total tokens: 624 in / 21,863 out
 ```
 
-##  7. Scaling to the full benchmark
+##  7. Scaling to the full benchmark
 
 Running this notebook's configuration over the full DeepSearchQA-900 and BrowseComp-1266 sets reproduces the published model-card scores. For published agentic-search scores across models, see the per-model [Claude model cards(opens in new tab)](https://www.anthropic.com/system-cards).
 
-##  8. Adapting to BrowseComp
+##  8. Adapting to BrowseComp
 
 BrowseComp questions are single-answer ("Which 1995 film…") rather than set-valued, so the only harness change is the grader:
-
-
 
 from utils.agentic\_search import grade\_browsecomp
 
@@ -703,8 +663,6 @@ bc\_grade = grade\_browsecomp(client, GRADER\_MODEL, SAMPLE\_QUESTIONS[0], resul
 
 print(bc\_grade)
 
-
-
 ```
 {'example_id': 'demo-0', 'extracted_answer': "**Jamie Dimon**, CEO of **JPMorgan Chase**, had held his CEO position the longest among the chief executives of the four largest US banks by total assets (JPMorgan Chase, Bank of America, Citigroup, and Wells Fargo) as of Q1 2024. Dimon became JPMorgan Chase's CEO on January 1, 2006 — roughly 18 years by Q1 2024 — compared to Brian Moynihan (Bank of America CEO since January 2010), Charles Scharf (Wells Fargo CEO since October 2019), and Jane Fraser (Citigroup CEO since March 2021).", 'grader_letter': 'A', 'accuracy': 1.0}
 ```
@@ -713,7 +671,7 @@ Tools, betas, and the `sample()` loop are unchanged. Check the model card for th
 
 That's the point: once the loop is right, swapping benchmarks is a dataset, a few config lines, and a grader.
 
-##  Recap
+##  Recap
 
 You built an agentic search loop that:
 
@@ -723,7 +681,7 @@ You built an agentic search loop that:
 * Round-trips `pause_turn` responses correctly, persisting the code container and trimming pre-compaction history (§3).
 * Grades with a model-as-judge F1 grader and reproduces the published DeepSearchQA score (§5–7).
 
-##  Next steps
+##  Next steps
 
 * **Scale to the full benchmark**: wrap `sample()` in a `concurrent.futures.ThreadPoolExecutor` (the client is thread-safe); the SDK's built-in retry already covers 429/529. At concurrency 50, DeepSearchQA-900 finishes in roughly 2 hours.
 * **Try the multi-agent variant**: the [Async Multi-Agent Orchestration cookbook(opens in new tab)](https://platform.claude.com/cookbook/patterns-agents-async-multi-agent-orchestration) shows how an N-agent team can exceed this single-agent loop's accuracy at lower latency.

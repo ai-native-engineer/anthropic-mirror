@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/environments/retrieve -->
 
----
-title: Get Environment
-url: https://platform.claude.com/docs/en/api/php/beta/environments/retrieve
----
-
-## Get Environment
+# Get Environment
 
 `$client->beta->environments->retrieve(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironment`
 
-**get** `/v1/environments/{environment_id}`
+**GET** `/v1/environments/{environment_id}`
 
 Retrieve a specific environment by ID.
 
-### Parameters
+## Parameters
 
 - `environmentID: string`
 
@@ -21,7 +16,7 @@ Retrieve a specific environment by ID.
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaEnvironment`
 
@@ -65,7 +60,7 @@ Retrieve a specific environment by ID.
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -82,7 +77,7 @@ $betaEnvironment = $client->beta->environments->retrieve(
 var_dump($betaEnvironment);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

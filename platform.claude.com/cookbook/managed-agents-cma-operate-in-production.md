@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-operate-in-production -->
 
-#  Operate: running Managed Agents in production
+#  Operate: running Managed Agents in production
 
 Most of the other Managed Agents cookbooks focus on the agent loop itself, getting an agent to do something useful against a fixture. This one is about the machinery around that loop, the pieces you need before you can put a Managed Agents app in front of real users:
 
@@ -13,8 +13,6 @@ Most of the other Managed Agents cookbooks focus on the agent loop itself, getti
 We'll build one end-to-end flow that touches the first four, then close with the geography pin: create a vault for a fictional end user, attach a GitHub MCP credential to it, run an agent session that uses the credential server-side, show the webhook handler you'd register to drive the same session from a real production server, and walk through the management verbs you'd use to clean up afterwards.
 
 This notebook needs `GITHUB_TOKEN` in your environment.
-
-
 
 import os
 
@@ -32,7 +30,7 @@ if not GH\_TOKEN:
 
 raise SystemExit("Set GITHUB\_TOKEN to run this notebook.")
 
-##  Concepts: MCP toolsets and vaults
+##  Concepts: MCP toolsets and vaults
 
 **MCP toolsets** are the third extension pattern, after custom tools (the gate notebook) and `resources=` mounts (the orchestrate notebook). An MCP toolset points the agent at an external server that implements the [Model Context Protocol(opens in new tab)](https://modelcontextprotocol.io/). The agent calls tools on that server directly from inside the sandbox, with no round-trip through your application, Anthropic proxies the calls, the server responds, and the agent keeps going. The vast majority of public SaaS APIs (GitHub, Slack, Linear, Stripe, Notion, Salesforce, Asana...) either already have an MCP server or can be wrapped in one in an afternoon, and any of them are good MCP candidates.
 
@@ -40,11 +38,9 @@ Rule of thumb: if the service is reachable over the public internet with a beare
 
 **Vaults** are the answer to the question "where do I put the tokens?" Hard-coding a single token at session creation time works for a one-tenant setup, but it falls apart the moment you have end users. Each user needs their own GitHub credential, and you need to keep them isolated from each other. A vault is a per-user container of credentials that you register once and then reference by ID on every session you create for that user. You don't run your own secret store, you don't pass tokens on every request, and the audit trail is tied to the vault so you always know which end user an agent was acting for.
 
-##  1. Create a vault for an end user
+##  1. Create a vault for an end user
 
 A vault has a `display_name` that shows up in the Console and a `metadata` dict where you'd typically store your internal user ID, so you can map the vault back to a record in your own database.
-
-
 
 vault = client.beta.vaults.create(
 
@@ -56,11 +52,9 @@ metadata={"internal\_user\_id": "u\_demo\_001", "team": "engineering"},
 
 print(f"vault: {vault.id}")
 
-##  2. Attach an MCP credential
+##  2. Attach an MCP credential
 
 Credentials live under a vault. Each credential pairs an MCP server URL with a token the agent uses when calling that server. For the GitHub Copilot MCP server, a static bearer token (your GitHub PAT) is the simplest form. The API also supports a full OAuth flow with refresh for services that require it, both shapes are handled through `auth=`.
-
-
 
 credential = client.beta.vaults.credentials.create(
 
@@ -82,11 +76,9 @@ auth={
 
 print(f"credential: {credential.id}")
 
-##  3. Reference the vault on a session
+##  3. Reference the vault on a session
 
 Pass `vault_ids=[vault.id]` on `sessions.create` and the API looks up the matching MCP server URL on every tool call. The agent never sees the token itself, and you don't have to pass it on the request. The agent definition just lists the MCP server as usual, the credential wiring happens at session creation time.
-
-
 
 agent = client.beta.agents.create(
 
@@ -154,11 +146,9 @@ title="Operate demo",
 
 print(f"session: {session.id}")
 
-##  4. Run a turn as the end user
+##  4. Run a turn as the end user
 
 Everything the agent does against GitHub now flows through the vault's credential. Auditing in your own systems is straightforward: you know exactly which end user was acting because the vault is tied to them via the metadata you set in step 1.
-
-
 
 client.beta.sessions.events.send(
 
@@ -192,7 +182,7 @@ print("--- vault-backed MCP call ---")
 
 stream\_until\_end\_turn(client, session.id)
 
-##  5. Webhooks for production HITL
+##  5. Webhooks for production HITL
 
 The streaming pattern in the gate notebook is convenient during development because everything happens in one process, but it holds an HTTP connection open while a human reviews, that doesn't scale, and it doesn't survive process restarts. The production pattern instead registers a webhook in the Console that fires on `session.status_idled`, which is the signal that the agent is either done OR waiting on a tool result.
 
@@ -203,8 +193,6 @@ If your sessions run with a `budget` (see [`CMA_cap_session_spend.ipynb`(opens i
 Webhook registration is a one-time Console step under **Settings → Webhooks**. You'll get a `whsec_...` signing secret that is shown only once at creation; store it in your secrets manager.
 
 **The block below is a reference implementation, not a notebook cell.** Copy it into your own server, it depends on FastAPI, which the cookbook doesn't install, and it's not run as part of this notebook's flow. Paired with the agent definition from the gate notebook, it's enough to drive the gate workflow end-to-end from a production server.
-
-
 
 import hmac
 
@@ -304,11 +292,9 @@ events=[{
 
 The code that responds to the agent is identical to the Part A loop in the gate notebook. The only thing that changes is how your server learns there's work to do: instead of a local loop pulling events, webhooks push notifications on your schedule.
 
-##  6. Pin inference geography
+##  6. Pin inference geography
 
 When compliance requires model requests to be served from a specific geography, pin it on the agent rather than relying on the workspace default:
-
-
 
 agent = client.beta.agents.create(
 
@@ -322,13 +308,11 @@ model={"id": MODEL, "inference\_geo": "us"},
 
 Accepted values are `"global"` and `"us"`, bounded by the workspace's `allowed_inference_geos`. Unset, each request resolves to the workspace's `default_inference_geo` at serving time, so a later change to that default reaches sessions already running. Set, the pin is validated when the agent is saved, when a session is created, and on every turn: narrowing the workspace allowlist blocks new sessions from a now-disallowed agent and refuses the next turn of a running one, rather than grandfathering it. That strictness is what makes the pin usable as a residency control. `agent_with_overrides` on `sessions.create` moves a single session to another allowed geography without editing the shared agent. The full walkthrough, including the update semantics that clear the pin, is in [`CMA_pin_inference_geo.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_pin_inference_geo.ipynb).
 
-##  7. Resource lifecycle: list, retrieve, update, archive
+##  7. Resource lifecycle: list, retrieve, update, archive
 
 Every resource in the API, agents, environments, sessions, vaults, credentials, exposes the same five-verb pattern: `list`, `retrieve`, `update`, `archive`, and (for some) `delete`. We'll demonstrate the full set on agents, then list the verbs available on each other resource as a quick reference.
 
 **archive vs delete:** `archive` keeps the record around for audit and retrieval but tears down any live container and stops the resource counting against your workspace quotas. `delete` removes the record entirely. For most workflows `archive` is the right call; reach for `delete` only when you specifically need the record gone (e.g. test cleanup).
-
-
 
 listed = client.beta.agents.list(limit=5)
 
@@ -364,11 +348,9 @@ versions = client.beta.agents.versions.list(agent\_id=agent.id)
 
 print(f"agent has {len(versions.data)} versions")
 
-##  8. Cleanup
+##  8. Cleanup
 
 Credentials and vaults have their own archive endpoints. Archiving a vault does NOT automatically archive its credentials, so do the credentials first if you want a clean sweep.
-
-
 
 wait\_for\_idle\_status(client, session.id)
 
@@ -384,7 +366,7 @@ client.beta.vaults.archive(vault.id)
 
 print("archived")
 
-##  The other cookbooks
+##  The other cookbooks
 
 This notebook is the production-shaped bookend. The workflow notebooks it wraps around are worth running first if you haven't already:
 

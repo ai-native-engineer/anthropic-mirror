@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-session-memory-compaction -->
 
-#  Session Memory Compaction
+#  Session Memory Compaction
 
 Long-running conversations with Claude can exceed context limits, causing loss of important information. Whether you're building a coding assistant, creative writing tool, or customer service agent, managing session memory is critical for maintaining continuity and quality.
 
@@ -8,7 +8,7 @@ This cookbook teaches you how to **proactively manage session memory** to avoid 
 
 **Related:** For automatic SDK-based compaction in agentic workflows, see [Automatic Context Compaction(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/misc/../tool_use/automatic-context-compaction.ipynb). This cookbook focuses on manual control patterns for conversational applications.
 
-##  Learning Objectives
+##  Learning Objectives
 
 By the end of this cookbook, you will be able to:
 
@@ -17,7 +17,7 @@ By the end of this cookbook, you will be able to:
 * Apply prompt caching to reduce the cost of background memory updates by ~80%
 * Choose appropriate compaction strategies (traditional vs. instant) based on your use case
 
-##  Prerequisites and Setup
+##  Prerequisites and Setup
 
 Before following this guide, ensure you have:
 
@@ -32,17 +32,13 @@ Before following this guide, ensure you have:
 * Anthropic API key
 * Anthropic SDK
 
-###  Installation
+###  Installation
 
 First, install the required dependencies:
-
-
 
 %%capture
 
 %pip install -U anthropic python-dotenv
-
-
 
 import anthropic
 
@@ -55,8 +51,6 @@ load\_dotenv()
 client = anthropic.Anthropic()
 
 MODEL = "claude-sonnet-4-6"
-
-
 
 # Helper functions
 
@@ -130,16 +124,12 @@ def estimate\_tokens(text: str) -> int:
 
 return len(text) // 4
 
-
-
 ```
 /root/.pyenv/versions/3.13.11/lib/python3.13/site-packages/coconut/compiler/util.py:676: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in staticmethod() if you want to preserve the old behavior
   return Regex(regex, options)
 /root/.pyenv/versions/3.13.11/lib/python3.13/site-packages/coconut/compiler/util.py:457: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in staticmethod() if you want to preserve the old behavior
   result = add_action(grammar, unpack).parseWithTabs().transformString(text)
 ```
-
-
 
 SESSION\_MEMORY\_PROMPT = """
 
@@ -259,12 +249,10 @@ Always preserve when present:
 
 """
 
-###  Code example using traditional compacting
+###  Code example using traditional compacting
 
 In traditional compaction, you generate one summary once the token threshold is reached.
 Traditional compaction is slow: when you hit the context limit, you wait for a summary.
-
-
 
 TRADITIONAL COMPACTION (slow)
 
@@ -289,8 +277,6 @@ Turn 1 → Turn 2 → Turn 3 → ... → Turn N → CONTEXT FULL!
 ▼
 
 Continue
-
-
 
 import time
 
@@ -440,8 +426,6 @@ print(f"{'-' \* 60}")
 
 self.current\_context\_window\_tokens = approximate\_summary\_tokens
 
-
-
 ```
 /root/.pyenv/versions/3.13.11/lib/python3.13/site-packages/coconut/compiler/util.py:403: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in staticmethod() if you want to preserve the old behavior
   grammar.streamline()
@@ -450,8 +434,6 @@ self.current\_context\_window\_tokens = approximate\_summary\_tokens
 ```
 
 Below we simulate a conversation between an author and an LLM that helps write stories.
-
-
 
 SYSTEM\_PROMPT = """
 
@@ -497,8 +479,6 @@ You are a short story writer who helps authors develop their ideas into compelli
 
 """
 
-
-
 session = TraditionalCompactingChatSession(system\_message=SYSTEM\_PROMPT)
 
 # Simulated conversation
@@ -530,8 +510,6 @@ turn\_count += 1
 print(f"==============================================\nTurn {turn\_count}:\n")
 
 response, usage = session.chat(message)
-
-
 
 ```
 Starting conversation...
@@ -677,11 +655,7 @@ Prompt caching: You'll notice here that the input tokens eventually grew to a po
 
 On the next turn, we are going to hit our 10K context window limit, which triggers compaction:
 
-
-
 response, usage = session.chat("Propose a title for the book")
-
-
 
 ```
 🧹 Context window at 12847 tokens. Limit exceeded, compacting session memory...
@@ -719,11 +693,7 @@ You'll notice here that it took **over 40 seconds** for the agent to compact the
 
 Below you can see the result of the compaction. It captures the key elements of conversation in less than 2K tokens.
 
-
-
 print(session.summary)
-
-
 
 ```
 ## User Intent
@@ -797,7 +767,7 @@ Draft chapters 3-16 and epilogue per approved outline.
 **Pequawket contract terms**: Mineral rights in perpetuity + 15% of all property values/business revenues from specified parcel
 ```
 
-##  Instant Compaction
+##  Instant Compaction
 
 With **Instant compaction** the session memory is PROACTIVELY generated once a soft token threshold is reached.
 
@@ -806,8 +776,6 @@ Once the user triggers a compaction or a hard limit is reached, the summary is a
 Result: Instant compaction, no waiting.
 
 SESSION MEMORY COMPACTION (instant)
-
-
 
 ────────────────────────────────────
 
@@ -849,8 +817,6 @@ This `InstantCompactingChatSession` class uses **threading** for background exec
 2. **Thread-safe state** - uses `threading.Lock` to safely update shared memory
 3. **Daemon threads** - background work doesn't prevent program exit
 4. **Instant compaction** - when context is full, just swap in the pre-built memory
-
-
 
 import threading
 
@@ -1210,8 +1176,6 @@ print(" Session memory was pre-built (no wait time!)")
 
 print(f"{'=' \* 60}")
 
-
-
 ```
 /root/.pyenv/versions/3.13.11/lib/python3.13/site-packages/coconut/compiler/util.py:403: FutureWarning: functools.partial will be a method descriptor in future Python versions; wrap it in staticmethod() if you want to preserve the old behavior
   grammar.streamline()
@@ -1219,9 +1183,7 @@ print(f"{'=' \* 60}")
   result = add_action(grammar, unpack).parseWithTabs().transformString(text)
 ```
 
-###  Example use of Instant Compaction
-
-
+###  Example use of Instant Compaction
 
 # Low thresholds for demo - in production you'd use higher values
 
@@ -1298,8 +1260,6 @@ print(f"\n [Background] Proactively {background\_status} session memory...")
 print(f" Context window: {session.current\_context\_window\_tokens:,} tokens")
 
 print()
-
-
 
 ```
 Starting conversation with instant compacting chat session...
@@ -1409,8 +1369,6 @@ Token Usage:
   Context window: 13,414 tokens
 ```
 
-
-
 message = "What did we just talk about? Give me one sentence"
 
 response, usage, background\_status = session.chat(message)
@@ -1443,8 +1401,6 @@ cache\_pct = (cache\_read / total\_input) \* 100
 
 print(f" ✓ Cache hit! {cache\_pct:.0f}% of input from cache")
 
-
-
 ```
 ============================================================
 ⚡ INSTANT COMPACTION! Messages: 12 → 3
@@ -1464,15 +1420,13 @@ Token Usage:
 
 You'll notice here that once we hit the context limit, the session memory was instantaly swapped in, meaning the user had zero waiting time for a response!
 
-##  Advanced: Understanding Prompt Caching
+##  Advanced: Understanding Prompt Caching
 
 The background updates can be made **~10x cheaper** by using prompt caching. The trick:
 
 1. Pass the **full conversation** to the background summarizer
 2. Add `cache_control` markers so subsequent requests hit the cache
 3. Only the new "summarize this" instruction is billed at full price
-
-
 
 ┌─────────────────────────────────────────────────────────────────────────────────┐
 
@@ -1594,7 +1548,7 @@ The background updates can be made **~10x cheaper** by using prompt caching. The
 
 ◆ = cache\_control breakpoint (cache everything before this point)
 
-###  Why this matters for compaction
+###  Why this matters for compaction
 
 | Scenario | Cost per background update | Notes |
 | --- | --- | --- |
@@ -1604,11 +1558,9 @@ The background updates can be made **~10x cheaper** by using prompt caching. The
 
 The longer the conversation, the bigger the savings—exactly when you need compaction most!
 
-###  How the Caching Works
+###  How the Caching Works
 
 The key is in `_add_cache_control()` and `_create_session_memory_cached()`:
-
-
 
 # 1. Mark the last conversation message with cache\_control
 
@@ -1653,11 +1605,11 @@ system=[{
 * With caching: 500 new tokens × 3.00/1M+4,500cached×3.00/1M + 4,500 cached × 3.00/1M+4,500cached×0.30/1M = $0.00285
 * **Savings: ~80%** on background summarization costs
 
-##  Conclusion
+##  Conclusion
 
 In this cookbook, you learned how to manage long-running Claude conversations through session memory compaction.
 
-###  What We Covered
+###  What We Covered
 
 ✅ **Effective compaction prompts** - Structure your session memory to preserve user intent, completed work, errors, active work, and key references while discarding filler
 
@@ -1667,14 +1619,14 @@ In this cookbook, you learned how to manage long-running Claude conversations th
 
 ✅ **Traditional vs. instant patterns** - Understand when to use each approach based on your application needs
 
-###  Key Takeaways
+###  Key Takeaways
 
 1. **Weight recency heavily** - The end of a conversation is the active working context
 2. **Preserve user corrections verbatim** - Prevents the model from reverting to old behaviors
 3. **Build memory proactively** - Don't wait for context limits; start background updates early
 4. **Leverage prompt caching** - Background summarization can share cache with the main conversation
 
-###  Next Steps
+###  Next Steps
 
 * **For agentic workflows**: See [Automatic Context Compaction(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/misc/../tool_use/automatic-context-compaction.ipynb) for SDK-based automatic compaction with tool use
 * **For production**: Consider persisting session memory to disk rather than keeping it in memory

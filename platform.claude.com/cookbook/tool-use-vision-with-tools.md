@@ -1,18 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-vision-with-tools -->
 
-#  Using Vision with Tools
+#  Using Vision with Tools
 
 In this recipe, we'll demonstrate how to combine Vision with tool use to analyze an image of a nutrition label and extract structured nutrition information using a custom tool.
 
-##  Setup
+##  Setup
 
 First, let's install the necessary libraries and set up the Claude API client:
 
-
-
 %pip install anthropic IPython
-
-
 
 import base64
 
@@ -24,11 +20,9 @@ client = Anthropic()
 
 MODEL\_NAME = "claude-opus-4-1"
 
-#  Defining the Nutrition Label Extraction Tool
+#  Defining the Nutrition Label Extraction Tool
 
 Next, we'll define a custom tool called "print\_nutrition\_info" that extracts structured nutrition information from an image. The tool has properties for calories, total fat, cholesterol, total carbs, and protein:
-
-
 
 nutrition\_tool = {
 
@@ -84,17 +78,13 @@ nutrition\_tool = {
 
 }
 
-##  Analyzing the Nutrition Label Image
+##  Analyzing the Nutrition Label Image
 
 Now, let's put it all together. We'll load a nutrition label image, pass it to Claude along with a prompt, and have Claude call the "print\_nutrition\_info" tool to extract the structured nutrition information into a nicely formatted JSON object:
-
-
 
 Image(filename="../images/tool\_use/nutrition\_label.png")
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/tool-use-vision-with-tools/tool-use-vision-with-tools_cell8_out0_9580cc29.png)
-
-
 
 def get\_base64\_encoded\_image(image\_path):
 
@@ -169,8 +159,6 @@ print(tool\_inputs)
 else:
 
 print("No tool was called. This shouldn't happen!")
-
-
 
 ```
 =======Claude Wants To Call The print_nutrition_info Tool=======

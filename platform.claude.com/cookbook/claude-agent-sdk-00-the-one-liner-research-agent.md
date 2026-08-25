@@ -1,18 +1,18 @@
 <!-- source: https://platform.claude.com/cookbook/claude-agent-sdk-00-the-one-liner-research-agent -->
 
-#  Building a One-Liner Research Agent
+#  Building a One-Liner Research Agent
 
 Research tasks consume hours of expert time: market analysts manually gathering competitive intelligence, legal teams tracking regulatory changes, engineers investigating bug reports across documentation. The core challenge isn't finding information but knowing what to search for next based on what you just discovered.
 
 The Claude Agent SDK makes it possible to build agents that autonomously explore external systems without a predefined workflow. Unlike traditional workflow automations that follow fixed steps, research agents adapt their strategy based on what they find--following promising leads, synthesizing conflicting sources, and knowing when they have enough information to answer the question.
 
-##  By the end of this cookbook, you'll be able to:
+##  By the end of this cookbook, you'll be able to:
 
 * Build a research agent that autonomously searches and synthesizes information with a few lines of code
 
 This foundation applies to any task where the information needed isn't available upfront: competitive analysis, technical troubleshooting, investment research, or literature reviews.
 
-#  Why Research Agents?
+#  Why Research Agents?
 
 Research is an ideal agentic use case for two reasons:
 
@@ -23,7 +23,7 @@ In its simplest form, a research agent searches the web and synthesizes findings
 
 Note: You can also view the full list of [Claude Code's built-in tools(opens in new tab)](https://docs.claude.com/en/docs/claude-code/settings#tools-available-to-claude)
 
-#  Prerequisites
+#  Prerequisites
 
 Before following this guide, ensure you have:
 
@@ -42,11 +42,9 @@ Before following this guide, ensure you have:
 * Familiarity with the Claude Agent SDK concepts
 * Understanding of tool use patterns in LLMs
 
-##  Setup
+##  Setup
 
 First, install the required dependencies:
-
-
 
 %%capture
 
@@ -54,13 +52,9 @@ First, install the required dependencies:
 
 Note: Ensure your .env file contains:
 
-
-
 ANTHROPIC\_API\_KEY=your\_key\_here
 
 Load your environment variables and configure the client:
-
-
 
 from dotenv import load\_dotenv
 
@@ -68,13 +62,11 @@ load\_dotenv()
 
 MODEL = "claude-opus-4-6"
 
-##  Building Your First Research Agent
+##  Building Your First Research Agent
 
 Let's start with the simplest possible implementation: a research agent that can search the web and synthesize findings. With the Claude Agent SDK, this takes just a few lines of code.
 
 The key is the query() function, which creates a stateless agent interaction. We'll provide Claude with a single tool, WebSearch, and let it autonomously decide when and how to use it based on our research question.
-
-
 
 from utils.agent\_visualizer import (
 
@@ -100,8 +92,6 @@ print\_activity(msg)
 
 messages.append(msg)
 
-
-
 ```
 🤖 Using: WebSearch()
 🤖 Using: WebSearch()
@@ -112,17 +102,13 @@ messages.append(msg)
 🤖 Thinking...
 ```
 
-
-
 display\_agent\_response(messages)
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-##  What's happening here:
+##  What's happening here:
 
 * `query()` creates a single-turn agent interaction (no conversation memory)
 * `allowed_tools=["WebSearch"]` gives Claude permission to search the web without asking for approval
@@ -161,19 +147,15 @@ The `allowed_tools=["WebSearch"]` parameter gives Claude permission to search wi
 
 Let's inspect what the agent actually did using the visualize\_conversation helper:
 
-
-
 from utils.agent\_visualizer import visualize\_conversation
 
 visualize\_conversation(messages)
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-##  From Prototype to Production: Three Key Improvements
+##  From Prototype to Production: Three Key Improvements
 
 Our one-line research agent works, but it's limited. Single queries without memory can't handle iterative research ("find X, then analyze Y based on what you found"). Let's explore three ways we can further improve our implementation.
 
@@ -184,8 +166,6 @@ Our one-line research agent works, but it's limited. Single queries without memo
 **3. Multimodal Research with the Read Tool**: Real research isn't just text. Market reports have charts, technical docs have diagrams, competitive analysis requires screenshot comparison. Enable the `Read` tool so Claude can analyze images, PDFs, and other visual content.
 
 Let's implement these three changes for our research agent.
-
-
 
 from claude\_agent\_sdk import ClaudeSDKClient
 
@@ -245,8 +225,6 @@ print\_activity(msg)
 
 messages.append(msg)
 
-
-
 ```
 🤖 Using: Read()
 ✓ Tool completed
@@ -268,11 +246,9 @@ messages.append(msg)
 🤖 Thinking...
 ```
 
-###  🔧 Handling Large Responses and Buffer Limits
+###  🔧 Handling Large Responses and Buffer Limits
 
 When working with images or large data, you may encounter buffer overflow errors:
-
-
 
 Fatal error in message reader: Failed to decode JSON: JSON message exceeded maximum buffer size of 1048576 bytes
 
@@ -292,7 +268,7 @@ Set `max_buffer_size` in `ClaudeAgentOptions` to a higher value (e.g., 10MB) whe
 * Monitor for buffer errors and adjust accordingly
 * Include citation requirements in your system prompt to ensure verifiable research outputs
 
-##  What's happening here:
+##  What's happening here:
 
 This example combines all three improvements: conversation memory, citation-aware system prompt, and multimodal analysis.
 
@@ -316,27 +292,23 @@ This example combines all three improvements: conversation memory, citation-awar
 
 The `async with ClaudeSDKClient()` context manager maintains conversation state. Each `receive_response()` call builds on previous context. This differs from `query()` which creates independent, stateless sessions.
 
-
-
 visualize\_conversation(messages)
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-##  Building for Production
+##  Building for Production
 
 Jupyter notebooks are great for learning, but production systems need reusable modules. We've packaged the research agent into `research_agent/agent.py` with a clean interface:
 
-###  Core functions:
+###  Core functions:
 
 * `print_activity()` - Shows what the agent is doing in real-time (imported from shared utilities)
 * `get_activity_text()` - Extract activity text for custom handlers, such as logging or monitoring
 * `send_query()` - Main entry point for research queries with built-in activity display
 
-###  Built-in best practices:
+###  Built-in best practices:
 
 The module includes the `RESEARCH_SYSTEM_PROMPT` which ensures:
 
@@ -344,7 +316,7 @@ The module includes the `RESEARCH_SYSTEM_PROMPT` which ensures:
 * Citations are formatted as markdown links for clean rendering
 * A "Sources:" section groups all references
 
-###  Display control:
+###  Display control:
 
 The `send_query()` function has a `display_result` parameter (default: `True`):
 
@@ -361,15 +333,11 @@ The module automatically handles:
 * Context reset for new conversations
 * Styled HTML rendering of the final response
 
-
-
 from research\_agent.agent import send\_query
 
 # The module handles activity display, context reset, and result visualization internally
 
 result = await send\_query("What is the Claude Code SDK? Only do one websearch and be concise")
-
-
 
 ```
 🤖 Using: WebSearch()
@@ -383,11 +351,7 @@ Now we test out a multi-turn conversation that reuses the same conversation.
 
 Multi-turn conversations work seamlessly—just pass `continue_conversation=True`:
 
-
-
 result1 = await send\_query("What is Anthropic? Only do one websearch and be concise")
-
-
 
 ```
 🤖 Using: WebSearch()
@@ -396,8 +360,6 @@ result1 = await send\_query("What is Anthropic? Only do one websearch and be con
 
 <IPython.core.display.HTML object>
 ```
-
-
 
 # Continue the conversation to dig deeper by setting continue\_conversation=True
 
@@ -409,17 +371,15 @@ continue\_conversation=True,
 
 )
 
-
-
 ```
 🤖 Thinking...
 
 <IPython.core.display.HTML object>
 ```
 
-##  Conclusion
+##  Conclusion
 
-###  What You Built
+###  What You Built
 
 In this cookbook, you built three progressively sophisticated research agents:
 
@@ -427,7 +387,7 @@ In this cookbook, you built three progressively sophisticated research agents:
 * Stateful agent with memory - Multi-turn investigations that build on previous findings
 * Production module - Reusable research functions for integration into applications
 
-###  Key Takeaways
+###  Key Takeaways
 
 **When to use stateless queries (query()):**
 
@@ -443,7 +403,7 @@ In this cookbook, you built three progressively sophisticated research agents:
 
 Research agents excel when information isn't self-contained and the optimal workflow emerges during exploration—competitive analysis, technical troubleshooting, literature reviews, and investigative journalism all fit this pattern.
 
-###  Next Steps
+###  Next Steps
 
 This foundation in autonomous research prepares you for enterprise-grade multi-agent systems. In the next notebook, you'll learn to:
 

@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/files/upload -->
 
----
-title: Upload File
-url: https://platform.claude.com/docs/en/api/php/beta/files/upload
----
-
-## Upload File
+# Upload File
 
 `$client->beta->files->upload(string file, ?list<AnthropicBeta> betas): BetaFileMetadata`
 
-**post** `/v1/files`
+**POST** `/v1/files`
 
 Upload File
 
-### Parameters
+## Parameters
 
 - `file: string`
 
@@ -23,7 +18,7 @@ Upload File
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaFileMetadata`
 
@@ -63,7 +58,7 @@ Upload File
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
 
-### Example
+## Example
 
 ```php
 <?php
@@ -80,7 +75,7 @@ $betaFileMetadata = $client->beta->files->upload(
 var_dump($betaFileMetadata);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

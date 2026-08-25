@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/agents/create -->
 
----
-title: Create Agent
-url: https://platform.claude.com/docs/en/api/python/beta/agents/create
----
+# Create Agent
 
-## Create Agent
+`beta.agents.create(**kwargs)  -> BetaManagedAgentsAgent`
 
-`beta.agents.create(AgentCreateParams**kwargs)  -> BetaManagedAgentsAgent`
-
-**post** `/v1/agents`
+**POST** `/v1/agents`
 
 Create Agent
 
-### Parameters
+## Parameters
 
 - `model: Model`
 
@@ -151,15 +146,11 @@ Create Agent
 
         - `type: Literal["low"]`
 
-          - `"low"`
-
       - `class BetaManagedAgentsEffortMedium: …`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: Literal["medium"]`
-
-          - `"medium"`
 
       - `class BetaManagedAgentsEffortHigh: …`
 
@@ -167,23 +158,17 @@ Create Agent
 
         - `type: Literal["high"]`
 
-          - `"high"`
-
       - `class BetaManagedAgentsEffortXhigh: …`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: Literal["xhigh"]`
 
-          - `"xhigh"`
-
       - `class BetaManagedAgentsEffortMax: …`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: Literal["max"]`
-
-          - `"max"`
 
     - `inference_geo: Optional[str]`
 
@@ -201,9 +186,13 @@ Create Agent
 
   Human-readable name for the agent.
 
+  minLength: 1, maxLength: 256
+
 - `description: Optional[str]`
 
   Description of what the agent does.
+
+  maxLength: 2048
 
 - `mcp_servers: Optional[Iterable[BetaManagedAgentsURLMCPServerParams]]`
 
@@ -213,13 +202,15 @@ Create Agent
 
     Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-  - `type: Literal["url"]`
+    minLength: 1, maxLength: 255
 
-    - `"url"`
+  - `type: Literal["url"]`
 
   - `url: str`
 
     Endpoint URL for the MCP server.
+
+    maxLength: 2048
 
 - `metadata: Optional[Dict[str, str]]`
 
@@ -243,21 +234,21 @@ Create Agent
 
         The `agent` ID.
 
-      - `type: Literal["agent"]`
+        minLength: 1, maxLength: 128
 
-        - `"agent"`
+      - `type: Literal["agent"]`
 
       - `version: Optional[int]`
 
         The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+        format: int32
 
     - `class BetaManagedAgentsMultiagentSelfParams: …`
 
       Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
 
       - `type: Literal["self"]`
-
-        - `"self"`
 
     - `class BetaManagedAgentsAdvisorParams: …`
 
@@ -267,13 +258,11 @@ Create Agent
 
         A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
 
+        minLength: 1, maxLength: 256
+
       - `type: Literal["advisor"]`
 
-        - `"advisor"`
-
   - `type: Literal["coordinator"]`
-
-    - `"coordinator"`
 
 - `skills: Optional[Iterable[BetaManagedAgentsSkillParams]]`
 
@@ -287,13 +276,15 @@ Create Agent
 
       Identifier of the Anthropic skill (e.g., "xlsx").
 
-    - `type: Literal["anthropic"]`
+      minLength: 1, maxLength: 64
 
-      - `"anthropic"`
+    - `type: Literal["anthropic"]`
 
     - `version: Optional[str]`
 
       Version to pin. Defaults to latest if omitted.
+
+      minLength: 1, maxLength: 64
 
   - `class BetaManagedAgentsCustomSkillParams: …`
 
@@ -303,17 +294,21 @@ Create Agent
 
       Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-    - `type: Literal["custom"]`
+      minLength: 1, maxLength: 64
 
-      - `"custom"`
+    - `type: Literal["custom"]`
 
     - `version: Optional[str]`
 
       Version to pin. Defaults to latest if omitted.
 
+      minLength: 1, maxLength: 64
+
 - `system: Optional[str]`
 
   System prompt for the agent.
+
+  maxLength: 100000
 
 - `tools: Optional[Iterable[Tool]]`
 
@@ -324,8 +319,6 @@ Create Agent
     Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
 
     - `type: Literal["agent_toolset_20260401"]`
-
-      - `"agent_toolset_20260401"`
 
     - `configs: Optional[List[BetaManagedAgentsAgentToolConfigParams]]`
 
@@ -338,8 +331,6 @@ Create Agent
         - `name: Literal["bash"]`
 
           Must be "bash".
-
-          - `"bash"`
 
         - `enabled: Optional[bool]`
 
@@ -355,19 +346,13 @@ Create Agent
 
             - `type: Literal["always_allow"]`
 
-              - `"always_allow"`
-
           - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
             Tool calls require user confirmation before execution.
 
             - `type: Literal["always_ask"]`
 
-              - `"always_ask"`
-
         - `type: Optional[Literal["bash"]]`
-
-          - `"bash"`
 
       - `class BetaManagedAgentsEditToolConfigParams: …`
 
@@ -376,8 +361,6 @@ Create Agent
         - `name: Literal["edit"]`
 
           Must be "edit".
-
-          - `"edit"`
 
         - `enabled: Optional[bool]`
 
@@ -397,8 +380,6 @@ Create Agent
 
         - `type: Optional[Literal["edit"]]`
 
-          - `"edit"`
-
       - `class BetaManagedAgentsReadToolConfigParams: …`
 
         Configuration override for the read tool.
@@ -406,8 +387,6 @@ Create Agent
         - `name: Literal["read"]`
 
           Must be "read".
-
-          - `"read"`
 
         - `enabled: Optional[bool]`
 
@@ -427,8 +406,6 @@ Create Agent
 
         - `type: Optional[Literal["read"]]`
 
-          - `"read"`
-
       - `class BetaManagedAgentsWriteToolConfigParams: …`
 
         Configuration override for the write tool.
@@ -436,8 +413,6 @@ Create Agent
         - `name: Literal["write"]`
 
           Must be "write".
-
-          - `"write"`
 
         - `enabled: Optional[bool]`
 
@@ -457,8 +432,6 @@ Create Agent
 
         - `type: Optional[Literal["write"]]`
 
-          - `"write"`
-
       - `class BetaManagedAgentsGlobToolConfigParams: …`
 
         Configuration override for the glob tool.
@@ -466,8 +439,6 @@ Create Agent
         - `name: Literal["glob"]`
 
           Must be "glob".
-
-          - `"glob"`
 
         - `enabled: Optional[bool]`
 
@@ -487,8 +458,6 @@ Create Agent
 
         - `type: Optional[Literal["glob"]]`
 
-          - `"glob"`
-
       - `class BetaManagedAgentsGrepToolConfigParams: …`
 
         Configuration override for the grep tool.
@@ -496,8 +465,6 @@ Create Agent
         - `name: Literal["grep"]`
 
           Must be "grep".
-
-          - `"grep"`
 
         - `enabled: Optional[bool]`
 
@@ -517,8 +484,6 @@ Create Agent
 
         - `type: Optional[Literal["grep"]]`
 
-          - `"grep"`
-
       - `class BetaManagedAgentsWebFetchToolConfigParams: …`
 
         Configuration override for the web_fetch tool.
@@ -526,8 +491,6 @@ Create Agent
         - `name: Literal["web_fetch"]`
 
           Must be "web_fetch".
-
-          - `"web_fetch"`
 
         - `allowed_domains: Optional[List[str]]`
 
@@ -545,6 +508,8 @@ Create Agent
 
           Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+          format: int32
+
         - `permission_policy: Optional[PermissionPolicy]`
 
           Permission policy for tool execution.
@@ -559,8 +524,6 @@ Create Agent
 
         - `type: Optional[Literal["web_fetch"]]`
 
-          - `"web_fetch"`
-
       - `class BetaManagedAgentsWebSearchToolConfigParams: …`
 
         Configuration override for the web_search tool.
@@ -568,8 +531,6 @@ Create Agent
         - `name: Literal["web_search"]`
 
           Must be "web_search".
-
-          - `"web_search"`
 
         - `allowed_domains: Optional[List[str]]`
 
@@ -597,8 +558,6 @@ Create Agent
 
         - `type: Optional[Literal["web_search"]]`
 
-          - `"web_search"`
-
         - `user_location: Optional[BetaManagedAgentsUserLocation]`
 
           Approximate user location for search result localization.
@@ -607,11 +566,11 @@ Create Agent
 
             Location precision. Only "approximate" is supported.
 
-            - `"approximate"`
-
           - `city: Optional[str]`
 
             City name.
+
+            minLength: 1, maxLength: 255
 
           - `country: Optional[str]`
 
@@ -621,9 +580,13 @@ Create Agent
 
             Region or state name.
 
+            minLength: 1, maxLength: 255
+
           - `timezone: Optional[str]`
 
             IANA timezone identifier, e.g. "America/Los_Angeles".
+
+            minLength: 1, maxLength: 255
 
     - `default_config: Optional[BetaManagedAgentsAgentToolsetDefaultConfigParams]`
 
@@ -653,9 +616,9 @@ Create Agent
 
       Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-    - `type: Literal["mcp_toolset"]`
+      minLength: 1, maxLength: 255
 
-      - `"mcp_toolset"`
+    - `type: Literal["mcp_toolset"]`
 
     - `configs: Optional[List[BetaManagedAgentsMCPToolConfigParams]]`
 
@@ -664,6 +627,8 @@ Create Agent
       - `name: str`
 
         Name of the MCP tool to configure. 1-128 characters.
+
+        minLength: 1, maxLength: 128
 
       - `enabled: Optional[bool]`
 
@@ -709,13 +674,13 @@ Create Agent
 
       Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+      minLength: 1
+
     - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
       JSON Schema for custom tool input parameters.
 
       - `type: Literal["object"]`
-
-        - `"object"`
 
       - `properties: Optional[Dict[str, object]]`
 
@@ -725,9 +690,9 @@ Create Agent
 
       Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
-    - `type: Literal["custom"]`
+      minLength: 1, maxLength: 128
 
-      - `"custom"`
+    - `type: Literal["custom"]`
 
 - `betas: Optional[List[AnthropicBetaParam]]`
 
@@ -805,7 +770,7 @@ Create Agent
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsAgent: …`
 
@@ -817,9 +782,13 @@ Create Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: Optional[str]`
 
@@ -828,8 +797,6 @@ Create Agent
     - `name: str`
 
     - `type: Literal["url"]`
-
-      - `"url"`
 
     - `url: str`
 
@@ -929,15 +896,11 @@ Create Agent
 
         - `type: Literal["low"]`
 
-          - `"low"`
-
       - `class BetaManagedAgentsEffortMedium: …`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: Literal["medium"]`
-
-          - `"medium"`
 
       - `class BetaManagedAgentsEffortHigh: …`
 
@@ -945,23 +908,17 @@ Create Agent
 
         - `type: Literal["high"]`
 
-          - `"high"`
-
       - `class BetaManagedAgentsEffortXhigh: …`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: Literal["xhigh"]`
 
-          - `"xhigh"`
-
       - `class BetaManagedAgentsEffortMax: …`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: Literal["max"]`
-
-          - `"max"`
 
     - `inference_geo: Optional[str]`
 
@@ -991,9 +948,9 @@ Create Agent
 
         - `type: Literal["agent"]`
 
-          - `"agent"`
-
         - `version: int`
+
+          format: int32
 
       - `class BetaManagedAgentsAdvisor: …`
 
@@ -1005,11 +962,7 @@ Create Agent
 
         - `type: Literal["advisor"]`
 
-          - `"advisor"`
-
     - `type: Literal["coordinator"]`
-
-      - `"coordinator"`
 
   - `name: str`
 
@@ -1023,8 +976,6 @@ Create Agent
 
       - `type: Literal["anthropic"]`
 
-        - `"anthropic"`
-
       - `version: str`
 
     - `class BetaManagedAgentsCustomSkill: …`
@@ -1034,8 +985,6 @@ Create Agent
       - `skill_id: str`
 
       - `type: Literal["custom"]`
-
-        - `"custom"`
 
       - `version: str`
 
@@ -1055,8 +1004,6 @@ Create Agent
 
           - `name: Literal["bash"]`
 
-            - `"bash"`
-
           - `permission_policy: PermissionPolicy`
 
             Permission policy for tool execution.
@@ -1067,19 +1014,13 @@ Create Agent
 
               - `type: Literal["always_allow"]`
 
-                - `"always_allow"`
-
             - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
               Tool calls require user confirmation before execution.
 
               - `type: Literal["always_ask"]`
 
-                - `"always_ask"`
-
           - `type: Literal["bash"]`
-
-            - `"bash"`
 
         - `class BetaManagedAgentsEditToolConfig: …`
 
@@ -1088,8 +1029,6 @@ Create Agent
           - `enabled: bool`
 
           - `name: Literal["edit"]`
-
-            - `"edit"`
 
           - `permission_policy: PermissionPolicy`
 
@@ -1105,8 +1044,6 @@ Create Agent
 
           - `type: Literal["edit"]`
 
-            - `"edit"`
-
         - `class BetaManagedAgentsReadToolConfig: …`
 
           Configuration for the read tool.
@@ -1114,8 +1051,6 @@ Create Agent
           - `enabled: bool`
 
           - `name: Literal["read"]`
-
-            - `"read"`
 
           - `permission_policy: PermissionPolicy`
 
@@ -1131,8 +1066,6 @@ Create Agent
 
           - `type: Literal["read"]`
 
-            - `"read"`
-
         - `class BetaManagedAgentsWriteToolConfig: …`
 
           Configuration for the write tool.
@@ -1140,8 +1073,6 @@ Create Agent
           - `enabled: bool`
 
           - `name: Literal["write"]`
-
-            - `"write"`
 
           - `permission_policy: PermissionPolicy`
 
@@ -1157,8 +1088,6 @@ Create Agent
 
           - `type: Literal["write"]`
 
-            - `"write"`
-
         - `class BetaManagedAgentsGlobToolConfig: …`
 
           Configuration for the glob tool.
@@ -1166,8 +1095,6 @@ Create Agent
           - `enabled: bool`
 
           - `name: Literal["glob"]`
-
-            - `"glob"`
 
           - `permission_policy: PermissionPolicy`
 
@@ -1183,8 +1110,6 @@ Create Agent
 
           - `type: Literal["glob"]`
 
-            - `"glob"`
-
         - `class BetaManagedAgentsGrepToolConfig: …`
 
           Configuration for the grep tool.
@@ -1192,8 +1117,6 @@ Create Agent
           - `enabled: bool`
 
           - `name: Literal["grep"]`
-
-            - `"grep"`
 
           - `permission_policy: PermissionPolicy`
 
@@ -1209,8 +1132,6 @@ Create Agent
 
           - `type: Literal["grep"]`
 
-            - `"grep"`
-
         - `class BetaManagedAgentsWebFetchToolConfig: …`
 
           Configuration for the web_fetch tool.
@@ -1218,8 +1139,6 @@ Create Agent
           - `enabled: bool`
 
           - `name: Literal["web_fetch"]`
-
-            - `"web_fetch"`
 
           - `permission_policy: PermissionPolicy`
 
@@ -1235,13 +1154,13 @@ Create Agent
 
           - `type: Literal["web_fetch"]`
 
-            - `"web_fetch"`
-
           - `allowed_domains: Optional[List[str]]`
 
           - `blocked_domains: Optional[List[str]]`
 
           - `max_content_tokens: Optional[int]`
+
+            format: int32
 
         - `class BetaManagedAgentsWebSearchToolConfig: …`
 
@@ -1250,8 +1169,6 @@ Create Agent
           - `enabled: bool`
 
           - `name: Literal["web_search"]`
-
-            - `"web_search"`
 
           - `permission_policy: PermissionPolicy`
 
@@ -1267,8 +1184,6 @@ Create Agent
 
           - `type: Literal["web_search"]`
 
-            - `"web_search"`
-
           - `allowed_domains: Optional[List[str]]`
 
           - `blocked_domains: Optional[List[str]]`
@@ -1281,11 +1196,11 @@ Create Agent
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city: Optional[str]`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country: Optional[str]`
 
@@ -1295,9 +1210,13 @@ Create Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone: Optional[str]`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -1318,8 +1237,6 @@ Create Agent
             Tool calls require user confirmation before execution.
 
       - `type: Literal["agent_toolset_20260401"]`
-
-        - `"agent_toolset_20260401"`
 
     - `class BetaManagedAgentsMCPToolset: …`
 
@@ -1363,8 +1280,6 @@ Create Agent
 
       - `type: Literal["mcp_toolset"]`
 
-        - `"mcp_toolset"`
-
     - `class BetaManagedAgentsCustomTool: …`
 
       A custom tool as returned in API responses.
@@ -1377,8 +1292,6 @@ Create Agent
 
         - `type: Literal["object"]`
 
-          - `"object"`
-
         - `properties: Optional[Dict[str, object]]`
 
         - `required: Optional[List[str]]`
@@ -1387,21 +1300,21 @@ Create Agent
 
       - `type: Literal["custom"]`
 
-        - `"custom"`
-
   - `type: Literal["agent"]`
-
-    - `"agent"`
 
   - `updated_at: datetime`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: int`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
 
-### Example
+    format: int32
+
+## Example
 
 ```python
 import os
@@ -1419,7 +1332,7 @@ beta_managed_agents_agent = client.beta.agents.create(
 print(beta_managed_agents_agent.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

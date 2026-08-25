@@ -82,7 +82,7 @@ Claude analyzes both text and visual elements (like images, charts, and graphics
 **For non-PDF documents:** Claude extracts text only from these files. If they contain embedded images, Claude won't be able to read or interpret them.
 
 * [Can Claude produce images?](https://support.claude.com/en/articles/9002504-can-claude-produce-images)
+* [Use Claude for Education at your university](https://support.claude.com/en/articles/11139144-use-claude-for-education-at-your-university)
 * [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
-* [Troubleshoot Claude error messages](https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages)
 * [Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)
 * [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)

@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/skills/versions -->
 
----
-title: Versions
-url: https://platform.claude.com/docs/en/api/typescript/beta/skills/versions
----
-
 # Versions
 
 ## Create Skill Version
 
-`client.beta.skills.versions.create(stringskillID, VersionCreateParamsparams, RequestOptionsoptions?): VersionCreateResponse`
+`client.beta.skills.versions.create(skillID, params, options?): VersionCreateResponse`
 
-**post** `/v1/skills/{skill_id}/versions`
+**POST** `/v1/skills/{skill_id}/versions`
 
 Create Skill Version
 
@@ -149,6 +144,8 @@ Create Skill Version
 
     For Skill Versions, this is always `"skill_version"`.
 
+    default: skill_version
+
   - `version: string`
 
     Version identifier for the skill.
@@ -171,7 +168,7 @@ const version = await client.beta.skills.versions.create("skill_id", {
 console.log(version.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -188,9 +185,9 @@ console.log(version.id);
 
 ## List Skill Versions
 
-`client.beta.skills.versions.list(stringskillID, VersionListParamsparams?, RequestOptionsoptions?): PageCursor<VersionListResponse>`
+`client.beta.skills.versions.list(skillID, params?, options?): PageCursor<VersionListResponse>`
 
-**get** `/v1/skills/{skill_id}/versions`
+**GET** `/v1/skills/{skill_id}/versions`
 
 List Skill Versions
 
@@ -332,6 +329,8 @@ List Skill Versions
 
     For Skill Versions, this is always `"skill_version"`.
 
+    default: skill_version
+
   - `version: string`
 
     Version identifier for the skill.
@@ -353,7 +352,7 @@ for await (const versionListResponse of client.beta.skills.versions.list("skill_
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -376,9 +375,9 @@ for await (const versionListResponse of client.beta.skills.versions.list("skill_
 
 ## Download Skill Version Content
 
-`client.beta.skills.versions.download(stringversion, VersionDownloadParamsparams, RequestOptionsoptions?): Response`
+`client.beta.skills.versions.download(version, params, options?): Response`
 
-**get** `/v1/skills/{skill_id}/versions/{version}/content`
+**GET** `/v1/skills/{skill_id}/versions/{version}/content`
 
 Download a skill version's content as a zip archive.
 
@@ -499,9 +498,9 @@ console.log(content);
 
 ## Get Skill Version
 
-`client.beta.skills.versions.retrieve(stringversion, VersionRetrieveParamsparams, RequestOptionsoptions?): VersionRetrieveResponse`
+`client.beta.skills.versions.retrieve(version, params, options?): VersionRetrieveResponse`
 
-**get** `/v1/skills/{skill_id}/versions/{version}`
+**GET** `/v1/skills/{skill_id}/versions/{version}`
 
 Get Skill Version
 
@@ -639,6 +638,8 @@ Get Skill Version
 
     For Skill Versions, this is always `"skill_version"`.
 
+    default: skill_version
+
   - `version: string`
 
     Version identifier for the skill.
@@ -661,7 +662,7 @@ const version = await client.beta.skills.versions.retrieve("version", {
 console.log(version.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -678,9 +679,9 @@ console.log(version.id);
 
 ## Delete Skill Version
 
-`client.beta.skills.versions.delete(stringversion, VersionDeleteParamsparams, RequestOptionsoptions?): VersionDeleteResponse`
+`client.beta.skills.versions.delete(version, params, options?): VersionDeleteResponse`
 
-**delete** `/v1/skills/{skill_id}/versions/{version}`
+**DELETE** `/v1/skills/{skill_id}/versions/{version}`
 
 Delete Skill Version
 
@@ -792,6 +793,8 @@ Delete Skill Version
 
     For Skill Versions, this is always `"skill_version_deleted"`.
 
+    default: skill_version_deleted
+
 ### Example
 
 ```typescript
@@ -806,7 +809,7 @@ const version = await client.beta.skills.versions.delete("version", { skill_id: 
 console.log(version.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -815,7 +818,7 @@ console.log(version.id);
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Version Create Response
 
@@ -858,6 +861,8 @@ console.log(version.id);
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
+
+    default: skill_version
 
   - `version: string`
 
@@ -907,6 +912,8 @@ console.log(version.id);
 
     For Skill Versions, this is always `"skill_version"`.
 
+    default: skill_version
+
   - `version: string`
 
     Version identifier for the skill.
@@ -955,6 +962,8 @@ console.log(version.id);
 
     For Skill Versions, this is always `"skill_version"`.
 
+    default: skill_version
+
   - `version: string`
 
     Version identifier for the skill.
@@ -976,3 +985,5 @@ console.log(version.id);
     Deleted object type.
 
     For Skill Versions, this is always `"skill_version_deleted"`.
+
+    default: skill_version_deleted

@@ -64,8 +64,8 @@ receiver, and have the collector forward to your backend. The collector
 makes the authenticated call to your backend, so no credential needs to
 appear in the export headers, which reach every signed-in user’s
 browser.
-See [Configure a custom OpenTelemetry collector for Claude for M365](https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents)
-for the manifest parameters and endpoint requirements.
+See [Configure a custom OpenTelemetry collector](https://claude.com/docs/office-agents/opentelemetry)
+for the configuration keys, endpoint requirements, and full span reference.
 
 The usage analytics and spend tracking sections below apply when users
 sign in with their Claude accounts directly. When connecting through a

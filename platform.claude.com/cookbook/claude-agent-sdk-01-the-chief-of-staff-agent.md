@@ -1,7 +1,5 @@
 <!-- source: https://platform.claude.com/cookbook/claude-agent-sdk-01-the-chief-of-staff-agent -->
 
-
-
 from dotenv import load\_dotenv
 
 from utils.agent\_visualizer import (
@@ -28,15 +26,13 @@ MODEL = "claude-opus-4-6"
 
 print(f"📋 Notebook configured to use: {MODEL}")
 
-
-
 ```
 📋 Notebook configured to use: claude-opus-4-6
 ```
 
-#  01 - The Chief of Staff Agent
+#  01 - The Chief of Staff Agent
 
-####  Introduction
+####  Introduction
 
 In notebook 00, we built a simple research agent. In this notebook, we'll incrementally introduce key Claude Code SDK features for building comprehensive agents. For each introduced feature, we'll explain:
 
@@ -46,7 +42,7 @@ In notebook 00, we built a simple research agent. In this notebook, we'll increm
 
 If you are familiar with Claude Code, you'll notice how the SDK brings feature parity and enables you to leverage all of Claude Code's capabilities in a programmatic headless manner.
 
-####  Scenario
+####  Scenario
 
 Throughout this notebook, we'll build an **AI Chief of Staff** for a 50-person startup that just raised $10M Series A. The CEO needs data-driven insights to balance aggressive growth with financial sustainability.
 
@@ -56,9 +52,9 @@ Our final Chief of Staff agent will:
 * **Aggregate insights** from multiple sources
 * **Provide executive summaries** with actionable recommendations
 
-##  Basic Features
+##  Basic Features
 
-###  Feature 0: Memory with [CLAUDE.md(opens in new tab)](https://www.anthropic.com/engineering/claude-code-best-practices)
+###  Feature 0: Memory with [CLAUDE.md(opens in new tab)](https://www.anthropic.com/engineering/claude-code-best-practices)
 
 **What**: `CLAUDE.md` files serve as persistent memory and instructions for your agent. When present in the project directory, Claude Code automatically reads and incorporates this context when you initialize your agent.
 
@@ -71,8 +67,6 @@ Our final Chief of Staff agent will:
 * Use explicit prompts to guide the agent when you want it to prefer high-level context over detailed data files
 
 **Important Behavior Note**: When both CLAUDE.md and detailed data files (like CSVs) are available, the agent may prefer to read the more granular data sources to provide precise answers. This is expected behavior - agents naturally seek authoritative data. To ensure the agent uses high-level CLAUDE.md context, use explicit prompt instructions (see example below). This teaches an important lesson: CLAUDE.md provides *context and guidance*, not hard constraints on data sources.
-
-
 
 messages = []
 
@@ -104,15 +98,13 @@ display\_agent\_response(messages)
 
 # With this prompt, the agent should use CLAUDE.md values: ~$500K burn, 20 months runway
 
-
-
 ```
 🤖 Thinking...
 
 <IPython.core.display.HTML object>
 ```
 
-####  Understanding Agent Data Source Preferences
+####  Understanding Agent Data Source Preferences
 
 **What Just Happened:**
 By adding to our prompt, we guided the agent to rely on the CLAUDE.md context rather than seeking more granular data from CSV files.
@@ -129,7 +121,7 @@ By adding to our prompt, we guided the agent to rely on the CLAUDE.md context ra
    * Guidelines on when to use high-level vs. detailed numbers
 4. **Real-World Pattern**: Think of CLAUDE.md as an "onboarding document" that orients the agent, while detailed files are "source systems" the agent can query when precision matters.
 
-###  Feature 1: The Bash tool for Python Script Execution
+###  Feature 1: The Bash tool for Python Script Execution
 
 **What**: The Bash tool allows your agent to (among other things) run Python scripts directly, enabling access to procedural knowledge, complex computations, data analysis and other integrations that go beyond the agent's native capabilities.
 
@@ -142,8 +134,6 @@ By adding to our prompt, we guided the agent to rely on the CLAUDE.md context ra
 3. `simple_calculation.py`: Performs quick financial calculations for runway, burn rate, and quarterly metrics. Utility script for chief of staff to get instant metrics without complex modeling.
 4. `financial_forecast.py`: Models ARR growth scenarios (base/optimistic/pessimistic) given the current 2.4MARRgrowingat152.4M ARR growing at 15% MoM.Critical for `financial-analyst` to project Series B readiness and validate the 2.4MARRgrowingat1530M fundraising target.
 5. `decision_matrix.py`: Creates weighted decision matrices for strategic choices like the SmartDev acquisition or office expansion. Helps chief of staff systematically evaluate complex decisions with multiple stakeholders and criteria.
-
-
 
 messages = []
 
@@ -177,8 +167,6 @@ messages.append(msg)
 
 display\_agent\_response(messages)
 
-
-
 ```
 🤖 Using: Glob()
 🤖 Using: Glob()
@@ -197,7 +185,7 @@ display\_agent\_response(messages)
 <IPython.core.display.HTML object>
 ```
 
-###  Feature 2: Output Styles
+###  Feature 2: Output Styles
 
 **What**: Output styles allow you to use different output styles for different audiences. Each style is defined in a markdown file.
 
@@ -210,8 +198,6 @@ display\_agent\_response(messages)
 > **IMPORTANT**: Output styles modify the system prompt that Claude Code has underneath, leaving out the parts focused on software engineering and giving you more control for your specific use case beyond software engineering work.
 
 > **SDK CONFIGURATION NOTE**: Similar to slash commands (covered in Feature 4), output styles are stored on the filesystem in `.claude/output-styles/`. For the SDK to load these files, you **must** include `setting_sources=["project"]` in your `ClaudeAgentOptions`. The `settings` parameter tells the SDK *which* style to use, but `setting_sources` is required to actually *load* the style definitions. This requirement was identified while debugging later sections and applies to all filesystem-based settings.
-
-
 
 messages\_executive = []
 
@@ -269,38 +255,28 @@ print\_activity(msg)
 
 messages\_technical.append(msg)
 
-
-
 ```
 🤖 Thinking...
 🤖 Thinking...
 ```
-
-
 
 # Display executive style response
 
 display\_agent\_response(messages\_executive)
 
-
-
 ```
 <IPython.core.display.HTML object>
 ```
-
-
 
 # Technical output style - detailed, implementation-focused
 
 display\_agent\_response(messages\_technical, title="Technical Style")
 
-
-
 ```
 <IPython.core.display.HTML object>
 ```
 
-###  Feature 3: Plan Mode - Strategic Planning Without Execution
+###  Feature 3: Plan Mode - Strategic Planning Without Execution
 
 **What**: Plan mode instructs the agent to create a detailed execution plan without performing any actions. The agent analyzes requirements, proposes solutions, and outlines steps, but doesn't modify files, execute commands, or make changes.
 
@@ -311,8 +287,6 @@ display\_agent\_response(messages\_technical, title="Technical Style")
 **Plan Persistence**: Since plans are valuable artifacts for review and decision-making, we'll demonstrate how to capture and save them to persistent markdown files. This enables stakeholders to review plans before approving execution.
 
 > Note: this feature shines in Claude Code but still needs to be fully adapted for headless applications with the SDK. Namely, the agent will try calling its `ExitPlanMode()` tool, which is only relevant in the interactive mode. In this case, you can send up a follow-up query with `continue_conversation=True` for the agent to execute its plan in context.
-
-
 
 # =============================================================================
 
@@ -666,13 +640,9 @@ plan\_content.append(msg.result)
 
 print("✅ Plan Mode helper functions loaded")
 
-
-
 ```
 ✅ Plan Mode helper functions loaded
 ```
-
-
 
 # =============================================================================
 
@@ -736,14 +706,10 @@ print(f"📋 Plan Mode configured with model: {MODEL}")
 
 print(f"📝 Prompt length: {len(PLAN\_PROMPT):,} characters")
 
-
-
 ```
 📋 Plan Mode configured with model: claude-opus-4-6
 📝 Prompt length: 1,180 characters
 ```
-
-
 
 # =============================================================================
 
@@ -797,8 +763,6 @@ capture\_message\_content(msg, plan\_content, write\_tool\_content, write\_tool\
 
 print(f"\n✅ Agent completed. Captured {len(plan\_content)} content blocks.")
 
-
-
 ```
 🤖 Thinking...
 🤖 Using: ExitPlanMode()
@@ -807,8 +771,6 @@ print(f"\n✅ Agent completed. Captured {len(plan\_content)} content blocks.")
 
 ✅ Agent completed. Captured 3 content blocks.
 ```
-
-
 
 # =============================================================================
 
@@ -878,8 +840,6 @@ print(f"❌ ERROR: {error\_msg}")
 
 raise RuntimeError(f"Plan extraction failed: {error\_msg}")
 
-
-
 ```
 ✅ Plan extracted from: message stream
    Plan length: 6,783 characters
@@ -887,19 +847,15 @@ raise RuntimeError(f"Plan extraction failed: {error\_msg}")
 📁 Plan saved to: chief_of_staff_agent/plans/plan_20251204_152737.md
 ```
 
-
-
 # Display the plan result with styled HTML
 
 display\_agent\_response(messages, title="Engineering Restructure Plan")
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-####  Executing the Saved Plan
+####  Executing the Saved Plan
 
 As mentioned above, the agent will stop after creating its plan. The saved plan file serves as a review artifact for stakeholders.
 
@@ -910,7 +866,7 @@ As mentioned above, the agent will stop after creating its plan. The saved plan 
 
 This workflow enables a "plan → review → approve → execute" cycle, perfect for high-stakes decisions like organizational restructuring or major infrastructure changes.
 
-####  How Plan Persistence Works
+####  How Plan Persistence Works
 
 In the code above, we implemented a **robust multi-source plan capture mechanism** that handles the various ways Plan Mode agents may output their plans:
 
@@ -946,8 +902,6 @@ Our capture mechanism handles all three scenarios with a **priority-based fallba
    * Prevents empty plan files while preserving partial information
 
 **Key Implementation Details:**
-
-
 
 def extract\_plan\_from\_text(text):
 
@@ -989,8 +943,6 @@ This approach gives you:
 
 Let's view the saved plan:
 
-
-
 # Display the saved plan with markdown rendering
 
 from IPython.display import Markdown, display
@@ -1001,17 +953,15 @@ display(Markdown(f"## 📋 Saved Plan Preview\n\n{final\_plan}"))
 
 print(f"\n📁 Full plan with metadata saved to: {plan\_file}")
 
-
-
 ```
 <IPython.core.display.Markdown object>
 
 📁 Full plan with metadata saved to: chief_of_staff_agent/plans/plan_20251204_152737.md
 ```
 
-##  Advanced Features
+##  Advanced Features
 
-###  Feature 4: Custom Slash Commands
+###  Feature 4: Custom Slash Commands
 
 > Note: slash commands are syntactic sugar for users, not new agent capabilities
 
@@ -1026,8 +976,6 @@ print(f"\n📁 Full plan with metadata saved to: {plan\_file}")
 * The user uses the slash command in their prompt
 
 > **CRITICAL SDK CONFIGURATION**: When using the SDK, you **must** set `setting_sources=["project"]` in your `ClaudeAgentOptions` for slash commands to work. By default, the SDK operates in isolation mode and does NOT load filesystem settings (slash commands, CLAUDE.md, subagents, hooks, etc.). This is different from using Claude Code interactively where these are loaded automatically.
-
-
 
 # User types: "/slash-command-test this is a test"
 
@@ -1063,23 +1011,17 @@ print\_activity(msg)
 
 messages.append(msg)
 
-
-
 ```
 🤖 Thinking...
 ```
 
-
-
 display\_agent\_response(messages, title="Slash Command Result")
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-###  Feature 5: Hooks - Automated Deterministic Actions
+###  Feature 5: Hooks - Automated Deterministic Actions
 
 **What**: Hooks are Python scripts that you can set to execute automatically, among other events, before (pre) or after (post) specific tool calls. Hooks run **deterministically**, making them perfect for validation and audit trails.
 
@@ -1104,8 +1046,6 @@ display\_agent\_response(messages, title="Slash Command Result")
 
 A hook to log Write/Edit operations on financial reports for audit and compliance purposes.
 The hook is defined in `chief_of_staff_agent/.claude/hooks/report-tracker.py` and the logic that enforces it is in `chief_of_staff_agent/.claude/settings.local.json`:
-
-
 
 "hooks": {
 
@@ -1151,8 +1091,6 @@ The hook is defined in `chief_of_staff_agent/.claude/hooks/report-tracker.py` an
 
 }
 
-
-
 messages = []
 
 async with ClaudeSDKClient(
@@ -1193,8 +1131,6 @@ messages.append(msg)
 
 display\_agent\_response(messages, title="Q2 Financial Forecast")
 
-
-
 ```
 🤖 Using: Bash()
 🤖 Using: Bash()
@@ -1220,7 +1156,7 @@ display\_agent\_response(messages, title="Q2 Financial Forecast")
 
 If you now navigate to `./chief_of_staff_agent/audit/report_history.json`, you will find that it has logged that the agent has created and/or made changes to your report. The generated report itself you can find at `./chief_of_staff_agent/output_reports/`.
 
-###  Feature 6: Subagents via Task Tool
+###  Feature 6: Subagents via Task Tool
 
 **What**: The Task tool enables your agent to delegate specialized work to other subagents. These subagents each have their own instructions, tools, and expertise.
 
@@ -1242,8 +1178,6 @@ If you now navigate to `./chief_of_staff_agent/audit/report_history.json`, you w
 * 📎 indicates tools being used BY the subagent (indented for visual hierarchy)
 * Visual separators clearly mark subagent delegation and completion boundaries
 * Task descriptions and prompts are shown in the conversation timeline
-
-
 
 # Reset the subagent tracking context before starting a new query
 
@@ -1281,8 +1215,6 @@ messages.append(msg)
 
 display\_agent\_response(messages, title="Hiring Impact Analysis")
 
-
-
 ```
 🤖 Thinking...
 🚀 Delegating to subagent: financial-analyst
@@ -1312,11 +1244,7 @@ display\_agent\_response(messages, title="Hiring Impact Analysis")
 <IPython.core.display.HTML object>
 ```
 
-
-
 visualize\_conversation(messages)
-
-
 
 ```
 <IPython.core.display.HTML object>
@@ -1325,8 +1253,6 @@ visualize\_conversation(messages)
 Here, when our main agent decides to use a subagent, it will:
 
 1. Call the Task tool with parameters like:
-
-
 
 {
 
@@ -1341,7 +1267,7 @@ Here, when our main agent decides to use a subagent, it will:
 1. The Task tool executes the subagent in a separate context
 2. Return results to main Chief of Staff agent to continue processing
 
-##  Putting It All Together
+##  Putting It All Together
 
 Let's now put everything we've seen together. We will ask our agent to determine the financial impact of hiring 3 senior engineers and write their insights to `output_reports/hiring_decision.md`. This demonstrates all the features seen above:
 
@@ -1362,8 +1288,6 @@ All in all, our `send_query()` function takes in 4 parameters (prompt, continue\
 
 To better visualize how this all comes together, check out these [flow and architecture diagrams that Claude made for us :)(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./chief_of_staff_agent/flow_diagram.md)
 
-
-
 from chief\_of\_staff\_agent.agent import send\_query
 
 reset\_activity\_context()
@@ -1377,8 +1301,6 @@ result, messages = await send\_query(
 output\_style="executive",
 
 )
-
-
 
 ```
 🤖 Thinking...
@@ -1412,17 +1334,13 @@ output\_style="executive",
 🤖 Thinking...
 ```
 
-
-
 visualize\_conversation(messages)
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-##  Conclusion
+##  Conclusion
 
 We've demonstrated how the Claude Code SDK enables you to build sophisticated multi-agent systems with enterprise-grade features. Starting from basic script execution with the Bash tool, we progressively introduced advanced capabilities including persistent memory with CLAUDE.md, custom output styles for different audiences, strategic planning mode, slash commands for user convenience, compliance hooks for guardrailing, and subagent coordination for specialized tasks.
 

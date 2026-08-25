@@ -1,16 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/misc-pdf-upload-summarization -->
 
-#  "Uploading" PDFs to Claude Via the API
+#  "Uploading" PDFs to Claude Via the API
 
 One really nice feature of [Claude.ai(opens in new tab)](https://www.claude.ai) is the ability to upload PDFs. Let's mock up that feature in a notebook, and then test it out by summarizing a long PDF.
 
 We'll start by installing the Anthropic client and create an instance of it we will use throughout the notebook.
 
-
-
 %pip install anthropic
-
-
 
 from anthropic import Anthropic
 
@@ -30,8 +26,6 @@ MODEL\_NAME = "claude-sonnet-4-6"
 
 We already have a PDF available in the `../multimodal/documents` directory. We'll convert the PDF file into base64 encoded bytes. This is the format required for the [PDF document block(opens in new tab)](https://docs.claude.com/en/docs/build-with-claude/pdf-support) in the Claude API. Note that this type of extraction works for both text and visual elements (like charts and graphs).
 
-
-
 import base64
 
 # Start by reading in the PDF and encoding it as base64
@@ -47,8 +41,6 @@ base64\_encoded\_data = base64.standard\_b64encode(binary\_data)
 base64\_string = base64\_encoded\_data.decode("utf-8")
 
 With the paper downloaded and in memory, we can ask Claude to perform various fun tasks with it. We'll pass the document ot the model alongside a simple question.
-
-
 
 prompt = """
 
@@ -80,8 +72,6 @@ messages = [
 
 ]
 
-
-
 def get\_completion(client, messages):
 
 return client.messages.create(
@@ -94,13 +84,9 @@ messages=messages
 
 ).content[0].text
 
-
-
 completion = get\_completion(client, messages)
 
 print(completion)
-
-
 
 ```
 <kindergarten_abstract>

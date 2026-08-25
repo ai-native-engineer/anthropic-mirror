@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/user_profiles/retrieve -->
 
----
-title: Get User Profile
-url: https://platform.claude.com/docs/en/api/ruby/beta/user_profiles/retrieve
----
-
-## Get User Profile
+# Get User Profile
 
 `beta.user_profiles.retrieve(user_profile_id, **kwargs) -> BetaUserProfile`
 
-**get** `/v1/user_profiles/{user_profile_id}`
+**GET** `/v1/user_profiles/{user_profile_id}`
 
 Get User Profile
 
-### Parameters
+## Parameters
 
 - `user_profile_id: String`
 
@@ -93,7 +88,7 @@ Get User Profile
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaUserProfile`
 
@@ -104,6 +99,8 @@ Get User Profile
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `metadata: Hash[Symbol, String]`
 
@@ -127,11 +124,11 @@ Get User Profile
 
     Object type. Always `user_profile`.
 
-    - `:user_profile`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: :application | :passthrough`
 
@@ -159,7 +156,7 @@ Get User Profile
 
     - `:internal`
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -171,7 +168,7 @@ beta_user_profile = anthropic.beta.user_profiles.retrieve("uprof_011CZkZCu8hGbp5
 puts(beta_user_profile)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

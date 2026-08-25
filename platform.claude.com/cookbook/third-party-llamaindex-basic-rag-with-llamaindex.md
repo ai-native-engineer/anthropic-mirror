@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-llamaindex-basic-rag-with-llamaindex -->
 
-#  RAG Pipeline with LlamaIndex
+#  RAG Pipeline with LlamaIndex
 
 In this notebook we will look into building Basic RAG Pipeline with LlamaIndex. The pipeline has following steps.
 
@@ -11,9 +11,7 @@ In this notebook we will look into building Basic RAG Pipeline with LlamaIndex. 
 5. Create Query Engine.
 6. Querying.
 
-###  Installation
-
-
+###  Installation
 
 !pip install llama-index
 
@@ -21,31 +19,23 @@ In this notebook we will look into building Basic RAG Pipeline with LlamaIndex. 
 
 !pip install llama-index-embeddings-huggingface
 
-###  Setup API Keys
-
-
+###  Setup API Keys
 
 import os
 
 os.environ["ANTHROPIC\_API\_KEY"] = "YOUR Claude API KEY"
 
-###  Setup LLM and Embedding model
+###  Setup LLM and Embedding model
 
 We will use anthropic latest released `Claude 3 Opus` models
-
-
 
 from llama\_index.embeddings.huggingface import HuggingFaceEmbedding
 
 from llama\_index.llms.anthropic import Anthropic
 
-
-
 llm = Anthropic(temperature=0.0, model="claude-opus-4-1")
 
 embed\_model = HuggingFaceEmbedding(model\_name="BAAI/bge-base-en-v1.5")
-
-
 
 ```
 config.json:   0%|          | 0.00/777 [00:00<?, ?B/s]
@@ -56,8 +46,6 @@ tokenizer.json:   0%|          | 0.00/711k [00:00<?, ?B/s]
 special_tokens_map.json:   0%|          | 0.00/125 [00:00<?, ?B/s]
 ```
 
-
-
 from llama\_index.core import Settings
 
 Settings.llm = llm
@@ -66,15 +54,11 @@ Settings.embed\_model = embed\_model
 
 Settings.chunk\_size = 512
 
-###  Download Data
-
-
+###  Download Data
 
 !mkdir -p 'data/paul\_graham/'
 
 !wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/paul\_graham/paul\_graham\_essay.txt' -O 'data/paul\_graham/paul\_graham\_essay.txt'
-
-
 
 ```
 --2024-03-08 06:51:30--  https://raw.githubusercontent.com/run-llama/llama_index/main/docs/examples/data/paul_graham/paul_graham_essay.txt
@@ -89,8 +73,6 @@ data/paul_graham/pa 100%[===================>]  73.28K  --.-KB/s    in 0.002s
 2024-03-08 06:51:30 (34.6 MB/s) - ‘data/paul_graham/paul_graham_essay.txt’ saved [75042/75042]
 ```
 
-
-
 from llama\_index.core import (
 
 SimpleDirectoryReader,
@@ -99,15 +81,11 @@ VectorStoreIndex,
 
 )
 
-###  Load Data
-
-
+###  Load Data
 
 documents = SimpleDirectoryReader("./data/paul\_graham").load\_data()
 
-###  Index Data
-
-
+###  Index Data
 
 index = VectorStoreIndex.from\_documents(
 
@@ -115,23 +93,15 @@ documents,
 
 )
 
-###  Create Query Engine
-
-
+###  Create Query Engine
 
 query\_engine = index.as\_query\_engine(similarity\_top\_k=3)
 
-###  Test Query
-
-
+###  Test Query
 
 response = query\_engine.query("What did author do growing up?")
 
-
-
 print(response)
-
-
 
 ```
 Based on the information provided, the author worked on two main things outside of school before college: writing and programming.

@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/agents/create -->
 
----
-title: Create Agent
-url: https://platform.claude.com/docs/en/api/java/beta/agents/create
----
+# Create Agent
 
-## Create Agent
+`BetaManagedAgentsAgent beta().agents().create(params, requestOptions = RequestOptions.none())`
 
-`BetaManagedAgentsAgent beta().agents().create(AgentCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**post** `/v1/agents`
+**POST** `/v1/agents`
 
 Create Agent
 
-### Parameters
+## Parameters
 
 - `AgentCreateParams params`
 
@@ -185,15 +180,11 @@ Create Agent
 
           - `Type type`
 
-            - `LOW("low")`
-
         - `class BetaManagedAgentsEffortMedium:`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `Type type`
-
-            - `MEDIUM("medium")`
 
         - `class BetaManagedAgentsEffortHigh:`
 
@@ -201,23 +192,17 @@ Create Agent
 
           - `Type type`
 
-            - `HIGH("high")`
-
         - `class BetaManagedAgentsEffortXhigh:`
 
           Extra-high effort. Not all models accept this level.
 
           - `Type type`
 
-            - `XHIGH("xhigh")`
-
         - `class BetaManagedAgentsEffortMax:`
 
           Maximum effort. Favors reasoning depth over latency.
 
           - `Type type`
-
-            - `MAX("max")`
 
       - `Optional<String> inferenceGeo`
 
@@ -235,9 +220,13 @@ Create Agent
 
     Human-readable name for the agent.
 
+    minLength: 1, maxLength: 256
+
   - `Optional<String> description`
 
     Description of what the agent does.
+
+    maxLength: 2048
 
   - `Optional<List<BetaManagedAgentsUrlMcpServerParams>> mcpServers`
 
@@ -247,13 +236,15 @@ Create Agent
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-    - `Type type`
+      minLength: 1, maxLength: 255
 
-      - `URL("url")`
+    - `Type type`
 
     - `String url`
 
       Endpoint URL for the MCP server.
+
+      maxLength: 2048
 
   - `Optional<Metadata> metadata`
 
@@ -275,13 +266,15 @@ Create Agent
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
-      - `Type type`
+        minLength: 1, maxLength: 64
 
-        - `ANTHROPIC("anthropic")`
+      - `Type type`
 
       - `Optional<String> version`
 
         Version to pin. Defaults to latest if omitted.
+
+        minLength: 1, maxLength: 64
 
     - `class BetaManagedAgentsCustomSkillParams:`
 
@@ -291,17 +284,21 @@ Create Agent
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-      - `Type type`
+        minLength: 1, maxLength: 64
 
-        - `CUSTOM("custom")`
+      - `Type type`
 
       - `Optional<String> version`
 
         Version to pin. Defaults to latest if omitted.
 
+        minLength: 1, maxLength: 64
+
   - `Optional<String> system`
 
     System prompt for the agent.
+
+    maxLength: 100000
 
   - `Optional<List<Tool>> tools`
 
@@ -313,8 +310,6 @@ Create Agent
 
       - `Type type`
 
-        - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
-
       - `Optional<List<BetaManagedAgentsAgentToolConfigParams>> configs`
 
         Per-tool configuration overrides.
@@ -323,11 +318,9 @@ Create Agent
 
           Configuration override for the bash tool.
 
-          - `JsonValue; name "bash"constant`
+          - `JsonValue name constant`
 
             Must be "bash".
-
-            - `BASH("bash")`
 
           - `Optional<Boolean> enabled`
 
@@ -343,29 +336,21 @@ Create Agent
 
               - `Type type`
 
-                - `ALWAYS_ALLOW("always_allow")`
-
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
               - `Type type`
 
-                - `ALWAYS_ASK("always_ask")`
-
           - `Optional<Type> type`
-
-            - `BASH("bash")`
 
         - `class BetaManagedAgentsEditToolConfigParams:`
 
           Configuration override for the edit tool.
 
-          - `JsonValue; name "edit"constant`
+          - `JsonValue name constant`
 
             Must be "edit".
-
-            - `EDIT("edit")`
 
           - `Optional<Boolean> enabled`
 
@@ -384,18 +369,14 @@ Create Agent
               Tool calls require user confirmation before execution.
 
           - `Optional<Type> type`
-
-            - `EDIT("edit")`
 
         - `class BetaManagedAgentsReadToolConfigParams:`
 
           Configuration override for the read tool.
 
-          - `JsonValue; name "read"constant`
+          - `JsonValue name constant`
 
             Must be "read".
-
-            - `READ("read")`
 
           - `Optional<Boolean> enabled`
 
@@ -414,18 +395,14 @@ Create Agent
               Tool calls require user confirmation before execution.
 
           - `Optional<Type> type`
-
-            - `READ("read")`
 
         - `class BetaManagedAgentsWriteToolConfigParams:`
 
           Configuration override for the write tool.
 
-          - `JsonValue; name "write"constant`
+          - `JsonValue name constant`
 
             Must be "write".
-
-            - `WRITE("write")`
 
           - `Optional<Boolean> enabled`
 
@@ -444,18 +421,14 @@ Create Agent
               Tool calls require user confirmation before execution.
 
           - `Optional<Type> type`
-
-            - `WRITE("write")`
 
         - `class BetaManagedAgentsGlobToolConfigParams:`
 
           Configuration override for the glob tool.
 
-          - `JsonValue; name "glob"constant`
+          - `JsonValue name constant`
 
             Must be "glob".
-
-            - `GLOB("glob")`
 
           - `Optional<Boolean> enabled`
 
@@ -474,18 +447,14 @@ Create Agent
               Tool calls require user confirmation before execution.
 
           - `Optional<Type> type`
-
-            - `GLOB("glob")`
 
         - `class BetaManagedAgentsGrepToolConfigParams:`
 
           Configuration override for the grep tool.
 
-          - `JsonValue; name "grep"constant`
+          - `JsonValue name constant`
 
             Must be "grep".
-
-            - `GREP("grep")`
 
           - `Optional<Boolean> enabled`
 
@@ -505,17 +474,13 @@ Create Agent
 
           - `Optional<Type> type`
 
-            - `GREP("grep")`
-
         - `class BetaManagedAgentsWebFetchToolConfigParams:`
 
           Configuration override for the web_fetch tool.
 
-          - `JsonValue; name "web_fetch"constant`
+          - `JsonValue name constant`
 
             Must be "web_fetch".
-
-            - `WEB_FETCH("web_fetch")`
 
           - `Optional<List<String>> allowedDomains`
 
@@ -533,6 +498,8 @@ Create Agent
 
             Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+            format: int32
+
           - `Optional<PermissionPolicy> permissionPolicy`
 
             Permission policy for tool execution.
@@ -547,17 +514,13 @@ Create Agent
 
           - `Optional<Type> type`
 
-            - `WEB_FETCH("web_fetch")`
-
         - `class BetaManagedAgentsWebSearchToolConfigParams:`
 
           Configuration override for the web_search tool.
 
-          - `JsonValue; name "web_search"constant`
+          - `JsonValue name constant`
 
             Must be "web_search".
-
-            - `WEB_SEARCH("web_search")`
 
           - `Optional<List<String>> allowedDomains`
 
@@ -585,21 +548,19 @@ Create Agent
 
           - `Optional<Type> type`
 
-            - `WEB_SEARCH("web_search")`
-
           - `Optional<BetaManagedAgentsUserLocation> userLocation`
 
             Approximate user location for search result localization.
 
-            - `JsonValue; type "approximate"constant`
+            - `JsonValue type constant`
 
               Location precision. Only "approximate" is supported.
-
-              - `APPROXIMATE("approximate")`
 
             - `Optional<String> city`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `Optional<String> country`
 
@@ -609,9 +570,13 @@ Create Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `Optional<String> timezone`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `Optional<BetaManagedAgentsAgentToolsetDefaultConfigParams> defaultConfig`
 
@@ -641,9 +606,9 @@ Create Agent
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-      - `Type type`
+        minLength: 1, maxLength: 255
 
-        - `MCP_TOOLSET("mcp_toolset")`
+      - `Type type`
 
       - `Optional<List<BetaManagedAgentsMcpToolConfigParams>> configs`
 
@@ -652,6 +617,8 @@ Create Agent
         - `String name`
 
           Name of the MCP tool to configure. 1-128 characters.
+
+          minLength: 1, maxLength: 128
 
         - `Optional<Boolean> enabled`
 
@@ -697,13 +664,13 @@ Create Agent
 
         Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+        minLength: 1
+
       - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonValue; type "object"constant`
-
-          - `OBJECT("object")`
+        - `JsonValue type constant`
 
         - `Optional<Properties> properties`
 
@@ -713,11 +680,11 @@ Create Agent
 
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
+        minLength: 1, maxLength: 128
+
       - `Type type`
 
-        - `CUSTOM("custom")`
-
-### Returns
+## Returns
 
 - `class BetaManagedAgentsAgent:`
 
@@ -729,9 +696,13 @@ Create Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `LocalDateTime createdAt`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `Optional<String> description`
 
@@ -740,8 +711,6 @@ Create Agent
     - `String name`
 
     - `Type type`
-
-      - `URL("url")`
 
     - `String url`
 
@@ -819,15 +788,11 @@ Create Agent
 
         - `Type type`
 
-          - `LOW("low")`
-
       - `class BetaManagedAgentsEffortMedium:`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `Type type`
-
-          - `MEDIUM("medium")`
 
       - `class BetaManagedAgentsEffortHigh:`
 
@@ -835,23 +800,17 @@ Create Agent
 
         - `Type type`
 
-          - `HIGH("high")`
-
       - `class BetaManagedAgentsEffortXhigh:`
 
         Extra-high effort. Not all models accept this level.
 
         - `Type type`
 
-          - `XHIGH("xhigh")`
-
       - `class BetaManagedAgentsEffortMax:`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `Type type`
-
-          - `MAX("max")`
 
     - `Optional<String> inferenceGeo`
 
@@ -881,9 +840,9 @@ Create Agent
 
         - `Type type`
 
-          - `AGENT("agent")`
-
         - `long version`
+
+          format: int32
 
       - `class BetaManagedAgentsAdvisor:`
 
@@ -895,11 +854,7 @@ Create Agent
 
         - `Type type`
 
-          - `ADVISOR("advisor")`
-
     - `Type type`
-
-      - `COORDINATOR("coordinator")`
 
   - `String name`
 
@@ -913,8 +868,6 @@ Create Agent
 
       - `Type type`
 
-        - `ANTHROPIC("anthropic")`
-
       - `String version`
 
     - `class BetaManagedAgentsCustomSkill:`
@@ -924,8 +877,6 @@ Create Agent
       - `String skillId`
 
       - `Type type`
-
-        - `CUSTOM("custom")`
 
       - `String version`
 
@@ -943,9 +894,7 @@ Create Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "bash"constant`
-
-            - `BASH("bash")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -957,19 +906,13 @@ Create Agent
 
               - `Type type`
 
-                - `ALWAYS_ALLOW("always_allow")`
-
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
               - `Type type`
 
-                - `ALWAYS_ASK("always_ask")`
-
-          - `JsonValue; type "bash"constant`
-
-            - `BASH("bash")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
@@ -977,9 +920,7 @@ Create Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "edit"constant`
-
-            - `EDIT("edit")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -993,9 +934,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "edit"constant`
-
-            - `EDIT("edit")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsReadToolConfig:`
 
@@ -1003,9 +942,7 @@ Create Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "read"constant`
-
-            - `READ("read")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1019,9 +956,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "read"constant`
-
-            - `READ("read")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -1029,9 +964,7 @@ Create Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "write"constant`
-
-            - `WRITE("write")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1045,9 +978,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "write"constant`
-
-            - `WRITE("write")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -1055,9 +986,7 @@ Create Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "glob"constant`
-
-            - `GLOB("glob")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1071,9 +1000,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "glob"constant`
-
-            - `GLOB("glob")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -1081,9 +1008,7 @@ Create Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "grep"constant`
-
-            - `GREP("grep")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1097,9 +1022,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "grep"constant`
-
-            - `GREP("grep")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -1107,9 +1030,7 @@ Create Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "web_fetch"constant`
-
-            - `WEB_FETCH("web_fetch")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1123,9 +1044,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "web_fetch"constant`
-
-            - `WEB_FETCH("web_fetch")`
+          - `JsonValue type constant`
 
           - `Optional<List<String>> allowedDomains`
 
@@ -1133,15 +1052,15 @@ Create Agent
 
           - `Optional<Long> maxContentTokens`
 
+            format: int32
+
         - `class BetaManagedAgentsWebSearchToolConfig:`
 
           Configuration for the web_search tool.
 
           - `boolean enabled`
 
-          - `JsonValue; name "web_search"constant`
-
-            - `WEB_SEARCH("web_search")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1155,9 +1074,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "web_search"constant`
-
-            - `WEB_SEARCH("web_search")`
+          - `JsonValue type constant`
 
           - `Optional<List<String>> allowedDomains`
 
@@ -1167,15 +1084,15 @@ Create Agent
 
             Approximate user location for search result localization.
 
-            - `JsonValue; type "approximate"constant`
+            - `JsonValue type constant`
 
               Location precision. Only "approximate" is supported.
-
-              - `APPROXIMATE("approximate")`
 
             - `Optional<String> city`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `Optional<String> country`
 
@@ -1185,9 +1102,13 @@ Create Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `Optional<String> timezone`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
 
@@ -1208,8 +1129,6 @@ Create Agent
             Tool calls require user confirmation before execution.
 
       - `Type type`
-
-        - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
 
     - `class BetaManagedAgentsMcpToolset:`
 
@@ -1253,8 +1172,6 @@ Create Agent
 
       - `Type type`
 
-        - `MCP_TOOLSET("mcp_toolset")`
-
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
@@ -1265,9 +1182,7 @@ Create Agent
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonValue; type "object"constant`
-
-          - `OBJECT("object")`
+        - `JsonValue type constant`
 
         - `Optional<Properties> properties`
 
@@ -1277,21 +1192,21 @@ Create Agent
 
       - `Type type`
 
-        - `CUSTOM("custom")`
-
   - `Type type`
-
-    - `AGENT("agent")`
 
   - `LocalDateTime updatedAt`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `long version`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
 
-### Example
+    format: int32
+
+## Example
 
 ```java
 package com.anthropic.example;
@@ -1317,7 +1232,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -73,7 +73,7 @@ Handing work off doesn't mean stepping back from it. Before Claude starts, it ma
 **In the product today.** In the desktop app, you can hand off tasks in Cowork. What that gives you today:
 
 * **Local folder access.** Point Claude at a folder; it reads what's there and saves finished work back to the same place. This is the concrete difference from turn-by-turn Chat, which can read what you upload but hands finished files back as downloads rather than saving them into your folder.
-* **Scheduled tasks.** Set a task once — a daily briefing, a weekly roundup, a morning inbox triage — and Claude runs it on the cadence you set. If your computer or the app was closed at the scheduled time, it catches up when you're back.
+* **Scheduled tasks.** Set a task once — a daily briefing, a weekly roundup, a morning inbox triage — and Claude runs it on the cadence you set. Scheduled tasks run remotely, so they run even when your computer is asleep or the app is closed. A task that needs files on your computer runs locally, only while the app is open.
 * **Subagents.** For a big job, Claude splits the work across background workers running in parallel, each with its own context, and hands you one finished deliverable.
 * **Projects.** Group related tasks into a workspace with its own files, instructions, and memory — like projects in Chat, but built around the tasks you run.
 * **Browser use.** With Claude in Chrome, Claude navigates websites and pulls what it finds straight into the task — competitor pricing across ten sites, data from pages with no API.

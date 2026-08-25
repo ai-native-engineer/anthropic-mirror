@@ -37,7 +37,7 @@ In Cowork, open the "Cowork" tab first, then open **Customize**.
 
 You can also upload a custom plugin file if you built one yourself or received one from a colleague. On Claude Desktop and in Cowork, plugins you add yourself are saved locally to your computer.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1787426100&signature=3ddb02e55bfa4baa730099ae032d4fd14f20f464ca831aa9a28469bd262aadc3&req=diEnFs1%2BlINeWPMW1HO4zZF3IhLZMfNUxakFVfq5WwzS0yLt1jf3pckMPK3C%0AC6EG9d5JSuW79fxsZ%2Bg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1787426100&signature=3ddb02e55bfa4baa730099ae032d4fd14f20f464ca831aa9a28469bd262aadc3&req=diEnFs1%2BlINeWPMW1HO4zZF3IhLZMfNUxakFVfq5WwzS0yLt1jf3pckMPK3C%0AC6EG9d5JSuW79fxsZ%2Bg%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1787622300&signature=7eb24a87c90af9e91c775b053feab9a57b60e6eb5d95a1c9c372f0f925d42c42&req=diEnFs1%2BlINeWPMW1HO4zZF3IhLbMfdWxakFVfq5WwyqVT3owTBPsFmxwrCN%0Ags6KRx1x2c9RIt%2Bjm%2FQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1787622300&signature=7eb24a87c90af9e91c775b053feab9a57b60e6eb5d95a1c9c372f0f925d42c42&req=diEnFs1%2BlINeWPMW1HO4zZF3IhLbMfdWxakFVfq5WwyqVT3owTBPsFmxwrCN%0Ags6KRx1x2c9RIt%2Bjm%2FQ%3D%0A)
 
 If you're on the Enterprise plan and your organization has skill scanning turned on, plugins are checked for malicious content when they're installed or updated. A plugin with malicious content is blocked, and one that may carry risk shows a caution banner. Learn more about **[skill and plugin scanning](https://support.claude.com/en/articles/15927065)**.
 
@@ -47,7 +47,7 @@ If you're on the Enterprise plan and your organization has skill scanning turned
 
 Each plugin you install adds skills you can use while working with Claude. Type "/" or click the "+" button to see the available skills from your installed plugins, in chat and in Cowork. Click any skill to see its details.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1787426100&signature=9bfdf4c987b6633b953ea52cfb5e6b04852d6d1e038e29514c0347323d7809fe&req=diEiEcp3m4lbXfMW1HO4zf4NBPH4gUaVmKUxugP2BQuS7t5%2FderVIml3Y87n%0As6lyZ3I9hgB77RurWCY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1787426100&signature=9bfdf4c987b6633b953ea52cfb5e6b04852d6d1e038e29514c0347323d7809fe&req=diEiEcp3m4lbXfMW1HO4zf4NBPH4gUaVmKUxugP2BQuS7t5%2FderVIml3Y87n%0As6lyZ3I9hgB77RurWCY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1787622300&signature=f5f4a35f3586e84c57c4076de70e32e05b5c1deab0e0156a1e2f774a828e0f25&req=diEiEcp3m4lbXfMW1HO4zf4NBPH6gUKXmKUxugP2BQsEULmdjnj29xjPE8fn%0AatqynT85mywqQ8EmSyg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1787622300&signature=f5f4a35f3586e84c57c4076de70e32e05b5c1deab0e0156a1e2f774a828e0f25&req=diEiEcp3m4lbXfMW1HO4zf4NBPH6gUKXmKUxugP2BQsEULmdjnj29xjPE8fn%0AatqynT85mywqQ8EmSyg%3D%0A)
 
 ---
 

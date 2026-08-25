@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-elevenlabs-low-latency-stt-claude-tts -->
 
-#  Low Latency Voice Assistant with ElevenLabs and Claude
+#  Low Latency Voice Assistant with ElevenLabs and Claude
 
 This notebook demonstrates how to build a low-latency voice assistant using ElevenLabs for speech-to-text and text-to-speech, combined with Claude for intelligent responses. We'll measure the performance gains from streaming responses to minimize latency.
 
@@ -13,23 +13,17 @@ In this notebook, we will demonstrate how to:
 
 ---
 
-##  Installation
+##  Installation
 
 First, install the required dependencies:
 
-
-
 %pip install --upgrade pip
-
-
 
 %pip install -r requirements.txt
 
-##  Imports
+##  Imports
 
 Import the necessary libraries for ElevenLabs integration, Claude API access, and audio playback:
-
-
 
 import io
 
@@ -45,7 +39,7 @@ from dotenv import load\_dotenv
 
 from IPython.display import Audio
 
-##  API Keys
+##  API Keys
 
 Set up your API keys for both ElevenLabs and Anthropic.
 
@@ -58,8 +52,6 @@ Set up your API keys for both ElevenLabs and Anthropic.
 
 The keys will be automatically loaded from the `.env` file.
 
-
-
 # Load environment variables from .env file
 
 load\_dotenv()
@@ -68,11 +60,9 @@ ELEVENLABS\_API\_KEY = os.getenv("ELEVENLABS\_API\_KEY")
 
 ANTHROPIC\_API\_KEY = os.getenv("ANTHROPIC\_API\_KEY")
 
-##  Initialize Clients
+##  Initialize Clients
 
 Create client instances for both ElevenLabs and Anthropic services:
-
-
 
 assert ELEVENLABS\_API\_KEY is not None, (
 
@@ -94,11 +84,9 @@ api\_key=ELEVENLABS\_API\_KEY, base\_url="https://api.elevenlabs.io"
 
 anthropic\_client = anthropic.Anthropic(api\_key=ANTHROPIC\_API\_KEY)
 
-##  List Available Models and Voices
+##  List Available Models and Voices
 
 Explore the available ElevenLabs models and voices. We'll automatically select the first available voice for the assistant's responses:
-
-
 
 print("Available Models and Voices:\n")
 
@@ -121,8 +109,6 @@ selected\_voice = voices[0]
 VOICE\_ID = selected\_voice.voice\_id
 
 print(f"\nSelected voice: {selected\_voice.name} with ID: {VOICE\_ID}")
-
-
 
 ```
 Available Models and Voices:
@@ -152,11 +138,9 @@ Sarah: EXAVITQu4vr4xnSDxMaL
 Selected voice: Rachel with ID: 21m00Tcm4TlvDq8ikWAM
 ```
 
-##  Generate Input Audio
+##  Generate Input Audio
 
 Create a sample audio file using ElevenLabs text-to-speech. This will simulate user input for our voice assistant:
-
-
 
 audio = elevenlabs\_client.text\_to\_speech.convert(
 
@@ -178,17 +162,13 @@ audio\_data.write(chunk)
 
 Audio(audio\_data.getvalue())
 
-
-
 ```
 <IPython.lib.display.Audio object>
 ```
 
-##  Speech Transcription
+##  Speech Transcription
 
 Transcribe the audio input using ElevenLabs' speech-to-text model. We'll measure the transcription latency:
-
-
 
 audio\_data.seek(0)
 
@@ -204,18 +184,14 @@ print(f"Transcribed text: {transcription.text}")
 
 print(f"Transcription time: {transcription\_time:.2f} seconds")
 
-
-
 ```
 Transcribed text: Hello, Claude.
 Transcription time: 0.54 seconds
 ```
 
-##  Get a Response from Claude
+##  Get a Response from Claude
 
 Send the transcribed text to Claude and measure the response time. We're using `claude-haiku-4-5` for fast, high-quality responses:
-
-
 
 start\_time = time.time()
 
@@ -239,19 +215,15 @@ print(message.content[0].text)
 
 print(f"\nResponse time: {non\_streaming\_response\_time:.2f} seconds")
 
-
-
 ```
 Hello! It's nice to meet you. How can I help you today?
 
 Response time: 1.03 seconds
 ```
 
-##  Optimize with Streaming
+##  Optimize with Streaming
 
 Improve response latency by using Claude's streaming API. This allows us to receive the first tokens much faster, significantly reducing perceived latency:
-
-
 
 start\_time = time.time()
 
@@ -289,8 +261,6 @@ f"\n\nStreaming time to first token: {streaming\_time\_to\_first\_token:.2f} sec
 
 )
 
-
-
 ```
 Hello! It's nice to meet you. How can I help you today?
 
@@ -298,8 +268,6 @@ Streaming time to first token: 0.71 seconds - reducing perceived latency by 30.7
 ```
 
 Text to speech. Similar to above, we can stream the response to reduce the silence.
-
-
 
 start\_time = time.time()
 
@@ -333,21 +301,17 @@ print(f"Streaming TTS time to first audio chunk: {streaming\_tts\_time\_to\_firs
 
 Audio(audio\_buffer.getvalue())
 
-
-
 ```
 Streaming TTS time to first audio chunk: 0.39 seconds
 
 <IPython.lib.display.Audio object>
 ```
 
-##  Streaming Claude Directly to TTS (Sentence-by-Sentence)
+##  Streaming Claude Directly to TTS (Sentence-by-Sentence)
 
 We've optimized Claude's streaming and TTS separately, but can we combine them? Let's stream Claude's response and synthesize audio as soon as we have complete sentences.
 
 This approach detects sentence boundaries (using punctuation like `.`, `!`, `?`) and immediately sends each sentence to TTS, further reducing latency.
-
-
 
 import re
 
@@ -447,8 +411,6 @@ combined\_pcm = b"".join(audio\_chunks)
 
 Audio(combined\_pcm)
 
-
-
 ```
 Hello! It's nice to meet you. How can I help you today?
 
@@ -457,13 +419,13 @@ Time to first audio: 1.48 seconds
 <IPython.lib.display.Audio object>
 ```
 
-###  The Problem: Disconnected Audio
+###  The Problem: Disconnected Audio
 
 While this approach achieves excellent latency, there's a quality issue. Each sentence is synthesized independently, which causes the audio to sound disconnected and unnatural. The prosody (rhythm, stress, intonation) doesn't flow smoothly between sentences.
 
 This happens because the TTS model doesn't have context about what comes next, so each sentence is treated as a standalone utterance.
 
-##  WebSocket Streaming: The Best of Both Worlds
+##  WebSocket Streaming: The Best of Both Worlds
 
 ElevenLabs offers a WebSocket API that solves this problem perfectly. Instead of waiting for complete sentences, we can stream text chunks directly to the TTS engine as they arrive from Claude.
 
@@ -476,11 +438,11 @@ The WebSocket API:
 
 Let's implement this ultimate optimization:
 
-##  Building a Production Voice Assistant
+##  Building a Production Voice Assistant
 
 The techniques demonstrated in this notebook provide the foundation for building a real-time voice assistant. The WebSocket streaming approach minimizes latency while maintaining natural audio quality.
 
-###  Key Implementation Challenges
+###  Key Implementation Challenges
 
 When building a production system, you'll need to solve several additional challenges beyond the basic streaming:
 
@@ -489,7 +451,7 @@ When building a production system, you'll need to solve several additional chall
 3. **Conversation State**: Maintaining conversation history across turns so Claude can reference previous context.
 4. **Audio Quality**: Converting between different audio formats (PCM, WAV) and avoiding artifacts from encoding.
 
-###  Complete Implementation
+###  Complete Implementation
 
 We've built a complete voice assistant script that demonstrates all these techniques:
 
@@ -503,8 +465,6 @@ We've built a complete voice assistant script that demonstrates all these techni
 * Continuous conversation loop
 
 Run the script to experience a fully functional voice assistant:
-
-
 
 python stream\_voice\_assistant\_websocket.py
 

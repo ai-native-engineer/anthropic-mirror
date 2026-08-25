@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/rate_limits -->
 
----
-title: Rate Limits
-url: https://platform.claude.com/docs/en/api/admin/rate_limits
----
-
 # Rate Limits
 
 ## List Organization Rate Limits
 
-**get** `/v1/organizations/rate_limits`
+**GET** `/v1/organizations/rate_limits`
 
 List Messages API rate limits for your organization.
 
@@ -17,7 +12,7 @@ Each entry corresponds to one rate-limit group (either a model family
 or an API-surface category such as the Files API or Message Batches)
 and contains the set of limiter values that apply to it.
 
-### Query Parameters
+### Query parameters
 
 - `group_type: optional "batch" or "files" or "model_group" or 3 more`
 
@@ -45,7 +40,7 @@ and contains the set of limiter values that apply to it.
 
 ### Returns
 
-- `data: array of object { id, group_type, limits, 2 more }`
+- `data: array of object`
 
   Rate-limit entries for the organization, one per group.
 
@@ -69,7 +64,7 @@ and contains the set of limiter values that apply to it.
 
     - `"web_search"`
 
-  - `limits: array of object { type, value }`
+  - `limits: array of object`
 
     The limiter values that apply to this group.
 
@@ -89,7 +84,7 @@ and contains the set of limiter values that apply to it.
 
     Object type. Always `rate_limit` for organization rate-limit entries.
 
-    - `"rate_limit"`
+    default: rate_limit
 
 - `next_page: string or null`
 
@@ -97,13 +92,13 @@ and contains the set of limiter values that apply to it.
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/rate_limits \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -127,13 +122,13 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Rate Limit List Response
 
-- `RateLimitListResponse object { data, next_page }`
+- `RateLimitListResponse object`
 
-  - `data: array of object { id, group_type, limits, 2 more }`
+  - `data: array of object`
 
     Rate-limit entries for the organization, one per group.
 
@@ -157,7 +152,7 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
 
       - `"web_search"`
 
-    - `limits: array of object { type, value }`
+    - `limits: array of object`
 
       The limiter values that apply to this group.
 
@@ -177,7 +172,7 @@ curl https://api.anthropic.com/v1/organizations/rate_limits \
 
       Object type. Always `rate_limit` for organization rate-limit entries.
 
-      - `"rate_limit"`
+      default: rate_limit
 
   - `next_page: string or null`
 

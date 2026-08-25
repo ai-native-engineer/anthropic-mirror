@@ -14,19 +14,19 @@ ProductJul 24, 2026
 
 Opus 5 is a step change improvement for the Opus tier powering long-running agents while delivering improvements in coding and professional work.](https://www.anthropic.com/news/claude-opus-5)
 
-[AnnouncementsJul 9, 2026
+[AnnouncementsAug 14, 2026
 
-#### Inviting hard questions
+#### How Claude’s text watermark works
 
-We’re asking the public for their hardest questions about AI, and committing to show our work as we address them.](https://www.anthropic.com/news/hard-questions)[FeaturesJul 6, 2026
+In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether it affects Claude’s outputs, and why we’re making this change.](https://www.anthropic.com/news/claude-text-watermark)[ProductAug 7, 2026
+
+#### Improving Fable 5's biology safeguards
+
+We’re making updates to Claude Fable 5’s biology safeguards in a way that substantially reduces false positives. Fable 5 users will now experience many fewer “fallbacks”—where the system switches to a less capable model after they make a biology-related query.](https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards)[FeaturesJul 6, 2026
 
 #### The Making of Claude Code
 
-The inside story of how Claude Code went from an internal CLI to Anthropic's coding agent, told by researchers, engineers and early users who built it.](https://www.anthropic.com/features/making-of-claude-code)[AnnouncementsJun 30, 2026
-
-#### Redeploying Fable 5
-
-Fable 5 returns globally July 1. We're also proposing an industry-wide framework for scoring jailbreak severity, together with Amazon, Microsoft, Google, and other Glasswing partners.](https://www.anthropic.com/news/redeploying-fable-5)[ProductJun 30, 2026
+The inside story of how Claude Code went from an internal CLI to Anthropic's coding agent, told by researchers, engineers and early users who built it.](https://www.anthropic.com/features/making-of-claude-code)[ProductJun 30, 2026
 
 #### Introducing Claude Sonnet 5
 

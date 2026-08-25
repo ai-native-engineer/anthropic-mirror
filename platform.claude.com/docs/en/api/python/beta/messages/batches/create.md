@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/messages/batches/create -->
 
----
-title: Create a Message Batch
-url: https://platform.claude.com/docs/en/api/python/beta/messages/batches/create
----
+# Create a Message Batch
 
-## Create a Message Batch
+`beta.messages.batches.create(**kwargs)  -> BetaMessageBatch`
 
-`beta.messages.batches.create(BatchCreateParams**kwargs)  -> BetaMessageBatch`
-
-**post** `/v1/messages/batches`
+**POST** `/v1/messages/batches`
 
 Send a batch of Message creation requests.
 
@@ -17,17 +12,21 @@ The Message Batches API can be used to process multiple Messages API requests at
 
 Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
-### Parameters
+## Parameters
 
 - `requests: Iterable[Request]`
 
   List of requests for prompt completion. Each is an individual request to create a Message.
+
+  maxItems: 100000, minItems: 1
 
   - `custom_id: str`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
 
     Must be unique for each request within the Message Batch.
+
+    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,64}$
 
   - `params: RequestParams`
 
@@ -44,6 +43,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
       Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
+
+      minimum: 0
 
     - `messages: Iterable[BetaMessageParam]`
 
@@ -106,17 +107,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `text: str`
 
-            - `type: Literal["text"]`
+              minLength: 1
 
-              - `"text"`
+            - `type: Literal["text"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
 
               - `type: Literal["ephemeral"]`
-
-                - `"ephemeral"`
 
               - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -141,15 +140,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `document_index: int`
 
+                  minimum: 0
+
                 - `document_title: Optional[str]`
+
+                  maxLength: 500, minLength: 1
 
                 - `end_char_index: int`
 
                 - `start_char_index: int`
 
-                - `type: Literal["char_location"]`
+                  minimum: 0
 
-                  - `"char_location"`
+                - `type: Literal["char_location"]`
 
               - `class BetaCitationPageLocationParam: …`
 
@@ -157,15 +160,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `document_index: int`
 
+                  minimum: 0
+
                 - `document_title: Optional[str]`
+
+                  maxLength: 500, minLength: 1
 
                 - `end_page_number: int`
 
                 - `start_page_number: int`
 
-                - `type: Literal["page_location"]`
+                  minimum: 1
 
-                  - `"page_location"`
+                - `type: Literal["page_location"]`
 
               - `class BetaCitationContentBlockLocationParam: …`
 
@@ -177,7 +184,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `document_index: int`
 
+                  minimum: 0
+
                 - `document_title: Optional[str]`
+
+                  maxLength: 500, minLength: 1
 
                 - `end_block_index: int`
 
@@ -189,9 +200,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   0-based index of the first cited block in the source's `content` array.
 
-                - `type: Literal["content_block_location"]`
+                  minimum: 0
 
-                  - `"content_block_location"`
+                - `type: Literal["content_block_location"]`
 
               - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -201,11 +212,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `title: Optional[str]`
 
+                  maxLength: 512, minLength: 1
+
                 - `type: Literal["web_search_result_location"]`
 
-                  - `"web_search_result_location"`
-
                 - `url: str`
+
+                  minLength: 1
 
               - `class BetaCitationSearchResultLocationParam: …`
 
@@ -227,17 +240,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Counted separately from `document_index`; server-side web search results are not included in this count.
 
+                  minimum: 0
+
                 - `source: str`
 
                 - `start_block_index: int`
 
                   0-based index of the first cited block in the source's `content` array.
 
+                  minimum: 0
+
                 - `title: Optional[str]`
 
                 - `type: Literal["search_result_location"]`
-
-                  - `"search_result_location"`
 
           - `class BetaImageBlockParam: …`
 
@@ -246,6 +261,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `class BetaBase64ImageSource: …`
 
                 - `data: str`
+
+                  format: byte
 
                 - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -259,13 +276,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["base64"]`
 
-                  - `"base64"`
-
               - `class BetaURLImageSource: …`
 
                 - `type: Literal["url"]`
-
-                  - `"url"`
 
                 - `url: str`
 
@@ -275,11 +288,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["file"]`
 
-                  - `"file"`
-
             - `type: Literal["image"]`
-
-              - `"image"`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -305,13 +314,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `data: str`
 
+                  format: byte
+
                 - `media_type: Literal["application/pdf"]`
 
-                  - `"application/pdf"`
-
                 - `type: Literal["base64"]`
-
-                  - `"base64"`
 
               - `class BetaPlainTextSource: …`
 
@@ -319,11 +326,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `media_type: Literal["text/plain"]`
 
-                  - `"text/plain"`
-
                 - `type: Literal["text"]`
-
-                  - `"text"`
 
               - `class BetaContentBlockSource: …`
 
@@ -339,13 +342,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["content"]`
 
-                  - `"content"`
-
               - `class BetaURLPDFSource: …`
 
                 - `type: Literal["url"]`
-
-                  - `"url"`
 
                 - `url: str`
 
@@ -355,11 +354,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["file"]`
 
-                  - `"file"`
-
             - `type: Literal["document"]`
-
-              - `"document"`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -371,13 +366,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `context: Optional[str]`
 
+              minLength: 1
+
             - `title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
           - `class BetaSearchResultBlockParam: …`
 
             - `content: List[BetaTextBlockParam]`
 
               - `text: str`
+
+                minLength: 1
 
               - `type: Literal["text"]`
 
@@ -392,8 +393,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `title: str`
 
             - `type: Literal["search_result"]`
-
-              - `"search_result"`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -415,8 +414,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["thinking"]`
 
-              - `"thinking"`
-
           - `class BetaRedactedThinkingBlockParam: …`
 
             - `data: str`
@@ -425,19 +422,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["redacted_thinking"]`
 
-              - `"redacted_thinking"`
-
           - `class BetaToolUseBlockParam: …`
 
             - `id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
 
             - `input: Dict[str, object]`
 
             - `name: str`
 
-            - `type: Literal["tool_use"]`
+              maxLength: 200, minLength: 1
 
-              - `"tool_use"`
+            - `type: Literal["tool_use"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -453,37 +450,37 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["direct"]`
 
-                  - `"direct"`
-
               - `class BetaServerToolCaller: …`
 
                 Tool invocation generated by a server-side tool.
 
                 - `tool_id: str`
 
-                - `type: Literal["code_execution_20250825"]`
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                  - `"code_execution_20250825"`
+                - `type: Literal["code_execution_20250825"]`
 
               - `class BetaServerToolCaller20260120: …`
 
                 - `tool_id: str`
 
-                - `type: Literal["code_execution_20260120"]`
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                  - `"code_execution_20260120"`
+                - `type: Literal["code_execution_20260120"]`
 
             - `toolset_name: Optional[str]`
 
               For a toolset member tool_use, the toolset family this member belongs to.
 
+              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
           - `class BetaToolResultBlockParam: …`
 
             - `tool_use_id: str`
 
-            - `type: Literal["tool_result"]`
+              pattern: ^[a-zA-Z0-9_-]+$
 
-              - `"tool_result"`
+            - `type: Literal["tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -509,9 +506,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `tool_name: str`
 
-                  - `type: Literal["tool_reference"]`
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                    - `"tool_reference"`
+                  - `type: Literal["tool_reference"]`
 
                   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -531,25 +528,31 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
 
+                    maxItems: 100
+
                     - `tab_id: str`
 
                       The caller-assigned identifier for this tab, unique within the inventory.
+
+                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `title: str`
 
                       The title of the page the tab is showing. May be empty.
 
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                     - `url: str`
 
                       The URL of the page the tab is showing. May be empty.
+
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `active: Optional[bool]`
 
                       Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
                   - `type: Literal["browser_state"]`
-
-                    - `"browser_state"`
 
                   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -558,6 +561,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `state_changes: Optional[List[BetaBrowserStateChange]]`
 
                     Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                    maxItems: 200, minItems: 1
 
                     - `class BetaBrowserStateChangeTabOpened: …`
 
@@ -573,9 +578,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The `tab_id` of the opened tab, present in `tabs`.
 
-                      - `type: Literal["tab_opened"]`
+                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `"tab_opened"`
+                      - `type: Literal["tab_opened"]`
 
                     - `class BetaBrowserStateChangeDownloadStarted: …`
 
@@ -585,13 +590,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      - `type: Literal["download_started"]`
+                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `"download_started"`
+                      - `type: Literal["download_started"]`
 
                       - `url: str`
 
                         The final post-redirect URL the download was served from.
+
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                     - `class BetaBrowserStateChangeDownloadCompleted: …`
 
@@ -604,21 +611,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      - `type: Literal["download_completed"]`
+                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `"download_completed"`
+                      - `type: Literal["download_completed"]`
 
                       - `url: str`
 
                         The final post-redirect URL the download was served from.
 
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                       - `path: Optional[str]`
 
                         Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+                        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
                       - `size_bytes: Optional[int]`
 
                         The completed download's size.
+
+                        minimum: 0
 
                     - `class BetaBrowserStateChangeDownloadFailed: …`
 
@@ -628,17 +641,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                      - `type: Literal["download_failed"]`
+                        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `"download_failed"`
+                      - `type: Literal["download_failed"]`
 
                       - `url: str`
 
                         The final post-redirect URL the download was served from.
 
+                        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                       - `error: Optional[str]`
 
                         The failure or cancellation detail, when known.
+
+                        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
             - `is_error: Optional[bool]`
 
@@ -646,9 +663,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               For a toolset member tool_result, the toolset family of the paired tool_use.
 
+              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
           - `class BetaServerToolUseBlockParam: …`
 
             - `id: str`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `input: Dict[str, object]`
 
@@ -671,8 +692,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `"tool_search_tool_bm25"`
 
             - `type: Literal["server_tool_use"]`
-
-              - `"server_tool_use"`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -704,8 +723,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["web_search_result"]`
 
-                  - `"web_search_result"`
-
                 - `url: str`
 
                 - `page_age: Optional[str]`
@@ -728,13 +745,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["web_search_tool_result_error"]`
 
-                  - `"web_search_tool_result_error"`
-
             - `tool_use_id: str`
 
-            - `type: Literal["web_search_tool_result"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"web_search_tool_result"`
+            - `type: Literal["web_search_tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -782,15 +797,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["web_fetch_tool_result_error"]`
 
-                  - `"web_fetch_tool_result_error"`
-
               - `class BetaWebFetchBlockParam: …`
 
                 - `content: BetaRequestDocumentBlock`
 
                 - `type: Literal["web_fetch_result"]`
-
-                  - `"web_fetch_result"`
 
                 - `url: str`
 
@@ -802,9 +813,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `tool_use_id: str`
 
-            - `type: Literal["web_fetch_tool_result"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"web_fetch_tool_result"`
+            - `type: Literal["web_fetch_tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -848,15 +859,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["advisor_tool_result_error"]`
 
-                  - `"advisor_tool_result_error"`
-
               - `class BetaAdvisorResultBlockParam: …`
 
                 - `text: str`
 
                 - `type: Literal["advisor_result"]`
-
-                  - `"advisor_result"`
 
                 - `stop_reason: Optional[str]`
 
@@ -868,15 +875,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["advisor_redacted_result"]`
 
-                  - `"advisor_redacted_result"`
-
                 - `stop_reason: Optional[str]`
 
             - `tool_use_id: str`
 
-            - `type: Literal["advisor_tool_result"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"advisor_tool_result"`
+            - `type: Literal["advisor_tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -902,8 +907,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["code_execution_tool_result_error"]`
 
-                  - `"code_execution_tool_result_error"`
-
               - `class BetaCodeExecutionResultBlockParam: …`
 
                 - `content: List[BetaCodeExecutionOutputBlockParam]`
@@ -912,8 +915,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `type: Literal["code_execution_output"]`
 
-                    - `"code_execution_output"`
-
                 - `return_code: int`
 
                 - `stderr: str`
@@ -921,8 +922,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `stdout: str`
 
                 - `type: Literal["code_execution_result"]`
-
-                  - `"code_execution_result"`
 
               - `class BetaEncryptedCodeExecutionResultBlockParam: …`
 
@@ -942,13 +941,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["encrypted_code_execution_result"]`
 
-                  - `"encrypted_code_execution_result"`
-
             - `tool_use_id: str`
 
-            - `type: Literal["code_execution_tool_result"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_tool_result"`
+            - `type: Literal["code_execution_tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -974,8 +971,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["bash_code_execution_tool_result_error"]`
 
-                  - `"bash_code_execution_tool_result_error"`
-
               - `class BetaBashCodeExecutionResultBlockParam: …`
 
                 - `content: List[BetaBashCodeExecutionOutputBlockParam]`
@@ -983,8 +978,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `file_id: str`
 
                   - `type: Literal["bash_code_execution_output"]`
-
-                    - `"bash_code_execution_output"`
 
                 - `return_code: int`
 
@@ -994,13 +987,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["bash_code_execution_result"]`
 
-                  - `"bash_code_execution_result"`
-
             - `tool_use_id: str`
 
-            - `type: Literal["bash_code_execution_tool_result"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"bash_code_execution_tool_result"`
+            - `type: Literal["bash_code_execution_tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1026,8 +1017,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-                  - `"text_editor_code_execution_tool_result_error"`
-
                 - `error_message: Optional[str]`
 
               - `class BetaTextEditorCodeExecutionViewResultBlockParam: …`
@@ -1044,8 +1033,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["text_editor_code_execution_view_result"]`
 
-                  - `"text_editor_code_execution_view_result"`
-
                 - `num_lines: Optional[int]`
 
                 - `start_line: Optional[int]`
@@ -1058,13 +1045,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["text_editor_code_execution_create_result"]`
 
-                  - `"text_editor_code_execution_create_result"`
-
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam: …`
 
                 - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-                  - `"text_editor_code_execution_str_replace_result"`
 
                 - `lines: Optional[List[str]]`
 
@@ -1078,9 +1061,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `tool_use_id: str`
 
-            - `type: Literal["text_editor_code_execution_tool_result"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"text_editor_code_execution_tool_result"`
+            - `type: Literal["text_editor_code_execution_tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1104,8 +1087,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["tool_search_tool_result_error"]`
 
-                  - `"tool_search_tool_result_error"`
-
                 - `error_message: Optional[str]`
 
               - `class BetaToolSearchToolSearchResultBlockParam: …`
@@ -1113,6 +1094,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 - `tool_references: List[BetaToolReferenceBlockParam]`
 
                   - `tool_name: str`
+
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
                   - `type: Literal["tool_reference"]`
 
@@ -1122,13 +1105,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["tool_search_tool_search_result"]`
 
-                  - `"tool_search_tool_search_result"`
-
             - `tool_use_id: str`
 
-            - `type: Literal["tool_search_tool_result"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"tool_search_tool_result"`
+            - `type: Literal["tool_search_tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1137,6 +1118,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `class BetaMCPToolUseBlockParam: …`
 
             - `id: str`
+
+              pattern: ^[a-zA-Z0-9_-]+$
 
             - `input: Dict[str, object]`
 
@@ -1148,8 +1131,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["mcp_tool_use"]`
 
-              - `"mcp_tool_use"`
-
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
@@ -1158,9 +1139,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `tool_use_id: str`
 
-            - `type: Literal["mcp_tool_result"]`
+              pattern: ^[a-zA-Z0-9_-]+$
 
-              - `"mcp_tool_result"`
+            - `type: Literal["mcp_tool_result"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1173,6 +1154,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               - `List[BetaTextBlockParam]`
 
                 - `text: str`
+
+                  minLength: 1
 
                 - `type: Literal["text"]`
 
@@ -1193,8 +1176,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["container_upload"]`
 
-              - `"container_upload"`
-
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
@@ -1210,8 +1191,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             treats these as no-ops. Empty string content is not allowed.
 
             - `type: Literal["compaction"]`
-
-              - `"compaction"`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1249,9 +1228,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `name: str`
 
-                - `type: Literal["tool_reference"]`
+                  pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-                  - `"tool_reference"`
+                - `type: Literal["tool_reference"]`
 
               - `class BetaToolChangeMCPToolReference: …`
 
@@ -1264,8 +1243,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["mcp_tool_reference"]`
 
-                  - `"mcp_tool_reference"`
-
               - `class BetaToolChangeMCPToolsetReference: …`
 
                 Reference to every tool in the named MCP server's toolset.
@@ -1274,11 +1251,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `type: Literal["mcp_toolset_reference"]`
 
-                  - `"mcp_toolset_reference"`
-
             - `type: Literal["tool_addition"]`
-
-              - `"tool_addition"`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1316,8 +1289,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 Reference to every tool in the named MCP server's toolset.
 
             - `type: Literal["tool_removal"]`
-
-              - `"tool_removal"`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1439,8 +1410,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["fallback"]`
 
-              - `"fallback"`
-
             - `trigger: Optional[object]`
 
               The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -1479,9 +1448,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           List of skills to load in the container
 
+          maxItems: 20
+
           - `skill_id: str`
 
             Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `type: Literal["anthropic", "custom"]`
 
@@ -1495,6 +1468,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Skill version or 'latest' for most recent version
 
+            maxLength: 64, minLength: 1
+
       - `str`
 
     - `context_management: Optional[BetaContextManagementConfigParam]`
@@ -1507,11 +1482,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         List of context management edits to apply
 
+        minItems: 0
+
         - `class BetaClearToolUses20250919Edit: …`
 
           - `type: Literal["clear_tool_uses_20250919"]`
-
-            - `"clear_tool_uses_20250919"`
 
           - `clear_at_least: Optional[BetaInputTokensClearAtLeast]`
 
@@ -1519,9 +1494,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["input_tokens"]`
 
-              - `"input_tokens"`
-
             - `value: int`
+
+              minimum: 0
 
           - `clear_tool_inputs: Optional[Union[bool, List[str], null]]`
 
@@ -1541,9 +1516,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["tool_uses"]`
 
-              - `"tool_uses"`
-
             - `value: int`
+
+              minimum: 0
 
           - `trigger: Optional[Trigger]`
 
@@ -1553,23 +1528,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `type: Literal["input_tokens"]`
 
-                - `"input_tokens"`
-
               - `value: int`
+
+                minimum: 1
 
             - `class BetaToolUsesTrigger: …`
 
               - `type: Literal["tool_uses"]`
 
-                - `"tool_uses"`
-
               - `value: int`
+
+                minimum: 1
 
         - `class BetaClearThinking20251015Edit: …`
 
           - `type: Literal["clear_thinking_20251015"]`
-
-            - `"clear_thinking_20251015"`
 
           - `keep: Optional[Keep]`
 
@@ -1579,27 +1552,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `type: Literal["thinking_turns"]`
 
-                - `"thinking_turns"`
-
               - `value: int`
+
+                minimum: 1
 
             - `class BetaAllThinkingTurns: …`
 
               - `type: Literal["all"]`
 
-                - `"all"`
-
             - `Literal["all"]`
-
-              - `"all"`
 
         - `class BetaCompact20260112Edit: …`
 
           Automatically compact older context when reaching the configured trigger threshold.
 
           - `type: Literal["compact_20260112"]`
-
-            - `"compact_20260112"`
 
           - `instructions: Optional[str]`
 
@@ -1621,6 +1588,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `previous_message_id: Optional[str]`
 
         The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+        maxLength: 256
 
     - `fallback_credit_token: Optional[RequestParamsFallbackCreditToken]`
 
@@ -1660,6 +1629,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `token: str`
 
           The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+          maxLength: 2048, minLength: 1
 
         - `mode: Optional[Literal["strict", "best_effort"]]`
 
@@ -1709,8 +1680,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["json_schema"]`
 
-              - `"json_schema"`
-
           - `task_budget: Optional[BetaTokenTaskBudget]`
 
             User-configurable total token budget across contexts.
@@ -1719,15 +1688,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Total token budget across all contexts in the session.
 
+              minimum: 1024
+
             - `type: Literal["tokens"]`
 
               The budget type. Currently only 'tokens' is supported.
 
-              - `"tokens"`
-
             - `remaining: Optional[int]`
 
               Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+              minimum: 0
 
         - `speed: Optional[Literal["standard", "fast"]]`
 
@@ -1749,9 +1720,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-            - `type: Literal["enabled"]`
+              minimum: 1024
 
-              - `"enabled"`
+            - `type: Literal["enabled"]`
 
             - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -1765,13 +1736,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["disabled"]`
 
-              - `"disabled"`
-
           - `class BetaThinkingConfigAdaptive: …`
 
             - `type: Literal["adaptive"]`
-
-              - `"adaptive"`
 
             - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -1783,8 +1750,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Literal["default"]`
 
-        - `"default"`
-
     - `inference_geo: Optional[str]`
 
       Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
@@ -1793,11 +1758,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       MCP servers to be utilized in this request
 
+      maxItems: 20
+
       - `name: str`
 
       - `type: Literal["url"]`
-
-        - `"url"`
 
       - `url: str`
 
@@ -1818,6 +1783,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         An external identifier for the user who is associated with the request.
 
         This should be a uuid, hash value, or other opaque identifier. Anthropic may use this id to help detect abuse. Do not include any identifying information such as name, email address, or phone number.
+
+        maxLength: 512
 
     - `output_config: Optional[BetaOutputConfigParam]`
 
@@ -1867,6 +1834,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `text: str`
 
+          minLength: 1
+
         - `type: Literal["text"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
@@ -1899,8 +1868,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type: Literal["auto"]`
 
-          - `"auto"`
-
         - `disable_parallel_tool_use: Optional[bool]`
 
           Whether to disable parallel tool use.
@@ -1912,8 +1879,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         The model will use any available tools.
 
         - `type: Literal["any"]`
-
-          - `"any"`
 
         - `disable_parallel_tool_use: Optional[bool]`
 
@@ -1931,8 +1896,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type: Literal["tool"]`
 
-          - `"tool"`
-
         - `disable_parallel_tool_use: Optional[bool]`
 
           Whether to disable parallel tool use.
@@ -1944,8 +1907,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         The model will not be allowed to use tools.
 
         - `type: Literal["none"]`
-
-          - `"none"`
 
     - `tools: Optional[Iterable[BetaToolUnionParam]]`
 
@@ -2021,8 +1982,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `type: Literal["object"]`
 
-            - `"object"`
-
           - `properties: Optional[Dict[str, object]]`
 
           - `required: Optional[List[str]]`
@@ -2032,6 +1991,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
+
+          maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2069,8 +2030,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `type: Optional[Literal["custom"]]`
 
-          - `"custom"`
-
       - `class BetaToolBash20241022: …`
 
         - `name: Literal["bash"]`
@@ -2079,11 +2038,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"bash"`
-
         - `type: Literal["bash_20241022"]`
-
-          - `"bash_20241022"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2117,11 +2072,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"bash"`
-
         - `type: Literal["bash_20250124"]`
-
-          - `"bash_20250124"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2155,11 +2106,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"code_execution"`
-
         - `type: Literal["code_execution_20250522"]`
-
-          - `"code_execution_20250522"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2191,11 +2138,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"code_execution"`
-
         - `type: Literal["code_execution_20250825"]`
-
-          - `"code_execution_20250825"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2229,11 +2172,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"code_execution"`
-
         - `type: Literal["code_execution_20260120"]`
-
-          - `"code_execution_20260120"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2267,11 +2206,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"code_execution"`
-
         - `type: Literal["code_execution_20260521"]`
-
-          - `"code_execution_20260521"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2303,8 +2238,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         from its schema.
 
         - `type: Literal["browser_toolset_20260801"]`
-
-          - `"browser_toolset_20260801"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2707,9 +2640,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The height of the display in pixels.
 
+          minimum: 1
+
         - `display_width_px: int`
 
           The width of the display in pixels.
+
+          minimum: 1
 
         - `name: Literal["computer"]`
 
@@ -2717,11 +2654,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"computer"`
-
         - `type: Literal["computer_20241022"]`
-
-          - `"computer_20241022"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2745,6 +2678,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The X11 display number (e.g. 0, 1) for the display.
 
+          minimum: 0
+
         - `input_examples: Optional[List[Dict[str, object]]]`
 
         - `strict: Optional[bool]`
@@ -2759,11 +2694,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"memory"`
-
         - `type: Literal["memory_20250818"]`
-
-          - `"memory_20250818"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2795,9 +2726,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The height of the display in pixels.
 
+          minimum: 1
+
         - `display_width_px: int`
 
           The width of the display in pixels.
+
+          minimum: 1
 
         - `name: Literal["computer"]`
 
@@ -2805,11 +2740,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"computer"`
-
         - `type: Literal["computer_20250124"]`
-
-          - `"computer_20250124"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2833,6 +2764,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The X11 display number (e.g. 0, 1) for the display.
 
+          minimum: 0
+
         - `input_examples: Optional[List[Dict[str, object]]]`
 
         - `strict: Optional[bool]`
@@ -2847,11 +2780,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"str_replace_editor"`
-
         - `type: Literal["text_editor_20241022"]`
-
-          - `"text_editor_20241022"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2883,9 +2812,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The height of the display in pixels.
 
+          minimum: 1
+
         - `display_width_px: int`
 
           The width of the display in pixels.
+
+          minimum: 1
 
         - `name: Literal["computer"]`
 
@@ -2893,11 +2826,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"computer"`
-
         - `type: Literal["computer_20251124"]`
-
-          - `"computer_20251124"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2921,6 +2850,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The X11 display number (e.g. 0, 1) for the display.
 
+          minimum: 0
+
         - `enable_zoom: Optional[bool]`
 
           Whether to enable an action to take a zoomed-in screenshot of the screen.
@@ -2943,8 +2874,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         via `configs.zoom.enabled`.
 
         - `type: Literal["computer_toolset_20260801"]`
-
-          - `"computer_toolset_20260801"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3181,11 +3110,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"str_replace_editor"`
-
         - `type: Literal["text_editor_20250124"]`
-
-          - `"text_editor_20250124"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3219,11 +3144,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"str_replace_based_edit_tool"`
-
         - `type: Literal["text_editor_20250429"]`
-
-          - `"text_editor_20250429"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3257,11 +3178,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"str_replace_based_edit_tool"`
-
         - `type: Literal["text_editor_20250728"]`
-
-          - `"text_editor_20250728"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3287,6 +3204,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
 
+          minimum: 1
+
         - `strict: Optional[bool]`
 
           When true, guarantees schema validation on tool names and inputs
@@ -3299,11 +3218,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"web_search"`
-
         - `type: Literal["web_search_20250305"]`
-
-          - `"web_search_20250305"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3335,6 +3250,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Maximum number of times the tool can be used in the API request.
 
+          exclusiveMinimum: 0
+
         - `strict: Optional[bool]`
 
           When true, guarantees schema validation on tool names and inputs
@@ -3345,23 +3262,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `type: Literal["approximate"]`
 
-            - `"approximate"`
-
           - `city: Optional[str]`
 
             The city of the user.
+
+            maxLength: 255, minLength: 1
 
           - `country: Optional[str]`
 
             The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
+            maxLength: 2, minLength: 2
+
           - `region: Optional[str]`
 
             The region of the user.
 
+            maxLength: 255, minLength: 1
+
           - `timezone: Optional[str]`
 
             The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+            maxLength: 255, minLength: 1
 
       - `class BetaWebFetchTool20250910: …`
 
@@ -3371,11 +3294,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"web_fetch"`
-
         - `type: Literal["web_fetch_20250910"]`
-
-          - `"web_fetch_20250910"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3411,9 +3330,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+          exclusiveMinimum: 0
+
         - `max_uses: Optional[int]`
 
           Maximum number of times the tool can be used in the API request.
+
+          exclusiveMinimum: 0
 
         - `strict: Optional[bool]`
 
@@ -3427,11 +3350,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"web_search"`
-
         - `type: Literal["web_search_20260209"]`
-
-          - `"web_search_20260209"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3462,6 +3381,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `max_uses: Optional[int]`
 
           Maximum number of times the tool can be used in the API request.
+
+          exclusiveMinimum: 0
 
         - `strict: Optional[bool]`
 
@@ -3479,11 +3400,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"web_fetch"`
-
         - `type: Literal["web_fetch_20260209"]`
-
-          - `"web_fetch_20260209"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3519,9 +3436,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+          exclusiveMinimum: 0
+
         - `max_uses: Optional[int]`
 
           Maximum number of times the tool can be used in the API request.
+
+          exclusiveMinimum: 0
 
         - `strict: Optional[bool]`
 
@@ -3537,11 +3458,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"web_fetch"`
-
         - `type: Literal["web_fetch_20260309"]`
-
-          - `"web_fetch_20260309"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3577,9 +3494,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+          exclusiveMinimum: 0
+
         - `max_uses: Optional[int]`
 
           Maximum number of times the tool can be used in the API request.
+
+          exclusiveMinimum: 0
 
         - `strict: Optional[bool]`
 
@@ -3597,11 +3518,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"web_search"`
-
         - `type: Literal["web_search_20260318"]`
-
-          - `"web_search_20260318"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3632,6 +3549,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `max_uses: Optional[int]`
 
           Maximum number of times the tool can be used in the API request.
+
+          exclusiveMinimum: 0
 
         - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -3657,11 +3576,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"web_fetch"`
-
         - `type: Literal["web_fetch_20260318"]`
-
-          - `"web_fetch_20260318"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3697,9 +3612,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+          exclusiveMinimum: 0
+
         - `max_uses: Optional[int]`
 
           Maximum number of times the tool can be used in the API request.
+
+          exclusiveMinimum: 0
 
         - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -3731,11 +3650,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `"advisor"`
-
         - `type: Literal["advisor_20260301"]`
-
-          - `"advisor_20260301"`
 
         - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3763,9 +3678,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
 
+          minimum: 1024
+
         - `max_uses: Optional[int]`
 
           Maximum number of times the tool can be used in the API request.
+
+          exclusiveMinimum: 0
 
         - `strict: Optional[bool]`
 
@@ -3778,8 +3697,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `"tool_search_tool_bm25"`
 
         - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
 
@@ -3816,8 +3733,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           Name of the tool.
 
           This is how the tool will be called by the model and in `tool_use` blocks.
-
-          - `"tool_search_tool_regex"`
 
         - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
 
@@ -3858,9 +3773,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Name of the MCP server to configure tools for
 
-        - `type: Literal["mcp_toolset"]`
+          maxLength: 255, minLength: 1
 
-          - `"mcp_toolset"`
+        - `type: Literal["mcp_toolset"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -3962,7 +3877,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
 
-### Returns
+## Returns
 
 - `class BetaMessageBatch: …`
 
@@ -3976,13 +3891,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
 
+    format: date-time
+
   - `cancel_initiated_at: Optional[datetime]`
 
     RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
 
+    format: date-time
+
   - `created_at: datetime`
 
     RFC 3339 datetime string representing the time at which the Message Batch was created.
+
+    format: date-time
 
   - `ended_at: Optional[datetime]`
 
@@ -3990,9 +3911,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
 
+    format: date-time
+
   - `expires_at: datetime`
 
     RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+
+    format: date-time
 
   - `processing_status: Literal["in_progress", "canceling", "ended"]`
 
@@ -4016,11 +3941,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       This is zero until processing of the entire Message Batch has ended.
 
+      default: 0
+
     - `errored: int`
 
       Number of requests in the Message Batch that encountered an error.
 
       This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
 
     - `expired: int`
 
@@ -4028,15 +3957,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       This is zero until processing of the entire Message Batch has ended.
 
+      default: 0
+
     - `processing: int`
 
       Number of requests in the Message Batch that are processing.
+
+      default: 0
 
     - `succeeded: int`
 
       Number of requests in the Message Batch that have completed successfully.
 
       This is zero until processing of the entire Message Batch has ended.
+
+      default: 0
 
   - `results_url: Optional[str]`
 
@@ -4050,9 +3985,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     For Message Batches, this is always `"message_batch"`.
 
-    - `"message_batch"`
+    default: message_batch
 
-### Example
+## Example
 
 ```python
 import os
@@ -4083,7 +4018,7 @@ beta_message_batch = client.beta.messages.batches.create(
 print(beta_message_batch.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

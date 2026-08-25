@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/skills/delete -->
 
----
-title: Delete Skill
-url: https://platform.claude.com/docs/en/api/php/beta/skills/delete
----
-
-## Delete Skill
+# Delete Skill
 
 `$client->beta->skills->delete(string skillID, ?list<AnthropicBeta> betas): SkillDeleteResponse`
 
-**delete** `/v1/skills/{skill_id}`
+**DELETE** `/v1/skills/{skill_id}`
 
 Delete Skill
 
-### Parameters
+## Parameters
 
 - `skillID: string`
 
@@ -25,7 +20,7 @@ Delete Skill
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `SkillDeleteResponse`
 
@@ -41,7 +36,7 @@ Delete Skill
 
     For Skills, this is always `"skill_deleted"`.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -57,7 +52,7 @@ $skill = $client->beta->skills->delete(
 var_dump($skill);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/claude-agent-sdk-08-dynamic-workflows -->
 
-#  Orchestrate subagents at scale with dynamic workflows
+#  Orchestrate subagents at scale with dynamic workflows
 
-##  Introduction
+##  Introduction
 
 Fact-checking a draft investor update means checking many independent claims, applying real judgment to each, and making sure the verification actually runs: more items, judgment, and enforced verification than one context window comfortably holds. Dynamic workflows are a Claude Code feature for tasks like that, ones that need more agents than one conversation can coordinate. Instead of orchestrating turn by turn, Claude writes a JavaScript orchestration script for the task and passes it to the `Workflow` tool, whose runtime executes it in the background. The script spawns subagents in parallel or in stages, holds their results in variables, and applies the connecting logic (filtering, loops, verification passes) in plain code. Because the Agent SDK drives the Claude Code runtime, you can launch a workflow straight from Python.
 
@@ -20,7 +20,7 @@ The worked example fact-checks a draft investor update against its source docume
 
 > **Note:** All company names, metrics, and customer data in this notebook are fictional and generated for demonstration purposes.
 
-##  Prerequisites
+##  Prerequisites
 
 **Required knowledge:**
 
@@ -38,17 +38,13 @@ Dynamic workflows are available on all paid plans, with Anthropic API access, an
 
 > **Cost note:** workflows spawn many subagents, so they use meaningfully more tokens than a single-agent session. Running this notebook end to end costs roughly 2to2 to 2to4 in API usage, and more if a stage fails and the run retries. The workflow run prints its cost when it finishes.
 
-##  Setup
+##  Setup
 
 Install the SDK and load your API key. The version floor below guarantees an SDK release whose bundled Claude Code CLI supports dynamic workflows, and the next cell checks it. If you upgraded the SDK in a kernel that had already imported an older version, restart the kernel so Python picks up the new one.
-
-
 
 %%capture
 
 %pip install -U "claude-agent-sdk>=0.2.90" python-dotenv
-
-
 
 import re
 
@@ -108,13 +104,11 @@ f"claude-agent-sdk {claude\_agent\_sdk.\_\_version\_\_} is too old for dynamic w
 
 print(f"claude-agent-sdk {claude\_agent\_sdk.\_\_version\_\_}")
 
-
-
 ```
 claude-agent-sdk 0.2.125
 ```
 
-###  Create the OrbitCart workspace
+###  Create the OrbitCart workspace
 
 Our fictional company is **OrbitCart**, an online cycling-gear store. The next cell writes a small workspace to disk: `investor_update.md`, a draft investor update that makes 10 factual claims, and a `sources/` directory holding the ground truth those claims should trace back to (a monthly sales CSV, customer survey results, an uptime report, and a file of press mentions).
 
@@ -125,8 +119,6 @@ The draft has problems planted in it so the workflow has something real to catch
 * **Claims 2, 3, 9, and 10 are supported** by at least one source.
 
 Agents work on files, so the data lives on disk, but we create it in the notebook so you can see exactly what the agents will see. After the run we'll compare the workflow's verdicts against this answer key.
-
-
 
 WORKSPACE = Path("orbitcart\_data").resolve()
 
@@ -258,14 +250,12 @@ print(f"Workspace: {WORKSPACE.name}/")
 
 print(f"Investor update claims: 10 | Source documents: {len(list(SOURCES.iterdir()))}")
 
-
-
 ```
 Workspace: orbitcart_data/
 Investor update claims: 10 | Source documents: 4
 ```
 
-##  Subagents vs. workflows
+##  Subagents vs. workflows
 
 The Agent SDK already gives you two ways to run a multi-step task, and dynamic workflows add a third. The difference between them comes down to one question: **who holds the plan?**
 
@@ -282,7 +272,7 @@ With **subagents** (the pattern from [notebook 01(opens in new tab)](https://git
 
 A **dynamic workflow** flips each of those properties. A script decides what runs, intermediate results live in script variables, and the script itself is an artifact you can read, save, edit, and re-run. The price is tokens, since a workflow spawns many subagents. Reach for one when the task is **bigger than one context window**, when you want **verification enforced by structure**, or when **the orchestration itself is worth keeping**.
 
-##  Anatomy of a dynamic workflow
+##  Anatomy of a dynamic workflow
 
 Triggering a workflow from the Agent SDK takes two things:
 
@@ -299,8 +289,6 @@ Three things are worth knowing before the first run:
 * **Behavior and limits.** A workflow runs up to 16 agents concurrently (fewer on machines with limited CPU cores) and at most 1,000 agents per run. The orchestration script itself can't touch your filesystem or shell; only the agents it spawns can. A stopped run is resumable within the same session; a new session starts it fresh.
 
 We hand-roll a small logger here instead of reusing the folder's `agent_visualizer` helpers, because workflows emit `TaskProgressMessage` and `TaskNotificationMessage` events those helpers don't cover. The next cell defines the helpers we'll use for the run: `run_agent()` streams a query and prints a compact activity log, `workflow_options()` builds the `ClaudeAgentOptions`, and `show_script()` displays the orchestration script Claude generated.
-
-
 
 # The Workflow tool result mentions the persisted script path and task ID in plain
 
@@ -454,7 +442,7 @@ max\_turns=40,
 
 )
 
-##  Example: fact-check the investor update
+##  Example: fact-check the investor update
 
 **The job:** legal won't sign off on `investor_update.md` until every claim is traced to a source document. There are 10 claims and four source files.
 
@@ -466,8 +454,6 @@ max\_turns=40,
 4. **Report:** one agent compiles the verdicts into a go/no-go report
 
 This is the **fan-out + adversarial verification** pattern. Notice how much of the prompt below describes the *shape* of the work rather than the task itself. With workflows, the prompt describes the harness you want.
-
-
 
 FACT\_CHECK\_PROMPT = """\
 
@@ -523,8 +509,6 @@ the script and in agent prompts; do not embed absolute paths.
 
 factcheck\_info = await run\_agent(FACT\_CHECK\_PROMPT, workflow\_options())
 
-
-
 ```
 -> Bash
 
@@ -562,11 +546,7 @@ Claude: The fact-check workflow finished. Here's the report:
 === Run complete in 2.5 min | $3.29 ===
 ```
 
-
-
 display(Markdown(factcheck\_info["result"] or "\_(no result returned)\_"))
-
-
 
 ```
 <IPython.core.display.Markdown object>
@@ -587,21 +567,17 @@ Claim 6 is the one worth dwelling on. A single rushed agent often glosses over t
 
 Don't be surprised if the workflow comes back *stricter* than our answer key on the supported claims. Claims 3, 9, and 10 are the kind a skeptic pass tends to challenge: the survey confirms the 12,400 figure but no source establishes a prior baseline for "grew" (claim 3); the press article says the company "recently expanded" into three categories without confirming the launches happened *within Q2* (claim 9); and while no data was lost in May, a skeptic may object to calling a six-hour outage a "brief" interruption (claim 10). Whether your run confirms them or flags them, that's the adversarial check doing its job. An over-strict flag costs a minute of human review; an under-strict pass costs credibility with investors.
 
-###  Reading the script Claude wrote
+###  Reading the script Claude wrote
 
 The most instructive artifact is the script itself, because it shows how the work was organized. The `Workflow` tool result included a path to the persisted script, and `run_agent()` captured it. As you read the script, note the `schema` option that forces verifiers to return structured verdicts, and the plain-JavaScript logic between phases: routing only the confirmed verdicts to skeptics costs zero tokens.
 
-
-
 show\_script(factcheck\_info)
-
-
 
 ```
 <IPython.core.display.Markdown object>
 ```
 
-###  How to read a workflow script
+###  How to read a workflow script
 
 Every workflow script uses the same building blocks. The full option set is documented in the Workflow tool entry of the [Agent SDK reference(opens in new tab)](https://code.claude.com/docs/en/agent-sdk/typescript), but you can learn most of it by mapping the common primitives to what you see above:
 
@@ -621,7 +597,7 @@ Three properties fall out of this design:
 2. **Claude's context stays clean.** Every verdict and quoted source line lived in script variables. Only the final compiled report reached the session that launched the workflow.
 3. **The script is yours.** It's a file on disk. You can read it (we just did), edit it, save it into a project's `.claude/workflows/` directory, and re-run it by name. The orchestration becomes a reusable asset for your team.
 
-##  When to reach for a workflow
+##  When to reach for a workflow
 
 Dynamic workflows sit at the top of the difficulty curve; single agents and subagents remain the right tools below it. A reasonable decision guide:
 
@@ -637,23 +613,19 @@ Three cost-control habits worth keeping from this notebook:
 2. **Watch the per-run cost.** The run above printed one. Workflows that verify everything cost more than workflows that verify nothing, and that dial is set in the prompt.
 3. **Keep the data scale honest.** We used 10 claims and four sources so this notebook runs in minutes. The same structure scales to hundreds of items. The script doesn't mind the size; your token budget does.
 
-##  Cleanup
+##  Cleanup
 
 Remove the workspace this notebook created. Skip this cell if you want to poke around the files and the fact-check evidence first, and re-run the workspace-creation cell before running the fact-check again.
-
-
 
 shutil.rmtree(WORKSPACE, ignore\_errors=True)
 
 print("Workspace removed.")
 
-
-
 ```
 Workspace removed.
 ```
 
-##  What you learned
+##  What you learned
 
 Mapping back to the objectives from the introduction:
 
@@ -662,7 +634,7 @@ Mapping back to the objectives from the introduction:
 * **How to read the scripts Claude writes:** `meta` declares phases, `agent()` spawns clean-context workers, `parallel()` is a barrier, `pipeline()` streams items through stages, and plain JavaScript handles the logic in between for free. The fact-check used **fan-out + adversarial verification**; the same primitives compose into pipelines, tournaments, and triage queues.
 * **How to make a workflow reusable:** the script is a file. Save it into a project's `.claude/workflows/` directory, commit it, and anyone (or any agent) working in that project can re-run the same orchestration by name.
 
-##  Next steps
+##  Next steps
 
 * **Point the pattern at your own data.** The fact-check workflow works on any claims-vs-sources problem: reports, marketing copy, documentation. The same structure (extract, verify in parallel, challenge, compile) carries to content migrations, triage queues, and "rank many things by judgment" problems.
 * **Try a workflow in the Claude Code CLI**, where you can watch runs interactively with `/workflows` and save them with a keystroke. See the [dynamic workflows documentation(opens in new tab)](https://code.claude.com/docs/en/workflows).

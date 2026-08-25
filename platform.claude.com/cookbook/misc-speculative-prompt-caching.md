@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-speculative-prompt-caching -->
 
-#  Speculative Prompt Caching
+#  Speculative Prompt Caching
 
 This cookbook demonstrates "Speculative Prompt Caching" - a pattern that reduces time-to-first-token (TTFT) by warming up the cache while users are still formulating their queries.
 
@@ -17,21 +17,15 @@ This cookbook demonstrates "Speculative Prompt Caching" - a pattern that reduces
 3. User submits question
 4. API uses warm cache to generate response
 
-##  Setup
+##  Setup
 
 First, let's install the required packages:
 
-
-
 %pip install anthropic httpx --quiet
-
-
 
 ```
 Note: you may need to restart the kernel to use updated packages.
 ```
-
-
 
 import asyncio
 
@@ -67,11 +61,9 @@ DEFAULT\_CLIENT\_ARGS = {
 
 }
 
-##  Helper Functions
+##  Helper Functions
 
 Let's set up the functions to download our large context and prepare messages:
-
-
 
 async def get\_sqlite\_sources() -> dict[str, str]:
 
@@ -193,11 +185,9 @@ f"\tCache creation input tokens: {getattr(response.usage, 'cache\_creation\_inpu
 
 )
 
-##  Example 1: Standard Prompt Caching (Without Speculative Caching)
+##  Example 1: Standard Prompt Caching (Without Speculative Caching)
 
 First, let's see how standard prompt caching works. The user types their question, then we send the entire context + question to the API:
-
-
 
 async def standard\_prompt\_caching\_demo():
 
@@ -267,13 +257,9 @@ print\_query\_statistics(response, "Standard Caching")
 
 return first\_token\_time, total\_time
 
-
-
 # Run the standard demo
 
 standard\_ttft, standard\_total = await standard\_prompt\_caching\_demo()
-
-
 
 ```
 Downloading SQLite source files...
@@ -295,11 +281,9 @@ Standard Caching query statistics:
 	Cache creation input tokens: 151629
 ```
 
-##  Example 2: Speculative Prompt Caching
+##  Example 2: Speculative Prompt Caching
 
 Now let's see how speculative prompt caching improves TTFT by warming the cache while the user is typing:
-
-
 
 async def speculative\_prompt\_caching\_demo():
 
@@ -391,13 +375,9 @@ print\_query\_statistics(response, "Speculative Caching")
 
 return first\_token\_time, total\_time
 
-
-
 # Run the speculative caching demo
 
 speculative\_ttft, speculative\_total = await speculative\_prompt\_caching\_demo()
-
-
 
 ```
 Downloading SQLite source files...
@@ -421,11 +401,9 @@ Speculative Caching query statistics:
 	Cache creation input tokens: 0
 ```
 
-##  Performance Comparison
+##  Performance Comparison
 
 Let's compare the results to see the benefit of speculative caching:
-
-
 
 print("=" \* 60)
 
@@ -463,8 +441,6 @@ f" Total Time Improvement: {total\_improvement:.1f}% ({standard\_total - specula
 
 )
 
-
-
 ```
 ============================================================
 PERFORMANCE COMPARISON
@@ -483,14 +459,14 @@ Speculative Prompt Caching:
   Total Time Improvement: 70.4% (19.92s faster)
 ```
 
-##  Key Takeaways
+##  Key Takeaways
 
 1. **Speculative caching dramatically reduces TTFT** by warming the cache while users are typing
 2. **The pattern is most effective** with large contexts (>1000 tokens) that are reused across queries
 3. **Implementation is simple** - just send a 1-token request while the user is typing
 4. **Cache warming happens in parallel** with user input, effectively "hiding" the cache creation time
 
-##  Best Practices
+##  Best Practices
 
 * Start cache warming as early as possible (e.g., when a user focuses an input field)
 * Use exactly the same context for warming and actual requests to ensure cache hits

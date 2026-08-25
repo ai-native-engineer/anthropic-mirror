@@ -227,3 +227,5 @@ I.5. Security-related logs are retained for appropriate timeframes to aid in the
 ### J. Third Party Vendors
 
 Anthropic maintains a third-party information security risk management program, which includes the execution of periodic risk assessments to evaluate the security posture of Anthropic’s third-party vendors.
+
+U.S. K-12 Data Processing Agreement \ Anthropic

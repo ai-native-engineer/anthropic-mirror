@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/patterns-agents-orchestrator-workers -->
 
-#  Orchestrator-Workers Workflow
+#  Orchestrator-Workers Workflow
 
-##  Introduction
+##  Introduction
 
 Have you ever needed multiple perspectives on the same task, but couldn't predict in advance which perspectives would be most valuable? The orchestrator-workers pattern solves this by having a central LLM analyze each unique task and dynamically determine the best subtasks to delegate to specialized worker LLMs.
 
@@ -10,7 +10,7 @@ Traditional approaches either require manual prompting multiple times or use har
 
 With this approach, an orchestrator LLM analyzes the task, determines which variations would be most valuable for this specific case, then delegates to worker LLMs that generate each variation.
 
-###  What You'll Build
+###  What You'll Build
 
 A system that takes a product description request and:
 
@@ -19,14 +19,14 @@ A system that takes a product description request and:
 3. Produces multiple content variations optimized for different audiences
 4. Returns coordinated results from all workers
 
-###  Prerequisites
+###  Prerequisites
 
 * Python 3.9 or higher
 * Anthropic API key set as environment variable: `export ANTHROPIC_API_KEY='your-key'`
 * Basic understanding of prompt engineering
 * Familiarity with Python classes and type hints
 
-###  When to use this workflow
+###  When to use this workflow
 
 This workflow is well-suited for complex tasks where you can't predict the subtasks needed in advance. The key difference from simple parallelization is its flexibility—subtasks aren't pre-defined, but determined by the orchestrator based on the specific input.
 
@@ -42,7 +42,7 @@ This workflow is well-suited for complex tasks where you can't predict the subta
 * Latency is critical (multiple LLM calls add overhead)
 * Subtasks are predictable and can be pre-defined (use simpler parallelization)
 
-##  How It Works
+##  How It Works
 
 The orchestrator-workers pattern operates in two phases:
 
@@ -55,15 +55,13 @@ The orchestrator-workers pattern operates in two phases:
 
 The orchestrator decides *at runtime* what subtasks to create, making this more adaptive than pre-defined parallel workflows.
 
-##  Setup
+##  Setup
 
-###  Installation
-
-
+###  Installation
 
 pip install anthropic
 
-###  Helper Functions
+###  Helper Functions
 
 This example uses helper functions from `util.py` for making LLM calls and parsing XML responses:
 
@@ -72,7 +70,7 @@ This example uses helper functions from `util.py` for making LLM calls and parsi
 
 These utilities handle API authentication (reading `ANTHROPIC_API_KEY` from environment) and provide a simple interface for the orchestrator-workers pattern. You can view the complete implementation in [util.py(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/patterns/agents/util.py).
 
-##  Implementation
+##  Implementation
 
 The `FlexibleOrchestrator` class coordinates the two-phase workflow:
 
@@ -88,8 +86,6 @@ The implementation includes:
 * `parse_tasks()`: Parses the orchestrator's XML output into structured task dictionaries
 * `FlexibleOrchestrator.process()`: Main coordination logic that calls orchestrator, then workers
 * Response validation to catch and handle empty worker outputs
-
-
 
 from util import extract\_xml, llm\_call
 
@@ -293,7 +289,7 @@ return {
 
 }
 
-##  Example Use Case: Marketing Variation Generation
+##  Example Use Case: Marketing Variation Generation
 
 Now let's see the orchestrator-workers pattern in action with a practical example: generating multiple styles of marketing copy for a product.
 
@@ -308,8 +304,6 @@ Now let's see the orchestrator-workers pattern in action with a practical exampl
 * The orchestrator prompt asks for 2-3 approaches and provides XML structure guidance
 * The worker prompt gives workers full context (original task, their style, and guidelines)
 * Both prompts use clear XML formatting to ensure reliable parsing
-
-
 
 ORCHESTRATOR\_PROMPT = """
 
@@ -390,8 +384,6 @@ context={
 },
 
 )
-
-
 
 ```
 ================================================================================
@@ -574,11 +566,11 @@ By switching to a reusable bottle, you'll save hundreds of dollars annually on d
 The EcoFlow Bottle adapts to your lifestyle—whether you need hot tea for early mornings, cold water for the gym, or room-temperature drinks throughout the workday. It's the practical solution that makes staying hydrated effortless while naturally reducing your environmental footprint.
 ```
 
-##  Summary
+##  Summary
 
 You've now implemented an orchestrator-workers pattern that dynamically adapts its task breakdown based on the specific input. This pattern generated multiple marketing copy variations—each tailored to different audiences and contexts—without requiring you to pre-define what those variations should be.
 
-###  Key Takeaways
+###  Key Takeaways
 
 **Pattern benefits:**
 
@@ -593,7 +585,7 @@ You've now implemented an orchestrator-workers pattern that dynamically adapts i
 * Analysis tasks benefiting from different analytical lenses
 * Problem-solving where the decomposition strategy depends on the problem
 
-###  Limitations & Considerations
+###  Limitations & Considerations
 
 **Cost & Latency:**
 
@@ -613,7 +605,7 @@ You've now implemented an orchestrator-workers pattern that dynamically adapts i
 * Workers may return empty or malformed responses (we handle this with validation)
 * XML parsing can fail if models don't follow format exactly (consider using JSON as an alternative)
 
-###  Next Steps
+###  Next Steps
 
 **Enhance this implementation:**
 

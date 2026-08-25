@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/sessions/resources/update -->
 
----
-title: Update Session Resource
-url: https://platform.claude.com/docs/en/api/python/beta/sessions/resources/update
----
+# Update Session Resource
 
-## Update Session Resource
+`beta.sessions.resources.update(resource_id, **kwargs)  -> ResourceUpdateResponse`
 
-`beta.sessions.resources.update(strresource_id, ResourceUpdateParams**kwargs)  -> ResourceUpdateResponse`
-
-**post** `/v1/sessions/{session_id}/resources/{resource_id}`
+**POST** `/v1/sessions/{session_id}/resources/{resource_id}`
 
 Update Session Resource
 
-### Parameters
+## Parameters
 
 - `session_id: str`
 
@@ -22,6 +17,8 @@ Update Session Resource
 - `authorization_token: str`
 
   New authorization token for the resource. Currently only `github_repository` resources support token rotation.
+
+  minLength: 1, maxLength: 4096
 
 - `betas: Optional[List[AnthropicBetaParam]]`
 
@@ -99,7 +96,7 @@ Update Session Resource
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `ResourceUpdateResponse`
 
@@ -113,15 +110,17 @@ Update Session Resource
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
 
-      - `"github_repository"`
-
     - `updated_at: datetime`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `url: str`
 
@@ -133,9 +132,9 @@ Update Session Resource
 
           Branch name to check out.
 
-        - `type: Literal["branch"]`
+          minLength: 1, maxLength: 255
 
-          - `"branch"`
+        - `type: Literal["branch"]`
 
       - `class BetaManagedAgentsCommitCheckout: …`
 
@@ -143,9 +142,9 @@ Update Session Resource
 
           Full commit SHA to check out.
 
-        - `type: Literal["commit"]`
+          minLength: 7, maxLength: 64
 
-          - `"commit"`
+        - `type: Literal["commit"]`
 
   - `class BetaManagedAgentsFileResource: …`
 
@@ -155,17 +154,19 @@ Update Session Resource
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `file_id: str`
 
     - `mount_path: str`
 
     - `type: Literal["file"]`
 
-      - `"file"`
-
     - `updated_at: datetime`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
@@ -176,8 +177,6 @@ Update Session Resource
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
-
-      - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
@@ -195,6 +194,8 @@ Update Session Resource
 
       Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+      maxLength: 4096
+
     - `mount_path: Optional[str]`
 
       Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
@@ -203,7 +204,7 @@ Update Session Resource
 
       Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
 
-### Example
+## Example
 
 ```python
 import os
@@ -222,7 +223,7 @@ resource = client.beta.sessions.resources.update(
 print(resource)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

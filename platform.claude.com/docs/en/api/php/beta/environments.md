@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/environments -->
 
----
-title: Environments
-url: https://platform.claude.com/docs/en/api/php/beta/environments
----
-
 # Environments
 
 ## Create Environment
 
 `$client->beta->environments->create(string name, ?Config config, ?string description, ?array<string,string> metadata, ?Scope scope, ?list<AnthropicBeta> betas): BetaEnvironment`
 
-**post** `/v1/environments`
+**POST** `/v1/environments`
 
 Create a new environment with the specified configuration.
 
@@ -123,7 +118,7 @@ $betaEnvironment = $client->beta->environments->create(
 var_dump($betaEnvironment);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -176,7 +171,7 @@ var_dump($betaEnvironment);
 
 `$client->beta->environments->list(?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaEnvironment>`
 
-**get** `/v1/environments`
+**GET** `/v1/environments`
 
 List environments with pagination support.
 
@@ -186,9 +181,13 @@ List environments with pagination support.
 
   Include archived environments in the response
 
+  default: false
+
 - `limit?:optional int`
 
   Maximum number of environments to return
+
+  default: 20
 
 - `page?:optional string`
 
@@ -261,7 +260,7 @@ $page = $client->beta->environments->list(
 var_dump($page);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -319,7 +318,7 @@ var_dump($page);
 
 `$client->beta->environments->retrieve(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironment`
 
-**get** `/v1/environments/{environment_id}`
+**GET** `/v1/environments/{environment_id}`
 
 Retrieve a specific environment by ID.
 
@@ -392,7 +391,7 @@ $betaEnvironment = $client->beta->environments->retrieve(
 var_dump($betaEnvironment);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -445,7 +444,7 @@ var_dump($betaEnvironment);
 
 `$client->beta->environments->update(string environmentID, ?Config config, ?string description, ?array<string,string> metadata, ?string name, ?Scope scope, ?list<AnthropicBeta> betas): BetaEnvironment`
 
-**post** `/v1/environments/{environment_id}`
+**POST** `/v1/environments/{environment_id}`
 
 Update an existing environment's configuration.
 
@@ -560,7 +559,7 @@ $betaEnvironment = $client->beta->environments->update(
 var_dump($betaEnvironment);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -613,7 +612,7 @@ var_dump($betaEnvironment);
 
 `$client->beta->environments->delete(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironmentDeleteResponse`
 
-**delete** `/v1/environments/{environment_id}`
+**DELETE** `/v1/environments/{environment_id}`
 
 Delete an environment by ID. Returns a confirmation of the deletion.
 
@@ -654,7 +653,7 @@ $betaEnvironmentDeleteResponse = $client->beta->environments->delete(
 var_dump($betaEnvironmentDeleteResponse);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -667,7 +666,7 @@ var_dump($betaEnvironmentDeleteResponse);
 
 `$client->beta->environments->archive(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironment`
 
-**post** `/v1/environments/{environment_id}/archive`
+**POST** `/v1/environments/{environment_id}/archive`
 
 Archive an environment by ID. Archived environments cannot be used to create new sessions.
 
@@ -740,7 +739,7 @@ $betaEnvironment = $client->beta->environments->archive(
 var_dump($betaEnvironment);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -789,7 +788,7 @@ var_dump($betaEnvironment);
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Cloud Config
 
@@ -1009,19 +1008,19 @@ var_dump($betaEnvironment);
 
     Network policy type
 
-# Work
+## Environments › Work
 
-## Get Work Item
+### Get Work Item
 
 `$client->beta->environments->work->retrieve(string workID, string environmentID, ?list<AnthropicBeta> betas): SelfHostedWork`
 
-**get** `/v1/environments/{environment_id}/work/{work_id}`
+**GET** `/v1/environments/{environment_id}/work/{work_id}`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Retrieve detailed information about a specific work item.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -1031,7 +1030,7 @@ Retrieve detailed information about a specific work item.
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `SelfHostedWork`
 
@@ -1087,7 +1086,7 @@ Retrieve detailed information about a specific work item.
 
     The type of object (always 'work')
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -1105,7 +1104,7 @@ $betaSelfHostedWork = $client->beta->environments->work->retrieve(
 var_dump($betaSelfHostedWork);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1130,17 +1129,17 @@ var_dump($betaSelfHostedWork);
 }
 ```
 
-## Poll for Work
+### Poll for Work
 
 `$client->beta->environments->work->poll(string environmentID, ?int blockMs, ?int reclaimOlderThanMs, ?list<AnthropicBeta> betas, ?string anthropicWorkerID): SelfHostedWork`
 
-**get** `/v1/environments/{environment_id}/work/poll`
+**GET** `/v1/environments/{environment_id}/work/poll`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Long poll for work items in the queue.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -1160,7 +1159,7 @@ Long poll for work items in the queue.
 
   Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
 
-### Returns
+#### Returns
 
 - `SelfHostedWork`
 
@@ -1216,7 +1215,7 @@ Long poll for work items in the queue.
 
     The type of object (always 'work')
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -1236,7 +1235,7 @@ $betaSelfHostedWork = $client->beta->environments->work->poll(
 var_dump($betaSelfHostedWork);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1261,17 +1260,17 @@ var_dump($betaSelfHostedWork);
 }
 ```
 
-## Acknowledge Work
+### Acknowledge Work
 
 `$client->beta->environments->work->ack(string workID, string environmentID, ?list<AnthropicBeta> betas): SelfHostedWork`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/ack`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/ack`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting' and removing it from the queue.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -1281,7 +1280,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `SelfHostedWork`
 
@@ -1337,7 +1336,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The type of object (always 'work')
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -1355,7 +1354,7 @@ $betaSelfHostedWork = $client->beta->environments->work->ack(
 var_dump($betaSelfHostedWork);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1380,17 +1379,17 @@ var_dump($betaSelfHostedWork);
 }
 ```
 
-## Record Heartbeat
+### Record Heartbeat
 
 `$client->beta->environments->work->heartbeat(string workID, string environmentID, ?int desiredTTLSeconds, ?string expectedLastHeartbeat, ?list<AnthropicBeta> betas): SelfHostedWorkHeartbeatResponse`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Record a heartbeat for a work item to maintain the lease.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -1408,7 +1407,7 @@ Record a heartbeat for a work item to maintain the lease.
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `SelfHostedWorkHeartbeatResponse`
 
@@ -1432,7 +1431,7 @@ Record a heartbeat for a work item to maintain the lease.
 
     The type of response
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -1456,7 +1455,7 @@ $betaSelfHostedWorkHeartbeatResponse = $client
 var_dump($betaSelfHostedWorkHeartbeatResponse);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1468,17 +1467,17 @@ var_dump($betaSelfHostedWorkHeartbeatResponse);
 }
 ```
 
-## Stop Work
+### Stop Work
 
 `$client->beta->environments->work->stop(string workID, string environmentID, ?bool force, ?list<AnthropicBeta> betas): SelfHostedWork`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/stop`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/stop`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Stop a work item, initiating graceful or forced shutdown.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -1488,11 +1487,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
   If true, immediately stop work without graceful shutdown
 
+  default: false
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `SelfHostedWork`
 
@@ -1548,7 +1549,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The type of object (always 'work')
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -1567,7 +1568,7 @@ $betaSelfHostedWork = $client->beta->environments->work->stop(
 var_dump($betaSelfHostedWork);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1592,23 +1593,25 @@ var_dump($betaSelfHostedWork);
 }
 ```
 
-## List Work Items
+### List Work Items
 
 `$client->beta->environments->work->list(string environmentID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<SelfHostedWork>`
 
-**get** `/v1/environments/{environment_id}/work`
+**GET** `/v1/environments/{environment_id}/work`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 List work items in an environment.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
 - `limit?:optional int`
 
   Maximum number of work items to return
+
+  default: 20
 
 - `page?:optional string`
 
@@ -1618,7 +1621,7 @@ List work items in an environment.
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `SelfHostedWork`
 
@@ -1674,7 +1677,7 @@ List work items in an environment.
 
     The type of object (always 'work')
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -1693,7 +1696,7 @@ $page = $client->beta->environments->work->list(
 var_dump($page);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1723,17 +1726,17 @@ var_dump($page);
 }
 ```
 
-## Update Work Item
+### Update Work Item
 
 `$client->beta->environments->work->update(string workID, string environmentID, array<string,string> metadata, ?list<AnthropicBeta> betas): SelfHostedWork`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}`
+**POST** `/v1/environments/{environment_id}/work/{work_id}`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Update work item metadata with merge semantics.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -1747,7 +1750,7 @@ Update work item metadata with merge semantics.
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `SelfHostedWork`
 
@@ -1803,7 +1806,7 @@ Update work item metadata with merge semantics.
 
     The type of object (always 'work')
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -1822,7 +1825,7 @@ $betaSelfHostedWork = $client->beta->environments->work->update(
 var_dump($betaSelfHostedWork);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1847,15 +1850,15 @@ var_dump($betaSelfHostedWork);
 }
 ```
 
-## Get Queue Statistics
+### Get Queue Statistics
 
 `$client->beta->environments->work->stats(string environmentID, ?list<AnthropicBeta> betas): SelfHostedWorkQueueStats`
 
-**get** `/v1/environments/{environment_id}/work/stats`
+**GET** `/v1/environments/{environment_id}/work/stats`
 
 Get statistics about the work queue for an environment.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -1863,7 +1866,7 @@ Get statistics about the work queue for an environment.
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `SelfHostedWorkQueueStats`
 
@@ -1887,7 +1890,7 @@ Get statistics about the work queue for an environment.
 
     Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -1904,7 +1907,7 @@ $betaSelfHostedWorkQueueStats = $client->beta->environments->work->stats(
 var_dump($betaSelfHostedWorkQueueStats);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1915,149 +1918,3 @@ var_dump($betaSelfHostedWorkQueueStats);
   "workers_polling": 0
 }
 ```
-
-## Domain Types
-
-### Beta Self Hosted Work
-
-- `SelfHostedWork`
-
-  - `string id`
-
-    Work identifier (e.g., 'work_...')
-
-  - `?string acknowledgedAt`
-
-    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
-
-  - `string createdAt`
-
-    RFC 3339 timestamp when work was created
-
-  - `SessionWorkData data`
-
-    The actual work to be performed
-
-  - `string environmentID`
-
-    Environment identifier this work belongs to (e.g., `env_...`)
-
-  - `?string latestHeartbeatAt`
-
-    RFC 3339 timestamp of the most recent heartbeat
-
-  - `array<string,string> metadata`
-
-    User-provided metadata key-value pairs associated with this work item
-
-  - `?string secret`
-
-    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
-
-  - `?string startedAt`
-
-    RFC 3339 timestamp when work execution started
-
-  - `State state`
-
-    Current state of the work item
-
-  - `?string stopRequestedAt`
-
-    RFC 3339 timestamp when stop was requested
-
-  - `?string stoppedAt`
-
-    RFC 3339 timestamp when work execution stopped
-
-  - `"work" type`
-
-    The type of object (always 'work')
-
-### Beta Self Hosted Work Heartbeat Response
-
-- `SelfHostedWorkHeartbeatResponse`
-
-  - `string lastHeartbeat`
-
-    RFC 3339 timestamp of the actual heartbeat from DB
-
-  - `bool leaseExtended`
-
-    Whether the heartbeat succeeded in extending the lease
-
-  - `State state`
-
-    Current state of the work item (active/stopping/stopped)
-
-  - `int ttlSeconds`
-
-    Effective TTL applied to the lease
-
-  - `"work_heartbeat" type`
-
-    The type of response
-
-### Beta Self Hosted Work List Response
-
-- `SelfHostedWorkListResponse`
-
-  - `list<SelfHostedWork> data`
-
-    List of work items
-
-  - `?string nextPage`
-
-    Opaque cursor for fetching the next page of results
-
-### Beta Self Hosted Work Queue Stats
-
-- `SelfHostedWorkQueueStats`
-
-  - `int depth`
-
-    Number of work items waiting to be picked up (lag from consumer group)
-
-  - `?string oldestQueuedAt`
-
-    RFC 3339 timestamp of oldest item in the work stream (includes both queued and pending items), null if stream empty
-
-  - `int pending`
-
-    Number of work items being processed (polled but not acknowledged)
-
-  - `"work_queue_stats" type`
-
-    The type of object
-
-  - `?int workersPolling`
-
-    Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
-
-### Beta Self Hosted Work Stop Request
-
-- `SelfHostedWorkStopRequest`
-
-  - `?bool force`
-
-    If true, immediately stop work without graceful shutdown
-
-### Beta Self Hosted Work Update Request
-
-- `SelfHostedWorkUpdateRequest`
-
-  - `array<string,string> metadata`
-
-    Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
-
-### Beta Session Work Data
-
-- `SessionWorkData`
-
-  - `string id`
-
-    Session identifier (e.g., 'session_...')
-
-  - `"session" type`
-
-    Type of work data

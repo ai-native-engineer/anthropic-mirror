@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/skills/create -->
 
----
-title: Create Skill
-url: https://platform.claude.com/docs/en/api/ruby/beta/skills/create
----
-
-## Create Skill
+# Create Skill
 
 `beta.skills.create(**kwargs) -> SkillCreateResponse`
 
-**post** `/v1/skills`
+**POST** `/v1/skills`
 
 Create Skill
 
-### Parameters
+## Parameters
 
 - `files: Array[String]`
 
@@ -103,7 +98,7 @@ Create Skill
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class SkillCreateResponse`
 
@@ -148,7 +143,7 @@ Create Skill
 
     ISO 8601 timestamp of when the skill was last updated.
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -160,7 +155,7 @@ skill = anthropic.beta.skills.create(files: [StringIO.new("Example data")])
 puts(skill)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

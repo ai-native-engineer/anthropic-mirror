@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/credentials/archive -->
 
----
-title: Archive Credential
-url: https://platform.claude.com/docs/en/api/php/beta/vaults/credentials/archive
----
-
-## Archive Credential
+# Archive Credential
 
 `$client->beta->vaults->credentials->archive(string credentialID, string vaultID, ?list<AnthropicBeta> betas): ManagedAgentsCredential`
 
-**post** `/v1/vaults/{vault_id}/credentials/{credential_id}/archive`
+**POST** `/v1/vaults/{vault_id}/credentials/{credential_id}/archive`
 
 Archive Credential
 
-### Parameters
+## Parameters
 
 - `vaultID: string`
 
@@ -23,7 +18,7 @@ Archive Credential
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `ManagedAgentsCredential`
 
@@ -61,7 +56,7 @@ Archive Credential
 
     Human-readable name for the credential.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -79,7 +74,7 @@ $betaManagedAgentsCredential = $client->beta->vaults->credentials->archive(
 var_dump($betaManagedAgentsCredential);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

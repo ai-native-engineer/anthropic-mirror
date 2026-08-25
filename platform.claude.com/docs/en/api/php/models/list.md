@@ -1,21 +1,16 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/models/list -->
 
----
-title: List Models
-url: https://platform.claude.com/docs/en/api/php/models/list
----
-
-## List Models
+# List Models
 
 `$client->models->list(?string afterID, ?string beforeID, ?int limit, ?list<AnthropicBeta> betas): Page<ModelInfo>`
 
-**get** `/v1/models`
+**GET** `/v1/models`
 
 List available models.
 
 The Models API response can be used to determine which models are available for use in the API. More recently released models are listed first.
 
-### Parameters
+## Parameters
 
 - `afterID?:optional string`
 
@@ -31,11 +26,13 @@ The Models API response can be used to determine which models are available for 
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
+  default: 20
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `ModelInfo`
 
@@ -69,7 +66,7 @@ The Models API response can be used to determine which models are available for 
 
     For Models, this is always `"model"`.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -88,7 +85,7 @@ $page = $client->models->list(
 var_dump($page);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

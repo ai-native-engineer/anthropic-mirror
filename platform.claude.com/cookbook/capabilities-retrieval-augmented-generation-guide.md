@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/capabilities-retrieval-augmented-generation-guide -->
 
-#  Retrieval Augmented Generation
+#  Retrieval Augmented Generation
 
 Claude excels at a wide range of tasks, but it may struggle with queries specific to your unique business context. This is where Retrieval Augmented Generation (RAG) becomes invaluable. RAG enables Claude to leverage your internal knowledge bases or customer support documents, significantly enhancing its ability to answer domain-specific questions. Enterprises are increasingly building RAG applications to improve workflows in customer support, Q&A over internal company documents, financial & legal analysis, and much more.
 
@@ -18,11 +18,11 @@ Through a series of targeted improvements, we achieved significant performance g
 * Avg Mean Reciprocal Rank (MRR): 0.74 --> 0.87
 * End-to-End Accuracy: 71% --> 81%
 
-####  Note:
+####  Note:
 
 The evaluations in this cookbook are meant to mirror a production evaluation system, and you should keep in mind that they can take a while to run. Also of note: if you run the evaluations in full, you may come up against [rate limits(opens in new tab)](https://docs.claude.com/en/api/rate-limits) depending on your usage tier. Consider skipping the full end to end eval if you're trying to conserve token usage.
 
-##  Table of Contents
+##  Table of Contents
 
 1. Setup
 2. Level 1 - Basic RAG
@@ -30,7 +30,7 @@ The evaluations in this cookbook are meant to mirror a production evaluation sys
 4. Level 2 - Summary Indexing
 5. Level 3 - Summary Indexing and Re-Ranking
 
-##  Setup
+##  Setup
 
 We'll need a few libraries, including:
 
@@ -39,8 +39,6 @@ We'll need a few libraries, including:
 3. `pandas`, `numpy`, `matplotlib`, and `scikit-learn` for data manipulation and visualization
 
 You'll also need API keys from [Anthropic(opens in new tab)](https://www.anthropic.com/) and [Voyage AI(opens in new tab)](https://www.voyageai.com/)
-
-
 
 ## setup
 
@@ -57,8 +55,6 @@ You'll also need API keys from [Anthropic(opens in new tab)](https://www.anthrop
 !pip install seaborn
 
 !pip install -U scikit-learn
-
-
 
 ```
 Requirement already satisfied: anthropic in /opt/homebrew/Caskroom/miniforge/base/envs/py311/lib/python3.11/site-packages (0.34.1)
@@ -131,15 +127,11 @@ Requirement already satisfied: joblib>=1.2.0 in /opt/homebrew/Caskroom/miniforge
 Requirement already satisfied: threadpoolctl>=3.1.0 in /opt/homebrew/Caskroom/miniforge/base/envs/py311/lib/python3.11/site-packages (from scikit-learn) (3.2.0)
 ```
 
-
-
 import os
 
 os.environ["VOYAGE\_API\_KEY"] = "VOYAGE KEY HERE"
 
 os.environ["ANTHROPIC\_API\_KEY"] = "ANTHROPIC KEY HERE"
-
-
 
 import os
 
@@ -153,11 +145,9 @@ api\_key=os.getenv("ANTHROPIC\_API\_KEY"),
 
 )
 
-###  Initialize a Vector DB Class
+###  Initialize a Vector DB Class
 
 In this example, we're using an in-memory vector DB, but for a production application, you may want to use a hosted solution.
-
-
 
 import json
 
@@ -311,15 +301,13 @@ self.metadata = data["metadata"]
 
 self.query\_cache = json.loads(data["query\_cache"])
 
-##  Level 1 - Basic RAG
+##  Level 1 - Basic RAG
 
 To get started, we'll set up a basic RAG pipeline using a bare bones approach. This is sometimes called 'Naive RAG' by many in the industry. A basic RAG pipeline includes the following 3 steps:
 
 1. Chunk documents by heading - containing only the content from each subheading
 2. Embed each document
 3. Use Cosine similarity to retrieve documents in order to answer query
-
-
 
 import json
 
@@ -409,7 +397,7 @@ temperature=0,
 
 return response.content[0].text
 
-##  Eval Setup
+##  Eval Setup
 
 When evaluating RAG applications, it's critical to evaluate the performance of the retrieval system and end to end system separately.
 
@@ -422,8 +410,6 @@ We synthetically generated an evaluation dataset consisting of 100 samples which
 This is a relatively challenging dataset. Some of our questions require synthesis between more than one chunk in order to be answered correctly, so it's important that our system can load in more than one chunk at a time. You can inspect the dataset by opening `evaluation/docs_evaluation_dataset.json`
 
 Run the next cell to see a preview of the dataset
-
-
 
 # previewing our eval dataset
 
@@ -471,8 +457,6 @@ print(f"An error occurred: {str(e)}")
 
 preview\_json("evaluation/docs\_evaluation\_dataset.json")
 
-
-
 ```
 Preview of the first 3 items from evaluation/docs_evaluation_dataset.json:
 [
@@ -508,13 +492,13 @@ Preview of the first 3 items from evaluation/docs_evaluation_dataset.json:
 Total number of items: 100
 ```
 
-#  Metric Definitions
+#  Metric Definitions
 
 We'll evaluate our system based on 5 key metrics: Precision, Recall, F1 Score, Mean Reciprocal Rank (MRR), and End-to-End Accuracy.
 
-##  Retrieval Metrics:
+##  Retrieval Metrics:
 
-###  Precision
+###  Precision
 
 Precision represents the proportion of retrieved chunks that are actually relevant. It answers the question: "Of the chunks we retrieved, how many were correct?"
 
@@ -528,7 +512,7 @@ Formula:
 
 Precision=True PositivesTotal Retrieved=∣Retrieved∩Correct∣∣Retrieved∣\text{Precision} = \frac{\text{True Positives}}{\text{Total Retrieved}} = \frac{|\text{Retrieved} \cap \text{Correct}|}{|\text{Retrieved}|}Precision=Total RetrievedTrue Positives​=∣Retrieved∣∣Retrieved∩Correct∣​
 
-###  Recall
+###  Recall
 
 Recall measures the completeness of our retrieval system. It answers the question: "Of all the correct chunks that exist, how many did we manage to retrieve?"
 
@@ -542,7 +526,7 @@ Formula:
 
 Recall=True PositivesTotal Correct=∣Retrieved∩Correct∣∣Correct∣\text{Recall} = \frac{\text{True Positives}}{\text{Total Correct}} = \frac{|\text{Retrieved} \cap \text{Correct}|}{|\text{Correct}|}Recall=Total CorrectTrue Positives​=∣Correct∣∣Retrieved∩Correct∣​
 
-###  F1 Score
+###  F1 Score
 
 The F1 score provides a balanced measure between precision and recall. It's particularly useful when you need a single metric to evaluate system performance, especially with uneven class distributions.
 
@@ -562,14 +546,14 @@ Interpreting F1 score:
 * An F1 score of 0.0 indicates the worst performance.
 * Generally, the higher the F1 score, the better the overall performance.
 
-###  Balancing Precision, Recall, and F1 Score:
+###  Balancing Precision, Recall, and F1 Score:
 
 * There's often a trade-off between precision and recall.
 * Our system's minimum chunk retrieval favors recall over precision.
 * The optimal balance depends on the specific use case.
 * In many RAG systems, high recall is often prioritized, as LLMs can filter out less relevant information during generation.
 
-###  Mean Reciprocal Rank (MRR) @k
+###  Mean Reciprocal Rank (MRR) @k
 
 MRR measures how well our system ranks relevant information. It helps us understand how quickly a user would find what they're looking for if they started from the top of our retrieved results.
 
@@ -588,9 +572,9 @@ Where:
 * |Q| is the total number of queries
 * rank\_i is the position of the first relevant item for the i-th query
 
-##  End to End Metrics:
+##  End to End Metrics:
 
-###  End to End Accuracy
+###  End to End Accuracy
 
 We use an LLM-as-judge (Claude 3.5 Sonnet) to evaluate whether the generated answer is correct based on the question and ground truth answer.
 
@@ -600,9 +584,7 @@ End to End Accuracy=Number of Correct AnswersTotal Number of Questions\
 
 This metric evaluates the entire pipeline, from retrieval to answer generation.
 
-##  Defining Our Metric Calculation Functions
-
-
+##  Defining Our Metric Calculation Functions
 
 def calculate\_mrr(retrieved\_links: list[str], correct\_links: set[str]) -> float:
 
@@ -812,9 +794,7 @@ accuracy = correct\_answers / total\_questions
 
 return accuracy, results
 
-##  Helper Function to Plot Performance
-
-
+##  Helper Function to Plot Performance
 
 import json
 
@@ -976,9 +956,7 @@ plt.tight\_layout()
 
 plt.show()
 
-##  Evaluating Our Base Case
-
-
+##  Evaluating Our Base Case
 
 import pandas as pd
 
@@ -1061,8 +1039,6 @@ print(
 "Evaluation complete. Results saved to evaluation\_results\_one.json, evaluation\_results\_one.csv"
 
 )
-
-
 
 ```
 Evaluating Retrieval:  13%|█▎        | 13/100 [00:00<00:04, 17.92it/s]
@@ -2108,15 +2084,13 @@ End-to-End Accuracy: 0.7100
 Evaluation complete. Results saved to evaluation_results_one.json, evaluation_results_one.csv
 ```
 
-
-
 # let's visualize our performance
 
 plot\_performance("evaluation/json\_results", ["Basic RAG"], colors=["skyblue"])
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-retrieval-augmented-generation-guide/capabilities-retrieval-augmented-generation-guide_cell18_out0_44cfd410.png)
 
-#  Level 2: Document Summarization for Enhanced Retrieval
+#  Level 2: Document Summarization for Enhanced Retrieval
 
 In this section, we'll implement an improved approach to our retrieval system by incorporating document summaries. Instead of embedding chunks directly from the documents, we'll create a concise summary for each chunk and use this summary along with the original content in our embedding process.
 
@@ -2130,9 +2104,7 @@ Key steps in this process:
 
 This summary-enhanced approach is designed to provide more context during the embedding and retrieval phases, potentially improving the system's ability to understand and match the most relevant documents to user queries.
 
-##  Generating the Summaries and Storing Them
-
-
+##  Generating the Summaries and Storing Them
 
 import json
 
@@ -2212,7 +2184,7 @@ print(f"Summaries generated and saved to {output\_file}")
 
 # generate\_summaries('data/anthropic\_docs.json', 'data/anthropic\_summary\_indexed\_docs.json')
 
-#  Summary-Indexed Vector Database Creation
+#  Summary-Indexed Vector Database Creation
 
 Here, we're creating a new vector database that incorporates our summary-enhanced document chunks. This approach combines the original text, the chunk heading, and the newly generated summary into a single text for embedding.
 
@@ -2224,8 +2196,6 @@ Key features of this process:
 4. The database is saved to disk for persistence and quick loading in future sessions.
 
 This summary-indexed approach aims to create more informative embeddings, potentially leading to more accurate and contextually relevant document retrieval.
-
-
 
 import json
 
@@ -2397,7 +2367,7 @@ self.metadata = data["metadata"]
 
 self.query\_cache = json.loads(data["query\_cache"])
 
-#  Enhanced Retrieval Using Summary-Indexed Embeddings
+#  Enhanced Retrieval Using Summary-Indexed Embeddings
 
 In this section, we implement the retrieval process using our new summary-indexed vector database. This approach leverages the enhanced embeddings we created, which incorporate document summaries along with the original content.
 
@@ -2408,8 +2378,6 @@ Key aspects of this updated retrieval process:
 3. This enriched context is then used to generate an answer to the user's query.
 
 By including summaries in both the embedding and retrieval phases, we aim to provide the LLM with a more comprehensive and focused context. This could potentially lead to more accurate and relevant answers, as the LLM has access to both a concise overview (the summary) and the detailed information (the full text) for each relevant document chunk.
-
-
 
 def retrieve\_level\_two(query, db):
 
@@ -2466,8 +2434,6 @@ temperature=0,
 )
 
 return response.content[0].text
-
-
 
 # Initialize the SummaryIndexedVectorDB
 
@@ -2558,8 +2524,6 @@ print(
 "Evaluation complete. Results saved to evaluation\_results\_level\_two.json, evaluation\_results\_detailed\_level\_two.csv"
 
 )
-
-
 
 ```
 Loading vector database from disk.
@@ -3617,9 +3581,7 @@ End-to-End Accuracy: 0.7900
 Evaluation complete. Results saved to evaluation_results_level_two.json, evaluation_results_detailed_level_two.csv
 ```
 
-##  Evaluating This Method vs Basic RAG
-
-
+##  Evaluating This Method vs Basic RAG
 
 # visualizing our performance
 
@@ -3627,7 +3589,7 @@ plot\_performance("evaluation/json\_results", ["Basic RAG", "Summary Indexing"])
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-retrieval-augmented-generation-guide/capabilities-retrieval-augmented-generation-guide_cell28_out0_6664dc9b.png)
 
-##  Level 3 - Re-Ranking with Claude
+##  Level 3 - Re-Ranking with Claude
 
 In this final enhancement to our retrieval system, we introduce a reranking step to further improve the relevance of the retrieved documents. This approach leverages Claude's power to better understand the context and nuances of both the query and the retrieved documents.
 
@@ -3654,8 +3616,6 @@ Our evaluations show significant improvements:
 * MRR (Mean Reciprocal Rank) was likely improved by asking Claude to rank the relevance of each document in order.
 
 These improvements demonstrate the effectiveness of incorporating AI-powered reranking in our retrieval process.
-
-
 
 def rerank\_results(query: str, results: list[dict], k: int = 5) -> list[dict]:
 
@@ -3843,9 +3803,7 @@ temperature=0,
 
 return response.content[0].text
 
-##  Evaluation
-
-
+##  Evaluation
 
 # Initialize the SummaryIndexedVectorDB
 
@@ -3938,8 +3896,6 @@ print(
 "Evaluation complete. Results saved to evaluation\_results\_level\_three.json, evaluation\_results\_detailed\_level\_three.csv, and evaluation\_results\_level\_three.png"
 
 )
-
-
 
 ```
 Loading vector database from disk.
@@ -5895,8 +5851,6 @@ End-to-End Accuracy: 0.8100
 Evaluation complete. Results saved to evaluation_results_level_three.json, evaluation_results_detailed_level_three.csv, and evaluation_results_level_three.png
 ```
 
-
-
 # visualizing our performance
 
 plot\_performance(
@@ -5911,7 +5865,7 @@ colors=["skyblue", "lightgreen", "salmon"],
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-retrieval-augmented-generation-guide/capabilities-retrieval-augmented-generation-guide_cell33_out0_f2d710f1.png)
 
-##  Evaluation - Going Deeper with Promptfoo
+##  Evaluation - Going Deeper with Promptfoo
 
 This guide has illustrated the importance of measuring prompt performance empirically when prompt engineering. You can read more about our empirical methodology to prompt engineering here. Using a Jupyter Notebook is a great way to start prompt engineering but as your datasets grow larger and your prompts more numerous it is important to leverage tooling that will scale with you.
 
@@ -5920,8 +5874,6 @@ In this section of the guide we will explore using Promptfoo an open source LLM 
 Promptfoo makes it very easy to build automated test suites that compare different models, hyperparameter choices, and prompts against one another.
 
 As an example, you can run the below cell to see the average performance of Haiku vs 3.5 Sonnet across all of our test cases.
-
-
 
 import json
 
@@ -5996,8 +5948,6 @@ print("\nOverall Statistics:")
 print(f"Best Performing Provider: {best\_provider} ({result.loc[best\_provider, 'Average']:.2f}%)")
 
 print(f"Worst Performing Provider: {worst\_provider} ({result.loc[worst\_provider, 'Average']:.2f}%)")
-
-
 
 ```
 Overall Statistics:

@@ -9,3 +9,4 @@ This generated page exceeded GitHub's Markdown render limit. Its complete conten
 - [Part 3](activities.parts/part-003.md)
 - [Part 4](activities.parts/part-004.md)
 - [Part 5](activities.parts/part-005.md)
+- [Part 6](activities.parts/part-006.md)

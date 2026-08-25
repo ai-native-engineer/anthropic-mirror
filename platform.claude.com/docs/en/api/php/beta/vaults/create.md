@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/create -->
 
----
-title: Create Vault
-url: https://platform.claude.com/docs/en/api/php/beta/vaults/create
----
-
-## Create Vault
+# Create Vault
 
 `$client->beta->vaults->create(string displayName, ?array<string,string> metadata, ?list<AnthropicBeta> betas): BetaManagedAgentsVault`
 
-**post** `/v1/vaults`
+**POST** `/v1/vaults`
 
 Create Vault
 
-### Parameters
+## Parameters
 
 - `displayName: string`
 
@@ -27,7 +22,7 @@ Create Vault
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsVault`
 
@@ -57,7 +52,7 @@ Create Vault
 
     A timestamp in RFC 3339 format
 
-### Example
+## Example
 
 ```php
 <?php
@@ -75,7 +70,7 @@ $betaManagedAgentsVault = $client->beta->vaults->create(
 var_dump($betaManagedAgentsVault);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

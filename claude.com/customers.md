@@ -88,6 +88,28 @@ Grid
 
 List
 
+[View story](https://claude.com/customers/league-qa)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50faffe550cd0871c1c9_logo_league-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50fdc2966b1ac852794a_logo_league-dark-mode.png)
+
+How League went all in on Claude in a regulated industry
+
+League Q&A
+
+Medium
+
+North America
+
+August 24, 2026
+
+Claude Enterprise
+
+Claude Code
+
+Healthcare
+
+Claude Enterprise
+
 [View story](https://claude.com/customers/notion-qa)View story
 
 ![Notion logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba17a186e44af7d97dae57_Frame.svg)![Notion logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba179c1c4432fa78b2f126_Frame-1.svg)
@@ -384,26 +406,6 @@ Software
 
 Claude Platform
 
-[View story](https://claude.com/customers/caylent)View story
-
-![Caylent](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05bcd76e1d673fc80f2_caylent-light-mode.svg)![Caylent](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2a05d723ff69d39ca2748_caylent-dark-mode.svg)
-
-Caylent turns months of migration work into days with Claude Agent SDK
-
-Caylent
-
-Medium
-
-AWS
-
-North America
-
-July 17, 2026
-
-Professional services
-
-Claude Platform
-
 [View more](https://claude.com/customers?fcdaa149_page=2)
 
 1 / 18
@@ -417,6 +419,38 @@ Product
 Location
 
 Partner
+
+[View story](https://claude.com/customers/league-qa)View story
+
+### League Q&A
+
+Industry
+
+Healthcare
+
+Company size
+
+Medium
+
+Product
+
+Claude Enterprise
+
+Claude Code
+
+Claude Enterprise
+
+Location
+
+North America
+
+Partner
+
+August 24, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/league-qa)Read customer story
 
 [View story](https://claude.com/customers/deepgram)View story
 
@@ -1017,34 +1051,6 @@ July 17, 2026
 Read customer story
 
 [Read customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Read customer story
-
-[View story](https://claude.com/customers/national-domestic-workers-alliance)View story
-
-### National Domestic Workers Alliance
-
-Industry
-
-Beneficial Deployments
-
-Company size
-
-Small
-
-Product
-
-Claude for Nonprofits
-
-Location
-
-North America
-
-Partner
-
-July 17, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/national-domestic-workers-alliance)Read customer story
 
 [See more](https://claude.com/customers?38d7aa68_page=2)
 

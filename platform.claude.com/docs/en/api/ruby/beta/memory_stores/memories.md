@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/memory_stores/memories -->
 
----
-title: Memories
-url: https://platform.claude.com/docs/en/api/ruby/beta/memory_stores/memories
----
-
 # Memories
 
 ## Create a memory
 
 `beta.memory_stores.memories.create(memory_store_id, **kwargs) -> BetaManagedAgentsMemory`
 
-**post** `/v1/memory_stores/{memory_store_id}/memories`
+**POST** `/v1/memory_stores/{memory_store_id}/memories`
 
 Create a memory
 
@@ -26,6 +21,8 @@ Create a memory
 - `path: String`
 
   Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive.
+
+  minLength: 2, maxLength: 1024
 
 - `view: BetaManagedAgentsMemoryView`
 
@@ -129,9 +126,13 @@ Create a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_store_id: String`
 
@@ -147,11 +148,11 @@ Create a memory
 
   - `type: :memory`
 
-    - `:memory`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `content: String`
 
@@ -169,7 +170,7 @@ beta_managed_agents_memory = anthropic.beta.memory_stores.memories.create("memor
 puts(beta_managed_agents_memory)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -190,7 +191,7 @@ puts(beta_managed_agents_memory)
 
 `beta.memory_stores.memories.list(memory_store_id, **kwargs) -> PageCursor<BetaManagedAgentsMemoryListItem>`
 
-**get** `/v1/memory_stores/{memory_store_id}/memories`
+**GET** `/v1/memory_stores/{memory_store_id}/memories`
 
 List memories
 
@@ -202,9 +203,13 @@ List memories
 
   `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
+  format: int32
+
 - `limit: Integer`
 
   Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
+
+  format: int32
 
 - `page: String`
 
@@ -320,9 +325,13 @@ List memories
 
       Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+      format: int32
+
     - `created_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `memory_store_id: String`
 
@@ -338,11 +347,11 @@ List memories
 
     - `type: :memory`
 
-      - `:memory`
-
     - `updated_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `content: String`
 
@@ -358,8 +367,6 @@ List memories
 
     - `type: :memory_prefix`
 
-      - `:memory_prefix`
-
 ### Example
 
 ```ruby
@@ -372,7 +379,7 @@ page = anthropic.beta.memory_stores.memories.list("memory_store_id")
 puts(page)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -398,7 +405,7 @@ puts(page)
 
 `beta.memory_stores.memories.retrieve(memory_id, **kwargs) -> BetaManagedAgentsMemory`
 
-**get** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**GET** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Retrieve a memory
 
@@ -510,9 +517,13 @@ Retrieve a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_store_id: String`
 
@@ -528,11 +539,11 @@ Retrieve a memory
 
   - `type: :memory`
 
-    - `:memory`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `content: String`
 
@@ -550,7 +561,7 @@ beta_managed_agents_memory = anthropic.beta.memory_stores.memories.retrieve("mem
 puts(beta_managed_agents_memory)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -571,7 +582,7 @@ puts(beta_managed_agents_memory)
 
 `beta.memory_stores.memories.update(memory_id, **kwargs) -> BetaManagedAgentsMemory`
 
-**post** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**POST** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Update a memory
 
@@ -597,13 +608,13 @@ Update a memory
 
   New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
 
+  minLength: 2, maxLength: 1024
+
 - `precondition: BetaManagedAgentsPrecondition`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
 
   - `type: :content_sha256`
-
-    - `:content_sha256`
 
   - `content_sha256: String`
 
@@ -703,9 +714,13 @@ Update a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_store_id: String`
 
@@ -721,11 +736,11 @@ Update a memory
 
   - `type: :memory`
 
-    - `:memory`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `content: String`
 
@@ -743,7 +758,7 @@ beta_managed_agents_memory = anthropic.beta.memory_stores.memories.update("memor
 puts(beta_managed_agents_memory)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -764,7 +779,7 @@ puts(beta_managed_agents_memory)
 
 `beta.memory_stores.memories.delete(memory_id, **kwargs) -> BetaManagedAgentsDeletedMemory`
 
-**delete** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**DELETE** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Delete a memory
 
@@ -866,8 +881,6 @@ Delete a memory
 
   - `type: :memory_deleted`
 
-    - `:memory_deleted`
-
 ### Example
 
 ```ruby
@@ -880,7 +893,7 @@ beta_managed_agents_deleted_memory = anthropic.beta.memory_stores.memories.delet
 puts(beta_managed_agents_deleted_memory)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -889,15 +902,13 @@ puts(beta_managed_agents_deleted_memory)
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Conflict Error
 
 - `class BetaManagedAgentsConflictError`
 
   - `type: :conflict_error`
-
-    - `:conflict_error`
 
   - `message: String`
 
@@ -908,8 +919,6 @@ puts(beta_managed_agents_deleted_memory)
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
 
   - `type: :content_sha256`
-
-    - `:content_sha256`
 
   - `content_sha256: String`
 
@@ -927,8 +936,6 @@ puts(beta_managed_agents_deleted_memory)
 
   - `type: :memory_deleted`
 
-    - `:memory_deleted`
-
 ### Beta Managed Agents Error
 
 - `BetaManagedAgentsError = BetaInvalidRequestError | BetaAuthenticationError | BetaBillingError | 9 more`
@@ -939,15 +946,11 @@ puts(beta_managed_agents_deleted_memory)
 
     - `type: :invalid_request_error`
 
-      - `:invalid_request_error`
-
   - `class BetaAuthenticationError`
 
     - `message: String`
 
     - `type: :authentication_error`
-
-      - `:authentication_error`
 
   - `class BetaBillingError`
 
@@ -955,15 +958,11 @@ puts(beta_managed_agents_deleted_memory)
 
     - `type: :billing_error`
 
-      - `:billing_error`
-
   - `class BetaPermissionError`
 
     - `message: String`
 
     - `type: :permission_error`
-
-      - `:permission_error`
 
   - `class BetaNotFoundError`
 
@@ -971,15 +970,11 @@ puts(beta_managed_agents_deleted_memory)
 
     - `type: :not_found_error`
 
-      - `:not_found_error`
-
   - `class BetaRateLimitError`
 
     - `message: String`
 
     - `type: :rate_limit_error`
-
-      - `:rate_limit_error`
 
   - `class BetaGatewayTimeoutError`
 
@@ -987,15 +982,11 @@ puts(beta_managed_agents_deleted_memory)
 
     - `type: :timeout_error`
 
-      - `:timeout_error`
-
   - `class BetaAPIError`
 
     - `message: String`
 
     - `type: :api_error`
-
-      - `:api_error`
 
   - `class BetaOverloadedError`
 
@@ -1003,21 +994,15 @@ puts(beta_managed_agents_deleted_memory)
 
     - `type: :overloaded_error`
 
-      - `:overloaded_error`
-
   - `class BetaManagedAgentsMemoryPreconditionFailedError`
 
     - `type: :memory_precondition_failed_error`
-
-      - `:memory_precondition_failed_error`
 
     - `message: String`
 
   - `class BetaManagedAgentsMemoryPathConflictError`
 
     - `type: :memory_path_conflict_error`
-
-      - `:memory_path_conflict_error`
 
     - `conflicting_memory_id: String`
 
@@ -1028,8 +1013,6 @@ puts(beta_managed_agents_deleted_memory)
   - `class BetaManagedAgentsConflictError`
 
     - `type: :conflict_error`
-
-      - `:conflict_error`
 
     - `message: String`
 
@@ -1051,9 +1034,13 @@ puts(beta_managed_agents_deleted_memory)
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_store_id: String`
 
@@ -1069,11 +1056,11 @@ puts(beta_managed_agents_deleted_memory)
 
   - `type: :memory`
 
-    - `:memory`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `content: String`
 
@@ -1101,9 +1088,13 @@ puts(beta_managed_agents_deleted_memory)
 
       Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+      format: int32
+
     - `created_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `memory_store_id: String`
 
@@ -1119,11 +1110,11 @@ puts(beta_managed_agents_deleted_memory)
 
     - `type: :memory`
 
-      - `:memory`
-
     - `updated_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `content: String`
 
@@ -1139,15 +1130,11 @@ puts(beta_managed_agents_deleted_memory)
 
     - `type: :memory_prefix`
 
-      - `:memory_prefix`
-
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `class BetaManagedAgentsMemoryPathConflictError`
 
   - `type: :memory_path_conflict_error`
-
-    - `:memory_path_conflict_error`
 
   - `conflicting_memory_id: String`
 
@@ -1160,8 +1147,6 @@ puts(beta_managed_agents_deleted_memory)
 - `class BetaManagedAgentsMemoryPreconditionFailedError`
 
   - `type: :memory_precondition_failed_error`
-
-    - `:memory_precondition_failed_error`
 
   - `message: String`
 
@@ -1176,8 +1161,6 @@ puts(beta_managed_agents_deleted_memory)
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
   - `type: :memory_prefix`
-
-    - `:memory_prefix`
 
 ### Beta Managed Agents Memory View
 
@@ -1196,8 +1179,6 @@ puts(beta_managed_agents_deleted_memory)
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
 
   - `type: :content_sha256`
-
-    - `:content_sha256`
 
   - `content_sha256: String`
 

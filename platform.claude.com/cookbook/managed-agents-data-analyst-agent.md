@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-data-analyst-agent -->
 
-#  Build a data analyst agent with Claude Managed Agents
+#  Build a data analyst agent with Claude Managed Agents
 
-##  Introduction
+##  Introduction
 
 Every team has someone who gets handed a CSV and asked "what's interesting in here?" In this cookbook you'll build an agent that answers for them: upload a CSV, get back a narrative HTML report with interactive charts.
 
@@ -17,7 +17,7 @@ An agent plus an environment gives you a session. You attach your data to it as 
 
 Anthropic handles the sandbox, tool execution, and context management for you. If you need full control over the agent loop and deployment, try the [Claude Agent SDK(opens in new tab)](https://platform.claude.com/docs/en/api/agent-sdk/overview) instead.
 
-###  What you'll learn
+###  What you'll learn
 
 By the end of this cookbook you'll be able to:
 
@@ -26,20 +26,16 @@ By the end of this cookbook you'll be able to:
 * Watch the agent's progress as it runs
 * Download the report and any other files it produced
 
-###  Prerequisites
+###  Prerequisites
 
 * Python 3.11+
 * An Anthropic API key from the [Console(opens in new tab)](https://platform.claude.com/settings/keys), set as `ANTHROPIC_API_KEY`
 
 Install dependencies:
 
-
-
 %%capture
 
 %pip install -q "anthropic>=0.91.0" python-dotenv
-
-
 
 from pathlib import Path
 
@@ -53,13 +49,11 @@ client = Anthropic()
 
 MODEL = "claude-sonnet-4-6"
 
-##  1. Create an environment
+##  1. Create an environment
 
 An **environment** is a reusable container spec. Declaring `pandas` and `plotly` here means every session starts with them preinstalled, so the agent can begin analyzing immediately instead of running `pip install` first.
 
 Networking is `unrestricted` here so the agent can load plotly from its CDN – but that lets it reach anywhere on the internet, so for production use a [host allowlist(opens in new tab)](https://platform.claude.com/docs/en/managed-agents/environments) instead.
-
-
 
 env = client.beta.environments.create(
 
@@ -83,13 +77,11 @@ config={
 
 )
 
-##  2. Create the agent
+##  2. Create the agent
 
 An **agent** pairs a model with a system prompt and a set of tools. Most of the output quality comes from the system prompt; this one pushes for narrative structure, findings backed by specific figures, and the right pattern for embedding multiple plotly charts in one HTML file.
 
 [`agent_toolset_20260401`(opens in new tab)](https://platform.claude.com/docs/en/managed-agents/tools) provides eight tools: `bash`, `read`, `write`, `edit`, `glob`, `grep`, `web_fetch`, and `web_search`. Here they all run under `always_allow`, with the two web tools disabled because this analysis is offline.
-
-
 
 ANALYST\_SYSTEM\_PROMPT = """\
 
@@ -171,11 +163,9 @@ tools=[
 
 )
 
-##  3. Upload the dataset
+##  3. Upload the dataset
 
 The included sample CSV has 50 rows, so the analysis completes in a few minutes. Swap in any CSV (or a zip of CSVs) here; the rest of the flow is identical.
-
-
 
 DATA\_PATH = Path("example\_data/data\_analyst\_agent/sales\_data.csv")
 
@@ -185,19 +175,15 @@ dataset = client.beta.files.upload(file=(DATA\_PATH.name, f, "text/csv"))
 
 print(f"Uploaded {DATA\_PATH.name} ({dataset.size\_bytes} bytes) as {dataset.id}")
 
-
-
 ```
 Uploaded sales_data.csv (2833 bytes) as file_011CZqKKomgL45BLo2J8K5X9
 ```
 
-##  4. Create a session and send the task
+##  4. Create a session and send the task
 
 A **session** binds the agent to the environment and any mounted files. Passing `{"type": "agent", "id": ..., "version": ...}` reuses the versioned agent you created above. `resources` mounts the uploaded file at the given absolute path inside the container.
 
 After creating the session, send a `user.message` event with the task. The agent will start working immediately.
-
-
 
 MOUNT\_PATH = f"/mnt/session/uploads/{DATA\_PATH.name}"
 
@@ -241,21 +227,17 @@ events=[
 
 print(f"Session {session.id} running")
 
-
-
 ```
 Session sesn_011CZqKKqyPRph9J5khKLn6u running
 ```
 
-##  5. Stream the run
+##  5. Stream the run
 
 Open the session in the [Console(opens in new tab)](https://platform.claude.com/) under **Sessions** to watch every event, tool call, and token count live:
 
 ![Session trace in the Console](https://raw.githubusercontent.com/anthropics/claude-cookbooks/main/managed_agents/example_data/data_analyst_agent/console_session.png)
 
 The helper below tails the same event stream, printing `agent.message` text and `agent.tool_use` calls as they arrive, and returns on `session.status_idle`.
-
-
 
 def wait\_for\_idle(session\_id: str) -> None:
 
@@ -293,13 +275,11 @@ f"Trace: https://platform.claude.com/sessions/{session\_id}"
 
 wait\_for\_idle(session.id)
 
-##  6. Retrieve the report
+##  6. Retrieve the report
 
 Anything the agent writes to `/mnt/session/outputs/` is persisted and surfaced via the Files API with `scope_id=<session_id>`. Files written elsewhere in the container are not persisted.
 
 The [Files API(opens in new tab)](https://platform.claude.com/docs/en/api/beta/files/list) is a separate feature in beta, so to use `scope_id` here you also need to pass the Managed Agents beta header.
-
-
 
 outputs = client.beta.files.list(scope\_id=session.id, betas=["managed-agents-2026-04-01"])
 
@@ -321,21 +301,17 @@ Path("report.html").write\_bytes(content.read())
 
 print("Downloaded report.html")
 
-
-
 ```
 report.html 53728
 sales_data.csv 2833
 Downloaded report.html
 ```
 
-##  7. Clean up and next steps
+##  7. Clean up and next steps
 
 You create the agent and environment once and reuse them across runs; you create a new session for each conversation. Now that you have the report, archive this session to release its container. The lines below save the agent and environment IDs to `.env` so [`slack_data_bot.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/slack_data_bot.ipynb) can start new sessions with them.
 
 > **Warning:** make sure `.env` is listed in `.gitignore` before running the next cell – never commit it.
-
-
 
 client.beta.sessions.archive(session.id)
 
@@ -346,8 +322,6 @@ set\_key(".env", "ANALYST\_AGENT\_ID", agent.id)
 set\_key(".env", "ANALYST\_AGENT\_VERSION", str(agent.version))
 
 print("Saved ANALYST\_ENV\_ID, ANALYST\_AGENT\_ID, ANALYST\_AGENT\_VERSION to .env")
-
-
 
 ```
 Saved ANALYST_ENV_ID, ANALYST_AGENT_ID, ANALYST_AGENT_VERSION to .env

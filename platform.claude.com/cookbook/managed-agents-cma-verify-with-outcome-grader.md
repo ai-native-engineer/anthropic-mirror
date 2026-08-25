@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-verify-with-outcome-grader -->
 
-#  Outcomes: agents that verify their own work
+#  Outcomes: agents that verify their own work
 
 Agents are good at producing things that *look* done. Ask one for a cited research brief and you'll get a tidy document with footnotes. Look closer and there's usually room to improve: a topic gets thin coverage, a quote drifts from the source, a citation leans on a press release instead of the original filing. Catching those takes a manual review loop: you read the output, spot what's off, and prompt again. And most of what you say in those rounds is feedback you could have written down before the agent started.
 
@@ -8,24 +8,20 @@ Agents are good at producing things that *look* done. Ask one for a cited resear
 
 In this guide you'll watch that loop run end to end. The writer drafts a one-page brief on EV fast-charging economics with verbatim quotes from its sources. The grader independently fetches every cited URL, searches each page for the quoted string, checks the quote actually supports the claim, and scores coverage against a seven-item checklist. You'll see it catch a real problem (a press-release exhibit cited where a 10-K was required) and you'll see the writer go find the right document.
 
-##  What you'll learn
+##  What you'll learn
 
 * Write a rubric the grader can act on
 * Start a session with an Outcome and let the agent work toward it
 * Follow the grade-and-revise loop and read the grader's feedback
 * Recognize when Outcomes is the right tool
 
-##  1. Set up the environment
+##  1. Set up the environment
 
 First, let's install the SDK and set up the Anthropic client. The `define_outcome` event and the outcome-evaluation span types are part of the Managed Agents beta.
-
-
 
 %%capture
 
 %pip install -q anthropic python-dotenv
-
-
 
 import os
 
@@ -45,11 +41,9 @@ MODEL = os.environ.get("COOKBOOK\_MODEL", "claude-sonnet-4-6")
 
 client = anthropic.Anthropic()
 
-##  2. Create the writer and start a session
+##  2. Create the writer and start a session
 
 Next, we'll create the writer agent and open a session. The writer's system prompt asks it to cite no more than six sources, each with a short verbatim quote so the grader has something concrete to check.
-
-
 
 env = client.beta.environments.create(
 
@@ -113,13 +107,11 @@ betas=BETAS,
 
 print(f"Session {session.id}")
 
-
-
 ```
 Session sesn_011CakRYQjc4NMXdRy4qKZy5
 ```
 
-##  3. Write a rubric the grader can act on
+##  3. Write a rubric the grader can act on
 
 The `define_outcome` event hands the session two things: a **description** of the deliverable, which the writer reads, and a **rubric**, which the grader reads. After each writer turn the platform spins up a fresh grader with the same model and tools as the writer, gives it the rubric, and lets it inspect the artifact. The grader returns a per-criterion verdict, and if anything fails, the explanation goes straight back to the writer for the next revision.
 
@@ -139,8 +131,6 @@ A few things worth doing in every rubric:
 > **Don't have a rubric yet?** Hand Claude a known-good example of the artifact and ask it to analyze what makes it good, then turn that analysis into criteria. That middle ground reliably beats writing criteria from a blank page.
 
 Here's the task and rubric for our brief. Read them side by side and notice how much more specific the rubric is. Each place it adds detail the task didn't have is a check the grader can actually run.
-
-
 
 TASK = """Write a brief on the unit economics of public DC fast charging in the United States.
 
@@ -224,8 +214,6 @@ events=[
 
 )
 
-
-
 ```
 BetaManagedAgentsSendSessionEvents(data=[BetaManagedAgentsUserDefineOutcomeEvent(id='sevt_011CakRYTKNkXJN7eh4kRs1r', description='Write a brief on the unit economics of public DC fast charging in the United States.\nThe brief should cover:\n  1. Capex range\n  2. Demand charges\n  3. Utilization breakeven\n  4. Subsidy programs\n  5. Named-operator economics\n  6. A contrarian or skeptical source\n  7. Hardware vs install cost split\n', max_iterations=5, outcome_id='outc_011CakRYTKNkJ83CBexcz13e', processed_at=datetime.datetime(2026, 5, 6, 1, 10, 30, 512206, tzinfo=TzInfo(0)), rubric=BetaManagedAgentsTextRubric(content='\nYou are reviewing a research brief at /mnt/session/outputs/brief.md against a coverage checklist and verifying its citations. The writer was told the seven topics to cover; this rubric defines what counts as sufficient coverage for each topic, and how to verify citations.\n\nCOVERAGE CHECKLIST. Each item has a specific area:\n  1. Capex range: a dollar range for installed cost per DC fast-charging stall or station.\n  2. Demand charges: quantified impact on opex (a $/kW figure or a % of operating cost).\n  3. Utilization breakeven: a breakeven or target utilization threshold (% or kWh/day).\n  4. Subsidy programs: NEVI or another public funding program, named.\n  5. Named operator: the GAAP net income or net loss from a specific public charging operator\'s most recent 10-K or 10-Q, and the citation for it must be the SEC filing itself (sec.gov), not a press release, earnings-call recap, or news article.\n  6. Contrarian source: at least one cited source whose thesis is that the economics are unfavorable or structurally challenged.\n  7. Cost split: a hardware vs soft-cost (install, permitting, grid) breakdown or ratio.\n\nCITATION CHECK. For every [n] entry in the Sources section:\n  a. LIVE: Fetch the URL with web_fetch. Mark LIVE only if web_fetch returns the readable page directly. Mark DEAD if 404, parked, login-walled, paywalled, returns a bot-block/403, or renders only via JavaScript. Do NOT corroborate via mirrors, reposts, or search snippets; the cited URL itself must fetch.\n  b. VERBATIM: Search the fetched page for the quoted string. Mark QUOTE_MATCH if the exact string appears (treat curly vs straight quotes as equivalent); NOT_FOUND otherwise.\n  c. SUPPORTS CLAIM: Mark SUPPORTS_CLAIM if the quoted passage actually backs the claim it\'s cited on in the brief; UNSUPPORTED if it\'s tangential, contradicts the claim, or is just a general statement of fact.\n\nOUTPUT FORMAT: \n\nLine 1: Coverage N/7. Citations M/K verified.\n\nThen, for each failed item in the coverage checklist, create a new bullet, name the item and say what specific bar it failed in one sentence max per bullet. For example: "Item 3 Utilization breakeven - MISSING. <what\'s missing>".\n\nThen, for each failed citation, create a new bullet with the format: "[n] domain - REASON. <what\'s wrong and what to do>". One sentence max per bullet. For example: "[3] evgo.com - DEAD. The URL returns a 403 error and appears to be behind a bot block. No mirrors or reposts; the cited URL itself must fetch."\n', type='text'), type='user.define_outcome')])
 ```
@@ -238,13 +226,11 @@ A few notes on the call above:
 
 **Why not just put the rubric in the system prompt?** You can, and it helps the writer aim better. But a writer that knows the criteria is still grading its own work. It will say it passed whenever it believes it did, and it will not go back and refetch a URL it already cited or notice that the quote it remembers is slightly different from the quote on the page. The grader has no choice but to do those checks. It opens with a fresh context window and nothing but the rubric and the artifact, and the platform does not let the loop continue until it produces a verdict on every criterion. You cannot get that kind of separation from a single prompt, however well you write it.
 
-##  4. Watch the review loop
+##  4. Watch the review loop
 
 Let's stream events and render each phase as it happens. We'll print a banner when the writer finishes a draft and show the grader's feedback after each evaluation.
 
 Two display helpers for the loop below: `banner` draws a labeled divider, and `render_feedback` strips the boilerplate the server wraps around each grader explanation.
-
-
 
 HR = "━" \* 46
 
@@ -273,8 +259,6 @@ flags=re.S,
 s = re.sub(r"\n\nPlease revise your work.\*$", "", s, flags=re.S)
 
 print(s)
-
-
 
 TERMINAL = {"satisfied", "max\_iterations\_reached", "failed", "interrupted"}
 
@@ -328,8 +312,6 @@ m, s = divmod(int(time.time() - t0), 60)
 
 print(f"\ndone: {res} after {iters} pass{'es' if iters != 1 else ''} · {m}m {s:02d}s")
 
-
-
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 writer · draft
@@ -358,7 +340,7 @@ All 7 coverage items are fully met: (1) Capex range gives hardware $45K-$100K+ a
 done: satisfied after 3 passes · 12m 56s
 ```
 
-###  What just happened
+###  What just happened
 
 The loop ran for three grading passes.
 
@@ -370,11 +352,9 @@ Both rejections happened because the rubric drew a line the grader could check. 
 
 **Note** that the trace above is from the original cookbook run. If you run this yourself, your results will likely differ.
 
-##  5. Read the final brief
+##  5. Read the final brief
 
 Finally, let's pull the last version of `brief.md` the writer produced and look at what it covers and what it cited. Print `content` itself if you want to read the full prose.
-
-
 
 # Reconstruct the final brief from the event log: full content on `write`,
 
@@ -404,8 +384,6 @@ if line.startswith(("#", "[")):
 
 print(line)
 
-
-
 ```
 # Unit Economics of Public DC Fast Charging in the United States
 ## 1. Capex Range
@@ -424,7 +402,7 @@ print(line)
 [6] "Consolidated Statements of Operations - USD ($)$ in Thousands | 12 Months Ended Dec. 31, 2024 | Dec. 31, 2023" - EVgo Inc. Form 10-K, Consolidated Statements of Operations (XBRL), Period: 2024-12-31 - https://www.sec.gov/Archives/edgar/data/1821159/000155837025002400/R4.htm
 ```
 
-##  What you learned
+##  What you learned
 
 * **Outcomes fits when you can write down what good looks like.** Attention-to-detail and exhaustive-coverage tasks are the clearest fit; subjective quality works too if the rubric pins down the bar.
 * **The rubric has to make the grader produce evidence.** Without that, it approves whatever it's shown.

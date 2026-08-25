@@ -1,21 +1,16 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/models/retrieve -->
 
----
-title: Get a Model
-url: https://platform.claude.com/docs/en/api/ruby/beta/models/retrieve
----
-
-## Get a Model
+# Get a Model
 
 `beta.models.retrieve(model_id, **kwargs) -> BetaModelInfo`
 
-**get** `/v1/models/{model_id}`
+**GET** `/v1/models/{model_id}`
 
 Get a specific model.
 
 The Models API response can be used to determine information about a specific model or resolve a model alias to a model ID.
 
-### Parameters
+## Parameters
 
 - `model_id: String`
 
@@ -97,7 +92,7 @@ The Models API response can be used to determine information about a specific mo
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaModelInfo`
 
@@ -213,6 +208,8 @@ The Models API response can be used to determine information about a specific mo
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
 
+    format: date-time
+
   - `display_name: String`
 
     A human-readable name for the model.
@@ -231,9 +228,7 @@ The Models API response can be used to determine information about a specific mo
 
     For Models, this is always `"model"`.
 
-    - `:model`
-
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -245,7 +240,7 @@ beta_model_info = anthropic.beta.models.retrieve("model_id")
 puts(beta_model_info)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/sessions/resources/add -->
 
----
-title: Add Session Resource
-url: https://platform.claude.com/docs/en/api/go/beta/sessions/resources/add
----
-
-## Add Session Resource
+# Add Session Resource
 
 `client.Beta.Sessions.Resources.Add(ctx, sessionID, params) (*BetaManagedAgentsFileResource, error)`
 
-**post** `/v1/sessions/{session_id}/resources`
+**POST** `/v1/sessions/{session_id}/resources`
 
 Add Session Resource
 
-### Parameters
+## Parameters
 
 - `sessionID string`
 
@@ -23,7 +18,7 @@ Add Session Resource
 
     Body param: Mount a file uploaded via the Files API into the session.
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -99,7 +94,7 @@ Add Session Resource
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaManagedAgentsFileResource struct{…}`
 
@@ -109,19 +104,21 @@ Add Session Resource
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `FileID string`
 
   - `MountPath string`
 
   - `Type BetaManagedAgentsFileResourceType`
 
-    - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
-
   - `UpdatedAt Time`
 
     A timestamp in RFC 3339 format
 
-### Example
+    format: date-time
+
+## Example
 
 ```go
 package main
@@ -155,7 +152,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

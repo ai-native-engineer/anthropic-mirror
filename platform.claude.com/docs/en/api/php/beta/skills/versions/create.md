@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/skills/versions/create -->
 
----
-title: Create Skill Version
-url: https://platform.claude.com/docs/en/api/php/beta/skills/versions/create
----
-
-## Create Skill Version
+# Create Skill Version
 
 `$client->beta->skills->versions->create(string skillID, list<string> files, ?list<AnthropicBeta> betas): VersionNewResponse`
 
-**post** `/v1/skills/{skill_id}/versions`
+**POST** `/v1/skills/{skill_id}/versions`
 
 Create Skill Version
 
-### Parameters
+## Parameters
 
 - `skillID: string`
 
@@ -31,7 +26,7 @@ Create Skill Version
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `VersionNewResponse`
 
@@ -79,7 +74,7 @@ Create Skill Version
 
     Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+## Example
 
 ```php
 <?php
@@ -99,7 +94,7 @@ $version = $client->beta->skills->versions->create(
 var_dump($version);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

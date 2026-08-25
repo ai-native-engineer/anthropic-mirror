@@ -1,23 +1,20 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/vaults/create -->
 
----
-title: Create Vault
-url: https://platform.claude.com/docs/en/api/python/beta/vaults/create
----
+# Create Vault
 
-## Create Vault
+`beta.vaults.create(**kwargs)  -> BetaManagedAgentsVault`
 
-`beta.vaults.create(VaultCreateParams**kwargs)  -> BetaManagedAgentsVault`
-
-**post** `/v1/vaults`
+**POST** `/v1/vaults`
 
 Create Vault
 
-### Parameters
+## Parameters
 
 - `display_name: str`
 
   Human-readable name for the vault. 1-255 characters.
+
+  minLength: 1, maxLength: 255
 
 - `metadata: Optional[Dict[str, str]]`
 
@@ -99,7 +96,7 @@ Create Vault
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsVault: …`
 
@@ -113,9 +110,13 @@ Create Vault
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `display_name: str`
 
@@ -127,13 +128,13 @@ Create Vault
 
   - `type: Literal["vault"]`
 
-    - `"vault"`
-
   - `updated_at: datetime`
 
     A timestamp in RFC 3339 format
 
-### Example
+    format: date-time
+
+## Example
 
 ```python
 import os
@@ -150,7 +151,7 @@ beta_managed_agents_vault = client.beta.vaults.create(
 print(beta_managed_agents_vault.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

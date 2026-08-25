@@ -1,23 +1,20 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/vaults/create -->
 
----
-title: Create Vault
-url: https://platform.claude.com/docs/en/api/ruby/beta/vaults/create
----
-
-## Create Vault
+# Create Vault
 
 `beta.vaults.create(**kwargs) -> BetaManagedAgentsVault`
 
-**post** `/v1/vaults`
+**POST** `/v1/vaults`
 
 Create Vault
 
-### Parameters
+## Parameters
 
 - `display_name: String`
 
   Human-readable name for the vault. 1-255 characters.
+
+  minLength: 1, maxLength: 255
 
 - `metadata: Hash[Symbol, String]`
 
@@ -99,7 +96,7 @@ Create Vault
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsVault`
 
@@ -113,9 +110,13 @@ Create Vault
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `display_name: String`
 
@@ -127,13 +128,13 @@ Create Vault
 
   - `type: :vault`
 
-    - `:vault`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
 
-### Example
+    format: date-time
+
+## Example
 
 ```ruby
 require "anthropic"
@@ -145,7 +146,7 @@ beta_managed_agents_vault = anthropic.beta.vaults.create(display_name: "Example 
 puts(beta_managed_agents_vault)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

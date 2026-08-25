@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-remember-user-preferences -->
 
-#  Build agents that remember your users
+#  Build agents that remember your users
 
 Most agents start every conversation from scratch. A customer tells your shopping assistant their size, their budget, and which materials they avoid, and the next time they return, the agent has forgotten everything. They have to repeat themselves, and the experience feels generic rather than personal.
 
@@ -8,40 +8,34 @@ We just introduced Memory in Claude Managed Agents to solve this. Think of it as
 
 In this guide you will build an example shopping assistant for a retail brand. The agent will learn a customer's preferences during their first visit, save them to a user-specific memory store, and recall them automatically on the next visit without being told again.
 
-##  What you will build
+##  What you will build
 
 * A **memory store** that holds one customer's shopping preferences
 * A **shopping agent** configured to check and update that store
 * **Two separate sessions** that demonstrate memory carrying across visits
 * A pattern for **inspecting and seeding** memories from your own application
 
-##  How memory works
+##  How memory works
 
 When you attach a memory store to a session, it appears as a directory inside the agent's environment at `/mnt/memory/{store-name}`, and Claude reads and writes files there using its standard file tools. Your application has full read and write access to the same files through the REST API, so you can seed a store with known facts, audit what the agent has written, or export everything to your own systems.
 
 > **Beta feature.** Memory stores are part of the Claude Managed Agents public beta. The API may change before general availability. The Python SDK adds the required `anthropic-beta` header automatically for every method under `client.beta`.
 
-##  Prerequisites
+##  Prerequisites
 
 * An Anthropic API key with access to the Claude Managed Agents beta. Set it as the `ANTHROPIC_API_KEY` environment variable.
 * Python 3.11 or later.
 * The Anthropic Python SDK. Memory store methods require a recent release:
 
-
-
 uv add anthropic
 
 # or: pip install -U anthropic
 
-##  Set up the client
-
-
+##  Set up the client
 
 %%capture
 
 %pip install -q "anthropic>=0.91.0"
-
-
 
 import os
 
@@ -53,11 +47,9 @@ MODEL = os.environ.get("COOKBOOK\_MODEL", "claude-sonnet-4-6")
 
 client = Anthropic()
 
-###  A helper for conversational turns
+###  A helper for conversational turns
 
 Managed agent sessions are event-driven: you send a user message, then stream events until the session goes idle. To keep the rest of this guide readable, wrap that loop in a helper that prints the agent's replies and the files it touches under `/mnt/memory/`.
-
-
 
 def run\_turn(session\_id: str, user\_text: str) -> str:
 
@@ -133,13 +125,11 @@ wait\_for\_idle\_status(client, session\_id)
 
 return "".join(reply\_parts)
 
-##  Step 1: Create a memory store
+##  Step 1: Create a memory store
 
 A memory store is a named container for text files, scoped to your workspace. In a production deployment you would typically create one store per end user and keep a mapping from your user IDs to store IDs in your own database.
 
 The `description` you set here is rendered into the agent's system prompt whenever the store is attached, so use it to tell Claude what the store is for.
-
-
 
 store = client.beta.memory\_stores.create(
 
@@ -157,19 +147,15 @@ description=(
 
 print(store.id) # memstore\_01...
 
-
-
 ```
 memstore_01NKkumXZXY8mEhoRA3xhBvN
 ```
 
-##  Step 2: Define the shopping agent
+##  Step 2: Define the shopping agent
 
 Every managed agent session needs an **agent** (the model, system prompt, and tools) and an **environment** (the container the agent runs in). You can create these once and reuse them across many customers and sessions.
 
 Give the agent the built-in `agent_toolset`, which includes the file tools it uses to read and write memory. The `agent_toolset_20260401` type string is the toolset's API identifier, not a model alias, so you do not need to update it when newer models ship.
-
-
 
 environment = client.beta.environments.create(
 
@@ -217,19 +203,15 @@ tools=[
 
 print(agent.id) # agent\_01...
 
-
-
 ```
 agent_011CaMbJoHMUyR5TjeFDtMG9
 ```
 
-##  Step 3: First visit, where the agent learns preferences
+##  Step 3: First visit, where the agent learns preferences
 
 Now start a session and attach the memory store through the `resources` array. The `instructions` field is per-attachment guidance that tells Claude how to use this particular store in this particular session.
 
 Because this is the customer's first visit, the store is empty. Watch the `[memory]` lines in the output: the agent checks the store, finds nothing yet, and then writes a new file capturing what it learned.
-
-
 
 memory\_resource = {
 
@@ -269,13 +251,9 @@ if resource.type == "memory\_store":
 
 print(f"Mounted at {resource.mount\_path}")
 
-
-
 ```
 Mounted at /mnt/memory/shopper-preferences
 ```
-
-
 
 run\_turn(
 
@@ -288,8 +266,6 @@ session\_one.id,
 "is usually under $200, and I love earth tones. What would you suggest?",
 
 )
-
-
 
 ```
 [user]  Hi! I'm looking for a new jacket. A few things about me: I wear a size medium, I only buy vegan leather (no animal leather please), my budget is usually under $200, and I love earth tones. What would you suggest?
@@ -334,13 +310,11 @@ Here are some brands known for quality vegan leather within your budget:
 Do any of these styles appeal to you? I can help narrow it down further — for example, do you prefer a **fitted or relaxed fit**, or a particular style like moto, bomber, or blazer? 😊
 ```
 
-##  Step 4: Inspect what the agent saved
+##  Step 4: Inspect what the agent saved
 
 Everything the agent writes to the mount is a regular memory document that your application can read, edit, or delete through the API. List the store's contents with `view="full"` to include file content in the response.
 
 This is how you build a "What we know about you" page in your product, sync memories into your own database, or let a human reviewer correct something the agent got wrong.
-
-
 
 page = client.beta.memory\_stores.memories.list(
 
@@ -359,8 +333,6 @@ print(f"=== {memory.path} ===")
 print(memory.content)
 
 print()
-
-
 
 ```
 === /preferences.md ===
@@ -389,11 +361,9 @@ print()
 
 You should see a file (typically something like `/preferences.md`) containing the size, budget, material, and color preferences the customer mentioned, organized by topic. Claude chose the filename and structure on its own.
 
-##  Step 5: Return visit, where the agent recalls on its own
+##  Step 5: Return visit, where the agent recalls on its own
 
 This is the moment that matters. Create a **brand new session** and attach the **same memory store**. The customer does not repeat any of their preferences, but the agent reads them from memory and tailors its recommendations accordingly.
-
-
 
 session\_two = client.beta.sessions.create(
 
@@ -412,8 +382,6 @@ session\_two.id,
 "Hey, I'm back! I need a bag for work. Any recommendations?",
 
 )
-
-
 
 ```
 [user]  Hey, I'm back! I need a bag for work. Any recommendations?
@@ -452,15 +420,13 @@ Do any of these styles appeal to you? I can also ask a few quick questions to na
 
 In the output, notice that the agent reads `/mnt/memory/shopper-preferences/` before answering, then recommends bags that are vegan leather, in earth tones, and under $200, even though this message mentioned none of those things. The preferences carried across from the first session.
 
-##  Going further: patterns for production
+##  Going further: patterns for production
 
-###  Seed a store from your existing data
+###  Seed a store from your existing data
 
 If you already know things about a customer from their account profile or purchase history, you can write them into the store before the first session so the agent starts informed. In a real application you would run this seeding step before any sessions are created; it appears here, after the demo, only so the main learn-then-recall flow above stays focused.
 
 > **Note:** Run this cell before the cleanup cell at the end of the notebook, since `store` is deleted there.
-
-
 
 # Optional: run before the cleanup cell.
 
@@ -484,17 +450,13 @@ content=(
 
 print(f"Seeded {seeded.path}")
 
-
-
 ```
 Seeded /purchase-history.md
 ```
 
-###  Combine per-customer and shared stores
+###  Combine per-customer and shared stores
 
 A session can attach up to eight memory stores, each with its own access level. A common pattern is one read-write store per customer plus a read-only store of brand-wide knowledge that every session shares.
-
-
 
 catalog = client.beta.memory\_stores.create(
 
@@ -544,15 +506,13 @@ resources=[
 
 # client.beta.memory\_stores.delete(catalog.id)
 
-###  Audit and correct
+###  Audit and correct
 
 Every write to a memory store is recorded as an immutable version with the session that made it. Use `client.beta.memory_stores.memory_versions.list(...)` to review history, and `client.beta.memory_stores.memories.update(...)` to correct a file that the agent got wrong. See the [Memory API reference(opens in new tab)](https://docs.anthropic.com/en/docs/managed-agents/memory) for the full surface.
 
-##  Clean up
+##  Clean up
 
 Delete the resources you created while following this guide.
-
-
 
 wait\_for\_idle\_status(client, session\_one.id)
 
@@ -568,7 +528,7 @@ client.beta.agents.archive(agent.id)
 
 client.beta.environments.archive(environment.id)
 
-##  Summary
+##  Summary
 
 You built a shopping agent that remembers its customers across visits by:
 
@@ -579,12 +539,12 @@ You built a shopping agent that remembers its customers across visits by:
 
 From here you can map your own user IDs to memory store IDs, seed stores from your existing customer data, and layer shared read-only stores on top for brand-wide knowledge.
 
-###  Other notebooks in this series
+###  Other notebooks in this series
 
 * [`CMA_iterate_fix_failing_tests.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_iterate_fix_failing_tests.ipynb) — the entry-point notebook. Introduces agents, environments, sessions, file mounts, and the streaming event loop through a do-observe-fix loop on a failing test suite.
 * [`CMA_operate_in_production.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_operate_in_production.ipynb) — production setup story: vault-backed MCP credentials, the `session.status_idled` webhook for HITL without long-lived connections, and the resource lifecycle CRUD verbs.
 
-###  Learn more
+###  Learn more
 
 * [Claude Managed Agents overview(opens in new tab)](https://docs.anthropic.com/en/docs/managed-agents/overview)
 * [Memory stores API reference(opens in new tab)](https://docs.anthropic.com/en/docs/managed-agents/memory)

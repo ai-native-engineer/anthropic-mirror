@@ -1,16 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/misc-how-to-enable-json-mode -->
 
-#  Prompting Claude for "JSON Mode"
+#  Prompting Claude for "JSON Mode"
 
 Claude doesn't have a formal "JSON Mode" with constrained sampling. But not to worry -- you can still get reliable JSON from Claude! This recipe will show you how.
 
 First, let's look at Claude's default behavior.
 
-
-
 %pip install anthropic
-
-
 
 import json
 
@@ -20,13 +16,9 @@ from pprint import pprint
 
 from anthropic import Anthropic
 
-
-
 client = Anthropic()
 
 MODEL\_NAME = "claude-opus-4-1"
-
-
 
 message = (
 
@@ -57,8 +49,6 @@ messages=[
 )
 
 print(message)
-
-
 
 ```
 Here is a JSON dictionary with names of famous athletes and their respective sports:
@@ -119,8 +109,6 @@ Here is a JSON dictionary with names of famous athletes and their respective spo
 
 Claude followed instructions and outputted a nice dictionary, which we can extract with code:
 
-
-
 def extract\_json(response):
 
 json\_start = response.index("{")
@@ -130,8 +118,6 @@ json\_end = response.rfind("}")
 return json.loads(response[json\_start : json\_end + 1])
 
 extract\_json(message)
-
-
 
 ```
 {'athletes': [{'name': 'Usain Bolt', 'sport': 'Track and Field'},
@@ -149,8 +135,6 @@ extract\_json(message)
 ```
 
 But what if we want Claude to skip the preamble and go straight to the JSON? One simple way is to prefill Claude's response and include a "{" character.
-
-
 
 message = (
 
@@ -183,8 +167,6 @@ messages=[
 )
 
 print(message)
-
-
 
 ```
 "athletes":[
@@ -234,13 +216,9 @@ print(message)
 
 Now all we have to do is add back the "{" that we prefilled and we can extract the JSON.
 
-
-
 output\_json = json.loads("{" + message[: message.rfind("}") + 1])
 
 output\_json
-
-
 
 ```
 {'athletes': [{'name': 'Michael Jordan', 'sport': 'Basketball'},
@@ -256,8 +234,6 @@ output\_json
 ```
 
 For very long and complicated prompts, which contain multiple JSON outputs so that a string search for "{" and "}" don't do the trick, you can also have Claude output each JSON item in specified tags for future extraction.
-
-
 
 message = (
 
@@ -300,8 +276,6 @@ Put each of these additional dictionaries in separate <athlete\_name> tags.""",
 )
 
 print(message)
-
-
 
 ```
 <athlete_sports>
@@ -352,8 +326,6 @@ print(message)
 
 Now, we can use an extraction regex to get all the dictionaries.
 
-
-
 import re
 
 def extract\_between\_tags(tag: str, string: str, strip: bool = False) -> list[str]:
@@ -370,11 +342,7 @@ athlete\_sports\_dict = json.loads(extract\_between\_tags("athlete\_sports", mes
 
 athlete\_name\_dicts = [json.loads(d) for d in extract\_between\_tags("athlete\_name", message)]
 
-
-
 pprint(athlete\_sports\_dict)
-
-
 
 ```
 {'Lionel Messi': 'Soccer',
@@ -384,11 +352,7 @@ pprint(athlete\_sports\_dict)
  'Usain Bolt': 'Track and Field'}
 ```
 
-
-
 pprint(athlete\_name\_dicts, width=1)
-
-
 
 ```
 [{'first': ['Magnificent',

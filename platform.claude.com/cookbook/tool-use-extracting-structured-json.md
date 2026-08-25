@@ -1,20 +1,16 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-extracting-structured-json -->
 
-#  Extracting Structured JSON using Claude and Tool Use
+#  Extracting Structured JSON using Claude and Tool Use
 
 In this cookbook, we'll explore various examples of using Claude and the tool use feature to extract structured JSON data from different types of input. We'll define custom tools that prompt Claude to generate well-structured JSON output for tasks such as summarization, entity extraction, sentiment analysis, and more.
 
 If you want to get structured JSON data without using tools, take a look at our "[How to enable JSON mode(opens in new tab)](https://github.com/anthropics/anthropic-cookbook/blob/main/misc/how_to_enable_json_mode.ipynb)" cookbook.
 
-##  Set up the environment
+##  Set up the environment
 
 First, let's install the required libraries and set up the Claude API client.
 
-
-
 %pip install anthropic requests beautifulsoup4
-
-
 
 import json
 
@@ -28,11 +24,9 @@ client = Anthropic()
 
 MODEL\_NAME = "claude-haiku-4-5"
 
-##  Example 1: Article Summarization
+##  Example 1: Article Summarization
 
 In this example, we'll use Claude to generate a JSON summary of an article, including fields for the author, topics, summary, coherence score, persuasion score, and a counterpoint.
-
-
 
 tools = [
 
@@ -140,11 +134,9 @@ else:
 
 print("No JSON summary found in the response.")
 
-##  Example 2: Named Entity Recognition
+##  Example 2: Named Entity Recognition
 
 In this example, we'll use Claude to perform named entity recognition on a given text and return the entities in a structured JSON format.
-
-
 
 tools = [
 
@@ -246,18 +238,14 @@ else:
 
 print("No entities found in the response.")
 
-
-
 ```
 Extracted Entities (JSON):
 {'entities': [{'name': 'John', 'type': 'PERSON', 'context': 'John works at Google in New York.'}, {'name': 'Google', 'type': 'ORGANIZATION', 'context': 'John works at Google in New York.'}, {'name': 'New York', 'type': 'LOCATION', 'context': 'John works at Google in New York.'}, {'name': 'Sarah', 'type': 'PERSON', 'context': 'He met with Sarah, the CEO of Acme Inc., last week in San Francisco.'}, {'name': 'Acme Inc.', 'type': 'ORGANIZATION', 'context': 'He met with Sarah, the CEO of Acme Inc., last week in San Francisco.'}, {'name': 'San Francisco', 'type': 'LOCATION', 'context': 'He met with Sarah, the CEO of Acme Inc., last week in San Francisco.'}]}
 ```
 
-##  Example 3: Sentiment Analysis
+##  Example 3: Sentiment Analysis
 
 In this example, we'll use Claude to perform sentiment analysis on a given text and return the sentiment scores in a structured JSON format.
-
-
 
 tools = [
 
@@ -347,8 +335,6 @@ else:
 
 print("No sentiment analysis found in the response.")
 
-
-
 ```
 Sentiment Analysis (JSON):
 {
@@ -358,11 +344,9 @@ Sentiment Analysis (JSON):
 }
 ```
 
-##  Example 4: Text Classification
+##  Example 4: Text Classification
 
 In this example, we'll use Claude to classify a given text into predefined categories and return the classification results in a structured JSON format.
-
-
 
 tools = [
 
@@ -456,8 +440,6 @@ else:
 
 print("No text classification found in the response.")
 
-
-
 ```
 Text Classification (JSON):
 {
@@ -486,11 +468,9 @@ Text Classification (JSON):
 }
 ```
 
-##  Example 5: Working with unknown keys
+##  Example 5: Working with unknown keys
 
 In some cases you may not know the exact JSON object shape up front. In this example we provide an open ended `input_schema` and instruct Claude via prompting how to interact with the tool.
-
-
 
 tools = [
 
@@ -551,8 +531,6 @@ print(json.dumps(json\_classification, indent=2))
 else:
 
 print("Something went wrong.")
-
-
 
 ```
 Characteristics (JSON):

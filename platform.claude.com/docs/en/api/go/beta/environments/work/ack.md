@@ -1,21 +1,16 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/environments/work/ack -->
 
----
-title: Acknowledge Work
-url: https://platform.claude.com/docs/en/api/go/beta/environments/work/ack
----
-
-## Acknowledge Work
+# Acknowledge Work
 
 `client.Beta.Environments.Work.Ack(ctx, workID, params) (*BetaSelfHostedWork, error)`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/ack`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/ack`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting' and removing it from the queue.
 
-### Parameters
+## Parameters
 
 - `workID string`
 
@@ -25,7 +20,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     Path param
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -101,7 +96,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaSelfHostedWork struct{…}`
 
@@ -134,8 +129,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `Type Session`
 
       Type of work data
-
-      - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
 
@@ -183,9 +176,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The type of object (always 'work')
 
-    - `const WorkWork Work = "work"`
+    default: work
 
-### Example
+## Example
 
 ```go
 package main
@@ -216,7 +209,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

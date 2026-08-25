@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/workspaces/list -->
 
----
-title: List Workspaces
-url: https://platform.claude.com/docs/en/api/admin/workspaces/list
----
+# List Workspaces
 
-## List Workspaces
-
-**get** `/v1/organizations/workspaces`
+**GET** `/v1/organizations/workspaces`
 
 List Workspaces
 
-### Query Parameters
+## Query parameters
 
 - `after_id: optional string`
 
@@ -25,13 +20,17 @@ List Workspaces
 
   Whether to include Workspaces that have been archived in the response
 
+  default: false
+
 - `limit: optional number`
 
   Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `1000`.
 
-### Returns
+  default: 20, maximum: 1000, minimum: 1
+
+## Returns
 
 - `data: array of Workspace`
 
@@ -42,6 +41,8 @@ List Workspaces
   - `archived_at: string or null`
 
     RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+    format: date-time
 
   - `compartment_id: string`
 
@@ -56,7 +57,9 @@ List Workspaces
 
     RFC 3339 datetime string indicating when the Workspace was created.
 
-  - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
+    format: date-time
+
+  - `data_residency: object`
 
     Data residency configuration.
 
@@ -67,8 +70,6 @@ List Workspaces
       - `array of string`
 
       - `"unrestricted"`
-
-        - `"unrestricted"`
 
     - `default_inference_geo: string`
 
@@ -106,7 +107,7 @@ List Workspaces
 
     For Workspaces, this is always `"workspace"`.
 
-    - `"workspace"`
+    default: workspace
 
 - `first_id: string or null`
 
@@ -120,15 +121,15 @@ List Workspaces
 
   Last ID in the `data` list. Can be used as the `after_id` for the next page.
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/workspaces \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

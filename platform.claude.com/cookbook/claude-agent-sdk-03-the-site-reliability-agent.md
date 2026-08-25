@@ -1,14 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/claude-agent-sdk-03-the-site-reliability-agent -->
 
-#  The SRE Incident Response Agent
+#  The SRE Incident Response Agent
 
-##  Introduction
+##  Introduction
 
 It's 3 AM, your pager goes off, and the API is throwing 500s. You're half-awake, staring at dashboards, correlating metrics and logs across a dozen services while customer impact grows by the minute. This notebook builds an **SRE incident response agent** that handles that workflow autonomously: investigating incidents, identifying root causes, applying remediations, and documenting the results.
 
 In Notebook 02, we built an observability agent that could *read* from external systems. This notebook goes further. The agent can also **take action**, editing configuration files and restarting services to fix the problems it finds. It uses the [Claude Agent SDK(opens in new tab)](https://github.com/anthropics/claude-agent-sdk-python) with [MCP(opens in new tab)](https://modelcontextprotocol.io/introduction) tools scoped for safe infrastructure access.
 
-###  What you'll learn
+###  What you'll learn
 
 * How to give agents **safe write access** to infrastructure by scoping MCP tools with restricted directories, command allowlists, and validation hooks
 * Why **clear tool descriptions** drive autonomous agent behavior more effectively than elaborate prompts
@@ -17,7 +17,7 @@ In Notebook 02, we built an observability agent that could *read* from external 
 
 At the end, we provide guidance on connecting the agent to your own infrastructure and extending it with the platforms your team already uses.
 
-###  Prerequisites
+###  Prerequisites
 
 To run this notebook, you will need:
 
@@ -30,21 +30,15 @@ You won't need any additional external accounts to run the core steps of this no
 
 > **Running from the [cookbooks repo(opens in new tab)](https://github.com/anthropics/claude-cookbooks)?** Ensure your working directory is `claude_agent_sdk/site_reliability_agent/` before running the notebook.
 
-##  Step 0: Environment Setup
+##  Step 0: Environment Setup
 
 Create a `.env` file in this directory with your Anthropic API key:
 
-
-
 ANTHROPIC\_API\_KEY=your-key-here
-
-
 
 %%capture
 
 %pip install claude-agent-sdk httpx python-dotenv
-
-
 
 import os
 
@@ -88,14 +82,14 @@ raise ValueError("ANTHROPIC\_API\_KEY not set. Add it to a .env file.")
 
 MODEL = "claude-opus-4-6"
 
-##  Step 1: Generate Infrastructure Files
+##  Step 1: Generate Infrastructure Files
 
 We've included two companion files alongside this notebook:
 
 1. **[`infra_setup.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/site_reliability_agent/infra_setup.py)** — Generates the Docker-based infrastructure (Compose config, Prometheus, API server, traffic generator). Review this to understand how to set up a local environment for agent testing.
 2. **[`sre_mcp_server.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/site_reliability_agent/sre_mcp_server.py)** — The MCP tool server that the agent communicates with. This is the most important file to read over — it shows how to define tools, implement safety-scoped handlers, and wire everything together using JSON-RPC. If you're building your own agent integration, refer to this pattern to understand how to give agents the right tools to accomplish tasks.
 
-###  Step 1a: Infrastructure Setup
+###  Step 1a: Infrastructure Setup
 
 [`infra_setup.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/site_reliability_agent/infra_setup.py) generates a complete local environment for simulating production incidents:
 
@@ -108,8 +102,6 @@ We've included two companion files alongside this notebook:
 
 If you were adapting this for your own infrastructure, you'd replace these generated files with connections to your real services, but the pattern (Docker Compose + Prometheus + instrumented services) is the same.
 
-
-
 assert os.path.exists("infra\_setup.py"), (
 
 "infra\_setup.py not found — ensure both setup scripts are in the same directory as this notebook."
@@ -118,7 +110,7 @@ assert os.path.exists("infra\_setup.py"), (
 
 subprocess.run([sys.executable, "infra\_setup.py"], check=True)
 
-###  Step 1b: The MCP Server
+###  Step 1b: The MCP Server
 
 [`sre_mcp_server.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/site_reliability_agent/sre_mcp_server.py) is the tool server that the Claude Agent SDK spawns as a subprocess during agent execution. It's included as a standalone Python file so you can read and modify it directly.
 
@@ -137,11 +129,9 @@ Each tool has a JSON Schema definition with a rich description, which is what th
 
 The server also includes **production extension tools** for PagerDuty (incident management) and Confluence (post-mortem documentation) that activate when the corresponding API keys are set. See the "Going Further" section at the end of this notebook.
 
-##  Architecture Overview
+##  Architecture Overview
 
 The SRE agent uses the **Model Context Protocol (MCP)** pattern: the agent communicates with a tool server that runs as a separate subprocess, connected via stdin/stdout.
-
-
 
 Claude Agent SDK <-- query() loop streams responses
 
@@ -161,7 +151,7 @@ MCP Server (subprocess via stdio/JSON-RPC)
 
 **Why a subprocess?** Running the tool server as a separate process provides isolation such that the agent doesn't get taken down if a tool handler crashes or hangs. It also enables clean separation between the agent's reasoning loop and the infrastructure access layer.
 
-##  Step 2: Infrastructure Tools — Docker & Config Management
+##  Step 2: Infrastructure Tools — Docker & Config Management
 
 The foundation of any SRE agent is the ability to inspect and modify infrastructure. We define two categories of tools:
 
@@ -169,8 +159,6 @@ The foundation of any SRE agent is the ability to inspect and modify infrastruct
 * **Write tools**: `edit_config_file`, `run_shell_command` — modify state, require safety checks
 
 Each tool is defined as a JSON Schema object following the MCP protocol. The agent reads these descriptions to decide when and how to use each tool.
-
-
 
 infrastructure\_tools = [
 
@@ -344,15 +332,13 @@ infrastructure\_tools = [
 
 ]
 
-###  Infrastructure Tool Handlers
+###  Infrastructure Tool Handlers
 
 Below are the handler implementations for each infrastructure tool. Pay close attention to the safety checks on the write tools — these are the guardrails that make it safe to give an agent real infrastructure access:
 
 * `edit_config_file` restricts writes to the `config/` directory only
 * `run_shell_command` only allows commands starting with `docker-compose` or `docker`
 * `get_container_logs` validates the container name against a whitelist
-
-
 
 SRE\_PROJECT\_ROOT = os.getcwd()
 
@@ -556,7 +542,7 @@ return {
 
 }
 
-##  Step 3: Prometheus — Metrics & Health Checks
+##  Step 3: Prometheus — Metrics & Health Checks
 
 Prometheus is the observability layer of our SRE agent. It provides the quantitative signals that indicate whether something is wrong like error rates spiking, latency climbing, or database connections being exhausted.
 
@@ -565,8 +551,6 @@ We define three Prometheus tools:
 * **`query_metrics`** — Run arbitrary PromQL queries (the agent can craft its own queries based on what it's investigating)
 * **`list_metrics`** — Discover what metrics are available
 * **`get_service_health`** — A pre-built health summary that checks error rates, latency, and DB connections in one call
-
-
 
 PROMETHEUS\_URL = "http://localhost:9090"
 
@@ -640,11 +624,9 @@ prometheus\_tools = [
 
 ]
 
-###  Prometheus Tool Handlers
+###  Prometheus Tool Handlers
 
 The handlers below query the Prometheus HTTP API. `get_service_health` aggregates multiple PromQL queries into a single structured health report, which gives the agent a quick overview before it decides where to dig deeper.
-
-
 
 async def query\_metrics(promql: str) -> dict[str, Any]:
 
@@ -838,7 +820,7 @@ return {
 
 }
 
-##  Step 4: Assembling the Tool Registry
+##  Step 4: Assembling the Tool Registry
 
 Now we combine all tool definitions into a single registry. The MCP server ([`sre_mcp_server.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/site_reliability_agent/sre_mcp_server.py)) includes additional tools beyond what we defined in the notebook:
 
@@ -848,11 +830,9 @@ Now we combine all tool definitions into a single registry. The MCP server ([`sr
 * `execute_runbook` — Structured investigation playbooks
 * `write_postmortem` — Incident documentation
 
-
-
 ALL\_TOOLS = infrastructure\_tools + prometheus\_tools
 
-###  MCP Server Protocol Reference
+###  MCP Server Protocol Reference
 
 The MCP server runs as a standalone process and communicates via stdin/stdout using JSON-RPC. When the Claude Agent SDK needs to call a tool, it sends a request; the server routes it to the correct handler and returns the result.
 
@@ -864,8 +844,6 @@ The server handles four JSON-RPC methods:
 * `tools/call` — Executes a specific tool and returns results
 
 The server loop reads JSON-RPC requests from stdin, dispatches to the appropriate handler, and writes the result back to stdout:
-
-
 
 async def main():
 
@@ -897,7 +875,7 @@ send\_result(request["id"], result)
 
 Each tool call flows through: SDK sends JSON-RPC request → Server dispatches to handler → Handler returns result → SDK receives response. See [`sre_mcp_server.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/site_reliability_agent/sre_mcp_server.py) for the full implementation.
 
-##  Step 5: Safety Hooks — Guardrails on Write Operations
+##  Step 5: Safety Hooks — Guardrails on Write Operations
 
 The MCP tool handlers include basic safety checks (restricted directories, allowed command prefixes). Hooks provide a second layer of defense: shell scripts that validate the *content* of what the agent is changing, not just *where* it's changing it.
 
@@ -910,13 +888,11 @@ Hooks run automatically before a tool executes. If a `PreToolUse` hook exits wit
 
 Both hooks are registered as `PreToolUse` hooks in the agent configuration below — the SDK runs them automatically before the corresponding tool executes.
 
-##  Step 6: Baseline — The Agent on a Healthy System
+##  Step 6: Baseline — The Agent on a Healthy System
 
 Before introducing a fault, we start the Docker stack and run the agent against a **healthy** system. This establishes a baseline — the agent should report that all services are operating normally.
 
 We start all services (PostgreSQL, API server, traffic generator, Prometheus), wait for metrics to begin flowing, and then let the agent investigate.
-
-
 
 config\_path = os.path.join(SRE\_PROJECT\_ROOT, "config", "api-server.env")
 
@@ -950,15 +926,13 @@ time.sleep(30)
 
 print("Metrics are flowing.")
 
-###  Configure the Agent
+###  Configure the Agent
 
 This is where everything comes together as we build our agent on the Claude Agent SDK.
 
 The **system prompt** below is deliberately simple. It gives Claude a general investigation methodology (start with health checks, drill into metrics, check logs, correlate findings) but it does *not* prescribe which tools to call, in what order, or how to interpret the results. Claude is intelligent enough to figure that out from the tool descriptions alone.
 
 This is a key insight for building effective agents: invest in giving Claude access to the right tools and environment to perform tasks. The MCP server's tool definitions (which you can review in [`sre_mcp_server.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/site_reliability_agent/sre_mcp_server.py)) tell Claude what each tool does, what inputs it expects, and when to use it. Given that context and an agentic loop, Claude autonomously forms hypotheses, selects the right tools, interprets results, and adapts its investigation — just like an experienced SRE would.
-
-
 
 SYSTEM\_PROMPT = """You are an expert SRE incident response bot. Your job is to investigate
 
@@ -983,8 +957,6 @@ Investigation approach:
 Note: The api-server has baseline error noise (~0.1-0.2 errors/sec). Focus on significant spikes.
 
 Be thorough but efficient. Always explain your reasoning."""
-
-
 
 MCP\_SERVER\_PATH = Path(SRE\_PROJECT\_ROOT) / "sre\_mcp\_server.py"
 
@@ -1092,17 +1064,13 @@ model=MODEL,
 
 )
 
-###  Run Baseline Health Check
+###  Run Baseline Health Check
 
 The agent will now investigate the healthy system. It should query metrics, check service health, and confirm that everything is operating normally.
-
-
 
 incident\_report = """Check the health of all services and give me a quick status report.
 
 Check error rates, latency, and DB connections."""
-
-
 
 messages = []
 
@@ -1129,8 +1097,6 @@ if message.is\_error:
 print(f"\nERROR: {message.result}")
 
 messages.append(message)
-
-
 
 ```
 I'll run a comprehensive health check across all dimensions simultaneously!
@@ -1183,7 +1149,7 @@ DB pool is essentially idle — no risk of exhaustion.
 **All systems are operational.** The one item to keep an eye on is the **`/api/users` P99 latency at ~248ms** — it's a minor outlier vs. the 10ms seen on other endpoints. No action required now, but consider investigating if it trends upward or correlates with user-facing complaints.
 ```
 
-##  Step 7: Triggering the Incident
+##  Step 7: Triggering the Incident
 
 Now we introduce a breaking change and watch the agent diagnose and fix it.
 
@@ -1199,8 +1165,6 @@ This is exactly the kind of incident that pages engineers in the middle of the n
 **Expected output**: The configuration change is applied, the api-server is redeployed, and after 30 seconds the incident should be visible in Prometheus metrics.
 
 > **Before running the next cell**, open `config/api-server.env` and note that `DB_POOL_SIZE=20`. The cell below will change it to `1` and redeploy — check the file again afterward to see the change.
-
-
 
 config\_path = os.path.join(SRE\_PROJECT\_ROOT, "config", "api-server.env")
 
@@ -1234,11 +1198,9 @@ time.sleep(30)
 
 print("Error successfully injected.")
 
-###  Verify the Incident in Prometheus
+###  Verify the Incident in Prometheus
 
 Before handing this off to the agent, take a moment to confirm the incident is visible in Prometheus. Open [http://localhost:9090(opens in new tab)](http://localhost:9090) in your browser and try this PromQL query:
-
-
 
 rate(http\_requests\_total{status="500"}[1m])
 
@@ -1246,7 +1208,7 @@ If you click on the "Graph" tab, you should see error rates spiking in the `/api
 
 These are the same signals the agent will discover autonomously. The difference is that the agent will also correlate them, trace the cause to `config/api-server.env`, fix the misconfiguration, redeploy, and verify the fix — all without being told which queries to run or what to look for.
 
-###  Step 7a: Investigate the Incident
+###  Step 7a: Investigate the Incident
 
 First, we let the agent **investigate only** — diagnose the problem without taking any remediation action. The prompt is deliberately vague, similar to what an on-call engineer would receive from a user complaint. The agent must figure out the rest on its own.
 
@@ -1258,8 +1220,6 @@ Watch how the agent works through this:
 * It reads the config file to confirm the root cause
 
 **Expected output**: The agent identifies `DB_POOL_SIZE=1` as the root cause of the incident.
-
-
 
 incident\_report = """We're getting reports of API errors and timeouts from users.
 
@@ -1276,8 +1236,6 @@ Something is wrong with the api-server. Please investigate thoroughly:
 - Identify the root cause
 
 Report your findings but do NOT apply any fixes yet."""
-
-
 
 investigation\_messages = []
 
@@ -1304,8 +1262,6 @@ if message.is\_error:
 print(f"\nERROR: {message.result}")
 
 investigation\_messages.append(message)
-
-
 
 ```
 I'll investigate the api-server incident thoroughly. Let me start by getting an overview of the system health and then drill down into the specific issues.
@@ -1457,7 +1413,7 @@ The fix is straightforward: restore the connection pool to its known good value 
 **Status**: Ready for remediation - awaiting your approval to apply the fix.
 ```
 
-###  Takeaways from the Investigation
+###  Takeaways from the Investigation
 
 Review the agent's output above. A few things to notice:
 
@@ -1468,7 +1424,7 @@ Review the agent's output above. A few things to notice:
 
 Now let's have the agent apply the fix.
 
-###  Step 7b: Apply the Fix
+###  Step 7b: Apply the Fix
 
 Now we let the agent **remediate** the issue it diagnosed. This is a separate step because in production, you might want a human to review the diagnosis before authorizing remediation. This is a good example of thinking through human-in-the-loop for agentic development: when do you want the agent to execute autonomously vs. require human input?
 
@@ -1483,8 +1439,6 @@ The agent should:
 
 **Expected output**: The agent fixes the config, redeploys, confirms healthy metrics, and writes a post-mortem.
 
-
-
 fix\_prompt = """Based on your investigation, the root cause is DB\_POOL\_SIZE=1 in config/api-server.env.
 
 Please:
@@ -1496,8 +1450,6 @@ Please:
 3. Wait a moment, then verify the fix by checking service health metrics
 
 4. Write a post-mortem using the write\_postmortem tool documenting what happened, the root cause, and the fix."""
-
-
 
 remediation\_messages = []
 
@@ -1524,8 +1476,6 @@ if message.is\_error:
 print(f"\nERROR: {message.result}")
 
 remediation\_messages.append(message)
-
-
 
 ```
 I'll fix the DB pool configuration, redeploy, verify the fix, and document the incident. Let me proceed with these steps.
@@ -1589,7 +1539,7 @@ I've successfully completed all remediation steps:
 The system is now recovering. The DB pool size of 20 connections is adequate for the current traffic load, and error rates should return to baseline (~0.1-0.2/sec) shortly as queued requests complete.
 ```
 
-###  Incident Summary
+###  Incident Summary
 
 The agent handled the full incident lifecycle in two phases:
 
@@ -1600,11 +1550,9 @@ This separation mirrors real-world incident response, where diagnosis and action
 
 > **Check your results**: Open `config/api-server.env` to confirm `DB_POOL_SIZE` is back to `20`. Then look in the `postmortems/` directory for the incident report the agent generated — it should contain a summary, root cause analysis, timeline, and action items.
 
-##  Step 8: Cleanup
+##  Step 8: Cleanup
 
 The agent should have restored `DB_POOL_SIZE=20` during remediation. The cell below verifies the fix, shuts down the Docker stack, and displays any post-mortem the agent wrote.
-
-
 
 config\_path = os.path.join(SRE\_PROJECT\_ROOT, "config", "api-server.env")
 
@@ -1656,13 +1604,11 @@ print(f.read())
 
 ---
 
-##  Extending the Agent: Skills & Runbooks
+##  Extending the Agent: Skills & Runbooks
 
 The agent built above is general-purpose. It can query Prometheus, read logs, and edit configs, but it doesn't encode any institutional knowledge specific to your infrastructure. In practice, SRE teams maintain runbooks, escalation policies, and post-mortem templates that capture hard-won operational experience. You can encode that knowledge as **skills** that the agent follows automatically.
 
 Skills are markdown files that tell the agent *when* and *how* to apply domain-specific procedures. Here is an example skill file that teaches the agent to recognize common incident patterns:
-
-
 
 ---
 
@@ -1702,8 +1648,6 @@ Trigger this skill when you identify one of these patterns:
 
 Pass skills to the agent via `ClaudeAgentOptions`:
 
-
-
 options = ClaudeAgentOptions(
 
 system\_prompt=SYSTEM\_PROMPT,
@@ -1731,11 +1675,9 @@ Ideas for skills you might build for your own environment:
 
 ---
 
-##  Going Further: Production Integrations
+##  Going Further: Production Integrations
 
 The agent built in this notebook is the investigation and remediation engine. To deploy it in a production environment, you can integrate it with the platforms your team already uses. The MCP server pattern makes this straightforward: wrap an external API in MCP tools with clear descriptions, add the tools to `allowed_tools`, and the agent discovers them automatically.
-
-
 
 ┌─────────────────┐
 
@@ -1761,11 +1703,9 @@ The agent built in this notebook is the investigation and remediation engine. To
 
 [`sre_mcp_server.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/site_reliability_agent/sre_mcp_server.py) already includes full implementations for PagerDuty and Confluence. The tools are **conditionally registered** in that they only appear when the corresponding API keys are set. This means you can enable them by simply adding environment variables, with no code changes required.
 
-###  Setting Up Credentials
+###  Setting Up Credentials
 
 Create a `.env` file in the project root with the credentials for the integrations you want to enable:
-
-
 
 # PagerDuty (https://support.pagerduty.com/docs/api-access-keys)
 
@@ -1789,7 +1729,7 @@ CONFLUENCE\_PARENT\_PAGE\_ID=12345 # Parent page ID for post-mortem pages
 
 When the MCP server starts, it checks for these environment variables. If `PAGERDUTY_API_KEY` is set, the 4 PagerDuty tools become available. If `CONFLUENCE_BASE_URL` and `CONFLUENCE_API_TOKEN` are set, the 3 Confluence tools become available. The agent discovers them automatically via `tools/list`.
 
-###  PagerDuty: Incident Management
+###  PagerDuty: Incident Management
 
 The agent can check for existing incidents before creating duplicates, create new incidents to page the on-call, acknowledge them during investigation, and resolve them with detailed notes after remediation.
 
@@ -1800,7 +1740,7 @@ The agent can check for existing incidents before creating duplicates, create ne
 | `pagerduty_update_incident` | Acknowledge or resolve |
 | `pagerduty_get_incident` | Get incident details |
 
-###  Confluence: Knowledge Base
+###  Confluence: Knowledge Base
 
 After resolution, the agent can generate a structured post-mortem page in Confluence with sections for summary, timeline, root cause, impact, and action items by drawing on the investigation context it already has. This replaces the local `write_postmortem` tool used in this notebook.
 
@@ -1810,15 +1750,13 @@ After resolution, the agent can generate a structured post-mortem page in Conflu
 | `confluence_list_postmortems` | Search past incidents |
 | `confluence_get_page` | Retrieve an existing page |
 
-###  Slack: Messaging Interface
+###  Slack: Messaging Interface
 
 Engineers interact with the agent by mentioning it in a Slack channel. The agent investigates in-thread, streaming tool calls and findings in real time. Follow-up messages in the same thread continue the conversation. A Slack integration requires a separate deployment file (e.g., [`sre_bot_slack.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/examples/sre_bot_slack.py) using `slack-bolt`) to listen for @mentions and relay messages to the agent. See [`examples/sre_bot_slack.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/examples/sre_bot_slack.py) for an example implementation.
 
-###  Enabling Tools in the Agent
+###  Enabling Tools in the Agent
 
 Add the integration tools to `allowed_tools` in the agent configuration:
-
-
 
 options = ClaudeAgentOptions(
 
@@ -1852,7 +1790,7 @@ allowed\_tools=[
 
 No changes to the system prompt or MCP server are needed. The agent discovers the new tools from the server and uses them when appropriate.
 
-##  Conclusion
+##  Conclusion
 
 This notebook demonstrates what happens when you give Claude an agentic loop and the right tools. With a simple system prompt with general investigation guidance, Claude leveraged 12 well-described MCP tools to autonomously:
 
@@ -1869,11 +1807,11 @@ The diagram below illustrates how the agent we built in this notebook extends to
 
 ![SRE Agent Architecture](https://raw.githubusercontent.com/anthropics/claude-cookbooks/main/claude_agent_sdk/site_reliability_agent/examples/architecture_diagram.png)
 
-###  From Notebook 02 to Notebook 03
+###  From Notebook 02 to Notebook 03
 
 In Notebook 02, agents could observe by querying metrics, checking CI status, reading logs. In this notebook, agents can *act*. That leap from read-only observation to read-write remediation is what makes agents genuinely useful in production. The key design insight: provide write access through narrow MCP tools with built-in safety checks, not through broad shell access.
 
-###  Where to go from here
+###  Where to go from here
 
 This same pattern (agentic loop + scoped tools + simple prompt) applies for many agentic use-cases, such as:
 

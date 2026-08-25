@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/deployment_runs -->
 
----
-title: Deployment Runs
-url: https://platform.claude.com/docs/en/api/java/beta/deployment_runs
----
-
 # Deployment Runs
 
 ## List Deployment Runs
 
-`DeploymentRunListPage beta().deploymentRuns().list(DeploymentRunListParamsparams = DeploymentRunListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`DeploymentRunListPage beta().deploymentRuns().list(params = DeploymentRunListParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/deployment_runs`
+**GET** `/v1/deployment_runs`
 
 List Deployment Runs
 
@@ -23,17 +18,25 @@ List Deployment Runs
 
     Return runs created strictly after this time (exclusive).
 
+    format: date-time
+
   - `Optional<LocalDateTime> createdAtGte`
 
     Return runs created at or after this time (inclusive).
+
+    format: date-time
 
   - `Optional<LocalDateTime> createdAtLt`
 
     Return runs created strictly before this time (exclusive).
 
+    format: date-time
+
   - `Optional<LocalDateTime> createdAtLte`
 
     Return runs created at or before this time (inclusive).
+
+    format: date-time
 
   - `Optional<String> deploymentId`
 
@@ -46,6 +49,8 @@ List Deployment Runs
   - `Optional<Long> limit`
 
     Maximum results per page. Default 20, maximum 1000.
+
+    format: int32
 
   - `Optional<String> page`
 
@@ -145,13 +150,15 @@ List Deployment Runs
 
     - `Type type`
 
-      - `AGENT("agent")`
-
     - `long version`
+
+      format: int32
 
   - `LocalDateTime createdAt`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `String deploymentId`
 
@@ -171,8 +178,6 @@ List Deployment Runs
 
       - `Type type`
 
-        - `ENVIRONMENT_ARCHIVED_ERROR("environment_archived_error")`
-
     - `class BetaManagedAgentsAgentArchivedRunError:`
 
       The deployment's agent was archived.
@@ -182,8 +187,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type type`
-
-        - `AGENT_ARCHIVED_ERROR("agent_archived_error")`
 
     - `class BetaManagedAgentsEnvironmentNotFoundRunError:`
 
@@ -195,8 +198,6 @@ List Deployment Runs
 
       - `Type type`
 
-        - `ENVIRONMENT_NOT_FOUND_ERROR("environment_not_found_error")`
-
     - `class BetaManagedAgentsVaultNotFoundRunError:`
 
       A vault referenced by the deployment no longer exists.
@@ -206,8 +207,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type type`
-
-        - `VAULT_NOT_FOUND_ERROR("vault_not_found_error")`
 
     - `class BetaManagedAgentsVaultArchivedRunError:`
 
@@ -219,8 +218,6 @@ List Deployment Runs
 
       - `Type type`
 
-        - `VAULT_ARCHIVED_ERROR("vault_archived_error")`
-
     - `class BetaManagedAgentsFileNotFoundRunError:`
 
       A file resource referenced by the deployment no longer exists.
@@ -230,8 +227,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type type`
-
-        - `FILE_NOT_FOUND_ERROR("file_not_found_error")`
 
     - `class BetaManagedAgentsMemoryStoreArchivedRunError:`
 
@@ -243,8 +238,6 @@ List Deployment Runs
 
       - `Type type`
 
-        - `MEMORY_STORE_ARCHIVED_ERROR("memory_store_archived_error")`
-
     - `class BetaManagedAgentsSkillNotFoundRunError:`
 
       A skill referenced by the deployment's agent no longer exists.
@@ -254,8 +247,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type type`
-
-        - `SKILL_NOT_FOUND_ERROR("skill_not_found_error")`
 
     - `class BetaManagedAgentsSessionResourceNotFoundRunError:`
 
@@ -267,8 +258,6 @@ List Deployment Runs
 
       - `Type type`
 
-        - `SESSION_RESOURCE_NOT_FOUND_ERROR("session_resource_not_found_error")`
-
     - `class BetaManagedAgentsWorkspaceArchivedRunError:`
 
       The deployment's workspace was archived.
@@ -278,8 +267,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type type`
-
-        - `WORKSPACE_ARCHIVED_ERROR("workspace_archived_error")`
 
     - `class BetaManagedAgentsOrganizationDisabledRunError:`
 
@@ -291,8 +278,6 @@ List Deployment Runs
 
       - `Type type`
 
-        - `ORGANIZATION_DISABLED_ERROR("organization_disabled_error")`
-
     - `class BetaManagedAgentsSessionRateLimitedRunError:`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
@@ -302,8 +287,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type type`
-
-        - `SESSION_RATE_LIMITED_ERROR("session_rate_limited_error")`
 
     - `class BetaManagedAgentsSessionCreationRejectedRunError:`
 
@@ -315,8 +298,6 @@ List Deployment Runs
 
       - `Type type`
 
-        - `SESSION_CREATION_REJECTED_ERROR("session_creation_rejected_error")`
-
     - `class BetaManagedAgentsUnknownRunError:`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
@@ -326,8 +307,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type type`
-
-        - `UNKNOWN_ERROR("unknown_error")`
 
     - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError:`
 
@@ -339,8 +318,6 @@ List Deployment Runs
 
       - `Type type`
 
-        - `SELF_HOSTED_RESOURCES_UNSUPPORTED_ERROR("self_hosted_resources_unsupported_error")`
-
     - `class BetaManagedAgentsMcpEgressBlockedRunError:`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
@@ -350,8 +327,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `Type type`
-
-        - `MCP_EGRESS_BLOCKED_ERROR("mcp_egress_blocked_error")`
 
   - `Optional<String> sessionId`
 
@@ -369,9 +344,9 @@ List Deployment Runs
 
         A timestamp in RFC 3339 format
 
-      - `Type type`
+        format: date-time
 
-        - `SCHEDULE("schedule")`
+      - `Type type`
 
     - `class BetaManagedAgentsManualTriggerContext:`
 
@@ -379,11 +354,7 @@ List Deployment Runs
 
       - `Type type`
 
-        - `MANUAL("manual")`
-
   - `Type type`
-
-    - `DEPLOYMENT_RUN("deployment_run")`
 
 ### Example
 
@@ -406,7 +377,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -438,9 +409,9 @@ public final class Main {
 
 ## Get Deployment Run
 
-`BetaManagedAgentsDeploymentRun beta().deploymentRuns().retrieve(DeploymentRunRetrieveParamsparams = DeploymentRunRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaManagedAgentsDeploymentRun beta().deploymentRuns().retrieve(params = DeploymentRunRetrieveParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/deployment_runs/{deployment_run_id}`
+**GET** `/v1/deployment_runs/{deployment_run_id}`
 
 Get Deployment Run
 
@@ -540,13 +511,15 @@ Get Deployment Run
 
     - `Type type`
 
-      - `AGENT("agent")`
-
     - `long version`
+
+      format: int32
 
   - `LocalDateTime createdAt`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `String deploymentId`
 
@@ -566,8 +539,6 @@ Get Deployment Run
 
       - `Type type`
 
-        - `ENVIRONMENT_ARCHIVED_ERROR("environment_archived_error")`
-
     - `class BetaManagedAgentsAgentArchivedRunError:`
 
       The deployment's agent was archived.
@@ -577,8 +548,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type type`
-
-        - `AGENT_ARCHIVED_ERROR("agent_archived_error")`
 
     - `class BetaManagedAgentsEnvironmentNotFoundRunError:`
 
@@ -590,8 +559,6 @@ Get Deployment Run
 
       - `Type type`
 
-        - `ENVIRONMENT_NOT_FOUND_ERROR("environment_not_found_error")`
-
     - `class BetaManagedAgentsVaultNotFoundRunError:`
 
       A vault referenced by the deployment no longer exists.
@@ -601,8 +568,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type type`
-
-        - `VAULT_NOT_FOUND_ERROR("vault_not_found_error")`
 
     - `class BetaManagedAgentsVaultArchivedRunError:`
 
@@ -614,8 +579,6 @@ Get Deployment Run
 
       - `Type type`
 
-        - `VAULT_ARCHIVED_ERROR("vault_archived_error")`
-
     - `class BetaManagedAgentsFileNotFoundRunError:`
 
       A file resource referenced by the deployment no longer exists.
@@ -625,8 +588,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type type`
-
-        - `FILE_NOT_FOUND_ERROR("file_not_found_error")`
 
     - `class BetaManagedAgentsMemoryStoreArchivedRunError:`
 
@@ -638,8 +599,6 @@ Get Deployment Run
 
       - `Type type`
 
-        - `MEMORY_STORE_ARCHIVED_ERROR("memory_store_archived_error")`
-
     - `class BetaManagedAgentsSkillNotFoundRunError:`
 
       A skill referenced by the deployment's agent no longer exists.
@@ -649,8 +608,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type type`
-
-        - `SKILL_NOT_FOUND_ERROR("skill_not_found_error")`
 
     - `class BetaManagedAgentsSessionResourceNotFoundRunError:`
 
@@ -662,8 +619,6 @@ Get Deployment Run
 
       - `Type type`
 
-        - `SESSION_RESOURCE_NOT_FOUND_ERROR("session_resource_not_found_error")`
-
     - `class BetaManagedAgentsWorkspaceArchivedRunError:`
 
       The deployment's workspace was archived.
@@ -673,8 +628,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type type`
-
-        - `WORKSPACE_ARCHIVED_ERROR("workspace_archived_error")`
 
     - `class BetaManagedAgentsOrganizationDisabledRunError:`
 
@@ -686,8 +639,6 @@ Get Deployment Run
 
       - `Type type`
 
-        - `ORGANIZATION_DISABLED_ERROR("organization_disabled_error")`
-
     - `class BetaManagedAgentsSessionRateLimitedRunError:`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
@@ -697,8 +648,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type type`
-
-        - `SESSION_RATE_LIMITED_ERROR("session_rate_limited_error")`
 
     - `class BetaManagedAgentsSessionCreationRejectedRunError:`
 
@@ -710,8 +659,6 @@ Get Deployment Run
 
       - `Type type`
 
-        - `SESSION_CREATION_REJECTED_ERROR("session_creation_rejected_error")`
-
     - `class BetaManagedAgentsUnknownRunError:`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
@@ -721,8 +668,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type type`
-
-        - `UNKNOWN_ERROR("unknown_error")`
 
     - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError:`
 
@@ -734,8 +679,6 @@ Get Deployment Run
 
       - `Type type`
 
-        - `SELF_HOSTED_RESOURCES_UNSUPPORTED_ERROR("self_hosted_resources_unsupported_error")`
-
     - `class BetaManagedAgentsMcpEgressBlockedRunError:`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
@@ -745,8 +688,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type type`
-
-        - `MCP_EGRESS_BLOCKED_ERROR("mcp_egress_blocked_error")`
 
   - `Optional<String> sessionId`
 
@@ -764,9 +705,9 @@ Get Deployment Run
 
         A timestamp in RFC 3339 format
 
-      - `Type type`
+        format: date-time
 
-        - `SCHEDULE("schedule")`
+      - `Type type`
 
     - `class BetaManagedAgentsManualTriggerContext:`
 
@@ -774,11 +715,7 @@ Get Deployment Run
 
       - `Type type`
 
-        - `MANUAL("manual")`
-
   - `Type type`
-
-    - `DEPLOYMENT_RUN("deployment_run")`
 
 ### Example
 
@@ -801,7 +738,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -826,7 +763,7 @@ public final class Main {
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Agent Archived Run Error
 
@@ -839,8 +776,6 @@ public final class Main {
     Human-readable error description.
 
   - `Type type`
-
-    - `AGENT_ARCHIVED_ERROR("agent_archived_error")`
 
 ### Beta Managed Agents Deployment Run
 
@@ -860,13 +795,15 @@ public final class Main {
 
     - `Type type`
 
-      - `AGENT("agent")`
-
     - `long version`
+
+      format: int32
 
   - `LocalDateTime createdAt`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `String deploymentId`
 
@@ -886,8 +823,6 @@ public final class Main {
 
       - `Type type`
 
-        - `ENVIRONMENT_ARCHIVED_ERROR("environment_archived_error")`
-
     - `class BetaManagedAgentsAgentArchivedRunError:`
 
       The deployment's agent was archived.
@@ -897,8 +832,6 @@ public final class Main {
         Human-readable error description.
 
       - `Type type`
-
-        - `AGENT_ARCHIVED_ERROR("agent_archived_error")`
 
     - `class BetaManagedAgentsEnvironmentNotFoundRunError:`
 
@@ -910,8 +843,6 @@ public final class Main {
 
       - `Type type`
 
-        - `ENVIRONMENT_NOT_FOUND_ERROR("environment_not_found_error")`
-
     - `class BetaManagedAgentsVaultNotFoundRunError:`
 
       A vault referenced by the deployment no longer exists.
@@ -921,8 +852,6 @@ public final class Main {
         Human-readable error description.
 
       - `Type type`
-
-        - `VAULT_NOT_FOUND_ERROR("vault_not_found_error")`
 
     - `class BetaManagedAgentsVaultArchivedRunError:`
 
@@ -934,8 +863,6 @@ public final class Main {
 
       - `Type type`
 
-        - `VAULT_ARCHIVED_ERROR("vault_archived_error")`
-
     - `class BetaManagedAgentsFileNotFoundRunError:`
 
       A file resource referenced by the deployment no longer exists.
@@ -945,8 +872,6 @@ public final class Main {
         Human-readable error description.
 
       - `Type type`
-
-        - `FILE_NOT_FOUND_ERROR("file_not_found_error")`
 
     - `class BetaManagedAgentsMemoryStoreArchivedRunError:`
 
@@ -958,8 +883,6 @@ public final class Main {
 
       - `Type type`
 
-        - `MEMORY_STORE_ARCHIVED_ERROR("memory_store_archived_error")`
-
     - `class BetaManagedAgentsSkillNotFoundRunError:`
 
       A skill referenced by the deployment's agent no longer exists.
@@ -969,8 +892,6 @@ public final class Main {
         Human-readable error description.
 
       - `Type type`
-
-        - `SKILL_NOT_FOUND_ERROR("skill_not_found_error")`
 
     - `class BetaManagedAgentsSessionResourceNotFoundRunError:`
 
@@ -982,8 +903,6 @@ public final class Main {
 
       - `Type type`
 
-        - `SESSION_RESOURCE_NOT_FOUND_ERROR("session_resource_not_found_error")`
-
     - `class BetaManagedAgentsWorkspaceArchivedRunError:`
 
       The deployment's workspace was archived.
@@ -993,8 +912,6 @@ public final class Main {
         Human-readable error description.
 
       - `Type type`
-
-        - `WORKSPACE_ARCHIVED_ERROR("workspace_archived_error")`
 
     - `class BetaManagedAgentsOrganizationDisabledRunError:`
 
@@ -1006,8 +923,6 @@ public final class Main {
 
       - `Type type`
 
-        - `ORGANIZATION_DISABLED_ERROR("organization_disabled_error")`
-
     - `class BetaManagedAgentsSessionRateLimitedRunError:`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
@@ -1017,8 +932,6 @@ public final class Main {
         Human-readable error description.
 
       - `Type type`
-
-        - `SESSION_RATE_LIMITED_ERROR("session_rate_limited_error")`
 
     - `class BetaManagedAgentsSessionCreationRejectedRunError:`
 
@@ -1030,8 +943,6 @@ public final class Main {
 
       - `Type type`
 
-        - `SESSION_CREATION_REJECTED_ERROR("session_creation_rejected_error")`
-
     - `class BetaManagedAgentsUnknownRunError:`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
@@ -1041,8 +952,6 @@ public final class Main {
         Human-readable error description.
 
       - `Type type`
-
-        - `UNKNOWN_ERROR("unknown_error")`
 
     - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError:`
 
@@ -1054,8 +963,6 @@ public final class Main {
 
       - `Type type`
 
-        - `SELF_HOSTED_RESOURCES_UNSUPPORTED_ERROR("self_hosted_resources_unsupported_error")`
-
     - `class BetaManagedAgentsMcpEgressBlockedRunError:`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
@@ -1065,8 +972,6 @@ public final class Main {
         Human-readable error description.
 
       - `Type type`
-
-        - `MCP_EGRESS_BLOCKED_ERROR("mcp_egress_blocked_error")`
 
   - `Optional<String> sessionId`
 
@@ -1084,9 +989,9 @@ public final class Main {
 
         A timestamp in RFC 3339 format
 
-      - `Type type`
+        format: date-time
 
-        - `SCHEDULE("schedule")`
+      - `Type type`
 
     - `class BetaManagedAgentsManualTriggerContext:`
 
@@ -1094,11 +999,7 @@ public final class Main {
 
       - `Type type`
 
-        - `MANUAL("manual")`
-
   - `Type type`
-
-    - `DEPLOYMENT_RUN("deployment_run")`
 
 ### Beta Managed Agents Environment Archived Run Error
 
@@ -1112,8 +1013,6 @@ public final class Main {
 
   - `Type type`
 
-    - `ENVIRONMENT_ARCHIVED_ERROR("environment_archived_error")`
-
 ### Beta Managed Agents Environment Not Found Run Error
 
 - `class BetaManagedAgentsEnvironmentNotFoundRunError:`
@@ -1125,8 +1024,6 @@ public final class Main {
     Human-readable error description.
 
   - `Type type`
-
-    - `ENVIRONMENT_NOT_FOUND_ERROR("environment_not_found_error")`
 
 ### Beta Managed Agents File Not Found Run Error
 
@@ -1140,8 +1037,6 @@ public final class Main {
 
   - `Type type`
 
-    - `FILE_NOT_FOUND_ERROR("file_not_found_error")`
-
 ### Beta Managed Agents Manual Trigger Context
 
 - `class BetaManagedAgentsManualTriggerContext:`
@@ -1149,8 +1044,6 @@ public final class Main {
   The run was started manually by creating a session directly against the deployment.
 
   - `Type type`
-
-    - `MANUAL("manual")`
 
 ### Beta Managed Agents MCP Egress Blocked Run Error
 
@@ -1164,8 +1057,6 @@ public final class Main {
 
   - `Type type`
 
-    - `MCP_EGRESS_BLOCKED_ERROR("mcp_egress_blocked_error")`
-
 ### Beta Managed Agents Memory Store Archived Run Error
 
 - `class BetaManagedAgentsMemoryStoreArchivedRunError:`
@@ -1177,8 +1068,6 @@ public final class Main {
     Human-readable error description.
 
   - `Type type`
-
-    - `MEMORY_STORE_ARCHIVED_ERROR("memory_store_archived_error")`
 
 ### Beta Managed Agents Organization Disabled Run Error
 
@@ -1192,8 +1081,6 @@ public final class Main {
 
   - `Type type`
 
-    - `ORGANIZATION_DISABLED_ERROR("organization_disabled_error")`
-
 ### Beta Managed Agents Schedule Trigger Context
 
 - `class BetaManagedAgentsScheduleTriggerContext:`
@@ -1204,9 +1091,9 @@ public final class Main {
 
     A timestamp in RFC 3339 format
 
-  - `Type type`
+    format: date-time
 
-    - `SCHEDULE("schedule")`
+  - `Type type`
 
 ### Beta Managed Agents Self Hosted Resources Unsupported Run Error
 
@@ -1220,8 +1107,6 @@ public final class Main {
 
   - `Type type`
 
-    - `SELF_HOSTED_RESOURCES_UNSUPPORTED_ERROR("self_hosted_resources_unsupported_error")`
-
 ### Beta Managed Agents Session Creation Rejected Run Error
 
 - `class BetaManagedAgentsSessionCreationRejectedRunError:`
@@ -1233,8 +1118,6 @@ public final class Main {
     Human-readable error description.
 
   - `Type type`
-
-    - `SESSION_CREATION_REJECTED_ERROR("session_creation_rejected_error")`
 
 ### Beta Managed Agents Session Rate Limited Run Error
 
@@ -1248,8 +1131,6 @@ public final class Main {
 
   - `Type type`
 
-    - `SESSION_RATE_LIMITED_ERROR("session_rate_limited_error")`
-
 ### Beta Managed Agents Session Resource Not Found Run Error
 
 - `class BetaManagedAgentsSessionResourceNotFoundRunError:`
@@ -1261,8 +1142,6 @@ public final class Main {
     Human-readable error description.
 
   - `Type type`
-
-    - `SESSION_RESOURCE_NOT_FOUND_ERROR("session_resource_not_found_error")`
 
 ### Beta Managed Agents Skill Not Found Run Error
 
@@ -1276,11 +1155,9 @@ public final class Main {
 
   - `Type type`
 
-    - `SKILL_NOT_FOUND_ERROR("skill_not_found_error")`
-
 ### Beta Managed Agents Trigger Context
 
-- `class BetaManagedAgentsTriggerContext: A class that can be one of several variants.union`
+- `class BetaManagedAgentsTriggerContext: union`
 
   Describes what triggered a deployment run, with trigger-specific metadata.
 
@@ -1292,17 +1169,15 @@ public final class Main {
 
       A timestamp in RFC 3339 format
 
-    - `Type type`
+      format: date-time
 
-      - `SCHEDULE("schedule")`
+    - `Type type`
 
   - `class BetaManagedAgentsManualTriggerContext:`
 
     The run was started manually by creating a session directly against the deployment.
 
     - `Type type`
-
-      - `MANUAL("manual")`
 
 ### Beta Managed Agents Trigger Type
 
@@ -1326,8 +1201,6 @@ public final class Main {
 
   - `Type type`
 
-    - `UNKNOWN_ERROR("unknown_error")`
-
 ### Beta Managed Agents Vault Archived Run Error
 
 - `class BetaManagedAgentsVaultArchivedRunError:`
@@ -1339,8 +1212,6 @@ public final class Main {
     Human-readable error description.
 
   - `Type type`
-
-    - `VAULT_ARCHIVED_ERROR("vault_archived_error")`
 
 ### Beta Managed Agents Vault Not Found Run Error
 
@@ -1354,8 +1225,6 @@ public final class Main {
 
   - `Type type`
 
-    - `VAULT_NOT_FOUND_ERROR("vault_not_found_error")`
-
 ### Beta Managed Agents Workspace Archived Run Error
 
 - `class BetaManagedAgentsWorkspaceArchivedRunError:`
@@ -1367,5 +1236,3 @@ public final class Main {
     Human-readable error description.
 
   - `Type type`
-
-    - `WORKSPACE_ARCHIVED_ERROR("workspace_archived_error")`

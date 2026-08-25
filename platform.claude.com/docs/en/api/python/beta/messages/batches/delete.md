@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/messages/batches/delete -->
 
----
-title: Delete a Message Batch
-url: https://platform.claude.com/docs/en/api/python/beta/messages/batches/delete
----
+# Delete a Message Batch
 
-## Delete a Message Batch
+`beta.messages.batches.delete(message_batch_id, **kwargs)  -> BetaDeletedMessageBatch`
 
-`beta.messages.batches.delete(strmessage_batch_id, BatchDeleteParams**kwargs)  -> BetaDeletedMessageBatch`
-
-**delete** `/v1/messages/batches/{message_batch_id}`
+**DELETE** `/v1/messages/batches/{message_batch_id}`
 
 Delete a Message Batch.
 
@@ -17,7 +12,7 @@ Message Batches can only be deleted once they've finished processing. If you'd l
 
 Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
-### Parameters
+## Parameters
 
 - `message_batch_id: str`
 
@@ -99,7 +94,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaDeletedMessageBatch: …`
 
@@ -113,9 +108,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     For Message Batches, this is always `"message_batch_deleted"`.
 
-    - `"message_batch_deleted"`
+    default: message_batch_deleted
 
-### Example
+## Example
 
 ```python
 import os
@@ -132,7 +127,7 @@ beta_deleted_message_batch = client.beta.messages.batches.delete(
 print(beta_deleted_message_batch.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

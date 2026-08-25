@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/skills/create -->
 
----
-title: Create Skill
-url: https://platform.claude.com/docs/en/api/java/beta/skills/create
----
+# Create Skill
 
-## Create Skill
+`SkillCreateResponse beta().skills().create(params, requestOptions = RequestOptions.none())`
 
-`SkillCreateResponse beta().skills().create(SkillCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**post** `/v1/skills`
+**POST** `/v1/skills`
 
 Create Skill
 
-### Parameters
+## Parameters
 
 - `SkillCreateParams params`
 
@@ -101,7 +96,7 @@ Create Skill
 
     This is a human-readable label that is not included in the prompt sent to the model.
 
-### Returns
+## Returns
 
 - `class SkillCreateResponse:`
 
@@ -146,7 +141,7 @@ Create Skill
 
     ISO 8601 timestamp of when the skill was last updated.
 
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -171,7 +166,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

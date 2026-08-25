@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/models -->
 
----
-title: Models
-url: https://platform.claude.com/docs/en/api/java/beta/models
----
-
 # Models
 
 ## List Models
 
-`ModelListPage beta().models().list(ModelListParamsparams = ModelListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`ModelListPage beta().models().list(params = ModelListParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/models`
+**GET** `/v1/models`
 
 List available models.
 
@@ -34,6 +29,8 @@ The Models API response can be used to determine which models are available for 
     Number of items to return per page.
 
     Defaults to `20`. Ranges from `1` to `1000`.
+
+    maximum: 1000, minimum: 1
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -223,6 +220,8 @@ The Models API response can be used to determine which models are available for 
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
 
+    format: date-time
+
   - `String displayName`
 
     A human-readable name for the model.
@@ -235,13 +234,11 @@ The Models API response can be used to determine which models are available for 
 
     Maximum value for the `max_tokens` parameter when using this model.
 
-  - `JsonValue; type "model"constant`
+  - `JsonValue type constant`
 
     Object type.
 
     For Models, this is always `"model"`.
-
-    - `MODEL("model")`
 
 ### Example
 
@@ -264,7 +261,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -350,9 +347,9 @@ public final class Main {
 
 ## Get a Model
 
-`BetaModelInfo beta().models().retrieve(ModelRetrieveParamsparams = ModelRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaModelInfo beta().models().retrieve(params = ModelRetrieveParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/models/{model_id}`
+**GET** `/v1/models/{model_id}`
 
 Get a specific model.
 
@@ -554,6 +551,8 @@ The Models API response can be used to determine information about a specific mo
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
 
+    format: date-time
+
   - `String displayName`
 
     A human-readable name for the model.
@@ -566,13 +565,11 @@ The Models API response can be used to determine information about a specific mo
 
     Maximum value for the `max_tokens` parameter when using this model.
 
-  - `JsonValue; type "model"constant`
+  - `JsonValue type constant`
 
     Object type.
 
     For Models, this is always `"model"`.
-
-    - `MODEL("model")`
 
 ### Example
 
@@ -595,7 +592,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -672,7 +669,7 @@ public final class Main {
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Capability Support
 
@@ -962,6 +959,8 @@ public final class Main {
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
 
+    format: date-time
+
   - `String displayName`
 
     A human-readable name for the model.
@@ -974,13 +973,11 @@ public final class Main {
 
     Maximum value for the `max_tokens` parameter when using this model.
 
-  - `JsonValue; type "model"constant`
+  - `JsonValue type constant`
 
     Object type.
 
     For Models, this is always `"model"`.
-
-    - `MODEL("model")`
 
 ### Beta Thinking Capability
 

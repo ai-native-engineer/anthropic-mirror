@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/sessions/create -->
 
----
-title: Create Session
-url: https://platform.claude.com/docs/en/api/ruby/beta/sessions/create
----
-
-## Create Session
+# Create Session
 
 `beta.sessions.create(**kwargs) -> BetaManagedAgentsSession`
 
-**post** `/v1/sessions`
+**POST** `/v1/sessions`
 
 Create Session
 
-### Parameters
+## Parameters
 
 - `agent: String | BetaManagedAgentsAgentParams | BetaManagedAgentsAgentWithOverridesParams`
 
@@ -29,13 +24,15 @@ Create Session
 
       The `agent` ID.
 
-    - `type: :agent`
+      minLength: 1, maxLength: 128
 
-      - `:agent`
+    - `type: :agent`
 
     - `version: Integer`
 
       The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+      format: int32
 
   - `class BetaManagedAgentsAgentWithOverridesParams`
 
@@ -45,9 +42,9 @@ Create Session
 
       The `agent` ID.
 
-    - `type: :agent_with_overrides`
+      minLength: 1, maxLength: 128
 
-      - `:agent_with_overrides`
+    - `type: :agent_with_overrides`
 
     - `mcp_servers: Array[BetaManagedAgentsURLMCPServerParams]`
 
@@ -57,13 +54,15 @@ Create Session
 
         Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-      - `type: :url`
+        minLength: 1, maxLength: 255
 
-        - `:url`
+      - `type: :url`
 
       - `url: String`
 
         Endpoint URL for the MCP server.
+
+        maxLength: 2048
 
     - `model: BetaManagedAgentsModel | BetaManagedAgentsModelConfigParams`
 
@@ -169,15 +168,11 @@ Create Session
 
             - `type: :low`
 
-              - `:low`
-
           - `class BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: :medium`
-
-              - `:medium`
 
           - `class BetaManagedAgentsEffortHigh`
 
@@ -185,23 +180,17 @@ Create Session
 
             - `type: :high`
 
-              - `:high`
-
           - `class BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: :xhigh`
 
-              - `:xhigh`
-
           - `class BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: :max`
-
-              - `:max`
 
         - `inference_geo: String`
 
@@ -227,13 +216,15 @@ Create Session
 
           Identifier of the Anthropic skill (e.g., "xlsx").
 
-        - `type: :anthropic`
+          minLength: 1, maxLength: 64
 
-          - `:anthropic`
+        - `type: :anthropic`
 
         - `version: String`
 
           Version to pin. Defaults to latest if omitted.
+
+          minLength: 1, maxLength: 64
 
       - `class BetaManagedAgentsCustomSkillParams`
 
@@ -243,17 +234,21 @@ Create Session
 
           Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-        - `type: :custom`
+          minLength: 1, maxLength: 64
 
-          - `:custom`
+        - `type: :custom`
 
         - `version: String`
 
           Version to pin. Defaults to latest if omitted.
 
+          minLength: 1, maxLength: 64
+
     - `system_: String`
 
       Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+      maxLength: 100000
 
     - `tools: Array[BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams]`
 
@@ -264,8 +259,6 @@ Create Session
         Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
 
         - `type: :agent_toolset_20260401`
-
-          - `:agent_toolset_20260401`
 
         - `configs: Array[BetaManagedAgentsAgentToolConfigParams]`
 
@@ -278,8 +271,6 @@ Create Session
             - `name: :bash`
 
               Must be "bash".
-
-              - `:bash`
 
             - `enabled: bool`
 
@@ -295,19 +286,13 @@ Create Session
 
                 - `type: :always_allow`
 
-                  - `:always_allow`
-
               - `class BetaManagedAgentsAlwaysAskPolicy`
 
                 Tool calls require user confirmation before execution.
 
                 - `type: :always_ask`
 
-                  - `:always_ask`
-
             - `type: :bash`
-
-              - `:bash`
 
           - `class BetaManagedAgentsEditToolConfigParams`
 
@@ -316,8 +301,6 @@ Create Session
             - `name: :edit`
 
               Must be "edit".
-
-              - `:edit`
 
             - `enabled: bool`
 
@@ -337,8 +320,6 @@ Create Session
 
             - `type: :edit`
 
-              - `:edit`
-
           - `class BetaManagedAgentsReadToolConfigParams`
 
             Configuration override for the read tool.
@@ -346,8 +327,6 @@ Create Session
             - `name: :read`
 
               Must be "read".
-
-              - `:read`
 
             - `enabled: bool`
 
@@ -367,8 +346,6 @@ Create Session
 
             - `type: :read`
 
-              - `:read`
-
           - `class BetaManagedAgentsWriteToolConfigParams`
 
             Configuration override for the write tool.
@@ -376,8 +353,6 @@ Create Session
             - `name: :write`
 
               Must be "write".
-
-              - `:write`
 
             - `enabled: bool`
 
@@ -397,8 +372,6 @@ Create Session
 
             - `type: :write`
 
-              - `:write`
-
           - `class BetaManagedAgentsGlobToolConfigParams`
 
             Configuration override for the glob tool.
@@ -406,8 +379,6 @@ Create Session
             - `name: :glob`
 
               Must be "glob".
-
-              - `:glob`
 
             - `enabled: bool`
 
@@ -427,8 +398,6 @@ Create Session
 
             - `type: :glob`
 
-              - `:glob`
-
           - `class BetaManagedAgentsGrepToolConfigParams`
 
             Configuration override for the grep tool.
@@ -436,8 +405,6 @@ Create Session
             - `name: :grep`
 
               Must be "grep".
-
-              - `:grep`
 
             - `enabled: bool`
 
@@ -457,8 +424,6 @@ Create Session
 
             - `type: :grep`
 
-              - `:grep`
-
           - `class BetaManagedAgentsWebFetchToolConfigParams`
 
             Configuration override for the web_fetch tool.
@@ -466,8 +431,6 @@ Create Session
             - `name: :web_fetch`
 
               Must be "web_fetch".
-
-              - `:web_fetch`
 
             - `allowed_domains: Array[String]`
 
@@ -485,6 +448,8 @@ Create Session
 
               Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+              format: int32
+
             - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
               Permission policy for tool execution.
@@ -499,8 +464,6 @@ Create Session
 
             - `type: :web_fetch`
 
-              - `:web_fetch`
-
           - `class BetaManagedAgentsWebSearchToolConfigParams`
 
             Configuration override for the web_search tool.
@@ -508,8 +471,6 @@ Create Session
             - `name: :web_search`
 
               Must be "web_search".
-
-              - `:web_search`
 
             - `allowed_domains: Array[String]`
 
@@ -537,8 +498,6 @@ Create Session
 
             - `type: :web_search`
 
-              - `:web_search`
-
             - `user_location: BetaManagedAgentsUserLocation`
 
               Approximate user location for search result localization.
@@ -547,11 +506,11 @@ Create Session
 
                 Location precision. Only "approximate" is supported.
 
-                - `:approximate`
-
               - `city: String`
 
                 City name.
+
+                minLength: 1, maxLength: 255
 
               - `country: String`
 
@@ -561,9 +520,13 @@ Create Session
 
                 Region or state name.
 
+                minLength: 1, maxLength: 255
+
               - `timezone: String`
 
                 IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                minLength: 1, maxLength: 255
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfigParams`
 
@@ -593,9 +556,9 @@ Create Session
 
           Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-        - `type: :mcp_toolset`
+          minLength: 1, maxLength: 255
 
-          - `:mcp_toolset`
+        - `type: :mcp_toolset`
 
         - `configs: Array[BetaManagedAgentsMCPToolConfigParams]`
 
@@ -604,6 +567,8 @@ Create Session
           - `name: String`
 
             Name of the MCP tool to configure. 1-128 characters.
+
+            minLength: 1, maxLength: 128
 
           - `enabled: bool`
 
@@ -649,13 +614,13 @@ Create Session
 
           Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+          minLength: 1
+
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
 
           - `type: :object`
-
-            - `:object`
 
           - `properties: Hash[Symbol, untyped]`
 
@@ -665,17 +630,21 @@ Create Session
 
           Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
-        - `type: :custom`
+          minLength: 1, maxLength: 128
 
-          - `:custom`
+        - `type: :custom`
 
     - `version: Integer`
 
       The specific `agent` version to use. Omit to use the latest version.
 
+      format: int32
+
 - `environment_id: String`
 
   ID of the `environment` defining the container configuration for this session.
+
+  minLength: 1, maxLength: 128
 
 - `budget: BetaManagedAgentsBudgetLimit`
 
@@ -693,11 +662,7 @@ Create Session
 
       Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `:USD`
-
   - `type: :limit`
-
-    - `:limit`
 
 - `initial_events: Array[BetaManagedAgentsUserMessageEventParams | BetaManagedAgentsUserDefineOutcomeEventParams]`
 
@@ -719,9 +684,9 @@ Create Session
 
           The text content.
 
-        - `type: :text`
+          minLength: 1
 
-          - `:text`
+        - `type: :text`
 
       - `class BetaManagedAgentsImageBlock`
 
@@ -739,13 +704,15 @@ Create Session
 
               Base64-encoded image data.
 
+              minLength: 1
+
             - `media_type: String`
 
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-            - `type: :base64`
+              minLength: 1
 
-              - `:base64`
+            - `type: :base64`
 
           - `class BetaManagedAgentsURLImageSource`
 
@@ -753,11 +720,11 @@ Create Session
 
             - `type: :url`
 
-              - `:url`
-
             - `url: String`
 
               URL of the image to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileImageSource`
 
@@ -767,13 +734,11 @@ Create Session
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: :file`
 
-              - `:file`
-
         - `type: :image`
-
-          - `:image`
 
       - `class BetaManagedAgentsDocumentBlock`
 
@@ -791,13 +756,15 @@ Create Session
 
               Base64-encoded document data.
 
+              minLength: 1
+
             - `media_type: String`
 
               MIME type of the document (e.g., "application/pdf").
 
-            - `type: :base64`
+              minLength: 1
 
-              - `:base64`
+            - `type: :base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource`
 
@@ -807,15 +774,13 @@ Create Session
 
               The plain text content.
 
+              minLength: 1
+
             - `media_type: :"text/plain"`
 
               MIME type of the text content. Must be "text/plain".
 
-              - `:"text/plain"`
-
             - `type: :text`
-
-              - `:text`
 
           - `class BetaManagedAgentsURLDocumentSource`
 
@@ -823,11 +788,11 @@ Create Session
 
             - `type: :url`
 
-              - `:url`
-
             - `url: String`
 
               URL of the document to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileDocumentSource`
 
@@ -837,13 +802,11 @@ Create Session
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: :file`
 
-              - `:file`
-
         - `type: :document`
-
-          - `:document`
 
         - `context: String`
 
@@ -859,11 +822,7 @@ Create Session
 
         - `type: :redacted`
 
-          - `:redacted`
-
     - `type: :"user.message"`
-
-      - `:"user.message"`
 
   - `class BetaManagedAgentsUserDefineOutcomeEventParams`
 
@@ -887,8 +846,6 @@ Create Session
 
         - `type: :file`
 
-          - `:file`
-
       - `class BetaManagedAgentsTextRubricParams`
 
         Rubric content provided inline as text.
@@ -897,17 +854,17 @@ Create Session
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
+          maxLength: 262144
+
         - `type: :text`
 
-          - `:text`
-
     - `type: :"user.define_outcome"`
-
-      - `:"user.define_outcome"`
 
     - `max_iterations: Integer`
 
       Eval→revision cycles before giving up. Default 3, max 20.
+
+      format: int32
 
 - `metadata: Hash[Symbol, String]`
 
@@ -925,13 +882,15 @@ Create Session
 
       GitHub authorization token used to clone the repository.
 
-    - `type: :github_repository`
+      minLength: 1, maxLength: 4096
 
-      - `:github_repository`
+    - `type: :github_repository`
 
     - `url: String`
 
       Github URL of the repository
+
+      minLength: 1, maxLength: 2048
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
 
@@ -943,9 +902,9 @@ Create Session
 
           Branch name to check out.
 
-        - `type: :branch`
+          minLength: 1, maxLength: 255
 
-          - `:branch`
+        - `type: :branch`
 
       - `class BetaManagedAgentsCommitCheckout`
 
@@ -953,13 +912,15 @@ Create Session
 
           Full commit SHA to check out.
 
-        - `type: :commit`
+          minLength: 7, maxLength: 64
 
-          - `:commit`
+        - `type: :commit`
 
     - `mount_path: String`
 
       Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+      minLength: 1, maxLength: 4096
 
   - `class BetaManagedAgentsFileResourceParams`
 
@@ -969,13 +930,15 @@ Create Session
 
       ID of a previously uploaded file.
 
-    - `type: :file`
+      minLength: 1, maxLength: 128
 
-      - `:file`
+    - `type: :file`
 
     - `mount_path: String`
 
       Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+      minLength: 1, maxLength: 4096
 
   - `class BetaManagedAgentsMemoryStoreResourceParam`
 
@@ -986,8 +949,6 @@ Create Session
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
-
-      - `:memory_store`
 
     - `access: :read_write | :read_only`
 
@@ -1001,9 +962,13 @@ Create Session
 
       Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+      maxLength: 4096
+
 - `title: String`
 
   Human-readable session title.
+
+  maxLength: 500
 
 - `vault_ids: Array[String]`
 
@@ -1085,7 +1050,7 @@ Create Session
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsSession`
 
@@ -1106,8 +1071,6 @@ Create Session
       - `name: String`
 
       - `type: :url`
-
-        - `:url`
 
       - `url: String`
 
@@ -1191,15 +1154,11 @@ Create Session
 
           - `type: :low`
 
-            - `:low`
-
         - `class BetaManagedAgentsEffortMedium`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `type: :medium`
-
-            - `:medium`
 
         - `class BetaManagedAgentsEffortHigh`
 
@@ -1207,23 +1166,17 @@ Create Session
 
           - `type: :high`
 
-            - `:high`
-
         - `class BetaManagedAgentsEffortXhigh`
 
           Extra-high effort. Not all models accept this level.
 
           - `type: :xhigh`
 
-            - `:xhigh`
-
         - `class BetaManagedAgentsEffortMax`
 
           Maximum effort. Favors reasoning depth over latency.
 
           - `type: :max`
-
-            - `:max`
 
       - `inference_geo: String`
 
@@ -1277,8 +1230,6 @@ Create Session
 
               - `type: :anthropic`
 
-                - `:anthropic`
-
               - `version: String`
 
             - `class BetaManagedAgentsCustomSkill`
@@ -1288,8 +1239,6 @@ Create Session
               - `skill_id: String`
 
               - `type: :custom`
-
-                - `:custom`
 
               - `version: String`
 
@@ -1309,8 +1258,6 @@ Create Session
 
                   - `name: :bash`
 
-                    - `:bash`
-
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                     Permission policy for tool execution.
@@ -1321,19 +1268,13 @@ Create Session
 
                       - `type: :always_allow`
 
-                        - `:always_allow`
-
                     - `class BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
                       - `type: :always_ask`
 
-                        - `:always_ask`
-
                   - `type: :bash`
-
-                    - `:bash`
 
                 - `class BetaManagedAgentsEditToolConfig`
 
@@ -1342,8 +1283,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: :edit`
-
-                    - `:edit`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1359,8 +1298,6 @@ Create Session
 
                   - `type: :edit`
 
-                    - `:edit`
-
                 - `class BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
@@ -1368,8 +1305,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: :read`
-
-                    - `:read`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1385,8 +1320,6 @@ Create Session
 
                   - `type: :read`
 
-                    - `:read`
-
                 - `class BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
@@ -1394,8 +1327,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: :write`
-
-                    - `:write`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1411,8 +1342,6 @@ Create Session
 
                   - `type: :write`
 
-                    - `:write`
-
                 - `class BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
@@ -1420,8 +1349,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: :glob`
-
-                    - `:glob`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1437,8 +1364,6 @@ Create Session
 
                   - `type: :glob`
 
-                    - `:glob`
-
                 - `class BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
@@ -1446,8 +1371,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: :grep`
-
-                    - `:grep`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1463,8 +1386,6 @@ Create Session
 
                   - `type: :grep`
 
-                    - `:grep`
-
                 - `class BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
@@ -1472,8 +1393,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: :web_fetch`
-
-                    - `:web_fetch`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1489,13 +1408,13 @@ Create Session
 
                   - `type: :web_fetch`
 
-                    - `:web_fetch`
-
                   - `allowed_domains: Array[String]`
 
                   - `blocked_domains: Array[String]`
 
                   - `max_content_tokens: Integer`
+
+                    format: int32
 
                 - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -1504,8 +1423,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: :web_search`
-
-                    - `:web_search`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1521,8 +1438,6 @@ Create Session
 
                   - `type: :web_search`
 
-                    - `:web_search`
-
                   - `allowed_domains: Array[String]`
 
                   - `blocked_domains: Array[String]`
@@ -1535,11 +1450,11 @@ Create Session
 
                       Location precision. Only "approximate" is supported.
 
-                      - `:approximate`
-
                     - `city: String`
 
                       City name.
+
+                      minLength: 1, maxLength: 255
 
                     - `country: String`
 
@@ -1549,9 +1464,13 @@ Create Session
 
                       Region or state name.
 
+                      minLength: 1, maxLength: 255
+
                     - `timezone: String`
 
                       IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                      minLength: 1, maxLength: 255
 
               - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -1572,8 +1491,6 @@ Create Session
                     Tool calls require user confirmation before execution.
 
               - `type: :agent_toolset_20260401`
-
-                - `:agent_toolset_20260401`
 
             - `class BetaManagedAgentsMCPToolset`
 
@@ -1617,8 +1534,6 @@ Create Session
 
               - `type: :mcp_toolset`
 
-                - `:mcp_toolset`
-
             - `class BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
@@ -1631,8 +1546,6 @@ Create Session
 
                 - `type: :object`
 
-                  - `:object`
-
                 - `properties: Hash[Symbol, untyped]`
 
                 - `required: Array[String]`
@@ -1641,13 +1554,11 @@ Create Session
 
               - `type: :custom`
 
-                - `:custom`
-
           - `type: :agent`
 
-            - `:agent`
-
           - `version: Integer`
+
+            format: int32
 
         - `class BetaManagedAgentsAdvisor`
 
@@ -1659,11 +1570,7 @@ Create Session
 
           - `type: :advisor`
 
-            - `:advisor`
-
       - `type: :coordinator`
-
-        - `:coordinator`
 
     - `name: String`
 
@@ -1691,13 +1598,15 @@ Create Session
 
     - `type: :agent`
 
-      - `:agent`
-
     - `version: Integer`
+
+      format: int32
 
   - `archived_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit`
 
@@ -1715,15 +1624,13 @@ Create Session
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `:USD`
-
     - `type: :limit`
-
-      - `:limit`
 
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `environment_id: String`
 
@@ -1737,6 +1644,8 @@ Create Session
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `description: String`
 
       What the agent should produce.
@@ -1749,6 +1658,8 @@ Create Session
 
       0-indexed revision cycle the outcome is currently on.
 
+      format: int32
+
     - `outcome_id: String`
 
       Server-generated outc_ ID for this outcome.
@@ -1758,8 +1669,6 @@ Create Session
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `type: :outcome_evaluation`
-
-      - `:outcome_evaluation`
 
   - `resources: Array[BetaManagedAgentsSessionResource]`
 
@@ -1771,15 +1680,17 @@ Create Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `mount_path: String`
 
       - `type: :github_repository`
 
-        - `:github_repository`
-
       - `updated_at: Time`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `url: String`
 
@@ -1791,9 +1702,9 @@ Create Session
 
             Branch name to check out.
 
-          - `type: :branch`
+            minLength: 1, maxLength: 255
 
-            - `:branch`
+          - `type: :branch`
 
         - `class BetaManagedAgentsCommitCheckout`
 
@@ -1801,9 +1712,9 @@ Create Session
 
             Full commit SHA to check out.
 
-          - `type: :commit`
+            minLength: 7, maxLength: 64
 
-            - `:commit`
+          - `type: :commit`
 
     - `class BetaManagedAgentsFileResource`
 
@@ -1813,17 +1724,19 @@ Create Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `file_id: String`
 
       - `mount_path: String`
 
       - `type: :file`
 
-        - `:file`
-
       - `updated_at: Time`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
     - `class BetaManagedAgentsMemoryStoreResource`
 
@@ -1834,8 +1747,6 @@ Create Session
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: :memory_store`
-
-        - `:memory_store`
 
       - `access: :read_write | :read_only`
 
@@ -1853,6 +1764,8 @@ Create Session
 
         Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+        maxLength: 4096
+
       - `mount_path: String`
 
         Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
@@ -1869,9 +1782,13 @@ Create Session
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
 
+      format: double
+
     - `duration_seconds: Float`
 
       Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
+
+      format: double
 
   - `status: :rescheduling | :running | :idle | :terminated`
 
@@ -1889,11 +1806,11 @@ Create Session
 
   - `type: :session`
 
-    - `:session`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `usage: BetaManagedAgentsSessionUsage`
 
@@ -1903,6 +1820,8 @@ Create Session
 
       Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
 
+      format: double
+
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -1911,17 +1830,25 @@ Create Session
 
         Tokens used to create 1-hour ephemeral cache entries.
 
+        format: int32
+
       - `ephemeral_5m_input_tokens: Integer`
 
         Tokens used to create 5-minute ephemeral cache entries.
+
+        format: int32
 
     - `cache_read_input_tokens: Integer`
 
       Total tokens read from prompt cache.
 
+      format: int32
+
     - `input_tokens: Integer`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `list_cost: BetaMonetaryAmount`
 
@@ -1931,6 +1858,8 @@ Create Session
 
       Total output tokens generated across all turns.
 
+      format: int32
+
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
       Cumulative count of server-executed tool invocations, broken down by tool.
@@ -1939,9 +1868,13 @@ Create Session
 
         Number of server-executed web fetch requests.
 
+        format: int32
+
       - `web_search_requests: Integer`
 
         Number of server-executed web search requests.
+
+        format: int32
 
   - `vault_ids: Array[String]`
 
@@ -1951,7 +1884,7 @@ Create Session
 
     Deployment ID when the session was created from a deployment reference. Null otherwise.
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -1966,7 +1899,7 @@ beta_managed_agents_session = anthropic.beta.sessions.create(
 puts(beta_managed_agents_session)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

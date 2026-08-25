@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/agents -->
 
----
-title: Agents
-url: https://platform.claude.com/docs/en/api/typescript/beta/agents
----
-
 # Agents
 
 ## Create Agent
 
-`client.beta.agents.create(AgentCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsAgent`
+`client.beta.agents.create(params, options?): BetaManagedAgentsAgent`
 
-**post** `/v1/agents`
+**POST** `/v1/agents`
 
 Create Agent
 
@@ -117,15 +112,11 @@ Create Agent
 
           - `type: "low"`
 
-            - `"low"`
-
         - `BetaManagedAgentsEffortMedium`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `type: "medium"`
-
-            - `"medium"`
 
         - `BetaManagedAgentsEffortHigh`
 
@@ -133,23 +124,17 @@ Create Agent
 
           - `type: "high"`
 
-            - `"high"`
-
         - `BetaManagedAgentsEffortXhigh`
 
           Extra-high effort. Not all models accept this level.
 
           - `type: "xhigh"`
 
-            - `"xhigh"`
-
         - `BetaManagedAgentsEffortMax`
 
           Maximum effort. Favors reasoning depth over latency.
 
           - `type: "max"`
-
-            - `"max"`
 
       - `inference_geo?: string | null`
 
@@ -167,9 +152,13 @@ Create Agent
 
     Body param: Human-readable name for the agent.
 
+    minLength: 1, maxLength: 256
+
   - `description?: string | null`
 
     Body param: Description of what the agent does.
+
+    maxLength: 2048
 
   - `mcp_servers?: Array<BetaManagedAgentsURLMCPServerParams>`
 
@@ -179,13 +168,15 @@ Create Agent
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-    - `type: "url"`
+      minLength: 1, maxLength: 255
 
-      - `"url"`
+    - `type: "url"`
 
     - `url: string`
 
       Endpoint URL for the MCP server.
+
+      maxLength: 2048
 
   - `metadata?: Record<string, string>`
 
@@ -209,21 +200,21 @@ Create Agent
 
           The `agent` ID.
 
-        - `type: "agent"`
+          minLength: 1, maxLength: 128
 
-          - `"agent"`
+        - `type: "agent"`
 
         - `version?: number`
 
           The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+          format: int32
 
       - `BetaManagedAgentsMultiagentSelfParams`
 
         Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
 
         - `type: "self"`
-
-          - `"self"`
 
       - `BetaManagedAgentsAdvisorParams`
 
@@ -233,13 +224,11 @@ Create Agent
 
           A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
 
+          minLength: 1, maxLength: 256
+
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `skills?: Array<BetaManagedAgentsSkillParams>`
 
@@ -253,13 +242,15 @@ Create Agent
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
-      - `type: "anthropic"`
+        minLength: 1, maxLength: 64
 
-        - `"anthropic"`
+      - `type: "anthropic"`
 
       - `version?: string | null`
 
         Version to pin. Defaults to latest if omitted.
+
+        minLength: 1, maxLength: 64
 
     - `BetaManagedAgentsCustomSkillParams`
 
@@ -269,17 +260,21 @@ Create Agent
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-      - `type: "custom"`
+        minLength: 1, maxLength: 64
 
-        - `"custom"`
+      - `type: "custom"`
 
       - `version?: string | null`
 
         Version to pin. Defaults to latest if omitted.
 
+        minLength: 1, maxLength: 64
+
   - `system?: string | null`
 
     Body param: System prompt for the agent.
+
+    maxLength: 100000
 
   - `tools?: Array<BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams>`
 
@@ -290,8 +285,6 @@ Create Agent
       Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
       - `configs?: Array<BetaManagedAgentsAgentToolConfigParams>`
 
@@ -304,8 +297,6 @@ Create Agent
           - `name: "bash"`
 
             Must be "bash".
-
-            - `"bash"`
 
           - `enabled?: boolean | null`
 
@@ -321,19 +312,13 @@ Create Agent
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type?: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfigParams`
 
@@ -342,8 +327,6 @@ Create Agent
           - `name: "edit"`
 
             Must be "edit".
-
-            - `"edit"`
 
           - `enabled?: boolean | null`
 
@@ -363,8 +346,6 @@ Create Agent
 
           - `type?: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfigParams`
 
           Configuration override for the read tool.
@@ -372,8 +353,6 @@ Create Agent
           - `name: "read"`
 
             Must be "read".
-
-            - `"read"`
 
           - `enabled?: boolean | null`
 
@@ -393,8 +372,6 @@ Create Agent
 
           - `type?: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfigParams`
 
           Configuration override for the write tool.
@@ -402,8 +379,6 @@ Create Agent
           - `name: "write"`
 
             Must be "write".
-
-            - `"write"`
 
           - `enabled?: boolean | null`
 
@@ -423,8 +398,6 @@ Create Agent
 
           - `type?: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfigParams`
 
           Configuration override for the glob tool.
@@ -432,8 +405,6 @@ Create Agent
           - `name: "glob"`
 
             Must be "glob".
-
-            - `"glob"`
 
           - `enabled?: boolean | null`
 
@@ -453,8 +424,6 @@ Create Agent
 
           - `type?: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfigParams`
 
           Configuration override for the grep tool.
@@ -462,8 +431,6 @@ Create Agent
           - `name: "grep"`
 
             Must be "grep".
-
-            - `"grep"`
 
           - `enabled?: boolean | null`
 
@@ -483,8 +450,6 @@ Create Agent
 
           - `type?: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfigParams`
 
           Configuration override for the web_fetch tool.
@@ -492,8 +457,6 @@ Create Agent
           - `name: "web_fetch"`
 
             Must be "web_fetch".
-
-            - `"web_fetch"`
 
           - `allowed_domains?: Array<string>`
 
@@ -511,6 +474,8 @@ Create Agent
 
             Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+            format: int32
+
           - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
             Permission policy for tool execution.
@@ -525,8 +490,6 @@ Create Agent
 
           - `type?: "web_fetch"`
 
-            - `"web_fetch"`
-
         - `BetaManagedAgentsWebSearchToolConfigParams`
 
           Configuration override for the web_search tool.
@@ -534,8 +497,6 @@ Create Agent
           - `name: "web_search"`
 
             Must be "web_search".
-
-            - `"web_search"`
 
           - `allowed_domains?: Array<string>`
 
@@ -563,8 +524,6 @@ Create Agent
 
           - `type?: "web_search"`
 
-            - `"web_search"`
-
           - `user_location?: BetaManagedAgentsUserLocation | null`
 
             Approximate user location for search result localization.
@@ -573,11 +532,11 @@ Create Agent
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -587,9 +546,13 @@ Create Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config?: BetaManagedAgentsAgentToolsetDefaultConfigParams | null`
 
@@ -619,9 +582,9 @@ Create Agent
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-      - `type: "mcp_toolset"`
+        minLength: 1, maxLength: 255
 
-        - `"mcp_toolset"`
+      - `type: "mcp_toolset"`
 
       - `configs?: Array<BetaManagedAgentsMCPToolConfigParams>`
 
@@ -630,6 +593,8 @@ Create Agent
         - `name: string`
 
           Name of the MCP tool to configure. 1-128 characters.
+
+          minLength: 1, maxLength: 128
 
         - `enabled?: boolean | null`
 
@@ -675,13 +640,13 @@ Create Agent
 
         Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+        minLength: 1
+
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
         JSON Schema for custom tool input parameters.
 
         - `type: "object"`
-
-          - `"object"`
 
         - `properties?: Record<string, unknown> | null`
 
@@ -691,9 +656,9 @@ Create Agent
 
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
-      - `type: "custom"`
+        minLength: 1, maxLength: 128
 
-        - `"custom"`
+      - `type: "custom"`
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -783,9 +748,13 @@ Create Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: string | null`
 
@@ -794,8 +763,6 @@ Create Agent
     - `name: string`
 
     - `type: "url"`
-
-      - `"url"`
 
     - `url: string`
 
@@ -877,15 +844,11 @@ Create Agent
 
         - `type: "low"`
 
-          - `"low"`
-
       - `BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
-
-          - `"medium"`
 
       - `BetaManagedAgentsEffortHigh`
 
@@ -893,23 +856,17 @@ Create Agent
 
         - `type: "high"`
 
-          - `"high"`
-
       - `BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
       - `BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo?: string`
 
@@ -939,9 +896,9 @@ Create Agent
 
         - `type: "agent"`
 
-          - `"agent"`
-
         - `version: number`
+
+          format: int32
 
       - `BetaManagedAgentsAdvisor`
 
@@ -953,11 +910,7 @@ Create Agent
 
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name: string`
 
@@ -971,8 +924,6 @@ Create Agent
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
     - `BetaManagedAgentsCustomSkill`
@@ -982,8 +933,6 @@ Create Agent
       - `skill_id: string`
 
       - `type: "custom"`
-
-        - `"custom"`
 
       - `version: string`
 
@@ -1003,8 +952,6 @@ Create Agent
 
           - `name: "bash"`
 
-            - `"bash"`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -1015,19 +962,13 @@ Create Agent
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfig`
 
@@ -1036,8 +977,6 @@ Create Agent
           - `enabled: boolean`
 
           - `name: "edit"`
-
-            - `"edit"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1053,8 +992,6 @@ Create Agent
 
           - `type: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -1062,8 +999,6 @@ Create Agent
           - `enabled: boolean`
 
           - `name: "read"`
-
-            - `"read"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1079,8 +1014,6 @@ Create Agent
 
           - `type: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -1088,8 +1021,6 @@ Create Agent
           - `enabled: boolean`
 
           - `name: "write"`
-
-            - `"write"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1105,8 +1036,6 @@ Create Agent
 
           - `type: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -1114,8 +1043,6 @@ Create Agent
           - `enabled: boolean`
 
           - `name: "glob"`
-
-            - `"glob"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1131,8 +1058,6 @@ Create Agent
 
           - `type: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -1140,8 +1065,6 @@ Create Agent
           - `enabled: boolean`
 
           - `name: "grep"`
-
-            - `"grep"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1157,8 +1080,6 @@ Create Agent
 
           - `type: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -1166,8 +1087,6 @@ Create Agent
           - `enabled: boolean`
 
           - `name: "web_fetch"`
-
-            - `"web_fetch"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1183,13 +1102,13 @@ Create Agent
 
           - `type: "web_fetch"`
 
-            - `"web_fetch"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
 
           - `max_content_tokens?: number | null`
+
+            format: int32
 
         - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -1198,8 +1117,6 @@ Create Agent
           - `enabled: boolean`
 
           - `name: "web_search"`
-
-            - `"web_search"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1215,8 +1132,6 @@ Create Agent
 
           - `type: "web_search"`
 
-            - `"web_search"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
@@ -1229,11 +1144,11 @@ Create Agent
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -1243,9 +1158,13 @@ Create Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -1266,8 +1185,6 @@ Create Agent
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
 
@@ -1311,8 +1228,6 @@ Create Agent
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -1325,8 +1240,6 @@ Create Agent
 
         - `type: "object"`
 
-          - `"object"`
-
         - `properties?: Record<string, unknown> | null`
 
         - `required?: Array<string> | null`
@@ -1335,19 +1248,19 @@ Create Agent
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
-
-    - `"agent"`
 
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: number`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
+
+    format: int32
 
 ### Example
 
@@ -1366,7 +1279,7 @@ const betaManagedAgentsAgent = await client.beta.agents.create({
 console.log(betaManagedAgentsAgent.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1445,9 +1358,9 @@ console.log(betaManagedAgentsAgent.id);
 
 ## List Agents
 
-`client.beta.agents.list(AgentListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsAgent>`
+`client.beta.agents.list(params?, options?): PageCursor<BetaManagedAgentsAgent>`
 
-**get** `/v1/agents`
+**GET** `/v1/agents`
 
 List Agents
 
@@ -1459,9 +1372,13 @@ List Agents
 
     Query param: Return agents created at or after this time (inclusive).
 
+    format: date-time
+
   - `"created_at[lte]"?: string`
 
     Query param: Return agents created at or before this time (inclusive).
+
+    format: date-time
 
   - `include_archived?: boolean`
 
@@ -1470,6 +1387,8 @@ List Agents
   - `limit?: number`
 
     Query param: Maximum results per page. Default 20, maximum 100.
+
+    format: int32
 
   - `page?: string`
 
@@ -1563,9 +1482,13 @@ List Agents
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: string | null`
 
@@ -1574,8 +1497,6 @@ List Agents
     - `name: string`
 
     - `type: "url"`
-
-      - `"url"`
 
     - `url: string`
 
@@ -1657,15 +1578,11 @@ List Agents
 
         - `type: "low"`
 
-          - `"low"`
-
       - `BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
-
-          - `"medium"`
 
       - `BetaManagedAgentsEffortHigh`
 
@@ -1673,23 +1590,17 @@ List Agents
 
         - `type: "high"`
 
-          - `"high"`
-
       - `BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
       - `BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo?: string`
 
@@ -1719,9 +1630,9 @@ List Agents
 
         - `type: "agent"`
 
-          - `"agent"`
-
         - `version: number`
+
+          format: int32
 
       - `BetaManagedAgentsAdvisor`
 
@@ -1733,11 +1644,7 @@ List Agents
 
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name: string`
 
@@ -1751,8 +1658,6 @@ List Agents
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
     - `BetaManagedAgentsCustomSkill`
@@ -1762,8 +1667,6 @@ List Agents
       - `skill_id: string`
 
       - `type: "custom"`
-
-        - `"custom"`
 
       - `version: string`
 
@@ -1783,8 +1686,6 @@ List Agents
 
           - `name: "bash"`
 
-            - `"bash"`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -1795,19 +1696,13 @@ List Agents
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfig`
 
@@ -1816,8 +1711,6 @@ List Agents
           - `enabled: boolean`
 
           - `name: "edit"`
-
-            - `"edit"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1833,8 +1726,6 @@ List Agents
 
           - `type: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -1842,8 +1733,6 @@ List Agents
           - `enabled: boolean`
 
           - `name: "read"`
-
-            - `"read"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1859,8 +1748,6 @@ List Agents
 
           - `type: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -1868,8 +1755,6 @@ List Agents
           - `enabled: boolean`
 
           - `name: "write"`
-
-            - `"write"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1885,8 +1770,6 @@ List Agents
 
           - `type: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -1894,8 +1777,6 @@ List Agents
           - `enabled: boolean`
 
           - `name: "glob"`
-
-            - `"glob"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1911,8 +1792,6 @@ List Agents
 
           - `type: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -1920,8 +1799,6 @@ List Agents
           - `enabled: boolean`
 
           - `name: "grep"`
-
-            - `"grep"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1937,8 +1814,6 @@ List Agents
 
           - `type: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -1946,8 +1821,6 @@ List Agents
           - `enabled: boolean`
 
           - `name: "web_fetch"`
-
-            - `"web_fetch"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1963,13 +1836,13 @@ List Agents
 
           - `type: "web_fetch"`
 
-            - `"web_fetch"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
 
           - `max_content_tokens?: number | null`
+
+            format: int32
 
         - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -1978,8 +1851,6 @@ List Agents
           - `enabled: boolean`
 
           - `name: "web_search"`
-
-            - `"web_search"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1995,8 +1866,6 @@ List Agents
 
           - `type: "web_search"`
 
-            - `"web_search"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
@@ -2009,11 +1878,11 @@ List Agents
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -2023,9 +1892,13 @@ List Agents
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -2046,8 +1919,6 @@ List Agents
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
 
@@ -2091,8 +1962,6 @@ List Agents
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -2105,8 +1974,6 @@ List Agents
 
         - `type: "object"`
 
-          - `"object"`
-
         - `properties?: Record<string, unknown> | null`
 
         - `required?: Array<string> | null`
@@ -2115,19 +1982,19 @@ List Agents
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
-
-    - `"agent"`
 
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: number`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
+
+    format: int32
 
 ### Example
 
@@ -2144,7 +2011,7 @@ for await (const betaManagedAgentsAgent of client.beta.agents.list()) {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -2228,9 +2095,9 @@ for await (const betaManagedAgentsAgent of client.beta.agents.list()) {
 
 ## Get Agent
 
-`client.beta.agents.retrieve(stringagentID, AgentRetrieveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsAgent`
+`client.beta.agents.retrieve(agentID, params?, options?): BetaManagedAgentsAgent`
 
-**get** `/v1/agents/{agent_id}`
+**GET** `/v1/agents/{agent_id}`
 
 Get Agent
 
@@ -2243,6 +2110,8 @@ Get Agent
   - `version?: number`
 
     Query param: Agent version. Omit for the most recent version. Must be at least 1 if specified.
+
+    format: int32
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -2332,9 +2201,13 @@ Get Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: string | null`
 
@@ -2343,8 +2216,6 @@ Get Agent
     - `name: string`
 
     - `type: "url"`
-
-      - `"url"`
 
     - `url: string`
 
@@ -2426,15 +2297,11 @@ Get Agent
 
         - `type: "low"`
 
-          - `"low"`
-
       - `BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
-
-          - `"medium"`
 
       - `BetaManagedAgentsEffortHigh`
 
@@ -2442,23 +2309,17 @@ Get Agent
 
         - `type: "high"`
 
-          - `"high"`
-
       - `BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
       - `BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo?: string`
 
@@ -2488,9 +2349,9 @@ Get Agent
 
         - `type: "agent"`
 
-          - `"agent"`
-
         - `version: number`
+
+          format: int32
 
       - `BetaManagedAgentsAdvisor`
 
@@ -2502,11 +2363,7 @@ Get Agent
 
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name: string`
 
@@ -2520,8 +2377,6 @@ Get Agent
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
     - `BetaManagedAgentsCustomSkill`
@@ -2531,8 +2386,6 @@ Get Agent
       - `skill_id: string`
 
       - `type: "custom"`
-
-        - `"custom"`
 
       - `version: string`
 
@@ -2552,8 +2405,6 @@ Get Agent
 
           - `name: "bash"`
 
-            - `"bash"`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -2564,19 +2415,13 @@ Get Agent
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfig`
 
@@ -2585,8 +2430,6 @@ Get Agent
           - `enabled: boolean`
 
           - `name: "edit"`
-
-            - `"edit"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2602,8 +2445,6 @@ Get Agent
 
           - `type: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -2611,8 +2452,6 @@ Get Agent
           - `enabled: boolean`
 
           - `name: "read"`
-
-            - `"read"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2628,8 +2467,6 @@ Get Agent
 
           - `type: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -2637,8 +2474,6 @@ Get Agent
           - `enabled: boolean`
 
           - `name: "write"`
-
-            - `"write"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2654,8 +2489,6 @@ Get Agent
 
           - `type: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -2663,8 +2496,6 @@ Get Agent
           - `enabled: boolean`
 
           - `name: "glob"`
-
-            - `"glob"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2680,8 +2511,6 @@ Get Agent
 
           - `type: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -2689,8 +2518,6 @@ Get Agent
           - `enabled: boolean`
 
           - `name: "grep"`
-
-            - `"grep"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2706,8 +2533,6 @@ Get Agent
 
           - `type: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -2715,8 +2540,6 @@ Get Agent
           - `enabled: boolean`
 
           - `name: "web_fetch"`
-
-            - `"web_fetch"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2732,13 +2555,13 @@ Get Agent
 
           - `type: "web_fetch"`
 
-            - `"web_fetch"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
 
           - `max_content_tokens?: number | null`
+
+            format: int32
 
         - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -2747,8 +2570,6 @@ Get Agent
           - `enabled: boolean`
 
           - `name: "web_search"`
-
-            - `"web_search"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2764,8 +2585,6 @@ Get Agent
 
           - `type: "web_search"`
 
-            - `"web_search"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
@@ -2778,11 +2597,11 @@ Get Agent
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -2792,9 +2611,13 @@ Get Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -2815,8 +2638,6 @@ Get Agent
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
 
@@ -2860,8 +2681,6 @@ Get Agent
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -2874,8 +2693,6 @@ Get Agent
 
         - `type: "object"`
 
-          - `"object"`
-
         - `properties?: Record<string, unknown> | null`
 
         - `required?: Array<string> | null`
@@ -2884,19 +2701,19 @@ Get Agent
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
-
-    - `"agent"`
 
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: number`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
+
+    format: int32
 
 ### Example
 
@@ -2914,7 +2731,7 @@ const betaManagedAgentsAgent = await client.beta.agents.retrieve(
 console.log(betaManagedAgentsAgent.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -2993,9 +2810,9 @@ console.log(betaManagedAgentsAgent.id);
 
 ## Update Agent
 
-`client.beta.agents.update(stringagentID, AgentUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsAgent`
+`client.beta.agents.update(agentID, params, options?): BetaManagedAgentsAgent`
 
-**post** `/v1/agents/{agent_id}`
+**POST** `/v1/agents/{agent_id}`
 
 Update Agent
 
@@ -3009,6 +2826,8 @@ Update Agent
 
     Body param: Description. Omit to preserve; send empty string or null to clear.
 
+    maxLength: 2048
+
   - `mcp_servers?: Array<BetaManagedAgentsURLMCPServerParams> | null`
 
     Body param: MCP servers. Full replacement. Omit to preserve; send empty array or `null` to clear. Names must be unique. Maximum 20. Every server must be referenced by an `mcp_toolset` in the agent's resulting `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
@@ -3017,13 +2836,15 @@ Update Agent
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-    - `type: "url"`
+      minLength: 1, maxLength: 255
 
-      - `"url"`
+    - `type: "url"`
 
     - `url: string`
 
       Endpoint URL for the MCP server.
+
+      maxLength: 2048
 
   - `metadata?: Record<string, string | null> | null`
 
@@ -3127,15 +2948,11 @@ Update Agent
 
           - `type: "low"`
 
-            - `"low"`
-
         - `BetaManagedAgentsEffortMedium`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `type: "medium"`
-
-            - `"medium"`
 
         - `BetaManagedAgentsEffortHigh`
 
@@ -3143,23 +2960,17 @@ Update Agent
 
           - `type: "high"`
 
-            - `"high"`
-
         - `BetaManagedAgentsEffortXhigh`
 
           Extra-high effort. Not all models accept this level.
 
           - `type: "xhigh"`
 
-            - `"xhigh"`
-
         - `BetaManagedAgentsEffortMax`
 
           Maximum effort. Favors reasoning depth over latency.
 
           - `type: "max"`
-
-            - `"max"`
 
       - `inference_geo?: string | null`
 
@@ -3191,21 +3002,21 @@ Update Agent
 
           The `agent` ID.
 
-        - `type: "agent"`
+          minLength: 1, maxLength: 128
 
-          - `"agent"`
+        - `type: "agent"`
 
         - `version?: number`
 
           The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+          format: int32
 
       - `BetaManagedAgentsMultiagentSelfParams`
 
         Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
 
         - `type: "self"`
-
-          - `"self"`
 
       - `BetaManagedAgentsAdvisorParams`
 
@@ -3215,17 +3026,17 @@ Update Agent
 
           A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
 
+          minLength: 1, maxLength: 256
+
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name?: string`
 
     Body param: Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
+
+    maxLength: 256
 
   - `skills?: Array<BetaManagedAgentsSkillParams> | null`
 
@@ -3239,13 +3050,15 @@ Update Agent
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
-      - `type: "anthropic"`
+        minLength: 1, maxLength: 64
 
-        - `"anthropic"`
+      - `type: "anthropic"`
 
       - `version?: string | null`
 
         Version to pin. Defaults to latest if omitted.
+
+        minLength: 1, maxLength: 64
 
     - `BetaManagedAgentsCustomSkillParams`
 
@@ -3255,17 +3068,21 @@ Update Agent
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-      - `type: "custom"`
+        minLength: 1, maxLength: 64
 
-        - `"custom"`
+      - `type: "custom"`
 
       - `version?: string | null`
 
         Version to pin. Defaults to latest if omitted.
 
+        minLength: 1, maxLength: 64
+
   - `system?: string | null`
 
     Body param: System prompt. Omit to preserve; send empty string or null to clear.
+
+    maxLength: 100000
 
   - `tools?: Array<BetaManagedAgentsAgentToolset20260401Params | BetaManagedAgentsMCPToolsetParams | BetaManagedAgentsCustomToolParams> | null`
 
@@ -3276,8 +3093,6 @@ Update Agent
       Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
       - `configs?: Array<BetaManagedAgentsAgentToolConfigParams>`
 
@@ -3290,8 +3105,6 @@ Update Agent
           - `name: "bash"`
 
             Must be "bash".
-
-            - `"bash"`
 
           - `enabled?: boolean | null`
 
@@ -3307,19 +3120,13 @@ Update Agent
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type?: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfigParams`
 
@@ -3328,8 +3135,6 @@ Update Agent
           - `name: "edit"`
 
             Must be "edit".
-
-            - `"edit"`
 
           - `enabled?: boolean | null`
 
@@ -3349,8 +3154,6 @@ Update Agent
 
           - `type?: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfigParams`
 
           Configuration override for the read tool.
@@ -3358,8 +3161,6 @@ Update Agent
           - `name: "read"`
 
             Must be "read".
-
-            - `"read"`
 
           - `enabled?: boolean | null`
 
@@ -3379,8 +3180,6 @@ Update Agent
 
           - `type?: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfigParams`
 
           Configuration override for the write tool.
@@ -3388,8 +3187,6 @@ Update Agent
           - `name: "write"`
 
             Must be "write".
-
-            - `"write"`
 
           - `enabled?: boolean | null`
 
@@ -3409,8 +3206,6 @@ Update Agent
 
           - `type?: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfigParams`
 
           Configuration override for the glob tool.
@@ -3418,8 +3213,6 @@ Update Agent
           - `name: "glob"`
 
             Must be "glob".
-
-            - `"glob"`
 
           - `enabled?: boolean | null`
 
@@ -3439,8 +3232,6 @@ Update Agent
 
           - `type?: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfigParams`
 
           Configuration override for the grep tool.
@@ -3448,8 +3239,6 @@ Update Agent
           - `name: "grep"`
 
             Must be "grep".
-
-            - `"grep"`
 
           - `enabled?: boolean | null`
 
@@ -3469,8 +3258,6 @@ Update Agent
 
           - `type?: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfigParams`
 
           Configuration override for the web_fetch tool.
@@ -3478,8 +3265,6 @@ Update Agent
           - `name: "web_fetch"`
 
             Must be "web_fetch".
-
-            - `"web_fetch"`
 
           - `allowed_domains?: Array<string>`
 
@@ -3497,6 +3282,8 @@ Update Agent
 
             Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+            format: int32
+
           - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
             Permission policy for tool execution.
@@ -3511,8 +3298,6 @@ Update Agent
 
           - `type?: "web_fetch"`
 
-            - `"web_fetch"`
-
         - `BetaManagedAgentsWebSearchToolConfigParams`
 
           Configuration override for the web_search tool.
@@ -3520,8 +3305,6 @@ Update Agent
           - `name: "web_search"`
 
             Must be "web_search".
-
-            - `"web_search"`
 
           - `allowed_domains?: Array<string>`
 
@@ -3549,8 +3332,6 @@ Update Agent
 
           - `type?: "web_search"`
 
-            - `"web_search"`
-
           - `user_location?: BetaManagedAgentsUserLocation | null`
 
             Approximate user location for search result localization.
@@ -3559,11 +3340,11 @@ Update Agent
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -3573,9 +3354,13 @@ Update Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config?: BetaManagedAgentsAgentToolsetDefaultConfigParams | null`
 
@@ -3605,9 +3390,9 @@ Update Agent
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-      - `type: "mcp_toolset"`
+        minLength: 1, maxLength: 255
 
-        - `"mcp_toolset"`
+      - `type: "mcp_toolset"`
 
       - `configs?: Array<BetaManagedAgentsMCPToolConfigParams>`
 
@@ -3616,6 +3401,8 @@ Update Agent
         - `name: string`
 
           Name of the MCP tool to configure. 1-128 characters.
+
+          minLength: 1, maxLength: 128
 
         - `enabled?: boolean | null`
 
@@ -3661,13 +3448,13 @@ Update Agent
 
         Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+        minLength: 1
+
       - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
         JSON Schema for custom tool input parameters.
 
         - `type: "object"`
-
-          - `"object"`
 
         - `properties?: Record<string, unknown> | null`
 
@@ -3677,13 +3464,15 @@ Update Agent
 
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
-      - `type: "custom"`
+        minLength: 1, maxLength: 128
 
-        - `"custom"`
+      - `type: "custom"`
 
   - `version?: number`
 
     Body param: The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
+
+    format: int32
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -3773,9 +3562,13 @@ Update Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: string | null`
 
@@ -3784,8 +3577,6 @@ Update Agent
     - `name: string`
 
     - `type: "url"`
-
-      - `"url"`
 
     - `url: string`
 
@@ -3867,15 +3658,11 @@ Update Agent
 
         - `type: "low"`
 
-          - `"low"`
-
       - `BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
-
-          - `"medium"`
 
       - `BetaManagedAgentsEffortHigh`
 
@@ -3883,23 +3670,17 @@ Update Agent
 
         - `type: "high"`
 
-          - `"high"`
-
       - `BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
       - `BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo?: string`
 
@@ -3929,9 +3710,9 @@ Update Agent
 
         - `type: "agent"`
 
-          - `"agent"`
-
         - `version: number`
+
+          format: int32
 
       - `BetaManagedAgentsAdvisor`
 
@@ -3943,11 +3724,7 @@ Update Agent
 
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name: string`
 
@@ -3961,8 +3738,6 @@ Update Agent
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
     - `BetaManagedAgentsCustomSkill`
@@ -3972,8 +3747,6 @@ Update Agent
       - `skill_id: string`
 
       - `type: "custom"`
-
-        - `"custom"`
 
       - `version: string`
 
@@ -3993,8 +3766,6 @@ Update Agent
 
           - `name: "bash"`
 
-            - `"bash"`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -4005,19 +3776,13 @@ Update Agent
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfig`
 
@@ -4026,8 +3791,6 @@ Update Agent
           - `enabled: boolean`
 
           - `name: "edit"`
-
-            - `"edit"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4043,8 +3806,6 @@ Update Agent
 
           - `type: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -4052,8 +3813,6 @@ Update Agent
           - `enabled: boolean`
 
           - `name: "read"`
-
-            - `"read"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4069,8 +3828,6 @@ Update Agent
 
           - `type: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -4078,8 +3835,6 @@ Update Agent
           - `enabled: boolean`
 
           - `name: "write"`
-
-            - `"write"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4095,8 +3850,6 @@ Update Agent
 
           - `type: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -4104,8 +3857,6 @@ Update Agent
           - `enabled: boolean`
 
           - `name: "glob"`
-
-            - `"glob"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4121,8 +3872,6 @@ Update Agent
 
           - `type: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -4130,8 +3879,6 @@ Update Agent
           - `enabled: boolean`
 
           - `name: "grep"`
-
-            - `"grep"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4147,8 +3894,6 @@ Update Agent
 
           - `type: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -4156,8 +3901,6 @@ Update Agent
           - `enabled: boolean`
 
           - `name: "web_fetch"`
-
-            - `"web_fetch"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4173,13 +3916,13 @@ Update Agent
 
           - `type: "web_fetch"`
 
-            - `"web_fetch"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
 
           - `max_content_tokens?: number | null`
+
+            format: int32
 
         - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -4188,8 +3931,6 @@ Update Agent
           - `enabled: boolean`
 
           - `name: "web_search"`
-
-            - `"web_search"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4205,8 +3946,6 @@ Update Agent
 
           - `type: "web_search"`
 
-            - `"web_search"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
@@ -4219,11 +3958,11 @@ Update Agent
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -4233,9 +3972,13 @@ Update Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -4256,8 +3999,6 @@ Update Agent
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
 
@@ -4301,8 +4042,6 @@ Update Agent
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -4315,8 +4054,6 @@ Update Agent
 
         - `type: "object"`
 
-          - `"object"`
-
         - `properties?: Record<string, unknown> | null`
 
         - `required?: Array<string> | null`
@@ -4325,19 +4062,19 @@ Update Agent
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
-
-    - `"agent"`
 
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: number`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
+
+    format: int32
 
 ### Example
 
@@ -4356,7 +4093,7 @@ const betaManagedAgentsAgent = await client.beta.agents.update(
 console.log(betaManagedAgentsAgent.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -4435,9 +4172,9 @@ console.log(betaManagedAgentsAgent.id);
 
 ## Archive Agent
 
-`client.beta.agents.archive(stringagentID, AgentArchiveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsAgent`
+`client.beta.agents.archive(agentID, params?, options?): BetaManagedAgentsAgent`
 
-**post** `/v1/agents/{agent_id}/archive`
+**POST** `/v1/agents/{agent_id}/archive`
 
 Archive Agent
 
@@ -4535,9 +4272,13 @@ Archive Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: string | null`
 
@@ -4546,8 +4287,6 @@ Archive Agent
     - `name: string`
 
     - `type: "url"`
-
-      - `"url"`
 
     - `url: string`
 
@@ -4629,15 +4368,11 @@ Archive Agent
 
         - `type: "low"`
 
-          - `"low"`
-
       - `BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
-
-          - `"medium"`
 
       - `BetaManagedAgentsEffortHigh`
 
@@ -4645,23 +4380,17 @@ Archive Agent
 
         - `type: "high"`
 
-          - `"high"`
-
       - `BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
       - `BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo?: string`
 
@@ -4691,9 +4420,9 @@ Archive Agent
 
         - `type: "agent"`
 
-          - `"agent"`
-
         - `version: number`
+
+          format: int32
 
       - `BetaManagedAgentsAdvisor`
 
@@ -4705,11 +4434,7 @@ Archive Agent
 
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name: string`
 
@@ -4723,8 +4448,6 @@ Archive Agent
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
     - `BetaManagedAgentsCustomSkill`
@@ -4734,8 +4457,6 @@ Archive Agent
       - `skill_id: string`
 
       - `type: "custom"`
-
-        - `"custom"`
 
       - `version: string`
 
@@ -4755,8 +4476,6 @@ Archive Agent
 
           - `name: "bash"`
 
-            - `"bash"`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -4767,19 +4486,13 @@ Archive Agent
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfig`
 
@@ -4788,8 +4501,6 @@ Archive Agent
           - `enabled: boolean`
 
           - `name: "edit"`
-
-            - `"edit"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4805,8 +4516,6 @@ Archive Agent
 
           - `type: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -4814,8 +4523,6 @@ Archive Agent
           - `enabled: boolean`
 
           - `name: "read"`
-
-            - `"read"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4831,8 +4538,6 @@ Archive Agent
 
           - `type: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -4840,8 +4545,6 @@ Archive Agent
           - `enabled: boolean`
 
           - `name: "write"`
-
-            - `"write"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4857,8 +4560,6 @@ Archive Agent
 
           - `type: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -4866,8 +4567,6 @@ Archive Agent
           - `enabled: boolean`
 
           - `name: "glob"`
-
-            - `"glob"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4883,8 +4582,6 @@ Archive Agent
 
           - `type: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -4892,8 +4589,6 @@ Archive Agent
           - `enabled: boolean`
 
           - `name: "grep"`
-
-            - `"grep"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4909,8 +4604,6 @@ Archive Agent
 
           - `type: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -4918,8 +4611,6 @@ Archive Agent
           - `enabled: boolean`
 
           - `name: "web_fetch"`
-
-            - `"web_fetch"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4935,13 +4626,13 @@ Archive Agent
 
           - `type: "web_fetch"`
 
-            - `"web_fetch"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
 
           - `max_content_tokens?: number | null`
+
+            format: int32
 
         - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -4950,8 +4641,6 @@ Archive Agent
           - `enabled: boolean`
 
           - `name: "web_search"`
-
-            - `"web_search"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -4967,8 +4656,6 @@ Archive Agent
 
           - `type: "web_search"`
 
-            - `"web_search"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
@@ -4981,11 +4668,11 @@ Archive Agent
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -4995,9 +4682,13 @@ Archive Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -5018,8 +4709,6 @@ Archive Agent
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
 
@@ -5063,8 +4752,6 @@ Archive Agent
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -5077,8 +4764,6 @@ Archive Agent
 
         - `type: "object"`
 
-          - `"object"`
-
         - `properties?: Record<string, unknown> | null`
 
         - `required?: Array<string> | null`
@@ -5087,19 +4772,19 @@ Archive Agent
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
-
-    - `"agent"`
 
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: number`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
+
+    format: int32
 
 ### Example
 
@@ -5117,7 +4802,7 @@ const betaManagedAgentsAgent = await client.beta.agents.archive(
 console.log(betaManagedAgentsAgent.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -5194,7 +4879,7 @@ console.log(betaManagedAgentsAgent.id);
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Advisor
 
@@ -5208,8 +4893,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "advisor"`
 
-    - `"advisor"`
-
 ### Beta Managed Agents Agent
 
 - `BetaManagedAgentsAgent`
@@ -5222,9 +4905,13 @@ console.log(betaManagedAgentsAgent.id);
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: string | null`
 
@@ -5233,8 +4920,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: string`
 
     - `type: "url"`
-
-      - `"url"`
 
     - `url: string`
 
@@ -5316,15 +5001,11 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "low"`
 
-          - `"low"`
-
       - `BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
-
-          - `"medium"`
 
       - `BetaManagedAgentsEffortHigh`
 
@@ -5332,23 +5013,17 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "high"`
 
-          - `"high"`
-
       - `BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
       - `BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo?: string`
 
@@ -5378,9 +5053,9 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "agent"`
 
-          - `"agent"`
-
         - `version: number`
+
+          format: int32
 
       - `BetaManagedAgentsAdvisor`
 
@@ -5392,11 +5067,7 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name: string`
 
@@ -5410,8 +5081,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
     - `BetaManagedAgentsCustomSkill`
@@ -5421,8 +5090,6 @@ console.log(betaManagedAgentsAgent.id);
       - `skill_id: string`
 
       - `type: "custom"`
-
-        - `"custom"`
 
       - `version: string`
 
@@ -5442,8 +5109,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `name: "bash"`
 
-            - `"bash"`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -5454,19 +5119,13 @@ console.log(betaManagedAgentsAgent.id);
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfig`
 
@@ -5475,8 +5134,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "edit"`
-
-            - `"edit"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5492,8 +5149,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -5501,8 +5156,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "read"`
-
-            - `"read"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5518,8 +5171,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -5527,8 +5178,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "write"`
-
-            - `"write"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5544,8 +5193,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -5553,8 +5200,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "glob"`
-
-            - `"glob"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5570,8 +5215,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -5579,8 +5222,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "grep"`
-
-            - `"grep"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5596,8 +5237,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -5605,8 +5244,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "web_fetch"`
-
-            - `"web_fetch"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5622,13 +5259,13 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "web_fetch"`
 
-            - `"web_fetch"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
 
           - `max_content_tokens?: number | null`
+
+            format: int32
 
         - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -5637,8 +5274,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "web_search"`
-
-            - `"web_search"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5654,8 +5289,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "web_search"`
 
-            - `"web_search"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
@@ -5668,11 +5301,11 @@ console.log(betaManagedAgentsAgent.id);
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -5682,9 +5315,13 @@ console.log(betaManagedAgentsAgent.id);
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -5705,8 +5342,6 @@ console.log(betaManagedAgentsAgent.id);
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
 
@@ -5750,8 +5385,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -5764,8 +5397,6 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "object"`
 
-          - `"object"`
-
         - `properties?: Record<string, unknown> | null`
 
         - `required?: Array<string> | null`
@@ -5774,19 +5405,19 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
-
-    - `"agent"`
 
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: number`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
+
+    format: int32
 
 ### Beta Managed Agents Agent Reference
 
@@ -5798,9 +5429,9 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "agent"`
 
-    - `"agent"`
-
   - `version: number`
+
+    format: int32
 
 ### Beta Managed Agents Agent Tool Config
 
@@ -5816,8 +5447,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `name: "bash"`
 
-      - `"bash"`
-
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
       Permission policy for tool execution.
@@ -5828,19 +5457,13 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "always_allow"`
 
-          - `"always_allow"`
-
       - `BetaManagedAgentsAlwaysAskPolicy`
 
         Tool calls require user confirmation before execution.
 
         - `type: "always_ask"`
 
-          - `"always_ask"`
-
     - `type: "bash"`
-
-      - `"bash"`
 
   - `BetaManagedAgentsEditToolConfig`
 
@@ -5849,8 +5472,6 @@ console.log(betaManagedAgentsAgent.id);
     - `enabled: boolean`
 
     - `name: "edit"`
-
-      - `"edit"`
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5866,8 +5487,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type: "edit"`
 
-      - `"edit"`
-
   - `BetaManagedAgentsReadToolConfig`
 
     Configuration for the read tool.
@@ -5875,8 +5494,6 @@ console.log(betaManagedAgentsAgent.id);
     - `enabled: boolean`
 
     - `name: "read"`
-
-      - `"read"`
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5892,8 +5509,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type: "read"`
 
-      - `"read"`
-
   - `BetaManagedAgentsWriteToolConfig`
 
     Configuration for the write tool.
@@ -5901,8 +5516,6 @@ console.log(betaManagedAgentsAgent.id);
     - `enabled: boolean`
 
     - `name: "write"`
-
-      - `"write"`
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5918,8 +5531,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type: "write"`
 
-      - `"write"`
-
   - `BetaManagedAgentsGlobToolConfig`
 
     Configuration for the glob tool.
@@ -5927,8 +5538,6 @@ console.log(betaManagedAgentsAgent.id);
     - `enabled: boolean`
 
     - `name: "glob"`
-
-      - `"glob"`
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5944,8 +5553,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type: "glob"`
 
-      - `"glob"`
-
   - `BetaManagedAgentsGrepToolConfig`
 
     Configuration for the grep tool.
@@ -5953,8 +5560,6 @@ console.log(betaManagedAgentsAgent.id);
     - `enabled: boolean`
 
     - `name: "grep"`
-
-      - `"grep"`
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5970,8 +5575,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type: "grep"`
 
-      - `"grep"`
-
   - `BetaManagedAgentsWebFetchToolConfig`
 
     Configuration for the web_fetch tool.
@@ -5979,8 +5582,6 @@ console.log(betaManagedAgentsAgent.id);
     - `enabled: boolean`
 
     - `name: "web_fetch"`
-
-      - `"web_fetch"`
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5996,13 +5597,13 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type: "web_fetch"`
 
-      - `"web_fetch"`
-
     - `allowed_domains?: Array<string>`
 
     - `blocked_domains?: Array<string>`
 
     - `max_content_tokens?: number | null`
+
+      format: int32
 
   - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -6011,8 +5612,6 @@ console.log(betaManagedAgentsAgent.id);
     - `enabled: boolean`
 
     - `name: "web_search"`
-
-      - `"web_search"`
 
     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -6028,8 +5627,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type: "web_search"`
 
-      - `"web_search"`
-
     - `allowed_domains?: Array<string>`
 
     - `blocked_domains?: Array<string>`
@@ -6042,11 +5639,11 @@ console.log(betaManagedAgentsAgent.id);
 
         Location precision. Only "approximate" is supported.
 
-        - `"approximate"`
-
       - `city?: string | null`
 
         City name.
+
+        minLength: 1, maxLength: 255
 
       - `country?: string | null`
 
@@ -6056,9 +5653,13 @@ console.log(betaManagedAgentsAgent.id);
 
         Region or state name.
 
+        minLength: 1, maxLength: 255
+
       - `timezone?: string | null`
 
         IANA timezone identifier, e.g. "America/Los_Angeles".
+
+        minLength: 1, maxLength: 255
 
 ### Beta Managed Agents Agent Tool Config Params
 
@@ -6074,8 +5675,6 @@ console.log(betaManagedAgentsAgent.id);
 
       Must be "bash".
 
-      - `"bash"`
-
     - `enabled?: boolean | null`
 
       Whether this tool is enabled and available to Claude. Overrides the default_config setting.
@@ -6090,19 +5689,13 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "always_allow"`
 
-          - `"always_allow"`
-
       - `BetaManagedAgentsAlwaysAskPolicy`
 
         Tool calls require user confirmation before execution.
 
         - `type: "always_ask"`
 
-          - `"always_ask"`
-
     - `type?: "bash"`
-
-      - `"bash"`
 
   - `BetaManagedAgentsEditToolConfigParams`
 
@@ -6111,8 +5704,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: "edit"`
 
       Must be "edit".
-
-      - `"edit"`
 
     - `enabled?: boolean | null`
 
@@ -6132,8 +5723,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type?: "edit"`
 
-      - `"edit"`
-
   - `BetaManagedAgentsReadToolConfigParams`
 
     Configuration override for the read tool.
@@ -6141,8 +5730,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: "read"`
 
       Must be "read".
-
-      - `"read"`
 
     - `enabled?: boolean | null`
 
@@ -6162,8 +5749,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type?: "read"`
 
-      - `"read"`
-
   - `BetaManagedAgentsWriteToolConfigParams`
 
     Configuration override for the write tool.
@@ -6171,8 +5756,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: "write"`
 
       Must be "write".
-
-      - `"write"`
 
     - `enabled?: boolean | null`
 
@@ -6192,8 +5775,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type?: "write"`
 
-      - `"write"`
-
   - `BetaManagedAgentsGlobToolConfigParams`
 
     Configuration override for the glob tool.
@@ -6201,8 +5782,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: "glob"`
 
       Must be "glob".
-
-      - `"glob"`
 
     - `enabled?: boolean | null`
 
@@ -6222,8 +5801,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type?: "glob"`
 
-      - `"glob"`
-
   - `BetaManagedAgentsGrepToolConfigParams`
 
     Configuration override for the grep tool.
@@ -6231,8 +5808,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: "grep"`
 
       Must be "grep".
-
-      - `"grep"`
 
     - `enabled?: boolean | null`
 
@@ -6252,8 +5827,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type?: "grep"`
 
-      - `"grep"`
-
   - `BetaManagedAgentsWebFetchToolConfigParams`
 
     Configuration override for the web_fetch tool.
@@ -6261,8 +5834,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: "web_fetch"`
 
       Must be "web_fetch".
-
-      - `"web_fetch"`
 
     - `allowed_domains?: Array<string>`
 
@@ -6280,6 +5851,8 @@ console.log(betaManagedAgentsAgent.id);
 
       Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+      format: int32
+
     - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
       Permission policy for tool execution.
@@ -6294,8 +5867,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type?: "web_fetch"`
 
-      - `"web_fetch"`
-
   - `BetaManagedAgentsWebSearchToolConfigParams`
 
     Configuration override for the web_search tool.
@@ -6303,8 +5874,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: "web_search"`
 
       Must be "web_search".
-
-      - `"web_search"`
 
     - `allowed_domains?: Array<string>`
 
@@ -6332,8 +5901,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type?: "web_search"`
 
-      - `"web_search"`
-
     - `user_location?: BetaManagedAgentsUserLocation | null`
 
       Approximate user location for search result localization.
@@ -6342,11 +5909,11 @@ console.log(betaManagedAgentsAgent.id);
 
         Location precision. Only "approximate" is supported.
 
-        - `"approximate"`
-
       - `city?: string | null`
 
         City name.
+
+        minLength: 1, maxLength: 255
 
       - `country?: string | null`
 
@@ -6356,9 +5923,13 @@ console.log(betaManagedAgentsAgent.id);
 
         Region or state name.
 
+        minLength: 1, maxLength: 255
+
       - `timezone?: string | null`
 
         IANA timezone identifier, e.g. "America/Los_Angeles".
+
+        minLength: 1, maxLength: 255
 
 ### Beta Managed Agents Agent Toolset Default Config
 
@@ -6378,15 +5949,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
-
-        - `"always_ask"`
 
 ### Beta Managed Agents Agent Toolset Default Config Params
 
@@ -6408,15 +5975,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
-
-        - `"always_ask"`
 
 ### Beta Managed Agents Agent Toolset20260401
 
@@ -6432,8 +5995,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `name: "bash"`
 
-        - `"bash"`
-
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
         Permission policy for tool execution.
@@ -6444,19 +6005,13 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "always_allow"`
 
-            - `"always_allow"`
-
         - `BetaManagedAgentsAlwaysAskPolicy`
 
           Tool calls require user confirmation before execution.
 
           - `type: "always_ask"`
 
-            - `"always_ask"`
-
       - `type: "bash"`
-
-        - `"bash"`
 
     - `BetaManagedAgentsEditToolConfig`
 
@@ -6465,8 +6020,6 @@ console.log(betaManagedAgentsAgent.id);
       - `enabled: boolean`
 
       - `name: "edit"`
-
-        - `"edit"`
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -6482,8 +6035,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "edit"`
 
-        - `"edit"`
-
     - `BetaManagedAgentsReadToolConfig`
 
       Configuration for the read tool.
@@ -6491,8 +6042,6 @@ console.log(betaManagedAgentsAgent.id);
       - `enabled: boolean`
 
       - `name: "read"`
-
-        - `"read"`
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -6508,8 +6057,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "read"`
 
-        - `"read"`
-
     - `BetaManagedAgentsWriteToolConfig`
 
       Configuration for the write tool.
@@ -6517,8 +6064,6 @@ console.log(betaManagedAgentsAgent.id);
       - `enabled: boolean`
 
       - `name: "write"`
-
-        - `"write"`
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -6534,8 +6079,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "write"`
 
-        - `"write"`
-
     - `BetaManagedAgentsGlobToolConfig`
 
       Configuration for the glob tool.
@@ -6543,8 +6086,6 @@ console.log(betaManagedAgentsAgent.id);
       - `enabled: boolean`
 
       - `name: "glob"`
-
-        - `"glob"`
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -6560,8 +6101,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "glob"`
 
-        - `"glob"`
-
     - `BetaManagedAgentsGrepToolConfig`
 
       Configuration for the grep tool.
@@ -6569,8 +6108,6 @@ console.log(betaManagedAgentsAgent.id);
       - `enabled: boolean`
 
       - `name: "grep"`
-
-        - `"grep"`
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -6586,8 +6123,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "grep"`
 
-        - `"grep"`
-
     - `BetaManagedAgentsWebFetchToolConfig`
 
       Configuration for the web_fetch tool.
@@ -6595,8 +6130,6 @@ console.log(betaManagedAgentsAgent.id);
       - `enabled: boolean`
 
       - `name: "web_fetch"`
-
-        - `"web_fetch"`
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -6612,13 +6145,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "web_fetch"`
 
-        - `"web_fetch"`
-
       - `allowed_domains?: Array<string>`
 
       - `blocked_domains?: Array<string>`
 
       - `max_content_tokens?: number | null`
+
+        format: int32
 
     - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -6627,8 +6160,6 @@ console.log(betaManagedAgentsAgent.id);
       - `enabled: boolean`
 
       - `name: "web_search"`
-
-        - `"web_search"`
 
       - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -6644,8 +6175,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "web_search"`
 
-        - `"web_search"`
-
       - `allowed_domains?: Array<string>`
 
       - `blocked_domains?: Array<string>`
@@ -6658,11 +6187,11 @@ console.log(betaManagedAgentsAgent.id);
 
           Location precision. Only "approximate" is supported.
 
-          - `"approximate"`
-
         - `city?: string | null`
 
           City name.
+
+          minLength: 1, maxLength: 255
 
         - `country?: string | null`
 
@@ -6672,9 +6201,13 @@ console.log(betaManagedAgentsAgent.id);
 
           Region or state name.
 
+          minLength: 1, maxLength: 255
+
         - `timezone?: string | null`
 
           IANA timezone identifier, e.g. "America/Los_Angeles".
+
+          minLength: 1, maxLength: 255
 
   - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -6695,8 +6228,6 @@ console.log(betaManagedAgentsAgent.id);
         Tool calls require user confirmation before execution.
 
   - `type: "agent_toolset_20260401"`
-
-    - `"agent_toolset_20260401"`
 
 ### Beta Managed Agents Agent Toolset20260401 Bash Input
 
@@ -6721,6 +6252,8 @@ console.log(betaManagedAgentsAgent.id);
 
     Per-call timeout in milliseconds. Defaults to the
     runner-wide tool timeout when omitted or zero.
+
+    minimum: 0
 
 ### Beta Managed Agents Agent Toolset20260401 Edit Input
 
@@ -6789,8 +6322,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "agent_toolset_20260401"`
 
-    - `"agent_toolset_20260401"`
-
   - `configs?: Array<BetaManagedAgentsAgentToolConfigParams>`
 
     Per-tool configuration overrides.
@@ -6802,8 +6333,6 @@ console.log(betaManagedAgentsAgent.id);
       - `name: "bash"`
 
         Must be "bash".
-
-        - `"bash"`
 
       - `enabled?: boolean | null`
 
@@ -6819,19 +6348,13 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "always_allow"`
 
-            - `"always_allow"`
-
         - `BetaManagedAgentsAlwaysAskPolicy`
 
           Tool calls require user confirmation before execution.
 
           - `type: "always_ask"`
 
-            - `"always_ask"`
-
       - `type?: "bash"`
-
-        - `"bash"`
 
     - `BetaManagedAgentsEditToolConfigParams`
 
@@ -6840,8 +6363,6 @@ console.log(betaManagedAgentsAgent.id);
       - `name: "edit"`
 
         Must be "edit".
-
-        - `"edit"`
 
       - `enabled?: boolean | null`
 
@@ -6861,8 +6382,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type?: "edit"`
 
-        - `"edit"`
-
     - `BetaManagedAgentsReadToolConfigParams`
 
       Configuration override for the read tool.
@@ -6870,8 +6389,6 @@ console.log(betaManagedAgentsAgent.id);
       - `name: "read"`
 
         Must be "read".
-
-        - `"read"`
 
       - `enabled?: boolean | null`
 
@@ -6891,8 +6408,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type?: "read"`
 
-        - `"read"`
-
     - `BetaManagedAgentsWriteToolConfigParams`
 
       Configuration override for the write tool.
@@ -6900,8 +6415,6 @@ console.log(betaManagedAgentsAgent.id);
       - `name: "write"`
 
         Must be "write".
-
-        - `"write"`
 
       - `enabled?: boolean | null`
 
@@ -6921,8 +6434,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type?: "write"`
 
-        - `"write"`
-
     - `BetaManagedAgentsGlobToolConfigParams`
 
       Configuration override for the glob tool.
@@ -6930,8 +6441,6 @@ console.log(betaManagedAgentsAgent.id);
       - `name: "glob"`
 
         Must be "glob".
-
-        - `"glob"`
 
       - `enabled?: boolean | null`
 
@@ -6951,8 +6460,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type?: "glob"`
 
-        - `"glob"`
-
     - `BetaManagedAgentsGrepToolConfigParams`
 
       Configuration override for the grep tool.
@@ -6960,8 +6467,6 @@ console.log(betaManagedAgentsAgent.id);
       - `name: "grep"`
 
         Must be "grep".
-
-        - `"grep"`
 
       - `enabled?: boolean | null`
 
@@ -6981,8 +6486,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type?: "grep"`
 
-        - `"grep"`
-
     - `BetaManagedAgentsWebFetchToolConfigParams`
 
       Configuration override for the web_fetch tool.
@@ -6990,8 +6493,6 @@ console.log(betaManagedAgentsAgent.id);
       - `name: "web_fetch"`
 
         Must be "web_fetch".
-
-        - `"web_fetch"`
 
       - `allowed_domains?: Array<string>`
 
@@ -7009,6 +6510,8 @@ console.log(betaManagedAgentsAgent.id);
 
         Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+        format: int32
+
       - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
         Permission policy for tool execution.
@@ -7023,8 +6526,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type?: "web_fetch"`
 
-        - `"web_fetch"`
-
     - `BetaManagedAgentsWebSearchToolConfigParams`
 
       Configuration override for the web_search tool.
@@ -7032,8 +6533,6 @@ console.log(betaManagedAgentsAgent.id);
       - `name: "web_search"`
 
         Must be "web_search".
-
-        - `"web_search"`
 
       - `allowed_domains?: Array<string>`
 
@@ -7061,8 +6560,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type?: "web_search"`
 
-        - `"web_search"`
-
       - `user_location?: BetaManagedAgentsUserLocation | null`
 
         Approximate user location for search result localization.
@@ -7071,11 +6568,11 @@ console.log(betaManagedAgentsAgent.id);
 
           Location precision. Only "approximate" is supported.
 
-          - `"approximate"`
-
         - `city?: string | null`
 
           City name.
+
+          minLength: 1, maxLength: 255
 
         - `country?: string | null`
 
@@ -7085,9 +6582,13 @@ console.log(betaManagedAgentsAgent.id);
 
           Region or state name.
 
+          minLength: 1, maxLength: 255
+
         - `timezone?: string | null`
 
           IANA timezone identifier, e.g. "America/Los_Angeles".
+
+          minLength: 1, maxLength: 255
 
   - `default_config?: BetaManagedAgentsAgentToolsetDefaultConfigParams | null`
 
@@ -7127,6 +6628,8 @@ console.log(betaManagedAgentsAgent.id);
     range. When omitted the entire file is returned.
     `end_line` of 0 or negative means "to end of file".
 
+    minItems: 2, maxItems: 2
+
 ### Beta Managed Agents Agent Toolset20260401 Write Input
 
 - `BetaManagedAgentsAgentToolset20260401WriteInput`
@@ -7150,8 +6653,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "always_allow"`
 
-    - `"always_allow"`
-
 ### Beta Managed Agents Always Ask Policy
 
 - `BetaManagedAgentsAlwaysAskPolicy`
@@ -7159,8 +6660,6 @@ console.log(betaManagedAgentsAgent.id);
   Tool calls require user confirmation before execution.
 
   - `type: "always_ask"`
-
-    - `"always_ask"`
 
 ### Beta Managed Agents Anthropic Skill
 
@@ -7171,8 +6670,6 @@ console.log(betaManagedAgentsAgent.id);
   - `skill_id: string`
 
   - `type: "anthropic"`
-
-    - `"anthropic"`
 
   - `version: string`
 
@@ -7186,13 +6683,15 @@ console.log(betaManagedAgentsAgent.id);
 
     Identifier of the Anthropic skill (e.g., "xlsx").
 
-  - `type: "anthropic"`
+    minLength: 1, maxLength: 64
 
-    - `"anthropic"`
+  - `type: "anthropic"`
 
   - `version?: string | null`
 
     Version to pin. Defaults to latest if omitted.
+
+    minLength: 1, maxLength: 64
 
 ### Beta Managed Agents Bash Tool Config
 
@@ -7204,8 +6703,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `name: "bash"`
 
-    - `"bash"`
-
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
     Permission policy for tool execution.
@@ -7216,19 +6713,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type: "bash"`
-
-    - `"bash"`
 
 ### Beta Managed Agents Bash Tool Config Params
 
@@ -7239,8 +6730,6 @@ console.log(betaManagedAgentsAgent.id);
   - `name: "bash"`
 
     Must be "bash".
-
-    - `"bash"`
 
   - `enabled?: boolean | null`
 
@@ -7256,19 +6745,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type?: "bash"`
-
-    - `"bash"`
 
 ### Beta Managed Agents Custom Skill
 
@@ -7279,8 +6762,6 @@ console.log(betaManagedAgentsAgent.id);
   - `skill_id: string`
 
   - `type: "custom"`
-
-    - `"custom"`
 
   - `version: string`
 
@@ -7294,13 +6775,15 @@ console.log(betaManagedAgentsAgent.id);
 
     Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-  - `type: "custom"`
+    minLength: 1, maxLength: 64
 
-    - `"custom"`
+  - `type: "custom"`
 
   - `version?: string | null`
 
     Version to pin. Defaults to latest if omitted.
+
+    minLength: 1, maxLength: 64
 
 ### Beta Managed Agents Custom Tool
 
@@ -7316,8 +6799,6 @@ console.log(betaManagedAgentsAgent.id);
 
     - `type: "object"`
 
-      - `"object"`
-
     - `properties?: Record<string, unknown> | null`
 
     - `required?: Array<string> | null`
@@ -7326,8 +6807,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "custom"`
 
-    - `"custom"`
-
 ### Beta Managed Agents Custom Tool Input Schema
 
 - `BetaManagedAgentsCustomToolInputSchema`
@@ -7335,8 +6814,6 @@ console.log(betaManagedAgentsAgent.id);
   JSON Schema for custom tool input parameters.
 
   - `type: "object"`
-
-    - `"object"`
 
   - `properties?: Record<string, unknown> | null`
 
@@ -7352,13 +6829,13 @@ console.log(betaManagedAgentsAgent.id);
 
     Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+    minLength: 1
+
   - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
     JSON Schema for custom tool input parameters.
 
     - `type: "object"`
-
-      - `"object"`
 
     - `properties?: Record<string, unknown> | null`
 
@@ -7368,9 +6845,9 @@ console.log(betaManagedAgentsAgent.id);
 
     Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
-  - `type: "custom"`
+    minLength: 1, maxLength: 128
 
-    - `"custom"`
+  - `type: "custom"`
 
 ### Beta Managed Agents Edit Tool Config
 
@@ -7382,8 +6859,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `name: "edit"`
 
-    - `"edit"`
-
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
     Permission policy for tool execution.
@@ -7394,19 +6869,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type: "edit"`
-
-    - `"edit"`
 
 ### Beta Managed Agents Edit Tool Config Params
 
@@ -7418,8 +6887,6 @@ console.log(betaManagedAgentsAgent.id);
 
     Must be "edit".
 
-    - `"edit"`
-
   - `enabled?: boolean | null`
 
     Whether this tool is enabled and available to Claude. Overrides the default_config setting.
@@ -7434,19 +6901,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type?: "edit"`
-
-    - `"edit"`
 
 ### Beta Managed Agents Effort High
 
@@ -7456,8 +6917,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "high"`
 
-    - `"high"`
-
 ### Beta Managed Agents Effort Low
 
 - `BetaManagedAgentsEffortLow`
@@ -7465,8 +6924,6 @@ console.log(betaManagedAgentsAgent.id);
   Low effort. Favors latency over reasoning depth.
 
   - `type: "low"`
-
-    - `"low"`
 
 ### Beta Managed Agents Effort Max
 
@@ -7476,8 +6933,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "max"`
 
-    - `"max"`
-
 ### Beta Managed Agents Effort Medium
 
 - `BetaManagedAgentsEffortMedium`
@@ -7486,8 +6941,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "medium"`
 
-    - `"medium"`
-
 ### Beta Managed Agents Effort Xhigh
 
 - `BetaManagedAgentsEffortXhigh`
@@ -7495,8 +6948,6 @@ console.log(betaManagedAgentsAgent.id);
   Extra-high effort. Not all models accept this level.
 
   - `type: "xhigh"`
-
-    - `"xhigh"`
 
 ### Beta Managed Agents Glob Tool Config
 
@@ -7508,8 +6959,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `name: "glob"`
 
-    - `"glob"`
-
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
     Permission policy for tool execution.
@@ -7520,19 +6969,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type: "glob"`
-
-    - `"glob"`
 
 ### Beta Managed Agents Glob Tool Config Params
 
@@ -7544,8 +6987,6 @@ console.log(betaManagedAgentsAgent.id);
 
     Must be "glob".
 
-    - `"glob"`
-
   - `enabled?: boolean | null`
 
     Whether this tool is enabled and available to Claude. Overrides the default_config setting.
@@ -7560,19 +7001,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type?: "glob"`
-
-    - `"glob"`
 
 ### Beta Managed Agents Grep Tool Config
 
@@ -7584,8 +7019,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `name: "grep"`
 
-    - `"grep"`
-
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
     Permission policy for tool execution.
@@ -7596,19 +7029,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type: "grep"`
-
-    - `"grep"`
 
 ### Beta Managed Agents Grep Tool Config Params
 
@@ -7619,8 +7046,6 @@ console.log(betaManagedAgentsAgent.id);
   - `name: "grep"`
 
     Must be "grep".
-
-    - `"grep"`
 
   - `enabled?: boolean | null`
 
@@ -7636,19 +7061,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type?: "grep"`
-
-    - `"grep"`
 
 ### Beta Managed Agents MCP Server URL Definition
 
@@ -7659,8 +7078,6 @@ console.log(betaManagedAgentsAgent.id);
   - `name: string`
 
   - `type: "url"`
-
-    - `"url"`
 
   - `url: string`
 
@@ -7684,15 +7101,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
-
-        - `"always_ask"`
 
 ### Beta Managed Agents MCP Tool Config Params
 
@@ -7703,6 +7116,8 @@ console.log(betaManagedAgentsAgent.id);
   - `name: string`
 
     Name of the MCP tool to configure. 1-128 characters.
+
+    minLength: 1, maxLength: 128
 
   - `enabled?: boolean | null`
 
@@ -7718,15 +7133,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
-
-        - `"always_ask"`
 
 ### Beta Managed Agents MCP Toolset
 
@@ -7748,15 +7159,11 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "always_allow"`
 
-          - `"always_allow"`
-
       - `BetaManagedAgentsAlwaysAskPolicy`
 
         Tool calls require user confirmation before execution.
 
         - `type: "always_ask"`
-
-          - `"always_ask"`
 
   - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
@@ -7780,8 +7187,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `type: "mcp_toolset"`
 
-    - `"mcp_toolset"`
-
 ### Beta Managed Agents MCP Toolset Default Config
 
 - `BetaManagedAgentsMCPToolsetDefaultConfig`
@@ -7800,15 +7205,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
-
-        - `"always_ask"`
 
 ### Beta Managed Agents MCP Toolset Default Config Params
 
@@ -7830,15 +7231,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
-
-        - `"always_ask"`
 
 ### Beta Managed Agents MCP Toolset Params
 
@@ -7850,9 +7247,9 @@ console.log(betaManagedAgentsAgent.id);
 
     Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-  - `type: "mcp_toolset"`
+    minLength: 1, maxLength: 255
 
-    - `"mcp_toolset"`
+  - `type: "mcp_toolset"`
 
   - `configs?: Array<BetaManagedAgentsMCPToolConfigParams>`
 
@@ -7861,6 +7258,8 @@ console.log(betaManagedAgentsAgent.id);
     - `name: string`
 
       Name of the MCP tool to configure. 1-128 characters.
+
+      minLength: 1, maxLength: 128
 
     - `enabled?: boolean | null`
 
@@ -7876,15 +7275,11 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "always_allow"`
 
-          - `"always_allow"`
-
       - `BetaManagedAgentsAlwaysAskPolicy`
 
         Tool calls require user confirmation before execution.
 
         - `type: "always_ask"`
-
-          - `"always_ask"`
 
   - `default_config?: BetaManagedAgentsMCPToolsetDefaultConfigParams | null`
 
@@ -8048,15 +7443,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "low"`
 
-        - `"low"`
-
     - `BetaManagedAgentsEffortMedium`
 
       Medium effort. Balances latency and reasoning depth.
 
       - `type: "medium"`
-
-        - `"medium"`
 
     - `BetaManagedAgentsEffortHigh`
 
@@ -8064,23 +7455,17 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "high"`
 
-        - `"high"`
-
     - `BetaManagedAgentsEffortXhigh`
 
       Extra-high effort. Not all models accept this level.
 
       - `type: "xhigh"`
 
-        - `"xhigh"`
-
     - `BetaManagedAgentsEffortMax`
 
       Maximum effort. Favors reasoning depth over latency.
 
       - `type: "max"`
-
-        - `"max"`
 
   - `inference_geo?: string`
 
@@ -8184,15 +7569,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "low"`
 
-        - `"low"`
-
     - `BetaManagedAgentsEffortMedium`
 
       Medium effort. Balances latency and reasoning depth.
 
       - `type: "medium"`
-
-        - `"medium"`
 
     - `BetaManagedAgentsEffortHigh`
 
@@ -8200,23 +7581,17 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "high"`
 
-        - `"high"`
-
     - `BetaManagedAgentsEffortXhigh`
 
       Extra-high effort. Not all models accept this level.
 
       - `type: "xhigh"`
 
-        - `"xhigh"`
-
     - `BetaManagedAgentsEffortMax`
 
       Maximum effort. Favors reasoning depth over latency.
 
       - `type: "max"`
-
-        - `"max"`
 
   - `inference_geo?: string | null`
 
@@ -8248,9 +7623,9 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "agent"`
 
-        - `"agent"`
-
       - `version: number`
+
+        format: int32
 
     - `BetaManagedAgentsAdvisor`
 
@@ -8262,11 +7637,7 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "advisor"`
 
-        - `"advisor"`
-
   - `type: "coordinator"`
-
-    - `"coordinator"`
 
 ### Beta Managed Agents Multiagent Coordinator Params
 
@@ -8288,21 +7659,21 @@ console.log(betaManagedAgentsAgent.id);
 
         The `agent` ID.
 
-      - `type: "agent"`
+        minLength: 1, maxLength: 128
 
-        - `"agent"`
+      - `type: "agent"`
 
       - `version?: number`
 
         The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+        format: int32
 
     - `BetaManagedAgentsMultiagentSelfParams`
 
       Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
 
       - `type: "self"`
-
-        - `"self"`
 
     - `BetaManagedAgentsAdvisorParams`
 
@@ -8312,13 +7683,11 @@ console.log(betaManagedAgentsAgent.id);
 
         A Claude model id. The model must be permitted as an advisor for this agent's model — see the sessions/threads/advisor spec.
 
+        minLength: 1, maxLength: 256
+
       - `type: "advisor"`
 
-        - `"advisor"`
-
   - `type: "coordinator"`
-
-    - `"coordinator"`
 
 ### Beta Managed Agents Multiagent Self Params
 
@@ -8327,8 +7696,6 @@ console.log(betaManagedAgentsAgent.id);
   Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
 
   - `type: "self"`
-
-    - `"self"`
 
 ### Beta Managed Agents Read Tool Config
 
@@ -8340,8 +7707,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `name: "read"`
 
-    - `"read"`
-
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
     Permission policy for tool execution.
@@ -8352,19 +7717,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type: "read"`
-
-    - `"read"`
 
 ### Beta Managed Agents Read Tool Config Params
 
@@ -8375,8 +7734,6 @@ console.log(betaManagedAgentsAgent.id);
   - `name: "read"`
 
     Must be "read".
-
-    - `"read"`
 
   - `enabled?: boolean | null`
 
@@ -8392,19 +7749,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type?: "read"`
-
-    - `"read"`
 
 ### Beta Managed Agents Session Thread Agent
 
@@ -8421,8 +7772,6 @@ console.log(betaManagedAgentsAgent.id);
     - `name: string`
 
     - `type: "url"`
-
-      - `"url"`
 
     - `url: string`
 
@@ -8502,15 +7851,11 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "low"`
 
-          - `"low"`
-
       - `BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
-
-          - `"medium"`
 
       - `BetaManagedAgentsEffortHigh`
 
@@ -8518,23 +7863,17 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "high"`
 
-          - `"high"`
-
       - `BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
       - `BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo?: string`
 
@@ -8560,8 +7899,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
     - `BetaManagedAgentsCustomSkill`
@@ -8571,8 +7908,6 @@ console.log(betaManagedAgentsAgent.id);
       - `skill_id: string`
 
       - `type: "custom"`
-
-        - `"custom"`
 
       - `version: string`
 
@@ -8592,8 +7927,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `name: "bash"`
 
-            - `"bash"`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -8604,19 +7937,13 @@ console.log(betaManagedAgentsAgent.id);
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfig`
 
@@ -8625,8 +7952,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "edit"`
-
-            - `"edit"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -8642,8 +7967,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -8651,8 +7974,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "read"`
-
-            - `"read"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -8668,8 +7989,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -8677,8 +7996,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "write"`
-
-            - `"write"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -8694,8 +8011,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -8703,8 +8018,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "glob"`
-
-            - `"glob"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -8720,8 +8033,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -8729,8 +8040,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "grep"`
-
-            - `"grep"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -8746,8 +8055,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -8755,8 +8062,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "web_fetch"`
-
-            - `"web_fetch"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -8772,13 +8077,13 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "web_fetch"`
 
-            - `"web_fetch"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
 
           - `max_content_tokens?: number | null`
+
+            format: int32
 
         - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -8787,8 +8092,6 @@ console.log(betaManagedAgentsAgent.id);
           - `enabled: boolean`
 
           - `name: "web_search"`
-
-            - `"web_search"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -8804,8 +8107,6 @@ console.log(betaManagedAgentsAgent.id);
 
           - `type: "web_search"`
 
-            - `"web_search"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
@@ -8818,11 +8119,11 @@ console.log(betaManagedAgentsAgent.id);
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -8832,9 +8133,13 @@ console.log(betaManagedAgentsAgent.id);
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -8855,8 +8160,6 @@ console.log(betaManagedAgentsAgent.id);
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
 
@@ -8900,8 +8203,6 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -8914,8 +8215,6 @@ console.log(betaManagedAgentsAgent.id);
 
         - `type: "object"`
 
-          - `"object"`
-
         - `properties?: Record<string, unknown> | null`
 
         - `required?: Array<string> | null`
@@ -8924,13 +8223,11 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
 
-    - `"agent"`
-
   - `version: number`
+
+    format: int32
 
 ### Beta Managed Agents Skill Params
 
@@ -8946,13 +8243,15 @@ console.log(betaManagedAgentsAgent.id);
 
       Identifier of the Anthropic skill (e.g., "xlsx").
 
-    - `type: "anthropic"`
+      minLength: 1, maxLength: 64
 
-      - `"anthropic"`
+    - `type: "anthropic"`
 
     - `version?: string | null`
 
       Version to pin. Defaults to latest if omitted.
+
+      minLength: 1, maxLength: 64
 
   - `BetaManagedAgentsCustomSkillParams`
 
@@ -8962,13 +8261,15 @@ console.log(betaManagedAgentsAgent.id);
 
       Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-    - `type: "custom"`
+      minLength: 1, maxLength: 64
 
-      - `"custom"`
+    - `type: "custom"`
 
     - `version?: string | null`
 
       Version to pin. Defaults to latest if omitted.
+
+      minLength: 1, maxLength: 64
 
 ### Beta Managed Agents URL MCP Server Params
 
@@ -8980,13 +8281,15 @@ console.log(betaManagedAgentsAgent.id);
 
     Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-  - `type: "url"`
+    minLength: 1, maxLength: 255
 
-    - `"url"`
+  - `type: "url"`
 
   - `url: string`
 
     Endpoint URL for the MCP server.
+
+    maxLength: 2048
 
 ### Beta Managed Agents User Location
 
@@ -8998,11 +8301,11 @@ console.log(betaManagedAgentsAgent.id);
 
     Location precision. Only "approximate" is supported.
 
-    - `"approximate"`
-
   - `city?: string | null`
 
     City name.
+
+    minLength: 1, maxLength: 255
 
   - `country?: string | null`
 
@@ -9012,9 +8315,13 @@ console.log(betaManagedAgentsAgent.id);
 
     Region or state name.
 
+    minLength: 1, maxLength: 255
+
   - `timezone?: string | null`
 
     IANA timezone identifier, e.g. "America/Los_Angeles".
+
+    minLength: 1, maxLength: 255
 
 ### Beta Managed Agents Web Fetch Tool Config
 
@@ -9026,8 +8333,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `name: "web_fetch"`
 
-    - `"web_fetch"`
-
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
     Permission policy for tool execution.
@@ -9038,25 +8343,21 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type: "web_fetch"`
-
-    - `"web_fetch"`
 
   - `allowed_domains?: Array<string>`
 
   - `blocked_domains?: Array<string>`
 
   - `max_content_tokens?: number | null`
+
+    format: int32
 
 ### Beta Managed Agents Web Fetch Tool Config Params
 
@@ -9067,8 +8368,6 @@ console.log(betaManagedAgentsAgent.id);
   - `name: "web_fetch"`
 
     Must be "web_fetch".
-
-    - `"web_fetch"`
 
   - `allowed_domains?: Array<string>`
 
@@ -9086,6 +8385,8 @@ console.log(betaManagedAgentsAgent.id);
 
     Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+    format: int32
+
   - `permission_policy?: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy | null`
 
     Permission policy for tool execution.
@@ -9096,19 +8397,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type?: "web_fetch"`
-
-    - `"web_fetch"`
 
 ### Beta Managed Agents Web Search Tool Config
 
@@ -9120,8 +8415,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `name: "web_search"`
 
-    - `"web_search"`
-
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
     Permission policy for tool execution.
@@ -9132,19 +8425,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type: "web_search"`
-
-    - `"web_search"`
 
   - `allowed_domains?: Array<string>`
 
@@ -9158,11 +8445,11 @@ console.log(betaManagedAgentsAgent.id);
 
       Location precision. Only "approximate" is supported.
 
-      - `"approximate"`
-
     - `city?: string | null`
 
       City name.
+
+      minLength: 1, maxLength: 255
 
     - `country?: string | null`
 
@@ -9172,9 +8459,13 @@ console.log(betaManagedAgentsAgent.id);
 
       Region or state name.
 
+      minLength: 1, maxLength: 255
+
     - `timezone?: string | null`
 
       IANA timezone identifier, e.g. "America/Los_Angeles".
+
+      minLength: 1, maxLength: 255
 
 ### Beta Managed Agents Web Search Tool Config Params
 
@@ -9185,8 +8476,6 @@ console.log(betaManagedAgentsAgent.id);
   - `name: "web_search"`
 
     Must be "web_search".
-
-    - `"web_search"`
 
   - `allowed_domains?: Array<string>`
 
@@ -9210,19 +8499,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type?: "web_search"`
-
-    - `"web_search"`
 
   - `user_location?: BetaManagedAgentsUserLocation | null`
 
@@ -9232,11 +8515,11 @@ console.log(betaManagedAgentsAgent.id);
 
       Location precision. Only "approximate" is supported.
 
-      - `"approximate"`
-
     - `city?: string | null`
 
       City name.
+
+      minLength: 1, maxLength: 255
 
     - `country?: string | null`
 
@@ -9246,9 +8529,13 @@ console.log(betaManagedAgentsAgent.id);
 
       Region or state name.
 
+      minLength: 1, maxLength: 255
+
     - `timezone?: string | null`
 
       IANA timezone identifier, e.g. "America/Los_Angeles".
+
+      minLength: 1, maxLength: 255
 
 ### Beta Managed Agents Write Tool Config
 
@@ -9260,8 +8547,6 @@ console.log(betaManagedAgentsAgent.id);
 
   - `name: "write"`
 
-    - `"write"`
-
   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
     Permission policy for tool execution.
@@ -9272,19 +8557,13 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type: "write"`
-
-    - `"write"`
 
 ### Beta Managed Agents Write Tool Config Params
 
@@ -9295,8 +8574,6 @@ console.log(betaManagedAgentsAgent.id);
   - `name: "write"`
 
     Must be "write".
-
-    - `"write"`
 
   - `enabled?: boolean | null`
 
@@ -9312,31 +8589,25 @@ console.log(betaManagedAgentsAgent.id);
 
       - `type: "always_allow"`
 
-        - `"always_allow"`
-
     - `BetaManagedAgentsAlwaysAskPolicy`
 
       Tool calls require user confirmation before execution.
 
       - `type: "always_ask"`
 
-        - `"always_ask"`
-
   - `type?: "write"`
 
-    - `"write"`
+## Agents › Versions
 
-# Versions
+### List Agent Versions
 
-## List Agent Versions
+`client.beta.agents.versions.list(agentID, params?, options?): PageCursor<BetaManagedAgentsAgent>`
 
-`client.beta.agents.versions.list(stringagentID, VersionListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsAgent>`
-
-**get** `/v1/agents/{agent_id}/versions`
+**GET** `/v1/agents/{agent_id}/versions`
 
 List Agent Versions
 
-### Parameters
+#### Parameters
 
 - `agentID: string`
 
@@ -9345,6 +8616,8 @@ List Agent Versions
   - `limit?: number`
 
     Query param: Maximum results per page. Default 20, maximum 100.
+
+    format: int32
 
   - `page?: string`
 
@@ -9426,7 +8699,7 @@ List Agent Versions
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsAgent`
 
@@ -9438,9 +8711,13 @@ List Agent Versions
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: string | null`
 
@@ -9449,8 +8726,6 @@ List Agent Versions
     - `name: string`
 
     - `type: "url"`
-
-      - `"url"`
 
     - `url: string`
 
@@ -9532,15 +8807,11 @@ List Agent Versions
 
         - `type: "low"`
 
-          - `"low"`
-
       - `BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
-
-          - `"medium"`
 
       - `BetaManagedAgentsEffortHigh`
 
@@ -9548,23 +8819,17 @@ List Agent Versions
 
         - `type: "high"`
 
-          - `"high"`
-
       - `BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
       - `BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo?: string`
 
@@ -9594,9 +8859,9 @@ List Agent Versions
 
         - `type: "agent"`
 
-          - `"agent"`
-
         - `version: number`
+
+          format: int32
 
       - `BetaManagedAgentsAdvisor`
 
@@ -9608,11 +8873,7 @@ List Agent Versions
 
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name: string`
 
@@ -9626,8 +8887,6 @@ List Agent Versions
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
     - `BetaManagedAgentsCustomSkill`
@@ -9637,8 +8896,6 @@ List Agent Versions
       - `skill_id: string`
 
       - `type: "custom"`
-
-        - `"custom"`
 
       - `version: string`
 
@@ -9658,8 +8915,6 @@ List Agent Versions
 
           - `name: "bash"`
 
-            - `"bash"`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -9670,19 +8925,13 @@ List Agent Versions
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
-
-            - `"bash"`
 
         - `BetaManagedAgentsEditToolConfig`
 
@@ -9691,8 +8940,6 @@ List Agent Versions
           - `enabled: boolean`
 
           - `name: "edit"`
-
-            - `"edit"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9708,8 +8955,6 @@ List Agent Versions
 
           - `type: "edit"`
 
-            - `"edit"`
-
         - `BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -9717,8 +8962,6 @@ List Agent Versions
           - `enabled: boolean`
 
           - `name: "read"`
-
-            - `"read"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9734,8 +8977,6 @@ List Agent Versions
 
           - `type: "read"`
 
-            - `"read"`
-
         - `BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -9743,8 +8984,6 @@ List Agent Versions
           - `enabled: boolean`
 
           - `name: "write"`
-
-            - `"write"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9760,8 +8999,6 @@ List Agent Versions
 
           - `type: "write"`
 
-            - `"write"`
-
         - `BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -9769,8 +9006,6 @@ List Agent Versions
           - `enabled: boolean`
 
           - `name: "glob"`
-
-            - `"glob"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9786,8 +9021,6 @@ List Agent Versions
 
           - `type: "glob"`
 
-            - `"glob"`
-
         - `BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -9795,8 +9028,6 @@ List Agent Versions
           - `enabled: boolean`
 
           - `name: "grep"`
-
-            - `"grep"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9812,8 +9043,6 @@ List Agent Versions
 
           - `type: "grep"`
 
-            - `"grep"`
-
         - `BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -9821,8 +9050,6 @@ List Agent Versions
           - `enabled: boolean`
 
           - `name: "web_fetch"`
-
-            - `"web_fetch"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9838,13 +9065,13 @@ List Agent Versions
 
           - `type: "web_fetch"`
 
-            - `"web_fetch"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
 
           - `max_content_tokens?: number | null`
+
+            format: int32
 
         - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -9853,8 +9080,6 @@ List Agent Versions
           - `enabled: boolean`
 
           - `name: "web_search"`
-
-            - `"web_search"`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9870,8 +9095,6 @@ List Agent Versions
 
           - `type: "web_search"`
 
-            - `"web_search"`
-
           - `allowed_domains?: Array<string>`
 
           - `blocked_domains?: Array<string>`
@@ -9884,11 +9107,11 @@ List Agent Versions
 
               Location precision. Only "approximate" is supported.
 
-              - `"approximate"`
-
             - `city?: string | null`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country?: string | null`
 
@@ -9898,9 +9121,13 @@ List Agent Versions
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone?: string | null`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -9921,8 +9148,6 @@ List Agent Versions
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
 
     - `BetaManagedAgentsMCPToolset`
 
@@ -9966,8 +9191,6 @@ List Agent Versions
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
     - `BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -9980,8 +9203,6 @@ List Agent Versions
 
         - `type: "object"`
 
-          - `"object"`
-
         - `properties?: Record<string, unknown> | null`
 
         - `required?: Array<string> | null`
@@ -9990,21 +9211,21 @@ List Agent Versions
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
-
-    - `"agent"`
 
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: number`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
 
-### Example
+    format: int32
+
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -10021,7 +9242,7 @@ for await (const betaManagedAgentsAgent of client.beta.agents.versions.list(
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {

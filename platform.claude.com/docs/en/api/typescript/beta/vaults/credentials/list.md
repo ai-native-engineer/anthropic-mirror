@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/vaults/credentials/list -->
 
----
-title: List Credentials
-url: https://platform.claude.com/docs/en/api/typescript/beta/vaults/credentials/list
----
+# List Credentials
 
-## List Credentials
+`client.beta.vaults.credentials.list(vaultID, params?, options?): PageCursor<BetaManagedAgentsCredential>`
 
-`client.beta.vaults.credentials.list(stringvaultID, CredentialListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsCredential>`
-
-**get** `/v1/vaults/{vault_id}/credentials`
+**GET** `/v1/vaults/{vault_id}/credentials`
 
 List Credentials
 
-### Parameters
+## Parameters
 
 - `vaultID: string`
 
@@ -26,6 +21,8 @@ List Credentials
   - `limit?: number`
 
     Query param: Maximum number of credentials to return per page. Defaults to 20, maximum 100.
+
+    format: int32
 
   - `page?: string`
 
@@ -107,7 +104,7 @@ List Credentials
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsCredential`
 
@@ -120,6 +117,8 @@ List Credentials
   - `archived_at: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse | BetaManagedAgentsStaticBearerAuthResponse | BetaManagedAgentsEnvironmentVariableAuthResponse`
 
@@ -135,11 +134,11 @@ List Credentials
 
       - `type: "mcp_oauth"`
 
-        - `"mcp_oauth"`
-
       - `expires_at?: string | null`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `refresh?: BetaManagedAgentsMCPOAuthRefreshResponse | null`
 
@@ -163,23 +162,17 @@ List Credentials
 
             - `type: "none"`
 
-              - `"none"`
-
           - `BetaManagedAgentsTokenEndpointAuthBasicResponse`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `type: "client_secret_basic"`
 
-              - `"client_secret_basic"`
-
           - `BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint uses POST body authentication with client credentials.
 
             - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
 
         - `resource?: string | null`
 
@@ -198,8 +191,6 @@ List Credentials
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
-        - `"static_bearer"`
 
     - `BetaManagedAgentsEnvironmentVariableAuthResponse`
 
@@ -227,8 +218,6 @@ List Credentials
 
           - `type: "unrestricted"`
 
-            - `"unrestricted"`
-
         - `BetaManagedAgentsLimitedCredentialNetworkingResponse`
 
           The secret is substituted only on requests to the listed hosts.
@@ -239,19 +228,17 @@ List Credentials
 
           - `type: "limited"`
 
-            - `"limited"`
-
       - `secret_name: string`
 
         Name of the environment variable.
 
       - `type: "environment_variable"`
 
-        - `"environment_variable"`
-
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `metadata: Record<string, string>`
 
@@ -259,11 +246,11 @@ List Credentials
 
   - `type: "vault_credential"`
 
-    - `"vault_credential"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `vault_id: string`
 
@@ -273,7 +260,7 @@ List Credentials
 
     Human-readable name for the credential.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -290,7 +277,7 @@ for await (const betaManagedAgentsCredential of client.beta.vaults.credentials.l
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -66,7 +66,7 @@ If your program's needs change significantly over time, please submit an updated
 We appreciate your interest in conducting red-teaming or jailbreaking research, as it plays a crucial role in improving AI safety. However, to maintain the sustainability of our AI for Science Program, participants are not exempt from our [Usage Policy.](https://www.anthropic.com/legal/aup) Our Trust & Safety team will follow our standard enforcement procedures and take action whenever an organization's prompt activity hits our violation rate thresholds.
 
 * [What is the External Researcher Access Program?](https://support.claude.com/en/articles/9125743-what-is-the-external-researcher-access-program)
+* [Does Anthropic Act as a Data Processor or Controller?](https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [About the Development Partner Program](https://support.claude.com/en/articles/11174108-about-the-development-partner-program)
-* [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
 * [Why Claude switched models in your conversation with Fable 5](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5)
 * [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

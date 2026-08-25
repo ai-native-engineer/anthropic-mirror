@@ -6,7 +6,7 @@
 
 # Audit a folder of visual assets against your guidelines
 
-In Claude Cowork, Claude Opus 4.7 can read a large folder of image exports at full resolution to spot off-brand colors, outdated logos, and missing legal copy. Point Claude at your assets folder and your brand guidelines, and get back a categorized list of violations with a confidence rating on each one.
+In Claude Cowork, Claude Opus 5 can read a large folder of image exports at high resolution to spot off-brand colors, outdated logos, and missing legal copy. Point Claude at your assets folder and your brand guidelines, and get back a categorized list of violations with a confidence rating on each one.
 
 15 minMarketingClaude Cowork
 
@@ -18,9 +18,9 @@ Try in CoworkCopy prompt
 
 ## 1. Describe the task
 
-With Claude Opus 4.7, any folder of images can be checked against a written set of rules — brand guidelines for marketing assets, accessibility rules for UI screenshots, a style guide for a batch of design exports.
+With Claude Opus 5, any folder of images can be checked against a written set of rules — brand guidelines for marketing assets, accessibility rules for UI screenshots, a style guide for a batch of design exports.
 
-Opus 4.7 reads images at higher resolution than prior Claude models, so the small details that decide a match — a hex value, a logo version, a line of legal text — come through clearly. It can hold the rules document and the images together and check one against the other across the whole folder.
+Opus 5 reads images at high resolution (up to 2,576 pixels on the long edge), so the small details that decide a match — a hex value, a logo version, a line of legal text — come through clearly. It can hold the rules document and the images together and check one against the other across the whole folder.
 
 Here, a folder of live marketing assets gets checked against a brand-guidelines PDF and a legal-compliance sheet.
 
@@ -40,7 +40,7 @@ Open in Cowork
 
 In Claude Cowork, [point your project at the folder(opens in new tab)](https://support.claude.com/en/articles/13345190-get-started-with-cowork) that holds the brand-guidelines PDF, the legal sheet, and the asset exports.
 
-Make sure **Opus 4.7** is selected in the model picker. Opus 4.7 has improved vision which helps while reading small text in the guide and matching it against the same detail across hundreds of images.
+Opus 5's high-resolution vision helps while reading small text in the guide and matching it against the same detail across hundreds of images.
 
 ### Required context
 
@@ -116,15 +116,15 @@ Open in Cowork
 
 ### Name the deliverable and the grouping in your prompt
 
-Tell Claude how to group the findings (Logo, Color, Legal, Claims) and what to return per item (filename, issue, guideline value, asset value, confidence). Opus 4.7 follows a format instruction like that closely, so you get a structured list you can act on rather than prose.
+Tell Claude how to group the findings (Logo, Color, Legal, Claims) and what to return per item (filename, issue, guideline value, asset value, confidence). Opus 5 follows a format instruction like that closely, so you get a structured list you can act on rather than prose.
 
-### Opus 4.7 reads images with more precision; Claude Cowork is what lets it work through the whole folder
+### Opus 5 reads images at high resolution; Claude Cowork is what lets it work through the whole folder
 
-The high-resolution reading is a property of the model. Claude Cowork is what gives the model the entire folder — assets and reference documents together — and the working context to process all 200 in one task. You'd get the same reading quality on a handful of uploads in a [claude.ai(opens in new tab)](https://claude.ai) chat with Opus 4.7 selected; Claude Cowork is what makes it practical at folder scale and lets you schedule it.
+The high-resolution reading is a property of the model. Claude Cowork is what gives the model the entire folder — assets and reference documents together — and the working context to process all 200 in one task. You'd get the same reading quality on a handful of uploads in a [claude.ai(opens in new tab)](https://claude.ai) chat with Opus 5 selected; Claude Cowork is what makes it practical at folder scale and lets you schedule it.
 
 ### Tell Claude which rules are mandatory and which are tolerable
 
-If legal copy is non-negotiable but a hex within a few points is acceptable, say so in the prompt or the project instructions. Opus 4.7 will weight legal violations as high priority and near-miss colors as lower, and your output will already be sorted the way you'd triage it.
+If legal copy is non-negotiable but a hex within a few points is acceptable, say so in the prompt or the project instructions. Opus 5 will weight legal violations as high priority and near-miss colors as lower, and your output will already be sorted the way you'd triage it.
 
 ## 6. Ready to try for yourself?
 

@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/skills/create -->
 
----
-title: Create Skill
-url: https://platform.claude.com/docs/en/api/typescript/beta/skills/create
----
+# Create Skill
 
-## Create Skill
+`client.beta.skills.create(params, options?): SkillCreateResponse`
 
-`client.beta.skills.create(SkillCreateParamsparams, RequestOptionsoptions?): SkillCreateResponse`
-
-**post** `/v1/skills`
+**POST** `/v1/skills`
 
 Create Skill
 
-### Parameters
+## Parameters
 
 - `params: SkillCreateParams`
 
@@ -105,7 +100,7 @@ Create Skill
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `SkillCreateResponse`
 
@@ -146,11 +141,13 @@ Create Skill
 
     For Skills, this is always `"skill"`.
 
+    default: skill
+
   - `updated_at: string`
 
     ISO 8601 timestamp of when the skill was last updated.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -166,7 +163,7 @@ const skill = await client.beta.skills.create({
 console.log(skill.id);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -42,7 +42,7 @@ In [Settings > Connectors(opens in new tab)](https://claude.ai/customize/connect
 
 Claude can then search across your connected tools simultaneously—identifying which meetings need prep, what's urgent in your inbox, and how your schedule and communications relate to each other.
 
-![](data:image/svg+xml,%3csvg%20viewBox='0%200%2024%2024'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20fill='%23F25022'%20d='M1%201h10.5v10.5H1z'/%3e%3cpath%20fill='%237FBA00'%20d='M12.5%201H23v10.5H12.5z'/%3e%3cpath%20fill='%2300A4EF'%20d='M1%2012.5h10.5V23H1z'/%3e%3cpath%20fill='%23FFB900'%20d='M12.5%2012.5H23V23H12.5z'/%3e%3c/svg%3e)
+![](images/3cb5db332ced9f49.svg)
 
 Microsoft 365
 

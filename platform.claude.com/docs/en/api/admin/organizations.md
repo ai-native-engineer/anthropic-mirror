@@ -1,25 +1,22 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/organizations -->
 
----
-title: Organizations
-url: https://platform.claude.com/docs/en/api/admin/organizations
----
-
 # Organizations
 
 ## Get Current Organization
 
-**get** `/v1/organizations/me`
+**GET** `/v1/organizations/me`
 
 Retrieve information about the organization associated with the authenticated API key.
 
 ### Returns
 
-- `Organization object { id, name, type }`
+- `Organization object`
 
   - `id: string`
 
     ID of the Organization.
+
+    format: uuid
 
   - `name: string`
 
@@ -31,17 +28,17 @@ Retrieve information about the organization associated with the authenticated AP
 
     For Organizations, this is always `"organization"`.
 
-    - `"organization"`
+    default: organization
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/me \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -51,15 +48,17 @@ curl https://api.anthropic.com/v1/organizations/me \
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Organization
 
-- `Organization object { id, name, type }`
+- `Organization object`
 
   - `id: string`
 
     ID of the Organization.
+
+    format: uuid
 
   - `name: string`
 
@@ -71,4 +70,4 @@ curl https://api.anthropic.com/v1/organizations/me \
 
     For Organizations, this is always `"organization"`.
 
-    - `"organization"`
+    default: organization

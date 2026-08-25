@@ -478,10 +478,10 @@ Manager: Priya Shah*
 
 ### Human Resources
 
-* Convert project requirements into technical specifications
-* Design system architecture and component interactions
-* Troubleshoot errors and runtime issues
-* Identify code optimizations and performance improvements
+* Summarize candidate feedback into hiring recommendations
+* Create performance review templates and calibration summaries
+* Develop learning and development programs
+* Interpret headcount and workforce planning metrics
 
 Prompt
 

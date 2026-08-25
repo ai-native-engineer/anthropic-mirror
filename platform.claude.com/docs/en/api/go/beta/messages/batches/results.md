@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/messages/batches/results -->
 
----
-title: Retrieve Message Batch results
-url: https://platform.claude.com/docs/en/api/go/beta/messages/batches/results
----
-
-## Retrieve Message Batch results
+# Retrieve Message Batch results
 
 `client.Beta.Messages.Batches.Results(ctx, messageBatchID, query) (*BetaMessageBatchIndividualResponse, error)`
 
-**get** `/v1/messages/batches/{message_batch_id}/results`
+**GET** `/v1/messages/batches/{message_batch_id}/results`
 
 Streams the results of a Message Batch as a `.jsonl` file.
 
@@ -17,7 +12,7 @@ Each line in the file is a JSON object containing the result of a single request
 
 Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
-### Parameters
+## Parameters
 
 - `messageBatchID string`
 
@@ -25,7 +20,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
 - `query BetaMessageBatchResultsParams`
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -101,7 +96,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaMessageBatchIndividualResponse struct{…}`
 
@@ -141,6 +136,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The time at which the container will expire.
 
+            format: date-time
+
           - `Skills []BetaSkill`
 
             Skills loaded in the container
@@ -148,6 +145,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `SkillID string`
 
               Skill ID
+
+              maxLength: 64, minLength: 1
 
             - `Type BetaSkillType`
 
@@ -160,6 +159,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `Version string`
 
               The resolved version: a skill version ID for custom skills.
+
+              maxLength: 64, minLength: 1
 
         - `Content []BetaContentBlockUnion`
 
@@ -204,6 +205,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `DocumentIndex int64`
 
+                  minimum: 0
+
                 - `DocumentTitle string`
 
                 - `EndCharIndex int64`
@@ -212,15 +215,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `StartCharIndex int64`
 
+                  minimum: 0
+
                 - `Type CharLocation`
 
-                  - `const CharLocationCharLocation CharLocation = "char_location"`
+                  default: char_location
 
               - `type BetaCitationPageLocation struct{…}`
 
                 - `CitedText string`
 
                 - `DocumentIndex int64`
+
+                  minimum: 0
 
                 - `DocumentTitle string`
 
@@ -230,9 +237,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `StartPageNumber int64`
 
+                  minimum: 1
+
                 - `Type PageLocation`
 
-                  - `const PageLocationPageLocation PageLocation = "page_location"`
+                  default: page_location
 
               - `type BetaCitationContentBlockLocation struct{…}`
 
@@ -243,6 +252,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
                 - `DocumentIndex int64`
+
+                  minimum: 0
 
                 - `DocumentTitle string`
 
@@ -258,9 +269,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   0-based index of the first cited block in the source's `content` array.
 
+                  minimum: 0
+
                 - `Type ContentBlockLocation`
 
-                  - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
+                  default: content_block_location
 
               - `type BetaCitationsWebSearchResultLocation struct{…}`
 
@@ -270,9 +283,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Title string`
 
+                  maxLength: 512
+
                 - `Type WebSearchResultLocation`
 
-                  - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
+                  default: web_search_result_location
 
                 - `URL string`
 
@@ -296,23 +311,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Counted separately from `document_index`; server-side web search results are not included in this count.
 
+                  minimum: 0
+
                 - `Source string`
 
                 - `StartBlockIndex int64`
 
                   0-based index of the first cited block in the source's `content` array.
 
+                  minimum: 0
+
                 - `Title string`
 
                 - `Type SearchResultLocation`
 
-                  - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
+                  default: search_result_location
 
             - `Text string`
 
+              maxLength: 5000000, minLength: 0
+
             - `Type Text`
 
-              - `const TextText Text = "text"`
+              default: text
 
           - `type BetaThinkingBlock struct{…}`
 
@@ -330,7 +351,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Type Thinking`
 
-              - `const ThinkingThinking Thinking = "thinking"`
+              default: thinking
 
           - `type BetaRedactedThinkingBlock struct{…}`
 
@@ -344,21 +365,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Type RedactedThinking`
 
-              - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
+              default: redacted_thinking
 
           - `type BetaToolUseBlock struct{…}`
 
             - `ID string`
 
+              pattern: ^[a-zA-Z0-9_-]+$
+
             - `Input map[string, any]`
 
             - `Name string`
 
+              minLength: 1
+
             - `Type ToolUse`
 
-              - `const ToolUseToolUse ToolUse = "tool_use"`
+              default: tool_use
 
-            - `Caller BetaToolUseBlockCallerUnion`
+            - `Caller BetaToolUseBlockCallerUnion Optional`
 
               Tool invocation directly from the model.
 
@@ -368,33 +393,35 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type Direct`
 
-                  - `const DirectDirect Direct = "direct"`
-
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
 
                 - `ToolID string`
 
-                - `Type CodeExecution20250825`
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                  - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
+                - `Type CodeExecution20250825`
 
               - `type BetaServerToolCaller20260120 struct{…}`
 
                 - `ToolID string`
 
+                  pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
                 - `Type CodeExecution20260120`
 
-                  - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
-            - `ToolsetName string`
+            - `ToolsetName string Optional`
 
               For a toolset member tool_use, the toolset family.
+
+              maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
           - `type BetaServerToolUseBlock struct{…}`
 
             - `ID string`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
             - `Input map[string, any]`
 
@@ -418,9 +445,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Type ServerToolUse`
 
-              - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
+              default: server_tool_use
 
-            - `Caller BetaServerToolUseBlockCallerUnion`
+            - `Caller BetaServerToolUseBlockCallerUnion Optional`
 
               Tool invocation directly from the model.
 
@@ -456,7 +483,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type WebSearchToolResultError`
 
-                  - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
+                  default: web_search_tool_result_error
 
               - `type BetaWebSearchToolResultBlockContentArray []BetaWebSearchResultBlock`
 
@@ -468,17 +495,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type WebSearchResult`
 
-                  - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
+                  default: web_search_result
 
                 - `URL string`
 
             - `ToolUseID string`
 
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
             - `Type WebSearchToolResult`
 
-              - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
+              default: web_search_tool_result
 
-            - `Caller BetaWebSearchToolResultBlockCallerUnion`
+            - `Caller BetaWebSearchToolResultBlockCallerUnion Optional`
 
               Tool invocation directly from the model.
 
@@ -520,7 +549,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type WebFetchToolResultError`
 
-                  - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
+                  default: web_fetch_tool_result_error
 
               - `type BetaWebFetchBlock struct{…}`
 
@@ -532,19 +561,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `Enabled bool`
 
+                      default: false
+
                   - `Source BetaDocumentBlockSourceUnion`
 
                     - `type BetaBase64PDFSource struct{…}`
 
                       - `Data string`
 
+                        format: byte
+
                       - `MediaType ApplicationPDF`
 
-                        - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
-
                       - `Type Base64`
-
-                        - `const Base64Base64 Base64 = "base64"`
 
                     - `type BetaPlainTextSource struct{…}`
 
@@ -552,11 +581,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       - `MediaType TextPlain`
 
-                        - `const TextPlainTextPlain TextPlain = "text/plain"`
-
                       - `Type Text`
-
-                        - `const TextText Text = "text"`
 
                   - `Title string`
 
@@ -564,7 +589,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Type Document`
 
-                    - `const DocumentDocument Document = "document"`
+                    default: document
 
                 - `RetrievedAt string`
 
@@ -572,7 +597,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type WebFetchResult`
 
-                  - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
+                  default: web_fetch_result
 
                 - `URL string`
 
@@ -580,11 +605,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `ToolUseID string`
 
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
             - `Type WebFetchToolResult`
 
-              - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
+              default: web_fetch_tool_result
 
-            - `Caller BetaWebFetchToolResultBlockCallerUnion`
+            - `Caller BetaWebFetchToolResultBlockCallerUnion Optional`
 
               Tool invocation directly from the model.
 
@@ -622,7 +649,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type AdvisorToolResultError`
 
-                  - `const AdvisorToolResultErrorAdvisorToolResultError AdvisorToolResultError = "advisor_tool_result_error"`
+                  default: advisor_tool_result_error
 
               - `type BetaAdvisorResultBlock struct{…}`
 
@@ -634,7 +661,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type AdvisorResult`
 
-                  - `const AdvisorResultAdvisorResult AdvisorResult = "advisor_result"`
+                  default: advisor_result
 
               - `type BetaAdvisorRedactedResultBlock struct{…}`
 
@@ -648,13 +675,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type AdvisorRedactedResult`
 
-                  - `const AdvisorRedactedResultAdvisorRedactedResult AdvisorRedactedResult = "advisor_redacted_result"`
+                  default: advisor_redacted_result
 
             - `ToolUseID string`
 
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
             - `Type AdvisorToolResult`
 
-              - `const AdvisorToolResultAdvisorToolResult AdvisorToolResult = "advisor_tool_result"`
+              default: advisor_tool_result
 
           - `type BetaCodeExecutionToolResultBlock struct{…}`
 
@@ -676,7 +705,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type CodeExecutionToolResultError`
 
-                  - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
+                  default: code_execution_tool_result_error
 
               - `type BetaCodeExecutionResultBlock struct{…}`
 
@@ -686,7 +715,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Type CodeExecutionOutput`
 
-                    - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
+                    default: code_execution_output
 
                 - `ReturnCode int64`
 
@@ -696,7 +725,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type CodeExecutionResult`
 
-                  - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
+                  default: code_execution_result
 
               - `type BetaEncryptedCodeExecutionResultBlock struct{…}`
 
@@ -708,6 +737,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Type CodeExecutionOutput`
 
+                    default: code_execution_output
+
                 - `EncryptedStdout string`
 
                 - `ReturnCode int64`
@@ -716,13 +747,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type EncryptedCodeExecutionResult`
 
-                  - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
+                  default: encrypted_code_execution_result
 
             - `ToolUseID string`
 
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
             - `Type CodeExecutionToolResult`
 
-              - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
+              default: code_execution_tool_result
 
           - `type BetaBashCodeExecutionToolResultBlock struct{…}`
 
@@ -744,7 +777,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type BashCodeExecutionToolResultError`
 
-                  - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
+                  default: bash_code_execution_tool_result_error
 
               - `type BetaBashCodeExecutionResultBlock struct{…}`
 
@@ -754,7 +787,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `Type BashCodeExecutionOutput`
 
-                    - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
+                    default: bash_code_execution_output
 
                 - `ReturnCode int64`
 
@@ -764,13 +797,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type BashCodeExecutionResult`
 
-                  - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
+                  default: bash_code_execution_result
 
             - `ToolUseID string`
 
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
             - `Type BashCodeExecutionToolResult`
 
-              - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
+              default: bash_code_execution_tool_result
 
           - `type BetaTextEditorCodeExecutionToolResultBlock struct{…}`
 
@@ -794,7 +829,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type TextEditorCodeExecutionToolResultError`
 
-                  - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
+                  default: text_editor_code_execution_tool_result_error
 
               - `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
 
@@ -816,7 +851,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type TextEditorCodeExecutionViewResult`
 
-                  - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
+                  default: text_editor_code_execution_view_result
 
               - `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
 
@@ -824,7 +859,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type TextEditorCodeExecutionCreateResult`
 
-                  - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
+                  default: text_editor_code_execution_create_result
 
               - `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
 
@@ -840,13 +875,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type TextEditorCodeExecutionStrReplaceResult`
 
-                  - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
+                  default: text_editor_code_execution_str_replace_result
 
             - `ToolUseID string`
 
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
             - `Type TextEditorCodeExecutionToolResult`
 
-              - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
+              default: text_editor_code_execution_tool_result
 
           - `type BetaToolSearchToolResultBlock struct{…}`
 
@@ -868,7 +905,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type ToolSearchToolResultError`
 
-                  - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
+                  default: tool_search_tool_result_error
 
               - `type BetaToolSearchToolSearchResultBlock struct{…}`
 
@@ -876,23 +913,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `ToolName string`
 
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
                   - `Type ToolReference`
 
-                    - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+                    default: tool_reference
 
                 - `Type ToolSearchToolSearchResult`
 
-                  - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
+                  default: tool_search_tool_search_result
 
             - `ToolUseID string`
 
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
             - `Type ToolSearchToolResult`
 
-              - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
+              default: tool_search_tool_result
 
           - `type BetaMCPToolUseBlock struct{…}`
 
             - `ID string`
+
+              pattern: ^[a-zA-Z0-9_-]+$
 
             - `Input map[string, any]`
 
@@ -906,7 +949,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Type MCPToolUse`
 
-              - `const MCPToolUseMCPToolUse MCPToolUse = "mcp_tool_use"`
+              default: mcp_tool_use
 
           - `type BetaMCPToolResultBlock struct{…}`
 
@@ -924,15 +967,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Text string`
 
+                  maxLength: 5000000, minLength: 0
+
                 - `Type Text`
+
+                  default: text
 
             - `IsError bool`
 
+              default: false
+
             - `ToolUseID string`
+
+              pattern: ^[a-zA-Z0-9_-]+$
 
             - `Type MCPToolResult`
 
-              - `const MCPToolResultMCPToolResult MCPToolResult = "mcp_tool_result"`
+              default: mcp_tool_result
 
           - `type BetaContainerUploadBlock struct{…}`
 
@@ -942,7 +993,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Type ContainerUpload`
 
-              - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
+              default: container_upload
 
           - `type BetaCompactionBlock struct{…}`
 
@@ -962,7 +1013,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Type Compaction`
 
-              - `const CompactionCompaction Compaction = "compaction"`
+              default: compaction
 
           - `type BetaFallbackBlock struct{…}`
 
@@ -1090,11 +1141,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Type Refusal`
 
-                - `const RefusalRefusal Refusal = "refusal"`
+                default: refusal
 
             - `Type Fallback`
 
-              - `const FallbackFallback Fallback = "fallback"`
+              default: fallback
 
         - `ContextManagement BetaContextManagementResponse`
 
@@ -1112,15 +1163,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Number of input tokens cleared by this edit.
 
+                minimum: 0
+
               - `ClearedToolUses int64`
 
                 Number of tool uses that were cleared.
+
+                minimum: 0
 
               - `Type ClearToolUses20250919`
 
                 The type of context management edit applied.
 
-                - `const ClearToolUses20250919ClearToolUses20250919 ClearToolUses20250919 = "clear_tool_uses_20250919"`
+                default: clear_tool_uses_20250919
 
             - `type BetaClearThinking20251015EditResponse struct{…}`
 
@@ -1128,15 +1183,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Number of input tokens cleared by this edit.
 
+                minimum: 0
+
               - `ClearedThinkingTurns int64`
 
                 Number of thinking turns that were cleared.
+
+                minimum: 0
 
               - `Type ClearThinking20251015`
 
                 The type of context management edit applied.
 
-                - `const ClearThinking20251015ClearThinking20251015 ClearThinking20251015 = "clear_thinking_20251015"`
+                default: clear_thinking_20251015
 
         - `Diagnostics BetaDiagnostics`
 
@@ -1155,7 +1214,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Type ModelChanged`
 
-                - `const ModelChangedModelChanged ModelChanged = "model_changed"`
+                default: model_changed
 
             - `type BetaCacheMissSystemChanged struct{…}`
 
@@ -1165,7 +1224,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Type SystemChanged`
 
-                - `const SystemChangedSystemChanged SystemChanged = "system_changed"`
+                default: system_changed
 
             - `type BetaCacheMissToolsChanged struct{…}`
 
@@ -1175,7 +1234,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Type ToolsChanged`
 
-                - `const ToolsChangedToolsChanged ToolsChanged = "tools_changed"`
+                default: tools_changed
 
             - `type BetaCacheMissMessagesChanged struct{…}`
 
@@ -1185,19 +1244,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Type MessagesChanged`
 
-                - `const MessagesChangedMessagesChanged MessagesChanged = "messages_changed"`
+                default: messages_changed
 
             - `type BetaCacheMissPreviousMessageNotFound struct{…}`
 
               - `Type PreviousMessageNotFound`
 
-                - `const PreviousMessageNotFoundPreviousMessageNotFound PreviousMessageNotFound = "previous_message_not_found"`
+                default: previous_message_not_found
 
             - `type BetaCacheMissUnavailable struct{…}`
 
               - `Type Unavailable`
 
-                - `const UnavailableUnavailable Unavailable = "unavailable"`
+                default: unavailable
 
         - `Model Model`
 
@@ -1211,7 +1270,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This will always be `"assistant"`.
 
-          - `const AssistantAssistant Assistant = "assistant"`
+          default: assistant
 
         - `StopDetails BetaRefusalStopDetails`
 
@@ -1298,7 +1357,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `Type Refusal`
 
-            - `const RefusalRefusal Refusal = "refusal"`
+            default: refusal
 
         - `StopReason BetaStopReason`
 
@@ -1344,7 +1403,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           For Messages, this is always `"message"`.
 
-          - `const MessageMessage Message = "message"`
+          default: message
 
         - `Usage BetaUsage`
 
@@ -1366,17 +1425,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The number of input tokens used to create the 1 hour cache entry.
 
+              default: 0, minimum: 0
+
             - `Ephemeral5mInputTokens int64`
 
               The number of input tokens used to create the 5 minute cache entry.
+
+              default: 0, minimum: 0
 
           - `CacheCreationInputTokens int64`
 
             The number of input tokens used to create the cache entry.
 
+            minimum: 0
+
           - `CacheReadInputTokens int64`
 
             The number of input tokens read from the cache.
+
+            minimum: 0
 
           - `FallbackCredit BetaFallbackCreditUsage`
 
@@ -1398,7 +1465,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type Redeemed`
 
-                  - `const RedeemedRedeemed Redeemed = "redeemed"`
+                  default: redeemed
 
               - `type BetaFallbackCreditNotApplied struct{…}`
 
@@ -1437,9 +1504,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `Type NotApplied`
 
-                  - `const NotAppliedNotApplied NotApplied = "not_applied"`
+                  default: not_applied
 
-                - `RemoveToRedeem []string`
+                - `RemoveToRedeem []string Optional`
 
                   Request fields to remove before retrying, so the retry can redeem this
                   token.
@@ -1457,6 +1524,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `InputTokens int64`
 
             The number of input tokens which were used.
+
+            minimum: 0
 
           - `Iterations BetaIterationsUsage`
 
@@ -1480,13 +1549,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The number of input tokens used to create the cache entry.
 
+                default: 0, minimum: 0
+
               - `CacheReadInputTokens int64`
 
                 The number of input tokens read from the cache.
 
+                default: 0, minimum: 0
+
               - `InputTokens int64`
 
                 The number of input tokens which were used.
+
+                minimum: 0
 
               - `Model Model`
 
@@ -1498,11 +1573,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The number of output tokens which were used.
 
+                minimum: 0
+
               - `Type Message`
 
                 Usage for a sampling iteration
 
-                - `const MessageMessage Message = "message"`
+                default: message
 
             - `type BetaCompactionIterationUsage struct{…}`
 
@@ -1516,23 +1593,31 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The number of input tokens used to create the cache entry.
 
+                default: 0, minimum: 0
+
               - `CacheReadInputTokens int64`
 
                 The number of input tokens read from the cache.
+
+                default: 0, minimum: 0
 
               - `InputTokens int64`
 
                 The number of input tokens which were used.
 
+                minimum: 0
+
               - `OutputTokens int64`
 
                 The number of output tokens which were used.
+
+                minimum: 0
 
               - `Type Compaction`
 
                 Usage for a compaction iteration
 
-                - `const CompactionCompaction Compaction = "compaction"`
+                default: compaction
 
             - `type BetaAdvisorMessageIterationUsage struct{…}`
 
@@ -1546,13 +1631,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The number of input tokens used to create the cache entry.
 
+                default: 0, minimum: 0
+
               - `CacheReadInputTokens int64`
 
                 The number of input tokens read from the cache.
 
+                default: 0, minimum: 0
+
               - `InputTokens int64`
 
                 The number of input tokens which were used.
+
+                minimum: 0
 
               - `Model Model`
 
@@ -1564,11 +1655,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The number of output tokens which were used.
 
+                minimum: 0
+
               - `Type AdvisorMessage`
 
                 Usage for an advisor sub-inference iteration
 
-                - `const AdvisorMessageAdvisorMessage AdvisorMessage = "advisor_message"`
+                default: advisor_message
 
             - `type BetaFallbackMessageIterationUsage struct{…}`
 
@@ -1587,13 +1680,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The number of input tokens used to create the cache entry.
 
+                default: 0, minimum: 0
+
               - `CacheReadInputTokens int64`
 
                 The number of input tokens read from the cache.
 
+                default: 0, minimum: 0
+
               - `InputTokens int64`
 
                 The number of input tokens which were used.
+
+                minimum: 0
 
               - `Model Model`
 
@@ -1605,15 +1704,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The number of output tokens which were used.
 
+                minimum: 0
+
               - `Type FallbackMessage`
 
                 Usage for the fallback-model attempt that served the response
 
-                - `const FallbackMessageFallbackMessage FallbackMessage = "fallback_message"`
+                default: fallback_message
 
           - `OutputTokens int64`
 
             The number of output tokens which were used.
+
+            minimum: 0
 
           - `OutputTokensDetails BetaOutputTokensDetails`
 
@@ -1635,6 +1738,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               generation count by a small number of tokens. Always ≤ `output_tokens`;
               `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+              default: 0, minimum: 0
+
           - `ServerToolUse BetaServerToolUsage`
 
             The number of server tool requests.
@@ -1643,9 +1748,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The number of web fetch tool requests.
 
+              default: 0, minimum: 0
+
             - `WebSearchRequests int64`
 
               The number of web search tool requests.
+
+              default: 0, minimum: 0
 
           - `ServiceTier BetaUsageServiceTier`
 
@@ -1667,7 +1776,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `Type Succeeded`
 
-        - `const SucceededSucceeded Succeeded = "succeeded"`
+        default: succeeded
 
     - `type BetaMessageBatchErroredResult struct{…}`
 
@@ -1679,97 +1788,115 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `Message string`
 
+              default: Invalid request
+
             - `Type InvalidRequestError`
 
-              - `const InvalidRequestErrorInvalidRequestError InvalidRequestError = "invalid_request_error"`
+              default: invalid_request_error
 
           - `type BetaAuthenticationError struct{…}`
 
             - `Message string`
 
+              default: Authentication error
+
             - `Type AuthenticationError`
 
-              - `const AuthenticationErrorAuthenticationError AuthenticationError = "authentication_error"`
+              default: authentication_error
 
           - `type BetaBillingError struct{…}`
 
             - `Message string`
 
+              default: Billing error
+
             - `Type BillingError`
 
-              - `const BillingErrorBillingError BillingError = "billing_error"`
+              default: billing_error
 
           - `type BetaPermissionError struct{…}`
 
             - `Message string`
 
+              default: Permission denied
+
             - `Type PermissionError`
 
-              - `const PermissionErrorPermissionError PermissionError = "permission_error"`
+              default: permission_error
 
           - `type BetaNotFoundError struct{…}`
 
             - `Message string`
 
+              default: Not found
+
             - `Type NotFoundError`
 
-              - `const NotFoundErrorNotFoundError NotFoundError = "not_found_error"`
+              default: not_found_error
 
           - `type BetaRateLimitError struct{…}`
 
             - `Message string`
 
+              default: Rate limited
+
             - `Type RateLimitError`
 
-              - `const RateLimitErrorRateLimitError RateLimitError = "rate_limit_error"`
+              default: rate_limit_error
 
           - `type BetaGatewayTimeoutError struct{…}`
 
             - `Message string`
 
+              default: Request timeout
+
             - `Type TimeoutError`
 
-              - `const TimeoutErrorTimeoutError TimeoutError = "timeout_error"`
+              default: timeout_error
 
           - `type BetaAPIError struct{…}`
 
             - `Message string`
 
+              default: Internal server error
+
             - `Type APIError`
 
-              - `const APIErrorAPIError APIError = "api_error"`
+              default: api_error
 
           - `type BetaOverloadedError struct{…}`
 
             - `Message string`
 
+              default: Overloaded
+
             - `Type OverloadedError`
 
-              - `const OverloadedErrorOverloadedError OverloadedError = "overloaded_error"`
+              default: overloaded_error
 
         - `RequestID string`
 
         - `Type Error`
 
-          - `const ErrorError Error = "error"`
+          default: error
 
       - `Type Errored`
 
-        - `const ErroredErrored Errored = "errored"`
+        default: errored
 
     - `type BetaMessageBatchCanceledResult struct{…}`
 
       - `Type Canceled`
 
-        - `const CanceledCanceled Canceled = "canceled"`
+        default: canceled
 
     - `type BetaMessageBatchExpiredResult struct{…}`
 
       - `Type Expired`
 
-        - `const ExpiredExpired Expired = "expired"`
+        default: expired
 
-### Example
+## Example
 
 ```go
 package main

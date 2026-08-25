@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/user_profiles/create_enrollment_url -->
 
----
-title: Create Enrollment URL
-url: https://platform.claude.com/docs/en/api/typescript/beta/user_profiles/create_enrollment_url
----
+# Create Enrollment URL
 
-## Create Enrollment URL
+`client.beta.userProfiles.createEnrollmentURL(userProfileID, params?, options?): BetaUserProfileEnrollmentURL`
 
-`client.beta.userProfiles.createEnrollmentURL(stringuserProfileID, UserProfileCreateEnrollmentURLParamsparams?, RequestOptionsoptions?): BetaUserProfileEnrollmentURL`
-
-**post** `/v1/user_profiles/{user_profile_id}/enrollment_url`
+**POST** `/v1/user_profiles/{user_profile_id}/enrollment_url`
 
 Create Enrollment URL
 
-### Parameters
+## Parameters
 
 - `userProfileID: string`
 
@@ -95,7 +90,7 @@ Create Enrollment URL
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaUserProfileEnrollmentURL`
 
@@ -103,17 +98,17 @@ Create Enrollment URL
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
-    - `"enrollment_url"`
 
   - `url: string`
 
     Enrollment URL to send to the end user. Valid until `expires_at`.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -129,7 +124,7 @@ const betaUserProfileEnrollmentURL = await client.beta.userProfiles.createEnroll
 console.log(betaUserProfileEnrollmentURL.expires_at);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

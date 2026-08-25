@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-plan-big-execute-small -->
 
-#  Coordinator pattern: big models for planning, small models for execution
+#  Coordinator pattern: big models for planning, small models for execution
 
-##  Introduction
+##  Introduction
 
 Most agent workloads have two very different jobs inside them: a small amount of planning and judgment, and a large amount of mechanical reading and doing. Web research is the extreme case, and it's the example this notebook uses: verifying twenty facts against their authoritative sources means pulling hundreds of thousands of tokens of web pages through a model, and at frontier rates that reading bill dominates.
 
@@ -19,7 +19,7 @@ The same economics apply to any workload where a cheap model can do the token-he
 
 ![Architecture of the coordinator pattern: the user's question goes to a frontier-model coordinator with no tools of its own; it sends one brief per park to parallel small-model search workers and gets distilled findings back; only the workers touch the open web, via web search and page fetch; the coordinator synthesizes the final answer.](https://platform.claude.com/cookbook/images/notebooks/managed-agents-cma-plan-big-execute-small/architecture_diagram.png)
 
-##  Prerequisites
+##  Prerequisites
 
 Before following this guide, ensure you have:
 
@@ -35,15 +35,11 @@ Before following this guide, ensure you have:
 
 If you haven't seen the `multiagent` field before, [`CMA_coordinate_specialist_team.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_coordinate_specialist_team.ipynb) introduces it with a heterogeneous specialist team. This notebook uses the simplest possible team — one worker type — because the point here is the cost structure, not the team design.
 
-##  Setup
-
-
+##  Setup
 
 %%capture
 
 %pip install -qU "anthropic>=0.121.0" python-dotenv
-
-
 
 import os
 
@@ -65,7 +61,7 @@ WORKER\_MODEL = os.environ.get("COOKBOOK\_WORKER\_MODEL", "claude-sonnet-5")
 
 client = anthropic.Anthropic()
 
-##  1. The team: cheap readers, expensive thinker
+##  1. The team: cheap readers, expensive thinker
 
 Two agent definitions make the whole team.
 
@@ -74,8 +70,6 @@ The **worker** — in the docs' terms, a subagent the coordinator can spawn from
 The **coordinator** has no tools of its own — only a `multiagent` roster naming the worker. That one field is what makes it a coordinator: the server automatically gives it `create_agent`, `send_to_agent`, `wait_for_agents`, and `list_agents`, and workers get `submit_result` and `send_to_parent` the same way. You never define any of those tools.
 
 Two things to know about this relationship. First, the roster is snapshotted when the coordinator is created or updated — if you change the worker's definition, update or recreate the coordinator. Second, and less obvious: **the coordinator can't see anything about its roster agents** — not their prompts, not their names, not their descriptions. Its `create_agent` tool takes a bare agent name and task string. Everything the coordinator believes about its workers comes from its own system prompt, so keep that description and the workers' actual prompts in agreement — nothing on the server enforces it. (With a single-agent roster, any requested name resolves to the one worker; with several worker types, name them explicitly in the coordinator's prompt.)
-
-
 
 worker = client.beta.agents.create(
 
@@ -193,15 +187,13 @@ print(f"worker {worker.id}")
 
 print(f"coordinator {coordinator.id}")
 
-##  2. Run a research question
+##  2. Run a research question
 
 Create an environment and a session for the coordinator, send the question as a `user.message`, and stream. The session-level stream is the coordinator's primary thread — a condensed view of the whole run. Worker threads show up in it as delegation traffic: `session.thread_created` when a worker is spawned, `agent.thread_message_sent` when the coordinator hands one a sub-question, and `agent.thread_message_received` when the findings come back.
 
 The question is a coverage task — twenty facts (10 parks x 2 attributes), each of which must be verified against a specific authoritative source. Coverage questions are where the pattern shines, because the reading is mandatory: nobody gets to answer from memory, so the only question is what rate the reading bills at and whether it happens in parallel. (Discovery questions — find one answer hiding in a big search space, in the style of benchmarks like [BrowseComp(opens in new tab)](https://arxiv.org/abs/2504.12516) — reward a frontier model's search intuition more, and the gap narrows.)
 
 Fan-out is data-dependent: the coordinator decides how many workers to spawn, so nothing in the prompt fixes its ceiling. The session below carries a `budget`, an enforced cap on the whole team's list cost across every thread. The $10 cap is generous enough that a normal run never touches it, but if a bad question ever sent the coordinator spawning workers without end, the session would pause at the cap instead of running up the bill. The pause mechanics, and raising the cap afterward, are in [`CMA_cap_session_spend.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_cap_session_spend.ipynb).
-
-
 
 env = client.beta.environments.create(
 
@@ -303,13 +295,11 @@ print(final\_answer)
 
 The shape to notice: every `[delegate ->]` line is a small message, and every `[report <-]` line is a distilled summary. The megabytes of search results and fetched pages that produced those reports never crossed the coordinator's context. That separation is the entire cost story. To price it fairly, the next section runs the realistic alternative, then we meter both.
 
-##  3. Run the control: one frontier agent, same verification standard
+##  3. Run the control: one frontier agent, same verification standard
 
 What would this cost without the pattern? The realistic alternative is a single frontier agent with the same two web tools. One subtlety makes this comparison fair or worthless: **the solo agent must be held to the same verification standard.** Left to its own judgment, a frontier model is economical — it reads a single source per fact and comes in cheap, but that's a lower-rigor product, not the same work at a different price. So the solo prompt below demands what the team already does: every fact verified from two independent fetches, conflicts re-checked and flagged.
 
 Same question, quiet stream.
-
-
 
 solo = client.beta.agents.create(
 
@@ -399,15 +389,13 @@ print(f"[solo finished in {time.monotonic() - t\_solo:.0f}s]")
 
 print(clip(solo\_answer, 300))
 
-##  4. Meter and price both runs
+##  4. Meter and price both runs
 
 Cost attribution is built into the API. Every session thread carries a cumulative `usage`, and both the session and each thread report `usage.list_cost`: the token cost at public list rates, computed server-side. List the threads, take the primary thread (`parent_thread_id is None`) as the coordinator, and the child threads are the workers — the solo session simply has no child threads. The session's own `list_cost` is the total, so there is no rate table to keep in sync for the headline numbers.
 
 (If you ever need per-request detail instead, it's in each thread's own event feed — the session-level feed only carries the primary thread's `span.model_request_end` events.)
 
 One number the API can't hand you is a counterfactual: what this exact team workload would have billed at all-frontier rates. That takes a rate table applied to the token counts, so the code keeps the input and output rates from the [pricing page(opens in new tab)](https://platform.claude.com/docs/en/about-claude/pricing) for that one what-if — 5-minute cache writes bill at 1.25x the input rate, 1-hour writes at 2x, cache reads at 0.1x — and uses `list_cost` for everything real.
-
-
 
 # $ / MTok input and output from the pricing page, used only for the
 
@@ -542,7 +530,7 @@ Four honest caveats, all observed while building this notebook:
 
 When does the split *not* pay? On narrow questions there's too little reading to arbitrage. If the coordinator answers from its own knowledge (no delegation), you paid a frontier round-trip for nothing — watch for runs with no `[spawn]` lines. And if the task needs frontier judgment on the raw material itself (subtle document analysis rather than fact-finding), a cheap reader may summarize away exactly what mattered.
 
-##  Recap
+##  Recap
 
 In this guide you built the cheapest useful shape of a multi-agent team and measured what it buys:
 

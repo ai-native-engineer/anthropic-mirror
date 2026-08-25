@@ -1,25 +1,20 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/deployment_runs/retrieve -->
 
----
-title: Get Deployment Run
-url: https://platform.claude.com/docs/en/api/go/beta/deployment_runs/retrieve
----
-
-## Get Deployment Run
+# Get Deployment Run
 
 `client.Beta.DeploymentRuns.Get(ctx, deploymentRunID, query) (*BetaManagedAgentsDeploymentRun, error)`
 
-**get** `/v1/deployment_runs/{deployment_run_id}`
+**GET** `/v1/deployment_runs/{deployment_run_id}`
 
 Get Deployment Run
 
-### Parameters
+## Parameters
 
 - `deploymentRunID string`
 
 - `query BetaDeploymentRunGetParams`
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -95,7 +90,7 @@ Get Deployment Run
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaManagedAgentsDeploymentRun struct{…}`
 
@@ -113,13 +108,15 @@ Get Deployment Run
 
     - `Type BetaManagedAgentsAgentReferenceType`
 
-      - `const BetaManagedAgentsAgentReferenceTypeAgent BetaManagedAgentsAgentReferenceType = "agent"`
-
     - `Version int64`
+
+      format: int32
 
   - `CreatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `DeploymentID string`
 
@@ -139,8 +136,6 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsEnvironmentArchivedRunErrorType`
 
-        - `const BetaManagedAgentsEnvironmentArchivedRunErrorTypeEnvironmentArchivedError BetaManagedAgentsEnvironmentArchivedRunErrorType = "environment_archived_error"`
-
     - `type BetaManagedAgentsAgentArchivedRunError struct{…}`
 
       The deployment's agent was archived.
@@ -150,8 +145,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type BetaManagedAgentsAgentArchivedRunErrorType`
-
-        - `const BetaManagedAgentsAgentArchivedRunErrorTypeAgentArchivedError BetaManagedAgentsAgentArchivedRunErrorType = "agent_archived_error"`
 
     - `type BetaManagedAgentsEnvironmentNotFoundRunError struct{…}`
 
@@ -163,8 +156,6 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsEnvironmentNotFoundRunErrorType`
 
-        - `const BetaManagedAgentsEnvironmentNotFoundRunErrorTypeEnvironmentNotFoundError BetaManagedAgentsEnvironmentNotFoundRunErrorType = "environment_not_found_error"`
-
     - `type BetaManagedAgentsVaultNotFoundRunError struct{…}`
 
       A vault referenced by the deployment no longer exists.
@@ -174,8 +165,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type BetaManagedAgentsVaultNotFoundRunErrorType`
-
-        - `const BetaManagedAgentsVaultNotFoundRunErrorTypeVaultNotFoundError BetaManagedAgentsVaultNotFoundRunErrorType = "vault_not_found_error"`
 
     - `type BetaManagedAgentsVaultArchivedRunError struct{…}`
 
@@ -187,8 +176,6 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsVaultArchivedRunErrorType`
 
-        - `const BetaManagedAgentsVaultArchivedRunErrorTypeVaultArchivedError BetaManagedAgentsVaultArchivedRunErrorType = "vault_archived_error"`
-
     - `type BetaManagedAgentsFileNotFoundRunError struct{…}`
 
       A file resource referenced by the deployment no longer exists.
@@ -198,8 +185,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type BetaManagedAgentsFileNotFoundRunErrorType`
-
-        - `const BetaManagedAgentsFileNotFoundRunErrorTypeFileNotFoundError BetaManagedAgentsFileNotFoundRunErrorType = "file_not_found_error"`
 
     - `type BetaManagedAgentsMemoryStoreArchivedRunError struct{…}`
 
@@ -211,8 +196,6 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsMemoryStoreArchivedRunErrorType`
 
-        - `const BetaManagedAgentsMemoryStoreArchivedRunErrorTypeMemoryStoreArchivedError BetaManagedAgentsMemoryStoreArchivedRunErrorType = "memory_store_archived_error"`
-
     - `type BetaManagedAgentsSkillNotFoundRunError struct{…}`
 
       A skill referenced by the deployment's agent no longer exists.
@@ -222,8 +205,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type BetaManagedAgentsSkillNotFoundRunErrorType`
-
-        - `const BetaManagedAgentsSkillNotFoundRunErrorTypeSkillNotFoundError BetaManagedAgentsSkillNotFoundRunErrorType = "skill_not_found_error"`
 
     - `type BetaManagedAgentsSessionResourceNotFoundRunError struct{…}`
 
@@ -235,8 +216,6 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsSessionResourceNotFoundRunErrorType`
 
-        - `const BetaManagedAgentsSessionResourceNotFoundRunErrorTypeSessionResourceNotFoundError BetaManagedAgentsSessionResourceNotFoundRunErrorType = "session_resource_not_found_error"`
-
     - `type BetaManagedAgentsWorkspaceArchivedRunError struct{…}`
 
       The deployment's workspace was archived.
@@ -246,8 +225,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type BetaManagedAgentsWorkspaceArchivedRunErrorType`
-
-        - `const BetaManagedAgentsWorkspaceArchivedRunErrorTypeWorkspaceArchivedError BetaManagedAgentsWorkspaceArchivedRunErrorType = "workspace_archived_error"`
 
     - `type BetaManagedAgentsOrganizationDisabledRunError struct{…}`
 
@@ -259,8 +236,6 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsOrganizationDisabledRunErrorType`
 
-        - `const BetaManagedAgentsOrganizationDisabledRunErrorTypeOrganizationDisabledError BetaManagedAgentsOrganizationDisabledRunErrorType = "organization_disabled_error"`
-
     - `type BetaManagedAgentsSessionRateLimitedRunError struct{…}`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
@@ -270,8 +245,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type BetaManagedAgentsSessionRateLimitedRunErrorType`
-
-        - `const BetaManagedAgentsSessionRateLimitedRunErrorTypeSessionRateLimitedError BetaManagedAgentsSessionRateLimitedRunErrorType = "session_rate_limited_error"`
 
     - `type BetaManagedAgentsSessionCreationRejectedRunError struct{…}`
 
@@ -283,8 +256,6 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsSessionCreationRejectedRunErrorType`
 
-        - `const BetaManagedAgentsSessionCreationRejectedRunErrorTypeSessionCreationRejectedError BetaManagedAgentsSessionCreationRejectedRunErrorType = "session_creation_rejected_error"`
-
     - `type BetaManagedAgentsUnknownRunError struct{…}`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
@@ -294,8 +265,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type BetaManagedAgentsUnknownRunErrorType`
-
-        - `const BetaManagedAgentsUnknownRunErrorTypeUnknownError BetaManagedAgentsUnknownRunErrorType = "unknown_error"`
 
     - `type BetaManagedAgentsSelfHostedResourcesUnsupportedRunError struct{…}`
 
@@ -307,8 +276,6 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsSelfHostedResourcesUnsupportedRunErrorType`
 
-        - `const BetaManagedAgentsSelfHostedResourcesUnsupportedRunErrorTypeSelfHostedResourcesUnsupportedError BetaManagedAgentsSelfHostedResourcesUnsupportedRunErrorType = "self_hosted_resources_unsupported_error"`
-
     - `type BetaManagedAgentsMCPEgressBlockedRunError struct{…}`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
@@ -318,8 +285,6 @@ Get Deployment Run
         Human-readable error description.
 
       - `Type BetaManagedAgentsMCPEgressBlockedRunErrorType`
-
-        - `const BetaManagedAgentsMCPEgressBlockedRunErrorTypeMCPEgressBlockedError BetaManagedAgentsMCPEgressBlockedRunErrorType = "mcp_egress_blocked_error"`
 
   - `SessionID string`
 
@@ -337,9 +302,9 @@ Get Deployment Run
 
         A timestamp in RFC 3339 format
 
-      - `Type BetaManagedAgentsScheduleTriggerContextType`
+        format: date-time
 
-        - `const BetaManagedAgentsScheduleTriggerContextTypeSchedule BetaManagedAgentsScheduleTriggerContextType = "schedule"`
+      - `Type BetaManagedAgentsScheduleTriggerContextType`
 
     - `type BetaManagedAgentsManualTriggerContext struct{…}`
 
@@ -347,13 +312,9 @@ Get Deployment Run
 
       - `Type BetaManagedAgentsManualTriggerContextType`
 
-        - `const BetaManagedAgentsManualTriggerContextTypeManual BetaManagedAgentsManualTriggerContextType = "manual"`
-
   - `Type BetaManagedAgentsDeploymentRunType`
 
-    - `const BetaManagedAgentsDeploymentRunTypeDeploymentRun BetaManagedAgentsDeploymentRunType = "deployment_run"`
-
-### Example
+## Example
 
 ```go
 package main
@@ -382,7 +343,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

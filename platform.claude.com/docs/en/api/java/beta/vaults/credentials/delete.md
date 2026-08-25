@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/vaults/credentials/delete -->
 
----
-title: Delete Credential
-url: https://platform.claude.com/docs/en/api/java/beta/vaults/credentials/delete
----
+# Delete Credential
 
-## Delete Credential
+`BetaManagedAgentsDeletedCredential beta().vaults().credentials().delete(params, requestOptions = RequestOptions.none())`
 
-`BetaManagedAgentsDeletedCredential beta().vaults().credentials().delete(CredentialDeleteParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**delete** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+**DELETE** `/v1/vaults/{vault_id}/credentials/{credential_id}`
 
 Delete Credential
 
-### Parameters
+## Parameters
 
 - `CredentialDeleteParams params`
 
@@ -93,7 +88,7 @@ Delete Credential
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsDeletedCredential:`
 
@@ -105,9 +100,7 @@ Delete Credential
 
   - `Type type`
 
-    - `VAULT_CREDENTIAL_DELETED("vault_credential_deleted")`
-
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -132,7 +125,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

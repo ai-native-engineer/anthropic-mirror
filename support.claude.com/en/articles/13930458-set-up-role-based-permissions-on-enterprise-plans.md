@@ -147,7 +147,7 @@ Choosing “Always allow,” “Needs approval,” or “Blocked” applies that
 The **How members connect** dropdown controls whether the role's members sign in to connectors with their own accounts or connect automatically through your identity provider:
 
 * **Individually:** Members sign in to each connector with their own account.
-* **Managed authorization (beta):** Members connect through your identity provider automatically, without signing in themselves.
+* **Managed authorization:** Members connect through your identity provider automatically, without signing in themselves.
 * **Set per connector:** Choose Individually or Managed authorization separately for each connector, instead of one setting for all of them.
 
 If a connector has both **Individually** and **Managed authorization** turned on, Claude tries managed authorization first. If that fails, members can still sign in individually with their own account, so they're not locked out of the connector while an identity provider issue gets resolved.

@@ -1,13 +1,8 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/retrieve -->
 
----
-title: Get Service Account Workspace Member
-url: https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts/retrieve
----
+# Get Service Account Workspace Member
 
-## Get Service Account Workspace Member
-
-**get** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
+**GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
 Retrieve a service account's membership in a workspace.
 
@@ -18,7 +13,7 @@ membership when no explicit membership exists; an explicitly added
 membership is returned with its assigned role. An archived service
 account returns 404.
 
-### Path Parameters
+## Path parameters
 
 - `workspace_id: string`
 
@@ -28,7 +23,7 @@ account returns 404.
 
   ID of the service account.
 
-### Header Parameters
+## Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -36,7 +31,7 @@ account returns 404.
 
   To use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.
 
-### Returns
+## Returns
 
 - `created_by_actor_id: string or null`
 
@@ -52,7 +47,7 @@ account returns 404.
 
 - `type: "service_account_workspace_member"`
 
-  - `"service_account_workspace_member"`
+  default: service_account_workspace_member
 
 - `workspace_id: string`
 
@@ -72,15 +67,15 @@ account returns 404.
 
   - `"workspace_user"`
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service_accounts/$SERVICE_ACCOUNT_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

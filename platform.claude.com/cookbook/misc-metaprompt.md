@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-metaprompt -->
 
-#  Metaprompt
+#  Metaprompt
 
 Welcome to the Metaprompt! This is a prompt engineering tool designed to solve the "blank page problem" and give you a starting point for iteration. All you need to do is enter your task, and optionally the names of the variables you'd like Claude to use in the template. Then you'll be able to run the prompt that comes out on any examples you like.
 
@@ -9,7 +9,7 @@ Welcome to the Metaprompt! This is a prompt engineering tool designed to solve t
 * This is designed for single-turn question/response prompts, not multiturn.
 * The prompt you'll get at the end is not guaranteed to be optimal by any means, so don't be afraid to change it!
 
-###  Using This Notebook
+###  Using This Notebook
 
 The notebook is designed to be maximally easy to use. You don't have to write any code. Just follow these steps:
 
@@ -21,15 +21,11 @@ The notebook is designed to be maximally easy to use. You don't have to write an
 
 Then run all cells (Runtime -> Run all in Colab). Your generated prompt template appears partway down, in section 1, and the notebook finishes by test-driving it on your example values so you can see it working.
 
-
-
 %%capture
 
 # Install the anthropic package (a quick no-op if it's already up to date).
 
 %pip install -U anthropic
-
-
 
 import re
 
@@ -59,17 +55,15 @@ MAX\_TOKENS = 4096
 
 client = anthropic.Anthropic()
 
-#  Table of Contents
+#  Table of Contents
 
 1. The Metaprompt
 2. Quickstart - Enter a task, get a prompt template
 3. Testing your prompt template
 
-##  0. The Metaprompt
+##  0. The Metaprompt
 
 The Metaprompt is a long multi-shot prompt filled with half a dozen examples of good prompts for solving various tasks. These examples help Claude to write a good prompt for your task. The full text is below (warning: it's long!)
-
-
 
 # @title Metaprompt Text
 
@@ -817,7 +811,7 @@ Note: If the task is particularly complicated, you may wish to instruct the AI t
 
 Note: If you want the AI to output its entire response or parts of its response inside certain tags, specify the name of these tags (e.g. "write your answer inside <answer> tags") but do not include closing tags or unnecessary open-and-close tag sections."""
 
-#  1. Quickstart
+#  1. Quickstart
 
 Enter your task in the cell below. Here are some examples for inspiration:
 
@@ -831,8 +825,6 @@ There are two examples of tasks + optional variables below.
 
 The metaprompt writes template variables in the form `{$NAME}`; the next code cell formats your list that way.
 
-
-
 TASK = "Draft an email responding to a customer complaint" # Replace with your task!
 
 # Optional: specify the input variables you want Claude to use. If you want
@@ -845,8 +837,6 @@ VARIABLES = ["CUSTOMER\_EMAIL", "COMPANY\_NAME"]
 
 # VARIABLES = ["MENU", "PREFERENCES"]
 
-
-
 variable\_string = ", ".join(
 
 "{$" + variable.strip().lstrip("$").upper() + "}" for variable in VARIABLES
@@ -858,8 +848,6 @@ print(variable\_string)
 Next, we'll insert your task into the metaprompt and see what Claude gives us! Expect this to take 20-30 seconds because the Metaprompt is so long.
 
 One note on how this works: Claude models from the 4.6 generation onward no longer accept "prefill" (a request whose last message is a partial assistant turn; see [the Messages API guide(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/working-with-messages#putting-words-in-claudes-mouth)). Earlier versions of this notebook used prefill to force the response to start at `<Inputs>` and to pin your variable names. Instead, the next cell appends those requirements as plain instructions at the end of the prompt, the same steering technique you can use in your own prompts. The cell also checks `stop_reason` and raises a clear error if the response was cut off before the template was finished.
-
-
 
 prompt = metaprompt.replace("{{TASK}}", TASK)
 
@@ -925,8 +913,6 @@ message = text\_block.text
 
 If you want to see the full text returned by the Metaprompt, including the `<Inputs>` block, Claude's planning in `<Instructions Structure>`, and the final template, uncomment the `pretty_print(message)` line below.
 
-
-
 def pretty\_print(message):
 
 print(
@@ -948,8 +934,6 @@ for paragraph in re.split(r"\n\n+", message)
 pretty\_print(message)
 
 Now, we'll extract the prompt itself and the variables needed, while also removing empty tags at the end of the prompt template.
-
-
 
 def extract\_between\_tags(tag: str, string: str, strip: bool = False) -> list[str]:
 
@@ -993,8 +977,6 @@ Below: the variables Claude chose (if you didn't provide any; if you did, these 
 
 One thing to note: square-bracket placeholders like `[Your Name]` sometimes appear in generated prompts. Those are for a person to fill in later; only `{$NAME}` variables are substituted by this notebook.
 
-
-
 extracted\_prompt\_template = extract\_prompt(message)
 
 variables = extract\_variables(extracted\_prompt\_template)
@@ -1007,7 +989,7 @@ print("Prompt:")
 
 print(extracted\_prompt\_template)
 
-#  2. Testing your prompt template
+#  2. Testing your prompt template
 
 If you like your prompt, try it out! What happens next depends on your situation:
 
@@ -1016,8 +998,6 @@ If you like your prompt, try it out! What happens next depends on your situation
 * **Left a variable out?** You'll be asked for it with `input()`; in a non-interactive run (like CI) a placeholder is used instead and a note is printed.
 
 The filled-in prompt is then sent to the faster `TEST_MODEL_NAME` model set at the top of the notebook, and you'll see Claude's output on your prompt. (The output below shows the default-task path.)
-
-
 
 # Example values for the variables in the prompt template above. These match the
 

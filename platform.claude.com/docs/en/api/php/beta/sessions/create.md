@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/create -->
 
----
-title: Create Session
-url: https://platform.claude.com/docs/en/api/php/beta/sessions/create
----
-
-## Create Session
+# Create Session
 
 `$client->beta->sessions->create(Agent agent, string environmentID, ?BetaManagedAgentsBudgetLimit budget, ?list<InitialEvent> initialEvents, ?array<string,string> metadata, ?list<Resource> resources, ?string title, ?list<string> vaultIDs, ?list<AnthropicBeta> betas): BetaManagedAgentsSession`
 
-**post** `/v1/sessions`
+**POST** `/v1/sessions`
 
 Create Session
 
-### Parameters
+## Parameters
 
 - `agent: Agent`
 
@@ -51,7 +46,7 @@ Create Session
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsSession`
 
@@ -111,7 +106,7 @@ Create Session
 
     Deployment ID when the session was created from a deployment reference. Null otherwise.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -149,7 +144,7 @@ $betaManagedAgentsSession = $client->beta->sessions->create(
 var_dump($betaManagedAgentsSession);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

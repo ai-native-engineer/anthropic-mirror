@@ -1,14 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-wolframalpha-using-llm-api -->
 
-#  Using the Wolfram Alpha LLM API as a Tool with Claude
+#  Using the Wolfram Alpha LLM API as a Tool with Claude
 
 In this recipe, we'll show you how to integrate the Wolfram Alpha LLM API as a tool for Claude to use. Claude will be able to send queries to the Wolfram Alpha API and receive computed responses, which it can then use to provide answers to user questions.
 
-##  Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 First, let's install the required libraries and set up the Claude API client. We also will need to set our APP ID for using WolframAlpha. You can sign up and create a new App ID for this project for free [here(opens in new tab)](https://developer.wolframalpha.com/access).
-
-
 
 import json
 
@@ -26,11 +24,9 @@ WOLFRAM\_APP\_ID = "YOUR\_APP\_ID"
 
 MODEL\_NAME = "claude-haiku-4-5"
 
-##  Step 2: Define the Wolfram Alpha LLM API tool
+##  Step 2: Define the Wolfram Alpha LLM API tool
 
 We'll define a tool that allows Claude to send queries to the Wolfram Alpha LLM API and receive the computed response.
-
-
 
 import urllib.parse
 
@@ -96,11 +92,9 @@ In this code, we define a wolfram\_alpha\_query function that takes a query as i
 
 We then define the wolfram\_alpha tool with an input schema that expects a single query property of type string.
 
-##  Step 3: Interact with Claude
+##  Step 3: Interact with Claude
 
 Now, let's see how Claude can interact with the Wolfram Alpha tool to answer user questions.
-
-
 
 def process\_tool\_call(tool\_name, tool\_input):
 
@@ -214,11 +208,9 @@ print(f"\nFinal Response: {final\_response}")
 
 return final\_response
 
-##  Step 4: Try it out!
+##  Step 4: Try it out!
 
 Let's try giving Claude a few example questions now that it has access to Wolfram Alpha.
-
-
 
 # Example usage
 
@@ -227,8 +219,6 @@ print(chat\_with\_claude("What are the 5 largest countries in the world by popul
 print(chat\_with\_claude("Calculate the square root of 1764."))
 
 print(chat\_with\_claude("What is the distance between Earth and Mars?"))
-
-
 
 ```
 ==================================================

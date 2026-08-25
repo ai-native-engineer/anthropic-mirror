@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/skills/retrieve -->
 
----
-title: Get Skill
-url: https://platform.claude.com/docs/en/api/cli/beta/skills/retrieve
----
-
-## Get Skill
+# Get Skill
 
 `$ ant beta:skills retrieve`
 
-**get** `/v1/skills/{skill_id}`
+**GET** `/v1/skills/{skill_id}`
 
 Get Skill
 
-### Parameters
+## Parameters
 
 - `--skill-id: string`
 
@@ -25,9 +20,9 @@ Get Skill
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `BetaSkillGetResponse: object { id, created_at, display_title, 4 more }`
+- `BetaSkillGetResponse: object`
 
   - `id: string`
 
@@ -70,15 +65,15 @@ Get Skill
 
     ISO 8601 timestamp of when the skill was last updated.
 
-### Example
+## Example
 
-```cli
+```bash
 ant beta:skills retrieve \
   --api-key my-anthropic-api-key \
   --skill-id skill_id
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

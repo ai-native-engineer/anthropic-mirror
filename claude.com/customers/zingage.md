@@ -174,6 +174,14 @@ CEO, Zingage
 
 ## Related stories
 
+[How League went all in on Claude in a regulated industry](https://claude.com/customers/league-qa)How League went all in on Claude in a regulated industry
+
+How League went all in on Claude in a regulated industry
+
+Customer story
+
+[Customer story](https://claude.com/customers/league-qa)Customer story
+
 [League cuts product development cycle times in half with Claude](https://claude.com/customers/league) League cuts product development cycle times in half with Claude
 
 League cuts product development cycle times in half with Claude
@@ -197,11 +205,3 @@ A conversation with Seth Hain about Epic’s internal AI adoption
 Customer story
 
 [Customer story](https://claude.com/customers/epic-systems)Customer story
-
-[Medgate accelerates healthcare innovation with Claude Code](https://claude.com/customers/medgate)Medgate accelerates healthcare innovation with Claude Code
-
-Medgate accelerates healthcare innovation with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/medgate)Customer story

@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/environments/archive -->
 
----
-title: Archive Environment
-url: https://platform.claude.com/docs/en/api/typescript/beta/environments/archive
----
+# Archive Environment
 
-## Archive Environment
+`client.beta.environments.archive(environmentID, params?, options?): BetaEnvironment`
 
-`client.beta.environments.archive(stringenvironmentID, EnvironmentArchiveParamsparams?, RequestOptionsoptions?): BetaEnvironment`
-
-**post** `/v1/environments/{environment_id}/archive`
+**POST** `/v1/environments/{environment_id}/archive`
 
 Archive an environment by ID. Archived environments cannot be used to create new sessions.
 
-### Parameters
+## Parameters
 
 - `environmentID: string`
 
@@ -95,7 +90,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaEnvironment`
 
@@ -129,8 +124,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetwork`
 
           Limited network access.
@@ -150,8 +143,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -185,13 +176,11 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: "cloud"`
 
         Environment type
-
-        - `"cloud"`
 
     - `BetaSelfHostedConfig`
 
@@ -200,8 +189,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
       - `type: "self_hosted"`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -223,7 +210,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: string`
 
@@ -237,7 +224,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `"account"`
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -251,7 +238,7 @@ const betaEnvironment = await client.beta.environments.archive("env_011CZkZ9X2dp
 console.log(betaEnvironment.id);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

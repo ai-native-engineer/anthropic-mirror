@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/sessions/delete -->
 
----
-title: Delete Session
-url: https://platform.claude.com/docs/en/api/java/beta/sessions/delete
----
+# Delete Session
 
-## Delete Session
+`BetaManagedAgentsDeletedSession beta().sessions().delete(params = SessionDeleteParams.none(), requestOptions = RequestOptions.none())`
 
-`BetaManagedAgentsDeletedSession beta().sessions().delete(SessionDeleteParamsparams = SessionDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
-
-**delete** `/v1/sessions/{session_id}`
+**DELETE** `/v1/sessions/{session_id}`
 
 Delete Session
 
-### Parameters
+## Parameters
 
 - `SessionDeleteParams params`
 
@@ -91,7 +86,7 @@ Delete Session
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsDeletedSession:`
 
@@ -101,9 +96,7 @@ Delete Session
 
   - `Type type`
 
-    - `SESSION_DELETED("session_deleted")`
-
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -124,7 +117,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

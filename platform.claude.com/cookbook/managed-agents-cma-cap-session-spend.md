@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-cap-session-spend -->
 
-#  Budgets: cap what a session can spend
+#  Budgets: cap what a session can spend
 
 An unattended agent has no natural stopping point on cost. A research task with web search can drift into another hundred fetches. A coding loop can retry a flaky test until morning. Without a ceiling you find out from the invoice.
 
@@ -13,17 +13,13 @@ This notebook walks through:
 * the `budget_reached` stop and what a paused session keeps
 * raising, lowering, and removing the cap with `sessions.update`
 
-##  1. Set up the client
+##  1. Set up the client
 
 Budgets ride the standard `managed-agents-2026-04-01` beta header. The `budget` parameter and the cost fields on `session.usage` need `anthropic>=0.121.0`.
-
-
 
 %%capture
 
 %pip install -qU "anthropic>=0.121.0" python-dotenv
-
-
 
 import os
 
@@ -39,11 +35,9 @@ MODEL = os.environ.get("COOKBOOK\_MODEL", "claude-sonnet-5")
 
 client = anthropic.Anthropic()
 
-##  2. Build an agent with room to overspend
+##  2. Build an agent with room to overspend
 
 The agent for this walkthrough writes a competitive landscape brief. It has web search and web fetch, and nothing in its prompt bounds how many sources it reads. That open-endedness is what a budget is for.
-
-
 
 env = client.beta.environments.create(
 
@@ -91,17 +85,13 @@ betas=BETAS,
 
 print(f"{analyst.name}: {analyst.id} v{analyst.version}")
 
-
-
 ```
 market_analyst: agent_staging_014U3BWzuiSNDwfzubN38hnz v1
 ```
 
-##  3. Create the session with a budget
+##  3. Create the session with a budget
 
 The `budget` field on `sessions.create` sets the cap:
-
-
 
 {"type": "limit", "max\_list\_cost": {"currency": "USD", "amount": "10"}}
 
@@ -113,8 +103,6 @@ A few properties worth knowing before you pick a number:
 * Omit `budget` and the session is uncapped. A budget can only be attached at creation: a session created without one can never gain one later, so decide up front.
 
 The cap here is ten cents, deliberately low so the stop shows up in a couple of minutes. The `usd` helper renders minor-unit amounts as dollars for every printout below.
-
-
 
 from decimal import Decimal
 
@@ -174,20 +162,16 @@ print(session.id, session.status)
 
 print("budget:", usd(session.budget.max\_list\_cost))
 
-
-
 ```
 sesn_staging_01ELJgA2vqTR6EmjX8viwHZi running
 budget: $0.10
 ```
 
-##  4. Watch spend accumulate
+##  4. Watch spend accumulate
 
 Alongside the usual `agent.message` and `agent.tool_use` events, the stream delivers a `session.usage` snapshot each time the session settles into `idle`. It holds the cumulative token counts, the tracked `list_cost`, and the configured `budget`, so the moment the turn ends you know what it cost without a second call to `sessions.retrieve`.
 
 The loop exits on `session.status_idle`. With a budget in play there are two stop reasons that end the turn: `end_turn` when the agent finishes and `budget_reached` when the cap fires first.
-
-
 
 stop\_reason = None
 
@@ -219,8 +203,6 @@ f"expected budget\_reached, got {stop\_reason}: lower the cap in step 3 "
 
 )
 
-
-
 ```
 [repl] {'script': '\nlet queries = [\n  "Datadog positioning observability platform 202
 [web_search] {'query': 'Datadog positioning observability platform 2025'}
@@ -238,13 +220,11 @@ f"expected budget\_reached, got {stop\_reason}: lower the cap in step 3 "
 [idle] stop_reason=budget_reached
 ```
 
-##  5. Inspect the paused session
+##  5. Inspect the paused session
 
 `budget_reached` is a pause, not a failure. The session sits in `idle`, its `usage` reflects everything spent so far, and the container still holds whatever the agent wrote before the cap. Nothing needs to be rerun.
 
 The cap is enforced between model requests, so the recorded `list_cost` can land slightly past `max_list_cost`: the request that crosses the line finishes, then the session pauses. Size your cap with that one-request margin in mind.
-
-
 
 paused = client.beta.sessions.retrieve(session.id, betas=BETAS)
 
@@ -258,8 +238,6 @@ print("tokens: in", paused.usage.input\_tokens, "out", paused.usage.output\_toke
 
 print("active secs: ", round(paused.usage.active\_seconds, 1))
 
-
-
 ```
 status:       idle
 list cost:    $0.12
@@ -269,8 +247,6 @@ active secs:  13.7
 ```
 
 The event log shows how far the agent got: the tool calls it made and, if it had begun narrating, its last message. An agent deep in research may have written nothing yet when the cap fires, so treat the message as optional.
-
-
 
 events = list(client.beta.sessions.events.list(session.id, limit=1000, betas=BETAS))
 
@@ -290,20 +266,16 @@ else:
 
 print("(no agent.message yet: the agent was still gathering sources when the cap fired)")
 
-
-
 ```
 tool calls before the cap: 11
 (no agent.message yet: the agent was still gathering sources when the cap fired)
 ```
 
-##  6. Raise the cap and let it finish
+##  6. Raise the cap and let it finish
 
 `sessions.update` accepts the same `budget` shape. Raising `max_list_cost` above the consumed cost lifts the pause and the session resumes the interrupted turn on its own, from the state it stopped in.
 
 Lowering the cap to at or below what the session already spent is rejected with a 400: `max_list_cost` must stay above the consumed list cost, so an update can never wedge a session against its own history. The first call demonstrates the rejection, the second raises the cap for real. No follow-up message is needed after the raise; the session moves back to `running` and picks up the interrupted turn.
-
-
 
 try:
 
@@ -333,15 +305,11 @@ betas=BETAS,
 
 print("cap raised to $5.00")
 
-
-
 ```
 lower rejected: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': "`budget.max_list_cost` must be greater than the session's consumed list cost"}, 'request_id': 'req_staging_011CdiPi8iPJKWdiuurZuDkB'}
 
 cap raised to $5.00
 ```
-
-
 
 with client.beta.sessions.events.stream(session.id, betas=BETAS) as stream:
 
@@ -364,8 +332,6 @@ break
 done = client.beta.sessions.retrieve(session.id, betas=BETAS)
 
 print("final list cost:", usd(done.usage.list\_cost), "of cap", usd(done.budget.max\_list\_cost))
-
-
 
 ```
 [resumed]
@@ -567,11 +533,9 @@ print("final list cost:", usd(done.usage.list\_cost), "of cap", usd(done.budget.
 final list cost: $1.83 of cap $5.00
 ```
 
-##  7. Read the brief
+##  7. Read the brief
 
 The agent picked the task back up with its context intact and finished the write. Pull the file it produced from the event log.
-
-
 
 brief = ""
 
@@ -591,8 +555,6 @@ brief = ev.input["content"] # keep the last write, in case of revisions
 
 print(brief[:1500] + ("\n..." if len(brief) > 1500 else ""))
 
-
-
 ```
 # Competitive Landscape Brief: Observability Platform Market
 
@@ -604,27 +566,21 @@ Observability has consolidated into a market with a handful of large, broad "ful
 ...
 ```
 
-##  8. Remove the budget
+##  8. Remove the budget
 
 Passing `budget=None` on update clears the cap, so the session is uncapped from that point on. Omitting `budget` entirely leaves the current cap in place. Those are two different requests: `None` is an explicit removal, absence is a preserve.
 
 Removal is permanent for the same reason attachment is create-only: once a session has no budget, it can't gain one. Raise and lower the cap as often as you like, but treat removing it as a one-way door.
 
-
-
 uncapped = client.beta.sessions.update(session.id, budget=None, betas=BETAS)
 
 print("budget:", uncapped.budget)
-
-
 
 ```
 budget: None
 ```
 
-##  9. Clean up
-
-
+##  9. Clean up
 
 from utilities import wait\_for\_idle\_status
 
@@ -636,13 +592,11 @@ client.beta.environments.archive(env.id, betas=BETAS)
 
 print("archived")
 
-
-
 ```
 archived
 ```
 
-##  Where budgets fit
+##  Where budgets fit
 
 A budget is a per-session control. It bounds one run, not an org, a workspace, or a day of traffic, so it composes with the spend limits you already set at those levels rather than replacing them. Reach for it whenever a session runs without a human watching: cron-driven deployments, webhook-triggered agents, long multiagent jobs where the coordinator's fan-out is data-dependent.
 

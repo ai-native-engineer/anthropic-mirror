@@ -1,12 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-llamaindex-multi-modal -->
 
-#  Multi-Modal
+#  Multi-Modal
 
 In this notebook, we show how to use Anthropic MultiModal LLM class/abstraction for image understanding/reasoning.
 
-####  Installation
-
-
+####  Installation
 
 !pip install llama-index
 
@@ -18,23 +16,17 @@ In this notebook, we show how to use Anthropic MultiModal LLM class/abstraction 
 
 !pip install matplotlib
 
-####  Setup API key
-
-
+####  Setup API key
 
 import os
 
 os.environ["ANTHROPIC\_API\_KEY"] = "YOUR Claude API KEY"
 
-####  Download Sample Images
-
-
+####  Download Sample Images
 
 !wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/images/prometheus\_paper\_card.png' -O 'prometheus\_paper\_card.png'
 
 !wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/images/ark\_email\_sample.PNG' -O 'ark\_email\_sample.png'
-
-
 
 ```
 --2024-03-08 11:53:40--  https://raw.githubusercontent.com/run-llama/llama_index/main/docs/examples/data/images/prometheus_paper_card.png
@@ -60,9 +52,7 @@ ark_email_sample.pn 100%[===================>]  55.28K  --.-KB/s    in 0.001s
 2024-03-08 11:53:40 (72.9 MB/s) - ‘ark_email_sample.png’ saved [56608/56608]
 ```
 
-####  Use Anthropic to understand Images from Local directory
-
-
+####  Use Anthropic to understand Images from Local directory
 
 import matplotlib.pyplot as plt
 
@@ -72,15 +62,11 @@ img = Image.open("./prometheus\_paper\_card.png")
 
 plt.imshow(img)
 
-
-
 ```
 <matplotlib.image.AxesImage at 0x7f69551b93c0>
 ```
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/third-party-llamaindex-multi-modal/third-party-llamaindex-multi-modal_cell8_out1_5208478b.png)
-
-
 
 from llama\_index.core import SimpleDirectoryReader
 
@@ -92,8 +78,6 @@ image\_documents = SimpleDirectoryReader(input\_files=["prometheus\_paper\_card.
 
 anthropic\_mm\_llm = AnthropicMultiModal(max\_tokens=300)
 
-
-
 response = anthropic\_mm\_llm.complete(
 
 prompt="Describe the images as an alternative text",
@@ -102,11 +86,7 @@ image\_documents=image\_documents,
 
 )
 
-
-
 print(response)
-
-
 
 ```
 The image is a diagram titled "Prometheus: Inducing Fine-Grained Evaluation Capability In Language Models". It outlines the key components and workflow of the Prometheus system.
@@ -121,9 +101,7 @@ The main sections are:
 The diagram uses
 ```
 
-####  Use `AnthropicMultiModal` to reason images from URLs
-
-
+####  Use `AnthropicMultiModal` to reason images from URLs
 
 from io import BytesIO
 
@@ -145,15 +123,11 @@ img = Image.open(BytesIO(img\_response.content))
 
 plt.imshow(img)
 
-####  Load images with url
-
-
+####  Load images with url
 
 from llama\_index.core.multi\_modal\_llms.generic\_utils import load\_image\_urls
 
 image\_url\_documents = load\_image\_urls(image\_urls)
-
-
 
 response = anthropic\_mm\_llm.complete(
 
@@ -163,11 +137,7 @@ image\_documents=image\_url\_documents,
 
 )
 
-
-
 print(response)
-
-
 
 ```
 The image shows a table comparing the benchmark scores of various Claude 3 AI models (Opus, Sonnet, Haiku) against GPT-4, GPT-3.5, and two versions of Gemini (1.0 Ultra and 1.0 Pro) across different academic subjects and tests.
@@ -179,17 +149,13 @@ The scores are presented as percentages, except for the "Reasoning over text" ro
 Overall, the Claude 3 models show competitive performance compared to the GPT and Gemini models across most of the benchmarks. The Gemini models have a slight edge in some categories like undergraduate knowledge and math problem-solving.
 ```
 
-####  Structured Output Parsing from an Image
+####  Structured Output Parsing from an Image
 
 Here, we use our multi-modal Pydantic program to generate structured output from an image.
-
-
 
 from llama\_index.core import SimpleDirectoryReader
 
 image\_documents = SimpleDirectoryReader(input\_files=["ark\_email\_sample.png"]).load\_data()
-
-
 
 import matplotlib.pyplot as plt
 
@@ -199,15 +165,11 @@ img = Image.open("ark\_email\_sample.png")
 
 plt.imshow(img)
 
-
-
 ```
 <matplotlib.image.AxesImage at 0x7f68972716c0>
 ```
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/third-party-llamaindex-multi-modal/third-party-llamaindex-multi-modal_cell20_out1_dd2a43a0.png)
-
-
 
 from pydantic import BaseModel
 
@@ -232,8 +194,6 @@ class TickerList(BaseModel):
 fund: str
 
 tickers: list[TickerInfo]
-
-
 
 from llama\_index.core.program import MultiModalLLMCompletionProgram
 
@@ -267,11 +227,7 @@ verbose=True,
 
 )
 
-
-
 response = llm\_program()
-
-
 
 ```
 > Raw output: {
@@ -288,11 +244,7 @@ response = llm\_program()
 }
 ```
 
-
-
 print(response)
-
-
 
 ```
 fund='ARKK' tickers=[TickerInfo(direction='Buy', ticker='TSLA', company='TESLA INC', shares_traded=93664, percent_of_total_etf=0.2453)]

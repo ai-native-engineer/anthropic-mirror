@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/threads/events/list -->
 
----
-title: List Session Thread Events
-url: https://platform.claude.com/docs/en/api/php/beta/sessions/threads/events/list
----
-
-## List Session Thread Events
+# List Session Thread Events
 
 `$client->beta->sessions->threads->events->list(string threadID, string sessionID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsSessionEvent>`
 
-**get** `/v1/sessions/{session_id}/threads/{thread_id}/events`
+**GET** `/v1/sessions/{session_id}/threads/{thread_id}/events`
 
 List Session Thread Events
 
-### Parameters
+## Parameters
 
 - `sessionID: string`
 
@@ -31,7 +26,7 @@ List Session Thread Events
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `ManagedAgentsSessionEvent`
 
@@ -759,7 +754,7 @@ List Session Thread Events
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -779,7 +774,7 @@ $page = $client->beta->sessions->threads->events->list(
 var_dump($page);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,18 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-calculator-tool -->
 
-#  Using a Calculator Tool with Claude
+#  Using a Calculator Tool with Claude
 
 In this recipe, we'll demonstrate how to provide Claude with a simple calculator tool that it can use to perform arithmetic operations based on user input. We'll define the calculator tool and show how Claude can interact with it to solve mathematical problems.
 
-##  Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 First, let's install the required libraries and set up the Claude API client.
 
-
-
 %pip install anthropic
-
-
 
 from anthropic import Anthropic
 
@@ -20,13 +16,11 @@ client = Anthropic()
 
 MODEL\_NAME = "claude-opus-4-1"
 
-##  Step 2: Define the calculator tool
+##  Step 2: Define the calculator tool
 
 We'll define a simple calculator tool that can perform basic arithmetic operations. The tool will take a mathematical expression as input and return the result.
 
 Note that we are calling `eval` on the outputted expression. This is bad practice and should not be used generally but we are doing it for the purpose of demonstration.
-
-
 
 import re
 
@@ -88,11 +82,9 @@ In this example, we define a calculate function that takes a mathematical expres
 
 We then define the calculator tool with an input schema that expects a single expression property of type string.
 
-##  Step 3: Interact with Claude
+##  Step 3: Interact with Claude
 
 Now, let's see how Claude can interact with the calculator tool to solve mathematical problems.
-
-
 
 def process\_tool\_call(tool\_name, tool\_input):
 
@@ -194,19 +186,15 @@ print(f"\nFinal Response: {final\_response}")
 
 return final\_response
 
-##  Step 4: Try it out!
+##  Step 4: Try it out!
 
 Let's try giving Claude a few example math questions now that it has access to a calculator.
-
-
 
 chat\_with\_claude("What is the result of 1,984,135 \* 9,343,116?")
 
 chat\_with\_claude("Calculate (12851 - 593) \* 301 + 76")
 
 chat\_with\_claude("What is 15910385 divided by 193053?")
-
-
 
 ```
 ==================================================

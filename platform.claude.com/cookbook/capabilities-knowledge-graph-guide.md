@@ -1,12 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/capabilities-knowledge-graph-guide -->
 
-#  Knowledge Graph Construction with Claude
+#  Knowledge Graph Construction with Claude
 
 You have a pile of unstructured documents and need to answer questions that span them — "who works with people who worked on project X", "which vendors are connected to this incident". No single document contains the answer. RAG retrieval won't chain the facts for you. You need a knowledge graph: **entities** as nodes, **typed relations** as edges, so that multi-hop reasoning becomes graph traversal.
 
 Building one used to mean training a named-entity recognizer on your domain, training a relation classifier, writing entity-resolution heuristics, and maintaining all three as your data shifted. With Claude, each of those stages becomes a prompt.
 
-##  What you'll learn
+##  What you'll learn
 
 By the end of this guide you will be able to:
 
@@ -17,21 +17,17 @@ By the end of this guide you will be able to:
 
 Everything runs in memory with no database. The techniques transfer directly to Neo4j, Neptune, or a Postgres adjacency table when you need to scale.
 
-##  Prerequisites
+##  Prerequisites
 
 * Python 3.11+
 * Anthropic API key ([get one here(opens in new tab)](https://console.anthropic.com))
 * Basic familiarity with graphs (nodes, edges, traversal)
 
-##  Setup
-
-
+##  Setup
 
 %%capture
 
 %pip install anthropic requests networkx matplotlib python-dotenv pydantic
-
-
 
 import json
 
@@ -65,13 +61,11 @@ SYNTHESIS\_MODEL = "claude-sonnet-4-6"
 
 We use two models. Haiku handles the high-volume, schema-constrained extraction work where speed and cost matter more than nuance. Sonnet handles entity resolution and summarization, where the model needs to weigh conflicting evidence across documents.
 
-##  Building a corpus
+##  Building a corpus
 
 We need a handful of documents that talk about overlapping entities, so that entity resolution has real work to do. The Apollo program is a good test bed: six short Wikipedia summaries that all mention NASA, the Moon, several astronauts, and a launch vehicle — but each article names them slightly differently.
 
 We fetch summaries from the Wikipedia REST API rather than full articles to keep token costs low. For a production pipeline you would chunk full documents; the extraction logic is identical.
-
-
 
 ARTICLE\_TITLES = [
 
@@ -123,8 +117,6 @@ print(f"Loaded {len(documents)} documents\n")
 
 print(f"Sample — {documents[0]['title']}:\n{documents[0]['text'][:300]}...")
 
-
-
 ```
 Loaded 6 documents
 
@@ -132,13 +124,11 @@ Sample — Apollo program:
 The Apollo program, also known as Project Apollo, was the United States human spaceflight program led by NASA, which landed the first humans on the Moon in 1969. Apollo was conceived during Project Mercury and executed after Project Gemini. It was conceived in 1960 as a three-person spacecraft durin...
 ```
 
-##  Entity and relation extraction
+##  Entity and relation extraction
 
 Classical NER tags spans of text with labels (PERSON, ORG, LOC). Classical relation extraction then classifies pairs of spans into relation types. Both traditionally require labeled training data per domain.
 
 We collapse both stages into a single Claude call per document. The key is **structured outputs**: we define the output shape as a Pydantic model and pass it to `client.messages.parse()`. Claude's response is guaranteed to validate against that schema and comes back as a typed Python object — no regex parsing, no JSON decode errors, no defensive `isinstance` checks.
-
-
 
 EntityType = Literal["PERSON", "ORGANIZATION", "LOCATION", "EVENT", "ARTIFACT"]
 
@@ -200,8 +190,6 @@ output\_format=ExtractedGraph,
 
 return response.parsed\_output
 
-
-
 raw\_entities = []
 
 raw\_relations = []
@@ -234,8 +222,6 @@ f"{doc['title']:<25} {len(result.entities):>3} entities {len(result.relations):>
 
 print(f"\nTotal: {len(raw\_entities)} raw entities, {len(raw\_relations)} raw relations")
 
-
-
 ```
 Apollo program              8 entities    7 relations
 
@@ -254,8 +240,6 @@ Total: 36 raw entities, 34 raw relations
 
 Let's look at what was extracted. Notice how the same real-world entity appears under different surface forms across documents — this is the entity resolution problem we solve next.
 
-
-
 by\_type = defaultdict(list)
 
 for e in raw\_entities:
@@ -271,8 +255,6 @@ for name in sorted(set(names)):
 print(f" {name}")
 
 print()
-
-
 
 ```
 ARTIFACT (3):
@@ -310,15 +292,13 @@ PERSON (10):
   Neil Armstrong
 ```
 
-##  Entity resolution
+##  Entity resolution
 
 The raw extraction gives us overlapping mentions: "NASA" and "National Aeronautics and Space Administration", "Neil Armstrong" and "Armstrong", possibly "the Moon" and "Moon". If we build a graph directly from this, we get a fractured mess where the same concept is split across disconnected nodes.
 
 Traditional approaches use string similarity (edit distance, Jaccard on tokens) plus blocking rules. That works for typos but fails on "Edwin Aldrin" vs "Buzz Aldrin" — two names with zero character overlap that refer to the same person.
 
 We instead ask Claude to cluster entities of each type, using the one-line descriptions from extraction as disambiguation context. The descriptions matter: "Armstrong — first person to walk on the Moon" and "Armstrong — jazz trumpeter" have the same name but should not merge.
-
-
 
 class Cluster(BaseModel):
 
@@ -376,8 +356,6 @@ return response.parsed\_output.clusters
 
 Two failure modes to watch for. First, any raw name Claude leaves out of every cluster silently disappears from the graph, because `alias_to_canonical` has no entry for it — a production resolver should fall back to a single-element cluster for unmatched names so nothing is lost. Second, the resolver can **over-merge**: a specific mission like "Gemini 12" may get folded into the broader "Project Gemini" because the descriptions overlap. The first loses nodes, the second loses precision. Both are worth spot-checking in the output below.
 
-
-
 alias\_to\_canonical = {}
 
 canonical\_info = {}
@@ -426,8 +404,6 @@ alias\_str = f" (also: {', '.join(aliases)})" if aliases else ""
 
 print(f"{info['type']:<14} {canonical}{alias\_str}")
 
-
-
 ```
 Entity resolution: 24 unique names → 22 canonical entities
 
@@ -455,13 +431,11 @@ EVENT          Space Shuttle program
 ORGANIZATION   U.S. Congress
 ```
 
-##  Assembling the graph
+##  Assembling the graph
 
 With a clean alias map, we rewrite every relation endpoint to its canonical form and load the result into NetworkX. We use a `MultiDiGraph` because two entities can be connected by several distinct predicates ("launched from" and "operated by"), and direction matters ("Armstrong commanded Apollo 11" is not the same edge as "Apollo 11 commanded Armstrong").
 
 Each node carries its type, the set of documents that mention it, and a mention count. Each edge carries its predicate and source document.
-
-
 
 G = nx.MultiDiGraph()
 
@@ -517,8 +491,6 @@ for node, deg in sorted(G.degree(), key=lambda x: -x[1])[:5]:
 
 print(f" {node:<35} degree {deg:>2} ({G.nodes[node]['type']})")
 
-
-
 ```
 Graph: 22 nodes, 34 edges
 Connected components: 1
@@ -530,8 +502,6 @@ Most connected entities:
   Neil Alden Armstrong                degree  5  (PERSON)
   Buzz Aldrin                         degree  5  (PERSON)
 ```
-
-
 
 COLOR = {
 
@@ -585,13 +555,11 @@ plt.show()
 
 Node size scales with degree — the hubs are the entities that tie the corpus together. Color encodes type: if your graph is mostly one color, your corpus is narrow; a good mix means the extractor is finding the full cast of people, places, and things. A single connected component means entity resolution did its job — fragmented islands would indicate variants that should have merged but didn't.
 
-##  Entity summarization
+##  Entity summarization
 
 Each node currently carries only the one-line description from whichever document mentioned it first. For the hub nodes — the ones that show up in many documents — we can do much better: pool every mention, add the graph neighborhood as context, and have Claude synthesize a proper profile.
 
 This is the step that turns a graph of labels into a graph of knowledge. The summaries become the node content you surface in search results or feed to downstream QA.
-
-
 
 class TimeRange(BaseModel):
 
@@ -679,8 +647,6 @@ output\_format=EntityProfile,
 
 return response.parsed\_output
 
-
-
 hub\_nodes = [n for n, \_ in sorted(G.degree(), key=lambda x: -x[1])[:3]]
 
 for node in hub\_nodes:
@@ -702,8 +668,6 @@ for fact in profile.key\_facts:
 print(f" • {fact}")
 
 print()
-
-
 
 ```
 ═══ Apollo program ═══
@@ -745,13 +709,11 @@ Key facts:
   • KSC is adjacent to Cape Canaveral Space Force Station, and the two entities share resources and operate facilities on each other's property.
 ```
 
-##  Querying the graph
+##  Querying the graph
 
 The payoff of building a knowledge graph is multi-hop reasoning: answering questions that require chaining facts that never co-occur in a single document. "Which locations are connected to people who flew on Apollo 11?" needs the extractor to have found person→mission edges in one document and person→location edges in another, then the resolver to have unified the person nodes so those edges actually meet.
 
 We serialize a relevant subgraph as triples and let Claude reason over it. For comparison, we first ask the same question with no graph context.
-
-
 
 def serialize\_subgraph(center: str, hops: int = 2) -> str:
 
@@ -813,8 +775,6 @@ raise ValueError(f"No text block in response (stop\_reason={response.stop\_reaso
 
 return text\_block.text
 
-
-
 center = next((n for n in G.nodes if "Apollo" in n), hub\_nodes[0])
 
 print(f"Querying 2-hop neighborhood of: {center}\n")
@@ -832,8 +792,6 @@ print("\n" + "─" \* 60 + "\n")
 print("WITH graph context:")
 
 print(ask(question, subgraph))
-
-
 
 ```
 Querying 2-hop neighborhood of: Apollo program
@@ -905,7 +863,7 @@ The knowledge graph does **not** include location data for any other Apollo 11 c
 
 The ungrounded answer draws on Claude's pretraining and may be correct — Apollo 11 is famous. But the grounded answer is **traceable**: every claim cites an edge we extracted from a specific document. On a private corpus where Claude has no prior knowledge, only the grounded answer works at all.
 
-##  Evaluation
+##  Evaluation
 
 Knowledge graph quality is measured with precision and recall against a gold set. We ship a small hand-labeled set in `data/sample_triples.json` covering two of the articles, plus `data/alias_map.json` which normalizes surface-form variants to the gold names so that "the Moon" and "Moon" count as the same hit.
 
@@ -913,11 +871,7 @@ The check below scores two things side by side: raw extractor output, and the sa
 
 This cell scores entities only. The standalone script also scores relations, matching on (source, target) pairs with predicate wording ignored — so its relation recall is an upper bound. Run it from the repo root:
 
-
-
 uv run python capabilities/knowledge\_graph/evaluation/eval\_extraction.py
-
-
 
 # Expects the kernel launched from this notebook's directory
 
@@ -985,8 +939,6 @@ if missed:
 
 print(f" still missed after resolution: {', '.join(sorted(missed))}")
 
-
-
 ```
 Raw extraction vs resolved-graph recall against gold:
 
@@ -996,7 +948,7 @@ Neil Armstrong        raw F1=0.55 (P=1.00 R=0.38)  resolved R=0.38
   still missed after resolution: gemini 8, korean war, nasa, purdue university, united states navy
 ```
 
-##  Scaling up
+##  Scaling up
 
 This notebook processed six documents in memory. Production knowledge graphs are built from thousands. A few notes on scaling:
 
@@ -1008,7 +960,7 @@ This notebook processed six documents in memory. Production knowledge graphs are
 
 **Storage.** NetworkX is fine to a few hundred thousand edges. Beyond that, the schema maps directly onto a property graph (Neo4j, Neptune) or three Postgres tables: `entities(id, name, type, summary)`, `relations(source_id, target_id, predicate)`, `aliases(entity_id, alias)`. The extraction and resolution code doesn't change — only the persistence layer does.
 
-##  Summary
+##  Summary
 
 You've built a complete knowledge graph pipeline with nothing but prompts:
 
@@ -1019,7 +971,7 @@ You've built a complete knowledge graph pipeline with nothing but prompts:
 
 The evaluation harness in `evaluation/` gives you a feedback loop: change the extraction prompt, rerun the scorer, watch the F1 move. That loop is what turns a demo into a production system.
 
-##  Related cookbooks
+##  Related cookbooks
 
 * [Extracting structured JSON(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/capabilities/knowledge_graph/../../tool_use/extracting_structured_json.ipynb) — the tool-use approach to the same extraction pattern, useful when you're already in an agentic tool-calling flow
 * [Retrieval augmented generation(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/capabilities/knowledge_graph/../retrieval_augmented_generation/guide.ipynb) — the complementary approach when you need document retrieval rather than fact traversal

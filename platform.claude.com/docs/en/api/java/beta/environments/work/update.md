@@ -1,21 +1,16 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/environments/work/update -->
 
----
-title: Update Work Item
-url: https://platform.claude.com/docs/en/api/java/beta/environments/work/update
----
+# Update Work Item
 
-## Update Work Item
+`BetaSelfHostedWork beta().environments().work().update(params, requestOptions = RequestOptions.none())`
 
-`BetaSelfHostedWork beta().environments().work().update(WorkUpdateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**post** `/v1/environments/{environment_id}/work/{work_id}`
+**POST** `/v1/environments/{environment_id}/work/{work_id}`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Update work item metadata with merge semantics.
 
-### Parameters
+## Parameters
 
 - `WorkUpdateParams params`
 
@@ -99,7 +94,7 @@ Update work item metadata with merge semantics.
 
     Request to update work item metadata.
 
-### Returns
+## Returns
 
 - `class BetaSelfHostedWork:`
 
@@ -129,11 +124,9 @@ Update work item metadata with merge semantics.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonValue; type "session"constant`
+    - `JsonValue type constant`
 
       Type of work data
-
-      - `SESSION("session")`
 
   - `String environmentId`
 
@@ -177,13 +170,11 @@ Update work item metadata with merge semantics.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonValue; type "work"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'work')
 
-    - `WORK("work")`
-
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -215,7 +206,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

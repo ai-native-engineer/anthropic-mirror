@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/environments/retrieve -->
 
----
-title: Get Environment
-url: https://platform.claude.com/docs/en/api/java/beta/environments/retrieve
----
+# Get Environment
 
-## Get Environment
+`BetaEnvironment beta().environments().retrieve(params = EnvironmentRetrieveParams.none(), requestOptions = RequestOptions.none())`
 
-`BetaEnvironment beta().environments().retrieve(EnvironmentRetrieveParamsparams = EnvironmentRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
-
-**get** `/v1/environments/{environment_id}`
+**GET** `/v1/environments/{environment_id}`
 
 Retrieve a specific environment by ID.
 
-### Parameters
+## Parameters
 
 - `EnvironmentRetrieveParams params`
 
@@ -91,7 +86,7 @@ Retrieve a specific environment by ID.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+## Returns
 
 - `class BetaEnvironment:`
 
@@ -121,11 +116,9 @@ Retrieve a specific environment by ID.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
@@ -143,11 +136,9 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
@@ -181,23 +172,17 @@ Retrieve a specific environment by ID.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -215,11 +200,9 @@ Retrieve a specific environment by ID.
 
     Human-readable name for the environment
 
-  - `JsonValue; type "environment"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'environment')
-
-    - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
@@ -233,7 +216,7 @@ Retrieve a specific environment by ID.
 
     - `ACCOUNT("account")`
 
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -254,7 +237,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

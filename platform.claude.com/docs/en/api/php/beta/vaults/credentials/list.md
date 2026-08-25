@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/credentials/list -->
 
----
-title: List Credentials
-url: https://platform.claude.com/docs/en/api/php/beta/vaults/credentials/list
----
-
-## List Credentials
+# List Credentials
 
 `$client->beta->vaults->credentials->list(string vaultID, ?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsCredential>`
 
-**get** `/v1/vaults/{vault_id}/credentials`
+**GET** `/v1/vaults/{vault_id}/credentials`
 
 List Credentials
 
-### Parameters
+## Parameters
 
 - `vaultID: string`
 
@@ -33,7 +28,7 @@ List Credentials
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `ManagedAgentsCredential`
 
@@ -71,7 +66,7 @@ List Credentials
 
     Human-readable name for the credential.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -91,7 +86,7 @@ $page = $client->beta->vaults->credentials->list(
 var_dump($page);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

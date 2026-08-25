@@ -52,6 +52,13 @@ A member whose roles don’t grant the capability is excluded everywhere Claude 
 
 On a Slack Enterprise Grid whose workspaces are paired to different Claude organizations, one organization’s access settings govern the entire grid, so your restrictions may not be enforced in your own workspaces.
 
+###  Restrict who can link a Claude account by email domain
+
+On Enterprise plans, if your organization belongs to a parent enterprise organization, you see one more toggle in the same **Manage** dialog, **Restrict to your verified domains**. It needs an Owner to change and is disabled while Claude Tag is off for the organization. The check uses the enterprise’s verified domains, which every organization under the enterprise shares.
+When the toggle is on, a Slack user whose profile email isn’t on one of the enterprise’s verified domains can’t link a Claude account to this organization; the sign-in is refused.
+
+Turning this on in any one organization also stops Slack users on a verified domain from linking a Claude account to any organization outside the enterprise.
+
 ##  Control where Claude Tag operates
 
 The restriction toggle decides who can use Claude. The controls in this section decide where it works at all, from one channel up to a workspace, and which generation answers in each scope (a scope is a channel, a workspace, or your whole organization).
@@ -65,10 +72,10 @@ Six ways to stop Claude Tag from responding, ordered from quietest to most compl
 3. **Set the scope’s Claude Tag version to Off.** Claude stops responding in that scope even if someone invites it back; an @-mention gets a disabled notice instead of a reply. The control is on the scope’s panel at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), and only an Owner can change it.
 4. **Detach the scope.** The channel loses its elevated access and falls back to inherited baselines.
 5. **Delete the bundle.** This revokes its credentials everywhere it was attached (the credentials are removed; memory, routines, and transcripts are not). Running sessions may keep a revoked credential for a short window before the change propagates.
-6. **Uninstall the app.** This removes Claude from the workspace entirely.
+6. **Uninstall the app.** This removes Claude from the workspace and deletes the workspace’s Claude data the same way [disconnecting the workspace](https://claude.com/docs/claude-tag/admins/workspaces#revoke-a-pairing) does.
 
 To keep Claude out of channels by name ahead of time, add a [blocked channel pattern](#block-or-auto-join-channels-by-name) instead.
-Steps 1–4 and 6 do not delete any data. Step 5 (deleting a bundle) removes the credentials in that bundle; memory, routines, and session transcripts are unaffected by any of these steps. Removing Claude from a channel stops it responding there; the channel’s memory and routines remain on record, and re-adding it restores them. Credentials are stored in Access bundles on the claude.ai side and persist independently of the Slack app installation. To delete data, use the dedicated controls at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag) rather than removal alone.
+Steps 1–4 do not delete any data. Step 5 (deleting a bundle) removes the credentials in that bundle; memory, routines, and session transcripts are unaffected. Removing Claude from a channel stops it responding there; the channel’s memory and routines remain on record, and re-adding it restores them. To delete data without uninstalling, use the dedicated controls at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag).
 
 ###  Limit Claude Tag to specific channels
 
@@ -146,9 +153,7 @@ There is no per-channel override for either case.
 
 ###  Migrate from the earlier Claude in Slack
 
-If your organization used the earlier Claude in Slack app, you choose which generation answers `@Claude` per scope. The control is the **Claude Tag version** setting on each workspace or channel scope at [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/claude-tag), with the choices **Off**, **Legacy**, **New**, and **Inherit**, plus the **Claude Tag version** row on the **Default Slack access** scope above them.
-Both generations answer through the same @Claude app, so **Off** turns off both. To opt out of Claude Tag but keep the earlier app answering in a scope, choose **Legacy**.
-Access bundles only apply where the New version answers. The [glossary](https://claude.com/docs/claude-tag/concepts/glossary#the-earlier-claude-in-slack) covers how the two differ.
+If your organization used the earlier Claude in Slack app, the **Claude Tag version** setting on each scope chooses which generation answers `@Claude` there. Access bundles only apply where the New version answers. See [Set the version for a scope](https://claude.com/docs/claude-tag/admins/workspaces#set-the-version-for-a-scope) for the values and [Migrate from the earlier Claude in Slack](https://claude.com/docs/claude-tag/admins/migrate-from-earlier) for the switch.
 
 ###  Allow or disable direct messages
 

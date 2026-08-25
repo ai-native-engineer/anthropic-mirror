@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/completions/create -->
 
----
-title: Create a Text Completion
-url: https://platform.claude.com/docs/en/api/java/completions/create
----
+# Create a Text Completion
 
-## Create a Text Completion
+`Completion completions().create(params, requestOptions = RequestOptions.none())`
 
-`Completion completions().create(CompletionCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**post** `/v1/complete`
+**POST** `/v1/complete`
 
 [Legacy] Create a Text Completion.
 
@@ -17,7 +12,7 @@ The Text Completions API is a legacy API. We recommend using the [Messages API](
 
 Future models and features will not be compatible with Text Completions. See our [migration guide](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) for guidance in migrating from Text Completions to Messages.
 
-### Parameters
+## Parameters
 
 - `CompletionCreateParams params`
 
@@ -99,6 +94,8 @@ Future models and features will not be compatible with Text Completions. See our
 
     Note that our models may stop _before_ reaching this maximum. This parameter only specifies the absolute maximum number of tokens to generate.
 
+    minimum: 1
+
   - `Model model`
 
     The model that will complete your prompt.
@@ -125,6 +122,8 @@ Future models and features will not be compatible with Text Completions. See our
 
     See [prompt validation](https://platform.claude.com/docs/en/build-with-claude/working-with-messages) and our guide to [prompt design](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) for more details.
 
+    minLength: 1
+
   - `Optional<Metadata> metadata`
 
     An object describing metadata about the request.
@@ -139,13 +138,19 @@ Future models and features will not be compatible with Text Completions. See our
 
   - `Optional<Double> temperature`
 
+    **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting temperature. A value of 1.0 of will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
+
     Amount of randomness injected into the response.
 
     Defaults to `1.0`. Ranges from `0.0` to `1.0`. Use `temperature` closer to `0.0` for analytical / multiple choice, and closer to `1.0` for creative and generative tasks.
 
     Note that even with `temperature` of `0.0`, the results will not be fully deterministic.
 
+    maximum: 1, minimum: 0
+
   - `Optional<Long> topK`
+
+    **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not accept top_k; any value will be rejected with a 400 error.
 
     Only sample from the top K options for each subsequent token.
 
@@ -153,7 +158,11 @@ Future models and features will not be compatible with Text Completions. See our
 
     Recommended for advanced use cases only.
 
+    minimum: 0
+
   - `Optional<Double> topP`
+
+    **Deprecated**: Deprecated. Models released after Claude Opus 4.6 do not support setting top_p. A value >= 0.99 will be accepted for backwards compatibility, all other values will be rejected with a 400 error.
 
     Use nucleus sampling.
 
@@ -161,7 +170,9 @@ Future models and features will not be compatible with Text Completions. See our
 
     Recommended for advanced use cases only.
 
-### Returns
+    maximum: 1, minimum: 0
+
+## Returns
 
 - `class Completion:`
 
@@ -250,15 +261,15 @@ Future models and features will not be compatible with Text Completions. See our
     * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
     * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
-  - `JsonValue; type "completion"constant`
+  - `JsonValue type constant`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
 
-    - `COMPLETION("completion")`
+- `class Completion:`
 
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -285,7 +296,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

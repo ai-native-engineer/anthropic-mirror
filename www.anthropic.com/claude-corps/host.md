@@ -3,9 +3,12 @@
 # Prospective Hosts: Put AI to work for your mission
 
 Claude Corps is a fully funded, 12-month paid fellowship that places early-career talent inside mission-driven nonprofits. Fellows tackle your organization’s operational challenges and strengthen your programs, giving your team hands-on AI support to advance your mission. Anthropic funds and manages the program, CodePath employs and trains the fellows, and Social Finance supports learning and measurement.
-Cohort 1 Update: We will be letting all organizations who applied for Cohort 1 the status of their application by August 21st, 2026.
 
 [Apply to host](https://form.typeform.com/to/X0apETWF)[Watch informational webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization)
+
+## Timing Update
+
+## All organizations that applied for Cohort 1 will hear back on August 31st. Thank you for your patience as we review all applications.
 
 ## About Claude Corps
 

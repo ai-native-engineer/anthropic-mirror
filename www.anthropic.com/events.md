@@ -366,7 +366,7 @@ Aug 6, 2026
 
 2026-08-06
 
-[Learn more about this webinar](https://www.anthropic.com/webinars/claude-for-marketing-ops-and-analytics)
+[Learn more about this webinar](#)
 
 Startup Builds: Getting Started with Loops
 

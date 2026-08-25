@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/vaults/list -->
 
----
-title: List Vaults
-url: https://platform.claude.com/docs/en/api/typescript/beta/vaults/list
----
+# List Vaults
 
-## List Vaults
+`client.beta.vaults.list(params?, options?): PageCursor<BetaManagedAgentsVault>`
 
-`client.beta.vaults.list(VaultListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsVault>`
-
-**get** `/v1/vaults`
+**GET** `/v1/vaults`
 
 List Vaults
 
-### Parameters
+## Parameters
 
 - `params: VaultListParams`
 
@@ -24,6 +19,8 @@ List Vaults
   - `limit?: number`
 
     Query param: Maximum number of vaults to return per page. Defaults to 20, maximum 100.
+
+    format: int32
 
   - `page?: string`
 
@@ -105,7 +102,7 @@ List Vaults
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsVault`
 
@@ -119,9 +116,13 @@ List Vaults
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `display_name: string`
 
@@ -133,13 +134,13 @@ List Vaults
 
   - `type: "vault"`
 
-    - `"vault"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
-### Example
+    format: date-time
+
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -154,7 +155,7 @@ for await (const betaManagedAgentsVault of client.beta.vaults.list()) {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

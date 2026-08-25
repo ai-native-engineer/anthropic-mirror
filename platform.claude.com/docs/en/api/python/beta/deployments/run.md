@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/deployments/run -->
 
----
-title: Run Deployment Now
-url: https://platform.claude.com/docs/en/api/python/beta/deployments/run
----
+# Run Deployment Now
 
-## Run Deployment Now
+`beta.deployments.run(deployment_id, **kwargs)  -> BetaManagedAgentsDeploymentRun`
 
-`beta.deployments.run(strdeployment_id, DeploymentRunParams**kwargs)  -> BetaManagedAgentsDeploymentRun`
-
-**post** `/v1/deployments/{deployment_id}/run`
+**POST** `/v1/deployments/{deployment_id}/run`
 
 Run Deployment Now
 
-### Parameters
+## Parameters
 
 - `deployment_id: str`
 
@@ -93,7 +88,7 @@ Run Deployment Now
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsDeploymentRun: …`
 
@@ -111,13 +106,15 @@ Run Deployment Now
 
     - `type: Literal["agent"]`
 
-      - `"agent"`
-
     - `version: int`
+
+      format: int32
 
   - `created_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `deployment_id: str`
 
@@ -137,8 +134,6 @@ Run Deployment Now
 
       - `type: Literal["environment_archived_error"]`
 
-        - `"environment_archived_error"`
-
     - `class BetaManagedAgentsAgentArchivedRunError: …`
 
       The deployment's agent was archived.
@@ -148,8 +143,6 @@ Run Deployment Now
         Human-readable error description.
 
       - `type: Literal["agent_archived_error"]`
-
-        - `"agent_archived_error"`
 
     - `class BetaManagedAgentsEnvironmentNotFoundRunError: …`
 
@@ -161,8 +154,6 @@ Run Deployment Now
 
       - `type: Literal["environment_not_found_error"]`
 
-        - `"environment_not_found_error"`
-
     - `class BetaManagedAgentsVaultNotFoundRunError: …`
 
       A vault referenced by the deployment no longer exists.
@@ -172,8 +163,6 @@ Run Deployment Now
         Human-readable error description.
 
       - `type: Literal["vault_not_found_error"]`
-
-        - `"vault_not_found_error"`
 
     - `class BetaManagedAgentsVaultArchivedRunError: …`
 
@@ -185,8 +174,6 @@ Run Deployment Now
 
       - `type: Literal["vault_archived_error"]`
 
-        - `"vault_archived_error"`
-
     - `class BetaManagedAgentsFileNotFoundRunError: …`
 
       A file resource referenced by the deployment no longer exists.
@@ -196,8 +183,6 @@ Run Deployment Now
         Human-readable error description.
 
       - `type: Literal["file_not_found_error"]`
-
-        - `"file_not_found_error"`
 
     - `class BetaManagedAgentsMemoryStoreArchivedRunError: …`
 
@@ -209,8 +194,6 @@ Run Deployment Now
 
       - `type: Literal["memory_store_archived_error"]`
 
-        - `"memory_store_archived_error"`
-
     - `class BetaManagedAgentsSkillNotFoundRunError: …`
 
       A skill referenced by the deployment's agent no longer exists.
@@ -220,8 +203,6 @@ Run Deployment Now
         Human-readable error description.
 
       - `type: Literal["skill_not_found_error"]`
-
-        - `"skill_not_found_error"`
 
     - `class BetaManagedAgentsSessionResourceNotFoundRunError: …`
 
@@ -233,8 +214,6 @@ Run Deployment Now
 
       - `type: Literal["session_resource_not_found_error"]`
 
-        - `"session_resource_not_found_error"`
-
     - `class BetaManagedAgentsWorkspaceArchivedRunError: …`
 
       The deployment's workspace was archived.
@@ -244,8 +223,6 @@ Run Deployment Now
         Human-readable error description.
 
       - `type: Literal["workspace_archived_error"]`
-
-        - `"workspace_archived_error"`
 
     - `class BetaManagedAgentsOrganizationDisabledRunError: …`
 
@@ -257,8 +234,6 @@ Run Deployment Now
 
       - `type: Literal["organization_disabled_error"]`
 
-        - `"organization_disabled_error"`
-
     - `class BetaManagedAgentsSessionRateLimitedRunError: …`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
@@ -268,8 +243,6 @@ Run Deployment Now
         Human-readable error description.
 
       - `type: Literal["session_rate_limited_error"]`
-
-        - `"session_rate_limited_error"`
 
     - `class BetaManagedAgentsSessionCreationRejectedRunError: …`
 
@@ -281,8 +254,6 @@ Run Deployment Now
 
       - `type: Literal["session_creation_rejected_error"]`
 
-        - `"session_creation_rejected_error"`
-
     - `class BetaManagedAgentsUnknownRunError: …`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
@@ -292,8 +263,6 @@ Run Deployment Now
         Human-readable error description.
 
       - `type: Literal["unknown_error"]`
-
-        - `"unknown_error"`
 
     - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError: …`
 
@@ -305,8 +274,6 @@ Run Deployment Now
 
       - `type: Literal["self_hosted_resources_unsupported_error"]`
 
-        - `"self_hosted_resources_unsupported_error"`
-
     - `class BetaManagedAgentsMCPEgressBlockedRunError: …`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
@@ -316,8 +283,6 @@ Run Deployment Now
         Human-readable error description.
 
       - `type: Literal["mcp_egress_blocked_error"]`
-
-        - `"mcp_egress_blocked_error"`
 
   - `session_id: Optional[str]`
 
@@ -335,9 +300,9 @@ Run Deployment Now
 
         A timestamp in RFC 3339 format
 
-      - `type: Literal["schedule"]`
+        format: date-time
 
-        - `"schedule"`
+      - `type: Literal["schedule"]`
 
     - `class BetaManagedAgentsManualTriggerContext: …`
 
@@ -345,13 +310,9 @@ Run Deployment Now
 
       - `type: Literal["manual"]`
 
-        - `"manual"`
-
   - `type: Literal["deployment_run"]`
 
-    - `"deployment_run"`
-
-### Example
+## Example
 
 ```python
 import os
@@ -368,7 +329,7 @@ beta_managed_agents_deployment_run = client.beta.deployments.run(
 print(beta_managed_agents_deployment_run.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

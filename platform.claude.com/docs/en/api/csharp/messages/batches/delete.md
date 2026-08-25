@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/messages/batches/delete -->
 
----
-title: Delete a Message Batch
-url: https://platform.claude.com/docs/en/api/csharp/messages/batches/delete
----
+# Delete a Message Batch
 
-## Delete a Message Batch
+`DeletedMessageBatch Messages.Batches.Delete(parameters, cancellationToken = default)`
 
-`DeletedMessageBatch Messages.Batches.Delete(BatchDeleteParamsparameters, CancellationTokencancellationToken = default)`
-
-**delete** `/v1/messages/batches/{message_batch_id}`
+**DELETE** `/v1/messages/batches/{message_batch_id}`
 
 Delete a Message Batch.
 
@@ -17,7 +12,7 @@ Message Batches can only be deleted once they've finished processing. If you'd l
 
 Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 
-### Parameters
+## Parameters
 
 - `BatchDeleteParams parameters`
 
@@ -25,7 +20,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     ID of the Message Batch.
 
-### Returns
+## Returns
 
 - `class DeletedMessageBatch:`
 
@@ -33,13 +28,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     ID of the Message Batch.
 
-  - `JsonElement Type "message_batch_deleted"constant`
+  - `JsonElement Type constant`
 
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
 
-### Example
+## Example
 
 ```csharp
 BatchDeleteParams parameters = new() { MessageBatchID = "message_batch_id" };
@@ -49,7 +44,7 @@ var deletedMessageBatch = await client.Messages.Batches.Delete(parameters);
 Console.WriteLine(deletedMessageBatch);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

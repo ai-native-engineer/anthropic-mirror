@@ -1,13 +1,8 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/create -->
 
----
-title: Add Workspace To Service Account
-url: https://platform.claude.com/docs/en/api/admin/service_accounts/workspaces/create
----
+# Add Workspace To Service Account
 
-## Add Workspace To Service Account
-
-**post** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
+**POST** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
 
 Add a service account to a workspace with the given `workspace_role`.
 
@@ -19,13 +14,13 @@ workspaces return 400. Archived service accounts cannot be added and are
 rejected. Requires an OAuth bearer or Console session; Admin API keys
 are not accepted.
 
-### Path Parameters
+## Path parameters
 
 - `service_account_id: string`
 
   ID of the service account.
 
-### Header Parameters
+## Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -33,7 +28,7 @@ are not accepted.
 
   To use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.
 
-### Body Parameters
+## Body parameters
 
 - `workspace_id: string`
 
@@ -51,7 +46,7 @@ are not accepted.
 
   - `"workspace_user"`
 
-### Returns
+## Returns
 
 - `created_by_actor_id: string or null`
 
@@ -67,7 +62,7 @@ are not accepted.
 
 - `type: "service_account_workspace_member"`
 
-  - `"service_account_workspace_member"`
+  default: service_account_workspace_member
 
 - `workspace_id: string`
 
@@ -87,9 +82,9 @@ are not accepted.
 
   - `"workspace_user"`
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUNT_ID/workspaces \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
@@ -100,7 +95,7 @@ curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUN
         }'
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

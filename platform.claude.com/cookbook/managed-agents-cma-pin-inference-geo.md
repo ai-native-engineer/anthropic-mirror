@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-pin-inference-geo -->
 
-#  Data residency: pin an agent's inference geography
+#  Data residency: pin an agent's inference geography
 
 An agent that touches regulated data needs an answer to one question before it ships: where do its model requests run. Answering it in a proxy or a runbook leaves the guarantee outside the system that enforces it.
 
@@ -13,17 +13,13 @@ This notebook walks through:
 * the update semantics that clear a pin
 * overriding the geography for one session with `agent_with_overrides`
 
-##  1. Set up the client
+##  1. Set up the client
 
 `inference_geo` rides the standard `managed-agents-2026-04-01` beta header and needs `anthropic>=0.121.0` for the typed field.
-
-
 
 %%capture
 
 %pip install -qU "anthropic>=0.121.0" python-dotenv
-
-
 
 import os
 
@@ -39,13 +35,11 @@ MODEL = os.environ.get("COOKBOOK\_MODEL", "claude-sonnet-5")
 
 client = anthropic.Anthropic()
 
-##  2. Pin the agent to US inference
+##  2. Pin the agent to US inference
 
 `inference_geo` sits inside the `model` config next to `effort` and `speed`. The accepted values are `"global"` and `"us"`. Leave it out and every model request resolves to your workspace's `default_inference_geo` at the moment that request is served, which means a later change to the workspace default reaches sessions that are already running. Set it and the pin is fixed on the agent.
 
 The pin is validated three times: when the agent is saved, when a session is created from it, and on every turn that session serves. It is enforced strictly rather than grandfathered. If a workspace admin narrows `allowed_inference_geos` after the fact, new sessions from a now-disallowed agent are rejected, and a session already running refuses its next turn. That strictness is the point: workspaces rely on it for residency, so the pin holds even against a mid-session policy change.
-
-
 
 researcher = client.beta.agents.create(
 
@@ -67,11 +61,9 @@ print(f"{researcher.name}: {researcher.id} v{researcher.version}")
 
 print("inference\_geo:", researcher.model.inference\_geo)
 
-##  3. Confirm the pin on a session
+##  3. Confirm the pin on a session
 
 A session snapshots the agent's config at creation, so the pin is visible on `session.agent.model`. Reading it back there is the check that this session's turns are bound to `us`, independent of what the workspace default is today.
-
-
 
 env = client.beta.environments.create(
 
@@ -127,13 +119,11 @@ print(f"\n[idle] stop\_reason={ev.stop\_reason.type}")
 
 break
 
-##  4. The workspace decides what the pin can point at
+##  4. The workspace decides what the pin can point at
 
 The workspace's residency policy lives on the Admin API, in the workspace's `data_residency` block: `allowed_inference_geos` (a list of geos, or the literal `"unrestricted"`) and `default_inference_geo`. An agent's `inference_geo` must be a member of `allowed_inference_geos` unless that field is `"unrestricted"`. Anything else is a 400 at save. In a multiagent roster the pin must agree across the board: the coordinator and every roster member are either all set to the same geo or all unset.
 
 One update subtlety worth pinning down. On `agents.update`, `model` is replaced as a whole rather than merged, so sending `model` without `inference_geo` clears the pin. To change the model id and keep the geography, restate it.
-
-
 
 cleared = client.beta.agents.update(researcher.id, model={"id": MODEL}, betas=BETAS)
 
@@ -151,11 +141,9 @@ betas=BETAS,
 
 print("restated:", researcher.model.inference\_geo)
 
-##  5. Override the geography for one session
+##  5. Override the geography for one session
 
 The agent's pin is the default for every session created from it. To run one session in a different geography without editing the shared agent, pass an `agent_with_overrides` object to `sessions.create` and override `model`. The override replaces the model config for that session only, and the agent resource is untouched. The same membership rule applies: the geo you override to must be allowed by the workspace, and a roster's members must still all agree.
-
-
 
 override = client.beta.sessions.create(
 
@@ -187,9 +175,7 @@ client.beta.agents.retrieve(researcher.id, betas=BETAS).model.inference\_geo,
 
 )
 
-##  6. Clean up
-
-
+##  6. Clean up
 
 from utilities import wait\_for\_idle\_status
 
@@ -205,7 +191,7 @@ client.beta.environments.archive(env.id, betas=BETAS)
 
 print("archived")
 
-##  Where the pin fits
+##  Where the pin fits
 
 `inference_geo` is a residency and compliance control. It says nothing about what the agent can read or where its data is stored, only where its tokens are processed. Storage geography is a separate, immutable workspace setting (`workspace_geo`); the two together answer the questions a compliance review asks.
 

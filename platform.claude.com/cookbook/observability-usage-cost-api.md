@@ -1,10 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/observability-usage-cost-api -->
 
-#  Usage & Cost Admin API Cookbook
+#  Usage & Cost Admin API Cookbook
 
 **A practical guide to programmatically accessing your Claude API usage and cost data**
 
-###  What You Can Do
+###  What You Can Do
 
 **Usage Tracking:**
 
@@ -25,19 +25,17 @@
 * **Cache Analysis**: Measure and improve cache efficiency
 * **Financial Reporting**: Generate executive summaries and budget reports
 
-###  API Overview
+###  API Overview
 
 Two main endpoints:
 
 1. **Messages Usage API**: Token-level usage data with flexible grouping
 2. **Cost API**: Financial data in USD with service breakdowns
 
-###  Prerequisites & Security
+###  Prerequisites & Security
 
 * **Admin API Key**: Get from [Claude Console(opens in new tab)](https://console.anthropic.com/settings/admin-keys) (format: `sk-ant-admin...`)
 * **Security**: Store keys in environment variables, rotate regularly, never commit to version control
-
-
 
 import os
 
@@ -155,9 +153,9 @@ return None
 
 client = test\_connection()
 
-##  Basic Usage & Cost Tracking
+##  Basic Usage & Cost Tracking
 
-###  Understanding Usage Data
+###  Understanding Usage Data
 
 The Messages Usage API provides token consumption in **time buckets** - fixed intervals containing aggregated usage.
 
@@ -168,9 +166,7 @@ The Messages Usage API provides token consumption in **time buckets** - fixed in
 * **cache\_creation**: Tokens cached for reuse
 * **cache\_read\_input\_tokens**: Previously cached tokens reused
 
-###  Basic Usage Query
-
-
+###  Basic Usage Query
 
 def get\_daily\_usage(client, days\_back=7):
 
@@ -310,8 +306,6 @@ usage\_response = get\_daily\_usage(client, days\_back=7)
 
 daily\_usage = analyze\_usage\_data(usage\_response)
 
-
-
 ```
 📊 Usage Summary:
 Uncached input tokens: 267,751
@@ -322,11 +316,9 @@ Cache efficiency: 0.0%
 Web searches: 0
 ```
 
-##  Basic Cost Tracking
+##  Basic Cost Tracking
 
 Note: Priority Tier costs use a different billing model and will never appear in the cost endpoint. You can track Priority Tier usage in the usage endpoint, but not costs.
-
-
 
 def get\_daily\_costs(client, days\_back=7):
 
@@ -424,17 +416,15 @@ cost\_response = get\_daily\_costs(client, days\_back=7)
 
 daily\_costs = analyze\_cost\_data(cost\_response)
 
-
-
 ```
 💰 Cost Summary:
 Total cost: $83.7574
 Average daily cost: $11.9653
 ```
 
-##  Grouping, Filtering & Pagination
+##  Grouping, Filtering & Pagination
 
-###  Time Granularity Options
+###  Time Granularity Options
 
 **Usage API** supports three granularities:
 
@@ -446,9 +436,7 @@ Average daily cost: $11.9653
 
 * `1d` (1 day): Only option available, max 31 buckets per request
 
-###  Grouping and Filtering
-
-
+###  Grouping and Filtering
 
 def get\_usage\_by\_model(client, days\_back=7):
 
@@ -596,8 +584,6 @@ model\_usage = get\_usage\_by\_model(client, days\_back=14)
 
 filtered\_usage = filter\_usage\_example(client)
 
-
-
 ```
 📊 Usage by Model:
   claude-3-5-haiku-20241022: 995,781 tokens
@@ -609,9 +595,7 @@ filtered\_usage = filter\_usage\_example(client)
 Found 7 days of filtered usage data
 ```
 
-###  Pagination for Large Datasets
-
-
+###  Pagination for Large Datasets
 
 def fetch\_all\_usage\_data(client, params, max\_pages=10):
 
@@ -725,8 +709,6 @@ if client:
 
 large\_dataset = large\_dataset\_example(client, days\_back=3)
 
-
-
 ```
 📥 Fetching paginated data...
   Page 1: 24 time buckets
@@ -737,11 +719,9 @@ large\_dataset = large\_dataset\_example(client, days\_back=3)
 📈 Total tokens across all data: 1,336,287
 ```
 
-##  Simple Data Export
+##  Simple Data Export
 
-###  CSV Export for External Analysis
-
-
+###  CSV Export for External Analysis
 
 import csv
 
@@ -1001,14 +981,12 @@ export\_usage\_to\_csv(client, "my\_usage\_data.csv", days\_back=14)
 
 export\_costs\_to\_csv(client, "my\_cost\_data.csv", days\_back=14)
 
-
-
 ```
 ✅ Exported 36 rows to my_usage_data.csv
 ✅ Exported 72 cost records to my_cost_data.csv
 ```
 
-##  Wrapping Up
+##  Wrapping Up
 
 This cookbook covers the essential patterns for working with the Usage & Cost Admin API:
 
@@ -1019,14 +997,14 @@ This cookbook covers the essential patterns for working with the Usage & Cost Ad
 * **Common gotchas** to avoid issues
 * **Simple CSV export** for external tools
 
-###  Next Steps
+###  Next Steps
 
 * Check the [official API documentation(opens in new tab)](https://docs.claude.com) for the latest field definitions
 * Test your integration with small date ranges first
 * Consider data retention needs for your use case
 * Monitor for new API features that may enhance your analysis
 
-###  Important Notes
+###  Important Notes
 
 * Field names and available options may evolve as the API matures
 * Always handle unknown values gracefully in production code

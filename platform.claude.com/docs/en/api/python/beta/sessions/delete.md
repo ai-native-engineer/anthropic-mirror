@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/sessions/delete -->
 
----
-title: Delete Session
-url: https://platform.claude.com/docs/en/api/python/beta/sessions/delete
----
+# Delete Session
 
-## Delete Session
+`beta.sessions.delete(session_id, **kwargs)  -> BetaManagedAgentsDeletedSession`
 
-`beta.sessions.delete(strsession_id, SessionDeleteParams**kwargs)  -> BetaManagedAgentsDeletedSession`
-
-**delete** `/v1/sessions/{session_id}`
+**DELETE** `/v1/sessions/{session_id}`
 
 Delete Session
 
-### Parameters
+## Parameters
 
 - `session_id: str`
 
@@ -93,7 +88,7 @@ Delete Session
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsDeletedSession: …`
 
@@ -103,9 +98,7 @@ Delete Session
 
   - `type: Literal["session_deleted"]`
 
-    - `"session_deleted"`
-
-### Example
+## Example
 
 ```python
 import os
@@ -122,7 +115,7 @@ beta_managed_agents_deleted_session = client.beta.sessions.delete(
 print(beta_managed_agents_deleted_session.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

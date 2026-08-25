@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/skills/delete -->
 
----
-title: Delete Skill
-url: https://platform.claude.com/docs/en/api/python/beta/skills/delete
----
+# Delete Skill
 
-## Delete Skill
+`beta.skills.delete(skill_id, **kwargs)  -> SkillDeleteResponse`
 
-`beta.skills.delete(strskill_id, SkillDeleteParams**kwargs)  -> SkillDeleteResponse`
-
-**delete** `/v1/skills/{skill_id}`
+**DELETE** `/v1/skills/{skill_id}`
 
 Delete Skill
 
-### Parameters
+## Parameters
 
 - `skill_id: str`
 
@@ -97,7 +92,7 @@ Delete Skill
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class SkillDeleteResponse: …`
 
@@ -113,7 +108,9 @@ Delete Skill
 
     For Skills, this is always `"skill_deleted"`.
 
-### Example
+    default: skill_deleted
+
+## Example
 
 ```python
 import os
@@ -130,7 +127,7 @@ skill = client.beta.skills.delete(
 print(skill.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

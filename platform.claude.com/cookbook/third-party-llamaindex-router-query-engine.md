@@ -1,12 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-llamaindex-router-query-engine -->
 
-#  RouterQuery Engine
+#  RouterQuery Engine
 
 In this notebook we will look into `RouterQueryEngine` to route the user queries to one of the available query engine tools. These tools can be different indices/ query engine on same documents/ different documents.
 
-###  Installation
-
-
+###  Installation
 
 !pip install llama-index
 
@@ -14,9 +12,7 @@ In this notebook we will look into `RouterQueryEngine` to route the user queries
 
 !pip install llama-index-embeddings-huggingface
 
-###  Set Logging
-
-
+###  Set Logging
 
 # NOTE: This is ONLY necessary in jupyter notebook.
 
@@ -56,31 +52,23 @@ logger.addHandler(handler)
 
 from IPython.display import HTML, display
 
-###  Set Claude API Key
-
-
+###  Set Claude API Key
 
 import os
 
 os.environ["ANTHROPIC\_API\_KEY"] = "YOUR Claude API KEY"
 
-###  Set LLM and Embedding model
+###  Set LLM and Embedding model
 
 We will use anthropic latest released `Claude-3 Opus` LLM.
-
-
 
 from llama\_index.embeddings.huggingface import HuggingFaceEmbedding
 
 from llama\_index.llms.anthropic import Anthropic
 
-
-
 llm = Anthropic(temperature=0.0, model="claude-opus-4-1")
 
 embed\_model = HuggingFaceEmbedding(model\_name="BAAI/bge-base-en-v1.5")
-
-
 
 from llama\_index.core import Settings
 
@@ -90,15 +78,11 @@ Settings.embed\_model = embed\_model
 
 Settings.chunk\_size = 512
 
-###  Download Document
-
-
+###  Download Document
 
 !mkdir -p 'data/paul\_graham/'
 
 !wget 'https://raw.githubusercontent.com/jerryjliu/llama\_index/main/docs/examples/data/paul\_graham/paul\_graham\_essay.txt' -O 'data/paul\_graham/paul\_graham\_essay.txt'
-
-
 
 ```
 --2024-03-08 07:04:27--  https://raw.githubusercontent.com/jerryjliu/llama_index/main/docs/examples/data/paul_graham/paul_graham_essay.txt
@@ -113,9 +97,7 @@ data/paul_graham/pa 100%[===================>]  73.28K  --.-KB/s    in 0.002s
 2024-03-08 07:04:27 (28.6 MB/s) - ‘data/paul_graham/paul_graham_essay.txt’ saved [75042/75042]
 ```
 
-###  Load Document
-
-
+###  Load Document
 
 # load documents
 
@@ -123,9 +105,7 @@ from llama\_index.core import SimpleDirectoryReader
 
 documents = SimpleDirectoryReader("data/paul\_graham").load\_data()
 
-###  Create Indices and Query Engines.
-
-
+###  Create Indices and Query Engines.
 
 from llama\_index.core import SummaryIndex, VectorStoreIndex
 
@@ -136,8 +116,6 @@ summary\_index = SummaryIndex.from\_documents(documents)
 # Vector Index for answering specific context questions
 
 vector\_index = VectorStoreIndex.from\_documents(documents)
-
-
 
 # Summary Index Query Engine
 
@@ -153,9 +131,7 @@ use\_async=True,
 
 vector\_query\_engine = vector\_index.as\_query\_engine()
 
-###  Create tools for summary and vector query engines.
-
-
+###  Create tools for summary and vector query engines.
 
 from llama\_index.core.tools.query\_engine import QueryEngineTool
 
@@ -179,15 +155,11 @@ description="Useful for retrieving specific context from Paul Graham essay on Wh
 
 )
 
-###  Create Router Query Engine
-
-
+###  Create Router Query Engine
 
 from llama\_index.core.query\_engine.router\_query\_engine import RouterQueryEngine
 
 from llama\_index.core.selectors.llm\_selectors import LLMSingleSelector
-
-
 
 # Create Router Query Engine
 
@@ -205,13 +177,9 @@ vector\_tool,
 
 )
 
-###  Test Queries
-
-
+###  Test Queries
 
 response = query\_engine.query("What is the summary of the document?")
-
-
 
 ```
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
@@ -219,21 +187,13 @@ Selecting query engine 0: The question is asking for a summary of the document. 
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-
-
 response = query\_engine.query("What did Paul Graham do growing up?")
-
-
 
 ```
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
@@ -241,11 +201,7 @@ Selecting query engine 1: The question asks about specific details from Paul Gra
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 <IPython.core.display.HTML object>

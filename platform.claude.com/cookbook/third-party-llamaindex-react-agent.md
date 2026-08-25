@@ -1,15 +1,13 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-llamaindex-react-agent -->
 
-#  ReAct Agent
+#  ReAct Agent
 
 In this notebook we will look into creating ReAct Agent over tools.
 
 1. ReAct Agent over simple calculator tools.
 2. ReAct Agent over QueryEngine (RAG) tools.
 
-###  Installation
-
-
+###  Installation
 
 !pip install llama-index
 
@@ -17,9 +15,7 @@ In this notebook we will look into creating ReAct Agent over tools.
 
 !pip install llama-index-embeddings-huggingface
 
-###  Setup API Keys
-
-
+###  Setup API Keys
 
 # llama-parse is async-first, running the async code in a notebook requires the use of nest\_asyncio
 
@@ -35,23 +31,17 @@ os.environ["ANTHROPIC\_API\_KEY"] = "YOUR Claude API KEY"
 
 from IPython.display import HTML, display
 
-###  Set LLM and Embedding model
+###  Set LLM and Embedding model
 
 We will use anthropic latest released `Claude-3 Opus` LLM.
-
-
 
 from llama\_index.embeddings.huggingface import HuggingFaceEmbedding
 
 from llama\_index.llms.anthropic import Anthropic
 
-
-
 llm = Anthropic(temperature=0.0, model="claude-opus-4-1")
 
 embed\_model = HuggingFaceEmbedding(model\_name="BAAI/bge-base-en-v1.5")
-
-
 
 from llama\_index.core import Settings
 
@@ -61,17 +51,13 @@ Settings.embed\_model = embed\_model
 
 Settings.chunk\_size = 512
 
-##  ReAct Agent over Tools
+##  ReAct Agent over Tools
 
-###  Define Tools
-
-
+###  Define Tools
 
 from llama\_index.core.agent import ReActAgent
 
 from llama\_index.core.tools import FunctionTool
-
-
 
 def multiply(a: int, b: int) -> int:
 
@@ -89,19 +75,13 @@ add\_tool = FunctionTool.from\_defaults(fn=add)
 
 multiply\_tool = FunctionTool.from\_defaults(fn=multiply)
 
-###  Create ReAct Agent
+###  Create ReAct Agent
 
 Create agent over tools and test out queries
 
-
-
 agent = ReActAgent.from\_tools([multiply\_tool, add\_tool], llm=llm, verbose=True)
 
-
-
 response = agent.chat("What is 20+(2\*4)? Calculate step by step ")
-
-
 
 ```
 Thought: I need to use the multiply tool to calculate 2*4 first, then use the add tool to add that result to 20.
@@ -123,11 +103,7 @@ To calculate it step-by-step:
 Therefore, 20+(2*4) = 28.
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 20+(2*4) equals 28.
@@ -140,19 +116,15 @@ To calculate it step-by-step:
 Therefore, 20+(2*4) = 28.
 ```
 
-###  Visit Prompts
+###  Visit Prompts
 
 You can check prompts that the agent used to select the tools.
-
-
 
 prompt\_dict = agent.get\_prompts()
 
 for k, v in prompt\_dict.items():
 
 print(f"Prompt: {k}\n\nValue: {v.template}")
-
-
 
 ```
 Prompt: agent_worker:system_prompt
@@ -206,25 +178,19 @@ Answer: Sorry, I cannot answer your query.
 Below is the current conversation consisting of interleaving human and assistant messages.
 ```
 
-##  ReAct Agent over `QueryEngine` Tools
-
-
+##  ReAct Agent over `QueryEngine` Tools
 
 from llama\_index.core.tools import QueryEngineTool, ToolMetadata
 
-###  Download data
+###  Download data
 
 We will define ReAct agent over tools created on QueryEngines with Uber and Lyft 10K SEC Filings.
-
-
 
 !mkdir -p 'data/10k/'
 
 !wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/10k/uber\_2021.pdf' -O 'data/10k/uber\_2021.pdf'
 
 !wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/10k/lyft\_2021.pdf' -O 'data/10k/lyft\_2021.pdf'
-
-
 
 ```
 --2024-03-08 06:58:18--  https://raw.githubusercontent.com/run-llama/llama_index/main/docs/examples/data/10k/uber_2021.pdf
@@ -250,9 +216,7 @@ data/10k/lyft_2021. 100%[===================>]   1.37M  --.-KB/s    in 0.02s
 2024-03-08 06:58:19 (60.1 MB/s) - ‘data/10k/lyft_2021.pdf’ saved [1440303/1440303]
 ```
 
-###  Load Data
-
-
+###  Load Data
 
 from llama\_index.core import SimpleDirectoryReader, VectorStoreIndex
 
@@ -260,25 +224,19 @@ lyft\_docs = SimpleDirectoryReader(input\_files=["./data/10k/lyft\_2021.pdf"]).l
 
 uber\_docs = SimpleDirectoryReader(input\_files=["./data/10k/uber\_2021.pdf"]).load\_data()
 
-###  Build Index
-
-
+###  Build Index
 
 lyft\_index = VectorStoreIndex.from\_documents(lyft\_docs)
 
 uber\_index = VectorStoreIndex.from\_documents(uber\_docs)
 
-###  Create QueryEngines
-
-
+###  Create QueryEngines
 
 lyft\_engine = lyft\_index.as\_query\_engine(similarity\_top\_k=3)
 
 uber\_engine = uber\_index.as\_query\_engine(similarity\_top\_k=3)
 
-####  Create QueryEngine Tools
-
-
+####  Create QueryEngine Tools
 
 query\_engine\_tools = [
 
@@ -324,9 +282,7 @@ description=(
 
 ]
 
-###  ReAct Agent
-
-
+###  ReAct Agent
 
 agent = ReActAgent.from\_tools(
 
@@ -338,13 +294,9 @@ verbose=True,
 
 )
 
-###  Querying with ReAct Agent
-
-
+###  Querying with ReAct Agent
 
 response = agent.chat("What was Lyft's revenue growth in 2021?")
-
-
 
 ```
 Thought: I need to use a tool to help me answer the question.
@@ -355,25 +307,17 @@ Thought: The provided observation directly answers the question about Lyft's rev
 Answer: Lyft's revenue grew by $843.6 million, or 36%, in 2021 compared to 2020. The growth was mainly driven by a significant increase in Active Riders as COVID-19 vaccines became more widely available and communities reopened. However, the revenue growth was partially offset by higher driver incentives which were recorded as a reduction to revenue.
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 Lyft's revenue grew by $843.6 million, or 36%, in 2021 compared to 2020. The growth was mainly driven by a significant increase in Active Riders as COVID-19 vaccines became more widely available and communities reopened. However, the revenue growth was partially offset by higher driver incentives which were recorded as a reduction to revenue.
 ```
-
-
 
 response = agent.chat(
 
 "Compare and contrast the revenue growth of Uber and Lyft in 2021, then give an analysis"
 
 )
-
-
 
 ```
 Thought: I need to use the lyft_10k and uber_10k tools to find information about Lyft and Uber's revenue growth in 2021 to compare and contrast them.
@@ -408,11 +352,7 @@ A few key factors likely contributed to Uber's higher growth rate:
 3) Uber's overall scale is much larger than Lyft's, so similar percentage growth translates
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 In comparing Lyft and Uber's revenue growth in 2021:

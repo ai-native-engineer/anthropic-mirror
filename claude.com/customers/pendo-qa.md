@@ -1,6 +1,6 @@
 <!-- source: https://claude.com/customers/pendo-qa -->
 
-Q&A | Claude Code
+Q&A | Claude
 
 # Pendo closes the gap between shipping fast and shipping well with Claude Managed Agents
 

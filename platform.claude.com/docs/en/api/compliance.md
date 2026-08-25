@@ -8,4 +8,3 @@ This generated page exceeded GitHub's Markdown render limit. Its complete conten
 - [Part 2](compliance.parts/part-002.md)
 - [Part 3](compliance.parts/part-003.md)
 - [Part 4](compliance.parts/part-004.md)
-- [Part 5](compliance.parts/part-005.md)

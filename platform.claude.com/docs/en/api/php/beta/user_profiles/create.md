@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/user_profiles/create -->
 
----
-title: Create User Profile
-url: https://platform.claude.com/docs/en/api/php/beta/user_profiles/create
----
-
-## Create User Profile
+# Create User Profile
 
 `$client->beta->userProfiles->create(?AccessType accessType, ?string externalID, ?array<string,string> metadata, ?string name, ?Relationship relationship, ?list<AnthropicBeta> betas): BetaUserProfile`
 
-**post** `/v1/user_profiles`
+**POST** `/v1/user_profiles`
 
 Create User Profile
 
-### Parameters
+## Parameters
 
 - `accessType?:optional AccessType`
 
@@ -39,7 +34,7 @@ Create User Profile
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaUserProfile`
 
@@ -83,7 +78,7 @@ Create User Profile
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -104,7 +99,7 @@ $betaUserProfile = $client->beta->userProfiles->create(
 var_dump($betaUserProfile);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

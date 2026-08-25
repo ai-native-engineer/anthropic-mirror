@@ -38,7 +38,8 @@ A **role** controls what a person can do in the admin portal. It has no effect o
 * An **Owner** can access this organization admin portal and perform every action described in this guide except for granting or removing the Primary Owner role.
 * A **Primary Owner** has the same access as an Owner and is additionally protected so that an organization can never be left without one. Only a Primary Owner can promote another user to Primary Owner or demote an existing one.
 
-An organization must always have at least one active Primary Owner and may have up to three. Keeping more than one is recommended so that you are never locked out if a single Primary Owner is unavailable.
+An organization must always have at least one active Primary Owner and may have up to three. Keep at least two so that when one leaves your agency or loses account access, a remaining Primary Owner can promote a replacement and demote the person who left.
+If your organization no longer has a Primary Owner who can sign in, contact Anthropic to have a new one appointed. A tenant administrator cannot grant the role for you, because opening your organization from the tenant portal gives them Owner access only. Until the new Primary Owner is in place, your Owners and tenant administrators can keep managing users, seats, and settings.
 
 ##  Changing a user’s role
 

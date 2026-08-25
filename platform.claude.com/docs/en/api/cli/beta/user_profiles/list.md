@@ -1,23 +1,20 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/list -->
 
----
-title: List User Profiles
-url: https://platform.claude.com/docs/en/api/cli/beta/user_profiles/list
----
-
-## List User Profiles
+# List User Profiles
 
 `$ ant beta:user-profiles list`
 
-**get** `/v1/user_profiles`
+**GET** `/v1/user_profiles`
 
 List User Profiles
 
-### Parameters
+## Parameters
 
 - `--limit: optional number`
 
   Query param: Query parameter for limit
+
+  format: int32
 
 - `--order: optional "asc" or "desc"`
 
@@ -31,9 +28,9 @@ List User Profiles
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `BetaListUserProfilesResponse: object { data, next_page }`
+- `BetaListUserProfilesResponse: object`
 
   - `data: array of BetaUserProfile`
 
@@ -46,6 +43,8 @@ List User Profiles
     - `created_at: string`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `metadata: map[string]`
 
@@ -69,11 +68,11 @@ List User Profiles
 
       Object type. Always `user_profile`.
 
-      - `"user_profile"`
-
     - `updated_at: string`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `access_type: optional "application" or "passthrough"`
 
@@ -105,14 +104,14 @@ List User Profiles
 
     Cursor for the next page, or `null` when there are no more results.
 
-### Example
+## Example
 
-```cli
+```bash
 ant beta:user-profiles list \
   --api-key my-anthropic-api-key
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

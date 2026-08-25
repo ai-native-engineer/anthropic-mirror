@@ -38,9 +38,9 @@ Frontier AI Compliance
 Code of Conduct
 Best Practices and Whitepapers
 Security Advisories
-Other Documents
 Model Documentation Forms
 Training Data Summaries
+Other Documents
 SOC 2
 [Anthropic] 2025 Type 2 SOC 2 and CSA STAR L2 Report.pdf
 Copy link
@@ -218,52 +218,6 @@ Copy link
 for CVE-2026-22561 - DLL Search Order Hijacking in Claude for Windows installer
 View
 CVE-2026-22561 - DLL Search Order Hijacking in Claude for Windows installer
-Other Documents
-[Anthropic] Data Processing Addendum
-Copy link
-for [Anthropic] Data Processing Addendum
-Anthropic's Data Processing Addendum
-View
-[Anthropic] Data Processing Addendum
-[Anthropic] 2025 Annual Penetration Testing Reports
-Copy link
-for [Anthropic] 2025 Annual Penetration Testing Reports
-Jan 2026 Status Update
-Request access
-[Anthropic] 2025 Annual Penetration Testing Reports
-[Anthropic] Statement on Modern Slavery Act 2015
-Copy link
-for [Anthropic] Statement on Modern Slavery Act 2015
-View
-[Anthropic] Statement on Modern Slavery Act 2015
-[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
-Copy link
-for [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
-Updated: April 2026
-View
-[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
-[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise iOS app
-Copy link
-for [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise iOS app
-Updated May 2026
-View
-[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise iOS app
-[Anthropic] COI - General Liability, Auto, Umbrella, & WC - 2026-2027
-Copy link
-for [Anthropic] COI - General Liability, Auto, Umbrella, & WC - 2026-2027
-Request access
-[Anthropic] COI - General Liability, Auto, Umbrella, & WC - 2026-2027
-[Anthropic] COI - Cyber Liability - 2026-2027
-Copy link
-for [Anthropic] COI - Cyber Liability - 2026-2027
-Request access
-[Anthropic] COI - Cyber Liability - 2026-2027
-[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise Android app
-Copy link
-for [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise Android app
-Updated May 2026
-View
-[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise Android app
 Model Documentation Forms
 Claude Sonnet 5 Model Documentation Form
 Copy link
@@ -331,4 +285,50 @@ Copy link
 for Claude Mythos 5 and Claude Fable 5 Training Data Summary
 View
 Claude Mythos 5 and Claude Fable 5 Training Data Summary
+Other Documents
+[Anthropic] Data Processing Addendum
+Copy link
+for [Anthropic] Data Processing Addendum
+Anthropic's Data Processing Addendum
+View
+[Anthropic] Data Processing Addendum
+[Anthropic] 2025 Annual Penetration Testing Reports
+Copy link
+for [Anthropic] 2025 Annual Penetration Testing Reports
+Jan 2026 Status Update
+Request access
+[Anthropic] 2025 Annual Penetration Testing Reports
+[Anthropic] Statement on Modern Slavery Act 2015
+Copy link
+for [Anthropic] Statement on Modern Slavery Act 2015
+View
+[Anthropic] Statement on Modern Slavery Act 2015
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
+Copy link
+for [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
+Updated: April 2026
+View
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise iOS app
+Copy link
+for [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise iOS app
+Updated May 2026
+View
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise iOS app
+[Anthropic] COI - General Liability, Auto, Umbrella, & WC - 2026-2027
+Copy link
+for [Anthropic] COI - General Liability, Auto, Umbrella, & WC - 2026-2027
+Request access
+[Anthropic] COI - General Liability, Auto, Umbrella, & WC - 2026-2027
+[Anthropic] COI - Cyber Liability - 2026-2027
+Copy link
+for [Anthropic] COI - Cyber Liability - 2026-2027
+Request access
+[Anthropic] COI - Cyber Liability - 2026-2027
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise Android app
+Copy link
+for [Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise Android app
+Updated May 2026
+View
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude Enterprise Android app
 Opens in new tab

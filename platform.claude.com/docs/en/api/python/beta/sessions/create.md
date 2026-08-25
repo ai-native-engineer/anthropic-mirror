@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/sessions/create -->
 
----
-title: Create Session
-url: https://platform.claude.com/docs/en/api/python/beta/sessions/create
----
+# Create Session
 
-## Create Session
+`beta.sessions.create(**kwargs)  -> BetaManagedAgentsSession`
 
-`beta.sessions.create(SessionCreateParams**kwargs)  -> BetaManagedAgentsSession`
-
-**post** `/v1/sessions`
+**POST** `/v1/sessions`
 
 Create Session
 
-### Parameters
+## Parameters
 
 - `agent: Agent`
 
@@ -29,13 +24,15 @@ Create Session
 
       The `agent` ID.
 
-    - `type: Literal["agent"]`
+      minLength: 1, maxLength: 128
 
-      - `"agent"`
+    - `type: Literal["agent"]`
 
     - `version: Optional[int]`
 
       The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+      format: int32
 
   - `class BetaManagedAgentsAgentWithOverridesParams: …`
 
@@ -45,9 +42,9 @@ Create Session
 
       The `agent` ID.
 
-    - `type: Literal["agent_with_overrides"]`
+      minLength: 1, maxLength: 128
 
-      - `"agent_with_overrides"`
+    - `type: Literal["agent_with_overrides"]`
 
     - `mcp_servers: Optional[List[BetaManagedAgentsURLMCPServerParams]]`
 
@@ -57,13 +54,15 @@ Create Session
 
         Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-      - `type: Literal["url"]`
+        minLength: 1, maxLength: 255
 
-        - `"url"`
+      - `type: Literal["url"]`
 
       - `url: str`
 
         Endpoint URL for the MCP server.
+
+        maxLength: 2048
 
     - `model: Optional[Model]`
 
@@ -201,15 +200,11 @@ Create Session
 
             - `type: Literal["low"]`
 
-              - `"low"`
-
           - `class BetaManagedAgentsEffortMedium: …`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: Literal["medium"]`
-
-              - `"medium"`
 
           - `class BetaManagedAgentsEffortHigh: …`
 
@@ -217,23 +212,17 @@ Create Session
 
             - `type: Literal["high"]`
 
-              - `"high"`
-
           - `class BetaManagedAgentsEffortXhigh: …`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: Literal["xhigh"]`
 
-              - `"xhigh"`
-
           - `class BetaManagedAgentsEffortMax: …`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: Literal["max"]`
-
-              - `"max"`
 
         - `inference_geo: Optional[str]`
 
@@ -259,13 +248,15 @@ Create Session
 
           Identifier of the Anthropic skill (e.g., "xlsx").
 
-        - `type: Literal["anthropic"]`
+          minLength: 1, maxLength: 64
 
-          - `"anthropic"`
+        - `type: Literal["anthropic"]`
 
         - `version: Optional[str]`
 
           Version to pin. Defaults to latest if omitted.
+
+          minLength: 1, maxLength: 64
 
       - `class BetaManagedAgentsCustomSkillParams: …`
 
@@ -275,17 +266,21 @@ Create Session
 
           Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-        - `type: Literal["custom"]`
+          minLength: 1, maxLength: 64
 
-          - `"custom"`
+        - `type: Literal["custom"]`
 
         - `version: Optional[str]`
 
           Version to pin. Defaults to latest if omitted.
 
+          minLength: 1, maxLength: 64
+
     - `system: Optional[str]`
 
       Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+      maxLength: 100000
 
     - `tools: Optional[List[Tool]]`
 
@@ -296,8 +291,6 @@ Create Session
         Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
 
         - `type: Literal["agent_toolset_20260401"]`
-
-          - `"agent_toolset_20260401"`
 
         - `configs: Optional[List[BetaManagedAgentsAgentToolConfigParams]]`
 
@@ -310,8 +303,6 @@ Create Session
             - `name: Literal["bash"]`
 
               Must be "bash".
-
-              - `"bash"`
 
             - `enabled: Optional[bool]`
 
@@ -327,19 +318,13 @@ Create Session
 
                 - `type: Literal["always_allow"]`
 
-                  - `"always_allow"`
-
               - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
                 Tool calls require user confirmation before execution.
 
                 - `type: Literal["always_ask"]`
 
-                  - `"always_ask"`
-
             - `type: Optional[Literal["bash"]]`
-
-              - `"bash"`
 
           - `class BetaManagedAgentsEditToolConfigParams: …`
 
@@ -348,8 +333,6 @@ Create Session
             - `name: Literal["edit"]`
 
               Must be "edit".
-
-              - `"edit"`
 
             - `enabled: Optional[bool]`
 
@@ -369,8 +352,6 @@ Create Session
 
             - `type: Optional[Literal["edit"]]`
 
-              - `"edit"`
-
           - `class BetaManagedAgentsReadToolConfigParams: …`
 
             Configuration override for the read tool.
@@ -378,8 +359,6 @@ Create Session
             - `name: Literal["read"]`
 
               Must be "read".
-
-              - `"read"`
 
             - `enabled: Optional[bool]`
 
@@ -399,8 +378,6 @@ Create Session
 
             - `type: Optional[Literal["read"]]`
 
-              - `"read"`
-
           - `class BetaManagedAgentsWriteToolConfigParams: …`
 
             Configuration override for the write tool.
@@ -408,8 +385,6 @@ Create Session
             - `name: Literal["write"]`
 
               Must be "write".
-
-              - `"write"`
 
             - `enabled: Optional[bool]`
 
@@ -429,8 +404,6 @@ Create Session
 
             - `type: Optional[Literal["write"]]`
 
-              - `"write"`
-
           - `class BetaManagedAgentsGlobToolConfigParams: …`
 
             Configuration override for the glob tool.
@@ -438,8 +411,6 @@ Create Session
             - `name: Literal["glob"]`
 
               Must be "glob".
-
-              - `"glob"`
 
             - `enabled: Optional[bool]`
 
@@ -459,8 +430,6 @@ Create Session
 
             - `type: Optional[Literal["glob"]]`
 
-              - `"glob"`
-
           - `class BetaManagedAgentsGrepToolConfigParams: …`
 
             Configuration override for the grep tool.
@@ -468,8 +437,6 @@ Create Session
             - `name: Literal["grep"]`
 
               Must be "grep".
-
-              - `"grep"`
 
             - `enabled: Optional[bool]`
 
@@ -489,8 +456,6 @@ Create Session
 
             - `type: Optional[Literal["grep"]]`
 
-              - `"grep"`
-
           - `class BetaManagedAgentsWebFetchToolConfigParams: …`
 
             Configuration override for the web_fetch tool.
@@ -498,8 +463,6 @@ Create Session
             - `name: Literal["web_fetch"]`
 
               Must be "web_fetch".
-
-              - `"web_fetch"`
 
             - `allowed_domains: Optional[List[str]]`
 
@@ -517,6 +480,8 @@ Create Session
 
               Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+              format: int32
+
             - `permission_policy: Optional[PermissionPolicy]`
 
               Permission policy for tool execution.
@@ -531,8 +496,6 @@ Create Session
 
             - `type: Optional[Literal["web_fetch"]]`
 
-              - `"web_fetch"`
-
           - `class BetaManagedAgentsWebSearchToolConfigParams: …`
 
             Configuration override for the web_search tool.
@@ -540,8 +503,6 @@ Create Session
             - `name: Literal["web_search"]`
 
               Must be "web_search".
-
-              - `"web_search"`
 
             - `allowed_domains: Optional[List[str]]`
 
@@ -569,8 +530,6 @@ Create Session
 
             - `type: Optional[Literal["web_search"]]`
 
-              - `"web_search"`
-
             - `user_location: Optional[BetaManagedAgentsUserLocation]`
 
               Approximate user location for search result localization.
@@ -579,11 +538,11 @@ Create Session
 
                 Location precision. Only "approximate" is supported.
 
-                - `"approximate"`
-
               - `city: Optional[str]`
 
                 City name.
+
+                minLength: 1, maxLength: 255
 
               - `country: Optional[str]`
 
@@ -593,9 +552,13 @@ Create Session
 
                 Region or state name.
 
+                minLength: 1, maxLength: 255
+
               - `timezone: Optional[str]`
 
                 IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                minLength: 1, maxLength: 255
 
         - `default_config: Optional[BetaManagedAgentsAgentToolsetDefaultConfigParams]`
 
@@ -625,9 +588,9 @@ Create Session
 
           Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-        - `type: Literal["mcp_toolset"]`
+          minLength: 1, maxLength: 255
 
-          - `"mcp_toolset"`
+        - `type: Literal["mcp_toolset"]`
 
         - `configs: Optional[List[BetaManagedAgentsMCPToolConfigParams]]`
 
@@ -636,6 +599,8 @@ Create Session
           - `name: str`
 
             Name of the MCP tool to configure. 1-128 characters.
+
+            minLength: 1, maxLength: 128
 
           - `enabled: Optional[bool]`
 
@@ -681,13 +646,13 @@ Create Session
 
           Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+          minLength: 1
+
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
 
           - `type: Literal["object"]`
-
-            - `"object"`
 
           - `properties: Optional[Dict[str, object]]`
 
@@ -697,17 +662,21 @@ Create Session
 
           Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
-        - `type: Literal["custom"]`
+          minLength: 1, maxLength: 128
 
-          - `"custom"`
+        - `type: Literal["custom"]`
 
     - `version: Optional[int]`
 
       The specific `agent` version to use. Omit to use the latest version.
 
+      format: int32
+
 - `environment_id: str`
 
   ID of the `environment` defining the container configuration for this session.
+
+  minLength: 1, maxLength: 128
 
 - `budget: Optional[BetaManagedAgentsBudgetLimitParam]`
 
@@ -725,11 +694,7 @@ Create Session
 
       Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `"USD"`
-
   - `type: Literal["limit"]`
-
-    - `"limit"`
 
 - `initial_events: Optional[Iterable[InitialEvent]]`
 
@@ -751,9 +716,9 @@ Create Session
 
           The text content.
 
-        - `type: Literal["text"]`
+          minLength: 1
 
-          - `"text"`
+        - `type: Literal["text"]`
 
       - `class BetaManagedAgentsImageBlock: …`
 
@@ -771,13 +736,15 @@ Create Session
 
               Base64-encoded image data.
 
+              minLength: 1
+
             - `media_type: str`
 
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-            - `type: Literal["base64"]`
+              minLength: 1
 
-              - `"base64"`
+            - `type: Literal["base64"]`
 
           - `class BetaManagedAgentsURLImageSource: …`
 
@@ -785,11 +752,11 @@ Create Session
 
             - `type: Literal["url"]`
 
-              - `"url"`
-
             - `url: str`
 
               URL of the image to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileImageSource: …`
 
@@ -799,13 +766,11 @@ Create Session
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["image"]`
-
-          - `"image"`
 
       - `class BetaManagedAgentsDocumentBlock: …`
 
@@ -823,13 +788,15 @@ Create Session
 
               Base64-encoded document data.
 
+              minLength: 1
+
             - `media_type: str`
 
               MIME type of the document (e.g., "application/pdf").
 
-            - `type: Literal["base64"]`
+              minLength: 1
 
-              - `"base64"`
+            - `type: Literal["base64"]`
 
           - `class BetaManagedAgentsPlainTextDocumentSource: …`
 
@@ -839,15 +806,13 @@ Create Session
 
               The plain text content.
 
+              minLength: 1
+
             - `media_type: Literal["text/plain"]`
 
               MIME type of the text content. Must be "text/plain".
 
-              - `"text/plain"`
-
             - `type: Literal["text"]`
-
-              - `"text"`
 
           - `class BetaManagedAgentsURLDocumentSource: …`
 
@@ -855,11 +820,11 @@ Create Session
 
             - `type: Literal["url"]`
 
-              - `"url"`
-
             - `url: str`
 
               URL of the document to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileDocumentSource: …`
 
@@ -869,13 +834,11 @@ Create Session
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["document"]`
-
-          - `"document"`
 
         - `context: Optional[str]`
 
@@ -891,11 +854,7 @@ Create Session
 
         - `type: Literal["redacted"]`
 
-          - `"redacted"`
-
     - `type: Literal["user.message"]`
-
-      - `"user.message"`
 
   - `class BetaManagedAgentsUserDefineOutcomeEventParams: …`
 
@@ -919,8 +878,6 @@ Create Session
 
         - `type: Literal["file"]`
 
-          - `"file"`
-
       - `class BetaManagedAgentsTextRubricParams: …`
 
         Rubric content provided inline as text.
@@ -929,17 +886,17 @@ Create Session
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
+          maxLength: 262144
+
         - `type: Literal["text"]`
 
-          - `"text"`
-
     - `type: Literal["user.define_outcome"]`
-
-      - `"user.define_outcome"`
 
     - `max_iterations: Optional[int]`
 
       Eval→revision cycles before giving up. Default 3, max 20.
+
+      format: int32
 
 - `metadata: Optional[Dict[str, str]]`
 
@@ -957,13 +914,15 @@ Create Session
 
       GitHub authorization token used to clone the repository.
 
-    - `type: Literal["github_repository"]`
+      minLength: 1, maxLength: 4096
 
-      - `"github_repository"`
+    - `type: Literal["github_repository"]`
 
     - `url: str`
 
       Github URL of the repository
+
+      minLength: 1, maxLength: 2048
 
     - `checkout: Optional[Checkout]`
 
@@ -975,9 +934,9 @@ Create Session
 
           Branch name to check out.
 
-        - `type: Literal["branch"]`
+          minLength: 1, maxLength: 255
 
-          - `"branch"`
+        - `type: Literal["branch"]`
 
       - `class BetaManagedAgentsCommitCheckout: …`
 
@@ -985,13 +944,15 @@ Create Session
 
           Full commit SHA to check out.
 
-        - `type: Literal["commit"]`
+          minLength: 7, maxLength: 64
 
-          - `"commit"`
+        - `type: Literal["commit"]`
 
     - `mount_path: Optional[str]`
 
       Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+      minLength: 1, maxLength: 4096
 
   - `class BetaManagedAgentsFileResourceParams: …`
 
@@ -1001,13 +962,15 @@ Create Session
 
       ID of a previously uploaded file.
 
-    - `type: Literal["file"]`
+      minLength: 1, maxLength: 128
 
-      - `"file"`
+    - `type: Literal["file"]`
 
     - `mount_path: Optional[str]`
 
       Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+      minLength: 1, maxLength: 4096
 
   - `class BetaManagedAgentsMemoryStoreResourceParam: …`
 
@@ -1018,8 +981,6 @@ Create Session
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
-
-      - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
@@ -1033,9 +994,13 @@ Create Session
 
       Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+      maxLength: 4096
+
 - `title: Optional[str]`
 
   Human-readable session title.
+
+  maxLength: 500
 
 - `vault_ids: Optional[Sequence[str]]`
 
@@ -1117,7 +1082,7 @@ Create Session
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsSession: …`
 
@@ -1138,8 +1103,6 @@ Create Session
       - `name: str`
 
       - `type: Literal["url"]`
-
-        - `"url"`
 
       - `url: str`
 
@@ -1237,15 +1200,11 @@ Create Session
 
           - `type: Literal["low"]`
 
-            - `"low"`
-
         - `class BetaManagedAgentsEffortMedium: …`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `type: Literal["medium"]`
-
-            - `"medium"`
 
         - `class BetaManagedAgentsEffortHigh: …`
 
@@ -1253,23 +1212,17 @@ Create Session
 
           - `type: Literal["high"]`
 
-            - `"high"`
-
         - `class BetaManagedAgentsEffortXhigh: …`
 
           Extra-high effort. Not all models accept this level.
 
           - `type: Literal["xhigh"]`
 
-            - `"xhigh"`
-
         - `class BetaManagedAgentsEffortMax: …`
 
           Maximum effort. Favors reasoning depth over latency.
 
           - `type: Literal["max"]`
-
-            - `"max"`
 
       - `inference_geo: Optional[str]`
 
@@ -1323,8 +1276,6 @@ Create Session
 
               - `type: Literal["anthropic"]`
 
-                - `"anthropic"`
-
               - `version: str`
 
             - `class BetaManagedAgentsCustomSkill: …`
@@ -1334,8 +1285,6 @@ Create Session
               - `skill_id: str`
 
               - `type: Literal["custom"]`
-
-                - `"custom"`
 
               - `version: str`
 
@@ -1355,8 +1304,6 @@ Create Session
 
                   - `name: Literal["bash"]`
 
-                    - `"bash"`
-
                   - `permission_policy: PermissionPolicy`
 
                     Permission policy for tool execution.
@@ -1367,19 +1314,13 @@ Create Session
 
                       - `type: Literal["always_allow"]`
 
-                        - `"always_allow"`
-
                     - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
                       Tool calls require user confirmation before execution.
 
                       - `type: Literal["always_ask"]`
 
-                        - `"always_ask"`
-
                   - `type: Literal["bash"]`
-
-                    - `"bash"`
 
                 - `class BetaManagedAgentsEditToolConfig: …`
 
@@ -1388,8 +1329,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: Literal["edit"]`
-
-                    - `"edit"`
 
                   - `permission_policy: PermissionPolicy`
 
@@ -1405,8 +1344,6 @@ Create Session
 
                   - `type: Literal["edit"]`
 
-                    - `"edit"`
-
                 - `class BetaManagedAgentsReadToolConfig: …`
 
                   Configuration for the read tool.
@@ -1414,8 +1351,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: Literal["read"]`
-
-                    - `"read"`
 
                   - `permission_policy: PermissionPolicy`
 
@@ -1431,8 +1366,6 @@ Create Session
 
                   - `type: Literal["read"]`
 
-                    - `"read"`
-
                 - `class BetaManagedAgentsWriteToolConfig: …`
 
                   Configuration for the write tool.
@@ -1440,8 +1373,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: Literal["write"]`
-
-                    - `"write"`
 
                   - `permission_policy: PermissionPolicy`
 
@@ -1457,8 +1388,6 @@ Create Session
 
                   - `type: Literal["write"]`
 
-                    - `"write"`
-
                 - `class BetaManagedAgentsGlobToolConfig: …`
 
                   Configuration for the glob tool.
@@ -1466,8 +1395,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: Literal["glob"]`
-
-                    - `"glob"`
 
                   - `permission_policy: PermissionPolicy`
 
@@ -1483,8 +1410,6 @@ Create Session
 
                   - `type: Literal["glob"]`
 
-                    - `"glob"`
-
                 - `class BetaManagedAgentsGrepToolConfig: …`
 
                   Configuration for the grep tool.
@@ -1492,8 +1417,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: Literal["grep"]`
-
-                    - `"grep"`
 
                   - `permission_policy: PermissionPolicy`
 
@@ -1509,8 +1432,6 @@ Create Session
 
                   - `type: Literal["grep"]`
 
-                    - `"grep"`
-
                 - `class BetaManagedAgentsWebFetchToolConfig: …`
 
                   Configuration for the web_fetch tool.
@@ -1518,8 +1439,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: Literal["web_fetch"]`
-
-                    - `"web_fetch"`
 
                   - `permission_policy: PermissionPolicy`
 
@@ -1535,13 +1454,13 @@ Create Session
 
                   - `type: Literal["web_fetch"]`
 
-                    - `"web_fetch"`
-
                   - `allowed_domains: Optional[List[str]]`
 
                   - `blocked_domains: Optional[List[str]]`
 
                   - `max_content_tokens: Optional[int]`
+
+                    format: int32
 
                 - `class BetaManagedAgentsWebSearchToolConfig: …`
 
@@ -1550,8 +1469,6 @@ Create Session
                   - `enabled: bool`
 
                   - `name: Literal["web_search"]`
-
-                    - `"web_search"`
 
                   - `permission_policy: PermissionPolicy`
 
@@ -1567,8 +1484,6 @@ Create Session
 
                   - `type: Literal["web_search"]`
 
-                    - `"web_search"`
-
                   - `allowed_domains: Optional[List[str]]`
 
                   - `blocked_domains: Optional[List[str]]`
@@ -1581,11 +1496,11 @@ Create Session
 
                       Location precision. Only "approximate" is supported.
 
-                      - `"approximate"`
-
                     - `city: Optional[str]`
 
                       City name.
+
+                      minLength: 1, maxLength: 255
 
                     - `country: Optional[str]`
 
@@ -1595,9 +1510,13 @@ Create Session
 
                       Region or state name.
 
+                      minLength: 1, maxLength: 255
+
                     - `timezone: Optional[str]`
 
                       IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                      minLength: 1, maxLength: 255
 
               - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -1618,8 +1537,6 @@ Create Session
                     Tool calls require user confirmation before execution.
 
               - `type: Literal["agent_toolset_20260401"]`
-
-                - `"agent_toolset_20260401"`
 
             - `class BetaManagedAgentsMCPToolset: …`
 
@@ -1663,8 +1580,6 @@ Create Session
 
               - `type: Literal["mcp_toolset"]`
 
-                - `"mcp_toolset"`
-
             - `class BetaManagedAgentsCustomTool: …`
 
               A custom tool as returned in API responses.
@@ -1677,8 +1592,6 @@ Create Session
 
                 - `type: Literal["object"]`
 
-                  - `"object"`
-
                 - `properties: Optional[Dict[str, object]]`
 
                 - `required: Optional[List[str]]`
@@ -1687,13 +1600,11 @@ Create Session
 
               - `type: Literal["custom"]`
 
-                - `"custom"`
-
           - `type: Literal["agent"]`
 
-            - `"agent"`
-
           - `version: int`
+
+            format: int32
 
         - `class BetaManagedAgentsAdvisor: …`
 
@@ -1705,11 +1616,7 @@ Create Session
 
           - `type: Literal["advisor"]`
 
-            - `"advisor"`
-
       - `type: Literal["coordinator"]`
-
-        - `"coordinator"`
 
     - `name: str`
 
@@ -1737,13 +1644,15 @@ Create Session
 
     - `type: Literal["agent"]`
 
-      - `"agent"`
-
     - `version: int`
+
+      format: int32
 
   - `archived_at: Optional[datetime]`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `budget: Optional[BetaManagedAgentsBudgetLimit]`
 
@@ -1761,15 +1670,13 @@ Create Session
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `"USD"`
-
     - `type: Literal["limit"]`
-
-      - `"limit"`
 
   - `created_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `environment_id: str`
 
@@ -1783,6 +1690,8 @@ Create Session
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `description: str`
 
       What the agent should produce.
@@ -1795,6 +1704,8 @@ Create Session
 
       0-indexed revision cycle the outcome is currently on.
 
+      format: int32
+
     - `outcome_id: str`
 
       Server-generated outc_ ID for this outcome.
@@ -1804,8 +1715,6 @@ Create Session
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `type: Literal["outcome_evaluation"]`
-
-      - `"outcome_evaluation"`
 
   - `resources: List[BetaManagedAgentsSessionResource]`
 
@@ -1817,15 +1726,17 @@ Create Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `mount_path: str`
 
       - `type: Literal["github_repository"]`
 
-        - `"github_repository"`
-
       - `updated_at: datetime`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `url: str`
 
@@ -1837,9 +1748,9 @@ Create Session
 
             Branch name to check out.
 
-          - `type: Literal["branch"]`
+            minLength: 1, maxLength: 255
 
-            - `"branch"`
+          - `type: Literal["branch"]`
 
         - `class BetaManagedAgentsCommitCheckout: …`
 
@@ -1847,9 +1758,9 @@ Create Session
 
             Full commit SHA to check out.
 
-          - `type: Literal["commit"]`
+            minLength: 7, maxLength: 64
 
-            - `"commit"`
+          - `type: Literal["commit"]`
 
     - `class BetaManagedAgentsFileResource: …`
 
@@ -1859,17 +1770,19 @@ Create Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `file_id: str`
 
       - `mount_path: str`
 
       - `type: Literal["file"]`
 
-        - `"file"`
-
       - `updated_at: datetime`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
     - `class BetaManagedAgentsMemoryStoreResource: …`
 
@@ -1880,8 +1793,6 @@ Create Session
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: Literal["memory_store"]`
-
-        - `"memory_store"`
 
       - `access: Optional[Literal["read_write", "read_only"]]`
 
@@ -1899,6 +1810,8 @@ Create Session
 
         Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+        maxLength: 4096
+
       - `mount_path: Optional[str]`
 
         Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
@@ -1915,9 +1828,13 @@ Create Session
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
 
+      format: double
+
     - `duration_seconds: Optional[float]`
 
       Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
+
+      format: double
 
   - `status: Literal["rescheduling", "running", "idle", "terminated"]`
 
@@ -1935,11 +1852,11 @@ Create Session
 
   - `type: Literal["session"]`
 
-    - `"session"`
-
   - `updated_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `usage: BetaManagedAgentsSessionUsage`
 
@@ -1949,6 +1866,8 @@ Create Session
 
       Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
 
+      format: double
+
     - `cache_creation: Optional[BetaManagedAgentsCacheCreationUsage]`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -1957,17 +1876,25 @@ Create Session
 
         Tokens used to create 1-hour ephemeral cache entries.
 
+        format: int32
+
       - `ephemeral_5m_input_tokens: Optional[int]`
 
         Tokens used to create 5-minute ephemeral cache entries.
+
+        format: int32
 
     - `cache_read_input_tokens: Optional[int]`
 
       Total tokens read from prompt cache.
 
+      format: int32
+
     - `input_tokens: Optional[int]`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `list_cost: Optional[BetaMonetaryAmount]`
 
@@ -1977,6 +1904,8 @@ Create Session
 
       Total output tokens generated across all turns.
 
+      format: int32
+
     - `server_tool_use: Optional[BetaManagedAgentsServerToolUsage]`
 
       Cumulative count of server-executed tool invocations, broken down by tool.
@@ -1985,9 +1914,13 @@ Create Session
 
         Number of server-executed web fetch requests.
 
+        format: int32
+
       - `web_search_requests: Optional[int]`
 
         Number of server-executed web search requests.
+
+        format: int32
 
   - `vault_ids: List[str]`
 
@@ -1997,7 +1930,7 @@ Create Session
 
     Deployment ID when the session was created from a deployment reference. Null otherwise.
 
-### Example
+## Example
 
 ```python
 import os
@@ -2015,7 +1948,7 @@ beta_managed_agents_session = client.beta.sessions.create(
 print(beta_managed_agents_session.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

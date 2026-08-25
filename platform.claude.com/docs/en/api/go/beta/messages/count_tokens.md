@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/messages/count_tokens -->
 
----
-title: Count tokens in a Message
-url: https://platform.claude.com/docs/en/api/go/beta/messages/count_tokens
----
-
-## Count tokens in a Message
+# Count tokens in a Message
 
 `client.Beta.Messages.CountTokens(ctx, params) (*BetaMessageTokensCount, error)`
 
-**post** `/v1/messages/count_tokens`
+**POST** `/v1/messages/count_tokens`
 
 Count the number of tokens in a Message.
 
@@ -17,7 +12,7 @@ The Token Count API can be used to count the number of tokens in a Message, incl
 
 Learn more about token counting in our [user guide](https://platform.claude.com/docs/en/build-with-claude/token-counting)
 
-### Parameters
+## Parameters
 
 - `params BetaMessageCountTokensParams`
 
@@ -80,19 +75,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Text string`
 
+            minLength: 1
+
           - `Type Text`
 
-            - `const TextText Text = "text"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
             - `Type Ephemeral`
 
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
+            - `TTL BetaCacheControlEphemeralTTL Optional`
 
               The time-to-live for the cache control breakpoint.
 
@@ -107,7 +100,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
-          - `Citations []BetaTextCitationParamUnionResp`
+          - `Citations []BetaTextCitationParamUnionResp Optional`
 
             - `type BetaCitationCharLocationParamResp struct{…}`
 
@@ -115,15 +108,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `DocumentIndex int64`
 
+                minimum: 0
+
               - `DocumentTitle string`
+
+                maxLength: 500, minLength: 1
 
               - `EndCharIndex int64`
 
               - `StartCharIndex int64`
 
-              - `Type CharLocation`
+                minimum: 0
 
-                - `const CharLocationCharLocation CharLocation = "char_location"`
+              - `Type CharLocation`
 
             - `type BetaCitationPageLocationParamResp struct{…}`
 
@@ -131,15 +128,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `DocumentIndex int64`
 
+                minimum: 0
+
               - `DocumentTitle string`
+
+                maxLength: 500, minLength: 1
 
               - `EndPageNumber int64`
 
               - `StartPageNumber int64`
 
-              - `Type PageLocation`
+                minimum: 1
 
-                - `const PageLocationPageLocation PageLocation = "page_location"`
+              - `Type PageLocation`
 
             - `type BetaCitationContentBlockLocationParamResp struct{…}`
 
@@ -151,7 +152,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `DocumentIndex int64`
 
+                minimum: 0
+
               - `DocumentTitle string`
+
+                maxLength: 500, minLength: 1
 
               - `EndBlockIndex int64`
 
@@ -163,9 +168,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 0-based index of the first cited block in the source's `content` array.
 
-              - `Type ContentBlockLocation`
+                minimum: 0
 
-                - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
+              - `Type ContentBlockLocation`
 
             - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
 
@@ -175,11 +180,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Title string`
 
+                maxLength: 512, minLength: 1
+
               - `Type WebSearchResultLocation`
 
-                - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
               - `URL string`
+
+                minLength: 1
 
             - `type BetaCitationSearchResultLocationParamResp struct{…}`
 
@@ -201,17 +208,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Counted separately from `document_index`; server-side web search results are not included in this count.
 
+                minimum: 0
+
               - `Source string`
 
               - `StartBlockIndex int64`
 
                 0-based index of the first cited block in the source's `content` array.
 
+                minimum: 0
+
               - `Title string`
 
               - `Type SearchResultLocation`
-
-                - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
         - `type BetaImageBlockParamResp struct{…}`
 
@@ -220,6 +229,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             - `type BetaBase64ImageSource struct{…}`
 
               - `Data string`
+
+                format: byte
 
               - `MediaType BetaBase64ImageSourceMediaType`
 
@@ -233,13 +244,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type Base64`
 
-                - `const Base64Base64 Base64 = "base64"`
-
             - `type BetaURLImageSource struct{…}`
 
               - `Type URL`
-
-                - `const URLURL URL = "url"`
 
               - `URL string`
 
@@ -249,21 +256,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type File`
 
-                - `const FileFile File = "file"`
-
           - `Type Image`
 
-            - `const ImageImage Image = "image"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Transformations BetaImageTransformationsParamResp`
+          - `Transformations BetaImageTransformationsParamResp Optional`
 
             Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
 
-            - `OversizedImage BetaImageTransformationsParamOversizedImage`
+            - `OversizedImage BetaImageTransformationsParamOversizedImage Optional`
 
               What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
 
@@ -279,13 +282,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Data string`
 
+                format: byte
+
               - `MediaType ApplicationPDF`
 
-                - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
-
               - `Type Base64`
-
-                - `const Base64Base64 Base64 = "base64"`
 
             - `type BetaPlainTextSource struct{…}`
 
@@ -293,11 +294,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `MediaType TextPlain`
 
-                - `const TextPlainTextPlain TextPlain = "text/plain"`
-
               - `Type Text`
-
-                - `const TextText Text = "text"`
 
             - `type BetaContentBlockSource struct{…}`
 
@@ -313,13 +310,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type Content`
 
-                - `const ContentContent Content = "content"`
-
             - `type BetaURLPDFSource struct{…}`
 
               - `Type URL`
-
-                - `const URLURL URL = "url"`
 
               - `URL string`
 
@@ -329,23 +322,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type File`
 
-                - `const FileFile File = "file"`
-
           - `Type Document`
 
-            - `const DocumentDocument Document = "document"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Citations BetaCitationsConfigParamResp`
+          - `Citations BetaCitationsConfigParamResp Optional`
 
-            - `Enabled bool`
+            - `Enabled bool Optional`
 
-          - `Context string`
+          - `Context string Optional`
 
-          - `Title string`
+            minLength: 1
+
+          - `Title string Optional`
+
+            maxLength: 500, minLength: 1
 
         - `type BetaSearchResultBlockParamResp struct{…}`
 
@@ -353,13 +346,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `Text string`
 
+              minLength: 1
+
             - `Type Text`
 
-            - `CacheControl BetaCacheControlEphemeral`
+            - `CacheControl BetaCacheControlEphemeral Optional`
 
               Create a cache control breakpoint at this content block.
 
-            - `Citations []BetaTextCitationParamUnionResp`
+            - `Citations []BetaTextCitationParamUnionResp Optional`
 
           - `Source string`
 
@@ -367,13 +362,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type SearchResult`
 
-            - `const SearchResultSearchResult SearchResult = "search_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Citations BetaCitationsConfigParamResp`
+          - `Citations BetaCitationsConfigParamResp Optional`
 
         - `type BetaThinkingBlockParamResp struct{…}`
 
@@ -389,8 +382,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type Thinking`
 
-            - `const ThinkingThinking Thinking = "thinking"`
-
         - `type BetaRedactedThinkingBlockParamResp struct{…}`
 
           - `Data string`
@@ -399,25 +390,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type RedactedThinking`
 
-            - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
-
         - `type BetaToolUseBlockParamResp struct{…}`
 
           - `ID string`
+
+            pattern: ^[a-zA-Z0-9_-]+$
 
           - `Input map[string, any]`
 
           - `Name string`
 
+            maxLength: 200, minLength: 1
+
           - `Type ToolUse`
 
-            - `const ToolUseToolUse ToolUse = "tool_use"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Caller BetaToolUseBlockParamCallerUnionResp`
+          - `Caller BetaToolUseBlockParamCallerUnionResp Optional`
 
             Tool invocation directly from the model.
 
@@ -427,43 +418,43 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type Direct`
 
-                - `const DirectDirect Direct = "direct"`
-
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
 
               - `ToolID string`
 
-              - `Type CodeExecution20250825`
+                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
+              - `Type CodeExecution20250825`
 
             - `type BetaServerToolCaller20260120 struct{…}`
 
               - `ToolID string`
 
+                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
               - `Type CodeExecution20260120`
 
-                - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
-          - `ToolsetName string`
+          - `ToolsetName string Optional`
 
             For a toolset member tool_use, the toolset family this member belongs to.
+
+            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaToolResultBlockParamResp struct{…}`
 
           - `ToolUseID string`
 
+            pattern: ^[a-zA-Z0-9_-]+$
+
           - `Type ToolResult`
 
-            - `const ToolResultToolResult ToolResult = "tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Content []BetaToolResultBlockParamContentUnionResp`
+          - `Content []BetaToolResultBlockParamContentUnionResp Optional`
 
             - `[]BetaToolResultBlockParamContentUnionResp`
 
@@ -481,11 +472,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `ToolName string`
 
+                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
                 - `Type ToolReference`
 
-                  - `const ToolReferenceToolReference ToolReference = "tool_reference"`
-
-                - `CacheControl BetaCacheControlEphemeral`
+                - `CacheControl BetaCacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
 
@@ -503,33 +494,41 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
 
+                  maxItems: 100
+
                   - `TabID string`
 
                     The caller-assigned identifier for this tab, unique within the inventory.
+
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `Title string`
 
                     The title of the page the tab is showing. May be empty.
 
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                   - `URL string`
 
                     The URL of the page the tab is showing. May be empty.
 
-                  - `Active bool`
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                  - `Active bool Optional`
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
                 - `Type BrowserState`
 
-                  - `const BrowserStateBrowserState BrowserState = "browser_state"`
-
-                - `CacheControl BetaCacheControlEphemeral`
+                - `CacheControl BetaCacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
 
-                - `StateChanges []BetaBrowserStateChangeUnion`
+                - `StateChanges []BetaBrowserStateChangeUnion Optional`
 
                   Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                  maxItems: 200, minItems: 1
 
                   - `type BetaBrowserStateChangeTabOpened struct{…}`
 
@@ -545,9 +544,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The `tab_id` of the opened tab, present in `tabs`.
 
-                    - `Type TabOpened`
+                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `const TabOpenedTabOpened TabOpened = "tab_opened"`
+                    - `Type TabOpened`
 
                   - `type BetaBrowserStateChangeDownloadStarted struct{…}`
 
@@ -557,13 +556,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    - `Type DownloadStarted`
+                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `const DownloadStartedDownloadStarted DownloadStarted = "download_started"`
+                    - `Type DownloadStarted`
 
                     - `URL string`
 
                       The final post-redirect URL the download was served from.
+
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                   - `type BetaBrowserStateChangeDownloadCompleted struct{…}`
 
@@ -576,21 +577,27 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    - `Type DownloadCompleted`
+                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `const DownloadCompletedDownloadCompleted DownloadCompleted = "download_completed"`
+                    - `Type DownloadCompleted`
 
                     - `URL string`
 
                       The final post-redirect URL the download was served from.
 
-                    - `Path string`
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                    - `Path string Optional`
 
                       Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
-                    - `SizeBytes int64`
+                      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
+                    - `SizeBytes int64 Optional`
 
                       The completed download's size.
+
+                      minimum: 0
 
                   - `type BetaBrowserStateChangeDownloadFailed struct{…}`
 
@@ -600,27 +607,35 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                    - `Type DownloadFailed`
+                      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                      - `const DownloadFailedDownloadFailed DownloadFailed = "download_failed"`
+                    - `Type DownloadFailed`
 
                     - `URL string`
 
                       The final post-redirect URL the download was served from.
 
-                    - `Error string`
+                      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+                    - `Error string Optional`
 
                       The failure or cancellation detail, when known.
 
-          - `IsError bool`
+                      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
-          - `ToolsetName string`
+          - `IsError bool Optional`
+
+          - `ToolsetName string Optional`
 
             For a toolset member tool_result, the toolset family of the paired tool_use.
+
+            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
         - `type BetaServerToolUseBlockParamResp struct{…}`
 
           - `ID string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `Input map[string, any]`
 
@@ -644,13 +659,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type ServerToolUse`
 
-            - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Caller BetaServerToolUseBlockParamCallerUnionResp`
+          - `Caller BetaServerToolUseBlockParamCallerUnionResp Optional`
 
             Tool invocation directly from the model.
 
@@ -676,11 +689,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type WebSearchResult`
 
-                - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
-
               - `URL string`
 
-              - `PageAge string`
+              - `PageAge string Optional`
 
             - `type BetaWebSearchToolRequestError struct{…}`
 
@@ -700,19 +711,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type WebSearchToolResultError`
 
-                - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
-
           - `ToolUseID string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `Type WebSearchToolResult`
 
-            - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp`
+          - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp Optional`
 
             Tool invocation directly from the model.
 
@@ -754,35 +763,31 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type WebFetchToolResultError`
 
-                - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
-
             - `type BetaWebFetchBlockParamResp struct{…}`
 
               - `Content BetaRequestDocumentBlock`
 
               - `Type WebFetchResult`
 
-                - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
-
               - `URL string`
 
                 Fetched content URL
 
-              - `RetrievedAt string`
+              - `RetrievedAt string Optional`
 
                 ISO 8601 timestamp when the content was retrieved
 
           - `ToolUseID string`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `Type WebFetchToolResult`
 
-            - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp`
+          - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp Optional`
 
             Tool invocation directly from the model.
 
@@ -820,17 +825,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type AdvisorToolResultError`
 
-                - `const AdvisorToolResultErrorAdvisorToolResultError AdvisorToolResultError = "advisor_tool_result_error"`
-
             - `type BetaAdvisorResultBlockParamResp struct{…}`
 
               - `Text string`
 
               - `Type AdvisorResult`
 
-                - `const AdvisorResultAdvisorResult AdvisorResult = "advisor_result"`
-
-              - `StopReason string`
+              - `StopReason string Optional`
 
             - `type BetaAdvisorRedactedResultBlockParamResp struct{…}`
 
@@ -840,17 +841,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type AdvisorRedactedResult`
 
-                - `const AdvisorRedactedResultAdvisorRedactedResult AdvisorRedactedResult = "advisor_redacted_result"`
-
-              - `StopReason string`
+              - `StopReason string Optional`
 
           - `ToolUseID string`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `Type AdvisorToolResult`
 
-            - `const AdvisorToolResultAdvisorToolResult AdvisorToolResult = "advisor_tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
@@ -874,8 +873,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type CodeExecutionToolResultError`
 
-                - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
-
             - `type BetaCodeExecutionResultBlockParamResp struct{…}`
 
               - `Content []BetaCodeExecutionOutputBlockParamResp`
@@ -884,8 +881,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `Type CodeExecutionOutput`
 
-                  - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
-
               - `ReturnCode int64`
 
               - `Stderr string`
@@ -893,8 +888,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               - `Stdout string`
 
               - `Type CodeExecutionResult`
-
-                - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
 
             - `type BetaEncryptedCodeExecutionResultBlockParamResp struct{…}`
 
@@ -914,15 +907,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type EncryptedCodeExecutionResult`
 
-                - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
-
           - `ToolUseID string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `Type CodeExecutionToolResult`
 
-            - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
@@ -946,8 +937,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type BashCodeExecutionToolResultError`
 
-                - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
-
             - `type BetaBashCodeExecutionResultBlockParamResp struct{…}`
 
               - `Content []BetaBashCodeExecutionOutputBlockParamResp`
@@ -955,8 +944,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
                 - `FileID string`
 
                 - `Type BashCodeExecutionOutput`
-
-                  - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
 
               - `ReturnCode int64`
 
@@ -966,15 +953,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type BashCodeExecutionResult`
 
-                - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
-
           - `ToolUseID string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `Type BashCodeExecutionToolResult`
 
-            - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
@@ -998,9 +983,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type TextEditorCodeExecutionToolResultError`
 
-                - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
-
-              - `ErrorMessage string`
+              - `ErrorMessage string Optional`
 
             - `type BetaTextEditorCodeExecutionViewResultBlockParamResp struct{…}`
 
@@ -1016,13 +999,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type TextEditorCodeExecutionViewResult`
 
-                - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
+              - `NumLines int64 Optional`
 
-              - `NumLines int64`
+              - `StartLine int64 Optional`
 
-              - `StartLine int64`
-
-              - `TotalLines int64`
+              - `TotalLines int64 Optional`
 
             - `type BetaTextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
 
@@ -1030,31 +1011,27 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type TextEditorCodeExecutionCreateResult`
 
-                - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
-
             - `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
 
               - `Type TextEditorCodeExecutionStrReplaceResult`
 
-                - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
+              - `Lines []string Optional`
 
-              - `Lines []string`
+              - `NewLines int64 Optional`
 
-              - `NewLines int64`
+              - `NewStart int64 Optional`
 
-              - `NewStart int64`
+              - `OldLines int64 Optional`
 
-              - `OldLines int64`
-
-              - `OldStart int64`
+              - `OldStart int64 Optional`
 
           - `ToolUseID string`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `Type TextEditorCodeExecutionToolResult`
 
-            - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
@@ -1076,9 +1053,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type ToolSearchToolResultError`
 
-                - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
-
-              - `ErrorMessage string`
+              - `ErrorMessage string Optional`
 
             - `type BetaToolSearchToolSearchResultBlockParamResp struct{…}`
 
@@ -1086,29 +1061,31 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `ToolName string`
 
+                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
                 - `Type ToolReference`
 
-                - `CacheControl BetaCacheControlEphemeral`
+                - `CacheControl BetaCacheControlEphemeral Optional`
 
                   Create a cache control breakpoint at this content block.
 
               - `Type ToolSearchToolSearchResult`
 
-                - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
-
           - `ToolUseID string`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `Type ToolSearchToolResult`
 
-            - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
         - `type BetaMCPToolUseBlockParamResp struct{…}`
 
           - `ID string`
+
+            pattern: ^[a-zA-Z0-9_-]+$
 
           - `Input map[string, any]`
 
@@ -1120,9 +1097,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type MCPToolUse`
 
-            - `const MCPToolUseMCPToolUse MCPToolUse = "mcp_tool_use"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
@@ -1130,15 +1105,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `ToolUseID string`
 
+            pattern: ^[a-zA-Z0-9_-]+$
+
           - `Type MCPToolResult`
 
-            - `const MCPToolResultMCPToolResult MCPToolResult = "mcp_tool_result"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Content BetaRequestMCPToolResultBlockParamContentUnionResp`
+          - `Content BetaRequestMCPToolResultBlockParamContentUnionResp Optional`
 
             - `string`
 
@@ -1146,15 +1121,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Text string`
 
+                minLength: 1
+
               - `Type Text`
 
-              - `CacheControl BetaCacheControlEphemeral`
+              - `CacheControl BetaCacheControlEphemeral Optional`
 
                 Create a cache control breakpoint at this content block.
 
-              - `Citations []BetaTextCitationParamUnionResp`
+              - `Citations []BetaTextCitationParamUnionResp Optional`
 
-          - `IsError bool`
+          - `IsError bool Optional`
 
         - `type BetaContainerUploadBlockParamResp struct{…}`
 
@@ -1165,9 +1142,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type ContainerUpload`
 
-            - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
@@ -1183,17 +1158,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type Compaction`
 
-            - `const CompactionCompaction Compaction = "compaction"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
-          - `Content string`
+          - `Content string Optional`
 
             Summary of previously compacted content, or null if compaction failed
 
-          - `EncryptedContent string`
+          - `EncryptedContent string Optional`
 
             Opaque metadata from prior compaction, to be round-tripped verbatim
 
@@ -1221,9 +1194,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Name string`
 
-              - `Type ToolReference`
+                pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-                - `const ToolReferenceToolReference ToolReference = "tool_reference"`
+              - `Type ToolReference`
 
             - `type BetaToolChangeMCPToolReference struct{…}`
 
@@ -1236,8 +1209,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type MCPToolReference`
 
-                - `const MCPToolReferenceMCPToolReference MCPToolReference = "mcp_tool_reference"`
-
             - `type BetaToolChangeMCPToolsetReference struct{…}`
 
               Reference to every tool in the named MCP server's toolset.
@@ -1246,13 +1217,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `Type MCPToolsetReference`
 
-                - `const MCPToolsetReferenceMCPToolsetReference MCPToolsetReference = "mcp_toolset_reference"`
-
           - `Type ToolAddition`
 
-            - `const ToolAdditionToolAddition ToolAddition = "tool_addition"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
@@ -1289,9 +1256,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type ToolRemoval`
 
-            - `const ToolRemovalToolRemoval ToolRemoval = "tool_removal"`
-
-          - `CacheControl BetaCacheControlEphemeral`
+          - `CacheControl BetaCacheControlEphemeral Optional`
 
             Create a cache control breakpoint at this content block.
 
@@ -1395,9 +1360,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `Type Fallback`
 
-            - `const FallbackFallback Fallback = "fallback"`
-
-          - `Trigger any`
+          - `Trigger any Optional`
 
             The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
 
@@ -1415,47 +1378,41 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `CacheControl param.Field[BetaCacheControlEphemeral]`
+  - `CacheControl param.Field[BetaCacheControlEphemeral] Optional`
 
     Body param: Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-  - `ContextManagement param.Field[BetaContextManagementConfig]`
+  - `ContextManagement param.Field[BetaContextManagementConfig] Optional`
 
     Body param: Context management configuration.
 
     This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
 
-  - `MCPServers param.Field[[]BetaRequestMCPServerURLDefinition]`
+  - `MCPServers param.Field[[]BetaRequestMCPServerURLDefinition] Optional`
 
     Body param: MCP servers to be utilized in this request
+
+    maxItems: 20
 
     - `Name string`
 
     - `Type URL`
 
-      - `const URLURL URL = "url"`
-
     - `URL string`
 
-    - `AuthorizationToken string`
+    - `AuthorizationToken string Optional`
 
-    - `ToolConfiguration BetaRequestMCPServerToolConfiguration`
+    - `ToolConfiguration BetaRequestMCPServerToolConfiguration Optional`
 
-      - `AllowedTools []string`
+      - `AllowedTools []string Optional`
 
-      - `Enabled bool`
+      - `Enabled bool Optional`
 
-  - `OutputConfig param.Field[BetaOutputConfig]`
+  - `OutputConfig param.Field[BetaOutputConfig] Optional`
 
     Body param: Configuration options for the model's output, such as the output format.
 
-  - `OutputFormat param.Field[BetaJSONOutputFormat]`
-
-    Body param: Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-
-    A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
-
-  - `Speed param.Field[BetaMessageCountTokensParamsSpeed]`
+  - `Speed param.Field[BetaMessageCountTokensParamsSpeed] Optional`
 
     Body param: Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
@@ -1463,7 +1420,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `const BetaMessageCountTokensParamsSpeedFast BetaMessageCountTokensParamsSpeed = "fast"`
 
-  - `System param.Field[BetaMessageCountTokensParamsSystemUnion]`
+  - `System param.Field[BetaMessageCountTokensParamsSystemUnion] Optional`
 
     Body param: System prompt.
 
@@ -1475,15 +1432,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Text string`
 
+        minLength: 1
+
       - `Type Text`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Citations []BetaTextCitationParamUnionResp`
+      - `Citations []BetaTextCitationParamUnionResp Optional`
 
-  - `Thinking param.Field[BetaThinkingConfigParamUnionResp]`
+  - `Thinking param.Field[BetaThinkingConfigParamUnionResp] Optional`
 
     Body param: Configuration for enabling Claude's extended thinking.
 
@@ -1491,11 +1450,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `ToolChoice param.Field[BetaToolChoiceUnion]`
+  - `ToolChoice param.Field[BetaToolChoiceUnion] Optional`
 
     Body param: How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
 
-  - `Tools param.Field[[]BetaMessageCountTokensParamsToolUnion]`
+  - `Tools param.Field[[]BetaMessageCountTokensParamsToolUnion] Optional`
 
     Body param: Definitions of tools that the model may use.
 
@@ -1569,11 +1528,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `Type Object`
 
-          - `const ObjectObject Object = "object"`
+        - `Properties map[string, any] Optional`
 
-        - `Properties map[string, any]`
-
-        - `Required []string`
+        - `Required []string Optional`
 
       - `Name string`
 
@@ -1581,7 +1538,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `AllowedCallers []string`
+        maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolAllowedCallerDirect BetaToolAllowedCaller = "direct"`
 
@@ -1591,33 +1550,31 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolAllowedCallerCodeExecution20260521 BetaToolAllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `Description string`
+      - `Description string Optional`
 
         Description of what this tool does.
 
         Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
 
-      - `EagerInputStreaming bool`
+      - `EagerInputStreaming bool Optional`
 
         Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `Type BetaToolType`
-
-        - `const BetaToolTypeCustom BetaToolType = "custom"`
+      - `Type BetaToolType Optional`
 
     - `type BetaToolBash20241022 struct{…}`
 
@@ -1627,13 +1584,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const BashBash Bash = "bash"`
-
       - `Type Bash20241022`
 
-        - `const Bash20241022Bash20241022 Bash20241022 = "bash_20241022"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolBash20241022AllowedCallerDirect BetaToolBash20241022AllowedCaller = "direct"`
 
@@ -1643,17 +1596,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolBash20241022AllowedCallerCodeExecution20260521 BetaToolBash20241022AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -1665,13 +1618,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const BashBash Bash = "bash"`
-
       - `Type Bash20250124`
 
-        - `const Bash20250124Bash20250124 Bash20250124 = "bash_20250124"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolBash20250124AllowedCallerDirect BetaToolBash20250124AllowedCaller = "direct"`
 
@@ -1681,17 +1630,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolBash20250124AllowedCallerCodeExecution20260521 BetaToolBash20250124AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -1703,13 +1652,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
-
       - `Type CodeExecution20250522`
 
-        - `const CodeExecution20250522CodeExecution20250522 CodeExecution20250522 = "code_execution_20250522"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaCodeExecutionTool20250522AllowedCallerDirect BetaCodeExecutionTool20250522AllowedCaller = "direct"`
 
@@ -1719,15 +1664,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -1739,13 +1684,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
-
       - `Type CodeExecution20250825`
 
-        - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaCodeExecutionTool20250825AllowedCallerDirect BetaCodeExecutionTool20250825AllowedCaller = "direct"`
 
@@ -1755,15 +1696,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -1777,13 +1718,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
-
       - `Type CodeExecution20260120`
 
-        - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaCodeExecutionTool20260120AllowedCallerDirect BetaCodeExecutionTool20260120AllowedCaller = "direct"`
 
@@ -1793,15 +1730,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -1815,13 +1752,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
-
       - `Type CodeExecution20260521`
 
-        - `const CodeExecution20260521CodeExecution20260521 CodeExecution20260521 = "code_execution_20260521"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaCodeExecutionTool20260521AllowedCallerDirect BetaCodeExecutionTool20260521AllowedCaller = "direct"`
 
@@ -1831,15 +1764,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaCodeExecutionTool20260521AllowedCallerCodeExecution20260521 BetaCodeExecutionTool20260521AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -1852,9 +1785,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Type BrowserToolset20260801`
 
-        - `const BrowserToolset20260801BrowserToolset20260801 BrowserToolset20260801 = "browser_toolset_20260801"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaBrowserToolset20260801AllowedCallerDirect BetaBrowserToolset20260801AllowedCaller = "direct"`
 
@@ -1864,11 +1795,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260521 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Configs BetaBrowserToolsetConfigs`
+      - `Configs BetaBrowserToolsetConfigs Optional`
 
         Per-member configuration for `browser_toolset_20260801`: one
         optional field per member tool, keyed by the member name — the same
@@ -1877,375 +1808,375 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
 
-        - `CloseTab BetaBrowserCloseTabConfig`
+        - `CloseTab BetaBrowserCloseTabConfig Optional`
 
           `close_tab`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `DoubleClick BetaBrowserDoubleClickConfig`
+        - `DoubleClick BetaBrowserDoubleClickConfig Optional`
 
           `double_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `FileUpload BetaBrowserFileUploadConfig`
+        - `FileUpload BetaBrowserFileUploadConfig Optional`
 
           `file_upload`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Find BetaBrowserFindConfig`
+        - `Find BetaBrowserFindConfig Optional`
 
           `find`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `FormInput BetaBrowserFormInputConfig`
+        - `FormInput BetaBrowserFormInputConfig Optional`
 
           `form_input`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `GetPageText BetaBrowserGetPageTextConfig`
+        - `GetPageText BetaBrowserGetPageTextConfig Optional`
 
           `get_page_text`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `HoldKey BetaBrowserHoldKeyConfig`
+        - `HoldKey BetaBrowserHoldKeyConfig Optional`
 
           `hold_key`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Hover BetaBrowserHoverConfig`
+        - `Hover BetaBrowserHoverConfig Optional`
 
           `hover`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `JavascriptExec BetaBrowserJavascriptExecConfig`
+        - `JavascriptExec BetaBrowserJavascriptExecConfig Optional`
 
           `javascript_exec`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Key BetaBrowserKeyConfig`
+        - `Key BetaBrowserKeyConfig Optional`
 
           `key`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `LeftClick BetaBrowserLeftClickConfig`
+        - `LeftClick BetaBrowserLeftClickConfig Optional`
 
           `left_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `LeftClickDrag BetaBrowserLeftClickDragConfig`
+        - `LeftClickDrag BetaBrowserLeftClickDragConfig Optional`
 
           `left_click_drag`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `LeftMouseDown BetaBrowserLeftMouseDownConfig`
+        - `LeftMouseDown BetaBrowserLeftMouseDownConfig Optional`
 
           `left_mouse_down`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `LeftMouseUp BetaBrowserLeftMouseUpConfig`
+        - `LeftMouseUp BetaBrowserLeftMouseUpConfig Optional`
 
           `left_mouse_up`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `ListTabs BetaBrowserListTabsConfig`
+        - `ListTabs BetaBrowserListTabsConfig Optional`
 
           `list_tabs`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `MiddleClick BetaBrowserMiddleClickConfig`
+        - `MiddleClick BetaBrowserMiddleClickConfig Optional`
 
           `middle_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `MouseMove BetaBrowserMouseMoveConfig`
+        - `MouseMove BetaBrowserMouseMoveConfig Optional`
 
           `mouse_move`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Navigate BetaBrowserNavigateConfig`
+        - `Navigate BetaBrowserNavigateConfig Optional`
 
           `navigate`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `NewTab BetaBrowserNewTabConfig`
+        - `NewTab BetaBrowserNewTabConfig Optional`
 
           `new_tab`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `ReadConsole BetaBrowserReadConsoleConfig`
+        - `ReadConsole BetaBrowserReadConsoleConfig Optional`
 
           `read_console`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `ReadNetwork BetaBrowserReadNetworkConfig`
+        - `ReadNetwork BetaBrowserReadNetworkConfig Optional`
 
           `read_network`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `ReadPage BetaBrowserReadPageConfig`
+        - `ReadPage BetaBrowserReadPageConfig Optional`
 
           `read_page`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `RightClick BetaBrowserRightClickConfig`
+        - `RightClick BetaBrowserRightClickConfig Optional`
 
           `right_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Screenshot BetaBrowserScreenshotConfig`
+        - `Screenshot BetaBrowserScreenshotConfig Optional`
 
           `screenshot`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Scroll BetaBrowserScrollConfig`
+        - `Scroll BetaBrowserScrollConfig Optional`
 
           `scroll`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `ScrollTo BetaBrowserScrollToConfig`
+        - `ScrollTo BetaBrowserScrollToConfig Optional`
 
           `scroll_to`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `SwitchTab BetaBrowserSwitchTabConfig`
+        - `SwitchTab BetaBrowserSwitchTabConfig Optional`
 
           `switch_tab`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `TripleClick BetaBrowserTripleClickConfig`
+        - `TripleClick BetaBrowserTripleClickConfig Optional`
 
           `triple_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Type BetaBrowserTypeConfig`
+        - `Type BetaBrowserTypeConfig Optional`
 
           `type`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Wait BetaBrowserWaitConfig`
+        - `Wait BetaBrowserWaitConfig Optional`
 
           `wait`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Zoom BetaBrowserZoomConfig`
+        - `Zoom BetaBrowserZoomConfig Optional`
 
           `zoom`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
@@ -2255,9 +2186,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         The height of the display in pixels.
 
+        minimum: 1
+
       - `DisplayWidthPx int64`
 
         The width of the display in pixels.
+
+        minimum: 1
 
       - `Name Computer`
 
@@ -2265,13 +2200,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const ComputerComputer Computer = "computer"`
-
       - `Type Computer20241022`
 
-        - `const Computer20241022Computer20241022 Computer20241022 = "computer_20241022"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolComputerUse20241022AllowedCallerDirect BetaToolComputerUse20241022AllowedCaller = "direct"`
 
@@ -2281,21 +2212,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260521 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `DisplayNumber int64`
+      - `DisplayNumber int64 Optional`
 
         The X11 display number (e.g. 0, 1) for the display.
 
-      - `InputExamples []map[string, any]`
+        minimum: 0
 
-      - `Strict bool`
+      - `InputExamples []map[string, any] Optional`
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2307,13 +2240,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const MemoryMemory Memory = "memory"`
-
       - `Type Memory20250818`
 
-        - `const Memory20250818Memory20250818 Memory20250818 = "memory_20250818"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaMemoryTool20250818AllowedCallerDirect BetaMemoryTool20250818AllowedCaller = "direct"`
 
@@ -2323,17 +2252,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaMemoryTool20250818AllowedCallerCodeExecution20260521 BetaMemoryTool20250818AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2343,9 +2272,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         The height of the display in pixels.
 
+        minimum: 1
+
       - `DisplayWidthPx int64`
 
         The width of the display in pixels.
+
+        minimum: 1
 
       - `Name Computer`
 
@@ -2353,13 +2286,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const ComputerComputer Computer = "computer"`
-
       - `Type Computer20250124`
 
-        - `const Computer20250124Computer20250124 Computer20250124 = "computer_20250124"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolComputerUse20250124AllowedCallerDirect BetaToolComputerUse20250124AllowedCaller = "direct"`
 
@@ -2369,21 +2298,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260521 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `DisplayNumber int64`
+      - `DisplayNumber int64 Optional`
 
         The X11 display number (e.g. 0, 1) for the display.
 
-      - `InputExamples []map[string, any]`
+        minimum: 0
 
-      - `Strict bool`
+      - `InputExamples []map[string, any] Optional`
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2395,13 +2326,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
-
       - `Type TextEditor20241022`
 
-        - `const TextEditor20241022TextEditor20241022 TextEditor20241022 = "text_editor_20241022"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolTextEditor20241022AllowedCallerDirect BetaToolTextEditor20241022AllowedCaller = "direct"`
 
@@ -2411,17 +2338,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20260521 BetaToolTextEditor20241022AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2431,9 +2358,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         The height of the display in pixels.
 
+        minimum: 1
+
       - `DisplayWidthPx int64`
 
         The width of the display in pixels.
+
+        minimum: 1
 
       - `Name Computer`
 
@@ -2441,13 +2372,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const ComputerComputer Computer = "computer"`
-
       - `Type Computer20251124`
 
-        - `const Computer20251124Computer20251124 Computer20251124 = "computer_20251124"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
 
@@ -2457,25 +2384,27 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260521 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `DisplayNumber int64`
+      - `DisplayNumber int64 Optional`
 
         The X11 display number (e.g. 0, 1) for the display.
 
-      - `EnableZoom bool`
+        minimum: 0
+
+      - `EnableZoom bool Optional`
 
         Whether to enable an action to take a zoomed-in screenshot of the screen.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2492,9 +2421,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `Type ComputerToolset20260801`
 
-        - `const ComputerToolset20260801ComputerToolset20260801 ComputerToolset20260801 = "computer_toolset_20260801"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaComputerToolset20260801AllowedCallerDirect BetaComputerToolset20260801AllowedCaller = "direct"`
 
@@ -2504,11 +2431,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260521 BetaComputerToolset20260801AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Configs BetaComputerToolsetConfigs`
+      - `Configs BetaComputerToolsetConfigs Optional`
 
         Per-member configuration for `computer_toolset_20260801`: one
         optional field per member tool, keyed by the member name — the same
@@ -2517,207 +2444,207 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         absent. Unknown keys are rejected: the field set is this toolset
         version's complete member set.
 
-        - `CursorPosition BetaComputerCursorPositionConfig`
+        - `CursorPosition BetaComputerCursorPositionConfig Optional`
 
           `cursor_position`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `DoubleClick BetaComputerDoubleClickConfig`
+        - `DoubleClick BetaComputerDoubleClickConfig Optional`
 
           `double_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `HoldKey BetaComputerHoldKeyConfig`
+        - `HoldKey BetaComputerHoldKeyConfig Optional`
 
           `hold_key`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Key BetaComputerKeyConfig`
+        - `Key BetaComputerKeyConfig Optional`
 
           `key`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `LeftClick BetaComputerLeftClickConfig`
+        - `LeftClick BetaComputerLeftClickConfig Optional`
 
           `left_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `LeftClickDrag BetaComputerLeftClickDragConfig`
+        - `LeftClickDrag BetaComputerLeftClickDragConfig Optional`
 
           `left_click_drag`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `LeftMouseDown BetaComputerLeftMouseDownConfig`
+        - `LeftMouseDown BetaComputerLeftMouseDownConfig Optional`
 
           `left_mouse_down`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `LeftMouseUp BetaComputerLeftMouseUpConfig`
+        - `LeftMouseUp BetaComputerLeftMouseUpConfig Optional`
 
           `left_mouse_up`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `MiddleClick BetaComputerMiddleClickConfig`
+        - `MiddleClick BetaComputerMiddleClickConfig Optional`
 
           `middle_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `MouseMove BetaComputerMouseMoveConfig`
+        - `MouseMove BetaComputerMouseMoveConfig Optional`
 
           `mouse_move`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `RightClick BetaComputerRightClickConfig`
+        - `RightClick BetaComputerRightClickConfig Optional`
 
           `right_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Screenshot BetaComputerScreenshotConfig`
+        - `Screenshot BetaComputerScreenshotConfig Optional`
 
           `screenshot`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Scroll BetaComputerScrollConfig`
+        - `Scroll BetaComputerScrollConfig Optional`
 
           `scroll`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `TripleClick BetaComputerTripleClickConfig`
+        - `TripleClick BetaComputerTripleClickConfig Optional`
 
           `triple_click`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Type BetaComputerTypeConfig`
+        - `Type BetaComputerTypeConfig Optional`
 
           `type`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Wait BetaComputerWaitConfig`
+        - `Wait BetaComputerWaitConfig Optional`
 
           `wait`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
-        - `Zoom BetaComputerZoomConfig`
+        - `Zoom BetaComputerZoomConfig Optional`
 
           `zoom`'s config overrides.
 
-          - `DeferLoading bool`
+          - `DeferLoading bool Optional`
 
             Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
-          - `Enabled bool`
+          - `Enabled bool Optional`
 
             Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
 
@@ -2729,13 +2656,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
-
       - `Type TextEditor20250124`
 
-        - `const TextEditor20250124TextEditor20250124 TextEditor20250124 = "text_editor_20250124"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolTextEditor20250124AllowedCallerDirect BetaToolTextEditor20250124AllowedCaller = "direct"`
 
@@ -2745,17 +2668,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20260521 BetaToolTextEditor20250124AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2767,13 +2690,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
-
       - `Type TextEditor20250429`
 
-        - `const TextEditor20250429TextEditor20250429 TextEditor20250429 = "text_editor_20250429"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolTextEditor20250429AllowedCallerDirect BetaToolTextEditor20250429AllowedCaller = "direct"`
 
@@ -2783,17 +2702,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20260521 BetaToolTextEditor20250429AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2805,13 +2724,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
-
       - `Type TextEditor20250728`
 
-        - `const TextEditor20250728TextEditor20250728 TextEditor20250728 = "text_editor_20250728"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolTextEditor20250728AllowedCallerDirect BetaToolTextEditor20250728AllowedCaller = "direct"`
 
@@ -2821,21 +2736,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20260521 BetaToolTextEditor20250728AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `InputExamples []map[string, any]`
+      - `InputExamples []map[string, any] Optional`
 
-      - `MaxCharacters int64`
+      - `MaxCharacters int64 Optional`
 
         Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
 
-      - `Strict bool`
+        minimum: 1
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2847,13 +2764,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const WebSearchWebSearch WebSearch = "web_search"`
-
       - `Type WebSearch20250305`
 
-        - `const WebSearch20250305WebSearch20250305 WebSearch20250305 = "web_search_20250305"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaWebSearchTool20250305AllowedCallerDirect BetaWebSearchTool20250305AllowedCaller = "direct"`
 
@@ -2863,53 +2776,61 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20260521 BetaWebSearchTool20250305AllowedCaller = "code_execution_20260521"`
 
-      - `AllowedDomains []string`
+      - `AllowedDomains []string Optional`
 
         If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
 
-      - `BlockedDomains []string`
+      - `BlockedDomains []string Optional`
 
         If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `MaxUses int64`
+      - `MaxUses int64 Optional`
 
         Maximum number of times the tool can be used in the API request.
 
-      - `Strict bool`
+        exclusiveMinimum: 0
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `UserLocation BetaUserLocation`
+      - `UserLocation BetaUserLocation Optional`
 
         Parameters for the user's location. Used to provide more relevant search results.
 
         - `Type Approximate`
 
-          - `const ApproximateApproximate Approximate = "approximate"`
-
-        - `City string`
+        - `City string Optional`
 
           The city of the user.
 
-        - `Country string`
+          maxLength: 255, minLength: 1
+
+        - `Country string Optional`
 
           The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
-        - `Region string`
+          maxLength: 2, minLength: 2
+
+        - `Region string Optional`
 
           The region of the user.
 
-        - `Timezone string`
+          maxLength: 255, minLength: 1
+
+        - `Timezone string Optional`
 
           The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+          maxLength: 255, minLength: 1
 
     - `type BetaWebFetchTool20250910 struct{…}`
 
@@ -2919,13 +2840,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const WebFetchWebFetch WebFetch = "web_fetch"`
-
       - `Type WebFetch20250910`
 
-        - `const WebFetch20250910WebFetch20250910 WebFetch20250910 = "web_fetch_20250910"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaWebFetchTool20250910AllowedCallerDirect BetaWebFetchTool20250910AllowedCaller = "direct"`
 
@@ -2935,35 +2852,39 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20260521 BetaWebFetchTool20250910AllowedCaller = "code_execution_20260521"`
 
-      - `AllowedDomains []string`
+      - `AllowedDomains []string Optional`
 
         List of domains to allow fetching from
 
-      - `BlockedDomains []string`
+      - `BlockedDomains []string Optional`
 
         List of domains to block fetching from
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Citations BetaCitationsConfigParamResp`
+      - `Citations BetaCitationsConfigParamResp Optional`
 
         Citations configuration for fetched documents. Citations are disabled by default.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `MaxContentTokens int64`
+      - `MaxContentTokens int64 Optional`
 
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      - `MaxUses int64`
+        exclusiveMinimum: 0
+
+      - `MaxUses int64 Optional`
 
         Maximum number of times the tool can be used in the API request.
 
-      - `Strict bool`
+        exclusiveMinimum: 0
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -2975,13 +2896,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const WebSearchWebSearch WebSearch = "web_search"`
-
       - `Type WebSearch20260209`
 
-        - `const WebSearch20260209WebSearch20260209 WebSearch20260209 = "web_search_20260209"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaWebSearchTool20260209AllowedCallerDirect BetaWebSearchTool20260209AllowedCaller = "direct"`
 
@@ -2991,31 +2908,33 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20260521 BetaWebSearchTool20260209AllowedCaller = "code_execution_20260521"`
 
-      - `AllowedDomains []string`
+      - `AllowedDomains []string Optional`
 
         If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
 
-      - `BlockedDomains []string`
+      - `BlockedDomains []string Optional`
 
         If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `MaxUses int64`
+      - `MaxUses int64 Optional`
 
         Maximum number of times the tool can be used in the API request.
 
-      - `Strict bool`
+        exclusiveMinimum: 0
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `UserLocation BetaUserLocation`
+      - `UserLocation BetaUserLocation Optional`
 
         Parameters for the user's location. Used to provide more relevant search results.
 
@@ -3027,13 +2946,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const WebFetchWebFetch WebFetch = "web_fetch"`
-
       - `Type WebFetch20260209`
 
-        - `const WebFetch20260209WebFetch20260209 WebFetch20260209 = "web_fetch_20260209"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaWebFetchTool20260209AllowedCallerDirect BetaWebFetchTool20260209AllowedCaller = "direct"`
 
@@ -3043,35 +2958,39 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20260521 BetaWebFetchTool20260209AllowedCaller = "code_execution_20260521"`
 
-      - `AllowedDomains []string`
+      - `AllowedDomains []string Optional`
 
         List of domains to allow fetching from
 
-      - `BlockedDomains []string`
+      - `BlockedDomains []string Optional`
 
         List of domains to block fetching from
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Citations BetaCitationsConfigParamResp`
+      - `Citations BetaCitationsConfigParamResp Optional`
 
         Citations configuration for fetched documents. Citations are disabled by default.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `MaxContentTokens int64`
+      - `MaxContentTokens int64 Optional`
 
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      - `MaxUses int64`
+        exclusiveMinimum: 0
+
+      - `MaxUses int64 Optional`
 
         Maximum number of times the tool can be used in the API request.
 
-      - `Strict bool`
+        exclusiveMinimum: 0
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -3085,13 +3004,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const WebFetchWebFetch WebFetch = "web_fetch"`
-
       - `Type WebFetch20260309`
 
-        - `const WebFetch20260309WebFetch20260309 WebFetch20260309 = "web_fetch_20260309"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaWebFetchTool20260309AllowedCallerDirect BetaWebFetchTool20260309AllowedCaller = "direct"`
 
@@ -3101,39 +3016,43 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20260521 BetaWebFetchTool20260309AllowedCaller = "code_execution_20260521"`
 
-      - `AllowedDomains []string`
+      - `AllowedDomains []string Optional`
 
         List of domains to allow fetching from
 
-      - `BlockedDomains []string`
+      - `BlockedDomains []string Optional`
 
         List of domains to block fetching from
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Citations BetaCitationsConfigParamResp`
+      - `Citations BetaCitationsConfigParamResp Optional`
 
         Citations configuration for fetched documents. Citations are disabled by default.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `MaxContentTokens int64`
+      - `MaxContentTokens int64 Optional`
 
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      - `MaxUses int64`
+        exclusiveMinimum: 0
+
+      - `MaxUses int64 Optional`
 
         Maximum number of times the tool can be used in the API request.
 
-      - `Strict bool`
+        exclusiveMinimum: 0
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `UseCache bool`
+      - `UseCache bool Optional`
 
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
@@ -3145,13 +3064,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const WebSearchWebSearch WebSearch = "web_search"`
-
       - `Type WebSearch20260318`
 
-        - `const WebSearch20260318WebSearch20260318 WebSearch20260318 = "web_search_20260318"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaWebSearchTool20260318AllowedCallerDirect BetaWebSearchTool20260318AllowedCaller = "direct"`
 
@@ -3161,27 +3076,29 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebSearchTool20260318AllowedCallerCodeExecution20260521 BetaWebSearchTool20260318AllowedCaller = "code_execution_20260521"`
 
-      - `AllowedDomains []string`
+      - `AllowedDomains []string Optional`
 
         If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
 
-      - `BlockedDomains []string`
+      - `BlockedDomains []string Optional`
 
         If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `MaxUses int64`
+      - `MaxUses int64 Optional`
 
         Maximum number of times the tool can be used in the API request.
 
-      - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion`
+        exclusiveMinimum: 0
+
+      - `ResponseInclusion BetaWebSearchTool20260318ResponseInclusion Optional`
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
@@ -3189,11 +3106,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebSearchTool20260318ResponseInclusionExcluded BetaWebSearchTool20260318ResponseInclusion = "excluded"`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `UserLocation BetaUserLocation`
+      - `UserLocation BetaUserLocation Optional`
 
         Parameters for the user's location. Used to provide more relevant search results.
 
@@ -3205,13 +3122,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const WebFetchWebFetch WebFetch = "web_fetch"`
-
       - `Type WebFetch20260318`
 
-        - `const WebFetch20260318WebFetch20260318 WebFetch20260318 = "web_fetch_20260318"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaWebFetchTool20260318AllowedCallerDirect BetaWebFetchTool20260318AllowedCaller = "direct"`
 
@@ -3221,35 +3134,39 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebFetchTool20260318AllowedCallerCodeExecution20260521 BetaWebFetchTool20260318AllowedCaller = "code_execution_20260521"`
 
-      - `AllowedDomains []string`
+      - `AllowedDomains []string Optional`
 
         List of domains to allow fetching from
 
-      - `BlockedDomains []string`
+      - `BlockedDomains []string Optional`
 
         List of domains to block fetching from
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Citations BetaCitationsConfigParamResp`
+      - `Citations BetaCitationsConfigParamResp Optional`
 
         Citations configuration for fetched documents. Citations are disabled by default.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `MaxContentTokens int64`
+      - `MaxContentTokens int64 Optional`
 
         Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
-      - `MaxUses int64`
+        exclusiveMinimum: 0
+
+      - `MaxUses int64 Optional`
 
         Maximum number of times the tool can be used in the API request.
 
-      - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion`
+        exclusiveMinimum: 0
+
+      - `ResponseInclusion BetaWebFetchTool20260318ResponseInclusion Optional`
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
@@ -3257,11 +3174,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaWebFetchTool20260318ResponseInclusionExcluded BetaWebFetchTool20260318ResponseInclusion = "excluded"`
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
-      - `UseCache bool`
+      - `UseCache bool Optional`
 
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
@@ -3279,13 +3196,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const AdvisorAdvisor Advisor = "advisor"`
-
       - `Type Advisor20260301`
 
-        - `const Advisor20260301Advisor20260301 Advisor20260301 = "advisor_20260301"`
-
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaAdvisorTool20260301AllowedCallerDirect BetaAdvisorTool20260301AllowedCaller = "direct"`
 
@@ -3295,27 +3208,31 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20260521 BetaAdvisorTool20260301AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Caching BetaCacheControlEphemeral`
+      - `Caching BetaCacheControlEphemeral Optional`
 
         Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `MaxTokens int64`
+      - `MaxTokens int64 Optional`
 
         Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
 
-      - `MaxUses int64`
+        minimum: 1024
+
+      - `MaxUses int64 Optional`
 
         Maximum number of times the tool can be used in the API request.
 
-      - `Strict bool`
+        exclusiveMinimum: 0
+
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -3327,15 +3244,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const ToolSearchToolBm25ToolSearchToolBm25 ToolSearchToolBm25 = "tool_search_tool_bm25"`
-
       - `Type BetaToolSearchToolBm25_20251119Type`
 
         - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
 
         - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
 
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
 
@@ -3345,15 +3260,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -3365,15 +3280,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-        - `const ToolSearchToolRegexToolSearchToolRegex ToolSearchToolRegex = "tool_search_tool_regex"`
-
       - `Type BetaToolSearchToolRegex20251119Type`
 
         - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
 
         - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
 
-      - `AllowedCallers []string`
+      - `AllowedCallers []string Optional`
 
         - `const BetaToolSearchToolRegex20251119AllowedCallerDirect BetaToolSearchToolRegex20251119AllowedCaller = "direct"`
 
@@ -3383,15 +3296,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20260521 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20260521"`
 
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `DeferLoading bool`
+      - `DeferLoading bool Optional`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
 
-      - `Strict bool`
+      - `Strict bool Optional`
 
         When true, guarantees schema validation on tool names and inputs
 
@@ -3406,31 +3319,31 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         Name of the MCP server to configure tools for
 
+        maxLength: 255, minLength: 1
+
       - `Type MCPToolset`
 
-        - `const MCPToolsetMCPToolset MCPToolset = "mcp_toolset"`
-
-      - `CacheControl BetaCacheControlEphemeral`
+      - `CacheControl BetaCacheControlEphemeral Optional`
 
         Create a cache control breakpoint at this content block.
 
-      - `Configs map[string, BetaMCPToolConfig]`
+      - `Configs map[string, BetaMCPToolConfig] Optional`
 
         Configuration overrides for specific tools, keyed by tool name
 
-        - `DeferLoading bool`
+        - `DeferLoading bool Optional`
 
-        - `Enabled bool`
+        - `Enabled bool Optional`
 
-      - `DefaultConfig BetaMCPToolDefaultConfig`
+      - `DefaultConfig BetaMCPToolDefaultConfig Optional`
 
         Default configuration applied to all tools from this server
 
-        - `DeferLoading bool`
+        - `DeferLoading bool Optional`
 
-        - `Enabled bool`
+        - `Enabled bool Optional`
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -3506,11 +3419,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-  - `UserProfileID param.Field[string]`
+  - `UserProfileID param.Field[string] Optional`
 
     Header param: The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
-### Returns
+  - `OutputFormat param.Field[BetaJSONOutputFormat] Optional`
+
+    **Deprecated**
+
+    Body param: Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+    A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
+
+## Returns
 
 - `type BetaMessageTokensCount struct{…}`
 
@@ -3526,7 +3447,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     The total number of tokens across the provided list of messages, system prompt, and tools.
 
-### Example
+## Example
 
 ```go
 package main
@@ -3561,7 +3482,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

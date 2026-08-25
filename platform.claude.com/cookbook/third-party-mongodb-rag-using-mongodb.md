@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-mongodb-rag-using-mongodb -->
 
-#  How to Build A RAG System Using Claude 3 And MongoDB
+#  How to Build A RAG System Using Claude 3 And MongoDB
 
 This tutorial implements a chatbot prompted to take on the role of a Venture capital tech Analyst. The chatbot is a naive RAG system with a collection of tech news articles acting as its knowledge source.
 This notebook covers the following:
@@ -15,7 +15,7 @@ You will need the following:
 * VoyageAI API Key
 * Hugging Face Access Token
 
-##  Step 1: Library installation, data loading and preparation
+##  Step 1: Library installation, data loading and preparation
 
 Below are brief explanations of the tools and libraries utilised within the implementation code:
 
@@ -24,8 +24,6 @@ Below are brief explanations of the tools and libraries utilised within the impl
 * pandas: This data science library provides robust data structures and methods for data manipulation, processing, and analysis.
 * voyageai: This is the official Python client library for accessing VoyageAI's suite of embedding models.
 * pymongo: PyMongo is a Python toolkit for MongoDB. It enables interactions with a MongoDB database.
-
-
 
 !pip install pymongo datasets pandas anthropic voyageai
 
@@ -52,8 +50,6 @@ The code snippet below executes the following steps:
 * Appends the DataFrame to the list all\_dataframes.
 
 1. Combine DataFrames: After downloading and reading all Parquet files into DataFrames, there’s a check to ensure that `all_dataframes` is not empty. If there are DataFrames to work with, then all DataFrames are concatenated into a single DataFrame using pd.concat, with ignore\_index=True to reindex the new combined DataFrame. This combined DataFrame is the overall process output in the `download_and_combine_parquet_files` function.
-
-
 
 from io import BytesIO
 
@@ -123,8 +119,6 @@ Below is a list of the Parquet files required for this tutorial. The complete li
 
 In the code snippet below, a subset of the tech-news-embeddings dataset is grouped into a single DataFrame, which is then assigned to the variable `combined_df`.
 
-
-
 # Uncomment the links below to load more data
 
 # For the full list of data visit: https://huggingface.co/datasets/MongoDB/tech-news-embeddings/tree/refs%2Fconvert%2Fparquet/default/train
@@ -151,8 +145,6 @@ combined\_df = download\_and\_combine\_parquet\_files(parquet\_files, hf\_token)
 
 As a final phase in data preparation, the code snippet below shows the step to remove the `_id` column from the grouped dataset, as it is unnecessary for subsequent steps in this tutorial. Additionally, the data within the embedding column for each data point is converted from a numpy array to a Python list to prevent errors related to incompatible data types during the data ingestion.
 
-
-
 # Remove the \_id coloum from the intital dataset
 
 combined\_df = combined\_df.drop(columns=["\_id"])
@@ -161,11 +153,7 @@ combined\_df = combined\_df.drop(columns=["\_id"])
 
 combined\_df = combined\_df.drop(columns=["embedding"])
 
-
-
 combined\_df.head()
-
-
 
 # Limiting the amount of document used to 500 for this demo due to the rate limit on VoyageAI API
 
@@ -176,8 +164,6 @@ max\_documents = 500
 if len(combined\_df) > max\_documents:
 
 combined\_df = combined\_df[:max\_documents]
-
-
 
 import voyageai
 
@@ -199,7 +185,7 @@ combined\_df["embedding"] = combined\_df["description"].apply(get\_embedding)
 
 combined\_df.head()
 
-##  Step 2: Database and collection creation
+##  Step 2: Database and collection creation
 
 **To create a new MongoDB database, set up a database cluster:**
 
@@ -214,15 +200,13 @@ combined\_df.head()
 Once you have created a cluster, navigate to the cluster page and create a database and collection within the MongoDB Atlas cluster by clicking + Create Database.
 The database will be named `tech_news`, and the collection will be named `hacker_noon_tech_news`.
 
-##  Step 3: Vector search index creation
+##  Step 3: Vector search index creation
 
 By this point, you have created a cluster, database and collection.
 
 The steps in this section are crucial to ensure that a vector search can be conducted using the queries entered into the chatbot and searched against the records within the hacker\_noon\_tech\_news collection. The objective of this step is to create a vector search index. To achieve this, refer to the official [vector search index creation guide(opens in new tab)](https://www.mongodb.com/docs/atlas/atlas-vector-search/create-index/).
 
 In the creation of a vector search index using the JSON editor on MongoDB Atlas, ensure your vector search index is named vector\_index and the vector search index definition is as follows:
-
-
 
 {
 
@@ -240,7 +224,7 @@ In the creation of a vector search index using the JSON editor on MongoDB Atlas,
 
 }
 
-##  Step 4: Data ingestion
+##  Step 4: Data ingestion
 
 To ingest data into the MongoDB database created in previous steps. The following operations have to be carried out:
 
@@ -250,8 +234,6 @@ To ingest data into the MongoDB database created in previous steps. The followin
 * Ingest dictionaries into MongoDB using a batch operation
 
 This tutorial requires the cluster's URI (unique resource identifier). Grab the URI and copy it into the Google Colab Secrets environment in a variable named MONGO\_URI, or place it in a .env file or equivalent.
-
-
 
 import pymongo
 
@@ -291,13 +273,9 @@ db = mongo\_client[DB\_NAME]
 
 collection = db[COLLECTION\_NAME]
 
-
-
 ```
 Connection to MongoDB successful
 ```
-
-
 
 # To ensure we are working with a fresh collection
 
@@ -305,13 +283,9 @@ Connection to MongoDB successful
 
 collection.delete\_many({})
 
-
-
 ```
 DeleteResult({'n': 228012, 'electionId': ObjectId('7fffffff000000000000000e'), 'opTime': {'ts': Timestamp(1709660559, 7341), 't': 14}, 'ok': 1.0, '$clusterTime': {'clusterTime': Timestamp(1709660559, 7341), 'signature': {'hash': b'jT\xf1\xb4\xa9\xd3\xe3suu\x03`\x15(}\x8f\x00\x9f\xe9\x8a', 'keyId': 7320226449804230661}}, 'operationTime': Timestamp(1709660559, 7341)}, acknowledged=True)
 ```
-
-
 
 # Data Ingestion
 
@@ -319,7 +293,7 @@ combined\_df\_json = combined\_df.to\_dict(orient="records")
 
 collection.insert\_many(combined\_df\_json)
 
-##  Step 5: Vector Search
+##  Step 5: Vector Search
 
 This section showcases the creation of a vector search custom function that accepts a user query, which corresponds to entries to the chatbot. The function also takes a second parameter, `collection`, which points to the database collection containing records against which the vector search operation should be conducted.
 
@@ -333,8 +307,6 @@ The code snippet below conducts the following operations to allow semantic searc
 4. The `$vectorSearch` stage performs the actual vector search. The index field specifies the vector index to utilise for the vector search, and this should correspond to the name entered in the vector search index definition in previous steps. The queryVector field takes the embedding representation of the use query. The path field corresponds to the document field containing the embeddings. The `numCandidates` specifies the number of candidate documents to consider and the limit on the number of results to return.
 5. The $project stage formats the results to excludes the \_id the `embedding` field.
 6. The aggregate executes the defined pipeline to obtain the vector search results. The final operation converts the returned cursor from the database into a list.
-
-
 
 def vector\_search(user\_query, collection):
 
@@ -410,7 +382,7 @@ results = collection.aggregate(pipeline)
 
 return list(results)
 
-##  Step 6: Handling user queries with Claude 3 models
+##  Step 6: Handling user queries with Claude 3 models
 
 The final section of the tutorial outlines the sequence of operations performed as follows:
 
@@ -423,8 +395,6 @@ The final section of the tutorial outlines the sequence of operations performed 
 An important note is that the dimensions of the user query embedding match the dimensions set in the vector search index definition on MongoDB Atlas.
 
 The next step in this section is to import the anthropic library and load the client to access the anthropic’s methods for handling messages and accessing Claude models. Ensure you obtain an Claude API key located within the settings page on the [official Anthropic website(opens in new tab)](https://console.anthropic.com/settings/keys).
-
-
 
 import anthropic
 
@@ -442,8 +412,6 @@ Below is a more detailed description of the operations in the code snippet below
 * The actual message for the model to process combines the user query with the aggregated search results as context.
 
 1. Return the Generated Response and Search Results: It extracts and returns the response text from the first item in the response's content, alongside the compiled search results.
-
-
 
 def handle\_user\_query(query, collection):
 
@@ -501,8 +469,6 @@ return (response.content[0].text), search\_result
 
 The final step in this tutorial is to initialize the query, pass it into the `handle_user_query` function and print the response returned.
 
-
-
 # Conduct query with retrieval of sources
 
 query = "Give me the best tech stock to invest in and tell me why"
@@ -512,8 +478,6 @@ response, source\_information = handle\_user\_query(query, collection)
 print(f"Response: {response}")
 
 print(f"\\nSource Information: \\n{source\_information}")
-
-
 
 ```
 Response: Based on the information provided in the article titles and descriptions, Alibaba Group Holding Limited appears to be a top technology stock pick for 2023 according to renowned investor Ray Dalio. The article "Top 10 Technology Stocks to Buy in 2023 According to Ray Dalio" suggests that Alibaba is one of Dalio's favored tech investments for the year.

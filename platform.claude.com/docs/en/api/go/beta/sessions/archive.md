@@ -1,25 +1,20 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/sessions/archive -->
 
----
-title: Archive Session
-url: https://platform.claude.com/docs/en/api/go/beta/sessions/archive
----
-
-## Archive Session
+# Archive Session
 
 `client.Beta.Sessions.Archive(ctx, sessionID, body) (*BetaManagedAgentsSession, error)`
 
-**post** `/v1/sessions/{session_id}/archive`
+**POST** `/v1/sessions/{session_id}/archive`
 
 Archive Session
 
-### Parameters
+## Parameters
 
 - `sessionID string`
 
 - `body BetaSessionArchiveParams`
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -95,7 +90,7 @@ Archive Session
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaManagedAgentsSession struct{…}`
 
@@ -116,8 +111,6 @@ Archive Session
       - `Name string`
 
       - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
-        - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
 
       - `URL string`
 
@@ -191,7 +184,7 @@ Archive Session
 
         - `string`
 
-      - `Effort BetaManagedAgentsModelConfigEffortUnion`
+      - `Effort BetaManagedAgentsModelConfigEffortUnion Optional`
 
         How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
@@ -201,15 +194,11 @@ Archive Session
 
           - `Type BetaManagedAgentsEffortLowType`
 
-            - `const BetaManagedAgentsEffortLowTypeLow BetaManagedAgentsEffortLowType = "low"`
-
         - `type BetaManagedAgentsEffortMedium struct{…}`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `Type BetaManagedAgentsEffortMediumType`
-
-            - `const BetaManagedAgentsEffortMediumTypeMedium BetaManagedAgentsEffortMediumType = "medium"`
 
         - `type BetaManagedAgentsEffortHigh struct{…}`
 
@@ -217,15 +206,11 @@ Archive Session
 
           - `Type BetaManagedAgentsEffortHighType`
 
-            - `const BetaManagedAgentsEffortHighTypeHigh BetaManagedAgentsEffortHighType = "high"`
-
         - `type BetaManagedAgentsEffortXhigh struct{…}`
 
           Extra-high effort. Not all models accept this level.
 
           - `Type BetaManagedAgentsEffortXhighType`
-
-            - `const BetaManagedAgentsEffortXhighTypeXhigh BetaManagedAgentsEffortXhighType = "xhigh"`
 
         - `type BetaManagedAgentsEffortMax struct{…}`
 
@@ -233,13 +218,11 @@ Archive Session
 
           - `Type BetaManagedAgentsEffortMaxType`
 
-            - `const BetaManagedAgentsEffortMaxTypeMax BetaManagedAgentsEffortMaxType = "max"`
-
-      - `InferenceGeo string`
+      - `InferenceGeo string Optional`
 
         Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
 
-      - `Speed BetaManagedAgentsModelConfigSpeed`
+      - `Speed BetaManagedAgentsModelConfigSpeed Optional`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
@@ -287,8 +270,6 @@ Archive Session
 
               - `Type BetaManagedAgentsAnthropicSkillType`
 
-                - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
-
               - `Version string`
 
             - `type BetaManagedAgentsCustomSkill struct{…}`
@@ -298,8 +279,6 @@ Archive Session
               - `SkillID string`
 
               - `Type BetaManagedAgentsCustomSkillType`
-
-                - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
 
               - `Version string`
 
@@ -319,8 +298,6 @@ Archive Session
 
                   - `Name Bash`
 
-                    - `const BashBash Bash = "bash"`
-
                   - `PermissionPolicy BetaManagedAgentsBashToolConfigPermissionPolicyUnion`
 
                     Permission policy for tool execution.
@@ -331,19 +308,13 @@ Archive Session
 
                       - `Type BetaManagedAgentsAlwaysAllowPolicyType`
 
-                        - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
-
                     - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
                       Tool calls require user confirmation before execution.
 
                       - `Type BetaManagedAgentsAlwaysAskPolicyType`
 
-                        - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
                   - `Type Bash`
-
-                    - `const BashBash Bash = "bash"`
 
                 - `type BetaManagedAgentsEditToolConfig struct{…}`
 
@@ -352,8 +323,6 @@ Archive Session
                   - `Enabled bool`
 
                   - `Name Edit`
-
-                    - `const EditEdit Edit = "edit"`
 
                   - `PermissionPolicy BetaManagedAgentsEditToolConfigPermissionPolicyUnion`
 
@@ -369,8 +338,6 @@ Archive Session
 
                   - `Type Edit`
 
-                    - `const EditEdit Edit = "edit"`
-
                 - `type BetaManagedAgentsReadToolConfig struct{…}`
 
                   Configuration for the read tool.
@@ -378,8 +345,6 @@ Archive Session
                   - `Enabled bool`
 
                   - `Name Read`
-
-                    - `const ReadRead Read = "read"`
 
                   - `PermissionPolicy BetaManagedAgentsReadToolConfigPermissionPolicyUnion`
 
@@ -395,8 +360,6 @@ Archive Session
 
                   - `Type Read`
 
-                    - `const ReadRead Read = "read"`
-
                 - `type BetaManagedAgentsWriteToolConfig struct{…}`
 
                   Configuration for the write tool.
@@ -404,8 +367,6 @@ Archive Session
                   - `Enabled bool`
 
                   - `Name Write`
-
-                    - `const WriteWrite Write = "write"`
 
                   - `PermissionPolicy BetaManagedAgentsWriteToolConfigPermissionPolicyUnion`
 
@@ -421,8 +382,6 @@ Archive Session
 
                   - `Type Write`
 
-                    - `const WriteWrite Write = "write"`
-
                 - `type BetaManagedAgentsGlobToolConfig struct{…}`
 
                   Configuration for the glob tool.
@@ -430,8 +389,6 @@ Archive Session
                   - `Enabled bool`
 
                   - `Name Glob`
-
-                    - `const GlobGlob Glob = "glob"`
 
                   - `PermissionPolicy BetaManagedAgentsGlobToolConfigPermissionPolicyUnion`
 
@@ -447,8 +404,6 @@ Archive Session
 
                   - `Type Glob`
 
-                    - `const GlobGlob Glob = "glob"`
-
                 - `type BetaManagedAgentsGrepToolConfig struct{…}`
 
                   Configuration for the grep tool.
@@ -456,8 +411,6 @@ Archive Session
                   - `Enabled bool`
 
                   - `Name Grep`
-
-                    - `const GrepGrep Grep = "grep"`
 
                   - `PermissionPolicy BetaManagedAgentsGrepToolConfigPermissionPolicyUnion`
 
@@ -473,8 +426,6 @@ Archive Session
 
                   - `Type Grep`
 
-                    - `const GrepGrep Grep = "grep"`
-
                 - `type BetaManagedAgentsWebFetchToolConfig struct{…}`
 
                   Configuration for the web_fetch tool.
@@ -482,8 +433,6 @@ Archive Session
                   - `Enabled bool`
 
                   - `Name WebFetch`
-
-                    - `const WebFetchWebFetch WebFetch = "web_fetch"`
 
                   - `PermissionPolicy BetaManagedAgentsWebFetchToolConfigPermissionPolicyUnion`
 
@@ -499,13 +448,13 @@ Archive Session
 
                   - `Type WebFetch`
 
-                    - `const WebFetchWebFetch WebFetch = "web_fetch"`
+                  - `AllowedDomains []string Optional`
 
-                  - `AllowedDomains []string`
+                  - `BlockedDomains []string Optional`
 
-                  - `BlockedDomains []string`
+                  - `MaxContentTokens int64 Optional`
 
-                  - `MaxContentTokens int64`
+                    format: int32
 
                 - `type BetaManagedAgentsWebSearchToolConfig struct{…}`
 
@@ -514,8 +463,6 @@ Archive Session
                   - `Enabled bool`
 
                   - `Name WebSearch`
-
-                    - `const WebSearchWebSearch WebSearch = "web_search"`
 
                   - `PermissionPolicy BetaManagedAgentsWebSearchToolConfigPermissionPolicyUnion`
 
@@ -531,13 +478,11 @@ Archive Session
 
                   - `Type WebSearch`
 
-                    - `const WebSearchWebSearch WebSearch = "web_search"`
+                  - `AllowedDomains []string Optional`
 
-                  - `AllowedDomains []string`
+                  - `BlockedDomains []string Optional`
 
-                  - `BlockedDomains []string`
-
-                  - `UserLocation BetaManagedAgentsUserLocation`
+                  - `UserLocation BetaManagedAgentsUserLocation Optional`
 
                     Approximate user location for search result localization.
 
@@ -545,23 +490,27 @@ Archive Session
 
                       Location precision. Only "approximate" is supported.
 
-                      - `const ApproximateApproximate Approximate = "approximate"`
-
-                    - `City string`
+                    - `City string Optional`
 
                       City name.
 
-                    - `Country string`
+                      minLength: 1, maxLength: 255
+
+                    - `Country string Optional`
 
                       Two-letter ISO 3166-1 country code, uppercase.
 
-                    - `Region string`
+                    - `Region string Optional`
 
                       Region or state name.
 
-                    - `Timezone string`
+                      minLength: 1, maxLength: 255
+
+                    - `Timezone string Optional`
 
                       IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                      minLength: 1, maxLength: 255
 
               - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -582,8 +531,6 @@ Archive Session
                     Tool calls require user confirmation before execution.
 
               - `Type BetaManagedAgentsAgentToolset20260401Type`
-
-                - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
 
             - `type BetaManagedAgentsMCPToolset struct{…}`
 
@@ -627,8 +574,6 @@ Archive Session
 
               - `Type BetaManagedAgentsMCPToolsetType`
 
-                - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
-
             - `type BetaManagedAgentsCustomTool struct{…}`
 
               A custom tool as returned in API responses.
@@ -641,23 +586,19 @@ Archive Session
 
                 - `Type Object`
 
-                  - `const ObjectObject Object = "object"`
+                - `Properties map[string, any] Optional`
 
-                - `Properties map[string, any]`
-
-                - `Required []string`
+                - `Required []string Optional`
 
               - `Name string`
 
               - `Type BetaManagedAgentsCustomToolType`
 
-                - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
-
           - `Type BetaManagedAgentsSessionThreadAgentType`
 
-            - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
-
           - `Version int64`
+
+            format: int32
 
         - `type BetaManagedAgentsAdvisor struct{…}`
 
@@ -669,11 +610,7 @@ Archive Session
 
           - `Type BetaManagedAgentsAdvisorType`
 
-            - `const BetaManagedAgentsAdvisorTypeAdvisor BetaManagedAgentsAdvisorType = "advisor"`
-
       - `Type BetaManagedAgentsSessionMultiagentCoordinatorType`
-
-        - `const BetaManagedAgentsSessionMultiagentCoordinatorTypeCoordinator BetaManagedAgentsSessionMultiagentCoordinatorType = "coordinator"`
 
     - `Name string`
 
@@ -701,13 +638,15 @@ Archive Session
 
     - `Type BetaManagedAgentsSessionAgentType`
 
-      - `const BetaManagedAgentsSessionAgentTypeAgent BetaManagedAgentsSessionAgentType = "agent"`
-
     - `Version int64`
+
+      format: int32
 
   - `ArchivedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `Budget BetaManagedAgentsBudgetLimit`
 
@@ -725,15 +664,13 @@ Archive Session
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `const BetaCurrencyUsd BetaCurrency = "USD"`
-
     - `Type BetaManagedAgentsBudgetLimitType`
-
-      - `const BetaManagedAgentsBudgetLimitTypeLimit BetaManagedAgentsBudgetLimitType = "limit"`
 
   - `CreatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `EnvironmentID string`
 
@@ -747,6 +684,8 @@ Archive Session
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `Description string`
 
       What the agent should produce.
@@ -759,6 +698,8 @@ Archive Session
 
       0-indexed revision cycle the outcome is currently on.
 
+      format: int32
+
     - `OutcomeID string`
 
       Server-generated outc_ ID for this outcome.
@@ -768,8 +709,6 @@ Archive Session
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `Type BetaManagedAgentsOutcomeEvaluationResourceType`
-
-      - `const BetaManagedAgentsOutcomeEvaluationResourceTypeOutcomeEvaluation BetaManagedAgentsOutcomeEvaluationResourceType = "outcome_evaluation"`
 
   - `Resources []BetaManagedAgentsSessionResourceUnion`
 
@@ -781,19 +720,21 @@ Archive Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `MountPath string`
 
       - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
-        - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
 
       - `UpdatedAt Time`
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `URL string`
 
-      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
+      - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion Optional`
 
         - `type BetaManagedAgentsBranchCheckout struct{…}`
 
@@ -801,9 +742,9 @@ Archive Session
 
             Branch name to check out.
 
-          - `Type BetaManagedAgentsBranchCheckoutType`
+            minLength: 1, maxLength: 255
 
-            - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
+          - `Type BetaManagedAgentsBranchCheckoutType`
 
         - `type BetaManagedAgentsCommitCheckout struct{…}`
 
@@ -811,9 +752,9 @@ Archive Session
 
             Full commit SHA to check out.
 
-          - `Type BetaManagedAgentsCommitCheckoutType`
+            minLength: 7, maxLength: 64
 
-            - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
+          - `Type BetaManagedAgentsCommitCheckoutType`
 
     - `type BetaManagedAgentsFileResource struct{…}`
 
@@ -823,17 +764,19 @@ Archive Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `FileID string`
 
       - `MountPath string`
 
       - `Type BetaManagedAgentsFileResourceType`
 
-        - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
-
       - `UpdatedAt Time`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
     - `type BetaManagedAgentsMemoryStoreResource struct{…}`
 
@@ -845,9 +788,7 @@ Archive Session
 
       - `Type BetaManagedAgentsMemoryStoreResourceType`
 
-        - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
-
-      - `Access BetaManagedAgentsMemoryStoreResourceAccess`
+      - `Access BetaManagedAgentsMemoryStoreResourceAccess Optional`
 
         Access mode for an attached memory store.
 
@@ -855,19 +796,21 @@ Archive Session
 
         - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
 
-      - `Description string`
+      - `Description string Optional`
 
         Description of the memory store, snapshotted at attach time. Rendered into the agent's system prompt. Empty string when the store has no description.
 
-      - `Instructions string`
+      - `Instructions string Optional`
 
         Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
-      - `MountPath string`
+        maxLength: 4096
+
+      - `MountPath string Optional`
 
         Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
 
-      - `Name string`
+      - `Name string Optional`
 
         Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
 
@@ -875,13 +818,17 @@ Archive Session
 
     Timing statistics for a session.
 
-    - `ActiveSeconds float64`
+    - `ActiveSeconds float64 Optional`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
 
-    - `DurationSeconds float64`
+      format: double
+
+    - `DurationSeconds float64 Optional`
 
       Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
+
+      format: double
 
   - `Status BetaManagedAgentsSessionStatus`
 
@@ -899,69 +846,85 @@ Archive Session
 
   - `Type BetaManagedAgentsSessionType`
 
-    - `const BetaManagedAgentsSessionTypeSession BetaManagedAgentsSessionType = "session"`
-
   - `UpdatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `Usage BetaManagedAgentsSessionUsage`
 
     Cumulative token usage for a session across all turns.
 
-    - `ActiveSeconds float64`
+    - `ActiveSeconds float64 Optional`
 
       Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
 
-    - `CacheCreation BetaManagedAgentsCacheCreationUsage`
+      format: double
+
+    - `CacheCreation BetaManagedAgentsCacheCreationUsage Optional`
 
       Prompt-cache creation token usage broken down by cache lifetime.
 
-      - `Ephemeral1hInputTokens int64`
+      - `Ephemeral1hInputTokens int64 Optional`
 
         Tokens used to create 1-hour ephemeral cache entries.
 
-      - `Ephemeral5mInputTokens int64`
+        format: int32
+
+      - `Ephemeral5mInputTokens int64 Optional`
 
         Tokens used to create 5-minute ephemeral cache entries.
 
-    - `CacheReadInputTokens int64`
+        format: int32
+
+    - `CacheReadInputTokens int64 Optional`
 
       Total tokens read from prompt cache.
 
-    - `InputTokens int64`
+      format: int32
+
+    - `InputTokens int64 Optional`
 
       Total input tokens consumed across all turns.
 
-    - `ListCost BetaMonetaryAmount`
+      format: int32
+
+    - `ListCost BetaMonetaryAmount Optional`
 
       A monetary amount in a specific currency.
 
-    - `OutputTokens int64`
+    - `OutputTokens int64 Optional`
 
       Total output tokens generated across all turns.
 
-    - `ServerToolUse BetaManagedAgentsServerToolUsage`
+      format: int32
+
+    - `ServerToolUse BetaManagedAgentsServerToolUsage Optional`
 
       Cumulative count of server-executed tool invocations, broken down by tool.
 
-      - `WebFetchRequests int64`
+      - `WebFetchRequests int64 Optional`
 
         Number of server-executed web fetch requests.
 
-      - `WebSearchRequests int64`
+        format: int32
+
+      - `WebSearchRequests int64 Optional`
 
         Number of server-executed web search requests.
+
+        format: int32
 
   - `VaultIDs []string`
 
     Vault IDs attached to the session at creation. Empty when no vaults were supplied.
 
-  - `DeploymentID string`
+  - `DeploymentID string Optional`
 
     Deployment ID when the session was created from a deployment reference. Null otherwise.
 
-### Example
+## Example
 
 ```go
 package main
@@ -990,7 +953,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

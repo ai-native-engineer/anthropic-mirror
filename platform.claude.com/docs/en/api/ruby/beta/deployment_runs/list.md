@@ -1,35 +1,38 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/deployment_runs/list -->
 
----
-title: List Deployment Runs
-url: https://platform.claude.com/docs/en/api/ruby/beta/deployment_runs/list
----
-
-## List Deployment Runs
+# List Deployment Runs
 
 `beta.deployment_runs.list(**kwargs) -> PageCursor<BetaManagedAgentsDeploymentRun>`
 
-**get** `/v1/deployment_runs`
+**GET** `/v1/deployment_runs`
 
 List Deployment Runs
 
-### Parameters
+## Parameters
 
 - `created_at_gt: Time`
 
   Return runs created strictly after this time (exclusive).
 
+  format: date-time
+
 - `created_at_gte: Time`
 
   Return runs created at or after this time (inclusive).
+
+  format: date-time
 
 - `created_at_lt: Time`
 
   Return runs created strictly before this time (exclusive).
 
+  format: date-time
+
 - `created_at_lte: Time`
 
   Return runs created at or before this time (inclusive).
+
+  format: date-time
 
 - `deployment_id: String`
 
@@ -42,6 +45,8 @@ List Deployment Runs
 - `limit: Integer`
 
   Maximum results per page. Default 20, maximum 1000.
+
+  format: int32
 
 - `page: String`
 
@@ -131,7 +136,7 @@ List Deployment Runs
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsDeploymentRun`
 
@@ -149,13 +154,15 @@ List Deployment Runs
 
     - `type: :agent`
 
-      - `:agent`
-
     - `version: Integer`
+
+      format: int32
 
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `deployment_id: String`
 
@@ -175,8 +182,6 @@ List Deployment Runs
 
       - `type: :environment_archived_error`
 
-        - `:environment_archived_error`
-
     - `class BetaManagedAgentsAgentArchivedRunError`
 
       The deployment's agent was archived.
@@ -186,8 +191,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `type: :agent_archived_error`
-
-        - `:agent_archived_error`
 
     - `class BetaManagedAgentsEnvironmentNotFoundRunError`
 
@@ -199,8 +202,6 @@ List Deployment Runs
 
       - `type: :environment_not_found_error`
 
-        - `:environment_not_found_error`
-
     - `class BetaManagedAgentsVaultNotFoundRunError`
 
       A vault referenced by the deployment no longer exists.
@@ -210,8 +211,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `type: :vault_not_found_error`
-
-        - `:vault_not_found_error`
 
     - `class BetaManagedAgentsVaultArchivedRunError`
 
@@ -223,8 +222,6 @@ List Deployment Runs
 
       - `type: :vault_archived_error`
 
-        - `:vault_archived_error`
-
     - `class BetaManagedAgentsFileNotFoundRunError`
 
       A file resource referenced by the deployment no longer exists.
@@ -234,8 +231,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `type: :file_not_found_error`
-
-        - `:file_not_found_error`
 
     - `class BetaManagedAgentsMemoryStoreArchivedRunError`
 
@@ -247,8 +242,6 @@ List Deployment Runs
 
       - `type: :memory_store_archived_error`
 
-        - `:memory_store_archived_error`
-
     - `class BetaManagedAgentsSkillNotFoundRunError`
 
       A skill referenced by the deployment's agent no longer exists.
@@ -258,8 +251,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `type: :skill_not_found_error`
-
-        - `:skill_not_found_error`
 
     - `class BetaManagedAgentsSessionResourceNotFoundRunError`
 
@@ -271,8 +262,6 @@ List Deployment Runs
 
       - `type: :session_resource_not_found_error`
 
-        - `:session_resource_not_found_error`
-
     - `class BetaManagedAgentsWorkspaceArchivedRunError`
 
       The deployment's workspace was archived.
@@ -282,8 +271,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `type: :workspace_archived_error`
-
-        - `:workspace_archived_error`
 
     - `class BetaManagedAgentsOrganizationDisabledRunError`
 
@@ -295,8 +282,6 @@ List Deployment Runs
 
       - `type: :organization_disabled_error`
 
-        - `:organization_disabled_error`
-
     - `class BetaManagedAgentsSessionRateLimitedRunError`
 
       Session creation was rejected due to rate limiting. The schedule keeps firing; subsequent runs may succeed.
@@ -306,8 +291,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `type: :session_rate_limited_error`
-
-        - `:session_rate_limited_error`
 
     - `class BetaManagedAgentsSessionCreationRejectedRunError`
 
@@ -319,8 +302,6 @@ List Deployment Runs
 
       - `type: :session_creation_rejected_error`
 
-        - `:session_creation_rejected_error`
-
     - `class BetaManagedAgentsUnknownRunError`
 
       An unknown or unexpected error caused the run to fail. A fallback variant; clients that do not recognize a new error type can match on message alone.
@@ -330,8 +311,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `type: :unknown_error`
-
-        - `:unknown_error`
 
     - `class BetaManagedAgentsSelfHostedResourcesUnsupportedRunError`
 
@@ -343,8 +322,6 @@ List Deployment Runs
 
       - `type: :self_hosted_resources_unsupported_error`
 
-        - `:self_hosted_resources_unsupported_error`
-
     - `class BetaManagedAgentsMCPEgressBlockedRunError`
 
       An MCP server host used by the deployment's agent is blocked by the environment's network policy.
@@ -354,8 +331,6 @@ List Deployment Runs
         Human-readable error description.
 
       - `type: :mcp_egress_blocked_error`
-
-        - `:mcp_egress_blocked_error`
 
   - `session_id: String`
 
@@ -373,9 +348,9 @@ List Deployment Runs
 
         A timestamp in RFC 3339 format
 
-      - `type: :schedule`
+        format: date-time
 
-        - `:schedule`
+      - `type: :schedule`
 
     - `class BetaManagedAgentsManualTriggerContext`
 
@@ -383,13 +358,9 @@ List Deployment Runs
 
       - `type: :manual`
 
-        - `:manual`
-
   - `type: :deployment_run`
 
-    - `:deployment_run`
-
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -401,7 +372,7 @@ page = anthropic.beta.deployment_runs.list
 puts(page)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

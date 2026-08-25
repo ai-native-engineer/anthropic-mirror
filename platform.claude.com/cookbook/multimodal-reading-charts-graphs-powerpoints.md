@@ -1,26 +1,22 @@
 <!-- source: https://platform.claude.com/cookbook/multimodal-reading-charts-graphs-powerpoints -->
 
-#  Working with Charts, Graphs, and Slide Decks
+#  Working with Charts, Graphs, and Slide Decks
 
 Claude is highly capable of working with charts, graphs, and broader slide decks. Depending on your use case, there are a number of tips and tricks that you may want to take advantage of. This recipe will show you common patterns for using Claude with these materials.
 
-##  Charts and Graphs
+##  Charts and Graphs
 
 For the most part, using claude with charts and graphs is simple. Let's walk through how to ingest them and pass them to Claude, as well as some common tips to improve your results.
 
-###  Ingestion and calling the Claude API
+###  Ingestion and calling the Claude API
 
 The best way to pass Claude charts and graphs is to take advantage of its vision capabilities and the PDF support feature. That is, give Claude a PDF document of the chart or graph, along with a text question about it.
 
 At the moment, only `claude-sonnet-4-6` supports the PDF feature. Since the feature is still in beta, you will need to provide it with the `pdfs-2024-09-25` beta header.
 
-
-
 # Install and create the Anthropic client.
 
 %pip install anthropic
-
-
 
 import base64
 
@@ -34,8 +30,6 @@ client = Anthropic(default\_headers={"anthropic-beta": "pdfs-2024-09-25"})
 
 MODEL\_NAME = "claude-sonnet-4-6"
 
-
-
 # Make a useful helper function.
 
 def get\_completion(messages):
@@ -47,8 +41,6 @@ model=MODEL\_NAME, max\_tokens=8192, temperature=0, messages=messages
 )
 
 return response.content[0].text
-
-
 
 # To start, we'll need a PDF. We will be using the .pdf document located at cvna\_2021\_annual\_report.pdf.
 
@@ -63,8 +55,6 @@ base\_64\_encoded\_data = base64.b64encode(binary\_data)
 base64\_string = base\_64\_encoded\_data.decode("utf-8")
 
 Let's see how we can pass this document to the model alongside a simple question.
-
-
 
 messages = [
 
@@ -100,15 +90,11 @@ messages = [
 
 print(get\_completion(messages))
 
-
-
 ```
 This is a page from Carvana's 2021 Annual Report showing four key metrics: retail units sold, total revenue, total markets at year end, and car vending machines, all displaying significant growth from 2014 to 2021.
 ```
 
 That's pretty good! Now let's ask it some more useful questions.
-
-
 
 questions = [
 
@@ -158,8 +144,6 @@ print(f"\n----------Question {index + 1}----------")
 
 print(get\_completion(messages))
 
-
-
 ```
 ----------Question 1----------
 According to the graph showing Total Revenue ($M), Carvana's revenue in 2020 was $5,587 million (or approximately $5.59 billion).
@@ -184,7 +168,7 @@ As you can see, Claude is capable of answering fairly detailed questions about c
 * With super complicated charts and graphs, we can ask Claude to "First describe every data point you see in the document" as a way to elicit similar improvements to what we seen in traditional Chain of Thought.
 * Claude occasionally struggles with charts that depend on lots of colors to convey information, such as grouped bar charts with many groups. Asking Claude to first identify the colors in your graph using HEX codes can boost its accuracy.
 
-##  Slide Decks
+##  Slide Decks
 
 Now that we know Claude is a charts and graphs wizard, it is only logical that we extend it to the true home of charts and graphs - slide decks!
 
@@ -193,8 +177,6 @@ Slides represent a critical source of information for many domains, including fi
 The PDF support feature can be a great replacement as a result. It uses both extracted text and vision in order when processing PDF documents. In this section we will go over how to use PDF documents in Claude to review slide decks, and how to deal with some common pitfalls of this approach.
 
 The best way to get a typical slide deck into claude is to download it as a PDF and provide it directly to Claude.
-
-
 
 # Open the multi-page PDF document the same way we did earlier.
 
@@ -205,8 +187,6 @@ binary\_data = pdf\_file.read()
 base\_64\_encoded\_data = base64.b64encode(binary\_data)
 
 base64\_string = base\_64\_encoded\_data.decode("utf-8")
-
-
 
 # Now let's pass the document directly to Claude. Note that Claude will process both the text and visual elements of the document.
 
@@ -230,8 +210,6 @@ messages = [{"role": "user", "content": content}]
 
 print(get\_completion(messages))
 
-
-
 ```
 According to the financial results shown in the presentation, Twilio's year-over-year revenue growth for fiscal year 2023 was 9%. This can be found in the "Total Company Results Highlights" section, which shows FY 2023 revenue growth of 9%.
 ```
@@ -244,8 +222,6 @@ This approach is a great way to get started, and for some use cases offers the b
 Luckily, we can take advantage of Claude's vision capabilities to get a much higher quality representation of the slide deck **in text form** than normal pdf text extraction allows.
 
 We find the best way to do this is to ask Claude to sequentially narrate the deck from start to finish, passing it the current slide and its prior narration. Let's see how.
-
-
 
 # Define a prompt for narrating our slide deck. We would adjut this prompt based on the nature of the deck, but keep the structure largely the same.
 
@@ -319,8 +295,6 @@ messages = [
 
 completion = get\_completion(messages)
 
-
-
 import re
 
 # Next we'll parse the response from Claude using regex
@@ -340,8 +314,6 @@ raise ValueError("No narration available. Likely due to the model response being
 Now that we have a text-based narration (it's far from perfect but it's pretty good), we have the ability to use this deck with any text-only workflow. Including vector search!
 
 As a final sanity check, let's ask a few questions of our narration-only setup!
-
-
 
 questions = [
 
@@ -378,8 +350,6 @@ messages = [{"role": "user", "content": [{"type": "text", "text": prompt}]}]
 print(f"\n----------Question {index + 1}----------")
 
 print(get\_completion(messages))
-
-
 
 ```
 ----------Question 1----------

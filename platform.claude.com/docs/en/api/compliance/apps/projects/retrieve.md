@@ -1,27 +1,22 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/apps/projects/retrieve -->
 
----
-title: Get project details
-url: https://platform.claude.com/docs/en/api/compliance/apps/projects/retrieve
----
+# Get project details
 
-## Get project details
-
-**get** `/v1/compliance/apps/projects/{project_id}`
+**GET** `/v1/compliance/apps/projects/{project_id}`
 
 Get detailed information for a specific project.
 
-### Path Parameters
+## Path parameters
 
 - `project_id: string`
 
   The project ID (tagged ID, e.g., claude_proj_abc123)
 
-### Header Parameters
+## Headers
 
 - `"x-api-key": optional string`
 
-### Returns
+## Returns
 
 - `id: string`
 
@@ -39,9 +34,13 @@ Get detailed information for a specific project.
 
   Project creation timestamp
 
+  format: date-time
+
 - `deleted_at: string or null`
 
   Timestamp when the project was deleted by an end user, or null otherwise
+
+  format: date-time
 
 - `description: string`
 
@@ -59,10 +58,6 @@ Get detailed information for a specific project.
 
   Project name
 
-- `organization_id: string`
-
-  Organization identifier (tagged ID)
-
 - `organization_uuid: string`
 
   Organization UUID this project belongs to
@@ -71,7 +66,9 @@ Get detailed information for a specific project.
 
   Project last update timestamp
 
-- `user: object { id, email_address }  or null`
+  format: date-time
+
+- `user: object or null`
 
   The user who created a project or project document.
 
@@ -87,14 +84,20 @@ Get detailed information for a specific project.
 
     User's email address
 
-### Example
+- `organization_id: string`
 
-```http
+  **Deprecated**
+
+  Organization identifier (tagged ID)
+
+## Example
+
+```bash
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

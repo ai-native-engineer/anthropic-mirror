@@ -1,12 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-memory-cookbook -->
 
-#  Context Editing & Memory for Long-Running Agents
+#  Context Editing & Memory for Long-Running Agents
 
 AI agents that run across multiple sessions or handle long-running tasks face two key challenges: they lose learned patterns between conversations, and context windows fill up during extended interactions.
 
 This cookbook demonstrates how to address these challenges using Claude's memory tool and context editing capabilities.
 
-##  Table of Contents
+##  Table of Contents
 
 1. [Introduction: Why Memory Matters](#introduction)
 2. [Use Cases](#use-cases)
@@ -16,7 +16,7 @@ This cookbook demonstrates how to address these challenges using Claude's memory
 6. [Real-World Applications](#real-world)
 7. [Best Practices](#best-practices)
 
-##  Prerequisites
+##  Prerequisites
 
 **Required Knowledge:**
 
@@ -33,11 +33,9 @@ This cookbook demonstrates how to address these challenges using Claude's memory
 * Familiarity with concurrent programming concepts (threads, async)
 * Basic understanding of context windows in LLMs
 
-##  Setup
+##  Setup
 
-###  For VSCode Users
-
-
+###  For VSCode Users
 
 # 1. Create virtual environment
 
@@ -55,9 +53,7 @@ pip install -r requirements.txt
 
 # 4. In VSCode: Select .venv as kernel (top right)
 
-###  API Key
-
-
+###  API Key
 
 cp .env.example .env
 
@@ -65,11 +61,11 @@ cp .env.example .env
 
 Get your API key from: [https://console.anthropic.com/(opens in new tab)](https://console.anthropic.com/)
 
-##  1. Introduction: Why Memory Matters
+##  1. Introduction: Why Memory Matters
 
 This cookbook demonstrates practical implementations of the context engineering patterns described in [Effective context engineering for AI agents(opens in new tab)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). That post covers why context is a finite resource, how attention budgets work, and strategies for building effective agents—the techniques you'll see in action here.
 
-###  The Problem
+###  The Problem
 
 Large language models have finite context windows (200k tokens for the Claude 4 family of models). While this seems large, several challenges emerge:
 
@@ -78,7 +74,7 @@ Large language models have finite context windows (200k tokens for the Claude 4 
 * **Repeated patterns**: Similar tasks across conversations require re-explaining context every time
 * **Information loss**: When context fills up, earlier important information gets lost
 
-###  The Solution
+###  The Solution
 
 Claude 4 models introduce powerful context management capabilities:
 
@@ -93,7 +89,7 @@ Claude 4 models introduce powerful context management capabilities:
    * **Thinking management** (`clear_thinking_20251015`): Manages extended thinking blocks (requires thinking enabled)
    * Configurable triggers and retention policies
 
-###  The Benefit
+###  The Benefit
 
 Build AI agents that **get better at your specific tasks over time**:
 
@@ -103,7 +99,7 @@ Build AI agents that **get better at your specific tasks over time**:
 
 Think of it as giving Claude a notebook to take notes and refer back to - just like humans do.
 
-###  What You'll Learn
+###  What You'll Learn
 
 By the end of this cookbook, you will be able to:
 
@@ -111,11 +107,11 @@ By the end of this cookbook, you will be able to:
 * **Configure** context editing to manage long-running sessions
 * **Apply** best practices for memory security and organization
 
-##  1. Introduction: Why Memory Matters
+##  1. Introduction: Why Memory Matters
 
 This cookbook demonstrates practical implementations of the context engineering patterns described in [Effective context engineering for AI agents(opens in new tab)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). That post covers why context is a finite resource, how attention budgets work, and strategies for building effective agents—the techniques you'll see in action here.
 
-###  The Problem
+###  The Problem
 
 Large language models have finite context windows (200k tokens for Claude 4). While this seems large, several challenges emerge:
 
@@ -124,7 +120,7 @@ Large language models have finite context windows (200k tokens for Claude 4). Wh
 * **Repeated patterns**: Similar tasks across conversations require re-explaining context every time
 * **Information loss**: When context fills up, earlier important information gets lost
 
-###  The Solution
+###  The Solution
 
 Claude Sonnet 4.6 introduces two powerful capabilities:
 
@@ -135,7 +131,7 @@ Claude Sonnet 4.6 introduces two powerful capabilities:
 
 **Supported Models**: Claude Opus 4.1 (`claude-opus-4-1`), Claude Opus 4 (`claude-opus-4`), Claude Sonnet 4.6 (`claude-sonnet-4-6`), Claude Sonnet 4 (`claude-sonnet-4`), and Claude Haiku 4.5 (`claude-haiku-4-5`)
 
-###  The Benefit
+###  The Benefit
 
 Build AI agents that **get better at your specific tasks over time**:
 
@@ -145,30 +141,30 @@ Build AI agents that **get better at your specific tasks over time**:
 
 Think of it as giving Claude a notebook to take notes and refer back to - just like humans do.
 
-##  2. Use Cases
+##  2. Use Cases
 
 Memory and context management enable powerful new workflows:
 
-###  🔍 Code Review Assistant
+###  🔍 Code Review Assistant
 
 * Learns debugging patterns from past reviews
 * Recognizes similar bugs instantly in future sessions
 * Builds team-specific code quality knowledge
 * **Production ready**: Integrate with [claude-code-action(opens in new tab)](https://github.com/anthropics/claude-code-action) for GitHub PR reviews
 
-###  📚 Research Assistant
+###  📚 Research Assistant
 
 * Accumulates knowledge on topics over multiple sessions
 * Connects insights across different research threads
 * Maintains bibliography and source tracking
 
-###  💬 Customer Support Bot
+###  💬 Customer Support Bot
 
 * Learns user preferences and communication style
 * Remembers common issues and solutions
 * Builds product knowledge base from interactions
 
-###  📊 Data Analysis Helper
+###  📊 Data Analysis Helper
 
 * Remembers dataset patterns and anomalies
 * Stores analysis techniques that work well
@@ -178,15 +174,13 @@ Memory and context management enable powerful new workflows:
 
 **This cookbook focuses on the Code Review Assistant** as it clearly demonstrates both memory (learning patterns) and context editing (handling long reviews).
 
-##  3. Quick Start Examples
+##  3. Quick Start Examples
 
 Let's see memory and context management in action with simple examples.
 
-###  Setup
+###  Setup
 
 First, install dependencies and configure your environment:
-
-
 
 %%capture
 
@@ -202,15 +196,11 @@ First, install dependencies and configure your environment:
 
 **⚠️ Important**: Create a `.env` file in this directory:
 
-
-
 # Copy .env.example to .env and add your API key
 
 cp .env.example .env
 
 Then edit `.env` to add your Anthropic API key from [https://console.anthropic.com/(opens in new tab)](https://console.anthropic.com/)
-
-
 
 import os
 
@@ -248,14 +238,12 @@ print("✓ API key loaded")
 
 print(f"✓ Using model: {MODEL}")
 
-
-
 ```
 ✓ API key loaded
 ✓ Using model: claude-sonnet-4-6
 ```
 
-###  Example 1: Basic Memory Usage
+###  Example 1: Basic Memory Usage
 
 Let's see Claude use memory to store information for future reference.
 
@@ -283,8 +271,6 @@ These examples use helper functions from `demo_helpers.py`:
 The following cell clears all memory files to provide a clean slate for this demonstration. This is useful for running the notebook multiple times to see consistent results.
 
 **In production applications**, you should carefully consider whether to clear all memory, as it permanently removes learned patterns. Consider using selective deletion or organizing memory into project-specific directories instead.
-
-
 
 # Import helper functions
 
@@ -365,8 +351,6 @@ print("\n" + "=" \* 60)
 print("✅ Session 1 complete!")
 
 print("=" \* 60)
-
-
 
 ```
 🧹 Clearing previous memories...
@@ -641,11 +625,9 @@ The key insight: **Avoid shared mutable state in concurrent code**. Let worker t
 
 Now let's see the magic - Claude applying this learned pattern in a **new conversation**:
 
-###  Example 2: Cross-Conversation Learning
+###  Example 2: Cross-Conversation Learning
 
 Start a completely new conversation - memory persists!
-
-
 
 # NEW conversation (empty messages)
 
@@ -694,8 +676,6 @@ print("\n" + "=" \* 60)
 print("✅ Session 2 complete!")
 
 print("=" \* 60)
-
-
 
 ```
 ============================================================
@@ -992,7 +972,7 @@ async def test_all_results_captured():
 
 This is **cross-conversation learning** in action!
 
-###  Example 3: Context Clearing While Preserving Memory
+###  Example 3: Context Clearing While Preserving Memory
 
 What happens during a **long review session** with many code files?
 
@@ -1002,8 +982,6 @@ What happens during a **long review session** with many code files?
 Let's trigger **context editing** to see how Claude manages this automatically.
 
 **Note on configuration:** We use `clear_at_least: 50` tokens because memory tool operations have small results (~50-150 tokens each). In production with larger tool results (like web search or code execution), you'd use higher values like 3000-5000 tokens.
-
-
 
 # Configure context management with BOTH clearing strategies
 
@@ -1241,8 +1219,6 @@ print("✅ Session 3 complete!")
 
 print("=" \* 60)
 
-
-
 ```
 ============================================================
 📚 SESSION 3: Long review session with context clearing
@@ -1294,8 +1270,6 @@ This demonstrates the key benefit:
 
 Let's verify memory survived the clearing:
 
-
-
 # Verify memory persists after context clearing
 
 import os
@@ -1330,8 +1304,6 @@ print()
 
 print("✅ All learned patterns preserved despite context clearing!")
 
-
-
 ```
 📂 Memory files in demo_memory/:
 
@@ -1342,13 +1314,13 @@ demo_memory/
 ✅ All learned patterns preserved despite context clearing!
 ```
 
-##  4. How It Works
+##  4. How It Works
 
-###  Memory Tool Architecture
+###  Memory Tool Architecture
 
 The memory tool is **client-side** - you control the storage. Claude makes tool calls, your application executes them.
 
-####  Memory Tool Commands
+####  Memory Tool Commands
 
 | Command | Description | Example |
 | --- | --- | --- |
@@ -1361,15 +1333,13 @@ The memory tool is **client-side** - you control the storage. Claude makes tool 
 
 See `memory_tool.py` for the complete implementation with path validation and security measures.
 
-###  Thinking Management (`clear_thinking_20251015`)
+###  Thinking Management (`clear_thinking_20251015`)
 
 When using extended thinking, thinking blocks accumulate and consume tokens. The `clear_thinking` strategy manages these automatically.
 
 **Important**: This strategy requires `thinking` to be enabled in your API call.
 
 **API Call Pattern** (with extended thinking enabled):
-
-
 
 response = client.beta.messages.create(
 
@@ -1420,11 +1390,9 @@ max\_tokens=2048
 * Use `"keep": "all"` to preserve all thinking blocks for maximum cache hits
 * Trigger is optional for thinking (clears based on `keep` value)
 
-###  Understanding the Demo Code
+###  Understanding the Demo Code
 
 Key implementation details from `code_review_demo.py`:
-
-
 
 class CodeReviewAssistant:
 
@@ -1486,13 +1454,11 @@ break
 
 **The key pattern**: Keep calling the API while there are tool uses, executing them and feeding results back.
 
-###  What Claude Actually Learns
+###  What Claude Actually Learns
 
 This is what makes memory powerful - **semantic pattern recognition**, not just syntax:
 
 **Session 1: Thread-Based Web Scraper**
-
-
 
 # Bug: Race condition
 
@@ -1529,8 +1495,6 @@ Claude checks memory FIRST, finds the thread-safety pattern, then:
 2. **Applies** the solution immediately (no re-learning needed)
 3. **Explains** with reference to stored knowledge
 
-
-
 # Claude spots this immediately:
 
 async def fetch\_all(self, endpoints):
@@ -1548,7 +1512,7 @@ self.responses.append(await coro) # Same pattern!
 * ✅ **Cross-language**: Pattern applies to Go, Java, Rust concurrency too
 * ✅ **Gets better**: Each review adds to the knowledge base
 
-###  Sample Code Files
+###  Sample Code Files
 
 The demo uses these sample files (all have concurrency/thread-safety bugs):
 
@@ -1559,8 +1523,6 @@ The demo uses these sample files (all have concurrency/thread-safety bugs):
 Let's look at one:
 
 **`memory_demo/sample_code/web_scraper_v1.py`**
-
-
 
 """
 
@@ -1654,13 +1616,11 @@ Claude will:
 2. Store the pattern in `/memories/concurrency_patterns/thread_safety.md`
 3. Apply this concurrency pattern to async code in Session 2
 
-###  Demo Overview
+###  Demo Overview
 
 We've built a complete Code Review Assistant. The implementation is in `memory_demo/code_review_demo.py`.
 
 **To run the interactive demo:**
-
-
 
 python memory\_demo/code\_review\_demo.py
 
@@ -1670,9 +1630,9 @@ The demo demonstrates:
 2. **Session 2**: Review similar code (new conversation) → Claude applies the pattern
 3. **Session 3**: Long review session → Context editing keeps it manageable
 
-##  7. Best Practices & Security
+##  7. Best Practices & Security
 
-###  Memory Management
+###  Memory Management
 
 **Do:**
 
@@ -1687,11 +1647,11 @@ The demo demonstrates:
 * ❌ Let memory grow unbounded
 * ❌ Store everything indiscriminately
 
-###  Security: Path Traversal Protection
+###  Security: Path Traversal Protection
 
 **Critical**: Always validate paths to prevent directory traversal attacks. See `memory_tool.py` for implementation.
 
-###  Security: Memory Poisoning
+###  Security: Memory Poisoning
 
 **⚠️ Critical Risk**: Memory files are read back into Claude's context, making them a potential vector for prompt injection.
 
@@ -1704,9 +1664,9 @@ The demo demonstrates:
 
 See `memory_tool.py` for complete security implementation and tests in `tests/`.
 
-##  Conclusion
+##  Conclusion
 
-###  What You Accomplished
+###  What You Accomplished
 
 In this cookbook, you learned to:
 
@@ -1714,7 +1674,7 @@ In this cookbook, you learned to:
 * ✅ **Configure context editing** with token triggers and retention policies (Session 3 demonstrated automatic clearing)
 * ✅ **Apply security best practices** including path validation and memory poisoning prevention
 
-###  Applying These Patterns
+###  Applying These Patterns
 
 **For your projects:**
 
@@ -1728,13 +1688,13 @@ In this cookbook, you learned to:
 * **Research assistants**: Accumulate domain knowledge across sessions
 * **Data analysis**: Remember dataset characteristics and successful techniques
 
-###  Next Steps
+###  Next Steps
 
 * **Production deployment**: Use [claude-code-action(opens in new tab)](https://github.com/anthropics/claude-code-action) for GitHub PR reviews
 * **Security hardening**: Review the memory poisoning mitigations in `memory_tool.py`
 * **Extended thinking**: Explore thinking management for compute-intensive tasks
 
-###  Resources
+###  Resources
 
 * [Memory tool documentation(opens in new tab)](https://docs.claude.com/en/docs/agents-and-tools/tool-use/memory-tool)
 * [Claude API reference(opens in new tab)](https://docs.claude.com/en/api/messages)

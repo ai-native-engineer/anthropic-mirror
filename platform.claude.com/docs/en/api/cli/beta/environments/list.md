@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments/list -->
 
----
-title: List Environments
-url: https://platform.claude.com/docs/en/api/cli/beta/environments/list
----
-
-## List Environments
+# List Environments
 
 `$ ant beta:environments list`
 
-**get** `/v1/environments`
+**GET** `/v1/environments`
 
 List environments with pagination support.
 
-### Parameters
+## Parameters
 
 - `--include-archived: optional boolean`
 
@@ -23,6 +18,8 @@ List environments with pagination support.
 
   Query param: Maximum number of environments to return
 
+  maximum: 1000, minimum: 1
+
 - `--page: optional string`
 
   Query param: Opaque cursor from previous response for pagination. Pass the `next_page` value from the previous response.
@@ -31,9 +28,9 @@ List environments with pagination support.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `BetaEnvironmentListResponse: object { data, next_page }`
+- `BetaEnvironmentListResponse: object`
 
   Response when listing environments.
 
@@ -56,7 +53,7 @@ List environments with pagination support.
 
       Environment configuration (either Anthropic Cloud or self-hosted)
 
-      - `beta_cloud_config: object { networking, packages, type }`
+      - `beta_cloud_config: object`
 
         `cloud` environment configuration.
 
@@ -64,7 +61,7 @@ List environments with pagination support.
 
           Network configuration policy.
 
-          - `beta_unrestricted_network: object { type }`
+          - `beta_unrestricted_network: object`
 
             Unrestricted network access.
 
@@ -72,7 +69,7 @@ List environments with pagination support.
 
               Network policy type
 
-          - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
+          - `beta_limited_network: object`
 
             Limited network access.
 
@@ -92,7 +89,7 @@ List environments with pagination support.
 
               Network policy type
 
-        - `packages: object { apt, cargo, gem, 4 more }`
+        - `packages: object`
 
           Package manager configuration.
 
@@ -124,13 +121,11 @@ List environments with pagination support.
 
             Package configuration type
 
-            - `"packages"`
-
         - `type: "cloud"`
 
           Environment type
 
-      - `beta_self_hosted_config: object { type }`
+      - `beta_self_hosted_config: object`
 
         Configuration for self-hosted environments.
 
@@ -174,14 +169,14 @@ List environments with pagination support.
 
     Token for fetching the next page of results. If `null`, there are no more results available. Pass this value to the `page` parameter in the next request.
 
-### Example
+## Example
 
-```cli
+```bash
 ant beta:environments list \
   --api-key my-anthropic-api-key
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

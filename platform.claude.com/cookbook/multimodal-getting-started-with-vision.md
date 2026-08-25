@@ -1,22 +1,16 @@
 <!-- source: https://platform.claude.com/cookbook/multimodal-getting-started-with-vision -->
 
-#  Getting started - how to pass images into Claude
+#  Getting started - how to pass images into Claude
 
 The Claude 3 model family supports image inputs in the API. Here’s how you can pass images to Claude:
 
-
-
 %pip install anthropic IPython
-
-
 
 from IPython.display import Image
 
 Image(filename="../images/sunset.jpeg")
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/multimodal-getting-started-with-vision/multimodal-getting-started-with-vision_cell2_out0_fe5c0f12.jpeg)
-
-
 
 import base64
 
@@ -62,8 +56,6 @@ response = client.messages.create(model=MODEL\_NAME, max\_tokens=2048, messages=
 
 print(response.content[0].text)
 
-
-
 ```
 Upon the rocky shore, a beacon bright,
 Its steadfast light a guide through darkest night.
@@ -84,23 +76,17 @@ The lighthouse, proud amid the fading day,
 Eternal symbol, showing safe the way.
 ```
 
-##  Passing an image through a url
+##  Passing an image through a url
 
 If you only have a URL of the image you can still pass it to Claude with just a few short lines of code.
-
-
 
 IMAGE\_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Machu\_Picchu%2C\_Peru\_%282018%29.jpg/2560px-Machu\_Picchu%2C\_Peru\_%282018%29.jpg"
 
 Image(url=IMAGE\_URL)
 
-
-
 ```
 <IPython.core.display.Image object>
 ```
-
-
 
 import httpx
 
@@ -133,8 +119,6 @@ message\_list = [
 response = client.messages.create(model=MODEL\_NAME, max\_tokens=2048, messages=message\_list)
 
 print(response.content[0].text)
-
-
 
 ```
 The image depicts the ancient Inca city of Machu Picchu, perched high in the Andes Mountains of Peru. The well-preserved stone ruins, including terraces, plazas, and buildings, are set against a stunning backdrop of steep, verdant mountains under a partly cloudy sky.

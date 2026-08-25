@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/memory_stores -->
 
----
-title: Memory Stores
-url: https://platform.claude.com/docs/en/api/typescript/beta/memory_stores
----
-
 # Memory Stores
 
 ## Create a memory store
 
-`client.beta.memoryStores.create(MemoryStoreCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
+`client.beta.memoryStores.create(params, options?): BetaManagedAgentsMemoryStore`
 
-**post** `/v1/memory_stores`
+**POST** `/v1/memory_stores`
 
 Create a memory store
 
@@ -23,9 +18,13 @@ Create a memory store
 
     Body param: Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
 
+    minLength: 1, maxLength: 255
+
   - `description?: string`
 
     Body param: Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
+
+    maxLength: 1024
 
   - `metadata?: Record<string, string>`
 
@@ -121,21 +120,25 @@ Create a memory store
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
 
-    - `"memory_store"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `archived_at?: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description?: string`
 
@@ -159,7 +162,7 @@ const betaManagedAgentsMemoryStore = await client.beta.memoryStores.create({ nam
 console.log(betaManagedAgentsMemoryStore.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -178,9 +181,9 @@ console.log(betaManagedAgentsMemoryStore.id);
 
 ## List memory stores
 
-`client.beta.memoryStores.list(MemoryStoreListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryStore>`
+`client.beta.memoryStores.list(params?, options?): PageCursor<BetaManagedAgentsMemoryStore>`
 
-**get** `/v1/memory_stores`
+**GET** `/v1/memory_stores`
 
 List memory stores
 
@@ -192,9 +195,13 @@ List memory stores
 
     Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
 
+    format: date-time
+
   - `"created_at[lte]"?: string`
 
     Query param: Return only stores whose `created_at` is at or before this time (inclusive). Sent on the wire as `created_at[lte]`.
+
+    format: date-time
 
   - `include_archived?: boolean`
 
@@ -203,6 +210,8 @@ List memory stores
   - `limit?: number`
 
     Query param: Maximum number of stores to return per page. Must be between 1 and 100. Defaults to 20 when omitted.
+
+    format: int32
 
   - `page?: string`
 
@@ -298,21 +307,25 @@ List memory stores
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
 
-    - `"memory_store"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `archived_at?: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description?: string`
 
@@ -337,7 +350,7 @@ for await (const betaManagedAgentsMemoryStore of client.beta.memoryStores.list()
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -361,9 +374,9 @@ for await (const betaManagedAgentsMemoryStore of client.beta.memoryStores.list()
 
 ## Retrieve a memory store
 
-`client.beta.memoryStores.retrieve(stringmemoryStoreID, MemoryStoreRetrieveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
+`client.beta.memoryStores.retrieve(memoryStoreID, params?, options?): BetaManagedAgentsMemoryStore`
 
-**get** `/v1/memory_stores/{memory_store_id}`
+**GET** `/v1/memory_stores/{memory_store_id}`
 
 Retrieve a memory store
 
@@ -463,21 +476,25 @@ Retrieve a memory store
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
 
-    - `"memory_store"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `archived_at?: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description?: string`
 
@@ -503,7 +520,7 @@ const betaManagedAgentsMemoryStore = await client.beta.memoryStores.retrieve(
 console.log(betaManagedAgentsMemoryStore.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -522,9 +539,9 @@ console.log(betaManagedAgentsMemoryStore.id);
 
 ## Update a memory store
 
-`client.beta.memoryStores.update(stringmemoryStoreID, MemoryStoreUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
+`client.beta.memoryStores.update(memoryStoreID, params, options?): BetaManagedAgentsMemoryStore`
 
-**post** `/v1/memory_stores/{memory_store_id}`
+**POST** `/v1/memory_stores/{memory_store_id}`
 
 Update a memory store
 
@@ -538,6 +555,8 @@ Update a memory store
 
     Body param: New description for the store, up to 1024 characters. Pass an empty string to clear it.
 
+    maxLength: 1024
+
   - `metadata?: Record<string, string | null> | null`
 
     Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve. The stored bag is limited to 16 keys (up to 64 chars each) with values up to 512 chars.
@@ -545,6 +564,8 @@ Update a memory store
   - `name?: string | null`
 
     Body param: New human-readable name for the store. 1–255 characters; no control characters. Renaming changes the slug used for the store's `mount_path` in sessions created after the update.
+
+    minLength: 1, maxLength: 255
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -636,21 +657,25 @@ Update a memory store
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
 
-    - `"memory_store"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `archived_at?: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description?: string`
 
@@ -674,7 +699,7 @@ const betaManagedAgentsMemoryStore = await client.beta.memoryStores.update("memo
 console.log(betaManagedAgentsMemoryStore.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -693,9 +718,9 @@ console.log(betaManagedAgentsMemoryStore.id);
 
 ## Delete a memory store
 
-`client.beta.memoryStores.delete(stringmemoryStoreID, MemoryStoreDeleteParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeletedMemoryStore`
+`client.beta.memoryStores.delete(memoryStoreID, params?, options?): BetaManagedAgentsDeletedMemoryStore`
 
-**delete** `/v1/memory_stores/{memory_store_id}`
+**DELETE** `/v1/memory_stores/{memory_store_id}`
 
 Delete a memory store
 
@@ -793,8 +818,6 @@ Delete a memory store
 
   - `type: "memory_store_deleted"`
 
-    - `"memory_store_deleted"`
-
 ### Example
 
 ```typescript
@@ -811,7 +834,7 @@ const betaManagedAgentsDeletedMemoryStore = await client.beta.memoryStores.delet
 console.log(betaManagedAgentsDeletedMemoryStore.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -822,9 +845,9 @@ console.log(betaManagedAgentsDeletedMemoryStore.id);
 
 ## Archive a memory store
 
-`client.beta.memoryStores.archive(stringmemoryStoreID, MemoryStoreArchiveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
+`client.beta.memoryStores.archive(memoryStoreID, params?, options?): BetaManagedAgentsMemoryStore`
 
-**post** `/v1/memory_stores/{memory_store_id}/archive`
+**POST** `/v1/memory_stores/{memory_store_id}/archive`
 
 Archive a memory store
 
@@ -924,21 +947,25 @@ Archive a memory store
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
 
-    - `"memory_store"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `archived_at?: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description?: string`
 
@@ -962,7 +989,7 @@ const betaManagedAgentsMemoryStore = await client.beta.memoryStores.archive("mem
 console.log(betaManagedAgentsMemoryStore.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -979,7 +1006,7 @@ console.log(betaManagedAgentsMemoryStore.id);
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Deleted Memory Store
 
@@ -992,8 +1019,6 @@ console.log(betaManagedAgentsMemoryStore.id);
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `type: "memory_store_deleted"`
-
-    - `"memory_store_deleted"`
 
 ### Beta Managed Agents Memory Store
 
@@ -1009,21 +1034,25 @@ console.log(betaManagedAgentsMemoryStore.id);
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `name: string`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
 
-    - `"memory_store"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `archived_at?: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description?: string`
 
@@ -1033,17 +1062,17 @@ console.log(betaManagedAgentsMemoryStore.id);
 
     Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
-# Memories
+## Memory Stores › Memories
 
-## Create a memory
+### Create a memory
 
-`client.beta.memoryStores.memories.create(stringmemoryStoreID, MemoryCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
+`client.beta.memoryStores.memories.create(memoryStoreID, params, options?): BetaManagedAgentsMemory`
 
-**post** `/v1/memory_stores/{memory_store_id}/memories`
+**POST** `/v1/memory_stores/{memory_store_id}/memories`
 
 Create a memory
 
-### Parameters
+#### Parameters
 
 - `memoryStoreID: string`
 
@@ -1056,6 +1085,8 @@ Create a memory
   - `path: string`
 
     Body param: Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive.
+
+    minLength: 2, maxLength: 1024
 
   - `view?: BetaManagedAgentsMemoryView`
 
@@ -1141,7 +1172,7 @@ Create a memory
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsMemory`
 
@@ -1159,9 +1190,13 @@ Create a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_store_id: string`
 
@@ -1177,17 +1212,17 @@ Create a memory
 
   - `type: "memory"`
 
-    - `"memory"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `content?: string | null`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -1204,7 +1239,7 @@ const betaManagedAgentsMemory = await client.beta.memoryStores.memories.create(
 console.log(betaManagedAgentsMemory.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1221,15 +1256,15 @@ console.log(betaManagedAgentsMemory.id);
 }
 ```
 
-## List memories
+### List memories
 
-`client.beta.memoryStores.memories.list(stringmemoryStoreID, MemoryListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryListItem>`
+`client.beta.memoryStores.memories.list(memoryStoreID, params?, options?): PageCursor<BetaManagedAgentsMemoryListItem>`
 
-**get** `/v1/memory_stores/{memory_store_id}/memories`
+**GET** `/v1/memory_stores/{memory_store_id}/memories`
 
 List memories
 
-### Parameters
+#### Parameters
 
 - `memoryStoreID: string`
 
@@ -1239,9 +1274,13 @@ List memories
 
     Query param: `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
+    format: int32
+
   - `limit?: number`
 
     Query param: Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
+
+    format: int32
 
   - `page?: string`
 
@@ -1335,7 +1374,7 @@ List memories
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
 
@@ -1357,9 +1396,13 @@ List memories
 
       Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+      format: int32
+
     - `created_at: string`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `memory_store_id: string`
 
@@ -1375,11 +1418,11 @@ List memories
 
     - `type: "memory"`
 
-      - `"memory"`
-
     - `updated_at: string`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `content?: string | null`
 
@@ -1395,9 +1438,7 @@ List memories
 
     - `type: "memory_prefix"`
 
-      - `"memory_prefix"`
-
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -1414,7 +1455,7 @@ for await (const betaManagedAgentsMemoryListItem of client.beta.memoryStores.mem
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1436,15 +1477,15 @@ for await (const betaManagedAgentsMemoryListItem of client.beta.memoryStores.mem
 }
 ```
 
-## Retrieve a memory
+### Retrieve a memory
 
-`client.beta.memoryStores.memories.retrieve(stringmemoryID, MemoryRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
+`client.beta.memoryStores.memories.retrieve(memoryID, params, options?): BetaManagedAgentsMemory`
 
-**get** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**GET** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Retrieve a memory
 
-### Parameters
+#### Parameters
 
 - `memoryID: string`
 
@@ -1538,7 +1579,7 @@ Retrieve a memory
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsMemory`
 
@@ -1556,9 +1597,13 @@ Retrieve a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_store_id: string`
 
@@ -1574,17 +1619,17 @@ Retrieve a memory
 
   - `type: "memory"`
 
-    - `"memory"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `content?: string | null`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -1600,7 +1645,7 @@ const betaManagedAgentsMemory = await client.beta.memoryStores.memories.retrieve
 console.log(betaManagedAgentsMemory.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1617,15 +1662,15 @@ console.log(betaManagedAgentsMemory.id);
 }
 ```
 
-## Update a memory
+### Update a memory
 
-`client.beta.memoryStores.memories.update(stringmemoryID, MemoryUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
+`client.beta.memoryStores.memories.update(memoryID, params, options?): BetaManagedAgentsMemory`
 
-**post** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**POST** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Update a memory
 
-### Parameters
+#### Parameters
 
 - `memoryID: string`
 
@@ -1651,13 +1696,13 @@ Update a memory
 
     Body param: New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
 
+    minLength: 2, maxLength: 1024
+
   - `precondition?: BetaManagedAgentsPrecondition`
 
     Body param: Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
 
     - `type: "content_sha256"`
-
-      - `"content_sha256"`
 
     - `content_sha256?: string`
 
@@ -1739,7 +1784,7 @@ Update a memory
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsMemory`
 
@@ -1757,9 +1802,13 @@ Update a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_store_id: string`
 
@@ -1775,17 +1824,17 @@ Update a memory
 
   - `type: "memory"`
 
-    - `"memory"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `content?: string | null`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -1801,7 +1850,7 @@ const betaManagedAgentsMemory = await client.beta.memoryStores.memories.update("
 console.log(betaManagedAgentsMemory.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1818,15 +1867,15 @@ console.log(betaManagedAgentsMemory.id);
 }
 ```
 
-## Delete a memory
+### Delete a memory
 
-`client.beta.memoryStores.memories.delete(stringmemoryID, MemoryDeleteParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeletedMemory`
+`client.beta.memoryStores.memories.delete(memoryID, params, options?): BetaManagedAgentsDeletedMemory`
 
-**delete** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**DELETE** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Delete a memory
 
-### Parameters
+#### Parameters
 
 - `memoryID: string`
 
@@ -1916,7 +1965,7 @@ Delete a memory
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsDeletedMemory`
 
@@ -1928,9 +1977,7 @@ Delete a memory
 
   - `type: "memory_deleted"`
 
-    - `"memory_deleted"`
-
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -1947,7 +1994,7 @@ const betaManagedAgentsDeletedMemory = await client.beta.memoryStores.memories.d
 console.log(betaManagedAgentsDeletedMemory.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1956,331 +2003,17 @@ console.log(betaManagedAgentsDeletedMemory.id);
 }
 ```
 
-## Domain Types
+## Memory Stores › Memory Versions
 
-### Beta Managed Agents Conflict Error
+### List memory versions
 
-- `BetaManagedAgentsConflictError`
+`client.beta.memoryStores.memoryVersions.list(memoryStoreID, params?, options?): PageCursor<BetaManagedAgentsMemoryVersion>`
 
-  - `type: "conflict_error"`
-
-    - `"conflict_error"`
-
-  - `message?: string`
-
-### Beta Managed Agents Content Sha256 Precondition
-
-- `BetaManagedAgentsContentSha256Precondition`
-
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
-  - `type: "content_sha256"`
-
-    - `"content_sha256"`
-
-  - `content_sha256?: string`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-### Beta Managed Agents Deleted Memory
-
-- `BetaManagedAgentsDeletedMemory`
-
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
-  - `id: string`
-
-    ID of the deleted memory (a `mem_...` value).
-
-  - `type: "memory_deleted"`
-
-    - `"memory_deleted"`
-
-### Beta Managed Agents Error
-
-- `BetaManagedAgentsError = BetaInvalidRequestError | BetaAuthenticationError | BetaBillingError | 9 more`
-
-  - `BetaInvalidRequestError`
-
-    - `message: string`
-
-    - `type: "invalid_request_error"`
-
-      - `"invalid_request_error"`
-
-  - `BetaAuthenticationError`
-
-    - `message: string`
-
-    - `type: "authentication_error"`
-
-      - `"authentication_error"`
-
-  - `BetaBillingError`
-
-    - `message: string`
-
-    - `type: "billing_error"`
-
-      - `"billing_error"`
-
-  - `BetaPermissionError`
-
-    - `message: string`
-
-    - `type: "permission_error"`
-
-      - `"permission_error"`
-
-  - `BetaNotFoundError`
-
-    - `message: string`
-
-    - `type: "not_found_error"`
-
-      - `"not_found_error"`
-
-  - `BetaRateLimitError`
-
-    - `message: string`
-
-    - `type: "rate_limit_error"`
-
-      - `"rate_limit_error"`
-
-  - `BetaGatewayTimeoutError`
-
-    - `message: string`
-
-    - `type: "timeout_error"`
-
-      - `"timeout_error"`
-
-  - `BetaAPIError`
-
-    - `message: string`
-
-    - `type: "api_error"`
-
-      - `"api_error"`
-
-  - `BetaOverloadedError`
-
-    - `message: string`
-
-    - `type: "overloaded_error"`
-
-      - `"overloaded_error"`
-
-  - `BetaManagedAgentsMemoryPreconditionFailedError`
-
-    - `type: "memory_precondition_failed_error"`
-
-      - `"memory_precondition_failed_error"`
-
-    - `message?: string`
-
-  - `BetaManagedAgentsMemoryPathConflictError`
-
-    - `type: "memory_path_conflict_error"`
-
-      - `"memory_path_conflict_error"`
-
-    - `conflicting_memory_id?: string`
-
-    - `conflicting_path?: string`
-
-    - `message?: string`
-
-  - `BetaManagedAgentsConflictError`
-
-    - `type: "conflict_error"`
-
-      - `"conflict_error"`
-
-    - `message?: string`
-
-### Beta Managed Agents Memory
-
-- `BetaManagedAgentsMemory`
-
-  A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-  - `id: string`
-
-    Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-  - `content_sha256: string`
-
-    Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-  - `content_size_bytes: number`
-
-    Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_store_id: string`
-
-    ID of the memory store this memory belongs to (a `memstore_...` value).
-
-  - `memory_version_id: string`
-
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-  - `path: string`
-
-    Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-  - `type: "memory"`
-
-    - `"memory"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `content?: string | null`
-
-    The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-### Beta Managed Agents Memory List Item
-
-- `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
-
-  One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
-  - `BetaManagedAgentsMemory`
-
-    A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
-    - `id: string`
-
-      Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
-
-    - `content_sha256: string`
-
-      Lowercase hex SHA-256 digest of the UTF-8 `content` bytes (64 characters). The server applies no normalization, so clients can compute the same hash locally for staleness checks and as the value for a `content_sha256` precondition on update. Always populated, regardless of `view`.
-
-    - `content_size_bytes: number`
-
-      Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
-
-    - `created_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `memory_store_id: string`
-
-      ID of the memory store this memory belongs to (a `memstore_...` value).
-
-    - `memory_version_id: string`
-
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
-    - `path: string`
-
-      Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
-
-    - `type: "memory"`
-
-      - `"memory"`
-
-    - `updated_at: string`
-
-      A timestamp in RFC 3339 format
-
-    - `content?: string | null`
-
-      The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
-
-  - `BetaManagedAgentsMemoryPrefix`
-
-    A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-    - `path: string`
-
-      The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-    - `type: "memory_prefix"`
-
-      - `"memory_prefix"`
-
-### Beta Managed Agents Memory Path Conflict Error
-
-- `BetaManagedAgentsMemoryPathConflictError`
-
-  - `type: "memory_path_conflict_error"`
-
-    - `"memory_path_conflict_error"`
-
-  - `conflicting_memory_id?: string`
-
-  - `conflicting_path?: string`
-
-  - `message?: string`
-
-### Beta Managed Agents Memory Precondition Failed Error
-
-- `BetaManagedAgentsMemoryPreconditionFailedError`
-
-  - `type: "memory_precondition_failed_error"`
-
-    - `"memory_precondition_failed_error"`
-
-  - `message?: string`
-
-### Beta Managed Agents Memory Prefix
-
-- `BetaManagedAgentsMemoryPrefix`
-
-  A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
-  - `path: string`
-
-    The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
-
-  - `type: "memory_prefix"`
-
-    - `"memory_prefix"`
-
-### Beta Managed Agents Memory View
-
-- `BetaManagedAgentsMemoryView = "basic" | "full"`
-
-  Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
-  - `"basic"`
-
-  - `"full"`
-
-### Beta Managed Agents Precondition
-
-- `BetaManagedAgentsPrecondition`
-
-  Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
-  - `type: "content_sha256"`
-
-    - `"content_sha256"`
-
-  - `content_sha256?: string`
-
-    Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
-
-# Memory Versions
-
-## List memory versions
-
-`client.beta.memoryStores.memoryVersions.list(stringmemoryStoreID, MemoryVersionListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryVersion>`
-
-**get** `/v1/memory_stores/{memory_store_id}/memory_versions`
+**GET** `/v1/memory_stores/{memory_store_id}/memory_versions`
 
 List memory versions
 
-### Parameters
+#### Parameters
 
 - `memoryStoreID: string`
 
@@ -2294,13 +2027,19 @@ List memory versions
 
     Query param: Return versions created at or after this time (inclusive).
 
+    format: date-time
+
   - `"created_at[lte]"?: string`
 
     Query param: Return versions created at or before this time (inclusive).
 
+    format: date-time
+
   - `limit?: number`
 
     Query param: Query parameter for limit
+
+    format: int32
 
   - `memory_id?: string`
 
@@ -2412,7 +2151,7 @@ List memory versions
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsMemoryVersion`
 
@@ -2425,6 +2164,8 @@ List memory versions
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_id: string`
 
@@ -2446,8 +2187,6 @@ List memory versions
 
   - `type: "memory_version"`
 
-    - `"memory_version"`
-
   - `content?: string | null`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
@@ -2459,6 +2198,8 @@ List memory versions
   - `content_size_bytes?: number | null`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+    format: int32
 
   - `created_by?: BetaManagedAgentsActor`
 
@@ -2472,9 +2213,9 @@ List memory versions
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-      - `type: "session_actor"`
+        minLength: 1
 
-        - `"session_actor"`
+      - `type: "session_actor"`
 
     - `BetaManagedAgentsAPIActor`
 
@@ -2484,9 +2225,9 @@ List memory versions
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
-      - `type: "api_actor"`
+        minLength: 1
 
-        - `"api_actor"`
+      - `type: "api_actor"`
 
     - `BetaManagedAgentsUserActor`
 
@@ -2494,11 +2235,11 @@ List memory versions
 
       - `type: "user_actor"`
 
-        - `"user_actor"`
-
       - `user_id: string`
 
         ID of the user who performed the write (a `user_...` value).
+
+        minLength: 1
 
     - `BetaManagedAgentsServiceAccountActor`
 
@@ -2508,9 +2249,9 @@ List memory versions
 
         ID of the service account that performed the write (a `svac_...` value).
 
-      - `type: "service_account_actor"`
+        minLength: 1
 
-        - `"service_account_actor"`
+      - `type: "service_account_actor"`
 
   - `path?: string | null`
 
@@ -2520,11 +2261,13 @@ List memory versions
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `redacted_by?: BetaManagedAgentsActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -2541,7 +2284,7 @@ for await (const betaManagedAgentsMemoryVersion of client.beta.memoryStores.memo
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -2572,15 +2315,15 @@ for await (const betaManagedAgentsMemoryVersion of client.beta.memoryStores.memo
 }
 ```
 
-## Retrieve a memory version
+### Retrieve a memory version
 
-`client.beta.memoryStores.memoryVersions.retrieve(stringmemoryVersionID, MemoryVersionRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryVersion`
+`client.beta.memoryStores.memoryVersions.retrieve(memoryVersionID, params, options?): BetaManagedAgentsMemoryVersion`
 
-**get** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}`
+**GET** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}`
 
 Retrieve a memory version
 
-### Parameters
+#### Parameters
 
 - `memoryVersionID: string`
 
@@ -2674,7 +2417,7 @@ Retrieve a memory version
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsMemoryVersion`
 
@@ -2687,6 +2430,8 @@ Retrieve a memory version
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_id: string`
 
@@ -2708,8 +2453,6 @@ Retrieve a memory version
 
   - `type: "memory_version"`
 
-    - `"memory_version"`
-
   - `content?: string | null`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
@@ -2721,6 +2464,8 @@ Retrieve a memory version
   - `content_size_bytes?: number | null`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+    format: int32
 
   - `created_by?: BetaManagedAgentsActor`
 
@@ -2734,9 +2479,9 @@ Retrieve a memory version
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-      - `type: "session_actor"`
+        minLength: 1
 
-        - `"session_actor"`
+      - `type: "session_actor"`
 
     - `BetaManagedAgentsAPIActor`
 
@@ -2746,9 +2491,9 @@ Retrieve a memory version
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
-      - `type: "api_actor"`
+        minLength: 1
 
-        - `"api_actor"`
+      - `type: "api_actor"`
 
     - `BetaManagedAgentsUserActor`
 
@@ -2756,11 +2501,11 @@ Retrieve a memory version
 
       - `type: "user_actor"`
 
-        - `"user_actor"`
-
       - `user_id: string`
 
         ID of the user who performed the write (a `user_...` value).
+
+        minLength: 1
 
     - `BetaManagedAgentsServiceAccountActor`
 
@@ -2770,9 +2515,9 @@ Retrieve a memory version
 
         ID of the service account that performed the write (a `svac_...` value).
 
-      - `type: "service_account_actor"`
+        minLength: 1
 
-        - `"service_account_actor"`
+      - `type: "service_account_actor"`
 
   - `path?: string | null`
 
@@ -2782,11 +2527,13 @@ Retrieve a memory version
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `redacted_by?: BetaManagedAgentsActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -2803,7 +2550,7 @@ const betaManagedAgentsMemoryVersion = await client.beta.memoryStores.memoryVers
 console.log(betaManagedAgentsMemoryVersion.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -2829,15 +2576,15 @@ console.log(betaManagedAgentsMemoryVersion.id);
 }
 ```
 
-## Redact a memory version
+### Redact a memory version
 
-`client.beta.memoryStores.memoryVersions.redact(stringmemoryVersionID, MemoryVersionRedactParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryVersion`
+`client.beta.memoryStores.memoryVersions.redact(memoryVersionID, params, options?): BetaManagedAgentsMemoryVersion`
 
-**post** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
+**POST** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
 
 Redact a memory version
 
-### Parameters
+#### Parameters
 
 - `memoryVersionID: string`
 
@@ -2923,7 +2670,7 @@ Redact a memory version
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsMemoryVersion`
 
@@ -2936,6 +2683,8 @@ Redact a memory version
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_id: string`
 
@@ -2957,8 +2706,6 @@ Redact a memory version
 
   - `type: "memory_version"`
 
-    - `"memory_version"`
-
   - `content?: string | null`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
@@ -2970,6 +2717,8 @@ Redact a memory version
   - `content_size_bytes?: number | null`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+    format: int32
 
   - `created_by?: BetaManagedAgentsActor`
 
@@ -2983,9 +2732,9 @@ Redact a memory version
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-      - `type: "session_actor"`
+        minLength: 1
 
-        - `"session_actor"`
+      - `type: "session_actor"`
 
     - `BetaManagedAgentsAPIActor`
 
@@ -2995,9 +2744,9 @@ Redact a memory version
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
-      - `type: "api_actor"`
+        minLength: 1
 
-        - `"api_actor"`
+      - `type: "api_actor"`
 
     - `BetaManagedAgentsUserActor`
 
@@ -3005,11 +2754,11 @@ Redact a memory version
 
       - `type: "user_actor"`
 
-        - `"user_actor"`
-
       - `user_id: string`
 
         ID of the user who performed the write (a `user_...` value).
+
+        minLength: 1
 
     - `BetaManagedAgentsServiceAccountActor`
 
@@ -3019,9 +2768,9 @@ Redact a memory version
 
         ID of the service account that performed the write (a `svac_...` value).
 
-      - `type: "service_account_actor"`
+        minLength: 1
 
-        - `"service_account_actor"`
+      - `type: "service_account_actor"`
 
   - `path?: string | null`
 
@@ -3031,11 +2780,13 @@ Redact a memory version
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `redacted_by?: BetaManagedAgentsActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -3052,7 +2803,7 @@ const betaManagedAgentsMemoryVersion = await client.beta.memoryStores.memoryVers
 console.log(betaManagedAgentsMemoryVersion.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3077,239 +2828,3 @@ console.log(betaManagedAgentsMemoryVersion.id);
   }
 }
 ```
-
-## Domain Types
-
-### Beta Managed Agents Actor
-
-- `BetaManagedAgentsActor = BetaManagedAgentsSessionActor | BetaManagedAgentsAPIActor | BetaManagedAgentsUserActor | BetaManagedAgentsServiceAccountActor`
-
-  Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-  - `BetaManagedAgentsSessionActor`
-
-    Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-    - `session_id: string`
-
-      ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-    - `type: "session_actor"`
-
-      - `"session_actor"`
-
-  - `BetaManagedAgentsAPIActor`
-
-    Attribution for a write made directly via the public API (outside of any session).
-
-    - `api_key_id: string`
-
-      ID of the API key that performed the write. This identifies the key, not the secret.
-
-    - `type: "api_actor"`
-
-      - `"api_actor"`
-
-  - `BetaManagedAgentsUserActor`
-
-    Attribution for a write made by a human user through the Anthropic Console.
-
-    - `type: "user_actor"`
-
-      - `"user_actor"`
-
-    - `user_id: string`
-
-      ID of the user who performed the write (a `user_...` value).
-
-  - `BetaManagedAgentsServiceAccountActor`
-
-    Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-    - `service_account_id: string`
-
-      ID of the service account that performed the write (a `svac_...` value).
-
-    - `type: "service_account_actor"`
-
-      - `"service_account_actor"`
-
-### Beta Managed Agents API Actor
-
-- `BetaManagedAgentsAPIActor`
-
-  Attribution for a write made directly via the public API (outside of any session).
-
-  - `api_key_id: string`
-
-    ID of the API key that performed the write. This identifies the key, not the secret.
-
-  - `type: "api_actor"`
-
-    - `"api_actor"`
-
-### Beta Managed Agents Memory Version
-
-- `BetaManagedAgentsMemoryVersion`
-
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
-  - `id: string`
-
-    Unique identifier for this version (a `memver_...` value).
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-  - `memory_id: string`
-
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
-
-  - `memory_store_id: string`
-
-    ID of the memory store this version belongs to (a `memstore_...` value).
-
-  - `operation: BetaManagedAgentsMemoryVersionOperation`
-
-    The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
-    - `"created"`
-
-    - `"modified"`
-
-    - `"deleted"`
-
-  - `type: "memory_version"`
-
-    - `"memory_version"`
-
-  - `content?: string | null`
-
-    The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
-
-  - `content_sha256?: string | null`
-
-    Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `content_size_bytes?: number | null`
-
-    Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
-
-  - `created_by?: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-    - `BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: "session_actor"`
-
-        - `"session_actor"`
-
-    - `BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: "api_actor"`
-
-        - `"api_actor"`
-
-    - `BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: "user_actor"`
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        ID of the user who performed the write (a `user_...` value).
-
-    - `BetaManagedAgentsServiceAccountActor`
-
-      Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-      - `service_account_id: string`
-
-        ID of the service account that performed the write (a `svac_...` value).
-
-      - `type: "service_account_actor"`
-
-        - `"service_account_actor"`
-
-  - `path?: string | null`
-
-    The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
-
-  - `redacted_at?: string | null`
-
-    A timestamp in RFC 3339 format
-
-  - `redacted_by?: BetaManagedAgentsActor`
-
-    Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-### Beta Managed Agents Memory Version Operation
-
-- `BetaManagedAgentsMemoryVersionOperation = "created" | "modified" | "deleted"`
-
-  The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
-  - `"created"`
-
-  - `"modified"`
-
-  - `"deleted"`
-
-### Beta Managed Agents Service Account Actor
-
-- `BetaManagedAgentsServiceAccountActor`
-
-  Attribution for a write made by a workload authenticated as a service account, for example via Workload Identity Federation.
-
-  - `service_account_id: string`
-
-    ID of the service account that performed the write (a `svac_...` value).
-
-  - `type: "service_account_actor"`
-
-    - `"service_account_actor"`
-
-### Beta Managed Agents Session Actor
-
-- `BetaManagedAgentsSessionActor`
-
-  Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-  - `session_id: string`
-
-    ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-  - `type: "session_actor"`
-
-    - `"session_actor"`
-
-### Beta Managed Agents User Actor
-
-- `BetaManagedAgentsUserActor`
-
-  Attribution for a write made by a human user through the Anthropic Console.
-
-  - `type: "user_actor"`
-
-    - `"user_actor"`
-
-  - `user_id: string`
-
-    ID of the user who performed the write (a `user_...` value).

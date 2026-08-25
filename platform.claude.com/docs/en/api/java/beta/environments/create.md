@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/environments/create -->
 
----
-title: Create Environment
-url: https://platform.claude.com/docs/en/api/java/beta/environments/create
----
+# Create Environment
 
-## Create Environment
+`BetaEnvironment beta().environments().create(params, requestOptions = RequestOptions.none())`
 
-`BetaEnvironment beta().environments().create(EnvironmentCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**post** `/v1/environments`
+**POST** `/v1/environments`
 
 Create a new environment with the specified configuration.
 
-### Parameters
+## Parameters
 
 - `EnvironmentCreateParams params`
 
@@ -93,6 +88,8 @@ Create a new environment with the specified configuration.
 
     Human-readable name for the environment
 
+    maxLength: 256, minLength: 1
+
   - `Optional<Config> config`
 
     Environment configuration
@@ -104,11 +101,9 @@ Create a new environment with the specified configuration.
       Fields default to null; on update, omitted fields preserve the
       existing value.
 
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
       - `Optional<Networking> networking`
 
@@ -118,11 +113,9 @@ Create a new environment with the specified configuration.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetworkParams:`
 
@@ -131,11 +124,9 @@ Create a new environment with the specified configuration.
           Fields default to null; on update, omitted fields preserve the
           existing value.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
           - `Optional<Boolean> allowMcpServers`
 
@@ -183,21 +174,19 @@ Create a new environment with the specified configuration.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `Optional<String> description`
 
     Optional description of the environment
+
+    maxLength: 1024
 
   - `Optional<Metadata> metadata`
 
@@ -211,7 +200,7 @@ Create a new environment with the specified configuration.
 
     - `ACCOUNT("account")`
 
-### Returns
+## Returns
 
 - `class BetaEnvironment:`
 
@@ -241,11 +230,9 @@ Create a new environment with the specified configuration.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
@@ -263,11 +250,9 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
@@ -301,23 +286,17 @@ Create a new environment with the specified configuration.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -335,11 +314,9 @@ Create a new environment with the specified configuration.
 
     Human-readable name for the environment
 
-  - `JsonValue; type "environment"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'environment')
-
-    - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
@@ -353,7 +330,7 @@ Create a new environment with the specified configuration.
 
     - `ACCOUNT("account")`
 
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -377,7 +354,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

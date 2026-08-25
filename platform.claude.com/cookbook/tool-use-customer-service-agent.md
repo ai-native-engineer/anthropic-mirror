@@ -1,18 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-customer-service-agent -->
 
-#  Creating a Customer Service Agent with Client-Side Tools
+#  Creating a Customer Service Agent with Client-Side Tools
 
 In this recipe, we'll demonstrate how to create a customer service chatbot using Claude 3 plus client-side tools. The chatbot will be able to look up customer information, retrieve order details, and cancel orders on behalf of the customer. We'll define the necessary tools and simulate synthetic responses to showcase the chatbot's capabilities.
 
-##  Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 First, let's install the required libraries and set up the Claude API client.
 
-
-
 %pip install anthropic
-
-
 
 import anthropic
 
@@ -20,11 +16,9 @@ client = anthropic.Client()
 
 MODEL\_NAME = "claude-opus-4-1"
 
-##  Step 2: Define the client-side tools
+##  Step 2: Define the client-side tools
 
 Next, we'll define the client-side tools that our chatbot will use to assist customers. We'll create three tools: get\_customer\_info, get\_order\_details, and cancel\_order.
-
-
 
 tools = [
 
@@ -114,11 +108,9 @@ tools = [
 
 ]
 
-##  Step 3: Simulate synthetic tool responses
+##  Step 3: Simulate synthetic tool responses
 
 Since we don't have real customer data or order information, we'll simulate synthetic responses for our tools. In a real-world scenario, these functions would interact with your actual customer database and order management system.
-
-
 
 def get\_customer\_info(customer\_id):
 
@@ -184,11 +176,9 @@ else:
 
 return False
 
-##  Step 4: Process tool calls and return results
+##  Step 4: Process tool calls and return results
 
 We'll create a function to process the tool calls made by Claude and return the appropriate results.
-
-
 
 def process\_tool\_call(tool\_name, tool\_input):
 
@@ -204,11 +194,9 @@ elif tool\_name == "cancel\_order":
 
 return cancel\_order(tool\_input["order\_id"])
 
-##  Step 5: Interact with the chatbot
+##  Step 5: Interact with the chatbot
 
 Now, let's create a function to interact with the chatbot. We'll send a user message, process any tool calls made by Claude, and return the final response to the user.
-
-
 
 import json
 
@@ -302,19 +290,15 @@ print(f"\nFinal Response: {final\_response}")
 
 return final\_response
 
-##  Step 6: Test the chatbot
+##  Step 6: Test the chatbot
 
 Let's test our customer service chatbot with a few sample queries.
-
-
 
 chatbot\_interaction("Can you tell me the email address for customer C1?")
 
 chatbot\_interaction("What is the status of order O2?")
 
 chatbot\_interaction("Please cancel order O1 for me.")
-
-
 
 ```
 ==================================================

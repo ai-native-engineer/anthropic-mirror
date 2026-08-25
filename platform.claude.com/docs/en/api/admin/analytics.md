@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/analytics -->
 
----
-title: Analytics
-url: https://platform.claude.com/docs/en/api/admin/analytics
----
-
 # Analytics
 
 ## Get Activity Summaries
 
-**get** `/v1/organizations/analytics/summaries`
+**GET** `/v1/organizations/analytics/summaries`
 
 Get organization-wide activity summaries for a date range.
 
@@ -21,27 +16,33 @@ available day. The series can be scoped to an RBAC group via
 filter[]=rbac_group_id:<id>. Available to organizations on a Claude
 Enterprise plan. Requires an API key with the `read:analytics` scope.
 
-### Query Parameters
+### Query parameters
 
 - `starting_date: string`
 
   UTC date in YYYY-MM-DD format. Start of the date range (inclusive). Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
+  format: date
+
 - `ending_date: optional string`
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive). Data is typically available with a 1-day lag, so this can be at most today — which is also the default when omitted, making the last entry cover the most recent available day. Data may be revised by a few percent over the following days. The range may span at most 366 days.
+
+  format: date
 
 - `filter: optional array of string`
 
   Filters as 'dimension:value'. Only rbac_group_id is supported (e.g. filter[]=rbac_group_id:<id>); repeat the param to OR across groups. Scopes the whole day series to members of the matching group(s), re-aggregated from member-level activity — org-wide seat/invite fields and the adoption rates derived from them are null on scoped rows. rbac_group_id accepts the tagged id (rbac_group_..., as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each UTC day (time-of-usage attribution). At most 100 entries.
 
+  maxItems: 100
+
 ### Returns
 
-- `ActivitySummary object { summaries }`
+- `ActivitySummary object`
 
   Response for GET /v1/organizations/analytics/summaries.
 
-  - `summaries: array of object { assigned_seat_count, cowork_daily_active_user_count, cowork_monthly_active_user_count, 26 more }`
+  - `summaries: array of object`
 
     - `assigned_seat_count: number or null`
 
@@ -161,13 +162,13 @@ Enterprise plan. Requires an API key with the `read:analytics` scope.
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/summaries \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -207,15 +208,15 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Activity Summary
 
-- `ActivitySummary object { summaries }`
+- `ActivitySummary object`
 
   Response for GET /v1/organizations/analytics/summaries.
 
-  - `summaries: array of object { assigned_seat_count, cowork_daily_active_user_count, cowork_monthly_active_user_count, 26 more }`
+  - `summaries: array of object`
 
     - `assigned_seat_count: number or null`
 
@@ -335,7 +336,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
 ### Analytics User
 
-- `AnalyticsUser object { id, email_address, type }`
+- `AnalyticsUser object`
 
   User identifier.
 
@@ -351,11 +352,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
     Object type. Always `user`.
 
-    - `"user"`
+    default: user
 
 ### Analytics User Actor
 
-- `AnalyticsUserActor object { deleted, email, name, 2 more }`
+- `AnalyticsUserActor object`
 
   - `deleted: boolean`
 
@@ -373,15 +374,13 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
     Actor type. Always `"user_actor"`.
 
-    - `"user_actor"`
-
   - `user_id: string`
 
     Tagged user ID.
 
 ### Connector Office Product Metrics
 
-- `ConnectorOfficeProductMetrics object { distinct_session_connector_used_count }`
+- `ConnectorOfficeProductMetrics object`
 
   Office Agent activity metrics for a single connector on a given day within one Office product.
 
@@ -391,7 +390,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
 ### Office Product Metrics
 
-- `OfficeProductMetrics object { connectors_used_count, distinct_connectors_used_count, distinct_session_count, 3 more }`
+- `OfficeProductMetrics object`
 
   Office Agent activity metrics for a single user on a given day within one Office product.
 
@@ -421,7 +420,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
 ### Skill Office Product Metrics
 
-- `SkillOfficeProductMetrics object { distinct_session_skill_used_count }`
+- `SkillOfficeProductMetrics object`
 
   Office Agent activity metrics for a single skill on a given day within one Office product.
 
@@ -431,7 +430,7 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
 ### Tool Action Counts
 
-- `ToolActionCounts object { accepted_count, rejected_count }`
+- `ToolActionCounts object`
 
   Accepted/rejected counts for a single Claude Code tool type.
 
@@ -443,11 +442,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/summaries \
 
     Number of tool proposals rejected
 
-# Usage
+## Analytics › Usage
 
-## Get Token Usage Over Time
+### Get Token Usage Over Time
 
-**get** `/v1/organizations/analytics/usage_report`
+**GET** `/v1/organizations/analytics/usage_report`
 
 Get token usage over time across a date range.
 
@@ -456,15 +455,19 @@ down by product, model, context window, inference region, or speed.
 Available to organizations on a Claude Enterprise plan. Requires an API
 key with the `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `starting_at: string`
 
   Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
+  format: date-time
+
 - `bucket_width: optional "1d" or "1h" or "1m"`
 
   Time bucket granularity.
+
+  default: 1d
 
   - `"1d"`
 
@@ -476,6 +479,8 @@ key with the `read:analytics` scope.
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
+  maxItems: 100
+
   - `"0-200k"`
 
   - `"200k-1M"`
@@ -484,9 +489,13 @@ key with the `read:analytics` scope.
 
   End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
+  format: date-time
+
 - `group_by: optional array of "context_window" or "inference_geo" or "model" or 4 more`
 
   Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
+
+  maxItems: 100
 
   - `"context_window"`
 
@@ -506,6 +515,8 @@ key with the `read:analytics` scope.
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
+  maxItems: 100
+
   - `"global"`
 
   - `"not_available"`
@@ -516,9 +527,13 @@ key with the `read:analytics` scope.
 
   Maximum number of time buckets per page. Defaults and caps vary by bucket_width (1d: default 7, max 31; 1h: default 24, max 168; 1m: default 60, max 256).
 
+  minimum: 1
+
 - `models: optional array of string`
 
   Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
+
+  maxItems: 100
 
 - `page: optional string`
 
@@ -528,17 +543,25 @@ key with the `read:analytics` scope.
 
   Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values. Values include "chat", "claude_code", "cowork", "office_agent", "claude_in_chrome", "claude_design", and "claude-in-slack". "claude-in-slack" (with hyphens) is Claude Tag, the Claude product in Slack. A similarly spelled legacy value (underscores instead of hyphens) identifies the retiring v1 Slack chat bot and appears only for organizations that used it.
 
+  maxItems: 100
+
 - `rbac_group_ids: optional array of string`
 
   Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
+
+  maxItems: 100
 
 - `slack_channel_ids: optional array of string`
 
   Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
+  maxItems: 100
+
 - `speeds: optional array of "fast" or "standard"`
 
   Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
+
+  maxItems: 100
 
   - `"fast"`
 
@@ -548,11 +571,13 @@ key with the `read:analytics` scope.
 
   Filter to specific users by tagged user ID.
 
-### Returns
+  maxItems: 100
 
-- `UsageBucket object { data, data_refreshed_at, has_more, 2 more }`
+#### Returns
 
-  - `data: array of object { ending_at, results, starting_at }`
+- `UsageBucket object`
+
+  - `data: array of object`
 
     Time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no data (their `results` list is empty). A page holds at most `limit` buckets.
 
@@ -560,11 +585,13 @@ key with the `read:analytics` scope.
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
-    - `results: array of object { cache_creation, cache_read_input_tokens, context_window, 10 more }`
+      format: date-time
+
+    - `results: array of object`
 
       Rows for this time bucket. Empty when the bucket has no data; otherwise a single combined row when `group_by[]` is omitted, or one row per group (subject to the per-bucket group cap described on the `group_by[]` parameter).
 
-      - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
+      - `cache_creation: object`
 
         The number of input tokens for cache creation.
 
@@ -616,7 +643,7 @@ key with the `read:analytics` scope.
 
         Number of API requests in this row's scope. For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
 
-      - `server_tool_use: object { web_search_requests }`
+      - `server_tool_use: object`
 
         Server-side tool usage metrics.
 
@@ -644,9 +671,13 @@ key with the `read:analytics` scope.
 
       Start of the time bucket (inclusive) in RFC 3339 format.
 
+      format: date-time
+
   - `data_refreshed_at: string or null`
 
     RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+
+    format: date-time
 
   - `has_more: boolean`
 
@@ -660,15 +691,15 @@ key with the `read:analytics` scope.
 
     ID of the Organization.
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/usage_report \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -707,9 +738,9 @@ curl https://api.anthropic.com/v1/organizations/analytics/usage_report \
 }
 ```
 
-## Get Per-User Token Usage
+### Get Per-User Token Usage
 
-**get** `/v1/organizations/analytics/user_usage_report`
+**GET** `/v1/organizations/analytics/user_usage_report`
 
 Get per-user token usage across a date range.
 
@@ -721,11 +752,13 @@ API-key and automation traffic, use the bucketed
 organizations on a Claude Enterprise plan. Requires an API key with the
 `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `starting_at: string`
 
   Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
+
+  format: date-time
 
 - `bucket_width: optional "1d" or "1h" or "1m"`
 
@@ -741,6 +774,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
+  maxItems: 100
+
   - `"0-200k"`
 
   - `"200k-1M"`
@@ -749,13 +784,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
+  format: date-time
+
 - `exclude_deleted_users: optional boolean`
 
   If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
 
+  default: false
+
 - `group_by: optional array of "context_window" or "inference_geo" or "model" or 4 more`
 
   Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/usage_report` endpoint. `limit` bounds (actor × time bucket × dimension) rows — with dimensions or `bucket_width` present, one actor may span several rows.
+
+  maxItems: 100
 
   - `"context_window"`
 
@@ -775,6 +816,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
+  maxItems: 100
+
   - `"global"`
 
   - `"not_available"`
@@ -785,13 +828,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
+  default: 20, maximum: 1000, minimum: 1
+
 - `models: optional array of string`
 
   Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
+  maxItems: 100
+
 - `order: optional "asc" or "desc"`
 
   Sort direction. Defaults to `desc`.
+
+  default: desc
 
   - `"asc"`
 
@@ -800,6 +849,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 - `order_by: optional "output_tokens" or "requests" or "total_tokens" or "uncached_input_tokens"`
 
   Metric to rank actors by. Defaults to `total_tokens`.
+
+  default: total_tokens
 
   - `"output_tokens"`
 
@@ -817,17 +868,25 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Product surfaces to include. Defaults to all products. Values include "chat", "claude_code", "cowork", "office_agent", "claude_in_chrome", "claude_design", and "claude-in-slack". "claude-in-slack" (with hyphens) is Claude Tag, the Claude product in Slack. A similarly spelled legacy value (underscores instead of hyphens) identifies the retiring v1 Slack chat bot and appears only for organizations that used it.
 
+  maxItems: 100
+
 - `rbac_group_ids: optional array of string`
 
   Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
+
+  maxItems: 100
 
 - `slack_channel_ids: optional array of string`
 
   Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
+  maxItems: 100
+
 - `speeds: optional array of "fast" or "standard"`
 
   Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
+
+  maxItems: 100
 
   - `"fast"`
 
@@ -837,11 +896,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Filter to specific users by tagged user ID.
 
-### Returns
+  maxItems: 100
 
-- `UserUsage object { data, data_refreshed_at, has_more, 2 more }`
+#### Returns
 
-  - `data: array of object { actor, cache_creation, cache_read_input_tokens, 14 more }`
+- `UserUsage object`
+
+  - `data: array of object`
 
     Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
 
@@ -865,13 +926,11 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
         Actor type. Always `"user_actor"`.
 
-        - `"user_actor"`
-
       - `user_id: string`
 
         Tagged user ID.
 
-    - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
+    - `cache_creation: object`
 
       The number of input tokens for cache creation.
 
@@ -898,6 +957,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
     - `ending_at: string or null`
 
       End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
+
+      format: date-time
 
     - `inference_geo: "global" or "us" or null`
 
@@ -927,7 +988,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       Number of API requests in this row's scope. For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
 
-    - `server_tool_use: object { web_search_requests }`
+    - `server_tool_use: object`
 
       Server-side tool usage metrics.
 
@@ -951,6 +1012,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
 
+      format: date-time
+
     - `total_tokens: number`
 
       Total token count across all token types. This is the value the default order_by='total_tokens' sorts on.
@@ -962,6 +1025,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
   - `data_refreshed_at: string or null`
 
     RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+
+    format: date-time
 
   - `has_more: boolean`
 
@@ -975,15 +1040,15 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     ID of the Organization.
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/user_usage_report \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1026,263 +1091,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/user_usage_report \
 }
 ```
 
-## Domain Types
+## Analytics › Cost
 
-### Usage Bucket
+### Get Cost Over Time
 
-- `UsageBucket object { data, data_refreshed_at, has_more, 2 more }`
-
-  - `data: array of object { ending_at, results, starting_at }`
-
-    Time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no data (their `results` list is empty). A page holds at most `limit` buckets.
-
-    - `ending_at: string`
-
-      End of the time bucket (exclusive) in RFC 3339 format.
-
-    - `results: array of object { cache_creation, cache_read_input_tokens, context_window, 10 more }`
-
-      Rows for this time bucket. Empty when the bucket has no data; otherwise a single combined row when `group_by[]` is omitted, or one row per group (subject to the per-bucket group cap described on the `group_by[]` parameter).
-
-      - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
-
-        The number of input tokens for cache creation.
-
-        - `ephemeral_1h_input_tokens: number`
-
-          The number of input tokens used to create the 1 hour cache entry.
-
-        - `ephemeral_5m_input_tokens: number`
-
-          The number of input tokens used to create the 5 minute cache entry.
-
-      - `cache_read_input_tokens: number`
-
-        The number of input tokens read from the cache.
-
-      - `context_window: "0-200k" or "200k-1M" or null`
-
-        Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
-
-        - `"0-200k"`
-
-        - `"200k-1M"`
-
-      - `inference_geo: "global" or "us" or null`
-
-        Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
-
-        - `"global"`
-
-        - `"us"`
-
-      - `model: string or null`
-
-        Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-4-6`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
-
-      - `output_tokens: number`
-
-        The number of output tokens generated.
-
-      - `product: string or null`
-
-        Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include "chat", "claude_code", "cowork", "office_agent", "claude_in_chrome", "claude_design", and "claude-in-slack". "claude-in-slack" (with hyphens) is Claude Tag, the Claude product in Slack. A similarly spelled legacy value (underscores instead of hyphens) identifies the retiring v1 Slack chat bot and appears only for organizations that used it. Some unattributed usage is reported as "other".
-
-      - `rbac_group_id: string or null`
-
-        RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has ONE id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query with no group_by.
-
-      - `requests: number or null`
-
-        Number of API requests in this row's scope. For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
-
-      - `server_tool_use: object { web_search_requests }`
-
-        Server-side tool usage metrics.
-
-        - `web_search_requests: number`
-
-          The number of web search requests made.
-
-      - `slack_channel_id: string or null`
-
-        Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
-
-      - `speed: "fast" or "standard" or null`
-
-        Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
-
-        - `"fast"`
-
-        - `"standard"`
-
-      - `uncached_input_tokens: number`
-
-        The number of uncached input tokens processed.
-
-    - `starting_at: string`
-
-      Start of the time bucket (inclusive) in RFC 3339 format.
-
-  - `data_refreshed_at: string or null`
-
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
-
-  - `has_more: boolean`
-
-    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
-
-  - `organization_id: string`
-
-    ID of the Organization.
-
-### User Usage
-
-- `UserUsage object { data, data_refreshed_at, has_more, 2 more }`
-
-  - `data: array of object { actor, cache_creation, cache_read_input_tokens, 14 more }`
-
-    Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
-
-    - `actor: AnalyticsUserActor`
-
-      The user this row's usage or cost is attributed to. Always a `user_actor`.
-
-      - `deleted: boolean`
-
-        True when the user is no longer a member of the organization or its associated organizations: either their membership was removed (for example, deprovisioned via your identity provider) or the account itself has been deleted. The flag reflects organization membership, not account status. `name` and `email` stay populated for removed members; `name` is `"Deleted User"` and `email` null when the account has been deleted. The `user_id` is still populated for reconciliation.
-
-      - `email: string or null`
-
-        The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
-
-      - `name: string or null`
-
-        The user's current name, including for users who are no longer members of the organization or its associated organizations. Null when the user has not set a name. Returns `"Deleted User"` when the account itself has been deleted. Rows for system-minted service accounts render the service name (for example, `"Claude Security"` for usage by Anthropic's security-patching service) or null.
-
-      - `type: "user_actor"`
-
-        Actor type. Always `"user_actor"`.
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        Tagged user ID.
-
-    - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
-
-      The number of input tokens for cache creation.
-
-      - `ephemeral_1h_input_tokens: number`
-
-        The number of input tokens used to create the 1 hour cache entry.
-
-      - `ephemeral_5m_input_tokens: number`
-
-        The number of input tokens used to create the 5 minute cache entry.
-
-    - `cache_read_input_tokens: number`
-
-      The number of input tokens read from the cache.
-
-    - `context_window: "0-200k" or "200k-1M" or null`
-
-      Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
-
-      - `"0-200k"`
-
-      - `"200k-1M"`
-
-    - `ending_at: string or null`
-
-      End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
-
-    - `inference_geo: "global" or "us" or null`
-
-      Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
-
-      - `"global"`
-
-      - `"us"`
-
-    - `model: string or null`
-
-      Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-4-6`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
-
-    - `output_tokens: number`
-
-      The number of output tokens generated.
-
-    - `product: string or null`
-
-      Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include "chat", "claude_code", "cowork", "office_agent", "claude_in_chrome", "claude_design", and "claude-in-slack". "claude-in-slack" (with hyphens) is Claude Tag, the Claude product in Slack. A similarly spelled legacy value (underscores instead of hyphens) identifies the retiring v1 Slack chat bot and appears only for organizations that used it. Some unattributed usage is reported as "other".
-
-    - `rbac_group_id: string or null`
-
-      RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has ONE id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query with no group_by.
-
-    - `requests: number or null`
-
-      Number of API requests in this row's scope. For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
-
-    - `server_tool_use: object { web_search_requests }`
-
-      Server-side tool usage metrics.
-
-      - `web_search_requests: number`
-
-        The number of web search requests made.
-
-    - `slack_channel_id: string or null`
-
-      Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
-
-    - `speed: "fast" or "standard" or null`
-
-      Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
-
-      - `"fast"`
-
-      - `"standard"`
-
-    - `starting_at: string or null`
-
-      Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
-
-    - `total_tokens: number`
-
-      Total token count across all token types. This is the value the default order_by='total_tokens' sorts on.
-
-    - `uncached_input_tokens: number`
-
-      The number of uncached input tokens processed.
-
-  - `data_refreshed_at: string or null`
-
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
-
-  - `has_more: boolean`
-
-    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
-
-  - `organization_id: string`
-
-    ID of the Organization.
-
-# Cost
-
-## Get Cost Over Time
-
-**get** `/v1/organizations/analytics/cost_report`
+**GET** `/v1/organizations/analytics/cost_report`
 
 Get cost in USD over time across a date range.
 
@@ -1291,15 +1104,19 @@ product, model, context window, inference region, speed, cost type, or
 token type. Available to organizations on a Claude Enterprise plan.
 Requires an API key with the `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `starting_at: string`
 
   Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
 
+  format: date-time
+
 - `bucket_width: optional "1d" or "1h" or "1m"`
 
   Time bucket granularity.
+
+  default: 1d
 
   - `"1d"`
 
@@ -1311,6 +1128,8 @@ Requires an API key with the `read:analytics` scope.
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
+  maxItems: 100
+
   - `"0-200k"`
 
   - `"200k-1M"`
@@ -1319,9 +1138,13 @@ Requires an API key with the `read:analytics` scope.
 
   End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
+  format: date-time
+
 - `group_by: optional array of "context_window" or "cost_type" or "inference_geo" or 6 more`
 
   Dimensions to break each time bucket out by. Defaults to no grouping (one total per bucket). Each bucket reports at most its top 100 groups; a group beyond that cap has no row in that bucket (there is no remainder row), so grouped buckets are not exhaustive when a dimension has more than 100 distinct values.
+
+  maxItems: 100
 
   - `"context_window"`
 
@@ -1345,6 +1168,8 @@ Requires an API key with the `read:analytics` scope.
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
+  maxItems: 100
+
   - `"global"`
 
   - `"not_available"`
@@ -1355,9 +1180,13 @@ Requires an API key with the `read:analytics` scope.
 
   Maximum number of time buckets per page. Defaults and caps vary by bucket_width (1d: default 7, max 31; 1h: default 24, max 168; 1m: default 60, max 256).
 
+  minimum: 1
+
 - `models: optional array of string`
 
   Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
+
+  maxItems: 100
 
 - `page: optional string`
 
@@ -1367,17 +1196,25 @@ Requires an API key with the `read:analytics` scope.
 
   Product surfaces to include. Defaults to all products. Use `group_by[]=product` to break out per-product values. Values include "chat", "claude_code", "cowork", "office_agent", "claude_in_chrome", "claude_design", and "claude-in-slack". "claude-in-slack" (with hyphens) is Claude Tag, the Claude product in Slack. A similarly spelled legacy value (underscores instead of hyphens) identifies the retiring v1 Slack chat bot and appears only for organizations that used it.
 
+  maxItems: 100
+
 - `rbac_group_ids: optional array of string`
 
   Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
+
+  maxItems: 100
 
 - `slack_channel_ids: optional array of string`
 
   Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
+  maxItems: 100
+
 - `speeds: optional array of "fast" or "standard"`
 
   Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
+
+  maxItems: 100
 
   - `"fast"`
 
@@ -1387,11 +1224,13 @@ Requires an API key with the `read:analytics` scope.
 
   Filter to specific users by tagged user ID.
 
-### Returns
+  maxItems: 100
 
-- `CostBucket object { data, data_refreshed_at, has_more, 2 more }`
+#### Returns
 
-  - `data: array of object { ending_at, results, starting_at }`
+- `CostBucket object`
+
+  - `data: array of object`
 
     Time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no data (their `results` list is empty). A page holds at most `limit` buckets.
 
@@ -1399,7 +1238,9 @@ Requires an API key with the `read:analytics` scope.
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
-    - `results: array of object { amount, context_window, cost_type, 10 more }`
+      format: date-time
+
+    - `results: array of object`
 
       Rows for this time bucket. Empty when the bucket has no data; otherwise a single combined row when `group_by[]` is omitted, or one row per group (subject to the per-bucket group cap described on the `group_by[]` parameter).
 
@@ -1429,7 +1270,7 @@ Requires an API key with the `read:analytics` scope.
 
         Currency code for the cost amount. Currently always `"USD"`.
 
-        - `"USD"`
+        default: USD
 
       - `inference_geo: "global" or "us" or null`
 
@@ -1489,9 +1330,13 @@ Requires an API key with the `read:analytics` scope.
 
       Start of the time bucket (inclusive) in RFC 3339 format.
 
+      format: date-time
+
   - `data_refreshed_at: string or null`
 
     RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
+
+    format: date-time
 
   - `has_more: boolean`
 
@@ -1505,15 +1350,15 @@ Requires an API key with the `read:analytics` scope.
 
     ID of the Organization.
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/cost_report \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1547,9 +1392,9 @@ curl https://api.anthropic.com/v1/organizations/analytics/cost_report \
 }
 ```
 
-## Get Per-User Cost
+### Get Per-User Cost
 
-**get** `/v1/organizations/analytics/user_cost_report`
+**GET** `/v1/organizations/analytics/user_cost_report`
 
 Get per-user cost in USD across a date range.
 
@@ -1561,11 +1406,13 @@ automation traffic, use the bucketed
 organizations on a Claude Enterprise plan. Requires an API key with the
 `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `starting_at: string`
 
   Start of range, inclusive. RFC 3339 tz-aware. Must be within the last 365 days and no earlier than 2026-01-01T00:00:00Z.
+
+  format: date-time
 
 - `bucket_width: optional "1d" or "1h" or "1m"`
 
@@ -1581,6 +1428,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Filter to specific context-window pricing tiers. Use `group_by[]=context_window` to break out per-tier values.
 
+  maxItems: 100
+
   - `"0-200k"`
 
   - `"200k-1M"`
@@ -1589,13 +1438,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   End of range, exclusive. When omitted, defaults to the earlier of now and `starting_at` + 31 days. The range may span at most 31 days.
 
+  format: date-time
+
 - `exclude_deleted_users: optional boolean`
 
   If true, omit rows for users who are deleted (`deleted: true`). A page may contain fewer than `limit` rows; use `has_more` and `next_page` to paginate as usual.
 
+  default: false
+
 - `group_by: optional array of "context_window" or "cost_type" or "inference_geo" or 6 more`
 
   Break each actor's row out by the given dimensions. Accepts the same values as the bucketed `/cost_report` endpoint. The `product`, `model`, `context_window`, `inference_geo`, and `speed` dimensions — and the time bucket, when `bucket_width` is set — count toward `limit`. `cost_type` and `token_type` do not: `cost_type` returns one row per cost component (tokens, web search, code execution); `token_type` returns one row per token type, each with `cost_type: "tokens"`; combining both returns the per-token-type rows plus the web-search and code-execution rows. A page can therefore contain more rows than `limit` when `cost_type` or `token_type` is requested.
+
+  maxItems: 100
 
   - `"context_window"`
 
@@ -1619,6 +1474,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Filter to specific inference regions. `not_available` matches rows where the region is unset. Use `group_by[]=inference_geo` to break out per-region values.
 
+  maxItems: 100
+
   - `"global"`
 
   - `"not_available"`
@@ -1629,13 +1486,19 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Number of rows per page (1-1000, default 20). One row per actor unless `group_by[]` or `bucket_width` splits an actor across rows; `cost_type`/`token_type` fan-out rows (cost endpoint only) are the exception — they do not count toward this limit, so `data` can exceed it.
 
+  default: 20, maximum: 1000, minimum: 1
+
 - `models: optional array of string`
 
   Models to include. Defaults to all models. Use `group_by[]=model` to break out per-model values.
 
+  maxItems: 100
+
 - `order: optional "asc" or "desc"`
 
   Sort direction. Defaults to `desc`.
+
+  default: desc
 
   - `"asc"`
 
@@ -1644,6 +1507,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 - `order_by: optional "amount" or "list_amount"`
 
   Metric to rank actors by. Defaults to `amount`.
+
+  default: amount
 
   - `"amount"`
 
@@ -1657,17 +1522,25 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Product surfaces to include. Defaults to all products. Values include "chat", "claude_code", "cowork", "office_agent", "claude_in_chrome", "claude_design", and "claude-in-slack". "claude-in-slack" (with hyphens) is Claude Tag, the Claude product in Slack. A similarly spelled legacy value (underscores instead of hyphens) identifies the retiring v1 Slack chat bot and appears only for organizations that used it.
 
+  maxItems: 100
+
 - `rbac_group_ids: optional array of string`
 
   Filter to usage attributed to specific RBAC groups. Accepts tagged RBAC group IDs (`rbac_group_...`) or bare group UUIDs. A row matches when the user belonged to any of the listed groups on the (UTC) day the usage occurred; usage with no group attribution never matches.
+
+  maxItems: 100
 
 - `slack_channel_ids: optional array of string`
 
   Filter to usage originating from specific Slack channels. Use `group_by[]=slack_channel_id` to break out per-channel values.
 
+  maxItems: 100
+
 - `speeds: optional array of "fast" or "standard"`
 
   Filter to fast or standard inference mode. Use `group_by[]=speed` to break out per-mode values.
+
+  maxItems: 100
 
   - `"fast"`
 
@@ -1677,11 +1550,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   Filter to specific users by tagged user ID.
 
-### Returns
+  maxItems: 100
 
-- `UserCost object { data, data_refreshed_at, has_more, 2 more }`
+#### Returns
 
-  - `data: array of object { actor, amount, context_window, 13 more }`
+- `UserCost object`
+
+  - `data: array of object`
 
     Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
 
@@ -1704,8 +1579,6 @@ organizations on a Claude Enterprise plan. Requires an API key with the
       - `type: "user_actor"`
 
         Actor type. Always `"user_actor"`.
-
-        - `"user_actor"`
 
       - `user_id: string`
 
@@ -1737,11 +1610,13 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       Currency code for the cost amount. Currently always `"USD"`.
 
-      - `"USD"`
+      default: USD
 
     - `ending_at: string or null`
 
       End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
+
+      format: date-time
 
     - `inference_geo: "global" or "us" or null`
 
@@ -1787,6 +1662,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
 
+      format: date-time
+
     - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more or null`
 
       Token type when cost_type=tokens; null otherwise.
@@ -1805,6 +1682,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
 
+    format: date-time
+
   - `has_more: boolean`
 
     Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
@@ -1817,15 +1696,15 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     ID of the Organization.
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/user_cost_report \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1862,271 +1741,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/user_cost_report \
 }
 ```
 
-## Domain Types
+## Analytics › Users
 
-### Cost Bucket
+### List User Activity
 
-- `CostBucket object { data, data_refreshed_at, has_more, 2 more }`
-
-  - `data: array of object { ending_at, results, starting_at }`
-
-    Time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no data (their `results` list is empty). A page holds at most `limit` buckets.
-
-    - `ending_at: string`
-
-      End of the time bucket (exclusive) in RFC 3339 format.
-
-    - `results: array of object { amount, context_window, cost_type, 10 more }`
-
-      Rows for this time bucket. Empty when the bucket has no data; otherwise a single combined row when `group_by[]` is omitted, or one row per group (subject to the per-bucket group cap described on the `group_by[]` parameter).
-
-      - `amount: string`
-
-        Amount (post-discount, pre-credit) in fractional cents.
-
-      - `context_window: "0-200k" or "200k-1M" or null`
-
-        Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
-
-        - `"0-200k"`
-
-        - `"200k-1M"`
-
-      - `cost_type: "code_execution" or "tokens" or "web_search" or null`
-
-        Cost component when `group_by[]=cost_type`; null otherwise (amount is the combined total).
-
-        - `"code_execution"`
-
-        - `"tokens"`
-
-        - `"web_search"`
-
-      - `currency: "USD"`
-
-        Currency code for the cost amount. Currently always `"USD"`.
-
-        - `"USD"`
-
-      - `inference_geo: "global" or "us" or null`
-
-        Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
-
-        - `"global"`
-
-        - `"us"`
-
-      - `list_amount: string`
-
-        List-price amount (pre-discount) in fractional cents.
-
-      - `model: string or null`
-
-        Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-4-6`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
-
-      - `product: string or null`
-
-        Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include "chat", "claude_code", "cowork", "office_agent", "claude_in_chrome", "claude_design", and "claude-in-slack". "claude-in-slack" (with hyphens) is Claude Tag, the Claude product in Slack. A similarly spelled legacy value (underscores instead of hyphens) identifies the retiring v1 Slack chat bot and appears only for organizations that used it. Some unattributed usage is reported as "other".
-
-      - `rbac_group_id: string or null`
-
-        RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has ONE id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query with no group_by.
-
-      - `requests: number or null`
-
-        Number of API requests in this row's scope. Null when `group_by` includes `cost_type` or `token_type` (the count has no per-component attribution; read it from the ungrouped response). For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
-
-      - `slack_channel_id: string or null`
-
-        Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
-
-      - `speed: "fast" or "standard" or null`
-
-        Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
-
-        - `"fast"`
-
-        - `"standard"`
-
-      - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more or null`
-
-        Token type when `group_by[]=token_type` and `cost_type=tokens`; null otherwise.
-
-        - `"cache_creation.ephemeral_1h_input_tokens"`
-
-        - `"cache_creation.ephemeral_5m_input_tokens"`
-
-        - `"cache_read_input_tokens"`
-
-        - `"output_tokens"`
-
-        - `"uncached_input_tokens"`
-
-    - `starting_at: string`
-
-      Start of the time bucket (inclusive) in RFC 3339 format.
-
-  - `data_refreshed_at: string or null`
-
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case every bucket's `results` list is empty. Buckets beyond this watermark are incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
-
-  - `has_more: boolean`
-
-    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
-
-  - `organization_id: string`
-
-    ID of the Organization.
-
-### User Cost
-
-- `UserCost object { data, data_refreshed_at, has_more, 2 more }`
-
-  - `data: array of object { actor, amount, context_window, 13 more }`
-
-    Rows for this page, ranked by `order_by` in the `order` direction. One row per user, or several per user when `group_by[]` or `bucket_width` breaks that user's usage or cost out across rows. Rows split out by `cost_type` or `token_type` (cost endpoint only) stay adjacent and are ranked as one unit.
-
-    - `actor: AnalyticsUserActor`
-
-      The user this row's usage or cost is attributed to. Always a `user_actor`.
-
-      - `deleted: boolean`
-
-        True when the user is no longer a member of the organization or its associated organizations: either their membership was removed (for example, deprovisioned via your identity provider) or the account itself has been deleted. The flag reflects organization membership, not account status. `name` and `email` stay populated for removed members; `name` is `"Deleted User"` and `email` null when the account has been deleted. The `user_id` is still populated for reconciliation.
-
-      - `email: string or null`
-
-        The user's email address, including for users who are no longer members of the organization or its associated organizations. Null when the account has been deleted (check `deleted`) and for system-minted service accounts, which have no person's mailbox behind them (check `name`).
-
-      - `name: string or null`
-
-        The user's current name, including for users who are no longer members of the organization or its associated organizations. Null when the user has not set a name. Returns `"Deleted User"` when the account itself has been deleted. Rows for system-minted service accounts render the service name (for example, `"Claude Security"` for usage by Anthropic's security-patching service) or null.
-
-      - `type: "user_actor"`
-
-        Actor type. Always `"user_actor"`.
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        Tagged user ID.
-
-    - `amount: string`
-
-      Amount (post-discount, pre-credit) in fractional cents (minor units).
-
-    - `context_window: "0-200k" or "200k-1M" or null`
-
-      Context-window pricing tier of the usage or cost. Null unless `context_window` is in `group_by[]`; it can also be null on grouped rows with no context-window tier, such as code execution.
-
-      - `"0-200k"`
-
-      - `"200k-1M"`
-
-    - `cost_type: "code_execution" or "tokens" or "web_search" or null`
-
-      Cost component breakdown; null when returning the combined total.
-
-      - `"code_execution"`
-
-      - `"tokens"`
-
-      - `"web_search"`
-
-    - `currency: "USD"`
-
-      Currency code for the cost amount. Currently always `"USD"`.
-
-      - `"USD"`
-
-    - `ending_at: string or null`
-
-      End of the row's UTC time bucket (exclusive), as an RFC 3339 timestamp; equal to `starting_at` plus one `bucket_width`. Null unless `bucket_width` is set.
-
-    - `inference_geo: "global" or "us" or null`
-
-      Inference region of the usage or cost. Null unless `inference_geo` is in `group_by[]`; it can also be null on grouped rows where the region is not set (the rows that `inference_geos[]=not_available` matches).
-
-      - `"global"`
-
-      - `"us"`
-
-    - `list_amount: string`
-
-      List-price amount (pre-discount) in fractional cents.
-
-    - `model: string or null`
-
-      Model that produced the usage or cost, as a model name in the form the `models[]` filter accepts (for example, `claude-opus-4-6`). Null unless `model` is in `group_by[]`; it can also be null on grouped rows whose usage or cost is not attributed to a specific model, such as code execution.
-
-    - `product: string or null`
-
-      Product surface that produced the usage or cost. Null unless product is in `group_by[]`; it can also be null on grouped rows whose usage cannot be attributed to a known surface. Values include "chat", "claude_code", "cowork", "office_agent", "claude_in_chrome", "claude_design", and "claude-in-slack". "claude-in-slack" (with hyphens) is Claude Tag, the Claude product in Slack. A similarly spelled legacy value (underscores instead of hyphens) identifies the retiring v1 Slack chat bot and appears only for organizations that used it. Some unattributed usage is reported as "other".
-
-    - `rbac_group_id: string or null`
-
-      RBAC group (team) the usage is attributed to, in the public tagged `rbac_group_...` spelling — the same spelling the activity resources use for this key, so the same team has ONE id across resources and it round-trips as an `rbac_group_ids[]` filter value. Populated only when `rbac_group_id` is in `group_by[]`. Any-membership semantics: a user in several groups contributes their full usage to each of those groups' rows, so the named-group rows overlap and their sum can exceed the org total. A null value is the single unassigned row: users in no group on that (UTC) day. For the true org total, run the same query with no group_by.
-
-    - `requests: number or null`
-
-      Number of API requests in this row's scope. Null when `group_by` includes `cost_type` or `token_type` (the count has no per-component attribution; read it from the ungrouped response). For sandbox / code-execution events, this counts execution spans rather than HTTP requests (these rows surface with `product: null`).
-
-    - `slack_channel_id: string or null`
-
-      Slack channel the usage originated from. Populated only when `slack_channel_id` is in `group_by[]`; null for usage outside Slack (and for rows recorded before channel attribution was enabled).
-
-    - `speed: "fast" or "standard" or null`
-
-      Inference speed mode of the usage or cost: `fast` or `standard`. Null unless `speed` is in `group_by[]`.
-
-      - `"fast"`
-
-      - `"standard"`
-
-    - `starting_at: string or null`
-
-      Start of the row's UTC time bucket (inclusive), as an RFC 3339 timestamp. Null unless `bucket_width` is set; without `bucket_width`, each row aggregates the full requested range.
-
-    - `token_type: "cache_creation.ephemeral_1h_input_tokens" or "cache_creation.ephemeral_5m_input_tokens" or "cache_read_input_tokens" or 2 more or null`
-
-      Token type when cost_type=tokens; null otherwise.
-
-      - `"cache_creation.ephemeral_1h_input_tokens"`
-
-      - `"cache_creation.ephemeral_5m_input_tokens"`
-
-      - `"cache_read_input_tokens"`
-
-      - `"output_tokens"`
-
-      - `"uncached_input_tokens"`
-
-  - `data_refreshed_at: string or null`
-
-    RFC 3339 timestamp of the export this response was served from. Null when no export yet covers any part of the requested range, in which case `data` is empty. Data beyond this watermark is incomplete; for stable results, set `ending_at` to this value or earlier. Data is typically refreshed every 4 hours but not final until about 30 days after the usage date (late-arriving events, reconciliation adjustments).
-
-  - `has_more: boolean`
-
-    Whether another page is available. When true, pass `next_page` as the `page` parameter to fetch it.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null when `has_more` is false. Pass it as the `page` parameter, keeping the other parameters unchanged. A cursor can expire after the underlying data refreshes; the request then returns HTTP 410 and pagination must restart from the first page.
-
-  - `organization_id: string`
-
-    ID of the Organization.
-
-# Users
-
-## List User Activity
-
-**get** `/v1/organizations/analytics/users`
+**GET** `/v1/organizations/analytics/users`
 
 Get per-user activity for a given day, with cursor-based pagination.
 
@@ -2136,29 +1755,37 @@ scope results to specific members, groups, or a chat project. Available
 to organizations on a Claude Enterprise plan. Requires an API key with
 the `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `date: optional string`
 
   UTC date in YYYY-MM-DD format. The day to get user activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
+  format: date
+
 - `ending_date: optional string`
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with starting_date. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after starting_date.
+
+  format: date
 
 - `filter: optional array of string`
 
   Filters as 'dimension:value', e.g. filter[]=rbac_group_id:<id>. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: project_id, rbac_group_id, user_id. Value forms: project_id takes a tagged project id (claude_proj_...) and scopes each member's row to their claude.ai chat activity within that project (it cannot be combined with group_by[] or an rbac_group_id filter); rbac_group_id takes the tagged id (rbac_group_..., as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); user_id takes a tagged user id (user_...), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
+  maxItems: 100
+
 - `group_by: optional array of "rbac_group_id"`
 
   Dimensions to break results out by (e.g. group_by[]=rbac_group_id). Supported on this endpoint: rbac_group_id. Rows are already per-member, so the one supported grouping aggregates them per RBAC group instead. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via next_page; an unsupported dimension returns 400. rbac_group_id attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
 
-  - `"rbac_group_id"`
+  maxItems: 100
 
 - `limit: optional number`
 
   Number of results per page (1-1000, default 100).
+
+  minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
@@ -2180,15 +1807,17 @@ the `read:analytics` scope.
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either date or starting_date, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
-### Returns
+  format: date
 
-- `UserActivity object { data, next_page }`
+#### Returns
+
+- `UserActivity object`
 
   Response for GET /v1/organizations/analytics/users.
 
-  - `data: array of object { chat_metrics, claude_code_metrics, cowork_metrics, 9 more }`
+  - `data: array of object`
 
-    - `chat_metrics: object { connectors_used_count, distinct_artifacts_created_count, distinct_connectors_used_count, 9 more }`
+    - `chat_metrics: object`
 
       Claude.ai activity metrics for a single user on a given day.
 
@@ -2240,11 +1869,11 @@ the `read:analytics` scope.
 
         Number of messages that used extended thinking
 
-    - `claude_code_metrics: object { core_metrics, tool_actions }`
+    - `claude_code_metrics: object`
 
       Claude Code activity metrics for a single user on a given day.
 
-      - `core_metrics: object { commit_count, distinct_session_count, lines_of_code, pull_request_count }`
+      - `core_metrics: object`
 
         Core Claude Code activity metrics for a single user on a given day.
 
@@ -2256,7 +1885,7 @@ the `read:analytics` scope.
 
           Number of distinct Claude Code sessions. On aggregated rows and in date-range mode: summed per-day distinct counts. A session essentially never spans a UTC day, so the sum is in practice the true distinct count.
 
-        - `lines_of_code: object { added_count, removed_count }`
+        - `lines_of_code: object`
 
           Lines of code added and removed via Claude Code.
 
@@ -2272,7 +1901,7 @@ the `read:analytics` scope.
 
           Number of pull requests created via Claude Code
 
-      - `tool_actions: object { edit_tool, multi_edit_tool, notebook_edit_tool, write_tool }`
+      - `tool_actions: object`
 
         Per-tool accepted/rejected counts for Claude Code file modification tools.
 
@@ -2300,7 +1929,7 @@ the `read:analytics` scope.
 
           Accepted/rejected counts for a single Claude Code tool type.
 
-    - `cowork_metrics: object { action_count, connectors_used_count, dispatch_turn_count, 13 more }`
+    - `cowork_metrics: object`
 
       Cowork activity metrics for a single user on a given day.
 
@@ -2368,7 +1997,7 @@ the `read:analytics` scope.
 
         Number of successful Write tool calls in Cowork sessions. Null while the file-edit metrics are not enabled for this organization.
 
-    - `design_metrics: object { distinct_projects_created_count, distinct_projects_used_count, distinct_session_count, message_count }`
+    - `design_metrics: object`
 
       Claude Design activity metrics for a single user on a given day.
 
@@ -2388,7 +2017,7 @@ the `read:analytics` scope.
 
         Number of messages sent in Claude Design sessions
 
-    - `office_metrics: object { excel, outlook, powerpoint, word }`
+    - `office_metrics: object`
 
       Office Agent activity metrics for a single user on a given day, broken out by Office product.
 
@@ -2432,7 +2061,7 @@ the `read:analytics` scope.
 
         Office Agent activity metrics for a single user on a given day within one Office product.
 
-    - `science_metrics: object { delegation_count, distinct_session_count, message_count, 2 more }`
+    - `science_metrics: object`
 
       Claude Science activity metrics for a single user on a given day.
 
@@ -2492,21 +2121,21 @@ the `read:analytics` scope.
 
         Object type. Always `user`.
 
-        - `"user"`
+        default: user
 
   - `next_page: string or null`
 
     Opaque cursor for the next page, or null if no more results
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/users \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -2636,331 +2265,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/users \
 }
 ```
 
-## Domain Types
+## Analytics › Skills
 
-### User Activity
+### Get Skill Usage
 
-- `UserActivity object { data, next_page }`
-
-  Response for GET /v1/organizations/analytics/users.
-
-  - `data: array of object { chat_metrics, claude_code_metrics, cowork_metrics, 9 more }`
-
-    - `chat_metrics: object { connectors_used_count, distinct_artifacts_created_count, distinct_connectors_used_count, 9 more }`
-
-      Claude.ai activity metrics for a single user on a given day.
-
-      - `connectors_used_count: number`
-
-        Number of MCP connector invocations.
-
-      - `distinct_artifacts_created_count: number`
-
-        Number of distinct artifacts created. Exact in date-range mode: a creation belongs to exactly one day, so the per-day counts never overlap and their sum over the window is the exact count of distinct creations in it.
-
-      - `distinct_connectors_used_count: number or null`
-
-        Distinct claude.ai connectors this user used. Excludes calls whose connector could not be identified and all calls from organizations with zero data retention. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `distinct_conversation_count: number or null`
-
-        Number of distinct conversations the user participated in. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `distinct_files_uploaded_count: number or null`
-
-        Number of distinct files uploaded. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `distinct_projects_created_count: number`
-
-        Number of distinct projects created. Exact in date-range mode: a creation belongs to exactly one day, so the per-day counts never overlap and their sum over the window is the exact count of distinct creations in it.
-
-      - `distinct_projects_used_count: number or null`
-
-        Number of distinct projects used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `distinct_shared_artifacts_viewed_count: number or null`
-
-        Number of distinct shared artifacts the user viewed. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `distinct_skills_used_count: number or null`
-
-        Number of distinct skills used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `message_count: number`
-
-        Number of messages sent
-
-      - `shared_conversations_viewed_count: number`
-
-        Number of times the user opened a shared conversation in a project
-
-      - `thinking_message_count: number`
-
-        Number of messages that used extended thinking
-
-    - `claude_code_metrics: object { core_metrics, tool_actions }`
-
-      Claude Code activity metrics for a single user on a given day.
-
-      - `core_metrics: object { commit_count, distinct_session_count, lines_of_code, pull_request_count }`
-
-        Core Claude Code activity metrics for a single user on a given day.
-
-        - `commit_count: number`
-
-          Number of commits made via Claude Code
-
-        - `distinct_session_count: number or null`
-
-          Number of distinct Claude Code sessions. On aggregated rows and in date-range mode: summed per-day distinct counts. A session essentially never spans a UTC day, so the sum is in practice the true distinct count.
-
-        - `lines_of_code: object { added_count, removed_count }`
-
-          Lines of code added and removed via Claude Code.
-
-          - `added_count: number`
-
-            Lines of code added
-
-          - `removed_count: number`
-
-            Lines of code removed
-
-        - `pull_request_count: number`
-
-          Number of pull requests created via Claude Code
-
-      - `tool_actions: object { edit_tool, multi_edit_tool, notebook_edit_tool, write_tool }`
-
-        Per-tool accepted/rejected counts for Claude Code file modification tools.
-
-        - `edit_tool: ToolActionCounts`
-
-          Accepted/rejected counts for a single Claude Code tool type.
-
-          - `accepted_count: number`
-
-            Number of tool proposals accepted
-
-          - `rejected_count: number`
-
-            Number of tool proposals rejected
-
-        - `multi_edit_tool: ToolActionCounts`
-
-          Accepted/rejected counts for a single Claude Code tool type.
-
-        - `notebook_edit_tool: ToolActionCounts`
-
-          Accepted/rejected counts for a single Claude Code tool type.
-
-        - `write_tool: ToolActionCounts`
-
-          Accepted/rejected counts for a single Claude Code tool type.
-
-    - `cowork_metrics: object { action_count, connectors_used_count, dispatch_turn_count, 13 more }`
-
-      Cowork activity metrics for a single user on a given day.
-
-      - `action_count: number`
-
-        Number of tool actions completed in Cowork sessions
-
-      - `connectors_used_count: number`
-
-        Total number of connector invocations in Cowork sessions
-
-      - `dispatch_turn_count: number`
-
-        Number of Dispatch (background agent) turns completed
-
-      - `distinct_connectors_used_count: number or null`
-
-        Number of distinct connectors used in Cowork sessions. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `distinct_session_count: number or null`
-
-        Number of distinct Cowork sessions. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `distinct_skills_used_count: number or null`
-
-        Number of distinct skills used in Cowork sessions. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `message_count: number`
-
-        Number of messages sent in Cowork sessions
-
-      - `skills_used_count: number`
-
-        Total number of skill invocations in Cowork sessions
-
-      - `distinct_plugins_used_count: optional number or null`
-
-        Number of distinct plugins used in Cowork sessions. Null while Cowork plugin-use metrics are not enabled for this organization. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `edit_tool_count: optional number or null`
-
-        Number of successful Edit tool calls in Cowork sessions. Null while the file-edit metrics are not enabled for this organization.
-
-      - `file_edit_count: optional number or null`
-
-        Number of successful file-edit tool calls (Edit, MultiEdit, Write, NotebookEdit) in Cowork sessions. Null, never 0, while the file-edit metrics are not enabled for this organization.
-
-      - `multi_edit_tool_count: optional number or null`
-
-        Number of successful MultiEdit tool calls in Cowork sessions. Null while the file-edit metrics are not enabled for this organization.
-
-      - `notebook_edit_tool_count: optional number or null`
-
-        Number of successful NotebookEdit tool calls in Cowork sessions. Null while the file-edit metrics are not enabled for this organization.
-
-      - `plugins_used_count: optional number or null`
-
-        Total number of plugin invocations in Cowork sessions. Null while Cowork plugin-use metrics are not enabled for this organization.
-
-      - `sessions_with_file_edits_count: optional number or null`
-
-        Number of distinct Cowork sessions with at least one successful file-edit tool call. Null while the file-edit metrics are not enabled for this organization. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `write_tool_count: optional number or null`
-
-        Number of successful Write tool calls in Cowork sessions. Null while the file-edit metrics are not enabled for this organization.
-
-    - `design_metrics: object { distinct_projects_created_count, distinct_projects_used_count, distinct_session_count, message_count }`
-
-      Claude Design activity metrics for a single user on a given day.
-
-      - `distinct_projects_created_count: number`
-
-        Number of distinct Claude Design projects created. Exact in date-range mode: a creation belongs to exactly one day, so the per-day counts never overlap and their sum over the window is the exact count of distinct creations in it.
-
-      - `distinct_projects_used_count: number or null`
-
-        Number of distinct Claude Design projects the user worked in. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `distinct_session_count: number or null`
-
-        Number of distinct Claude Design sessions. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `message_count: number`
-
-        Number of messages sent in Claude Design sessions
-
-    - `office_metrics: object { excel, outlook, powerpoint, word }`
-
-      Office Agent activity metrics for a single user on a given day, broken out by Office product.
-
-      - `excel: OfficeProductMetrics`
-
-        Office Agent activity metrics for a single user on a given day within one Office product.
-
-        - `connectors_used_count: number`
-
-          Number of MCP connector invocations
-
-        - `distinct_connectors_used_count: number or null`
-
-          Number of distinct MCP connectors used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-        - `distinct_session_count: number or null`
-
-          Number of distinct Office Agent sessions. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-        - `distinct_skills_used_count: number or null`
-
-          Number of distinct skills used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-        - `message_count: number`
-
-          Number of messages sent
-
-        - `skills_used_count: number`
-
-          Number of skill invocations
-
-      - `outlook: OfficeProductMetrics`
-
-        Office Agent activity metrics for a single user on a given day within one Office product.
-
-      - `powerpoint: OfficeProductMetrics`
-
-        Office Agent activity metrics for a single user on a given day within one Office product.
-
-      - `word: OfficeProductMetrics`
-
-        Office Agent activity metrics for a single user on a given day within one Office product.
-
-    - `science_metrics: object { delegation_count, distinct_session_count, message_count, 2 more }`
-
-      Claude Science activity metrics for a single user on a given day.
-
-      - `delegation_count: number`
-
-        Number of delegations (handoffs to a specialized agent) in Claude Science sessions
-
-      - `distinct_session_count: number or null`
-
-        Number of distinct Claude Science sessions. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `message_count: number`
-
-        Number of messages sent in Claude Science sessions
-
-      - `remote_compute_job_count: number`
-
-        Number of remote compute jobs launched from Claude Science sessions
-
-      - `skills_used_count: number`
-
-        Total number of skill invocations in Claude Science sessions
-
-    - `web_search_count: number`
-
-      Number of web searches performed
-
-    - `distinct_user_count: optional number or null`
-
-      Number of distinct active users represented by this row. Only set for grouped rollups (`group_by[]`); null for per-user rows. In date-range mode, recomputed as an exact distinct count of the group's active members over the requested window, never a sum of per-day values.
-
-    - `last_activity_date: optional string or null`
-
-      Most recent UTC day (YYYY-MM-DD) on which the user had any counted activity, within the requested window: equal to the requested date in single-day mode, and to the latest active day in [starting_date, ending_date) in date-range rollup mode — never a day earlier than the window start. On filtered requests (`filter[]`) only days matching the filter count: with `filter[]=rbac_group_id` it is the last day the user was active while a member of that group, consistent with the row's other metrics. Null on grouped (`group_by[]`) rows. Omitted from the response while last-activity reporting is not enabled for this organization.
-
-    - `rbac_group_id: optional string or null`
-
-      Tagged RBAC group identifier (`rbac_group_...`), matching the spend-limits API spelling. Present only when the request grouped by `rbac_group_id`.
-
-    - `rbac_group_name: optional string or null`
-
-      Resolved RBAC group display name, alongside `rbac_group_id` when name resolution is available. Null if the group has been deleted or its name could not be resolved; `rbac_group_id` remains the stable key.
-
-    - `user: optional AnalyticsUser or null`
-
-      User identifier.
-
-      - `id: string`
-
-        Tagged user identifier (e.g. `user_...`)
-
-      - `email_address: string`
-
-        Email address of the user
-
-      - `type: optional "user"`
-
-        Object type. Always `user`.
-
-        - `"user"`
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null if no more results
-
-# Skills
-
-## Get Skill Usage
-
-**get** `/v1/organizations/analytics/skills`
+**GET** `/v1/organizations/analytics/skills`
 
 Get per-skill usage for a given day, with cursor-based pagination.
 
@@ -2971,23 +2280,31 @@ descriptions list the supported dimensions. Available to organizations
 on a Claude Enterprise plan. Requires an API key with the
 `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `date: optional string`
 
   UTC date in YYYY-MM-DD format. The day to get skill usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
+  format: date
+
 - `ending_date: optional string`
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with starting_date. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after starting_date.
+
+  format: date
 
 - `filter: optional array of string`
 
   Filters as 'dimension:value', e.g. filter[]=rbac_group_id:<id>. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: product, rbac_group_id, share_status, skill_name, user_id. Value forms: product is one of chat, claude_code, cowork, or office_agent; rbac_group_id takes the tagged id (rbac_group_..., as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); share_status is one of organization, private, or public; skill_name matches case-insensitively; user_id takes a tagged user id (user_...), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
+  maxItems: 100
+
 - `group_by: optional array of "product" or "rbac_group_id" or "user_id"`
 
   Dimensions to break results out by (e.g. group_by[]=user_id). Supported on this endpoint: product, rbac_group_id, user_id. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via next_page; an unsupported dimension returns 400. rbac_group_id attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
+
+  maxItems: 100
 
   - `"product"`
 
@@ -2998,6 +2315,8 @@ on a Claude Enterprise plan. Requires an API key with the
 - `limit: optional number`
 
   Number of results per page (1-1000, default 100).
+
+  minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
@@ -3019,15 +2338,17 @@ on a Claude Enterprise plan. Requires an API key with the
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either date or starting_date, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
-### Returns
+  format: date
 
-- `SkillUsage object { data, next_page }`
+#### Returns
+
+- `SkillUsage object`
 
   Response for GET /v1/organizations/analytics/skills.
 
-  - `data: array of object { chat_metrics, claude_code_metrics, cowork_metrics, 14 more }`
+  - `data: array of object`
 
-    - `chat_metrics: object { distinct_conversation_skill_used_count }`
+    - `chat_metrics: object`
 
       Claude.ai activity metrics for a single skill on a given day.
 
@@ -3035,7 +2356,7 @@ on a Claude Enterprise plan. Requires an API key with the
 
         Number of distinct conversations in which the skill was used. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
 
-    - `claude_code_metrics: object { distinct_session_skill_used_count }`
+    - `claude_code_metrics: object`
 
       Claude Code activity metrics for a single skill on a given day.
 
@@ -3043,7 +2364,7 @@ on a Claude Enterprise plan. Requires an API key with the
 
         Number of distinct Claude Code sessions in which the skill was used. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
 
-    - `cowork_metrics: object { distinct_session_skill_used_count }`
+    - `cowork_metrics: object`
 
       Cowork activity metrics for a single skill on a given day.
 
@@ -3055,7 +2376,7 @@ on a Claude Enterprise plan. Requires an API key with the
 
       Number of distinct users who used the skill on the requested day, or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted.
 
-    - `office_metrics: object { excel, outlook, powerpoint, word }`
+    - `office_metrics: object`
 
       Office Agent activity metrics for a single skill on a given day, broken out by Office product.
 
@@ -3090,8 +2411,6 @@ on a Claude Enterprise plan. Requires an API key with the
     - `currency: optional "USD" or null`
 
       Currency for this row's monetary fields (estimated_overage_spend and attributed_list_price), as an uppercase ISO-4217 code. Always "USD" when either amount is populated; null whenever both amounts are null.
-
-      - `"USD"`
 
     - `enable_count: optional number or null`
 
@@ -3133,15 +2452,15 @@ on a Claude Enterprise plan. Requires an API key with the
 
     Opaque cursor for the next page, or null if no more results
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/skills \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3189,127 +2508,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/skills \
 }
 ```
 
-## Domain Types
+## Analytics › Connectors
 
-### Skill Usage
+### Get Connector Usage
 
-- `SkillUsage object { data, next_page }`
-
-  Response for GET /v1/organizations/analytics/skills.
-
-  - `data: array of object { chat_metrics, claude_code_metrics, cowork_metrics, 14 more }`
-
-    - `chat_metrics: object { distinct_conversation_skill_used_count }`
-
-      Claude.ai activity metrics for a single skill on a given day.
-
-      - `distinct_conversation_skill_used_count: number or null`
-
-        Number of distinct conversations in which the skill was used. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `claude_code_metrics: object { distinct_session_skill_used_count }`
-
-      Claude Code activity metrics for a single skill on a given day.
-
-      - `distinct_session_skill_used_count: number or null`
-
-        Number of distinct Claude Code sessions in which the skill was used. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `cowork_metrics: object { distinct_session_skill_used_count }`
-
-      Cowork activity metrics for a single skill on a given day.
-
-      - `distinct_session_skill_used_count: number or null`
-
-        Number of distinct Cowork sessions in which the skill was used. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `distinct_user_count: number`
-
-      Number of distinct users who used the skill on the requested day, or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted.
-
-    - `office_metrics: object { excel, outlook, powerpoint, word }`
-
-      Office Agent activity metrics for a single skill on a given day, broken out by Office product.
-
-      - `excel: SkillOfficeProductMetrics`
-
-        Office Agent activity metrics for a single skill on a given day within one Office product.
-
-        - `distinct_session_skill_used_count: number or null`
-
-          Number of distinct Office Agent sessions in which the skill was used. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `outlook: SkillOfficeProductMetrics`
-
-        Office Agent activity metrics for a single skill on a given day within one Office product.
-
-      - `powerpoint: SkillOfficeProductMetrics`
-
-        Office Agent activity metrics for a single skill on a given day within one Office product.
-
-      - `word: SkillOfficeProductMetrics`
-
-        Office Agent activity metrics for a single skill on a given day within one Office product.
-
-    - `skill_name: string`
-
-      Name of the skill
-
-    - `attributed_list_price: optional string or null`
-
-      List-price (rate-card) value of the member requests attributed to this skill, as a decimal string in the minor unit of `currency` (cents for USD), from Claude Code, Cowork, and Office Agent request-level attribution — the value of requests that INVOLVED the skill, not the skill's incremental cost. Unlike estimated_overage_spend this reflects usage value regardless of how it was funded — seat-covered usage counts — but it is undiscounted and does NOT tie to billed spend or the organization's spend reporting. claude.ai chat usage carries no request-level attribution and contributes nothing: the field is null on chat product rows and on office_agent product cuts dated before 2026-06-18 (the Office Agent attribution data-start), and on ungrouped rows it covers the Claude Code + Cowork + Office Agent share only (null when no attributable usage exists). Also null under the same conditions as estimated_overage_spend (spend reporting not enabled for this organization, office_agent product cuts before the 2026-06-18 data-start). "0" means attributable usage existed but none was attributed to this skill. Addable across days: date-range rollup mode returns the window's sum. On `group_by[]` and `filter[]` shapes both amounts can total below the ungrouped value for the same skill over the same date or range: spend attributed to a member–skill pair with no counted usage on that day is excluded from those cuts.
-
-    - `currency: optional "USD" or null`
-
-      Currency for this row's monetary fields (estimated_overage_spend and attributed_list_price), as an uppercase ISO-4217 code. Always "USD" when either amount is populated; null whenever both amounts are null.
-
-      - `"USD"`
-
-    - `enable_count: optional number or null`
-
-      Distinct accounts that enabled this skill on the requested day (claude.ai only — the skill analog of plugin install_count). The count is org-wide: null when enable reporting is not enabled for this organization, or when the request scopes to `user_id` / `rbac_group_id` / `product` via `group_by[]` or `filter[]` (an org-wide count would be misleading on per-cut rows). A distinct count, not an event count: summing across days double-counts members who enable the skill on more than one day, so it is also null in date-range rollup mode (starting_date/ending_date).
-
-    - `estimated_overage_spend: optional string or null`
-
-      Estimated OVERAGE spend attributed to this skill, as a decimal string in the minor unit of `currency` (cents for USD; "1250" is $12.50, fractional cents possible) — an allocation of each member's daily post-discount, pre-credit metered overage spend (the same cost basis as the organization's spend reporting and the Cost & Usage API, so per-skill figures are directly comparable; spend with no skill attribution — including any member-day without skill invocations — is not represented, so skill rows sum to at most those totals) across the skills the member used. Overage only: usage covered by included seat allowances bills nothing and allocates $0 here — see attributed_list_price for the funding-independent usage-value companion. Claude Code, Cowork, and Office Agent spend use request-level skill attribution; claude.ai chat spend is approximated proportionally to skill-invoking messages. An estimate, not a billing number — and the cost of the requests/messages that INVOLVED the skill, not the skill's incremental cost (the same request would still have cost something without the skill active). "0" means no overage spend was attributed; null when spend reporting is not enabled for this organization, on office_agent product cuts dated before 2026-06-18 (the Office Agent attribution data-start). Addable across days: date-range rollup mode (starting_date/ending_date) returns the window's sum. With `group_by[]=user_id` each row carries the user's own attributed spend. On `group_by[]` and `filter[]` shapes both amounts can total below the ungrouped value for the same skill over the same date or range: spend attributed to a member–skill pair with no counted usage on that day is excluded from those cuts.
-
-    - `invocation_count: optional number or null`
-
-      Total number of times this skill was invoked on the requested day (the skill analog of plugin invocation_count). Unlike distinct_user_count — which answers '\# of users' — this is the true '# of uses'. A skill counts as used only when it is explicitly activated — the model (or the user, via the skill's slash command) invokes it, reading its instructions into context as part of that activation. Skills that are merely installed or listed as available, or whose content reaches the context without an activation (preloaded, hook-injected, or read as a plain file), are not counted. Null when invocation reporting is not enabled for this organization. Sum across a date range for total uses in the window — date-range rollup mode (starting_date/ending_date) returns this sum directly.
-
-    - `product: optional string or null`
-
-      Product that produced this row's activity: one of chat, claude_code, cowork, or office_agent (the canonical Cost & Usage product naming; an office_agent row's per-surface breakdown is in its office_metrics). On /plugins only cowork and claude_code occur (the only surfaces with plugin attribution); /artifacts and /apps/chat/projects do not support the product dimension (a product `group_by[]` or `filter[]` there is rejected). Present only when the request grouped by product.
-
-    - `rbac_group_id: optional string or null`
-
-      Tagged RBAC group identifier (`rbac_group_...`), matching the spend-limits API spelling. Present only when the request grouped by `rbac_group_id`.
-
-    - `rbac_group_name: optional string or null`
-
-      Resolved RBAC group display name, alongside `rbac_group_id` when name resolution is available. Null if the group has been deleted or its name could not be resolved; `rbac_group_id` remains the stable key.
-
-    - `share_status: optional string or null`
-
-      Skill share status (claude.ai only): one of 'private', 'organization', or 'public'. Null for skills used only in Claude Code or Office (no per-skill share-status concept) and when share-status reporting is not yet available for the organization. Filterable via `filter[]=share_status:<value>`.
-
-    - `skill_display_name: optional string or null`
-
-      Human-readable display name for rows whose skill_name is an opaque skill id (user/organization skill types — user-defined names are withheld from the analytics pipeline). Only organization-shared skills resolve; the literal 'unknown' bucket row also gets a fixed 'Unknown skill' label. Null for private (user-defined) skills — their names are not disclosed to analytics-key holders — and null when skill_name is already a display name, when the skill was deleted, or when display-name resolution is not enabled for this organization.
-
-    - `user_id: optional string or null`
-
-      Tagged user identifier (e.g. `user_...`). Present only when the request grouped by `user_id`.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null if no more results
-
-# Connectors
-
-## Get Connector Usage
-
-**get** `/v1/organizations/analytics/connectors`
+**GET** `/v1/organizations/analytics/connectors`
 
 Get per-connector usage for a given day, with cursor-based pagination.
 
@@ -3322,23 +2525,31 @@ parameter descriptions list the supported dimensions. Available to
 organizations on a Claude Enterprise plan. Requires an API key with the
 `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `date: optional string`
 
   UTC date in YYYY-MM-DD format. The day to get connector usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
+  format: date
+
 - `ending_date: optional string`
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with starting_date. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after starting_date.
+
+  format: date
 
 - `filter: optional array of string`
 
   Filters as 'dimension:value', e.g. filter[]=rbac_group_id:<id>. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: connector_name, product, rbac_group_id, user_id. Value forms: connector_name matches case-insensitively, a display name such as 'GitHub MCP' also matches its normalized stored form ('github'), and for rows whose connector_name is an opaque connector id the connector's display name (connector_display_name) also matches; product is one of chat, claude_code, cowork, or office_agent; rbac_group_id takes the tagged id (rbac_group_..., as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); user_id takes a tagged user id (user_...), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
+  maxItems: 100
+
 - `group_by: optional array of "product" or "rbac_group_id" or "user_id"`
 
   Dimensions to break results out by (e.g. group_by[]=user_id). Supported on this endpoint: product, rbac_group_id, user_id. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via next_page; an unsupported dimension returns 400. rbac_group_id attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
+
+  maxItems: 100
 
   - `"product"`
 
@@ -3349,6 +2560,8 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 - `limit: optional number`
 
   Number of results per page (1-1000, default 100).
+
+  minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
@@ -3370,15 +2583,17 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either date or starting_date, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
-### Returns
+  format: date
 
-- `ConnectorUsage object { data, next_page }`
+#### Returns
+
+- `ConnectorUsage object`
 
   Response for GET /v1/organizations/analytics/connectors.
 
-  - `data: array of object { chat_metrics, claude_code_metrics, connector_name, 13 more }`
+  - `data: array of object`
 
-    - `chat_metrics: object { distinct_conversation_connector_used_count }`
+    - `chat_metrics: object`
 
       Claude.ai activity metrics for a single connector on a given day.
 
@@ -3386,7 +2601,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
         Number of distinct conversations in which the connector was used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
 
-    - `claude_code_metrics: object { distinct_session_connector_used_count }`
+    - `claude_code_metrics: object`
 
       Claude Code activity metrics for a single connector on a given day.
 
@@ -3398,7 +2613,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       Name of the connector. Some rows carry an opaque connector id here instead of a readable name; connector_display_name holds the resolved name for those rows.
 
-    - `cowork_metrics: object { distinct_session_connector_used_count }`
+    - `cowork_metrics: object`
 
       Cowork activity metrics for a single connector on a given day.
 
@@ -3410,7 +2625,7 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
       Number of distinct users who used the connector on the requested day, or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values.
 
-    - `office_metrics: object { excel, outlook, powerpoint, word }`
+    - `office_metrics: object`
 
       Office Agent activity metrics for a single connector on a given day, broken out by Office product.
 
@@ -3478,15 +2693,15 @@ organizations on a Claude Enterprise plan. Requires an API key with the
 
     Opaque cursor for the next page, or null if no more results
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/connectors \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3533,121 +2748,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/connectors \
 }
 ```
 
-## Domain Types
+## Analytics › Chat Projects
 
-### Connector Usage
+### Get Chat Project Usage
 
-- `ConnectorUsage object { data, next_page }`
-
-  Response for GET /v1/organizations/analytics/connectors.
-
-  - `data: array of object { chat_metrics, claude_code_metrics, connector_name, 13 more }`
-
-    - `chat_metrics: object { distinct_conversation_connector_used_count }`
-
-      Claude.ai activity metrics for a single connector on a given day.
-
-      - `distinct_conversation_connector_used_count: number or null`
-
-        Number of distinct conversations in which the connector was used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `claude_code_metrics: object { distinct_session_connector_used_count }`
-
-      Claude Code activity metrics for a single connector on a given day.
-
-      - `distinct_session_connector_used_count: number or null`
-
-        Number of distinct Claude Code sessions in which the connector was used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `connector_name: string`
-
-      Name of the connector. Some rows carry an opaque connector id here instead of a readable name; connector_display_name holds the resolved name for those rows.
-
-    - `cowork_metrics: object { distinct_session_connector_used_count }`
-
-      Cowork activity metrics for a single connector on a given day.
-
-      - `distinct_session_connector_used_count: number or null`
-
-        Number of distinct Cowork sessions in which the connector was used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `distinct_user_count: number`
-
-      Number of distinct users who used the connector on the requested day, or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values.
-
-    - `office_metrics: object { excel, outlook, powerpoint, word }`
-
-      Office Agent activity metrics for a single connector on a given day, broken out by Office product.
-
-      - `excel: ConnectorOfficeProductMetrics`
-
-        Office Agent activity metrics for a single connector on a given day within one Office product.
-
-        - `distinct_session_connector_used_count: number or null`
-
-          Number of distinct Office Agent sessions in which the connector was used. Approximate (HLL, typical error <2%) in date-range mode. Null on aggregated rows where a distinct count cannot be computed.
-
-      - `outlook: ConnectorOfficeProductMetrics`
-
-        Office Agent activity metrics for a single connector on a given day within one Office product.
-
-      - `powerpoint: ConnectorOfficeProductMetrics`
-
-        Office Agent activity metrics for a single connector on a given day within one Office product.
-
-      - `word: ConnectorOfficeProductMetrics`
-
-        Office Agent activity metrics for a single connector on a given day within one Office product.
-
-    - `connector_display_name: optional string or null`
-
-      Human-readable display name for rows whose connector_name is an opaque connector id rather than a readable name, resolved at request time from the organization's connectors (including connectors that have since been removed). connector_name remains the row's stable key for sorting and pagination, and filter[]=connector_name:<value> also matches these rows by display name. Display names are not unique, and the same connector's claude.ai usage can appear under a separate row with a readable connector_name. Null when connector_name is already a readable name, when the id cannot be resolved to one of the organization's connectors, or when display-name resolution is not enabled for this organization.
-
-    - `individual_auth_distinct_user_count: optional number or null`
-
-      Number of distinct users whose use of this connector on the requested day ran on their own individual credential, connected through their own consent flow. Companion bucket to managed_auth_distinct_user_count, which carries the measurement, attribution, and null rules. Users whose requests used no stored credential count in neither bucket.
-
-    - `managed_auth_distinct_user_count: optional number or null`
-
-      Number of distinct users whose use of this connector on the requested day ran on Enterprise Managed Auth (an organization-managed credential provisioned through the organization's identity provider), read from the token record each request used. Null, never 0, when managed-auth reporting is not enabled for the organization, the value cannot be attributed to the row, no credentialed requests and no managed-token mint events (a managed credential being provisioned for a user's use of the connector) were observed that day, or the day predates 2026-07-01, the first day the backing data exists (forward-only data, no backfill). When credentialed requests or mint events were observed and attributed, both managed-auth fields populate, reporting 0 for a bucket with no users; the two counts are independent, not a partition — a user whose requests that day used both kinds of credential counts in both. Mint events carry user but not surface attribution, so they count as observed auth activity on user_id and rbac_group_id cuts — attributed to the user the credential was provisioned for — but never on a cut that references product (group or filter). Date-range rollup mode (starting_date/ending_date) computes both fields exactly over the window — distinct users with at least one qualifying day — when the whole window starts on or after 2026-07-01, with the null-versus-0 and mint-event rules applying with the window in place of the day; a range starting earlier reports every managed-auth field as null, never a partial-window value.
-
-    - `product: optional string or null`
-
-      Product that produced this row's activity: one of chat, claude_code, cowork, or office_agent (the canonical Cost & Usage product naming; an office_agent row's per-surface breakdown is in its office_metrics). On /plugins only cowork and claude_code occur (the only surfaces with plugin attribution); /artifacts and /apps/chat/projects do not support the product dimension (a product `group_by[]` or `filter[]` there is rejected). Present only when the request grouped by product.
-
-    - `rbac_group_id: optional string or null`
-
-      Tagged RBAC group identifier (`rbac_group_...`), matching the spend-limits API spelling. Present only when the request grouped by `rbac_group_id`.
-
-    - `rbac_group_name: optional string or null`
-
-      Resolved RBAC group display name, alongside `rbac_group_id` when name resolution is available. Null if the group has been deleted or its name could not be resolved; `rbac_group_id` remains the stable key.
-
-    - `read_call_count: optional number or null`
-
-      Number of connector tool calls on the requested day whose trusted read-only annotation marked them read-only. Call count, not distinct users. Every call recorded on a classified surface lands in exactly one of read_call_count, write_call_count, or unclassified_call_count, so the three sum to the day's classified calls. Classification is forward-only per surface: claude.ai from 2026-06-01, Claude Code from 2026-05-30, Claude in Office from 2026-05-29, Cowork from 2026-06-02 (Cowork clients predating annotation forwarding land in unclassified_call_count). Null, never 0, when the value cannot be stated: the read/write split is not enabled for this organization, or the day predates 2026-05-29. For a date-range total, sum the per-day values, but treat a window that extends before 2026-05-29 as null rather than summing only its covered days — date-range rollup mode (starting_date/ending_date) applies both rules server-side.
-
-    - `unclassified_call_count: optional number or null`
-
-      Number of connector tool calls on the requested day with no trusted read-only annotation — the annotation is optional in the MCP spec and is discarded when connector access controls are active, so unclassified calls are common. This field shows how much of the day's classified activity the read/write split actually covers. Call count, not distinct users. One of the three call-classification buckets; see read_call_count for the per-surface data-start dates, null conditions, and date-range guidance.
-
-    - `user_id: optional string or null`
-
-      Tagged user identifier (e.g. `user_...`). Present only when the request grouped by `user_id`.
-
-    - `write_call_count: optional number or null`
-
-      Number of connector tool calls on the requested day whose trusted read-only annotation marked them not read-only. Call count, not distinct users. One of the three call-classification buckets; see read_call_count for the per-surface data-start dates, null conditions, and date-range guidance.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null if no more results
-
-# Chat Projects
-
-## Get Chat Project Usage
-
-**get** `/v1/organizations/analytics/apps/chat/projects`
+**GET** `/v1/organizations/analytics/apps/chat/projects`
 
 Get per-project activity for a given day, with cursor-based pagination.
 
@@ -3657,23 +2762,31 @@ group, and filter[] to scope results; the parameter descriptions list the
 supported dimensions. Available to organizations on a Claude Enterprise
 plan. Requires an API key with the `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `date: optional string`
 
   UTC date in YYYY-MM-DD format. The day to get project activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
+  format: date
+
 - `ending_date: optional string`
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with starting_date. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after starting_date.
+
+  format: date
 
 - `filter: optional array of string`
 
   Filters as 'dimension:value', e.g. filter[]=rbac_group_id:<id>. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: project_id, rbac_group_id, user_id. Value forms: project_id takes a tagged project id (claude_proj_...); rbac_group_id takes the tagged id (rbac_group_..., as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); user_id takes a tagged user id (user_...), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
+  maxItems: 100
+
 - `group_by: optional array of "rbac_group_id" or "user_id"`
 
   Dimensions to break results out by (e.g. group_by[]=user_id). Supported on this endpoint: rbac_group_id, user_id. Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via next_page; an unsupported dimension returns 400. rbac_group_id attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
+
+  maxItems: 100
 
   - `"rbac_group_id"`
 
@@ -3682,6 +2795,8 @@ plan. Requires an API key with the `read:analytics` scope.
 - `limit: optional number`
 
   Number of results per page (1-1000, default 100).
+
+  minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
@@ -3703,13 +2818,15 @@ plan. Requires an API key with the `read:analytics` scope.
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either date or starting_date, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
-### Returns
+  format: date
 
-- `ChatProjectUsage object { data, next_page }`
+#### Returns
+
+- `ChatProjectUsage object`
 
   Response for GET /v1/organizations/analytics/apps/chat/projects.
 
-  - `data: array of object { distinct_user_count, message_count, project_id, 8 more }`
+  - `data: array of object`
 
     - `distinct_user_count: number`
 
@@ -3747,7 +2864,7 @@ plan. Requires an API key with the `read:analytics` scope.
 
         Object type. Always `user`.
 
-        - `"user"`
+        default: user
 
     - `distinct_conversation_count: optional number or null`
 
@@ -3773,15 +2890,15 @@ plan. Requires an API key with the `read:analytics` scope.
 
     Opaque cursor for the next page, or null if no more results
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/apps/chat/projects \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3808,83 +2925,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/apps/chat/projects \
 }
 ```
 
-## Domain Types
+## Analytics › Plugins
 
-### Chat Project Usage
+### Get Plugin Usage
 
-- `ChatProjectUsage object { data, next_page }`
-
-  Response for GET /v1/organizations/analytics/apps/chat/projects.
-
-  - `data: array of object { distinct_user_count, message_count, project_id, 8 more }`
-
-    - `distinct_user_count: number`
-
-      Number of distinct users who used the project on the requested day, or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values.
-
-    - `message_count: number`
-
-      Number of messages sent in the project on the requested day
-
-    - `project_id: string`
-
-      Tagged project identifier (e.g. claude_proj_...)
-
-    - `project_name: string`
-
-      Name of the project
-
-    - `created_at: optional string or null`
-
-      Project creation timestamp, RFC 3339. Null if the project was deleted before attribution was recorded.
-
-    - `created_by: optional AnalyticsUser or null`
-
-      User identifier.
-
-      - `id: string`
-
-        Tagged user identifier (e.g. `user_...`)
-
-      - `email_address: string`
-
-        Email address of the user
-
-      - `type: optional "user"`
-
-        Object type. Always `user`.
-
-        - `"user"`
-
-    - `distinct_conversation_count: optional number or null`
-
-      Number of distinct conversations in the project. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `product: optional string or null`
-
-      Product that produced this row's activity: one of chat, claude_code, cowork, or office_agent (the canonical Cost & Usage product naming; an office_agent row's per-surface breakdown is in its office_metrics). On /plugins only cowork and claude_code occur (the only surfaces with plugin attribution); /artifacts and /apps/chat/projects do not support the product dimension (a product `group_by[]` or `filter[]` there is rejected). Present only when the request grouped by product.
-
-    - `rbac_group_id: optional string or null`
-
-      Tagged RBAC group identifier (`rbac_group_...`), matching the spend-limits API spelling. Present only when the request grouped by `rbac_group_id`.
-
-    - `rbac_group_name: optional string or null`
-
-      Resolved RBAC group display name, alongside `rbac_group_id` when name resolution is available. Null if the group has been deleted or its name could not be resolved; `rbac_group_id` remains the stable key.
-
-    - `user_id: optional string or null`
-
-      Tagged user identifier (e.g. `user_...`). Present only when the request grouped by `user_id`.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null if no more results
-
-# Plugins
-
-## Get Plugin Usage
-
-**get** `/v1/organizations/analytics/plugins`
+**GET** `/v1/organizations/analytics/plugins`
 
 Get per-plugin install + invocation usage for a given day, with pagination.
 
@@ -3900,23 +2945,31 @@ supported dimensions. Requires an API key with the
 `read:analytics` scope. `starting_date` / `ending_date` select
 range-rollup mode like /skills.
 
-### Query Parameters
+#### Query parameters
 
 - `date: optional string`
 
   UTC date in YYYY-MM-DD format. The day to get plugin usage for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
+  format: date
+
 - `ending_date: optional string`
 
   UTC date in YYYY-MM-DD format. End of the date range (exclusive); only valid with starting_date. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day), so this can be at most today — which is also the default when omitted, resolved once when the first page is served and reused for the rest of the pagination sequence. At most 366 days after starting_date.
+
+  format: date
 
 - `filter: optional array of string`
 
   Filters as 'dimension:value', e.g. filter[]=rbac_group_id:<id>. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: plugin_name, product, rbac_group_id, user_id. Value forms: plugin_name matches case-insensitively; product is claude_code or cowork (the only surfaces with plugin attribution); rbac_group_id takes the tagged id (rbac_group_..., as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); user_id takes a tagged user id (user_...), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
+  maxItems: 100
+
 - `group_by: optional array of "product" or "rbac_group_id" or "user_id"`
 
   Dimensions to break results out by (e.g. group_by[]=user_id). Supported on this endpoint: product, rbac_group_id, user_id. On this endpoint product takes the values claude_code or cowork only (the surfaces with plugin attribution). Grouped rows carry the requested dimension values as additional fields and paginate like ungrouped responses via next_page; an unsupported dimension returns 400. rbac_group_id attributes a user to every group they held at any point during each covered UTC day, so grouped rows are not an exclusive partition and can sum above org-level totals. At most 100 entries.
+
+  maxItems: 100
 
   - `"product"`
 
@@ -3927,6 +2980,8 @@ range-rollup mode like /skills.
 - `limit: optional number`
 
   Number of results per page (1-1000, default 100).
+
+  minimum: 1, maximum: 1000
 
 - `order: optional "asc" or "desc"`
 
@@ -3948,15 +3003,17 @@ range-rollup mode like /skills.
 
   UTC date in YYYY-MM-DD format. Start of a date range (inclusive). Enables rollup mode: one row per entity aggregated over the whole range — addable counters are summed across days, and a distinct count is never summed where summing could double-count (a field's range value is recomputed exactly over the window, approximate via HLL with typical error under 2%, null, or — for the creation-event counts, whose per-day values cannot overlap — a per-day sum that is itself exact; each field's own description says which). Use either date or starting_date, not both. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
-### Returns
+  format: date
 
-- `PluginUsage object { data, next_page }`
+#### Returns
+
+- `PluginUsage object`
 
   Response for GET /v1/organizations/analytics/plugins.
 
-  - `data: array of object { claude_code_metrics, cowork_metrics, distinct_user_count, 8 more }`
+  - `data: array of object`
 
-    - `claude_code_metrics: object { distinct_session_plugin_used_count }`
+    - `claude_code_metrics: object`
 
       Claude Code activity metrics for a single plugin on a given day.
 
@@ -3964,7 +3021,7 @@ range-rollup mode like /skills.
 
         Number of distinct Claude Code sessions in which the plugin was invoked. Null on aggregated rows where a distinct count cannot be computed.
 
-    - `cowork_metrics: object { distinct_session_plugin_used_count }`
+    - `cowork_metrics: object`
 
       Cowork activity metrics for a single plugin on a given day.
 
@@ -4012,15 +3069,15 @@ range-rollup mode like /skills.
 
     Opaque cursor for the next page, or null if no more results
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/plugins \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -4047,77 +3104,11 @@ curl https://api.anthropic.com/v1/organizations/analytics/plugins \
 }
 ```
 
-## Domain Types
+## Analytics › Artifacts
 
-### Plugin Usage
+### Get Artifact Activity
 
-- `PluginUsage object { data, next_page }`
-
-  Response for GET /v1/organizations/analytics/plugins.
-
-  - `data: array of object { claude_code_metrics, cowork_metrics, distinct_user_count, 8 more }`
-
-    - `claude_code_metrics: object { distinct_session_plugin_used_count }`
-
-      Claude Code activity metrics for a single plugin on a given day.
-
-      - `distinct_session_plugin_used_count: number or null`
-
-        Number of distinct Claude Code sessions in which the plugin was invoked. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `cowork_metrics: object { distinct_session_plugin_used_count }`
-
-      Cowork activity metrics for a single plugin on a given day.
-
-      - `distinct_session_plugin_used_count: number or null`
-
-        Number of distinct Cowork sessions in which the plugin was invoked. Null on aggregated rows where a distinct count cannot be computed.
-
-    - `distinct_user_count: number`
-
-      Number of distinct users with recorded install or invocation activity for the plugin on the requested day (install-only users count), or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values.
-
-    - `install_count: number or null`
-
-      Number of distinct users who installed the plugin on the requested day, or, in date-range mode, over the requested window — recomputed as an exact distinct count over the window's per-member daily rows, never a sum of per-day values.
-
-    - `invocation_count: number`
-
-      Number of plugin invocations on the requested day
-
-    - `plugin_name: string`
-
-      Name of the plugin
-
-    - `plugin_id: optional string or null`
-
-      Stable plugin identifier when available (e.g. serena@claude-plugins-official). Null for third-party Claude Code plugins (redacted at the source) and Cowork slash commands that carry only a hashed id.
-
-    - `product: optional string or null`
-
-      Product that produced this row's activity: one of chat, claude_code, cowork, or office_agent (the canonical Cost & Usage product naming; an office_agent row's per-surface breakdown is in its office_metrics). On /plugins only cowork and claude_code occur (the only surfaces with plugin attribution); /artifacts and /apps/chat/projects do not support the product dimension (a product `group_by[]` or `filter[]` there is rejected). Present only when the request grouped by product.
-
-    - `rbac_group_id: optional string or null`
-
-      Tagged RBAC group identifier (`rbac_group_...`), matching the spend-limits API spelling. Present only when the request grouped by `rbac_group_id`.
-
-    - `rbac_group_name: optional string or null`
-
-      Resolved RBAC group display name, alongside `rbac_group_id` when name resolution is available. Null if the group has been deleted or its name could not be resolved; `rbac_group_id` remains the stable key.
-
-    - `user_id: optional string or null`
-
-      Tagged user identifier (e.g. `user_...`). Present only when the request grouped by `user_id`.
-
-  - `next_page: string or null`
-
-    Opaque cursor for the next page, or null if no more results
-
-# Artifacts
-
-## Get Artifact Activity
-
-**get** `/v1/organizations/analytics/artifacts`
+**GET** `/v1/organizations/analytics/artifacts`
 
 Get artifact-creation activity for a given day, broken out by MIME type.
 
@@ -4126,19 +3117,25 @@ Returns the full (artifact_type, is_shared) cube for the organization;
 can be broken out per member or per RBAC group via group_by[], and scoped
 via filter[]. Requires an API key with the `read:analytics` scope.
 
-### Query Parameters
+#### Query parameters
 
 - `date: string`
 
   UTC date in YYYY-MM-DD format. The day to get artifact activity for. Data is typically available with a 1-day lag (varies by query; the error for a too-recent date names the latest available day) and may be revised by a few percent over the following days. No earlier than 2026-01-01.
 
+  format: date
+
 - `filter: optional array of string`
 
   Filters as 'dimension:value', e.g. filter[]=rbac_group_id:<id>. Repeat the param for OR within a dimension and across dimensions for AND. Supported dimensions on this endpoint: artifact_type, is_shared, rbac_group_id, user_id. Value forms: artifact_type is a canonical artifact MIME type (e.g. text/markdown) or 'other'; is_shared is 'true' or 'false'; rbac_group_id takes the tagged id (rbac_group_..., as emitted in responses and by the spend-limits API) or a bare group UUID, and matches users who held the group at any point during each covered UTC day (time-of-usage attribution); user_id takes a tagged user id (user_...), as emitted in responses. An unsupported dimension returns 400. At most 100 entries.
 
+  maxItems: 100
+
 - `group_by: optional array of "rbac_group_id" or "user_id"`
 
   Dimensions to break results out by: user_id and/or rbac_group_id. The ungrouped artifact-type cube is finite and returned in full; grouped queries multiply the cube and paginate via next_page. rbac_group_id attributes a user to every group they held at any point during the requested UTC day, so grouped rows are not an exclusive partition. At most 100 entries.
+
+  maxItems: 100
 
   - `"rbac_group_id"`
 
@@ -4148,13 +3145,15 @@ via filter[]. Requires an API key with the `read:analytics` scope.
 
   Maximum rows to return (1-1000, default 100). The ungrouped artifact-type cube is finite and returned in full; limit is the page size only when group_by[] multiplies the cube.
 
+  minimum: 1, maximum: 1000
+
 - `page: optional string`
 
   Opaque cursor from a previous response's next_page field. Only valid with group_by[] — the ungrouped cube is never paginated.
 
-### Returns
+#### Returns
 
-- `ArtifactUsage object { data, next_page }`
+- `ArtifactUsage object`
 
   Response for GET /v1/organizations/analytics/artifacts.
 
@@ -4163,7 +3162,7 @@ via filter[]. Requires an API key with the `read:analytics` scope.
   `rbac_group_id`) multiply the cube and paginate like the other analytics
   list endpoints.
 
-  - `data: array of object { artifact_type, artifacts_created_count, distinct_user_count, 6 more }`
+  - `data: array of object`
 
     - `artifact_type: string`
 
@@ -4205,15 +3204,15 @@ via filter[]. Requires an API key with the `read:analytics` scope.
 
     Cursor for the next page of a grouped query; always null for the ungrouped artifact-type cube, which is returned in full.
 
-### Example
+#### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/analytics/artifacts \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -4233,58 +3232,3 @@ curl https://api.anthropic.com/v1/organizations/analytics/artifacts \
   "next_page": "next_page"
 }
 ```
-
-## Domain Types
-
-### Artifact Usage
-
-- `ArtifactUsage object { data, next_page }`
-
-  Response for GET /v1/organizations/analytics/artifacts.
-
-  `next_page` is null on ungrouped queries — the artifact-type cube is
-  finite and returned in full. Grouped queries (`group_by[]` on `user_id` /
-  `rbac_group_id`) multiply the cube and paginate like the other analytics
-  list endpoints.
-
-  - `data: array of object { artifact_type, artifacts_created_count, distinct_user_count, 6 more }`
-
-    - `artifact_type: string`
-
-      Canonical artifact MIME type (e.g. text/markdown, application/vnd.ant.react, image/svg+xml), or 'other'.
-
-    - `artifacts_created_count: number`
-
-      Number of artifacts created in this bucket on the requested day
-
-    - `distinct_user_count: number`
-
-      Number of distinct users who created artifacts in this bucket on the requested day
-
-    - `is_shared: boolean`
-
-      Whether the artifacts in this bucket have ever been shared.
-
-    - `published_artifacts_created_count: number`
-
-      Number of those artifacts that have been published
-
-    - `product: optional string or null`
-
-      Product that produced this row's activity: one of chat, claude_code, cowork, or office_agent (the canonical Cost & Usage product naming; an office_agent row's per-surface breakdown is in its office_metrics). On /plugins only cowork and claude_code occur (the only surfaces with plugin attribution); /artifacts and /apps/chat/projects do not support the product dimension (a product `group_by[]` or `filter[]` there is rejected). Present only when the request grouped by product.
-
-    - `rbac_group_id: optional string or null`
-
-      Tagged RBAC group identifier (`rbac_group_...`), matching the spend-limits API spelling. Present only when the request grouped by `rbac_group_id`.
-
-    - `rbac_group_name: optional string or null`
-
-      Resolved RBAC group display name, alongside `rbac_group_id` when name resolution is available. Null if the group has been deleted or its name could not be resolved; `rbac_group_id` remains the stable key.
-
-    - `user_id: optional string or null`
-
-      Tagged user identifier (e.g. `user_...`). Present only when the request grouped by `user_id`.
-
-  - `next_page: optional string or null`
-
-    Cursor for the next page of a grouped query; always null for the ungrouped artifact-type cube, which is returned in full.

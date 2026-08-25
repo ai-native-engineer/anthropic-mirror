@@ -689,7 +689,7 @@ For regulated environments that need to control what users can connect Claude De
 | [`coworkEgressAllowedHosts`](#coworkegressallowedhosts) | `["*.example.corp"]` |
 | [`otlpEndpoint`](#otlpendpoint) | `<your-collector>` |
 
-For air-gapped or maximally restricted environments. **The only traffic leaving the device goes to your inference endpoint and OTLP collector.** With this profile, Anthropic has zero remote visibility, so your team owns log collection and update distribution.
+For air-gapped or maximally restricted environments. **The only traffic leaving the device goes to your inference endpoint and OTLP collector.** With this profile, Anthropic receives no telemetry or logs from the app and does not deliver updates, so your team owns log collection and update distribution. On Microsoft Foundry, the Claude models behind your inference endpoint run in an Anthropic-operated service, so conversation content still reaches Anthropic-operated infrastructure under this profile, as described under [Data handling by provider](https://claude.com/docs/third-party/claude-desktop/overview#data-handling-by-provider).
 
 | Key | Value |
 | --- | --- |

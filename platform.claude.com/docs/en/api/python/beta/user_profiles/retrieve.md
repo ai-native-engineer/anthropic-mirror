@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/user_profiles/retrieve -->
 
----
-title: Get User Profile
-url: https://platform.claude.com/docs/en/api/python/beta/user_profiles/retrieve
----
+# Get User Profile
 
-## Get User Profile
+`beta.user_profiles.retrieve(user_profile_id, **kwargs)  -> BetaUserProfile`
 
-`beta.user_profiles.retrieve(struser_profile_id, UserProfileRetrieveParams**kwargs)  -> BetaUserProfile`
-
-**get** `/v1/user_profiles/{user_profile_id}`
+**GET** `/v1/user_profiles/{user_profile_id}`
 
 Get User Profile
 
-### Parameters
+## Parameters
 
 - `user_profile_id: str`
 
@@ -93,7 +88,7 @@ Get User Profile
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaUserProfile: …`
 
@@ -104,6 +99,8 @@ Get User Profile
   - `created_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `metadata: Dict[str, str]`
 
@@ -127,11 +124,11 @@ Get User Profile
 
     Object type. Always `user_profile`.
 
-    - `"user_profile"`
-
   - `updated_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: Optional[Literal["application", "passthrough"]]`
 
@@ -159,7 +156,7 @@ Get User Profile
 
     - `"internal"`
 
-### Example
+## Example
 
 ```python
 import os
@@ -176,7 +173,7 @@ beta_user_profile = client.beta.user_profiles.retrieve(
 print(beta_user_profile.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

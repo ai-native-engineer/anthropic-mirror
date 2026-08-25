@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-using-citations -->
 
-#  Citations
+#  Citations
 
 The Claude API features citation support that enables Claude to provide detailed citations when answering questions about documents. Citations are a valuable affordance in many LLM powered applications to help users track and verify the sources of information in responses.
 
@@ -17,15 +17,11 @@ The citations feature is an alternative to prompt-based citation techniques. Usi
 
 The documentation for citations can be found [here(opens in new tab)](https://docs.claude.com/en/docs/build-with-claude/citations).
 
-##  Setup
+##  Setup
 
 First, let's install the required libraries and initalize our Anthropic client.
 
-
-
 !pip install anthropic --quiet
-
-
 
 import json
 
@@ -39,7 +35,7 @@ ANTHROPIC\_API\_KEY = os.environ.get("ANTHROPIC\_API\_KEY")
 
 client = anthropic.Anthropic(api\_key=ANTHROPIC\_API\_KEY)
 
-##  Document Types
+##  Document Types
 
 Citations support three different document types. The type of citation outputted depends on the type of document being cited from:
 
@@ -49,15 +45,13 @@ Citations support three different document types. The type of citation outputted
 
 We will explore working with each of these in the examples below.
 
-###  Plain Text Documents
+###  Plain Text Documents
 
 With plain text document citations you provide your document as raw text to the model. You can provide one or multiple documents. This text will get automatically chunked into sentences. The model will cite these sentences as appropriate. The model is able to cite multiple sentences together at once in a single citation but will not cite text smaller than a sentence.
 
 Along with the outputted text the API response will include structured data for all citations.
 
 Let's see a complete example using a help center customer chatbot for a made up company PetWorld.
-
-
 
 # Read all help center articles and create a list of documents
 
@@ -177,8 +171,6 @@ return json.dumps(raw\_response, indent=2)
 
 print(visualize\_raw\_response(response))
 
-
-
 ```
 ================================================================================
 Raw response:
@@ -213,7 +205,7 @@ Raw response:
 }
 ```
 
-####  Visualizing Citations
+####  Visualizing Citations
 
 By leveraging the citation data, we can create UIs that:
 
@@ -228,8 +220,6 @@ The function takes Claude's response object and outputs:
 
 * Text with numbered citation markers (e.g., "The answer [1] includes this fact [2]")
 * A numbered reference list showing each cited text and its source document
-
-
 
 def visualize\_citations(response):
 
@@ -333,8 +323,6 @@ formatted\_response = visualize\_citations(response)
 
 print(formatted\_response)
 
-
-
 ```
 ================================================================================
 Formatted response:
@@ -347,7 +335,7 @@ Since you just checked out, your order likely hasn't shipped yet. Once it ships,
 [2] "If you haven't received a tracking number within 48 hours of your order confirmation, please contact our customer support team." found in "Order Tracking Information"
 ```
 
-###  PDF Documents
+###  PDF Documents
 
 When working with PDFs, Claude can provide citations that reference specific page numbers, making it easy to track information sources. Here's how PDF citations work:
 
@@ -358,8 +346,6 @@ When working with PDFs, Claude can provide citations that reference specific pag
 * While images are processed, only text content can be cited at this time
 
 Below is an example using the Constitutional AI paper to demonstrate PDF citations:
-
-
 
 import base64
 
@@ -414,8 +400,6 @@ messages=[
 print(visualize\_raw\_response(pdf\_response))
 
 print(visualize\_citations(pdf\_response))
-
-
 
 ```
 ================================================================================
@@ -545,7 +529,7 @@ The ultimate goal is not to completely remove human supervision, but rather to m
 [5] "By removing human feedback labels for harmlessness, we have moved further away from reliance on human supervision, and closer to the possibility of a self-supervised approach to alignment. However, in this work we still relied on human supervision in the form of helpfulness labels. We expect it is possible to achieve helpfulness and instruction-following without human feedback, starting from only a pretrained LM and extensive prompting, but we leave this for future work. Our ultimate goal is not to remove human supervision entirely, but to make it more efficient, transparent, and targeted." found in "Constitutional AI Paper"
 ```
 
-###  Custom Content Documents
+###  Custom Content Documents
 
 While plain text documents are automatically chunked into sentences, custom content documents give you complete control over citation granularity. This API shape allows you to:
 
@@ -554,8 +538,6 @@ While plain text documents are automatically chunked into sentences, custom cont
 * Optimize for documents that don't work well with sentence chunking
 
 In the example below, we use the same help center articles as the plain text example above, but instead of allowing sentence-level citations, we'll treat each article as a single chunk. This demonstrates how the choice of document type affects citation behavior and granularity. You will notice that the `cited_text` is the entire article in contrast to a sentence from the source article.
-
-
 
 # Read all help center articles and create a list of custom content documents
 
@@ -625,8 +607,6 @@ print(visualize\_raw\_response(custom\_content\_response))
 
 print(visualize\_citations(custom\_content\_response))
 
-
-
 ```
 ================================================================================
 Raw response:
@@ -655,7 +635,7 @@ You should receive an email with your tracking number once your order ships. If 
 [1] "Once your order ships, you'll receive an email with a tracking number. To track your package, log in to your PetWorld account and go to "Order History." Click on the order you want to track and select "Track Package." This will show you the current status and estimated delivery date. You can also enter the tracking number directly on our shipping partner's website for more detailed information. If you haven't received a tracking number within 48 hours of your order confirmation, please contact our customer support team." found in "Order Tracking Information"
 ```
 
-###  Using the Context Field
+###  Using the Context Field
 
 The `context` field allows you to provide additional information about a document that Claude can use when generating responses, but that won't be cited. This is useful for:
 
@@ -664,8 +644,6 @@ The `context` field allows you to provide additional information about a documen
 * Including usage instructions or context that shouldn't be directly cited
 
 In the example below, we provide a loyalty program article with a warning in the context field. Notice how Claude can use the information in the context to inform its response but the context field content is not available for citation.
-
-
 
 import json
 
@@ -710,8 +688,6 @@ messages=[{"role": "user", "content": [document, {"type": "text", "text": QUESTI
 print(visualize\_raw\_response(context\_response))
 
 print(visualize\_citations(context\_response))
-
-
 
 ```
 ================================================================================
@@ -789,11 +765,9 @@ Please note that since this information is from an article that hasn't been upda
 [3] "You can check your point balance in your account dashboard or by asking customer service." found in "Loyalty Program Details"
 ```
 
-###  PDF Highlighting
+###  PDF Highlighting
 
 One limitation with PDF citations is only the page numbers are returned. You can use third party libraries to match the returned cited text with page contents to draw attention to the cited content. This cell demonstrates PDF citation highlighting using Claude and PyMuPDF, creating a new annotated PDF:
-
-
 
 import fitz # PyMuPDF
 
@@ -914,8 +888,6 @@ doc.save(output\_pdf\_path)
 doc.close()
 
 print(f"\nCreated highlighted PDF at: {output\_pdf\_path}")
-
-
 
 ```
 ================================================================================

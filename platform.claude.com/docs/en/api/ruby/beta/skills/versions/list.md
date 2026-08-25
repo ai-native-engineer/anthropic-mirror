@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/skills/versions/list -->
 
----
-title: List Skill Versions
-url: https://platform.claude.com/docs/en/api/ruby/beta/skills/versions/list
----
-
-## List Skill Versions
+# List Skill Versions
 
 `beta.skills.versions.list(skill_id, **kwargs) -> PageCursor<VersionListResponse>`
 
-**get** `/v1/skills/{skill_id}/versions`
+**GET** `/v1/skills/{skill_id}/versions`
 
 List Skill Versions
 
-### Parameters
+## Parameters
 
 - `skill_id: String`
 
@@ -107,7 +102,7 @@ List Skill Versions
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class VersionListResponse`
 
@@ -155,7 +150,7 @@ List Skill Versions
 
     Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -167,7 +162,7 @@ page = anthropic.beta.skills.versions.list("skill_id")
 puts(page)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

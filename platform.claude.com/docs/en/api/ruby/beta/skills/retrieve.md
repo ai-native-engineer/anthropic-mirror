@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/skills/retrieve -->
 
----
-title: Get Skill
-url: https://platform.claude.com/docs/en/api/ruby/beta/skills/retrieve
----
-
-## Get Skill
+# Get Skill
 
 `beta.skills.retrieve(skill_id, **kwargs) -> SkillRetrieveResponse`
 
-**get** `/v1/skills/{skill_id}`
+**GET** `/v1/skills/{skill_id}`
 
 Get Skill
 
-### Parameters
+## Parameters
 
 - `skill_id: String`
 
@@ -97,7 +92,7 @@ Get Skill
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class SkillRetrieveResponse`
 
@@ -142,7 +137,7 @@ Get Skill
 
     ISO 8601 timestamp of when the skill was last updated.
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -154,7 +149,7 @@ skill = anthropic.beta.skills.retrieve("skill_id")
 puts(skill)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

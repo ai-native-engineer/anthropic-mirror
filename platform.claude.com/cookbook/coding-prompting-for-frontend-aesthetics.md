@@ -1,10 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/coding-prompting-for-frontend-aesthetics -->
 
-#  Frontend Aesthetics: A Prompting Guide
+#  Frontend Aesthetics: A Prompting Guide
 
 Claude can generate high-quality frontends, but without guidance it tends toward generic, conservative designs. This guide shows you how to prompt Claude to produce more distinctive, polished output.
 
-##  Prompting for Better Outputs
+##  Prompting for Better Outputs
 
 Claude has strong knowledge of design principles, typography, and color theory, but defaults to safe choices unless explicitly encouraged otherwise. Through experimentation, we've found three strategies that consistently produce better results:
 
@@ -14,11 +14,9 @@ Claude has strong knowledge of design principles, typography, and color theory, 
 
 The prompt below applies these strategies across four key design areas.
 
-##  The Prompt
+##  The Prompt
 
 To implement these changes, you can append this prompt section to your system prompt or CLAUDE.md file.
-
-
 
 DISTILLED\_AESTHETICS\_PROMPT = """
 
@@ -50,13 +48,13 @@ Interpret creatively and make unexpected choices that feel genuinely designed fo
 
 """
 
-##  Results
+##  Results
 
 Here are the results of UI generations both with and without the prompt section above.
 
 Without guidance, Claude often defaults to simplistic designs with white and purple backgrounds. With the aesthetics prompt, it produces more varied and visually interesting designs.
 
-###  Example 1: SaaS Landing Page
+###  Example 1: SaaS Landing Page
 
 **Prompt:** `"Create a SaaS landing page for a project management tool"`
 
@@ -64,7 +62,7 @@ Without guidance, Claude often defaults to simplistic designs with white and pur
 | --- | --- |
 | **Without Aesthetics Prompt**  Baseline output without aesthetics guidance | **With Aesthetics Prompt**  Enhanced output with distilled aesthetics prompt |
 
-###  Example 2: Blog Post
+###  Example 2: Blog Post
 
 **Prompt:** `"Build a blog post layout with author bio, reading time, and related articles"`
 
@@ -72,7 +70,7 @@ Without guidance, Claude often defaults to simplistic designs with white and pur
 | --- | --- |
 | **Without Aesthetics Prompt**  Baseline portfolio without aesthetics guidance | **With Aesthetics Prompt**  Enhanced portfolio with distilled aesthetics prompt |
 
-###  Example 3: Admin Table
+###  Example 3: Admin Table
 
 **Prompt:** `"Create an admin panel with a data table showing users, their roles, and action buttons"`
 
@@ -80,11 +78,9 @@ Without guidance, Claude often defaults to simplistic designs with white and pur
 | --- | --- |
 | **Without Aesthetics Prompt**  Baseline dashboard without aesthetics guidance | **With Aesthetics Prompt**  Enhanced dashboard with distilled aesthetics prompt |
 
-##  Try It Yourself
+##  Try It Yourself
 
 First, set up the helper functions:
-
-
 
 import html
 
@@ -230,8 +226,6 @@ return filepath
 
 Generate with the aesthetics prompt:
 
-
-
 BASE\_SYSTEM\_PROMPT = """
 
 You are an expert frontend engineer skilled at crafting beautiful, performant frontend applications.
@@ -272,8 +266,6 @@ USER\_PROMPT = "Create a SaaS landing page for a project management tool"
 
 generate\_html\_with\_claude(BASE\_SYSTEM\_PROMPT + "\n\n" + DISTILLED\_AESTHETICS\_PROMPT, USER\_PROMPT)
 
-
-
 ```
 🚀 Generating HTML...
 
@@ -287,15 +279,13 @@ generate\_html\_with\_claude(BASE\_SYSTEM\_PROMPT + "\n\n" + DISTILLED\_AESTHETI
 'html_outputs/20251021_101010.html'
 ```
 
-##  Isolated Prompting
+##  Isolated Prompting
 
 The full aesthetics prompt works well for general use, but sometimes you want targeted control. You can isolate specific dimensions (typography, color, motion) or lock in a particular theme. This gives you faster generation times and more predictable outputs.
 
-###  Example 1: Typography Only
+###  Example 1: Typography Only
 
 Isolate a single design dimension when you want to improve one aspect without changing others:
-
-
 
 TYPOGRAPHY\_PROMPT = """
 
@@ -331,11 +321,9 @@ Pick one distinctive font, use it decisively. Load from Google Fonts. State your
 
 generate\_html\_with\_claude(BASE\_SYSTEM\_PROMPT + "\n\n" + TYPOGRAPHY\_PROMPT, USER\_PROMPT)
 
-###  Example 2: Theme Constraint
+###  Example 2: Theme Constraint
 
 Lock in a specific aesthetic when you want consistent theming across generations:
-
-
 
 SOLARPUNK\_THEME\_PROMPT = """
 
@@ -367,6 +355,6 @@ BASE\_SYSTEM\_PROMPT + "\n\n" + SOLARPUNK\_THEME\_PROMPT,
 
 )
 
-##  Summary
+##  Summary
 
 Claude has strong design capabilities but defaults to safe, generic choices. The techniques in this guide - targeting specific design dimensions, referencing concrete inspirations, and explicitly avoiding common defaults - reliably produce more distinctive output. The full aesthetics prompt works well as a baseline. For more control, use isolated prompts to focus on individual aspects or lock in specific themes across multiple generations.

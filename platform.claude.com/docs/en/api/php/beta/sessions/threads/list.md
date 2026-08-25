@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/threads/list -->
 
----
-title: List Session Threads
-url: https://platform.claude.com/docs/en/api/php/beta/sessions/threads/list
----
-
-## List Session Threads
+# List Session Threads
 
 `$client->beta->sessions->threads->list(string sessionID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsSessionThread>`
 
-**get** `/v1/sessions/{session_id}/threads`
+**GET** `/v1/sessions/{session_id}/threads`
 
 List Session Threads
 
-### Parameters
+## Parameters
 
 - `sessionID: string`
 
@@ -29,7 +24,7 @@ List Session Threads
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `ManagedAgentsSessionThread`
 
@@ -75,7 +70,7 @@ List Session Threads
 
     Cumulative token usage for a session thread across all turns.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -94,7 +89,7 @@ $page = $client->beta->sessions->threads->list(
 var_dump($page);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

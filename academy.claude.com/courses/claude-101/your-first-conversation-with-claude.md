@@ -47,6 +47,8 @@ Now just wait as Claude delivers to you a well-crafted response that effectively
 
 Working with Claude, you have a great partner and a powerful intelligent collaborator that amplifies your capabilities across everything you work on. Claude brings AI intelligence to your work. You bring the context and expertise that makes the work meaningful.
 
+*This video was published in December 2025. The "Use style" menu it shows has since been deprecated.*
+
 ## Key takeaways
 
 * Claude is a powerful, intelligent collaborator that amplifies your capabilities across all of your work. Claude brings AI intelligence, but you bring the context and expertise that makes the work meaningful.
@@ -146,7 +148,7 @@ There are two features that help Claude work better for you over time to increas
 
 **Memory** automatically saves key context from your conversations — your role, preferences, past decisions, and working style — so you don't have to repeat yourself every time you start a new chat. For example, if you tell Claude you work in marketing at a B2B company, it'll remember that context going forward. You can review, edit, or delete anything Claude remembers anytime in Settings, and memory syncs across all your devices.
 
-**Styles** let you customize how Claude communicates. Choose from preset options — like concise, formal, or explanatory — or create your own custom style by describing exactly how you want Claude to write. Once set, your style applies across all conversations automatically.
+**Skills** are reusable sets of instructions that teach Claude how to approach specific tasks and workflows. They can encode your preferences for everything from how you write and the output formats you want to the specific processes you follow, the expertise you want applied, or how you like different types of work handled. Claude applies them automatically whenever they're relevant. Lesson 7, Working with skills, shows you how to enable and create them; for a quick overview, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills).
 
 ## Put it into practice
 

@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/skills/versions/create -->
 
----
-title: Create Skill Version
-url: https://platform.claude.com/docs/en/api/python/beta/skills/versions/create
----
+# Create Skill Version
 
-## Create Skill Version
+`beta.skills.versions.create(skill_id, **kwargs)  -> VersionCreateResponse`
 
-`beta.skills.versions.create(strskill_id, VersionCreateParams**kwargs)  -> VersionCreateResponse`
-
-**post** `/v1/skills/{skill_id}/versions`
+**POST** `/v1/skills/{skill_id}/versions`
 
 Create Skill Version
 
-### Parameters
+## Parameters
 
 - `skill_id: str`
 
@@ -103,7 +98,7 @@ Create Skill Version
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class VersionCreateResponse: …`
 
@@ -145,13 +140,15 @@ Create Skill Version
 
     For Skill Versions, this is always `"skill_version"`.
 
+    default: skill_version
+
   - `version: str`
 
     Version identifier for the skill.
 
     Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+## Example
 
 ```python
 import os
@@ -169,7 +166,7 @@ version = client.beta.skills.versions.create(
 print(version.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-watch-subagents-live -->
 
-#  Multiagent: watch a curriculum team work in real time
+#  Multiagent: watch a curriculum team work in real time
 
 A coordinator that delegates to subagents has an observability gap. The session-level stream previews the primary thread's text as the model generates it, but a subagent's output only becomes visible after its whole turn is buffered. If the researcher runs for two minutes, you watch nothing for two minutes.
 
@@ -13,17 +13,13 @@ This notebook closes that gap, using four Managed Agents API features together:
 
 The team you'll build plans a one-week 7th-grade science unit: a coordinator delegates to a standards researcher (web search, high effort) and a lesson writer (no web access), then assembles the unit plan. If the `multiagent` coordinator pattern is new to you, start with [`CMA_coordinate_specialist_team.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_coordinate_specialist_team.ipynb). This notebook builds on those shapes.
 
-##  1. Set up the client
+##  1. Set up the client
 
 These features ride the standard `managed-agents-2026-04-01` beta header. The SDK calls in this notebook (`initial_events` on `sessions.create`, `event_deltas` on thread streams, `model.effort`) need `anthropic>=0.118.0`.
-
-
 
 %%capture
 
 %pip install -qU "anthropic>=0.118.0" python-dotenv
-
-
 
 import os
 
@@ -39,7 +35,7 @@ MODEL = os.environ.get("COOKBOOK\_MODEL", "claude-sonnet-5")
 
 client = anthropic.Anthropic()
 
-##  2. Create the two specialists
+##  2. Create the two specialists
 
 The researcher gets web search and a `high` effort level, because standards alignment is judgment-heavy work: it has to weigh which performance expectations actually fit the unit rather than list everything it finds. `effort` goes inside the `model` object and accepts `low`, `medium`, `high`, `xhigh`, or `max` (as a bare string or `{"type": "high"}`). Not every model accepts every level, and an invalid combination is rejected at create time.
 
@@ -48,8 +44,6 @@ Effort is also the team's main cost lever: higher levels let Claude spend more t
 Set effort on the agent, not per session: an `effort` level inside a per-session `model` override isn't applied.
 
 The web tools' configuration also accepts allowed- and blocked-domain lists, so a production deployment can fence this researcher to the standards sites it should trust. See [Configuring the toolset(opens in new tab)](https://platform.claude.com/docs/en/managed-agents/tools#configuring-the-toolset) for the config shape.
-
-
 
 RESEARCHER\_SYSTEM = """You research US middle school science standards.
 
@@ -94,8 +88,6 @@ betas=BETAS,
 )
 
 The lesson writer works only from what the coordinator hands it. Disabling the web tools keeps its lessons grounded in the researcher's vetted findings instead of whatever a fresh search returns.
-
-
 
 WRITER\_SYSTEM = """You write middle school lesson plans.
 
@@ -149,19 +141,15 @@ betas=BETAS,
 
 The create response echoes the resolved model configuration, including fields you omitted. The researcher shows the `high` you set, and the writer shows the model's default effort. If `effort` comes back `None`, your organization's beta header doesn't carry the feature yet: the field is dropped, not rejected, so this echo is the place to catch it.
 
-
-
 for agent in (standards\_researcher, lesson\_writer):
 
 effort = getattr(agent.model, "effort", None)
 
 print(f"{agent.name}: {agent.id} v{agent.version} effort={effort and effort.type}")
 
-##  3. Create the coordinator
+##  3. Create the coordinator
 
 The coordinator carries the `multiagent` roster. The spawn and delegation tools are injected from the roster automatically, and the roster pins each child to the version that's current right now. That pinning matters later, when you update the researcher.
-
-
 
 COORDINATOR\_SYSTEM = """You plan one-week teaching units.
 
@@ -209,13 +197,11 @@ betas=BETAS,
 
 print(f"{coordinator.name}: {coordinator.id} v{coordinator.version}")
 
-##  4. Start the session with its first message inline
+##  4. Start the session with its first message inline
 
 Without `initial_events`, starting a session takes two calls: create it, then post a `user.message`. Seeding the first message at create time collapses that into one. The array accepts up to 50 `user.message` and `user.define_outcome` events, processed in order, and validation is all-or-nothing: if any event fails, no session is created. A non-empty list starts the agent loop in the same call, so the session comes back already moving toward `running`.
 
 If you want the unit plan graded against a rubric, add a single `user.define_outcome` event here (it must include a `rubric`, and only one is allowed per create). [`CMA_verify_with_outcome_grader.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_verify_with_outcome_grader.ipynb) covers that loop.
-
-
 
 import time
 
@@ -297,7 +283,7 @@ raise RuntimeError(
 
 )
 
-##  5. Watch the whole team live
+##  5. Watch the whole team live
 
 Previews are thread-scoped by design. A connection previews only the thread it reads: the session-level stream previews the primary thread, and a child's previews appear only on that child's own stream at `GET /v1/sessions/{session_id}/threads/{thread_id}/stream`. So the pattern is one stream per thread: read the session-level stream for the coordinator, and every time a `session.thread_created` event announces a child (it carries `session_thread_id` and `agent_name`), attach a watcher to that thread's stream in a background thread.
 
@@ -307,8 +293,6 @@ Two rules shape the code:
 * **No replay.** A connection opened after a model request started receives no deltas for that in-flight request, and a reconnect never replays missed deltas. Attaching the watcher as soon as `session.thread_created` arrives catches the child's work from its first response onward.
 
 Each watcher exits on `session.thread_status_idle`, the event emitted when the child's turn finishes.
-
-
 
 import threading
 
@@ -410,8 +394,6 @@ The main loop feeds the same `fold_preview` for the coordinator's text, plus the
 
 The loop ends on any `session.status_idle`, printing the stop reason when it isn't `end_turn`: a session waiting on a tool confirmation or out of retries should end the cell, not hang it. Both loops also break on the terminated status events, so an unrecoverable session error ends the cell instead of leaving the stream open.
 
-
-
 watchers = []
 
 snapshot = None
@@ -486,11 +468,9 @@ If a stream connects but only ever delivers buffered events, the `event_deltas` 
 
 The streaming contract in full (delta shapes, the reconciliation guarantees, and the troubleshooting table) is in [events and streaming(opens in new tab)](https://platform.claude.com/docs/en/managed-agents/events-and-streaming#event-deltas).
 
-##  6. Check the preview against the record
+##  6. Check the preview against the record
 
 Concatenating a preview's deltas gives a prefix of the buffered event's text: a prefix, not necessarily the whole text, because deltas may be shed under load. That guarantee is what makes reconciliation a single replace. Each row below is one buffered `agent.message`, compared against the preview the accumulator had built when the record arrived.
-
-
 
 for agent\_name, preview\_chars, final\_chars, is\_prefix in reconciliations:
 
@@ -502,11 +482,9 @@ f"final {final\_chars:5d} chars | preview is prefix: {is\_prefix}"
 
 )
 
-##  7. Read the unit plan
+##  7. Read the unit plan
 
 The coordinator's prompt says to write the plan with whole-file `write` calls, so the full document is in the event log and the last `write` to the file is the final version. If your own agent patches files with `edit`, read the file itself instead of replaying writes.
-
-
 
 unit\_plan = ""
 
@@ -532,13 +510,11 @@ if line.startswith("#"):
 
 print(line)
 
-##  8. Ship a prompt change without the version round trip
+##  8. Ship a prompt change without the version round trip
 
 Suppose review feedback says every alignment claim needs the standard's code next to it. `agents.update` treats the agent's current `version` as an optional concurrency key: omit it and the update applies unconditionally, with the server incrementing the version for you. A provisioning script doesn't have to read the agent just to write it back.
 
 Supply `version` when concurrent writers are possible (a mismatch returns a 409, so you always update from a known state). Omit it when a single flow owns the agent, like a CI job that syncs checked-in agent definitions.
-
-
 
 updated = client.beta.agents.update(
 
@@ -558,9 +534,7 @@ print(f"standards\_researcher v{standards\_researcher.version} -> v{updated.vers
 
 One caveat for multiagent setups: the coordinator's roster pinned the researcher's version at coordinator create time, so existing coordinators keep delegating to the old version. Update the coordinator (its `multiagent` field, or any field) to re-resolve the roster against the latest child versions.
 
-##  9. Clean up
-
-
+##  9. Clean up
 
 from utilities import wait\_for\_idle\_status
 

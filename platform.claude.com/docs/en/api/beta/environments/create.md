@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/environments/create -->
 
----
-title: Create Environment
-url: https://platform.claude.com/docs/en/api/beta/environments/create
----
+# Create Environment
 
-## Create Environment
-
-**post** `/v1/environments`
+**POST** `/v1/environments`
 
 Create a new environment with the specified configuration.
 
-### Header Parameters
+## Headers
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 
@@ -89,17 +84,19 @@ Create a new environment with the specified configuration.
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Body Parameters
+## Body parameters
 
 - `name: string`
 
   Human-readable name for the environment
 
+  maxLength: 256, minLength: 1
+
 - `config: optional BetaCloudConfigParams or BetaSelfHostedConfigParams or null`
 
   Environment configuration
 
-  - `BetaCloudConfigParams object { type, networking, packages }`
+  - `BetaCloudConfigParams object`
 
     Request params for `cloud` environment configuration.
 
@@ -110,13 +107,11 @@ Create a new environment with the specified configuration.
 
       Environment type
 
-      - `"cloud"`
-
     - `networking: optional BetaUnrestrictedNetwork or BetaLimitedNetworkParams or null`
 
       Network configuration policy. Omit on update to preserve the existing value.
 
-      - `BetaUnrestrictedNetwork object { type }`
+      - `BetaUnrestrictedNetwork object`
 
         Unrestricted network access.
 
@@ -124,9 +119,7 @@ Create a new environment with the specified configuration.
 
           Network policy type
 
-          - `"unrestricted"`
-
-      - `BetaLimitedNetworkParams object { type, allow_mcp_servers, allow_package_managers, allowed_hosts }`
+      - `BetaLimitedNetworkParams object`
 
         Limited network request params.
 
@@ -136,8 +129,6 @@ Create a new environment with the specified configuration.
         - `type: "limited"`
 
           Network policy type
-
-          - `"limited"`
 
         - `allow_mcp_servers: optional boolean or null`
 
@@ -185,9 +176,9 @@ Create a new environment with the specified configuration.
 
         Package configuration type
 
-        - `"packages"`
+        default: packages
 
-  - `BetaSelfHostedConfigParams object { type }`
+  - `BetaSelfHostedConfigParams object`
 
     Request params for `self_hosted` environment configuration.
 
@@ -195,11 +186,11 @@ Create a new environment with the specified configuration.
 
       Environment type
 
-      - `"self_hosted"`
-
 - `description: optional string or null`
 
   Optional description of the environment
+
+  maxLength: 1024
 
 - `metadata: optional map[string]`
 
@@ -213,9 +204,9 @@ Create a new environment with the specified configuration.
 
   - `"account"`
 
-### Returns
+## Returns
 
-- `BetaEnvironment object { id, archived_at, config, 7 more }`
+- `BetaEnvironment object`
 
   Unified Environment resource for both cloud and self-hosted environments.
 
@@ -231,7 +222,7 @@ Create a new environment with the specified configuration.
 
     Environment configuration (either Anthropic Cloud or self-hosted)
 
-    - `BetaCloudConfig object { networking, packages, type }`
+    - `BetaCloudConfig object`
 
       `cloud` environment configuration.
 
@@ -239,7 +230,7 @@ Create a new environment with the specified configuration.
 
         Network configuration policy.
 
-        - `BetaUnrestrictedNetwork object { type }`
+        - `BetaUnrestrictedNetwork object`
 
           Unrestricted network access.
 
@@ -247,9 +238,7 @@ Create a new environment with the specified configuration.
 
             Network policy type
 
-            - `"unrestricted"`
-
-        - `BetaLimitedNetwork object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
+        - `BetaLimitedNetwork object`
 
           Limited network access.
 
@@ -268,8 +257,6 @@ Create a new environment with the specified configuration.
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -303,23 +290,19 @@ Create a new environment with the specified configuration.
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: "cloud"`
 
         Environment type
 
-        - `"cloud"`
-
-    - `BetaSelfHostedConfig object { type }`
+    - `BetaSelfHostedConfig object`
 
       Configuration for self-hosted environments.
 
       - `type: "self_hosted"`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -341,7 +324,7 @@ Create a new environment with the specified configuration.
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: string`
 
@@ -355,9 +338,9 @@ Create a new environment with the specified configuration.
 
     - `"account"`
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/environments \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
@@ -385,7 +368,7 @@ curl https://api.anthropic.com/v1/environments \
         }'
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

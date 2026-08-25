@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/environments -->
 
----
-title: Environments
-url: https://platform.claude.com/docs/en/api/typescript/beta/environments
----
-
 # Environments
 
 ## Create Environment
 
-`client.beta.environments.create(EnvironmentCreateParamsparams, RequestOptionsoptions?): BetaEnvironment`
+`client.beta.environments.create(params, options?): BetaEnvironment`
 
-**post** `/v1/environments`
+**POST** `/v1/environments`
 
 Create a new environment with the specified configuration.
 
@@ -22,6 +17,8 @@ Create a new environment with the specified configuration.
   - `name: string`
 
     Body param: Human-readable name for the environment
+
+    maxLength: 256, minLength: 1
 
   - `config?: BetaCloudConfigParams | BetaSelfHostedConfigParams | null`
 
@@ -38,8 +35,6 @@ Create a new environment with the specified configuration.
 
         Environment type
 
-        - `"cloud"`
-
       - `networking?: BetaUnrestrictedNetwork | BetaLimitedNetworkParams | null`
 
         Network configuration policy. Omit on update to preserve the existing value.
@@ -52,8 +47,6 @@ Create a new environment with the specified configuration.
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetworkParams`
 
           Limited network request params.
@@ -64,8 +57,6 @@ Create a new environment with the specified configuration.
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
           - `allow_mcp_servers?: boolean | null`
 
@@ -113,7 +104,7 @@ Create a new environment with the specified configuration.
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
     - `BetaSelfHostedConfigParams`
 
@@ -123,11 +114,11 @@ Create a new environment with the specified configuration.
 
         Environment type
 
-        - `"self_hosted"`
-
   - `description?: string | null`
 
     Body param: Optional description of the environment
+
+    maxLength: 1024
 
   - `metadata?: Record<string, string>`
 
@@ -251,8 +242,6 @@ Create a new environment with the specified configuration.
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetwork`
 
           Limited network access.
@@ -272,8 +261,6 @@ Create a new environment with the specified configuration.
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -307,13 +294,11 @@ Create a new environment with the specified configuration.
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: "cloud"`
 
         Environment type
-
-        - `"cloud"`
 
     - `BetaSelfHostedConfig`
 
@@ -322,8 +307,6 @@ Create a new environment with the specified configuration.
       - `type: "self_hosted"`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -345,7 +328,7 @@ Create a new environment with the specified configuration.
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: string`
 
@@ -375,7 +358,7 @@ const betaEnvironment = await client.beta.environments.create({
 console.log(betaEnvironment.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -426,9 +409,9 @@ console.log(betaEnvironment.id);
 
 ## List Environments
 
-`client.beta.environments.list(EnvironmentListParamsparams?, RequestOptionsoptions?): PageCursor<BetaEnvironment>`
+`client.beta.environments.list(params?, options?): PageCursor<BetaEnvironment>`
 
-**get** `/v1/environments`
+**GET** `/v1/environments`
 
 List environments with pagination support.
 
@@ -443,6 +426,8 @@ List environments with pagination support.
   - `limit?: number`
 
     Query param: Maximum number of environments to return
+
+    maximum: 1000, minimum: 1
 
   - `page?: string | null`
 
@@ -558,8 +543,6 @@ List environments with pagination support.
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetwork`
 
           Limited network access.
@@ -579,8 +562,6 @@ List environments with pagination support.
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -614,13 +595,11 @@ List environments with pagination support.
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: "cloud"`
 
         Environment type
-
-        - `"cloud"`
 
     - `BetaSelfHostedConfig`
 
@@ -629,8 +608,6 @@ List environments with pagination support.
       - `type: "self_hosted"`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -652,7 +629,7 @@ List environments with pagination support.
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: string`
 
@@ -681,7 +658,7 @@ for await (const betaEnvironment of client.beta.environments.list()) {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -737,9 +714,9 @@ for await (const betaEnvironment of client.beta.environments.list()) {
 
 ## Get Environment
 
-`client.beta.environments.retrieve(stringenvironmentID, EnvironmentRetrieveParamsparams?, RequestOptionsoptions?): BetaEnvironment`
+`client.beta.environments.retrieve(environmentID, params?, options?): BetaEnvironment`
 
-**get** `/v1/environments/{environment_id}`
+**GET** `/v1/environments/{environment_id}`
 
 Retrieve a specific environment by ID.
 
@@ -859,8 +836,6 @@ Retrieve a specific environment by ID.
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetwork`
 
           Limited network access.
@@ -880,8 +855,6 @@ Retrieve a specific environment by ID.
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -915,13 +888,11 @@ Retrieve a specific environment by ID.
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: "cloud"`
 
         Environment type
-
-        - `"cloud"`
 
     - `BetaSelfHostedConfig`
 
@@ -930,8 +901,6 @@ Retrieve a specific environment by ID.
       - `type: "self_hosted"`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -953,7 +922,7 @@ Retrieve a specific environment by ID.
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: string`
 
@@ -983,7 +952,7 @@ const betaEnvironment = await client.beta.environments.retrieve(
 console.log(betaEnvironment.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1034,9 +1003,9 @@ console.log(betaEnvironment.id);
 
 ## Update Environment
 
-`client.beta.environments.update(stringenvironmentID, EnvironmentUpdateParamsparams, RequestOptionsoptions?): BetaEnvironment`
+`client.beta.environments.update(environmentID, params, options?): BetaEnvironment`
 
-**post** `/v1/environments/{environment_id}`
+**POST** `/v1/environments/{environment_id}`
 
 Update an existing environment's configuration.
 
@@ -1061,8 +1030,6 @@ Update an existing environment's configuration.
 
         Environment type
 
-        - `"cloud"`
-
       - `networking?: BetaUnrestrictedNetwork | BetaLimitedNetworkParams | null`
 
         Network configuration policy. Omit on update to preserve the existing value.
@@ -1075,8 +1042,6 @@ Update an existing environment's configuration.
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetworkParams`
 
           Limited network request params.
@@ -1087,8 +1052,6 @@ Update an existing environment's configuration.
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
           - `allow_mcp_servers?: boolean | null`
 
@@ -1136,7 +1099,7 @@ Update an existing environment's configuration.
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
     - `BetaSelfHostedConfigParams`
 
@@ -1146,11 +1109,11 @@ Update an existing environment's configuration.
 
         Environment type
 
-        - `"self_hosted"`
-
   - `description?: string | null`
 
     Body param: Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
+
+    maxLength: 1024
 
   - `metadata?: Record<string, string | null>`
 
@@ -1159,6 +1122,8 @@ Update an existing environment's configuration.
   - `name?: string | null`
 
     Body param: Updated name for the environment
+
+    maxLength: 256, minLength: 1
 
   - `scope?: "organization" | "account" | null`
 
@@ -1278,8 +1243,6 @@ Update an existing environment's configuration.
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetwork`
 
           Limited network access.
@@ -1299,8 +1262,6 @@ Update an existing environment's configuration.
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -1334,13 +1295,11 @@ Update an existing environment's configuration.
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: "cloud"`
 
         Environment type
-
-        - `"cloud"`
 
     - `BetaSelfHostedConfig`
 
@@ -1349,8 +1308,6 @@ Update an existing environment's configuration.
       - `type: "self_hosted"`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -1372,7 +1329,7 @@ Update an existing environment's configuration.
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: string`
 
@@ -1400,7 +1357,7 @@ const betaEnvironment = await client.beta.environments.update("env_011CZkZ9X2dpN
 console.log(betaEnvironment.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1451,9 +1408,9 @@ console.log(betaEnvironment.id);
 
 ## Delete Environment
 
-`client.beta.environments.delete(stringenvironmentID, EnvironmentDeleteParamsparams?, RequestOptionsoptions?): BetaEnvironmentDeleteResponse`
+`client.beta.environments.delete(environmentID, params?, options?): BetaEnvironmentDeleteResponse`
 
-**delete** `/v1/environments/{environment_id}`
+**DELETE** `/v1/environments/{environment_id}`
 
 Delete an environment by ID. Returns a confirmation of the deletion.
 
@@ -1553,7 +1510,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     The type of response
 
-    - `"environment_deleted"`
+    default: environment_deleted
 
 ### Example
 
@@ -1571,7 +1528,7 @@ const betaEnvironmentDeleteResponse = await client.beta.environments.delete(
 console.log(betaEnvironmentDeleteResponse.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1582,9 +1539,9 @@ console.log(betaEnvironmentDeleteResponse.id);
 
 ## Archive Environment
 
-`client.beta.environments.archive(stringenvironmentID, EnvironmentArchiveParamsparams?, RequestOptionsoptions?): BetaEnvironment`
+`client.beta.environments.archive(environmentID, params?, options?): BetaEnvironment`
 
-**post** `/v1/environments/{environment_id}/archive`
+**POST** `/v1/environments/{environment_id}/archive`
 
 Archive an environment by ID. Archived environments cannot be used to create new sessions.
 
@@ -1704,8 +1661,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetwork`
 
           Limited network access.
@@ -1725,8 +1680,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -1760,13 +1713,11 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: "cloud"`
 
         Environment type
-
-        - `"cloud"`
 
     - `BetaSelfHostedConfig`
 
@@ -1775,8 +1726,6 @@ Archive an environment by ID. Archived environments cannot be used to create new
       - `type: "self_hosted"`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -1798,7 +1747,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: string`
 
@@ -1826,7 +1775,7 @@ const betaEnvironment = await client.beta.environments.archive("env_011CZkZ9X2dp
 console.log(betaEnvironment.id);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1875,7 +1824,7 @@ console.log(betaEnvironment.id);
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Cloud Config
 
@@ -1894,8 +1843,6 @@ console.log(betaEnvironment.id);
       - `type: "unrestricted"`
 
         Network policy type
-
-        - `"unrestricted"`
 
     - `BetaLimitedNetwork`
 
@@ -1916,8 +1863,6 @@ console.log(betaEnvironment.id);
       - `type: "limited"`
 
         Network policy type
-
-        - `"limited"`
 
   - `packages: BetaPackages`
 
@@ -1951,13 +1896,11 @@ console.log(betaEnvironment.id);
 
       Package configuration type
 
-      - `"packages"`
+      default: packages
 
   - `type: "cloud"`
 
     Environment type
-
-    - `"cloud"`
 
 ### Beta Cloud Config Params
 
@@ -1972,8 +1915,6 @@ console.log(betaEnvironment.id);
 
     Environment type
 
-    - `"cloud"`
-
   - `networking?: BetaUnrestrictedNetwork | BetaLimitedNetworkParams | null`
 
     Network configuration policy. Omit on update to preserve the existing value.
@@ -1986,8 +1927,6 @@ console.log(betaEnvironment.id);
 
         Network policy type
 
-        - `"unrestricted"`
-
     - `BetaLimitedNetworkParams`
 
       Limited network request params.
@@ -1998,8 +1937,6 @@ console.log(betaEnvironment.id);
       - `type: "limited"`
 
         Network policy type
-
-        - `"limited"`
 
       - `allow_mcp_servers?: boolean | null`
 
@@ -2047,7 +1984,7 @@ console.log(betaEnvironment.id);
 
       Package configuration type
 
-      - `"packages"`
+      default: packages
 
 ### Beta Environment
 
@@ -2083,8 +2020,6 @@ console.log(betaEnvironment.id);
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `BetaLimitedNetwork`
 
           Limited network access.
@@ -2104,8 +2039,6 @@ console.log(betaEnvironment.id);
           - `type: "limited"`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -2139,13 +2072,11 @@ console.log(betaEnvironment.id);
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: "cloud"`
 
         Environment type
-
-        - `"cloud"`
 
     - `BetaSelfHostedConfig`
 
@@ -2154,8 +2085,6 @@ console.log(betaEnvironment.id);
       - `type: "self_hosted"`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -2177,7 +2106,7 @@ console.log(betaEnvironment.id);
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: string`
 
@@ -2205,7 +2134,7 @@ console.log(betaEnvironment.id);
 
     The type of response
 
-    - `"environment_deleted"`
+    default: environment_deleted
 
 ### Beta Limited Network
 
@@ -2229,8 +2158,6 @@ console.log(betaEnvironment.id);
 
     Network policy type
 
-    - `"limited"`
-
 ### Beta Limited Network Params
 
 - `BetaLimitedNetworkParams`
@@ -2243,8 +2170,6 @@ console.log(betaEnvironment.id);
   - `type: "limited"`
 
     Network policy type
-
-    - `"limited"`
 
   - `allow_mcp_servers?: boolean | null`
 
@@ -2292,7 +2217,7 @@ console.log(betaEnvironment.id);
 
     Package configuration type
 
-    - `"packages"`
+    default: packages
 
 ### Beta Packages Params
 
@@ -2330,7 +2255,7 @@ console.log(betaEnvironment.id);
 
     Package configuration type
 
-    - `"packages"`
+    default: packages
 
 ### Beta Self Hosted Config
 
@@ -2342,8 +2267,6 @@ console.log(betaEnvironment.id);
 
     Environment type
 
-    - `"self_hosted"`
-
 ### Beta Self Hosted Config Params
 
 - `BetaSelfHostedConfigParams`
@@ -2353,8 +2276,6 @@ console.log(betaEnvironment.id);
   - `type: "self_hosted"`
 
     Environment type
-
-    - `"self_hosted"`
 
 ### Beta Unrestricted Network
 
@@ -2366,21 +2287,19 @@ console.log(betaEnvironment.id);
 
     Network policy type
 
-    - `"unrestricted"`
+## Environments › Work
 
-# Work
+### Get Work Item
 
-## Get Work Item
+`client.beta.environments.work.retrieve(workID, params, options?): BetaSelfHostedWork`
 
-`client.beta.environments.work.retrieve(stringworkID, WorkRetrieveParamsparams, RequestOptionsoptions?): BetaSelfHostedWork`
-
-**get** `/v1/environments/{environment_id}/work/{work_id}`
+**GET** `/v1/environments/{environment_id}/work/{work_id}`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Retrieve detailed information about a specific work item.
 
-### Parameters
+#### Parameters
 
 - `workID: string`
 
@@ -2466,7 +2385,7 @@ Retrieve detailed information about a specific work item.
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaSelfHostedWork`
 
@@ -2499,8 +2418,6 @@ Retrieve detailed information about a specific work item.
     - `type: "session"`
 
       Type of work data
-
-      - `"session"`
 
   - `environment_id: string`
 
@@ -2548,9 +2465,9 @@ Retrieve detailed information about a specific work item.
 
     The type of object (always 'work')
 
-    - `"work"`
+    default: work
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -2566,7 +2483,7 @@ const betaSelfHostedWork = await client.beta.environments.work.retrieve("work_id
 console.log(betaSelfHostedWork.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -2591,17 +2508,17 @@ console.log(betaSelfHostedWork.id);
 }
 ```
 
-## Poll for Work
+### Poll for Work
 
-`client.beta.environments.work.poll(stringenvironmentID, WorkPollParamsparams?, RequestOptionsoptions?): BetaSelfHostedWork | null`
+`client.beta.environments.work.poll(environmentID, params?, options?): BetaSelfHostedWork | null`
 
-**get** `/v1/environments/{environment_id}/work/poll`
+**GET** `/v1/environments/{environment_id}/work/poll`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Long poll for work items in the queue.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -2611,9 +2528,13 @@ Long poll for work items in the queue.
 
     Query param: How long to wait for work to arrive before returning. Must be 1-999 in milliseconds. Defaults to non-blocking (returns immediately if no work is available).
 
+    minimum: 1
+
   - `reclaim_older_than_ms?: number | null`
 
     Query param: Reclaim unacknowledged work items older than this many milliseconds. If omitted, uses the default (5000ms).
+
+    minimum: 1
 
   - `betas?: Array<AnthropicBeta>`
 
@@ -2695,7 +2616,7 @@ Long poll for work items in the queue.
 
     Header param: Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
 
-### Returns
+#### Returns
 
 - `BetaSelfHostedWork | null`
 
@@ -2722,8 +2643,6 @@ Long poll for work items in the queue.
     - `type: "session"`
 
       Type of work data
-
-      - `"session"`
 
   - `environment_id: string`
 
@@ -2771,9 +2690,9 @@ Long poll for work items in the queue.
 
     The type of object (always 'work')
 
-    - `"work"`
+    default: work
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -2789,7 +2708,7 @@ const betaSelfHostedWork = await client.beta.environments.work.poll(
 console.log(betaSelfHostedWork.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -2814,17 +2733,17 @@ console.log(betaSelfHostedWork.id);
 }
 ```
 
-## Acknowledge Work
+### Acknowledge Work
 
-`client.beta.environments.work.ack(stringworkID, WorkAckParamsparams, RequestOptionsoptions?): BetaSelfHostedWork`
+`client.beta.environments.work.ack(workID, params, options?): BetaSelfHostedWork`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/ack`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/ack`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting' and removing it from the queue.
 
-### Parameters
+#### Parameters
 
 - `workID: string`
 
@@ -2910,7 +2829,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaSelfHostedWork`
 
@@ -2943,8 +2862,6 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `type: "session"`
 
       Type of work data
-
-      - `"session"`
 
   - `environment_id: string`
 
@@ -2992,9 +2909,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     The type of object (always 'work')
 
-    - `"work"`
+    default: work
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -3010,7 +2927,7 @@ const betaSelfHostedWork = await client.beta.environments.work.ack("work_id", {
 console.log(betaSelfHostedWork.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3035,17 +2952,17 @@ console.log(betaSelfHostedWork.id);
 }
 ```
 
-## Record Heartbeat
+### Record Heartbeat
 
-`client.beta.environments.work.heartbeat(stringworkID, WorkHeartbeatParamsparams, RequestOptionsoptions?): BetaSelfHostedWorkHeartbeatResponse`
+`client.beta.environments.work.heartbeat(workID, params, options?): BetaSelfHostedWorkHeartbeatResponse`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Record a heartbeat for a work item to maintain the lease.
 
-### Parameters
+#### Parameters
 
 - `workID: string`
 
@@ -3139,7 +3056,7 @@ Record a heartbeat for a work item to maintain the lease.
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaSelfHostedWorkHeartbeatResponse`
 
@@ -3175,9 +3092,9 @@ Record a heartbeat for a work item to maintain the lease.
 
     The type of response
 
-    - `"work_heartbeat"`
+    default: work_heartbeat
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -3194,7 +3111,7 @@ const betaSelfHostedWorkHeartbeatResponse = await client.beta.environments.work.
 console.log(betaSelfHostedWorkHeartbeatResponse.last_heartbeat);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3206,17 +3123,17 @@ console.log(betaSelfHostedWorkHeartbeatResponse.last_heartbeat);
 }
 ```
 
-## Stop Work
+### Stop Work
 
-`client.beta.environments.work.stop(stringworkID, WorkStopParamsparams, RequestOptionsoptions?): BetaSelfHostedWork`
+`client.beta.environments.work.stop(workID, params, options?): BetaSelfHostedWork`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/stop`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/stop`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Stop a work item, initiating graceful or forced shutdown.
 
-### Parameters
+#### Parameters
 
 - `workID: string`
 
@@ -3306,7 +3223,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaSelfHostedWork`
 
@@ -3339,8 +3256,6 @@ Stop a work item, initiating graceful or forced shutdown.
     - `type: "session"`
 
       Type of work data
-
-      - `"session"`
 
   - `environment_id: string`
 
@@ -3388,9 +3303,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The type of object (always 'work')
 
-    - `"work"`
+    default: work
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -3406,7 +3321,7 @@ const betaSelfHostedWork = await client.beta.environments.work.stop("work_id", {
 console.log(betaSelfHostedWork.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3431,17 +3346,17 @@ console.log(betaSelfHostedWork.id);
 }
 ```
 
-## List Work Items
+### List Work Items
 
-`client.beta.environments.work.list(stringenvironmentID, WorkListParamsparams?, RequestOptionsoptions?): PageCursor<BetaSelfHostedWork>`
+`client.beta.environments.work.list(environmentID, params?, options?): PageCursor<BetaSelfHostedWork>`
 
-**get** `/v1/environments/{environment_id}/work`
+**GET** `/v1/environments/{environment_id}/work`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 List work items in an environment.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -3450,6 +3365,8 @@ List work items in an environment.
   - `limit?: number`
 
     Query param: Maximum number of work items to return
+
+    maximum: 1000, minimum: 1
 
   - `page?: string | null`
 
@@ -3531,7 +3448,7 @@ List work items in an environment.
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaSelfHostedWork`
 
@@ -3564,8 +3481,6 @@ List work items in an environment.
     - `type: "session"`
 
       Type of work data
-
-      - `"session"`
 
   - `environment_id: string`
 
@@ -3613,9 +3528,9 @@ List work items in an environment.
 
     The type of object (always 'work')
 
-    - `"work"`
+    default: work
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -3632,7 +3547,7 @@ for await (const betaSelfHostedWork of client.beta.environments.work.list(
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3662,17 +3577,17 @@ for await (const betaSelfHostedWork of client.beta.environments.work.list(
 }
 ```
 
-## Update Work Item
+### Update Work Item
 
-`client.beta.environments.work.update(stringworkID, WorkUpdateParamsparams, RequestOptionsoptions?): BetaSelfHostedWork`
+`client.beta.environments.work.update(workID, params, options?): BetaSelfHostedWork`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}`
+**POST** `/v1/environments/{environment_id}/work/{work_id}`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Update work item metadata with merge semantics.
 
-### Parameters
+#### Parameters
 
 - `workID: string`
 
@@ -3762,7 +3677,7 @@ Update work item metadata with merge semantics.
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaSelfHostedWork`
 
@@ -3795,8 +3710,6 @@ Update work item metadata with merge semantics.
     - `type: "session"`
 
       Type of work data
-
-      - `"session"`
 
   - `environment_id: string`
 
@@ -3844,9 +3757,9 @@ Update work item metadata with merge semantics.
 
     The type of object (always 'work')
 
-    - `"work"`
+    default: work
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -3863,7 +3776,7 @@ const betaSelfHostedWork = await client.beta.environments.work.update("work_id",
 console.log(betaSelfHostedWork.id);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3888,15 +3801,15 @@ console.log(betaSelfHostedWork.id);
 }
 ```
 
-## Get Queue Statistics
+### Get Queue Statistics
 
-`client.beta.environments.work.stats(stringenvironmentID, WorkStatsParamsparams?, RequestOptionsoptions?): BetaSelfHostedWorkQueueStats`
+`client.beta.environments.work.stats(environmentID, params?, options?): BetaSelfHostedWorkQueueStats`
 
-**get** `/v1/environments/{environment_id}/work/stats`
+**GET** `/v1/environments/{environment_id}/work/stats`
 
 Get statistics about the work queue for an environment.
 
-### Parameters
+#### Parameters
 
 - `environmentID: string`
 
@@ -3978,7 +3891,7 @@ Get statistics about the work queue for an environment.
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaSelfHostedWorkQueueStats`
 
@@ -3998,17 +3911,19 @@ Get statistics about the work queue for an environment.
 
     Number of work items being processed (polled but not acknowledged)
 
+    default: 0
+
   - `type: "work_queue_stats"`
 
     The type of object
 
-    - `"work_queue_stats"`
+    default: work_queue_stats
 
   - `workers_polling: number | null`
 
     Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
 
-### Example
+#### Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -4024,7 +3939,7 @@ const betaSelfHostedWorkQueueStats = await client.beta.environments.work.stats(
 console.log(betaSelfHostedWorkQueueStats.depth);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -4035,284 +3950,3 @@ console.log(betaSelfHostedWorkQueueStats.depth);
   "workers_polling": 0
 }
 ```
-
-## Domain Types
-
-### Beta Self Hosted Work
-
-- `BetaSelfHostedWork`
-
-  Work resource representing a unit of work in a self-hosted environment.
-
-  Work items are queued when sessions are created or when long-dormant sessions
-  receive new messages. The environment worker polls for work to execute in a
-  self-hosted sandbox.
-
-  - `id: string`
-
-    Work identifier (e.g., 'work_...')
-
-  - `acknowledged_at: string | null`
-
-    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
-
-  - `created_at: string`
-
-    RFC 3339 timestamp when work was created
-
-  - `data: BetaSessionWorkData`
-
-    The actual work to be performed
-
-    - `id: string`
-
-      Session identifier (e.g., 'session_...')
-
-    - `type: "session"`
-
-      Type of work data
-
-      - `"session"`
-
-  - `environment_id: string`
-
-    Environment identifier this work belongs to (e.g., `env_...`)
-
-  - `latest_heartbeat_at: string | null`
-
-    RFC 3339 timestamp of the most recent heartbeat
-
-  - `metadata: Record<string, string>`
-
-    User-provided metadata key-value pairs associated with this work item
-
-  - `secret: string | null`
-
-    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
-
-  - `started_at: string | null`
-
-    RFC 3339 timestamp when work execution started
-
-  - `state: "queued" | "starting" | "active" | 2 more`
-
-    Current state of the work item
-
-    - `"queued"`
-
-    - `"starting"`
-
-    - `"active"`
-
-    - `"stopping"`
-
-    - `"stopped"`
-
-  - `stop_requested_at: string | null`
-
-    RFC 3339 timestamp when stop was requested
-
-  - `stopped_at: string | null`
-
-    RFC 3339 timestamp when work execution stopped
-
-  - `type: "work"`
-
-    The type of object (always 'work')
-
-    - `"work"`
-
-### Beta Self Hosted Work Heartbeat Response
-
-- `BetaSelfHostedWorkHeartbeatResponse`
-
-  Response after recording a heartbeat for a work item.
-
-  - `last_heartbeat: string`
-
-    RFC 3339 timestamp of the actual heartbeat from DB
-
-  - `lease_extended: boolean`
-
-    Whether the heartbeat succeeded in extending the lease
-
-  - `state: "queued" | "starting" | "active" | 2 more`
-
-    Current state of the work item (active/stopping/stopped)
-
-    - `"queued"`
-
-    - `"starting"`
-
-    - `"active"`
-
-    - `"stopping"`
-
-    - `"stopped"`
-
-  - `ttl_seconds: number`
-
-    Effective TTL applied to the lease
-
-  - `type: "work_heartbeat"`
-
-    The type of response
-
-    - `"work_heartbeat"`
-
-### Beta Self Hosted Work List Response
-
-- `BetaSelfHostedWorkListResponse`
-
-  Response when listing work items with cursor-based pagination.
-
-  - `data: Array<BetaSelfHostedWork>`
-
-    List of work items
-
-    - `id: string`
-
-      Work identifier (e.g., 'work_...')
-
-    - `acknowledged_at: string | null`
-
-      RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
-
-    - `created_at: string`
-
-      RFC 3339 timestamp when work was created
-
-    - `data: BetaSessionWorkData`
-
-      The actual work to be performed
-
-      - `id: string`
-
-        Session identifier (e.g., 'session_...')
-
-      - `type: "session"`
-
-        Type of work data
-
-        - `"session"`
-
-    - `environment_id: string`
-
-      Environment identifier this work belongs to (e.g., `env_...`)
-
-    - `latest_heartbeat_at: string | null`
-
-      RFC 3339 timestamp of the most recent heartbeat
-
-    - `metadata: Record<string, string>`
-
-      User-provided metadata key-value pairs associated with this work item
-
-    - `secret: string | null`
-
-      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
-
-    - `started_at: string | null`
-
-      RFC 3339 timestamp when work execution started
-
-    - `state: "queued" | "starting" | "active" | 2 more`
-
-      Current state of the work item
-
-      - `"queued"`
-
-      - `"starting"`
-
-      - `"active"`
-
-      - `"stopping"`
-
-      - `"stopped"`
-
-    - `stop_requested_at: string | null`
-
-      RFC 3339 timestamp when stop was requested
-
-    - `stopped_at: string | null`
-
-      RFC 3339 timestamp when work execution stopped
-
-    - `type: "work"`
-
-      The type of object (always 'work')
-
-      - `"work"`
-
-  - `next_page: string | null`
-
-    Opaque cursor for fetching the next page of results
-
-### Beta Self Hosted Work Queue Stats
-
-- `BetaSelfHostedWorkQueueStats`
-
-  Statistics about the work queue for an environment.
-
-  Uses Redis Stream consumer group metrics for O(1) queries.
-
-  - `depth: number`
-
-    Number of work items waiting to be picked up (lag from consumer group)
-
-  - `oldest_queued_at: string | null`
-
-    RFC 3339 timestamp of oldest item in the work stream (includes both queued and pending items), null if stream empty
-
-  - `pending: number`
-
-    Number of work items being processed (polled but not acknowledged)
-
-  - `type: "work_queue_stats"`
-
-    The type of object
-
-    - `"work_queue_stats"`
-
-  - `workers_polling: number | null`
-
-    Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
-
-### Beta Self Hosted Work Stop Request
-
-- `BetaSelfHostedWorkStopRequest`
-
-  Request to stop a work item.
-
-  - `force?: boolean`
-
-    If true, immediately stop work without graceful shutdown
-
-### Beta Self Hosted Work Update Request
-
-- `BetaSelfHostedWorkUpdateRequest`
-
-  Request to update work item metadata.
-
-  - `metadata: Record<string, string | null>`
-
-    Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
-
-### Beta Session Work Data
-
-- `BetaSessionWorkData`
-
-  Work data for session work items.
-
-  This resource type is used when work represents a session that needs to be executed
-  in a self-hosted environment.
-
-  - `id: string`
-
-    Session identifier (e.g., 'session_...')
-
-  - `type: "session"`
-
-    Type of work data
-
-    - `"session"`

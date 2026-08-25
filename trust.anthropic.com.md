@@ -111,15 +111,6 @@ View 8 more
 
 Security Advisories
 CVE-2026-22561 - DLL Search Order Hijacking in Claude for Windows installer
-Other Documents
-[Anthropic] Data Processing Addendum
-Opens in new tab
-[Anthropic] 2025 Annual Penetration Testing Reports
-[Anthropic] Statement on Modern Slavery Act 2015
-[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
-
-View 4 more
-
 Model Documentation Forms
 Claude Sonnet 5 Model Documentation Form
 Claude Opus 4.7 Model Documentation Form
@@ -135,6 +126,15 @@ Claude Opus 4.7 Training Data Summary
 Claude Opus 4.8 Training Data Summary
 
 View 3 more
+
+Other Documents
+[Anthropic] Data Processing Addendum
+Opens in new tab
+[Anthropic] 2025 Annual Penetration Testing Reports
+[Anthropic] Statement on Modern Slavery Act 2015
+[Anthropic] VPAT - Accessibility Conformance Report (ACR) - Claude.ai Enterprise (web)
+
+View 4 more
 
 Subprocessors
 View all

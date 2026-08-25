@@ -1,8 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/ -->
 
-
-
-CategoryAll
+CategoryAll
 
 [Programmatic tool calling (PTC)](https://platform.claude.com/cookbook/tool-use-programmatic-tool-calling-ptc)
 
@@ -131,4 +129,4 @@ Create documents, analyze data, automate workflows with Claude's Excel, PowerPoi
 
 Have an idea for a cookbook? We welcome community contributions.
 
-[Contribution guide](https://github.com/anthropics/claude-cookbooks/blob/main/CONTRIBUTING.md)
+[Contribution guide](https://github.com/anthropics/claude-cookbooks/blob/main/CONTRIBUTING.md)

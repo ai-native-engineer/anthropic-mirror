@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/skills/delete -->
 
----
-title: Delete Skill
-url: https://platform.claude.com/docs/en/api/typescript/beta/skills/delete
----
+# Delete Skill
 
-## Delete Skill
+`client.beta.skills.delete(skillID, params?, options?): SkillDeleteResponse`
 
-`client.beta.skills.delete(stringskillID, SkillDeleteParamsparams?, RequestOptionsoptions?): SkillDeleteResponse`
-
-**delete** `/v1/skills/{skill_id}`
+**DELETE** `/v1/skills/{skill_id}`
 
 Delete Skill
 
-### Parameters
+## Parameters
 
 - `skillID: string`
 
@@ -99,7 +94,7 @@ Delete Skill
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `SkillDeleteResponse`
 
@@ -115,7 +110,9 @@ Delete Skill
 
     For Skills, this is always `"skill_deleted"`.
 
-### Example
+    default: skill_deleted
+
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -129,7 +126,7 @@ const skill = await client.beta.skills.delete("skill_id");
 console.log(skill.id);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

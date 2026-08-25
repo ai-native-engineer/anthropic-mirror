@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/memory_stores/memories -->
 
----
-title: Memories
-url: https://platform.claude.com/docs/en/api/go/beta/memory_stores/memories
----
-
 # Memories
 
 ## Create a memory
 
 `client.Beta.MemoryStores.Memories.New(ctx, memoryStoreID, params) (*BetaManagedAgentsMemory, error)`
 
-**post** `/v1/memory_stores/{memory_store_id}/memories`
+**POST** `/v1/memory_stores/{memory_store_id}/memories`
 
 Create a memory
 
@@ -29,11 +24,13 @@ Create a memory
 
     Body param: Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive.
 
-  - `View param.Field[BetaManagedAgentsMemoryView]`
+    minLength: 2, maxLength: 1024
+
+  - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
     Query param: Query parameter for view
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -127,9 +124,13 @@ Create a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `CreatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `MemoryStoreID string`
 
@@ -145,13 +146,13 @@ Create a memory
 
   - `Type BetaManagedAgentsMemoryType`
 
-    - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
-
   - `UpdatedAt Time`
 
     A timestamp in RFC 3339 format
 
-  - `Content string`
+    format: date-time
+
+  - `Content string Optional`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
@@ -187,7 +188,7 @@ func main() {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -208,7 +209,7 @@ func main() {
 
 `client.Beta.MemoryStores.Memories.List(ctx, memoryStoreID, params) (*PageCursor[BetaManagedAgentsMemoryListItemUnion], error)`
 
-**get** `/v1/memory_stores/{memory_store_id}/memories`
+**GET** `/v1/memory_stores/{memory_store_id}/memories`
 
 List memories
 
@@ -218,27 +219,31 @@ List memories
 
 - `params BetaMemoryStoreMemoryListParams`
 
-  - `Depth param.Field[int64]`
+  - `Depth param.Field[int64] Optional`
 
     Query param: `0` (or omitted) returns all descendants below `path_prefix` (recursive). `1` returns immediate children only; deeper entries roll up as `memory_prefix` items. `depth=1` behaves like `ls`; omitting `depth` behaves like `find`.
 
-  - `Limit param.Field[int64]`
+    format: int32
+
+  - `Limit param.Field[int64] Optional`
 
     Query param: Maximum number of items to return per page. Must be between 1 and 100. Defaults to 20 when omitted. Capped at 20 when `view=full`. Both `memory` and `memory_prefix` items count toward the limit.
 
-  - `Page param.Field[string]`
+    format: int32
+
+  - `Page param.Field[string] Optional`
 
     Query param: Opaque pagination cursor (a `page_...` value). Pass the `next_page` value from a previous response to fetch the next page; omit for the first page.
 
-  - `PathPrefix param.Field[string]`
+  - `PathPrefix param.Field[string] Optional`
 
     Query param: Optional path prefix filter. Must end with `/` (segment-aligned), e.g., `/notes/`. This value appears in request URLs. Do not include secrets or personally identifiable information.
 
-  - `View param.Field[BetaManagedAgentsMemoryView]`
+  - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
     Query param: Which projection of each `memory` to return. Defaults to `basic` (content omitted). `full` populates `content` on each item and caps `limit` at 20; use this as the bulk-read path for export and sync.
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -336,9 +341,13 @@ List memories
 
       Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+      format: int32
+
     - `CreatedAt Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `MemoryStoreID string`
 
@@ -354,13 +363,13 @@ List memories
 
     - `Type BetaManagedAgentsMemoryType`
 
-      - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
-
     - `UpdatedAt Time`
 
       A timestamp in RFC 3339 format
 
-    - `Content string`
+      format: date-time
+
+    - `Content string Optional`
 
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
@@ -373,8 +382,6 @@ List memories
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `Type BetaManagedAgentsMemoryPrefixType`
-
-      - `const BetaManagedAgentsMemoryPrefixTypeMemoryPrefix BetaManagedAgentsMemoryPrefixType = "memory_prefix"`
 
 ### Example
 
@@ -405,7 +412,7 @@ func main() {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -431,7 +438,7 @@ func main() {
 
 `client.Beta.MemoryStores.Memories.Get(ctx, memoryID, params) (*BetaManagedAgentsMemory, error)`
 
-**get** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**GET** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Retrieve a memory
 
@@ -445,11 +452,11 @@ Retrieve a memory
 
     Path param: Path parameter memory_store_id
 
-  - `View param.Field[BetaManagedAgentsMemoryView]`
+  - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
     Query param: Query parameter for view
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -543,9 +550,13 @@ Retrieve a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `CreatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `MemoryStoreID string`
 
@@ -561,13 +572,13 @@ Retrieve a memory
 
   - `Type BetaManagedAgentsMemoryType`
 
-    - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
-
   - `UpdatedAt Time`
 
     A timestamp in RFC 3339 format
 
-  - `Content string`
+    format: date-time
+
+  - `Content string Optional`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
@@ -602,7 +613,7 @@ func main() {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -623,7 +634,7 @@ func main() {
 
 `client.Beta.MemoryStores.Memories.Update(ctx, memoryID, params) (*BetaManagedAgentsMemory, error)`
 
-**post** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**POST** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Update a memory
 
@@ -637,23 +648,25 @@ Update a memory
 
     Path param: Path parameter memory_store_id
 
-  - `View param.Field[BetaManagedAgentsMemoryView]`
+  - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
     Query param: Query parameter for view
 
-  - `Content param.Field[string]`
+  - `Content param.Field[string] Optional`
 
     Body param: New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
 
-  - `Path param.Field[string]`
+  - `Path param.Field[string] Optional`
 
     Body param: New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
 
-  - `Precondition param.Field[BetaManagedAgentsPrecondition]`
+    minLength: 2, maxLength: 1024
+
+  - `Precondition param.Field[BetaManagedAgentsPrecondition] Optional`
 
     Body param: Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -747,9 +760,13 @@ Update a memory
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `CreatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `MemoryStoreID string`
 
@@ -765,13 +782,13 @@ Update a memory
 
   - `Type BetaManagedAgentsMemoryType`
 
-    - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
-
   - `UpdatedAt Time`
 
     A timestamp in RFC 3339 format
 
-  - `Content string`
+    format: date-time
+
+  - `Content string Optional`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
@@ -806,7 +823,7 @@ func main() {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -827,7 +844,7 @@ func main() {
 
 `client.Beta.MemoryStores.Memories.Delete(ctx, memoryID, params) (*BetaManagedAgentsDeletedMemory, error)`
 
-**delete** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
+**DELETE** `/v1/memory_stores/{memory_store_id}/memories/{memory_id}`
 
 Delete a memory
 
@@ -841,11 +858,11 @@ Delete a memory
 
     Path param: Path parameter memory_store_id
 
-  - `ExpectedContentSha256 param.Field[string]`
+  - `ExpectedContentSha256 param.Field[string] Optional`
 
     Query param: Query parameter for expected_content_sha256
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -933,8 +950,6 @@ Delete a memory
 
   - `Type BetaManagedAgentsDeletedMemoryType`
 
-    - `const BetaManagedAgentsDeletedMemoryTypeMemoryDeleted BetaManagedAgentsDeletedMemoryType = "memory_deleted"`
-
 ### Example
 
 ```go
@@ -966,7 +981,7 @@ func main() {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -975,7 +990,7 @@ func main() {
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Conflict Error
 
@@ -983,9 +998,7 @@ func main() {
 
   - `Type BetaManagedAgentsConflictErrorType`
 
-    - `const BetaManagedAgentsConflictErrorTypeConflictError BetaManagedAgentsConflictErrorType = "conflict_error"`
-
-  - `Message string`
+  - `Message string Optional`
 
 ### Beta Managed Agents Content Sha256 Precondition
 
@@ -995,9 +1008,7 @@ func main() {
 
   - `Type BetaManagedAgentsContentSha256PreconditionType`
 
-    - `const BetaManagedAgentsContentSha256PreconditionTypeContentSha256 BetaManagedAgentsContentSha256PreconditionType = "content_sha256"`
-
-  - `ContentSha256 string`
+  - `ContentSha256 string Optional`
 
     Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.
 
@@ -1013,8 +1024,6 @@ func main() {
 
   - `Type BetaManagedAgentsDeletedMemoryType`
 
-    - `const BetaManagedAgentsDeletedMemoryTypeMemoryDeleted BetaManagedAgentsDeletedMemoryType = "memory_deleted"`
-
 ### Beta Managed Agents Error
 
 - `type BetaManagedAgentsErrorUnion interface{…}`
@@ -1023,101 +1032,113 @@ func main() {
 
     - `Message string`
 
+      default: Invalid request
+
     - `Type InvalidRequestError`
 
-      - `const InvalidRequestErrorInvalidRequestError InvalidRequestError = "invalid_request_error"`
+      default: invalid_request_error
 
   - `type BetaAuthenticationError struct{…}`
 
     - `Message string`
 
+      default: Authentication error
+
     - `Type AuthenticationError`
 
-      - `const AuthenticationErrorAuthenticationError AuthenticationError = "authentication_error"`
+      default: authentication_error
 
   - `type BetaBillingError struct{…}`
 
     - `Message string`
 
+      default: Billing error
+
     - `Type BillingError`
 
-      - `const BillingErrorBillingError BillingError = "billing_error"`
+      default: billing_error
 
   - `type BetaPermissionError struct{…}`
 
     - `Message string`
 
+      default: Permission denied
+
     - `Type PermissionError`
 
-      - `const PermissionErrorPermissionError PermissionError = "permission_error"`
+      default: permission_error
 
   - `type BetaNotFoundError struct{…}`
 
     - `Message string`
 
+      default: Not found
+
     - `Type NotFoundError`
 
-      - `const NotFoundErrorNotFoundError NotFoundError = "not_found_error"`
+      default: not_found_error
 
   - `type BetaRateLimitError struct{…}`
 
     - `Message string`
 
+      default: Rate limited
+
     - `Type RateLimitError`
 
-      - `const RateLimitErrorRateLimitError RateLimitError = "rate_limit_error"`
+      default: rate_limit_error
 
   - `type BetaGatewayTimeoutError struct{…}`
 
     - `Message string`
 
+      default: Request timeout
+
     - `Type TimeoutError`
 
-      - `const TimeoutErrorTimeoutError TimeoutError = "timeout_error"`
+      default: timeout_error
 
   - `type BetaAPIError struct{…}`
 
     - `Message string`
 
+      default: Internal server error
+
     - `Type APIError`
 
-      - `const APIErrorAPIError APIError = "api_error"`
+      default: api_error
 
   - `type BetaOverloadedError struct{…}`
 
     - `Message string`
 
+      default: Overloaded
+
     - `Type OverloadedError`
 
-      - `const OverloadedErrorOverloadedError OverloadedError = "overloaded_error"`
+      default: overloaded_error
 
   - `type BetaManagedAgentsMemoryPreconditionFailedError struct{…}`
 
     - `Type BetaManagedAgentsMemoryPreconditionFailedErrorType`
 
-      - `const BetaManagedAgentsMemoryPreconditionFailedErrorTypeMemoryPreconditionFailedError BetaManagedAgentsMemoryPreconditionFailedErrorType = "memory_precondition_failed_error"`
-
-    - `Message string`
+    - `Message string Optional`
 
   - `type BetaManagedAgentsMemoryPathConflictError struct{…}`
 
     - `Type BetaManagedAgentsMemoryPathConflictErrorType`
 
-      - `const BetaManagedAgentsMemoryPathConflictErrorTypeMemoryPathConflictError BetaManagedAgentsMemoryPathConflictErrorType = "memory_path_conflict_error"`
+    - `ConflictingMemoryID string Optional`
 
-    - `ConflictingMemoryID string`
+    - `ConflictingPath string Optional`
 
-    - `ConflictingPath string`
-
-    - `Message string`
+    - `Message string Optional`
 
   - `type BetaManagedAgentsConflictError struct{…}`
 
     - `Type BetaManagedAgentsConflictErrorType`
 
-      - `const BetaManagedAgentsConflictErrorTypeConflictError BetaManagedAgentsConflictErrorType = "conflict_error"`
-
-    - `Message string`
+    - `Message string Optional`
 
 ### Beta Managed Agents Memory
 
@@ -1137,9 +1158,13 @@ func main() {
 
     Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+    format: int32
+
   - `CreatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `MemoryStoreID string`
 
@@ -1155,13 +1180,13 @@ func main() {
 
   - `Type BetaManagedAgentsMemoryType`
 
-    - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
-
   - `UpdatedAt Time`
 
     A timestamp in RFC 3339 format
 
-  - `Content string`
+    format: date-time
+
+  - `Content string Optional`
 
     The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
@@ -1187,9 +1212,13 @@ func main() {
 
       Size of `content` in bytes (the UTF-8 plaintext length). Always populated, regardless of `view`.
 
+      format: int32
+
     - `CreatedAt Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `MemoryStoreID string`
 
@@ -1205,13 +1234,13 @@ func main() {
 
     - `Type BetaManagedAgentsMemoryType`
 
-      - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
-
     - `UpdatedAt Time`
 
       A timestamp in RFC 3339 format
 
-    - `Content string`
+      format: date-time
+
+    - `Content string Optional`
 
       The memory's UTF-8 text content. Populated when `view=full`; `null` when `view=basic`. Maximum 100 kB (102,400 bytes).
 
@@ -1225,21 +1254,17 @@ func main() {
 
     - `Type BetaManagedAgentsMemoryPrefixType`
 
-      - `const BetaManagedAgentsMemoryPrefixTypeMemoryPrefix BetaManagedAgentsMemoryPrefixType = "memory_prefix"`
-
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `type BetaManagedAgentsMemoryPathConflictError struct{…}`
 
   - `Type BetaManagedAgentsMemoryPathConflictErrorType`
 
-    - `const BetaManagedAgentsMemoryPathConflictErrorTypeMemoryPathConflictError BetaManagedAgentsMemoryPathConflictErrorType = "memory_path_conflict_error"`
+  - `ConflictingMemoryID string Optional`
 
-  - `ConflictingMemoryID string`
+  - `ConflictingPath string Optional`
 
-  - `ConflictingPath string`
-
-  - `Message string`
+  - `Message string Optional`
 
 ### Beta Managed Agents Memory Precondition Failed Error
 
@@ -1247,9 +1272,7 @@ func main() {
 
   - `Type BetaManagedAgentsMemoryPreconditionFailedErrorType`
 
-    - `const BetaManagedAgentsMemoryPreconditionFailedErrorTypeMemoryPreconditionFailedError BetaManagedAgentsMemoryPreconditionFailedErrorType = "memory_precondition_failed_error"`
-
-  - `Message string`
+  - `Message string Optional`
 
 ### Beta Managed Agents Memory Prefix
 
@@ -1262,8 +1285,6 @@ func main() {
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
   - `Type BetaManagedAgentsMemoryPrefixType`
-
-    - `const BetaManagedAgentsMemoryPrefixTypeMemoryPrefix BetaManagedAgentsMemoryPrefixType = "memory_prefix"`
 
 ### Beta Managed Agents Memory View
 
@@ -1283,8 +1304,6 @@ func main() {
 
   - `Type BetaManagedAgentsPreconditionType`
 
-    - `const BetaManagedAgentsPreconditionTypeContentSha256 BetaManagedAgentsPreconditionType = "content_sha256"`
-
-  - `ContentSha256 string`
+  - `ContentSha256 string Optional`
 
     Expected `content_sha256` of the stored memory (64 lowercase hexadecimal characters). Typically the `content_sha256` returned by a prior read or list call. Because the server applies no content normalization, clients can also compute this locally as the SHA-256 of the UTF-8 content bytes.

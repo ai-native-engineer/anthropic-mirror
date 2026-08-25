@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/delete -->
 
----
-title: Delete Session Resource
-url: https://platform.claude.com/docs/en/api/typescript/beta/sessions/resources/delete
----
+# Delete Session Resource
 
-## Delete Session Resource
+`client.beta.sessions.resources.delete(resourceID, params, options?): BetaManagedAgentsDeleteSessionResource`
 
-`client.beta.sessions.resources.delete(stringresourceID, ResourceDeleteParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeleteSessionResource`
-
-**delete** `/v1/sessions/{session_id}/resources/{resource_id}`
+**DELETE** `/v1/sessions/{session_id}/resources/{resource_id}`
 
 Delete Session Resource
 
-### Parameters
+## Parameters
 
 - `resourceID: string`
 
@@ -99,7 +94,7 @@ Delete Session Resource
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsDeleteSessionResource`
 
@@ -109,9 +104,7 @@ Delete Session Resource
 
   - `type: "session_resource_deleted"`
 
-    - `"session_resource_deleted"`
-
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -128,7 +121,7 @@ const betaManagedAgentsDeleteSessionResource = await client.beta.sessions.resour
 console.log(betaManagedAgentsDeleteSessionResource.id);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

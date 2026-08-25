@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/memory_stores/create -->
 
----
-title: Create a memory store
-url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/create
----
-
-## Create a memory store
+# Create a memory store
 
 `$client->beta->memoryStores->create(string name, ?string description, ?array<string,string> metadata, ?list<AnthropicBeta> betas): BetaManagedAgentsMemoryStore`
 
-**post** `/v1/memory_stores`
+**POST** `/v1/memory_stores`
 
 Create a memory store
 
-### Parameters
+## Parameters
 
 - `name: string`
 
@@ -31,7 +26,7 @@ Create a memory store
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsMemoryStore`
 
@@ -65,7 +60,7 @@ Create a memory store
 
     Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -84,7 +79,7 @@ $betaManagedAgentsMemoryStore = $client->beta->memoryStores->create(
 var_dump($betaManagedAgentsMemoryStore);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

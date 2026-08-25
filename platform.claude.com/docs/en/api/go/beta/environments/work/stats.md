@@ -1,25 +1,20 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/environments/work/stats -->
 
----
-title: Get Queue Statistics
-url: https://platform.claude.com/docs/en/api/go/beta/environments/work/stats
----
-
-## Get Queue Statistics
+# Get Queue Statistics
 
 `client.Beta.Environments.Work.Stats(ctx, environmentID, query) (*BetaSelfHostedWorkQueueStats, error)`
 
-**get** `/v1/environments/{environment_id}/work/stats`
+**GET** `/v1/environments/{environment_id}/work/stats`
 
 Get statistics about the work queue for an environment.
 
-### Parameters
+## Parameters
 
 - `environmentID string`
 
 - `query BetaEnvironmentWorkStatsParams`
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Optional header to specify the beta version(s) you want to use.
 
@@ -95,7 +90,7 @@ Get statistics about the work queue for an environment.
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaSelfHostedWorkQueueStats struct{…}`
 
@@ -115,17 +110,19 @@ Get statistics about the work queue for an environment.
 
     Number of work items being processed (polled but not acknowledged)
 
+    default: 0
+
   - `Type WorkQueueStats`
 
     The type of object
 
-    - `const WorkQueueStatsWorkQueueStats WorkQueueStats = "work_queue_stats"`
+    default: work_queue_stats
 
   - `WorkersPolling int64`
 
     Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
 
-### Example
+## Example
 
 ```go
 package main
@@ -154,7 +151,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

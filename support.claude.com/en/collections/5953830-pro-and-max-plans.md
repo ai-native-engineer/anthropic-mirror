@@ -2,7 +2,7 @@
 
 ## Collections
 
-[General10 articles](https://support.claude.com/en/collections/9811201-general)
+[General11 articles](https://support.claude.com/en/collections/9811201-general)
 
 [Pro plan3 articles](https://support.claude.com/en/collections/9811198-pro-plan)
 

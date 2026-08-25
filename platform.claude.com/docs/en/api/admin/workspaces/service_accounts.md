@@ -1,15 +1,10 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts -->
 
----
-title: Service Accounts
-url: https://platform.claude.com/docs/en/api/admin/workspaces/service_accounts
----
-
 # Service Accounts
 
 ## Create Service Account Workspace Member
 
-**post** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
+**POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
 
 Add a service account to a workspace with the given `workspace_role`.
 
@@ -23,13 +18,13 @@ value supplied here. Archived workspaces return 400. Archived service
 accounts cannot be added and are rejected. Requires an OAuth bearer or
 Console session; Admin API keys are not accepted.
 
-### Path Parameters
+### Path parameters
 
 - `workspace_id: string`
 
   ID of the workspace.
 
-### Header Parameters
+### Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -37,7 +32,7 @@ Console session; Admin API keys are not accepted.
 
   To use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.
 
-### Body Parameters
+### Body parameters
 
 - `service_account_id: string`
 
@@ -71,7 +66,7 @@ Console session; Admin API keys are not accepted.
 
 - `type: "service_account_workspace_member"`
 
-  - `"service_account_workspace_member"`
+  default: service_account_workspace_member
 
 - `workspace_id: string`
 
@@ -93,7 +88,7 @@ Console session; Admin API keys are not accepted.
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service_accounts \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
@@ -104,7 +99,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
         }'
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -119,7 +114,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 ## Get Service Account Workspace Member
 
-**get** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
+**GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
 Retrieve a service account's membership in a workspace.
 
@@ -130,7 +125,7 @@ membership when no explicit membership exists; an explicitly added
 membership is returned with its assigned role. An archived service
 account returns 404.
 
-### Path Parameters
+### Path parameters
 
 - `workspace_id: string`
 
@@ -140,7 +135,7 @@ account returns 404.
 
   ID of the service account.
 
-### Header Parameters
+### Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -164,7 +159,7 @@ account returns 404.
 
 - `type: "service_account_workspace_member"`
 
-  - `"service_account_workspace_member"`
+  default: service_account_workspace_member
 
 - `workspace_id: string`
 
@@ -186,13 +181,13 @@ account returns 404.
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service_accounts/$SERVICE_ACCOUNT_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -207,7 +202,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 ## List Service Account Workspace Members
 
-**get** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
+**GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
 
 List the service accounts that are members of a workspace.
 
@@ -218,23 +213,25 @@ archived workspace. The implicit default-workspace membership is not
 included in this list. Memberships of archived service accounts are
 omitted from the results.
 
-### Path Parameters
+### Path parameters
 
 - `workspace_id: string`
 
   ID of the workspace.
 
-### Query Parameters
+### Query parameters
 
 - `limit: optional number`
 
   Number of results per page.
 
+  default: 20, maximum: 100, minimum: 1
+
 - `page: optional string`
 
   Opaque cursor from a previous response's `next_page`.
 
-### Header Parameters
+### Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -244,7 +241,7 @@ omitted from the results.
 
 ### Returns
 
-- `data: array of object { created_by_actor_id, implicit, service_account_id, 3 more }`
+- `data: array of object`
 
   - `created_by_actor_id: string or null`
 
@@ -260,7 +257,7 @@ omitted from the results.
 
   - `type: "service_account_workspace_member"`
 
-    - `"service_account_workspace_member"`
+    default: service_account_workspace_member
 
   - `workspace_id: string`
 
@@ -286,13 +283,13 @@ omitted from the results.
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service_accounts \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -312,7 +309,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 ## Update Service Account Workspace Member
 
-**post** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
+**POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
 Change a service account's role in a workspace.
 
@@ -324,7 +321,7 @@ return 400. Archived service accounts cannot be updated and are
 rejected. Requires an OAuth bearer or Console session; Admin API keys
 are not accepted.
 
-### Path Parameters
+### Path parameters
 
 - `workspace_id: string`
 
@@ -334,7 +331,7 @@ are not accepted.
 
   ID of the service account.
 
-### Header Parameters
+### Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -342,7 +339,7 @@ are not accepted.
 
   To use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.
 
-### Body Parameters
+### Body parameters
 
 - `workspace_role: "workspace_admin" or "workspace_developer" or "workspace_restricted_developer" or "workspace_user"`
 
@@ -372,7 +369,7 @@ are not accepted.
 
 - `type: "service_account_workspace_member"`
 
-  - `"service_account_workspace_member"`
+  default: service_account_workspace_member
 
 - `workspace_id: string`
 
@@ -394,7 +391,7 @@ are not accepted.
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service_accounts/$SERVICE_ACCOUNT_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
@@ -404,7 +401,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
         }'
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -419,7 +416,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 ## Delete Service Account Workspace Member
 
-**delete** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
+**DELETE** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
 
 Remove a service account from a workspace.
 
@@ -430,7 +427,7 @@ explicit default-workspace row reverts to the implicit `workspace_user`
 membership. Archived workspaces return 400. Requires an OAuth bearer or
 Console session; Admin API keys are not accepted.
 
-### Path Parameters
+### Path parameters
 
 - `workspace_id: string`
 
@@ -440,7 +437,7 @@ Console session; Admin API keys are not accepted.
 
   ID of the service account.
 
-### Header Parameters
+### Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -456,7 +453,7 @@ Console session; Admin API keys are not accepted.
 
 - `type: "service_account_workspace_member_deleted"`
 
-  - `"service_account_workspace_member_deleted"`
+  default: service_account_workspace_member_deleted
 
 - `workspace_id: string`
 
@@ -464,14 +461,14 @@ Console session; Admin API keys are not accepted.
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service_accounts/$SERVICE_ACCOUNT_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -481,11 +478,11 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Service Account Create Response
 
-- `ServiceAccountCreateResponse object { created_by_actor_id, implicit, service_account_id, 3 more }`
+- `ServiceAccountCreateResponse object`
 
   - `created_by_actor_id: string or null`
 
@@ -501,7 +498,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
   - `type: "service_account_workspace_member"`
 
-    - `"service_account_workspace_member"`
+    default: service_account_workspace_member
 
   - `workspace_id: string`
 
@@ -523,7 +520,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 ### Service Account Retrieve Response
 
-- `ServiceAccountRetrieveResponse object { created_by_actor_id, implicit, service_account_id, 3 more }`
+- `ServiceAccountRetrieveResponse object`
 
   - `created_by_actor_id: string or null`
 
@@ -539,7 +536,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
   - `type: "service_account_workspace_member"`
 
-    - `"service_account_workspace_member"`
+    default: service_account_workspace_member
 
   - `workspace_id: string`
 
@@ -561,7 +558,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 ### Service Account List Response
 
-- `ServiceAccountListResponse object { created_by_actor_id, implicit, service_account_id, 3 more }`
+- `ServiceAccountListResponse object`
 
   - `created_by_actor_id: string or null`
 
@@ -577,7 +574,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
   - `type: "service_account_workspace_member"`
 
-    - `"service_account_workspace_member"`
+    default: service_account_workspace_member
 
   - `workspace_id: string`
 
@@ -599,7 +596,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 ### Service Account Update Response
 
-- `ServiceAccountUpdateResponse object { created_by_actor_id, implicit, service_account_id, 3 more }`
+- `ServiceAccountUpdateResponse object`
 
   - `created_by_actor_id: string or null`
 
@@ -615,7 +612,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
   - `type: "service_account_workspace_member"`
 
-    - `"service_account_workspace_member"`
+    default: service_account_workspace_member
 
   - `workspace_id: string`
 
@@ -637,7 +634,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
 ### Service Account Delete Response
 
-- `ServiceAccountDeleteResponse object { service_account_id, type, workspace_id }`
+- `ServiceAccountDeleteResponse object`
 
   - `service_account_id: string`
 
@@ -645,7 +642,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/service
 
   - `type: "service_account_workspace_member_deleted"`
 
-    - `"service_account_workspace_member_deleted"`
+    default: service_account_workspace_member_deleted
 
   - `workspace_id: string`
 

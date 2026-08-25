@@ -1,18 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/multimodal-using-sub-agents -->
 
-#  Using Haiku as a sub-agent
+#  Using Haiku as a sub-agent
 
 In this recipe, we'll demonstrate how to analyze Apple's 2023 financial earnings reports using Claude 3 Haiku sub-agent models to extract relevant information from earnings release PDFs. We'll then use Claude 3 Opus to generate a response to our question and create a graph using matplotlib to accompany its response.
 
-##  Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 First, let's install the required libraries and set up the Claude API client.
 
-
-
 %pip install anthropic IPython PyMuPDF matplotlib
-
-
 
 # Import the required libraries
 
@@ -38,11 +34,9 @@ client = Anthropic()
 
 MODEL\_NAME = "claude-haiku-4-5"
 
-##  Step 2: Gather our documents and ask a question
+##  Step 2: Gather our documents and ask a question
 
 For this example, we will be using all Apple's financial statements from the 2023 financial year and asking about the net sales over the year.
-
-
 
 # List of Apple's earnings release PDF URLs
 
@@ -62,13 +56,11 @@ pdf\_urls = [
 
 QUESTION = "How did Apple's net sales change quarter to quarter in the 2023 financial year and what were the key contributors to the changes?"
 
-##  Step 3: Download and convert PDFs to images
+##  Step 3: Download and convert PDFs to images
 
 Next, we'll define functions to download the earnings release PDFs and convert them to base64-encoded PNG images. We have to do this because these PDFs are full of tables that are hard to parse with traditional PDF parsers. It's easier if we just convert them to images and pass the images to Haiku.
 
 The `download_pdf` function downloads a PDF file from a given URL and saves it to the specified folder. The `pdf_to_base64_pngs` function converts a PDF to a list of base64-encoded PNG images.
-
-
 
 # Function to download a PDF file from a URL and save it to a specified folder
 
@@ -162,11 +154,9 @@ pdf\_paths = [path for path in pdf\_paths if path is not None]
 
 We use ThreadPoolExecutor to download the PDFs concurrently and store the file paths in pdf\_paths.
 
-##  Step 4: Generate a specific prompt for Haiku using Opus
+##  Step 4: Generate a specific prompt for Haiku using Opus
 
 Let's use Opus as an orchestrator and have it write a specific prompt for each Haiku sub-agent based on the user provided question.
-
-
 
 def generate\_haiku\_prompt(question):
 
@@ -200,8 +190,6 @@ haiku\_prompt = generate\_haiku\_prompt(QUESTION)
 
 print(haiku\_prompt)
 
-
-
 ```
 Extract the following information from the Apple earnings report PDF for the quarter:
 1. Apple's net sales for the quarter
@@ -212,11 +200,9 @@ Extract the following information from the Apple earnings report PDF for the qua
 Organize the extracted information in a clear, concise format focusing on the key data points and insights related to the change in net sales for the quarter.
 ```
 
-##  Step 5: Extract information from PDFs
+##  Step 5: Extract information from PDFs
 
 Now, let's define our question and extract information from the PDFs using sub-agent Haiku models. We format the information from each model into a neatly defined set of XML tags.
-
-
 
 def extract\_info(pdf\_path, haiku\_prompt):
 
@@ -288,8 +274,6 @@ extracted\_info += (
 
 print(extracted\_info)
 
-
-
 ```
 <info quarter="Q4">According to the condensed consolidated statements of operations, Apple's net sales changed as follows in the 2023 financial year:
 
@@ -337,11 +321,9 @@ So the overall increase in net sales was driven primarily by higher product sale
 
 We extract information from the PDFs concurrently using sub-agent models and combine the extracted information. We then prepare the messages for the powerful model, including the question and the extracted information, and ask it to generate a response and matplotlib code.
 
-##  Step 6: Pass the information to Opus to generate a response
+##  Step 6: Pass the information to Opus to generate a response
 
 Now that we have fetched the information from each PDF using the sub-agents, let's call Opus to actually answer the question and write code to create a graph to accompany the answer.
-
-
 
 # Prepare the messages for the powerful model
 
@@ -376,8 +358,6 @@ generated\_response = response.content[0].text
 print("Generated Response:")
 
 print(generated\_response)
-
-
 
 ```
 Generated Response:
@@ -417,15 +397,13 @@ plt.show()
 This code creates a bar chart showing Apple's net sales for each quarter in the 2023 financial year. The x-axis represents the quarters, and the y-axis represents the net sales in millions of dollars. The chart also includes data labels showing the exact net sales values for each quarter.
 ```
 
-##  Step 7: Extract response and execute Matplotlib code
+##  Step 7: Extract response and execute Matplotlib code
 
 Finally, let's extract the matplotlib code from the generated response and execute it to visualize the revenue growth trend.
 
 We define the `extract_code_and_response` function to extract the matplotlib code and non-code response from the generated response. We print the non-code response and execute the matplotlib code if it is found.
 
 Note that it is not good practice to use `exec` on model-written code outside of a sandbox but for the purposes of this demo we are doing it :)
-
-
 
 # Extract the matplotlib code from the response
 

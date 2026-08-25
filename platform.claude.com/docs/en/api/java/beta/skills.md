@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/skills -->
 
----
-title: Skills
-url: https://platform.claude.com/docs/en/api/java/beta/skills
----
-
 # Skills
 
 ## Create Skill
 
-`SkillCreateResponse beta().skills().create(SkillCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`SkillCreateResponse beta().skills().create(params, requestOptions = RequestOptions.none())`
 
-**post** `/v1/skills`
+**POST** `/v1/skills`
 
 Create Skill
 
@@ -173,7 +168,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -189,9 +184,9 @@ public final class Main {
 
 ## List Skills
 
-`SkillListPage beta().skills().list(SkillListParamsparams = SkillListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`SkillListPage beta().skills().list(params = SkillListParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/skills`
+**GET** `/v1/skills`
 
 List Skills
 
@@ -358,7 +353,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -380,9 +375,9 @@ public final class Main {
 
 ## Get Skill
 
-`SkillRetrieveResponse beta().skills().retrieve(SkillRetrieveParamsparams = SkillRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`SkillRetrieveResponse beta().skills().retrieve(params = SkillRetrieveParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/skills/{skill_id}`
+**GET** `/v1/skills/{skill_id}`
 
 Get Skill
 
@@ -534,7 +529,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -550,9 +545,9 @@ public final class Main {
 
 ## Delete Skill
 
-`SkillDeleteResponse beta().skills().delete(SkillDeleteParamsparams = SkillDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`SkillDeleteResponse beta().skills().delete(params = SkillDeleteParams.none(), requestOptions = RequestOptions.none())`
 
-**delete** `/v1/skills/{skill_id}`
+**DELETE** `/v1/skills/{skill_id}`
 
 Delete Skill
 
@@ -675,7 +670,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -684,17 +679,17 @@ public final class Main {
 }
 ```
 
-# Versions
+## Skills › Versions
 
-## Create Skill Version
+### Create Skill Version
 
-`VersionCreateResponse beta().skills().versions().create(VersionCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`VersionCreateResponse beta().skills().versions().create(params, requestOptions = RequestOptions.none())`
 
-**post** `/v1/skills/{skill_id}/versions`
+**POST** `/v1/skills/{skill_id}/versions`
 
 Create Skill Version
 
-### Parameters
+#### Parameters
 
 - `VersionCreateParams params`
 
@@ -782,7 +777,7 @@ Create Skill Version
 
     All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
-### Returns
+#### Returns
 
 - `class VersionCreateResponse:`
 
@@ -830,7 +825,7 @@ Create Skill Version
 
     Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -856,7 +851,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -871,15 +866,15 @@ public final class Main {
 }
 ```
 
-## List Skill Versions
+### List Skill Versions
 
-`VersionListPage beta().skills().versions().list(VersionListParamsparams = VersionListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`VersionListPage beta().skills().versions().list(params = VersionListParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/skills/{skill_id}/versions`
+**GET** `/v1/skills/{skill_id}/versions`
 
 List Skill Versions
 
-### Parameters
+#### Parameters
 
 - `VersionListParams params`
 
@@ -971,7 +966,7 @@ List Skill Versions
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+#### Returns
 
 - `class VersionListResponse:`
 
@@ -1019,7 +1014,7 @@ List Skill Versions
 
     Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -1040,7 +1035,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1061,15 +1056,15 @@ public final class Main {
 }
 ```
 
-## Download Skill Version Content
+### Download Skill Version Content
 
-`HttpResponse beta().skills().versions().download(VersionDownloadParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`HttpResponse beta().skills().versions().download(params, requestOptions = RequestOptions.none())`
 
-**get** `/v1/skills/{skill_id}/versions/{version}/content`
+**GET** `/v1/skills/{skill_id}/versions/{version}/content`
 
 Download a skill version's content as a zip archive.
 
-### Parameters
+#### Parameters
 
 - `VersionDownloadParams params`
 
@@ -1157,7 +1152,7 @@ Download a skill version's content as a zip archive.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -1182,15 +1177,15 @@ public final class Main {
 }
 ```
 
-## Get Skill Version
+### Get Skill Version
 
-`VersionRetrieveResponse beta().skills().versions().retrieve(VersionRetrieveParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`VersionRetrieveResponse beta().skills().versions().retrieve(params, requestOptions = RequestOptions.none())`
 
-**get** `/v1/skills/{skill_id}/versions/{version}`
+**GET** `/v1/skills/{skill_id}/versions/{version}`
 
 Get Skill Version
 
-### Parameters
+#### Parameters
 
 - `VersionRetrieveParams params`
 
@@ -1278,7 +1273,7 @@ Get Skill Version
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+#### Returns
 
 - `class VersionRetrieveResponse:`
 
@@ -1326,7 +1321,7 @@ Get Skill Version
 
     Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -1351,7 +1346,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -1366,15 +1361,15 @@ public final class Main {
 }
 ```
 
-## Delete Skill Version
+### Delete Skill Version
 
-`VersionDeleteResponse beta().skills().versions().delete(VersionDeleteParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`VersionDeleteResponse beta().skills().versions().delete(params, requestOptions = RequestOptions.none())`
 
-**delete** `/v1/skills/{skill_id}/versions/{version}`
+**DELETE** `/v1/skills/{skill_id}/versions/{version}`
 
 Delete Skill Version
 
-### Parameters
+#### Parameters
 
 - `VersionDeleteParams params`
 
@@ -1462,7 +1457,7 @@ Delete Skill Version
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+#### Returns
 
 - `class VersionDeleteResponse:`
 
@@ -1478,7 +1473,7 @@ Delete Skill Version
 
     For Skill Versions, this is always `"skill_version_deleted"`.
 
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -1503,7 +1498,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {

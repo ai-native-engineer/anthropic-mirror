@@ -1,25 +1,22 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/sessions/resources/list -->
 
----
-title: List Session Resources
-url: https://platform.claude.com/docs/en/api/python/beta/sessions/resources/list
----
+# List Session Resources
 
-## List Session Resources
+`beta.sessions.resources.list(session_id, **kwargs)  -> SyncPageCursor[BetaManagedAgentsSessionResource]`
 
-`beta.sessions.resources.list(strsession_id, ResourceListParams**kwargs)  -> SyncPageCursor[BetaManagedAgentsSessionResource]`
-
-**get** `/v1/sessions/{session_id}/resources`
+**GET** `/v1/sessions/{session_id}/resources`
 
 List Session Resources
 
-### Parameters
+## Parameters
 
 - `session_id: str`
 
 - `limit: Optional[int]`
 
   Maximum number of resources to return per page (max 1000). If omitted, returns all resources.
+
+  format: int32
 
 - `page: Optional[str]`
 
@@ -101,7 +98,7 @@ List Session Resources
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsSessionResource`
 
@@ -115,15 +112,17 @@ List Session Resources
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `mount_path: str`
 
     - `type: Literal["github_repository"]`
 
-      - `"github_repository"`
-
     - `updated_at: datetime`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `url: str`
 
@@ -135,9 +134,9 @@ List Session Resources
 
           Branch name to check out.
 
-        - `type: Literal["branch"]`
+          minLength: 1, maxLength: 255
 
-          - `"branch"`
+        - `type: Literal["branch"]`
 
       - `class BetaManagedAgentsCommitCheckout: …`
 
@@ -145,9 +144,9 @@ List Session Resources
 
           Full commit SHA to check out.
 
-        - `type: Literal["commit"]`
+          minLength: 7, maxLength: 64
 
-          - `"commit"`
+        - `type: Literal["commit"]`
 
   - `class BetaManagedAgentsFileResource: …`
 
@@ -157,17 +156,19 @@ List Session Resources
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `file_id: str`
 
     - `mount_path: str`
 
     - `type: Literal["file"]`
 
-      - `"file"`
-
     - `updated_at: datetime`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsMemoryStoreResource: …`
 
@@ -178,8 +179,6 @@ List Session Resources
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `type: Literal["memory_store"]`
-
-      - `"memory_store"`
 
     - `access: Optional[Literal["read_write", "read_only"]]`
 
@@ -197,6 +196,8 @@ List Session Resources
 
       Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+      maxLength: 4096
+
     - `mount_path: Optional[str]`
 
       Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
@@ -205,7 +206,7 @@ List Session Resources
 
       Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
 
-### Example
+## Example
 
 ```python
 import os
@@ -223,7 +224,7 @@ page = page.data[0]
 print(page)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

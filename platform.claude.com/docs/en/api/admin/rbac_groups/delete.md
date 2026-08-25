@@ -1,25 +1,20 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/rbac_groups/delete -->
 
----
-title: Delete RBAC Group
-url: https://platform.claude.com/docs/en/api/admin/rbac_groups/delete
----
+# Delete RBAC Group
 
-## Delete RBAC Group
-
-**delete** `/v1/organizations/rbac_groups/{group_id}`
+**DELETE** `/v1/organizations/rbac_groups/{group_id}`
 
 Delete an RBAC Group. Groups provisioned by an identity provider (source type `"scim"`) cannot be deleted via the API.
 
 The RBAC Groups API is in beta and available to Claude Enterprise organizations only. Requests must send the `ce-user-management-2026-07-13` value in the `anthropic-beta` header.
 
-### Path Parameters
+## Path parameters
 
 - `group_id: string`
 
   ID of the RBAC Group.
 
-### Header Parameters
+## Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -27,9 +22,9 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
   To use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.
 
-### Returns
+## Returns
 
-- `RbacGroupDeleted object { id, type }`
+- `RbacGroupDeleted object`
 
   - `id: string`
 
@@ -41,18 +36,18 @@ The RBAC Groups API is in beta and available to Claude Enterprise organizations 
 
     For RBAC Groups, this is always `"rbac_group_deleted"`.
 
-    - `"rbac_group_deleted"`
+    default: rbac_group_deleted
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/rbac_groups/$GROUP_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

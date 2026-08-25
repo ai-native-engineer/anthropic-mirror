@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/events -->
 
----
-title: Events
-url: https://platform.claude.com/docs/en/api/php/beta/sessions/events
----
-
 # Events
 
 ## List Events
 
 `$client->beta->sessions->events->list(string sessionID, ?\Datetime createdAtGt, ?\Datetime createdAtGte, ?\Datetime createdAtLt, ?\Datetime createdAtLte, ?int limit, ?Order order, ?string page, ?list<string> types, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsSessionEvent>`
 
-**get** `/v1/sessions/{session_id}/events`
+**GET** `/v1/sessions/{session_id}/events`
 
 List Events
 
@@ -808,7 +803,7 @@ $page = $client->beta->sessions->events->list(
 var_dump($page);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -844,7 +839,7 @@ var_dump($page);
 
 `$client->beta->sessions->events->send(string sessionID, list<ManagedAgentsEventParams> events, ?list<AnthropicBeta> betas): ManagedAgentsSendSessionEvents`
 
-**post** `/v1/sessions/{session_id}/events`
+**POST** `/v1/sessions/{session_id}/events`
 
 Send Events
 
@@ -891,7 +886,7 @@ $betaManagedAgentsSendSessionEvents = $client->beta->sessions->events->send(
 var_dump($betaManagedAgentsSendSessionEvents);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -915,7 +910,7 @@ var_dump($betaManagedAgentsSendSessionEvents);
 
 `$client->beta->sessions->events->stream(string sessionID, ?list<BetaManagedAgentsDeltaType> eventDeltas, ?list<AnthropicBeta> betas): ManagedAgentsStreamSessionEvents`
 
-**get** `/v1/sessions/{session_id}/events/stream`
+**GET** `/v1/sessions/{session_id}/events/stream`
 
 Stream Events
 
@@ -1679,6 +1674,8 @@ Stream Events
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
+- `ManagedAgentsStreamSessionEvents`
+
 ### Example
 
 ```php
@@ -1701,7 +1698,7 @@ $betaManagedAgentsStreamSessionEvents = $client
 var_dump($betaManagedAgentsStreamSessionEvents);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1717,7 +1714,7 @@ var_dump($betaManagedAgentsStreamSessionEvents);
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Agent Custom Tool Use Event
 

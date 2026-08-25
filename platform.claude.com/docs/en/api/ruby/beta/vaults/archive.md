@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/vaults/archive -->
 
----
-title: Archive Vault
-url: https://platform.claude.com/docs/en/api/ruby/beta/vaults/archive
----
-
-## Archive Vault
+# Archive Vault
 
 `beta.vaults.archive(vault_id, **kwargs) -> BetaManagedAgentsVault`
 
-**post** `/v1/vaults/{vault_id}/archive`
+**POST** `/v1/vaults/{vault_id}/archive`
 
 Archive Vault
 
-### Parameters
+## Parameters
 
 - `vault_id: String`
 
@@ -93,7 +88,7 @@ Archive Vault
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsVault`
 
@@ -107,9 +102,13 @@ Archive Vault
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `display_name: String`
 
@@ -121,13 +120,13 @@ Archive Vault
 
   - `type: :vault`
 
-    - `:vault`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
 
-### Example
+    format: date-time
+
+## Example
 
 ```ruby
 require "anthropic"
@@ -139,7 +138,7 @@ beta_managed_agents_vault = anthropic.beta.vaults.archive("vlt_011CZkZDLs7fYzm1h
 puts(beta_managed_agents_vault)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,10 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/patterns-agents-evaluator-optimizer -->
 
-##  Evaluator-Optimizer Workflow
+##  Evaluator-Optimizer Workflow
 
 In this workflow, one LLM call generates a response while another provides evaluation and feedback in a loop.
 
-###  When to use this workflow
+###  When to use this workflow
 
 This workflow is particularly effective when we have:
 
@@ -15,8 +15,6 @@ The two signs of good fit are:
 
 * LLM responses can be demonstrably improved when feedback is provided
 * The LLM can provide meaningful feedback itself
-
-
 
 from util import extract\_xml, llm\_call
 
@@ -98,9 +96,7 @@ memory.append(result)
 
 chain\_of\_thought.append({"thoughts": thoughts, "result": result})
 
-###  Example Use Case: Iterative coding loop
-
-
+###  Example Use Case: Iterative coding loop
 
 evaluator\_prompt = """
 
@@ -169,8 +165,6 @@ All operations should be O(1).
 """
 
 loop(task, evaluator\_prompt, generator\_prompt)
-
-
 
 ```
 === GENERATION START ===

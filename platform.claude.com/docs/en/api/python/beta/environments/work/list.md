@@ -1,27 +1,24 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/environments/work/list -->
 
----
-title: List Work Items
-url: https://platform.claude.com/docs/en/api/python/beta/environments/work/list
----
+# List Work Items
 
-## List Work Items
+`beta.environments.work.list(environment_id, **kwargs)  -> SyncPageCursor[BetaSelfHostedWork]`
 
-`beta.environments.work.list(strenvironment_id, WorkListParams**kwargs)  -> SyncPageCursor[BetaSelfHostedWork]`
-
-**get** `/v1/environments/{environment_id}/work`
+**GET** `/v1/environments/{environment_id}/work`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 List work items in an environment.
 
-### Parameters
+## Parameters
 
 - `environment_id: str`
 
 - `limit: Optional[int]`
 
   Maximum number of work items to return
+
+  default: 20, maximum: 1000, minimum: 1
 
 - `page: Optional[str]`
 
@@ -103,7 +100,7 @@ List work items in an environment.
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaSelfHostedWork: …`
 
@@ -136,8 +133,6 @@ List work items in an environment.
     - `type: Literal["session"]`
 
       Type of work data
-
-      - `"session"`
 
   - `environment_id: str`
 
@@ -185,9 +180,9 @@ List work items in an environment.
 
     The type of object (always 'work')
 
-    - `"work"`
+    default: work
 
-### Example
+## Example
 
 ```python
 import os
@@ -205,7 +200,7 @@ page = page.data[0]
 print(page.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

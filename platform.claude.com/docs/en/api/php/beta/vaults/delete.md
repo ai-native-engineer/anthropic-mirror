@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/vaults/delete -->
 
----
-title: Delete Vault
-url: https://platform.claude.com/docs/en/api/php/beta/vaults/delete
----
-
-## Delete Vault
+# Delete Vault
 
 `$client->beta->vaults->delete(string vaultID, ?list<AnthropicBeta> betas): BetaManagedAgentsDeletedVault`
 
-**delete** `/v1/vaults/{vault_id}`
+**DELETE** `/v1/vaults/{vault_id}`
 
 Delete Vault
 
-### Parameters
+## Parameters
 
 - `vaultID: string`
 
@@ -21,7 +16,7 @@ Delete Vault
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsDeletedVault`
 
@@ -31,7 +26,7 @@ Delete Vault
 
   - `Type type`
 
-### Example
+## Example
 
 ```php
 <?php
@@ -48,7 +43,7 @@ $betaManagedAgentsDeletedVault = $client->beta->vaults->delete(
 var_dump($betaManagedAgentsDeletedVault);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

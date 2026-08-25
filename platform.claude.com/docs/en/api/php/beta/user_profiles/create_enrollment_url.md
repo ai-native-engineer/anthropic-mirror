@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/user_profiles/create_enrollment_url -->
 
----
-title: Create Enrollment URL
-url: https://platform.claude.com/docs/en/api/php/beta/user_profiles/create_enrollment_url
----
-
-## Create Enrollment URL
+# Create Enrollment URL
 
 `$client->beta->userProfiles->createEnrollmentURL(string userProfileID, ?list<AnthropicBeta> betas): BetaUserProfileEnrollmentURL`
 
-**post** `/v1/user_profiles/{user_profile_id}/enrollment_url`
+**POST** `/v1/user_profiles/{user_profile_id}/enrollment_url`
 
 Create Enrollment URL
 
-### Parameters
+## Parameters
 
 - `userProfileID: string`
 
@@ -21,7 +16,7 @@ Create Enrollment URL
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaUserProfileEnrollmentURL`
 
@@ -37,7 +32,7 @@ Create Enrollment URL
 
     Enrollment URL to send to the end user. Valid until `expires_at`.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -57,7 +52,7 @@ $betaUserProfileEnrollmentURL = $client
 var_dump($betaUserProfileEnrollmentURL);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

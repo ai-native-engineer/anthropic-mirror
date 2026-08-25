@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/environments/archive -->
 
----
-title: Archive Environment
-url: https://platform.claude.com/docs/en/api/php/beta/environments/archive
----
-
-## Archive Environment
+# Archive Environment
 
 `$client->beta->environments->archive(string environmentID, ?list<AnthropicBeta> betas): BetaEnvironment`
 
-**post** `/v1/environments/{environment_id}/archive`
+**POST** `/v1/environments/{environment_id}/archive`
 
 Archive an environment by ID. Archived environments cannot be used to create new sessions.
 
-### Parameters
+## Parameters
 
 - `environmentID: string`
 
@@ -21,7 +16,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `BetaEnvironment`
 
@@ -65,7 +60,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -82,7 +77,7 @@ $betaEnvironment = $client->beta->environments->archive(
 var_dump($betaEnvironment);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

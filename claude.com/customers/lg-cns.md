@@ -156,7 +156,7 @@ Director and Head of Build Center, LG CNS
 
 ## Proof on a real customer system
 
-The approach was validated on the construction PMS itself: a multi-billion-won, next-generation rebuild delivered between November 2025 and June 2026, at roughly 50% of the cost of a conventional rebuild. The system is in final testing ahead of its scheduled launch in June 2026.
+The approach was validated on the construction PMS itself: a multi-billion-won, next-generation rebuild delivered between November 2025 and June 2026, at roughly 50% of the cost of a conventional rebuild. The system successfully went live in June 2026.
 
 The project achieved a 99.1% API mapping completion rate, with 2,888 of 2,913 APIs converted. On the frontend, 1,340 screens moved from MiPlatform to React across a main portal and a partner portal. Backend and frontend conversion ran simultaneously through 24/7 parallel-track operations.
 

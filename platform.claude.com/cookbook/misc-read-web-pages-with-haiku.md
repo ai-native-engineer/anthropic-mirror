@@ -1,22 +1,18 @@
 <!-- source: https://platform.claude.com/cookbook/misc-read-web-pages-with-haiku -->
 
-#  Summarizing Web Page Content with Claude 3 Haiku
+#  Summarizing Web Page Content with Claude 3 Haiku
 
 In this recipe, we'll learn how to fetch the content of a web page given its URL and then use Anthropic's Claude API to generate a summary of the page's content.
 
 Let's start by installing the Anthropic library.
 
-##  Setup
+##  Setup
 
 First, let's install the necessary libraries and setup our Anthropic client with our API key.
-
-
 
 # Install the necessary libraries
 
 %pip install anthropic
-
-
 
 # Import the required libraries
 
@@ -28,11 +24,9 @@ client = Anthropic()
 
 MODEL\_NAME = "claude-haiku-4-5"
 
-##  Step 1: Fetching the Web Page Content
+##  Step 1: Fetching the Web Page Content
 
 First, we need to fetch the content of the web page using the provided URL. We'll use the requests library for this purpose.
-
-
 
 import requests
 
@@ -50,11 +44,9 @@ print(f"Failed to fetch the web page. Status code: {response.status\_code}")
 
 exit(1)
 
-##  Step 2: Preparing the Input for Claude
+##  Step 2: Preparing the Input for Claude
 
 Next, we'll prepare the input for the Claude API. We'll create a message that includes the page content and a prompt asking Claude to summarize it.
-
-
 
 prompt = (
 
@@ -64,19 +56,15 @@ f"<content>{page\_content}</content>Please produce a concise summary of the web 
 
 messages = [{"role": "user", "content": prompt}]
 
-##  Step 3: Generating the Summary
+##  Step 3: Generating the Summary
 
 Now, we'll call the Haiku to generate a summary of the web page content.
-
-
 
 response = client.messages.create(model="claude-haiku-4-5", max\_tokens=1024, messages=messages)
 
 summary = response.content[0].text
 
 print(summary)
-
-
 
 ```
 The 96th Academy Awards ceremony took place on March 10, 2024 at the Dolby Theatre in Los Angeles. The ceremony, hosted by Jimmy Kimmel, presented Academy Awards (Oscars) in 23 categories honoring films released in 2023.

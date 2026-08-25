@@ -1,14 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-llamaindex-subquestion-query-engine -->
 
-#  SubQuestionQueryEngine
+#  SubQuestionQueryEngine
 
 Often, we encounter scenarios where our queries span across multiple documents.
 
 In this notebook, we delve into addressing complex queries that extend over various documents by breaking them down into simpler sub-queries and generate answers using the `SubQuestionQueryEngine`.
 
-###  Installation
-
-
+###  Installation
 
 !pip install llama-index
 
@@ -16,31 +14,23 @@ In this notebook, we delve into addressing complex queries that extend over vari
 
 !pip install llama-index-embeddings-huggingface
 
-###  Setup API Key
-
-
+###  Setup API Key
 
 import os
 
 os.environ["ANTHROPIC\_API\_KEY"] = "YOUR Claude API KEY"
 
-###  Setup LLM and Embedding model
+###  Setup LLM and Embedding model
 
 We will use anthropic latest released `Claude-3 Opus` LLM.
-
-
 
 from llama\_index.embeddings.huggingface import HuggingFaceEmbedding
 
 from llama\_index.llms.anthropic import Anthropic
 
-
-
 llm = Anthropic(temperature=0.0, model="claude-opus-4-1")
 
 embed\_model = HuggingFaceEmbedding(model\_name="BAAI/bge-base-en-v1.5")
-
-
 
 from llama\_index.core import Settings
 
@@ -50,9 +40,7 @@ Settings.embed\_model = embed\_model
 
 Settings.chunk\_size = 512
 
-###  Setup logging
-
-
+###  Setup logging
 
 # NOTE: This is ONLY necessary in jupyter notebook.
 
@@ -92,17 +80,13 @@ logger.addHandler(handler)
 
 from IPython.display import HTML, display
 
-###  Download Data
+###  Download Data
 
 We will use Uber and Lyft 2021 10K SEC Filings
-
-
 
 !wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/10k/uber\_2021.pdf' -O './uber\_2021.pdf'
 
 !wget 'https://raw.githubusercontent.com/run-llama/llama\_index/main/docs/examples/data/10k/lyft\_2021.pdf' -O './lyft\_2021.pdf'
-
-
 
 ```
 --2024-03-08 07:07:32--  https://raw.githubusercontent.com/run-llama/llama_index/main/docs/examples/data/10k/uber_2021.pdf
@@ -128,9 +112,7 @@ Saving to: ‘./lyft_2021.pdf’
 2024-03-08 07:07:33 (74.9 MB/s) - ‘./lyft_2021.pdf’ saved [1440303/1440303]
 ```
 
-###  Load Data
-
-
+###  Load Data
 
 from llama\_index.core import SimpleDirectoryReader
 
@@ -138,22 +120,16 @@ lyft\_docs = SimpleDirectoryReader(input\_files=["lyft\_2021.pdf"]).load\_data()
 
 uber\_docs = SimpleDirectoryReader(input\_files=["uber\_2021.pdf"]).load\_data()
 
-
-
 print(f"Loaded lyft 10-K with {len(lyft\_docs)} pages")
 
 print(f"Loaded Uber 10-K with {len(uber\_docs)} pages")
-
-
 
 ```
 Loaded lyft 10-K with 238 pages
 Loaded Uber 10-K with 307 pages
 ```
 
-###  Index Data
-
-
+###  Index Data
 
 from llama\_index.core import VectorStoreIndex
 
@@ -161,19 +137,13 @@ lyft\_index = VectorStoreIndex.from\_documents(lyft\_docs[:100])
 
 uber\_index = VectorStoreIndex.from\_documents(uber\_docs[:100])
 
-###  Create Query Engines
-
-
+###  Create Query Engines
 
 lyft\_engine = lyft\_index.as\_query\_engine(similarity\_top\_k=5)
 
-
-
 uber\_engine = uber\_index.as\_query\_engine(similarity\_top\_k=5)
 
-###  Querying
-
-
+###  Querying
 
 response = await lyft\_engine.aquery(
 
@@ -183,15 +153,11 @@ response = await lyft\_engine.aquery(
 
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
 
-
-
 ```
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 
 <IPython.core.display.HTML object>
 ```
-
-
 
 response = await uber\_engine.aquery(
 
@@ -201,17 +167,13 @@ response = await uber\_engine.aquery(
 
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
 
-
-
 ```
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 
 <IPython.core.display.HTML object>
 ```
 
-###  Create Tools
-
-
+###  Create Tools
 
 from llama\_index.core.query\_engine import SubQuestionQueryEngine
 
@@ -245,9 +207,7 @@ name="uber\_10k", description="Provides information about Uber financials for ye
 
 ]
 
-###  Create `SubQuestionQueryEngine`
-
-
+###  Create `SubQuestionQueryEngine`
 
 sub\_question\_query\_engine = SubQuestionQueryEngine.from\_defaults(
 
@@ -255,17 +215,13 @@ query\_engine\_tools=query\_engine\_tools
 
 )
 
-###  Querying
-
-
+###  Querying
 
 response = await sub\_question\_query\_engine.aquery(
 
 "Compare revenue growth of Uber and Lyft from 2020 to 2021"
 
 )
-
-
 
 ```
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
@@ -290,21 +246,13 @@ So in total, Lyft generated revenue of $3,208,323,000 in the year ended December
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-
-
 response = await sub\_question\_query\_engine.aquery("Compare the investments made by Uber and Lyft")
-
-
 
 ```
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
@@ -353,11 +301,7 @@ So while the total proceeds from sales/maturities was around $4.5 billion, Lyft 
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 <IPython.core.display.HTML object>

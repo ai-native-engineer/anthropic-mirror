@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/delete -->
 
----
-title: Delete Credential
-url: https://platform.claude.com/docs/en/api/cli/beta/vaults/credentials/delete
----
-
-## Delete Credential
+# Delete Credential
 
 `$ ant beta:vaults:credentials delete`
 
-**delete** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+**DELETE** `/v1/vaults/{vault_id}/credentials/{credential_id}`
 
 Delete Credential
 
-### Parameters
+## Parameters
 
 - `--vault-id: string`
 
@@ -27,9 +22,9 @@ Delete Credential
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `beta_managed_agents_deleted_credential: object { id, type }`
+- `beta_managed_agents_deleted_credential: object`
 
   Confirmation of a deleted credential.
 
@@ -39,18 +34,16 @@ Delete Credential
 
   - `type: "vault_credential_deleted"`
 
-    - `"vault_credential_deleted"`
+## Example
 
-### Example
-
-```cli
+```bash
 ant beta:vaults:credentials delete \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
   --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

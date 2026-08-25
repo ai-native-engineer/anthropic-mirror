@@ -1,33 +1,28 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/external_keys -->
 
----
-title: External Keys
-url: https://platform.claude.com/docs/en/api/admin/external_keys
----
-
 # External Keys
 
 ## Create External Key
 
-**post** `/v1/organizations/external_keys`
+**POST** `/v1/organizations/external_keys`
 
 Create an external key config owned by the caller's organization.
 
-### Body Parameters
+### Body parameters
 
-- `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+- `provider_config: object or object or object`
 
   KMS provider identity and auth coordinates.
 
-  - `Aws object { kms_arn, type, region, role_arn }`
+  - `Aws object`
 
     - `kms_arn: string`
 
       Full ARN of the AWS KMS key.
 
-    - `type: "aws"`
+      maxLength: 2048
 
-      - `"aws"`
+    - `type: "aws"`
 
     - `region: optional string or null`
 
@@ -35,9 +30,11 @@ Create an external key config owned by the caller's organization.
 
     - `role_arn: optional string or null`
 
+      **Deprecated**
+
       IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-  - `Gcp object { key_name, type }`
+  - `Gcp object`
 
     - `key_name: string`
 
@@ -45,9 +42,7 @@ Create an external key config owned by the caller's organization.
 
     - `type: "gcp"`
 
-      - `"gcp"`
-
-  - `Azure object { key_name, tenant_id, type, 2 more }`
+  - `Azure object`
 
     Azure Key Vault provider configuration.
 
@@ -61,8 +56,6 @@ Create an external key config owned by the caller's organization.
 
     - `type: "azure"`
 
-      - `"azure"`
-
     - `vault_uri: string`
 
       Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -75,11 +68,11 @@ Create an external key config owned by the caller's organization.
 
   Human-friendly display name.
 
+  maxLength: 255, minLength: 1
+
 - `geo: optional "us"`
 
   Data residency geo. Only `us` is supported.
-
-  - `"us"`
 
 ### Returns
 
@@ -87,23 +80,25 @@ Create an external key config owned by the caller's organization.
 
   Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
-- `attachment: object { type }  or object { type }`
+- `attachment: object or object`
 
   Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
 
-  - `Attached object { type }`
+  - `Attached object`
 
     - `type: "attached"`
 
-      - `"attached"`
+      default: attached
 
-  - `Unattached object { type }`
+  - `Unattached object`
 
     - `type: "unattached"`
 
-      - `"unattached"`
+      default: unattached
 
 - `created_at: string`
+
+  format: date-time
 
 - `display_name: string or null`
 
@@ -113,19 +108,19 @@ Create an external key config owned by the caller's organization.
 
   Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-- `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+- `provider_config: object or object or object`
 
   KMS provider identity and auth coordinates.
 
-  - `Aws object { kms_arn, type, region, role_arn }`
+  - `Aws object`
 
     - `kms_arn: string`
 
       Full ARN of the AWS KMS key.
 
-    - `type: "aws"`
+      maxLength: 2048
 
-      - `"aws"`
+    - `type: "aws"`
 
     - `region: optional string or null`
 
@@ -133,9 +128,11 @@ Create an external key config owned by the caller's organization.
 
     - `role_arn: optional string or null`
 
+      **Deprecated**
+
       IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-  - `Gcp object { key_name, type }`
+  - `Gcp object`
 
     - `key_name: string`
 
@@ -143,9 +140,7 @@ Create an external key config owned by the caller's organization.
 
     - `type: "gcp"`
 
-      - `"gcp"`
-
-  - `Azure object { key_name, tenant_id, type, 2 more }`
+  - `Azure object`
 
     - `key_name: string`
 
@@ -157,8 +152,6 @@ Create an external key config owned by the caller's organization.
 
     - `type: "azure"`
 
-      - `"azure"`
-
     - `vault_uri: string`
 
       Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -169,13 +162,15 @@ Create an external key config owned by the caller's organization.
 
 - `type: "external_key"`
 
-  - `"external_key"`
+  default: external_key
 
 - `updated_at: string`
 
+  format: date-time
+
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/external_keys \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
@@ -188,7 +183,7 @@ curl https://api.anthropic.com/v1/organizations/external_keys \
         }'
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -212,18 +207,20 @@ curl https://api.anthropic.com/v1/organizations/external_keys \
 
 ## List External Keys
 
-**get** `/v1/organizations/external_keys`
+**GET** `/v1/organizations/external_keys`
 
 List external key configs in the caller's organization.
 
 Results are ordered by creation time (newest first). Use the
 `next_page` cursor from the response to fetch subsequent pages.
 
-### Query Parameters
+### Query parameters
 
 - `limit: optional number`
 
   Number of results per page.
+
+  default: 20, maximum: 100, minimum: 1
 
 - `page: optional string`
 
@@ -231,29 +228,31 @@ Results are ordered by creation time (newest first). Use the
 
 ### Returns
 
-- `data: array of object { id, attachment, created_at, 5 more }`
+- `data: array of object`
 
   - `id: string`
 
     Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
-  - `attachment: object { type }  or object { type }`
+  - `attachment: object or object`
 
     Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
 
-    - `Attached object { type }`
+    - `Attached object`
 
       - `type: "attached"`
 
-        - `"attached"`
+        default: attached
 
-    - `Unattached object { type }`
+    - `Unattached object`
 
       - `type: "unattached"`
 
-        - `"unattached"`
+        default: unattached
 
   - `created_at: string`
+
+    format: date-time
 
   - `display_name: string or null`
 
@@ -263,19 +262,19 @@ Results are ordered by creation time (newest first). Use the
 
     Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-  - `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+  - `provider_config: object or object or object`
 
     KMS provider identity and auth coordinates.
 
-    - `Aws object { kms_arn, type, region, role_arn }`
+    - `Aws object`
 
       - `kms_arn: string`
 
         Full ARN of the AWS KMS key.
 
-      - `type: "aws"`
+        maxLength: 2048
 
-        - `"aws"`
+      - `type: "aws"`
 
       - `region: optional string or null`
 
@@ -283,9 +282,11 @@ Results are ordered by creation time (newest first). Use the
 
       - `role_arn: optional string or null`
 
+        **Deprecated**
+
         IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-    - `Gcp object { key_name, type }`
+    - `Gcp object`
 
       - `key_name: string`
 
@@ -293,9 +294,7 @@ Results are ordered by creation time (newest first). Use the
 
       - `type: "gcp"`
 
-        - `"gcp"`
-
-    - `Azure object { key_name, tenant_id, type, 2 more }`
+    - `Azure object`
 
       - `key_name: string`
 
@@ -307,8 +306,6 @@ Results are ordered by creation time (newest first). Use the
 
       - `type: "azure"`
 
-        - `"azure"`
-
       - `vault_uri: string`
 
         Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -319,9 +316,11 @@ Results are ordered by creation time (newest first). Use the
 
   - `type: "external_key"`
 
-    - `"external_key"`
+    default: external_key
 
   - `updated_at: string`
+
+    format: date-time
 
 - `next_page: string or null`
 
@@ -329,13 +328,13 @@ Results are ordered by creation time (newest first). Use the
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/external_keys \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -364,15 +363,17 @@ curl https://api.anthropic.com/v1/organizations/external_keys \
 
 ## Get External Key
 
-**get** `/v1/organizations/external_keys/{external_key_id}`
+**GET** `/v1/organizations/external_keys/{external_key_id}`
 
 Retrieve a single external key config in the caller's organization by ID.
 
-### Path Parameters
+### Path parameters
 
 - `external_key_id: string`
 
   ID of the External Key.
+
+  maxLength: 2048
 
 ### Returns
 
@@ -380,23 +381,25 @@ Retrieve a single external key config in the caller's organization by ID.
 
   Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
-- `attachment: object { type }  or object { type }`
+- `attachment: object or object`
 
   Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
 
-  - `Attached object { type }`
+  - `Attached object`
 
     - `type: "attached"`
 
-      - `"attached"`
+      default: attached
 
-  - `Unattached object { type }`
+  - `Unattached object`
 
     - `type: "unattached"`
 
-      - `"unattached"`
+      default: unattached
 
 - `created_at: string`
+
+  format: date-time
 
 - `display_name: string or null`
 
@@ -406,19 +409,19 @@ Retrieve a single external key config in the caller's organization by ID.
 
   Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-- `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+- `provider_config: object or object or object`
 
   KMS provider identity and auth coordinates.
 
-  - `Aws object { kms_arn, type, region, role_arn }`
+  - `Aws object`
 
     - `kms_arn: string`
 
       Full ARN of the AWS KMS key.
 
-    - `type: "aws"`
+      maxLength: 2048
 
-      - `"aws"`
+    - `type: "aws"`
 
     - `region: optional string or null`
 
@@ -426,9 +429,11 @@ Retrieve a single external key config in the caller's organization by ID.
 
     - `role_arn: optional string or null`
 
+      **Deprecated**
+
       IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-  - `Gcp object { key_name, type }`
+  - `Gcp object`
 
     - `key_name: string`
 
@@ -436,9 +441,7 @@ Retrieve a single external key config in the caller's organization by ID.
 
     - `type: "gcp"`
 
-      - `"gcp"`
-
-  - `Azure object { key_name, tenant_id, type, 2 more }`
+  - `Azure object`
 
     - `key_name: string`
 
@@ -450,8 +453,6 @@ Retrieve a single external key config in the caller's organization by ID.
 
     - `type: "azure"`
 
-      - `"azure"`
-
     - `vault_uri: string`
 
       Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -462,19 +463,21 @@ Retrieve a single external key config in the caller's organization by ID.
 
 - `type: "external_key"`
 
-  - `"external_key"`
+  default: external_key
 
 - `updated_at: string`
 
+  format: date-time
+
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -498,7 +501,7 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
 
 ## Update External Key
 
-**post** `/v1/organizations/external_keys/{external_key_id}`
+**POST** `/v1/organizations/external_keys/{external_key_id}`
 
 Partially update an external key config. Omitted fields are left unchanged.
 
@@ -506,37 +509,39 @@ Partially update an external key config. Omitted fields are left unchanged.
 be changed once any workspace references this config, because previously
 encrypted data requires the original key identity to decrypt.
 
-### Path Parameters
+### Path parameters
 
 - `external_key_id: string`
 
   ID of the External Key.
 
-### Body Parameters
+  maxLength: 2048
+
+### Body parameters
 
 - `display_name: optional string or null`
 
   Human-friendly display name.
 
+  maxLength: 255, minLength: 1
+
 - `geo: optional "us" or null`
 
   Data residency geo. Only `us` is supported.
 
-  - `"us"`
-
-- `provider_config: optional object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }  or null`
+- `provider_config: optional object or object or object or null`
 
   KMS provider identity and auth coordinates.
 
-  - `Aws object { kms_arn, type, region, role_arn }`
+  - `Aws object`
 
     - `kms_arn: string`
 
       Full ARN of the AWS KMS key.
 
-    - `type: "aws"`
+      maxLength: 2048
 
-      - `"aws"`
+    - `type: "aws"`
 
     - `region: optional string or null`
 
@@ -544,9 +549,11 @@ encrypted data requires the original key identity to decrypt.
 
     - `role_arn: optional string or null`
 
+      **Deprecated**
+
       IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-  - `Gcp object { key_name, type }`
+  - `Gcp object`
 
     - `key_name: string`
 
@@ -554,9 +561,7 @@ encrypted data requires the original key identity to decrypt.
 
     - `type: "gcp"`
 
-      - `"gcp"`
-
-  - `Azure object { key_name, tenant_id, type, 2 more }`
+  - `Azure object`
 
     Azure Key Vault provider configuration.
 
@@ -569,8 +574,6 @@ encrypted data requires the original key identity to decrypt.
       Azure AD tenant ID.
 
     - `type: "azure"`
-
-      - `"azure"`
 
     - `vault_uri: string`
 
@@ -586,23 +589,25 @@ encrypted data requires the original key identity to decrypt.
 
   Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
-- `attachment: object { type }  or object { type }`
+- `attachment: object or object`
 
   Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
 
-  - `Attached object { type }`
+  - `Attached object`
 
     - `type: "attached"`
 
-      - `"attached"`
+      default: attached
 
-  - `Unattached object { type }`
+  - `Unattached object`
 
     - `type: "unattached"`
 
-      - `"unattached"`
+      default: unattached
 
 - `created_at: string`
+
+  format: date-time
 
 - `display_name: string or null`
 
@@ -612,19 +617,19 @@ encrypted data requires the original key identity to decrypt.
 
   Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-- `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+- `provider_config: object or object or object`
 
   KMS provider identity and auth coordinates.
 
-  - `Aws object { kms_arn, type, region, role_arn }`
+  - `Aws object`
 
     - `kms_arn: string`
 
       Full ARN of the AWS KMS key.
 
-    - `type: "aws"`
+      maxLength: 2048
 
-      - `"aws"`
+    - `type: "aws"`
 
     - `region: optional string or null`
 
@@ -632,9 +637,11 @@ encrypted data requires the original key identity to decrypt.
 
     - `role_arn: optional string or null`
 
+      **Deprecated**
+
       IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-  - `Gcp object { key_name, type }`
+  - `Gcp object`
 
     - `key_name: string`
 
@@ -642,9 +649,7 @@ encrypted data requires the original key identity to decrypt.
 
     - `type: "gcp"`
 
-      - `"gcp"`
-
-  - `Azure object { key_name, tenant_id, type, 2 more }`
+  - `Azure object`
 
     - `key_name: string`
 
@@ -656,8 +661,6 @@ encrypted data requires the original key identity to decrypt.
 
     - `type: "azure"`
 
-      - `"azure"`
-
     - `vault_uri: string`
 
       Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -668,13 +671,15 @@ encrypted data requires the original key identity to decrypt.
 
 - `type: "external_key"`
 
-  - `"external_key"`
+  default: external_key
 
 - `updated_at: string`
 
+  format: date-time
+
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
@@ -682,7 +687,7 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
     -d '{}'
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -706,17 +711,19 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
 
 ## Delete External Key
 
-**delete** `/v1/organizations/external_keys/{external_key_id}`
+**DELETE** `/v1/organizations/external_keys/{external_key_id}`
 
 Delete an external key config.
 
 The request is rejected if any workspace still references this config.
 
-### Path Parameters
+### Path parameters
 
 - `external_key_id: string`
 
   ID of the External Key.
+
+  maxLength: 2048
 
 ### Returns
 
@@ -726,18 +733,18 @@ The request is rejected if any workspace still references this config.
 
 - `type: "external_key_deleted"`
 
-  - `"external_key_deleted"`
+  default: external_key_deleted
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -748,7 +755,7 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
 
 ## Validate External Key
 
-**post** `/v1/organizations/external_keys/{external_key_id}/validate`
+**POST** `/v1/organizations/external_keys/{external_key_id}/validate`
 
 Validate an external key config against the customer's KMS.
 
@@ -757,11 +764,13 @@ KMS key and waits up to 30 seconds for the result. The response status is
 `success` if the roundtrip succeeded, or `failure` with an error
 message if it failed or timed out.
 
-### Path Parameters
+### Path parameters
 
 - `external_key_id: string`
 
   ID of the External Key.
+
+  maxLength: 2048
 
 ### Returns
 
@@ -779,18 +788,18 @@ message if it failed or timed out.
 
 - `type: "external_key_validation"`
 
-  - `"external_key_validation"`
+  default: external_key_validation
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/validate \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -800,11 +809,11 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### External Key Create Response
 
-- `ExternalKeyCreateResponse object { id, attachment, created_at, 5 more }`
+- `ExternalKeyCreateResponse object`
 
   CMEK external key config belonging to the caller's organization.
 
@@ -816,23 +825,25 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
     Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
-  - `attachment: object { type }  or object { type }`
+  - `attachment: object or object`
 
     Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
 
-    - `Attached object { type }`
+    - `Attached object`
 
       - `type: "attached"`
 
-        - `"attached"`
+        default: attached
 
-    - `Unattached object { type }`
+    - `Unattached object`
 
       - `type: "unattached"`
 
-        - `"unattached"`
+        default: unattached
 
   - `created_at: string`
+
+    format: date-time
 
   - `display_name: string or null`
 
@@ -842,19 +853,19 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
     Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-  - `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+  - `provider_config: object or object or object`
 
     KMS provider identity and auth coordinates.
 
-    - `Aws object { kms_arn, type, region, role_arn }`
+    - `Aws object`
 
       - `kms_arn: string`
 
         Full ARN of the AWS KMS key.
 
-      - `type: "aws"`
+        maxLength: 2048
 
-        - `"aws"`
+      - `type: "aws"`
 
       - `region: optional string or null`
 
@@ -862,9 +873,11 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `role_arn: optional string or null`
 
+        **Deprecated**
+
         IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-    - `Gcp object { key_name, type }`
+    - `Gcp object`
 
       - `key_name: string`
 
@@ -872,9 +885,7 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `type: "gcp"`
 
-        - `"gcp"`
-
-    - `Azure object { key_name, tenant_id, type, 2 more }`
+    - `Azure object`
 
       - `key_name: string`
 
@@ -886,8 +897,6 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `type: "azure"`
 
-        - `"azure"`
-
       - `vault_uri: string`
 
         Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -898,13 +907,15 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
   - `type: "external_key"`
 
-    - `"external_key"`
+    default: external_key
 
   - `updated_at: string`
+
+    format: date-time
 
 ### External Key List Response
 
-- `ExternalKeyListResponse object { id, attachment, created_at, 5 more }`
+- `ExternalKeyListResponse object`
 
   CMEK external key config belonging to the caller's organization.
 
@@ -916,23 +927,25 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
     Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
-  - `attachment: object { type }  or object { type }`
+  - `attachment: object or object`
 
     Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
 
-    - `Attached object { type }`
+    - `Attached object`
 
       - `type: "attached"`
 
-        - `"attached"`
+        default: attached
 
-    - `Unattached object { type }`
+    - `Unattached object`
 
       - `type: "unattached"`
 
-        - `"unattached"`
+        default: unattached
 
   - `created_at: string`
+
+    format: date-time
 
   - `display_name: string or null`
 
@@ -942,19 +955,19 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
     Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-  - `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+  - `provider_config: object or object or object`
 
     KMS provider identity and auth coordinates.
 
-    - `Aws object { kms_arn, type, region, role_arn }`
+    - `Aws object`
 
       - `kms_arn: string`
 
         Full ARN of the AWS KMS key.
 
-      - `type: "aws"`
+        maxLength: 2048
 
-        - `"aws"`
+      - `type: "aws"`
 
       - `region: optional string or null`
 
@@ -962,9 +975,11 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `role_arn: optional string or null`
 
+        **Deprecated**
+
         IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-    - `Gcp object { key_name, type }`
+    - `Gcp object`
 
       - `key_name: string`
 
@@ -972,9 +987,7 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `type: "gcp"`
 
-        - `"gcp"`
-
-    - `Azure object { key_name, tenant_id, type, 2 more }`
+    - `Azure object`
 
       - `key_name: string`
 
@@ -986,8 +999,6 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `type: "azure"`
 
-        - `"azure"`
-
       - `vault_uri: string`
 
         Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -998,13 +1009,15 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
   - `type: "external_key"`
 
-    - `"external_key"`
+    default: external_key
 
   - `updated_at: string`
+
+    format: date-time
 
 ### External Key Retrieve Response
 
-- `ExternalKeyRetrieveResponse object { id, attachment, created_at, 5 more }`
+- `ExternalKeyRetrieveResponse object`
 
   CMEK external key config belonging to the caller's organization.
 
@@ -1016,23 +1029,25 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
     Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
-  - `attachment: object { type }  or object { type }`
+  - `attachment: object or object`
 
     Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
 
-    - `Attached object { type }`
+    - `Attached object`
 
       - `type: "attached"`
 
-        - `"attached"`
+        default: attached
 
-    - `Unattached object { type }`
+    - `Unattached object`
 
       - `type: "unattached"`
 
-        - `"unattached"`
+        default: unattached
 
   - `created_at: string`
+
+    format: date-time
 
   - `display_name: string or null`
 
@@ -1042,19 +1057,19 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
     Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-  - `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+  - `provider_config: object or object or object`
 
     KMS provider identity and auth coordinates.
 
-    - `Aws object { kms_arn, type, region, role_arn }`
+    - `Aws object`
 
       - `kms_arn: string`
 
         Full ARN of the AWS KMS key.
 
-      - `type: "aws"`
+        maxLength: 2048
 
-        - `"aws"`
+      - `type: "aws"`
 
       - `region: optional string or null`
 
@@ -1062,9 +1077,11 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `role_arn: optional string or null`
 
+        **Deprecated**
+
         IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-    - `Gcp object { key_name, type }`
+    - `Gcp object`
 
       - `key_name: string`
 
@@ -1072,9 +1089,7 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `type: "gcp"`
 
-        - `"gcp"`
-
-    - `Azure object { key_name, tenant_id, type, 2 more }`
+    - `Azure object`
 
       - `key_name: string`
 
@@ -1086,8 +1101,6 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `type: "azure"`
 
-        - `"azure"`
-
       - `vault_uri: string`
 
         Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -1098,13 +1111,15 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
   - `type: "external_key"`
 
-    - `"external_key"`
+    default: external_key
 
   - `updated_at: string`
+
+    format: date-time
 
 ### External Key Update Response
 
-- `ExternalKeyUpdateResponse object { id, attachment, created_at, 5 more }`
+- `ExternalKeyUpdateResponse object`
 
   CMEK external key config belonging to the caller's organization.
 
@@ -1116,23 +1131,25 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
     Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
 
-  - `attachment: object { type }  or object { type }`
+  - `attachment: object or object`
 
     Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
 
-    - `Attached object { type }`
+    - `Attached object`
 
       - `type: "attached"`
 
-        - `"attached"`
+        default: attached
 
-    - `Unattached object { type }`
+    - `Unattached object`
 
       - `type: "unattached"`
 
-        - `"unattached"`
+        default: unattached
 
   - `created_at: string`
+
+    format: date-time
 
   - `display_name: string or null`
 
@@ -1142,19 +1159,19 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
     Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
 
-  - `provider_config: object { kms_arn, type, region, role_arn }  or object { key_name, type }  or object { key_name, tenant_id, type, 2 more }`
+  - `provider_config: object or object or object`
 
     KMS provider identity and auth coordinates.
 
-    - `Aws object { kms_arn, type, region, role_arn }`
+    - `Aws object`
 
       - `kms_arn: string`
 
         Full ARN of the AWS KMS key.
 
-      - `type: "aws"`
+        maxLength: 2048
 
-        - `"aws"`
+      - `type: "aws"`
 
       - `region: optional string or null`
 
@@ -1162,9 +1179,11 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `role_arn: optional string or null`
 
+        **Deprecated**
+
         IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
 
-    - `Gcp object { key_name, type }`
+    - `Gcp object`
 
       - `key_name: string`
 
@@ -1172,9 +1191,7 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `type: "gcp"`
 
-        - `"gcp"`
-
-    - `Azure object { key_name, tenant_id, type, 2 more }`
+    - `Azure object`
 
       - `key_name: string`
 
@@ -1186,8 +1203,6 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
       - `type: "azure"`
 
-        - `"azure"`
-
       - `vault_uri: string`
 
         Key Vault data-plane URI — https://<vault-name>.vault.azure.net or https://<hsm-name>.managedhsm.azure.net.
@@ -1198,13 +1213,15 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
   - `type: "external_key"`
 
-    - `"external_key"`
+    default: external_key
 
   - `updated_at: string`
 
+    format: date-time
+
 ### External Key Delete Response
 
-- `ExternalKeyDeleteResponse object { id, type }`
+- `ExternalKeyDeleteResponse object`
 
   - `id: string`
 
@@ -1212,11 +1229,11 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
   - `type: "external_key_deleted"`
 
-    - `"external_key_deleted"`
+    default: external_key_deleted
 
 ### External Key Validate Response
 
-- `ExternalKeyValidateResponse object { error, status, type }`
+- `ExternalKeyValidateResponse object`
 
   Result of a validation roundtrip against the customer's KMS.
 
@@ -1237,4 +1254,4 @@ curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID/v
 
   - `type: "external_key_validation"`
 
-    - `"external_key_validation"`
+    default: external_key_validation

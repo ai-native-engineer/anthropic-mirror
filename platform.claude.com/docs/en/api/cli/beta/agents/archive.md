@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/agents/archive -->
 
----
-title: Archive Agent
-url: https://platform.claude.com/docs/en/api/cli/beta/agents/archive
----
-
-## Archive Agent
+# Archive Agent
 
 `$ ant beta:agents archive`
 
-**post** `/v1/agents/{agent_id}/archive`
+**POST** `/v1/agents/{agent_id}/archive`
 
 Archive Agent
 
-### Parameters
+## Parameters
 
 - `--agent-id: string`
 
@@ -23,9 +18,9 @@ Archive Agent
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `beta_managed_agents_agent: object { id, archived_at, created_at, 12 more }`
+- `beta_managed_agents_agent: object`
 
   A Managed Agents `agent`.
 
@@ -35,9 +30,13 @@ Archive Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: string`
 
@@ -47,13 +46,11 @@ Archive Agent
 
     - `type: "url"`
 
-      - `"url"`
-
     - `url: string`
 
   - `metadata: map[string]`
 
-  - `model: object { id, effort, inference_geo, speed }`
+  - `model: object`
 
     Model identifier and configuration.
 
@@ -119,45 +116,35 @@ Archive Agent
 
       How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
 
-      - `beta_managed_agents_effort_low: object { type }`
+      - `beta_managed_agents_effort_low: object`
 
         Low effort. Favors latency over reasoning depth.
 
         - `type: "low"`
 
-          - `"low"`
-
-      - `beta_managed_agents_effort_medium: object { type }`
+      - `beta_managed_agents_effort_medium: object`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: "medium"`
 
-          - `"medium"`
-
-      - `beta_managed_agents_effort_high: object { type }`
+      - `beta_managed_agents_effort_high: object`
 
         High effort. Favors reasoning depth.
 
         - `type: "high"`
 
-          - `"high"`
-
-      - `beta_managed_agents_effort_xhigh: object { type }`
+      - `beta_managed_agents_effort_xhigh: object`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: "xhigh"`
 
-          - `"xhigh"`
-
-      - `beta_managed_agents_effort_max: object { type }`
+      - `beta_managed_agents_effort_max: object`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: "max"`
-
-          - `"max"`
 
     - `inference_geo: optional string`
 
@@ -171,7 +158,7 @@ Archive Agent
 
       - `"fast"`
 
-  - `multiagent: object { agents, type }`
+  - `multiagent: object`
 
     Resolved coordinator topology with a concrete agent roster.
 
@@ -179,7 +166,7 @@ Archive Agent
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
 
-      - `beta_managed_agents_agent_reference: object { id, type, version }`
+      - `beta_managed_agents_agent_reference: object`
 
         A resolved agent reference with a concrete version.
 
@@ -187,11 +174,11 @@ Archive Agent
 
         - `type: "agent"`
 
-          - `"agent"`
-
         - `version: number`
 
-      - `beta_managed_agents_advisor: object { model, type }`
+          format: int32
+
+      - `beta_managed_agents_advisor: object`
 
         Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
 
@@ -201,17 +188,13 @@ Archive Agent
 
         - `type: "advisor"`
 
-          - `"advisor"`
-
     - `type: "coordinator"`
-
-      - `"coordinator"`
 
   - `name: string`
 
   - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
 
-    - `beta_managed_agents_anthropic_skill: object { skill_id, type, version }`
+    - `beta_managed_agents_anthropic_skill: object`
 
       A resolved Anthropic-managed skill.
 
@@ -219,11 +202,9 @@ Archive Agent
 
       - `type: "anthropic"`
 
-        - `"anthropic"`
-
       - `version: string`
 
-    - `beta_managed_agents_custom_skill: object { skill_id, type, version }`
+    - `beta_managed_agents_custom_skill: object`
 
       A resolved user-created custom skill.
 
@@ -231,19 +212,17 @@ Archive Agent
 
       - `type: "custom"`
 
-        - `"custom"`
-
       - `version: string`
 
   - `system: string`
 
   - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
 
-    - `beta_managed_agents_agent_toolset20260401: object { configs, default_config, type }`
+    - `beta_managed_agents_agent_toolset20260401: object`
 
       - `configs: array of BetaManagedAgentsAgentToolConfig`
 
-        - `beta_managed_agents_bash_tool_config: object { enabled, name, permission_policy, type }`
+        - `beta_managed_agents_bash_tool_config: object`
 
           Configuration for the bash tool.
 
@@ -255,25 +234,21 @@ Archive Agent
 
             Permission policy for tool execution.
 
-            - `beta_managed_agents_always_allow_policy: object { type }`
+            - `beta_managed_agents_always_allow_policy: object`
 
               Tool calls are automatically approved without user confirmation.
 
               - `type: "always_allow"`
 
-                - `"always_allow"`
-
-            - `beta_managed_agents_always_ask_policy: object { type }`
+            - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
 
               - `type: "always_ask"`
 
-                - `"always_ask"`
-
           - `type: "bash"`
 
-        - `beta_managed_agents_edit_tool_config: object { enabled, name, permission_policy, type }`
+        - `beta_managed_agents_edit_tool_config: object`
 
           Configuration for the edit tool.
 
@@ -285,17 +260,17 @@ Archive Agent
 
             Permission policy for tool execution.
 
-            - `beta_managed_agents_always_allow_policy: object { type }`
+            - `beta_managed_agents_always_allow_policy: object`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `beta_managed_agents_always_ask_policy: object { type }`
+            - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
 
           - `type: "edit"`
 
-        - `beta_managed_agents_read_tool_config: object { enabled, name, permission_policy, type }`
+        - `beta_managed_agents_read_tool_config: object`
 
           Configuration for the read tool.
 
@@ -307,17 +282,17 @@ Archive Agent
 
             Permission policy for tool execution.
 
-            - `beta_managed_agents_always_allow_policy: object { type }`
+            - `beta_managed_agents_always_allow_policy: object`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `beta_managed_agents_always_ask_policy: object { type }`
+            - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
 
           - `type: "read"`
 
-        - `beta_managed_agents_write_tool_config: object { enabled, name, permission_policy, type }`
+        - `beta_managed_agents_write_tool_config: object`
 
           Configuration for the write tool.
 
@@ -329,17 +304,17 @@ Archive Agent
 
             Permission policy for tool execution.
 
-            - `beta_managed_agents_always_allow_policy: object { type }`
+            - `beta_managed_agents_always_allow_policy: object`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `beta_managed_agents_always_ask_policy: object { type }`
+            - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
 
           - `type: "write"`
 
-        - `beta_managed_agents_glob_tool_config: object { enabled, name, permission_policy, type }`
+        - `beta_managed_agents_glob_tool_config: object`
 
           Configuration for the glob tool.
 
@@ -351,17 +326,17 @@ Archive Agent
 
             Permission policy for tool execution.
 
-            - `beta_managed_agents_always_allow_policy: object { type }`
+            - `beta_managed_agents_always_allow_policy: object`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `beta_managed_agents_always_ask_policy: object { type }`
+            - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
 
           - `type: "glob"`
 
-        - `beta_managed_agents_grep_tool_config: object { enabled, name, permission_policy, type }`
+        - `beta_managed_agents_grep_tool_config: object`
 
           Configuration for the grep tool.
 
@@ -373,17 +348,17 @@ Archive Agent
 
             Permission policy for tool execution.
 
-            - `beta_managed_agents_always_allow_policy: object { type }`
+            - `beta_managed_agents_always_allow_policy: object`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `beta_managed_agents_always_ask_policy: object { type }`
+            - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
 
           - `type: "grep"`
 
-        - `beta_managed_agents_web_fetch_tool_config: object { enabled, name, permission_policy, 4 more }`
+        - `beta_managed_agents_web_fetch_tool_config: object`
 
           Configuration for the web_fetch tool.
 
@@ -395,11 +370,11 @@ Archive Agent
 
             Permission policy for tool execution.
 
-            - `beta_managed_agents_always_allow_policy: object { type }`
+            - `beta_managed_agents_always_allow_policy: object`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `beta_managed_agents_always_ask_policy: object { type }`
+            - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
 
@@ -411,7 +386,9 @@ Archive Agent
 
           - `max_content_tokens: optional number`
 
-        - `beta_managed_agents_web_search_tool_config: object { enabled, name, permission_policy, 4 more }`
+            format: int32
+
+        - `beta_managed_agents_web_search_tool_config: object`
 
           Configuration for the web_search tool.
 
@@ -423,11 +400,11 @@ Archive Agent
 
             Permission policy for tool execution.
 
-            - `beta_managed_agents_always_allow_policy: object { type }`
+            - `beta_managed_agents_always_allow_policy: object`
 
               Tool calls are automatically approved without user confirmation.
 
-            - `beta_managed_agents_always_ask_policy: object { type }`
+            - `beta_managed_agents_always_ask_policy: object`
 
               Tool calls require user confirmation before execution.
 
@@ -437,7 +414,7 @@ Archive Agent
 
           - `blocked_domains: optional array of string`
 
-          - `user_location: optional object { type, city, country, 2 more }`
+          - `user_location: optional object`
 
             Approximate user location for search result localization.
 
@@ -449,6 +426,8 @@ Archive Agent
 
               City name.
 
+              minLength: 1, maxLength: 255
+
             - `country: optional string`
 
               Two-letter ISO 3166-1 country code, uppercase.
@@ -457,11 +436,15 @@ Archive Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone: optional string`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
 
-      - `default_config: object { enabled, permission_policy }`
+              minLength: 1, maxLength: 255
+
+      - `default_config: object`
 
         Resolved default configuration for agent tools.
 
@@ -471,19 +454,17 @@ Archive Agent
 
           Permission policy for tool execution.
 
-          - `beta_managed_agents_always_allow_policy: object { type }`
+          - `beta_managed_agents_always_allow_policy: object`
 
             Tool calls are automatically approved without user confirmation.
 
-          - `beta_managed_agents_always_ask_policy: object { type }`
+          - `beta_managed_agents_always_ask_policy: object`
 
             Tool calls require user confirmation before execution.
 
       - `type: "agent_toolset_20260401"`
 
-        - `"agent_toolset_20260401"`
-
-    - `beta_managed_agents_mcp_toolset: object { configs, default_config, mcp_server_name, type }`
+    - `beta_managed_agents_mcp_toolset: object`
 
       - `configs: array of BetaManagedAgentsMCPToolConfig`
 
@@ -495,15 +476,15 @@ Archive Agent
 
           Permission policy for tool execution.
 
-          - `beta_managed_agents_always_allow_policy: object { type }`
+          - `beta_managed_agents_always_allow_policy: object`
 
             Tool calls are automatically approved without user confirmation.
 
-          - `beta_managed_agents_always_ask_policy: object { type }`
+          - `beta_managed_agents_always_ask_policy: object`
 
             Tool calls require user confirmation before execution.
 
-      - `default_config: object { enabled, permission_policy }`
+      - `default_config: object`
 
         Resolved default configuration for all tools from an MCP server.
 
@@ -513,11 +494,11 @@ Archive Agent
 
           Permission policy for tool execution.
 
-          - `beta_managed_agents_always_allow_policy: object { type }`
+          - `beta_managed_agents_always_allow_policy: object`
 
             Tool calls are automatically approved without user confirmation.
 
-          - `beta_managed_agents_always_ask_policy: object { type }`
+          - `beta_managed_agents_always_ask_policy: object`
 
             Tool calls require user confirmation before execution.
 
@@ -525,15 +506,13 @@ Archive Agent
 
       - `type: "mcp_toolset"`
 
-        - `"mcp_toolset"`
-
-    - `beta_managed_agents_custom_tool: object { description, input_schema, name, type }`
+    - `beta_managed_agents_custom_tool: object`
 
       A custom tool as returned in API responses.
 
       - `description: string`
 
-      - `input_schema: object { type, properties, required }`
+      - `input_schema: object`
 
         JSON Schema for custom tool input parameters.
 
@@ -547,29 +526,29 @@ Archive Agent
 
       - `type: "custom"`
 
-        - `"custom"`
-
   - `type: "agent"`
-
-    - `"agent"`
 
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: number`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
 
-### Example
+    format: int32
 
-```cli
+## Example
+
+```bash
 ant beta:agents archive \
   --api-key my-anthropic-api-key \
   --agent-id agent_011CZkYpogX7uDKUyvBTophP
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

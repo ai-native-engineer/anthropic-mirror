@@ -1,21 +1,16 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/vaults/credentials/list -->
 
----
-title: List Credentials
-url: https://platform.claude.com/docs/en/api/beta/vaults/credentials/list
----
+# List Credentials
 
-## List Credentials
-
-**get** `/v1/vaults/{vault_id}/credentials`
+**GET** `/v1/vaults/{vault_id}/credentials`
 
 List Credentials
 
-### Path Parameters
+## Path parameters
 
 - `vault_id: string`
 
-### Query Parameters
+## Query parameters
 
 - `include_archived: optional boolean`
 
@@ -25,11 +20,13 @@ List Credentials
 
   Maximum number of credentials to return per page. Defaults to 20, maximum 100.
 
+  format: int32
+
 - `page: optional string`
 
   Opaque pagination token from a previous `list_credentials` response.
 
-### Header Parameters
+## Headers
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 
@@ -107,7 +104,7 @@ List Credentials
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `data: optional array of BetaManagedAgentsCredential`
 
@@ -121,11 +118,13 @@ List Credentials
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
 
     Authentication details for a credential.
 
-    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
+    - `BetaManagedAgentsMCPOAuthAuthResponse object`
 
       OAuth credential details for an MCP server.
 
@@ -135,11 +134,11 @@ List Credentials
 
       - `type: "mcp_oauth"`
 
-        - `"mcp_oauth"`
-
       - `expires_at: optional string or null`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse or null`
 
@@ -157,29 +156,23 @@ List Credentials
 
           Token endpoint requires no client authentication.
 
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object`
 
             Token endpoint requires no client authentication.
 
             - `type: "none"`
 
-              - `"none"`
-
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
 
             - `type: "client_secret_basic"`
 
-              - `"client_secret_basic"`
-
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse object`
 
             Token endpoint uses POST body authentication with client credentials.
 
             - `type: "client_secret_post"`
-
-              - `"client_secret_post"`
 
         - `resource: optional string or null`
 
@@ -189,7 +182,7 @@ List Credentials
 
           OAuth scope for the refresh request.
 
-    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
+    - `BetaManagedAgentsStaticBearerAuthResponse object`
 
       Static bearer token credential details for an MCP server.
 
@@ -199,9 +192,7 @@ List Credentials
 
       - `type: "static_bearer"`
 
-        - `"static_bearer"`
-
-    - `BetaManagedAgentsEnvironmentVariableAuthResponse object { injection_location, networking, secret_name, type }`
+    - `BetaManagedAgentsEnvironmentVariableAuthResponse object`
 
       Environment variable credential details. The secret value is never returned.
 
@@ -221,15 +212,13 @@ List Credentials
 
         Outbound hosts the secret value is substituted on.
 
-        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object { type }`
+        - `BetaManagedAgentsUnrestrictedCredentialNetworkingResponse object`
 
           The secret is substituted on any host the session's Environment network policy permits egress to.
 
           - `type: "unrestricted"`
 
-            - `"unrestricted"`
-
-        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object { allowed_hosts, type }`
+        - `BetaManagedAgentsLimitedCredentialNetworkingResponse object`
 
           The secret is substituted only on requests to the listed hosts.
 
@@ -239,19 +228,17 @@ List Credentials
 
           - `type: "limited"`
 
-            - `"limited"`
-
       - `secret_name: string`
 
         Name of the environment variable.
 
       - `type: "environment_variable"`
 
-        - `"environment_variable"`
-
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `metadata: map[string]`
 
@@ -259,11 +246,11 @@ List Credentials
 
   - `type: "vault_credential"`
 
-    - `"vault_credential"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `vault_id: string`
 
@@ -277,16 +264,16 @@ List Credentials
 
   Pagination token for the next page, or null if no more results.
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: managed-agents-2026-04-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

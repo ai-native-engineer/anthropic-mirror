@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments/archive -->
 
----
-title: Archive Environment
-url: https://platform.claude.com/docs/en/api/cli/beta/environments/archive
----
-
-## Archive Environment
+# Archive Environment
 
 `$ ant beta:environments archive`
 
-**post** `/v1/environments/{environment_id}/archive`
+**POST** `/v1/environments/{environment_id}/archive`
 
 Archive an environment by ID. Archived environments cannot be used to create new sessions.
 
-### Parameters
+## Parameters
 
 - `--environment-id: string`
 
@@ -21,9 +16,9 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `beta_environment: object { id, archived_at, config, 7 more }`
+- `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
 
@@ -39,7 +34,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     Environment configuration (either Anthropic Cloud or self-hosted)
 
-    - `beta_cloud_config: object { networking, packages, type }`
+    - `beta_cloud_config: object`
 
       `cloud` environment configuration.
 
@@ -47,7 +42,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
         Network configuration policy.
 
-        - `beta_unrestricted_network: object { type }`
+        - `beta_unrestricted_network: object`
 
           Unrestricted network access.
 
@@ -55,7 +50,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Network policy type
 
-        - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
+        - `beta_limited_network: object`
 
           Limited network access.
 
@@ -75,7 +70,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Network policy type
 
-      - `packages: object { apt, cargo, gem, 4 more }`
+      - `packages: object`
 
         Package manager configuration.
 
@@ -107,13 +102,11 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Package configuration type
 
-          - `"packages"`
-
       - `type: "cloud"`
 
         Environment type
 
-    - `beta_self_hosted_config: object { type }`
+    - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
 
@@ -153,15 +146,15 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     - `"account"`
 
-### Example
+## Example
 
-```cli
+```bash
 ant beta:environments archive \
   --api-key my-anthropic-api-key \
   --environment-id env_011CZkZ9X2dpNyB7HsEFoRfW
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

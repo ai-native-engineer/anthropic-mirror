@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-programmatic-tool-calling-ptc -->
 
-#  Programatic Tool Calling (PTC) with the Claude API
+#  Programatic Tool Calling (PTC) with the Claude API
 
 Programmatic Tool Calling (PTC) allows Claude to write code that calls tools programmatically within the Code Execution environment, rather than requiring round-trips through the model for each tool invocation. This substantially reduces end-to-end latency for multiple tool calls, and can dramatically reduce token consumption by allowing the model to write code that removes irrelevant context before it hits the model’s context window (for example, by grepping for key information within large and noisy files).
 
@@ -8,12 +8,12 @@ When faced with third-party APIs and tools that you may not be able to modify di
 
 In this cookbook, we will work with a mock API for team expense management. The API is designed to require multiple invocations and will return large results which help illustrate the benefits of Programmatic Tool Calling.
 
-##  By the end of this cookbook, you'll be able to:
+##  By the end of this cookbook, you'll be able to:
 
 * Understand the difference between regular tool calling and programatic tool calling (PTC)
 * Write agents that leverage PTC
 
-##  Prerequisites
+##  Prerequisites
 
 Before following this guide, ensure you have:
 
@@ -28,11 +28,9 @@ Before following this guide, ensure you have:
 * Anthropic API key
 * Anthropic Python SDK >= 0.72
 
-##  Setup
+##  Setup
 
 First, install the required dependencies:
-
-
 
 # %pip install -r requirements.txt
 
@@ -41,8 +39,6 @@ Note: Ensure your .env file contains:
 `ANTHROPIC_API_KEY=your_key_here`
 
 Load your environment variables and configure the client. We also load a helper utility to visualize Claude message responses.
-
-
 
 from dotenv import load\_dotenv
 
@@ -54,7 +50,7 @@ MODEL = "claude-sonnet-4-6"
 
 viz = visualize(auto\_show=True)
 
-##  Understanding the Third-Party API
+##  Understanding the Third-Party API
 
 In [utils/team\_expense\_api.py(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/tool_use/utils/team_expense_api.py), there are three functions defined: `get_team_members`, `get_expenses`, and `get_custom_budget`. The `get_team_members` function allows us to retrieve all employees in a given department with their role, level, and contact information. The `get_expenses` function returns all expense line items for an employee in a specific quarter—this can be several hundred records per employee, with each record containing extensive metadata including receipt URLs, approval chains, merchant details, and more. The `get_custom_budget` function checks if a specific employee has a custom travel budget exception (otherwise they use the standard $5,000 quarterly limit).
 
@@ -63,8 +59,6 @@ In this scenario, we need to analyze team expenses and identify which employees 
 The key challenge here is that each employee may have 100+ expense line items that need to be fetched, parsed, and aggregated—and the `get_custom_budget` tool can only be called after analyzing expenses to see if someone exceeded the standard budget. This creates a sequential dependency chain that makes this an ideal use case for demonstrating the benefits of Programmatic Tool Calling.
 
 We'll pass our tool definitions to the messages API and ask Claude to perform the analysis. Read the docs on [implementing tool use(opens in new tab)](https://docs.claude.com/en/docs/agents-and-tools/tool-use/implement-tool-use) if you are not familiar with how tool use works with Claude's API.
-
-
 
 import json
 
@@ -212,13 +206,11 @@ tool\_functions = {
 
 }
 
-##  Traditional Tool Calling (Baseline)
+##  Traditional Tool Calling (Baseline)
 
 In this first example, we'll use traditional tool calling to establish our baseline.
 
 We'll call the `messages.create` API with our initial query. When the model stops with a `tool_use` reason, we will execute the tool as requested, and then add the output from the tool to the messages and call the model again.
-
-
 
 import time
 
@@ -368,11 +360,7 @@ return final\_response, messages, total\_tokens, elapsed\_time, api\_counter
 
 Our initial query to the model provides some instructions to help guide the model. For brevity, we've asked the model to only call each tool once. For deeper investigations, the model may wish to look into multiple systems or time spans.
 
-
-
 query = "Which engineering team members exceeded their Q3 travel budget? Standard quarterly travel budget is $5,000. However, some employees have custom budget limits. For anyone who exceeded the $5,000 standard budget, check if they have a custom budget exception. If they do, use that custom limit instead to determine if they truly exceeded their budget."
-
-
 
 # Run the agent
 
@@ -389,8 +377,6 @@ print(f"API calls made: {api\_count\_without\_ptc}")
 print(f"Total tokens used: {total\_tokens:,}")
 
 print(f"Total time taken: {elapsed\_time:.2f}s")
-
-
 
 ```
 ╭────────────────────────────────────────────── Claude API Response ──────────────────────────────────────────────╮
@@ -675,8 +661,6 @@ To enable PTC on tools, we must first add the `allowed_callers` field to any too
 * Tools can be invoked by both the model AND code execution by including multiple callers: `["direct", "code_execution_20250825"]`
 * Only opt in tools that are safe for programmatic/repeated execution.
 
-
-
 import copy
 
 ptc\_tools = copy.deepcopy(tools)
@@ -706,8 +690,6 @@ Now that we've updated our tool definitions to allow programmatic tool calling, 
 3. We can check the `caller` field in the `tool_use` block to determine if this tool call is from a direct model invocation or from programmatic invocation.
 
 Note that in either case, we send our tool results via the Claude API, however only `direct` invocations will be "seen" by the model. `code_execution_20250825` types will only be seen my the code execution container.
-
-
 
 messages = []
 
@@ -875,8 +857,6 @@ f"Stopped with reason: {response.stop\_reason}",
 
 return final\_response, messages, total\_tokens, elapsed\_time, api\_counter
 
-
-
 # Run the PTC agent
 
 result\_ptc, conversation\_ptc, total\_tokens\_ptc, elapsed\_time\_ptc, api\_count\_with\_ptc = (
@@ -884,8 +864,6 @@ result\_ptc, conversation\_ptc, total\_tokens\_ptc, elapsed\_time\_ptc, api\_cou
 run\_agent\_with\_ptc(query)
 
 )
-
-
 
 ```
 ╭────────────────────────────────────────────── Claude API Response ──────────────────────────────────────────────╮
@@ -1176,8 +1154,6 @@ run\_agent\_with\_ptc(query)
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
-
-
 print(f"\n{'=' \* 60}")
 
 print(f"Result: {result\_ptc}")
@@ -1195,8 +1171,6 @@ f" Total API calls to Claude: {len([m for m in conversation\_ptc if m['role'] ==
 print(f" Total tokens used: {total\_tokens\_ptc:,}")
 
 print(f" Total time taken: {elapsed\_time\_ptc:.2f}s")
-
-
 
 ```
 ============================================================
@@ -1228,13 +1202,11 @@ Performance Metrics:
   Total time taken: 34.88s
 ```
 
-##  Performance Comparison
+##  Performance Comparison
 
 Let's compare the performance between traditional tool calling and PTC:
 
 **Note on API Call Count:** You may notice that PTC requires more API calls in this example. This is because PTC writes more structured, sequential code that follows best practices—for instance, separating the expense fetching step from the budget checking step. Traditional tool calling can sometimes batch operations together in a single turn, but at the cost of sending all raw data through the model's context. The token efficiency gains from PTC far outweigh the minimal increase in round trips, especially when working with large, metadata-rich datasets.
-
-
 
 import pandas as pd
 
@@ -1290,8 +1262,6 @@ df = pd.DataFrame(comparison\_data)
 
 print(df.to\_string(index=False))
 
-
-
 ```
 Metric Traditional    PTC
        API Calls           4      4
@@ -1301,25 +1271,25 @@ Elapsed Time (s)       35.38  34.88
   Time Reduction           -   1.4%
 ```
 
-##  Key Takeaways
+##  Key Takeaways
 
 In this example, PTC demonstrated significant performance improvements through three core capabilities:
 
-###  1. Context Preservation Through Large Data Parsing
+###  1. Context Preservation Through Large Data Parsing
 
 This was the primary benefit demonstrated in our workflow. Claude wrote code to fetch and process hundreds of expense line items within the code execution environment. By processing this data programmatically, Claude parsed JSON, filtered by status, summed amounts by category, and compared against budget limits—all without sending the raw expense data and metadata through the model's context window. This resulted in a **significant reduction in token usage**.
 
-###  2. Sequential Dependency Optimization
+###  2. Sequential Dependency Optimization
 
 The API has a sequential dependency: `get_custom_budget(user_id)` which can only be called after analyzing expenses to identify who exceeded the standard $5,000 budget. In traditional tool calling, this requires multiple round trips—fetch team members, fetch expenses for each person, identify those over budget, then check their custom budgets one by one. With PTC, Claude writes code that orchestrates this entire workflow in the code execution environment, making programmatic tool calls in a loop and maintaining state across calls. This transforms what would be many sequential API round trips into fewer calls with smarter orchestration.
 
-###  3. Computational Logic in Code Execution
+###  3. Computational Logic in Code Execution
 
 Rather than requiring the model to mentally track and sum dozens of expenses with complex metadata, Claude delegated the arithmetic and aggregation logic to Python code. This reduced cognitive load on the model, ensured precise calculations, and kept irrelevant metadata (like receipt URLs and merchant locations) out of the model's context entirely.
 
 ---
 
-##  When to Use PTC
+##  When to Use PTC
 
 PTC is most beneficial when:
 
@@ -1329,13 +1299,13 @@ PTC is most beneficial when:
 * **Computational logic** can reduce what needs to flow through the model's context
 * **Tools are safe** for programmatic/repeated execution without human oversight
 
-##  Conclusion
+##  Conclusion
 
 Our team expense analysis demonstrated PTC's strengths: **dramatically reducing context consumption when working with large, metadata-rich datasets** and **optimizing workflows with sequential dependencies**. By allowing Claude to write code that orchestrates tool calls and processes results programmatically, we achieved substantial token savings while maintaining accuracy and insight quality.
 
 PTC is particularly valuable for workflows involving bulk data processing with rich metadata, repeated tool invocations with dependencies, or scenarios where raw tool outputs would otherwise pollute the model's context.
 
-##  Next Steps
+##  Next Steps
 
 Try adapting this pattern to your own use cases:
 

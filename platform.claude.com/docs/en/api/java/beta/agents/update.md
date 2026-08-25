@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/agents/update -->
 
----
-title: Update Agent
-url: https://platform.claude.com/docs/en/api/java/beta/agents/update
----
+# Update Agent
 
-## Update Agent
+`BetaManagedAgentsAgent beta().agents().update(params = AgentUpdateParams.none(), requestOptions = RequestOptions.none())`
 
-`BetaManagedAgentsAgent beta().agents().update(AgentUpdateParamsparams = AgentUpdateParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
-
-**post** `/v1/agents/{agent_id}`
+**POST** `/v1/agents/{agent_id}`
 
 Update Agent
 
-### Parameters
+## Parameters
 
 - `AgentUpdateParams params`
 
@@ -95,6 +90,8 @@ Update Agent
 
     Description. Omit to preserve; send empty string or null to clear.
 
+    maxLength: 2048
+
   - `Optional<List<BetaManagedAgentsUrlMcpServerParams>> mcpServers`
 
     MCP servers. Full replacement. Omit to preserve; send empty array or `null` to clear. Names must be unique. Maximum 20. Every server must be referenced by an `mcp_toolset` in the agent's resulting `tools`; unreferenced servers are rejected. See the [MCP connector guide](https://platform.claude.com/docs/en/managed-agents/mcp-connector).
@@ -103,13 +100,15 @@ Update Agent
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-    - `Type type`
+      minLength: 1, maxLength: 255
 
-      - `URL("url")`
+    - `Type type`
 
     - `String url`
 
       Endpoint URL for the MCP server.
+
+      maxLength: 2048
 
   - `Optional<Metadata> metadata`
 
@@ -211,15 +210,11 @@ Update Agent
 
           - `Type type`
 
-            - `LOW("low")`
-
         - `class BetaManagedAgentsEffortMedium:`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `Type type`
-
-            - `MEDIUM("medium")`
 
         - `class BetaManagedAgentsEffortHigh:`
 
@@ -227,23 +222,17 @@ Update Agent
 
           - `Type type`
 
-            - `HIGH("high")`
-
         - `class BetaManagedAgentsEffortXhigh:`
 
           Extra-high effort. Not all models accept this level.
 
           - `Type type`
 
-            - `XHIGH("xhigh")`
-
         - `class BetaManagedAgentsEffortMax:`
 
           Maximum effort. Favors reasoning depth over latency.
 
           - `Type type`
-
-            - `MAX("max")`
 
       - `Optional<String> inferenceGeo`
 
@@ -265,6 +254,8 @@ Update Agent
 
     Human-readable name. Must be non-empty. Omit to preserve. Cannot be cleared.
 
+    maxLength: 256
+
   - `Optional<List<BetaManagedAgentsSkillParams>> skills`
 
     Skills. Full replacement. Omit to preserve; send empty array or null to clear.
@@ -277,13 +268,15 @@ Update Agent
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
-      - `Type type`
+        minLength: 1, maxLength: 64
 
-        - `ANTHROPIC("anthropic")`
+      - `Type type`
 
       - `Optional<String> version`
 
         Version to pin. Defaults to latest if omitted.
+
+        minLength: 1, maxLength: 64
 
     - `class BetaManagedAgentsCustomSkillParams:`
 
@@ -293,17 +286,21 @@ Update Agent
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-      - `Type type`
+        minLength: 1, maxLength: 64
 
-        - `CUSTOM("custom")`
+      - `Type type`
 
       - `Optional<String> version`
 
         Version to pin. Defaults to latest if omitted.
 
+        minLength: 1, maxLength: 64
+
   - `Optional<String> system`
 
     System prompt. Omit to preserve; send empty string or null to clear.
+
+    maxLength: 100000
 
   - `Optional<List<Tool>> tools`
 
@@ -315,8 +312,6 @@ Update Agent
 
       - `Type type`
 
-        - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
-
       - `Optional<List<BetaManagedAgentsAgentToolConfigParams>> configs`
 
         Per-tool configuration overrides.
@@ -325,11 +320,9 @@ Update Agent
 
           Configuration override for the bash tool.
 
-          - `JsonValue; name "bash"constant`
+          - `JsonValue name constant`
 
             Must be "bash".
-
-            - `BASH("bash")`
 
           - `Optional<Boolean> enabled`
 
@@ -345,29 +338,21 @@ Update Agent
 
               - `Type type`
 
-                - `ALWAYS_ALLOW("always_allow")`
-
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
               - `Type type`
 
-                - `ALWAYS_ASK("always_ask")`
-
           - `Optional<Type> type`
-
-            - `BASH("bash")`
 
         - `class BetaManagedAgentsEditToolConfigParams:`
 
           Configuration override for the edit tool.
 
-          - `JsonValue; name "edit"constant`
+          - `JsonValue name constant`
 
             Must be "edit".
-
-            - `EDIT("edit")`
 
           - `Optional<Boolean> enabled`
 
@@ -386,18 +371,14 @@ Update Agent
               Tool calls require user confirmation before execution.
 
           - `Optional<Type> type`
-
-            - `EDIT("edit")`
 
         - `class BetaManagedAgentsReadToolConfigParams:`
 
           Configuration override for the read tool.
 
-          - `JsonValue; name "read"constant`
+          - `JsonValue name constant`
 
             Must be "read".
-
-            - `READ("read")`
 
           - `Optional<Boolean> enabled`
 
@@ -416,18 +397,14 @@ Update Agent
               Tool calls require user confirmation before execution.
 
           - `Optional<Type> type`
-
-            - `READ("read")`
 
         - `class BetaManagedAgentsWriteToolConfigParams:`
 
           Configuration override for the write tool.
 
-          - `JsonValue; name "write"constant`
+          - `JsonValue name constant`
 
             Must be "write".
-
-            - `WRITE("write")`
 
           - `Optional<Boolean> enabled`
 
@@ -446,18 +423,14 @@ Update Agent
               Tool calls require user confirmation before execution.
 
           - `Optional<Type> type`
-
-            - `WRITE("write")`
 
         - `class BetaManagedAgentsGlobToolConfigParams:`
 
           Configuration override for the glob tool.
 
-          - `JsonValue; name "glob"constant`
+          - `JsonValue name constant`
 
             Must be "glob".
-
-            - `GLOB("glob")`
 
           - `Optional<Boolean> enabled`
 
@@ -476,18 +449,14 @@ Update Agent
               Tool calls require user confirmation before execution.
 
           - `Optional<Type> type`
-
-            - `GLOB("glob")`
 
         - `class BetaManagedAgentsGrepToolConfigParams:`
 
           Configuration override for the grep tool.
 
-          - `JsonValue; name "grep"constant`
+          - `JsonValue name constant`
 
             Must be "grep".
-
-            - `GREP("grep")`
 
           - `Optional<Boolean> enabled`
 
@@ -507,17 +476,13 @@ Update Agent
 
           - `Optional<Type> type`
 
-            - `GREP("grep")`
-
         - `class BetaManagedAgentsWebFetchToolConfigParams:`
 
           Configuration override for the web_fetch tool.
 
-          - `JsonValue; name "web_fetch"constant`
+          - `JsonValue name constant`
 
             Must be "web_fetch".
-
-            - `WEB_FETCH("web_fetch")`
 
           - `Optional<List<String>> allowedDomains`
 
@@ -535,6 +500,8 @@ Update Agent
 
             Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
 
+            format: int32
+
           - `Optional<PermissionPolicy> permissionPolicy`
 
             Permission policy for tool execution.
@@ -549,17 +516,13 @@ Update Agent
 
           - `Optional<Type> type`
 
-            - `WEB_FETCH("web_fetch")`
-
         - `class BetaManagedAgentsWebSearchToolConfigParams:`
 
           Configuration override for the web_search tool.
 
-          - `JsonValue; name "web_search"constant`
+          - `JsonValue name constant`
 
             Must be "web_search".
-
-            - `WEB_SEARCH("web_search")`
 
           - `Optional<List<String>> allowedDomains`
 
@@ -587,21 +550,19 @@ Update Agent
 
           - `Optional<Type> type`
 
-            - `WEB_SEARCH("web_search")`
-
           - `Optional<BetaManagedAgentsUserLocation> userLocation`
 
             Approximate user location for search result localization.
 
-            - `JsonValue; type "approximate"constant`
+            - `JsonValue type constant`
 
               Location precision. Only "approximate" is supported.
-
-              - `APPROXIMATE("approximate")`
 
             - `Optional<String> city`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `Optional<String> country`
 
@@ -611,9 +572,13 @@ Update Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `Optional<String> timezone`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `Optional<BetaManagedAgentsAgentToolsetDefaultConfigParams> defaultConfig`
 
@@ -643,9 +608,9 @@ Update Agent
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-      - `Type type`
+        minLength: 1, maxLength: 255
 
-        - `MCP_TOOLSET("mcp_toolset")`
+      - `Type type`
 
       - `Optional<List<BetaManagedAgentsMcpToolConfigParams>> configs`
 
@@ -654,6 +619,8 @@ Update Agent
         - `String name`
 
           Name of the MCP tool to configure. 1-128 characters.
+
+          minLength: 1, maxLength: 128
 
         - `Optional<Boolean> enabled`
 
@@ -699,13 +666,13 @@ Update Agent
 
         Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+        minLength: 1
+
       - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonValue; type "object"constant`
-
-          - `OBJECT("object")`
+        - `JsonValue type constant`
 
         - `Optional<Properties> properties`
 
@@ -715,15 +682,17 @@ Update Agent
 
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
-      - `Type type`
+        minLength: 1, maxLength: 128
 
-        - `CUSTOM("custom")`
+      - `Type type`
 
   - `Optional<Long> version`
 
     The agent's current version, used to prevent concurrent overwrites. Obtain this value from a create or retrieve response. Must be at least 1 if specified. When supplied, the request fails if it does not match the server's current version; omit to apply the update unconditionally.
 
-### Returns
+    format: int32
+
+## Returns
 
 - `class BetaManagedAgentsAgent:`
 
@@ -735,9 +704,13 @@ Update Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `LocalDateTime createdAt`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `Optional<String> description`
 
@@ -746,8 +719,6 @@ Update Agent
     - `String name`
 
     - `Type type`
-
-      - `URL("url")`
 
     - `String url`
 
@@ -825,15 +796,11 @@ Update Agent
 
         - `Type type`
 
-          - `LOW("low")`
-
       - `class BetaManagedAgentsEffortMedium:`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `Type type`
-
-          - `MEDIUM("medium")`
 
       - `class BetaManagedAgentsEffortHigh:`
 
@@ -841,23 +808,17 @@ Update Agent
 
         - `Type type`
 
-          - `HIGH("high")`
-
       - `class BetaManagedAgentsEffortXhigh:`
 
         Extra-high effort. Not all models accept this level.
 
         - `Type type`
 
-          - `XHIGH("xhigh")`
-
       - `class BetaManagedAgentsEffortMax:`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `Type type`
-
-          - `MAX("max")`
 
     - `Optional<String> inferenceGeo`
 
@@ -887,9 +848,9 @@ Update Agent
 
         - `Type type`
 
-          - `AGENT("agent")`
-
         - `long version`
+
+          format: int32
 
       - `class BetaManagedAgentsAdvisor:`
 
@@ -901,11 +862,7 @@ Update Agent
 
         - `Type type`
 
-          - `ADVISOR("advisor")`
-
     - `Type type`
-
-      - `COORDINATOR("coordinator")`
 
   - `String name`
 
@@ -919,8 +876,6 @@ Update Agent
 
       - `Type type`
 
-        - `ANTHROPIC("anthropic")`
-
       - `String version`
 
     - `class BetaManagedAgentsCustomSkill:`
@@ -930,8 +885,6 @@ Update Agent
       - `String skillId`
 
       - `Type type`
-
-        - `CUSTOM("custom")`
 
       - `String version`
 
@@ -949,9 +902,7 @@ Update Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "bash"constant`
-
-            - `BASH("bash")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -963,19 +914,13 @@ Update Agent
 
               - `Type type`
 
-                - `ALWAYS_ALLOW("always_allow")`
-
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
               - `Type type`
 
-                - `ALWAYS_ASK("always_ask")`
-
-          - `JsonValue; type "bash"constant`
-
-            - `BASH("bash")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
@@ -983,9 +928,7 @@ Update Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "edit"constant`
-
-            - `EDIT("edit")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -999,9 +942,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "edit"constant`
-
-            - `EDIT("edit")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsReadToolConfig:`
 
@@ -1009,9 +950,7 @@ Update Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "read"constant`
-
-            - `READ("read")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1025,9 +964,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "read"constant`
-
-            - `READ("read")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -1035,9 +972,7 @@ Update Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "write"constant`
-
-            - `WRITE("write")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1051,9 +986,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "write"constant`
-
-            - `WRITE("write")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -1061,9 +994,7 @@ Update Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "glob"constant`
-
-            - `GLOB("glob")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1077,9 +1008,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "glob"constant`
-
-            - `GLOB("glob")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -1087,9 +1016,7 @@ Update Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "grep"constant`
-
-            - `GREP("grep")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1103,9 +1030,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "grep"constant`
-
-            - `GREP("grep")`
+          - `JsonValue type constant`
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -1113,9 +1038,7 @@ Update Agent
 
           - `boolean enabled`
 
-          - `JsonValue; name "web_fetch"constant`
-
-            - `WEB_FETCH("web_fetch")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1129,9 +1052,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "web_fetch"constant`
-
-            - `WEB_FETCH("web_fetch")`
+          - `JsonValue type constant`
 
           - `Optional<List<String>> allowedDomains`
 
@@ -1139,15 +1060,15 @@ Update Agent
 
           - `Optional<Long> maxContentTokens`
 
+            format: int32
+
         - `class BetaManagedAgentsWebSearchToolConfig:`
 
           Configuration for the web_search tool.
 
           - `boolean enabled`
 
-          - `JsonValue; name "web_search"constant`
-
-            - `WEB_SEARCH("web_search")`
+          - `JsonValue name constant`
 
           - `PermissionPolicy permissionPolicy`
 
@@ -1161,9 +1082,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonValue; type "web_search"constant`
-
-            - `WEB_SEARCH("web_search")`
+          - `JsonValue type constant`
 
           - `Optional<List<String>> allowedDomains`
 
@@ -1173,15 +1092,15 @@ Update Agent
 
             Approximate user location for search result localization.
 
-            - `JsonValue; type "approximate"constant`
+            - `JsonValue type constant`
 
               Location precision. Only "approximate" is supported.
-
-              - `APPROXIMATE("approximate")`
 
             - `Optional<String> city`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `Optional<String> country`
 
@@ -1191,9 +1110,13 @@ Update Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `Optional<String> timezone`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
 
@@ -1214,8 +1137,6 @@ Update Agent
             Tool calls require user confirmation before execution.
 
       - `Type type`
-
-        - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
 
     - `class BetaManagedAgentsMcpToolset:`
 
@@ -1259,8 +1180,6 @@ Update Agent
 
       - `Type type`
 
-        - `MCP_TOOLSET("mcp_toolset")`
-
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
@@ -1271,9 +1190,7 @@ Update Agent
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonValue; type "object"constant`
-
-          - `OBJECT("object")`
+        - `JsonValue type constant`
 
         - `Optional<Properties> properties`
 
@@ -1283,21 +1200,21 @@ Update Agent
 
       - `Type type`
 
-        - `CUSTOM("custom")`
-
   - `Type type`
-
-    - `AGENT("agent")`
 
   - `LocalDateTime updatedAt`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `long version`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
 
-### Example
+    format: int32
+
+## Example
 
 ```java
 package com.anthropic.example;
@@ -1318,7 +1235,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

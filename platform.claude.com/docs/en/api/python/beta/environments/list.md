@@ -1,27 +1,26 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/environments/list -->
 
----
-title: List Environments
-url: https://platform.claude.com/docs/en/api/python/beta/environments/list
----
+# List Environments
 
-## List Environments
+`beta.environments.list(**kwargs)  -> SyncPageCursor[BetaEnvironment]`
 
-`beta.environments.list(EnvironmentListParams**kwargs)  -> SyncPageCursor[BetaEnvironment]`
-
-**get** `/v1/environments`
+**GET** `/v1/environments`
 
 List environments with pagination support.
 
-### Parameters
+## Parameters
 
 - `include_archived: Optional[bool]`
 
   Include archived environments in the response
 
+  default: false
+
 - `limit: Optional[int]`
 
   Maximum number of environments to return
+
+  default: 20, maximum: 1000, minimum: 1
 
 - `page: Optional[str]`
 
@@ -103,7 +102,7 @@ List environments with pagination support.
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaEnvironment: …`
 
@@ -137,8 +136,6 @@ List environments with pagination support.
 
             Network policy type
 
-            - `"unrestricted"`
-
         - `class BetaLimitedNetwork: …`
 
           Limited network access.
@@ -158,8 +155,6 @@ List environments with pagination support.
           - `type: Literal["limited"]`
 
             Network policy type
-
-            - `"limited"`
 
       - `packages: BetaPackages`
 
@@ -193,13 +188,11 @@ List environments with pagination support.
 
           Package configuration type
 
-          - `"packages"`
+          default: packages
 
       - `type: Literal["cloud"]`
 
         Environment type
-
-        - `"cloud"`
 
     - `class BetaSelfHostedConfig: …`
 
@@ -208,8 +201,6 @@ List environments with pagination support.
       - `type: Literal["self_hosted"]`
 
         Environment type
-
-        - `"self_hosted"`
 
   - `created_at: str`
 
@@ -231,7 +222,7 @@ List environments with pagination support.
 
     The type of object (always 'environment')
 
-    - `"environment"`
+    default: environment
 
   - `updated_at: str`
 
@@ -245,7 +236,7 @@ List environments with pagination support.
 
     - `"account"`
 
-### Example
+## Example
 
 ```python
 import os
@@ -261,7 +252,7 @@ page = page.data[0]
 print(page.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/environments/update -->
 
----
-title: Update Environment
-url: https://platform.claude.com/docs/en/api/cli/beta/environments/update
----
-
-## Update Environment
+# Update Environment
 
 `$ ant beta:environments update`
 
-**post** `/v1/environments/{environment_id}`
+**POST** `/v1/environments/{environment_id}`
 
 Update an existing environment's configuration.
 
-### Parameters
+## Parameters
 
 - `--environment-id: string`
 
@@ -27,6 +22,8 @@ Update an existing environment's configuration.
 
   Body param: Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
 
+  maxLength: 1024
+
 - `--metadata: optional map[string]`
 
   Body param: User-provided metadata key-value pairs. Set a value to null or empty string to delete the key.
@@ -34,6 +31,8 @@ Update an existing environment's configuration.
 - `--name: optional string`
 
   Body param: Updated name for the environment
+
+  maxLength: 256, minLength: 1
 
 - `--scope: optional "organization" or "account"`
 
@@ -43,9 +42,9 @@ Update an existing environment's configuration.
 
   Header param: Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `beta_environment: object { id, archived_at, config, 7 more }`
+- `beta_environment: object`
 
   Unified Environment resource for both cloud and self-hosted environments.
 
@@ -61,7 +60,7 @@ Update an existing environment's configuration.
 
     Environment configuration (either Anthropic Cloud or self-hosted)
 
-    - `beta_cloud_config: object { networking, packages, type }`
+    - `beta_cloud_config: object`
 
       `cloud` environment configuration.
 
@@ -69,7 +68,7 @@ Update an existing environment's configuration.
 
         Network configuration policy.
 
-        - `beta_unrestricted_network: object { type }`
+        - `beta_unrestricted_network: object`
 
           Unrestricted network access.
 
@@ -77,7 +76,7 @@ Update an existing environment's configuration.
 
             Network policy type
 
-        - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
+        - `beta_limited_network: object`
 
           Limited network access.
 
@@ -97,7 +96,7 @@ Update an existing environment's configuration.
 
             Network policy type
 
-      - `packages: object { apt, cargo, gem, 4 more }`
+      - `packages: object`
 
         Package manager configuration.
 
@@ -129,13 +128,11 @@ Update an existing environment's configuration.
 
           Package configuration type
 
-          - `"packages"`
-
       - `type: "cloud"`
 
         Environment type
 
-    - `beta_self_hosted_config: object { type }`
+    - `beta_self_hosted_config: object`
 
       Configuration for self-hosted environments.
 
@@ -175,15 +172,15 @@ Update an existing environment's configuration.
 
     - `"account"`
 
-### Example
+## Example
 
-```cli
+```bash
 ant beta:environments update \
   --api-key my-anthropic-api-key \
   --environment-id env_011CZkZ9X2dpNyB7HsEFoRfW
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/beta/skills/versions/create -->
 
----
-title: Create Skill Version
-url: https://platform.claude.com/docs/en/api/beta/skills/versions/create
----
+# Create Skill Version
 
-## Create Skill Version
-
-**post** `/v1/skills/{skill_id}/versions`
+**POST** `/v1/skills/{skill_id}/versions`
 
 Create Skill Version
 
-### Path Parameters
+## Path parameters
 
 - `skill_id: string`
 
@@ -19,7 +14,7 @@ Create Skill Version
 
   The format and length of IDs may change over time.
 
-### Header Parameters
+## Headers
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 
@@ -97,7 +92,15 @@ Create Skill Version
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Body parameters (form-data)
+
+- `files: array of string`
+
+  Files to upload for the skill.
+
+  All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
+
+## Returns
 
 - `id: string`
 
@@ -137,15 +140,17 @@ Create Skill Version
 
   For Skill Versions, this is always `"skill_version"`.
 
+  default: skill_version
+
 - `version: string`
 
   Version identifier for the skill.
 
   Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
     -H 'Content-Type: multipart/form-data' \
     -H 'anthropic-version: 2023-06-01' \
@@ -154,7 +159,7 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
     -F files='["Example data"]'
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -6,7 +6,7 @@
 
 # Stress-test your financial plan across scenarios
 
-Claude Opus 4.6 tests a financial plan against a full range of possible outcomes, traces how each risk cascades through the rest, and builds a working model you can adjust yourself.
+Claude Opus 5 tests a financial plan against a full range of possible outcomes, traces how each risk cascades through the rest, and builds a working model you can adjust yourself.
 
 15 minPersonalClaude.ai
 
@@ -18,9 +18,9 @@ Try in ClaudeCopy prompt
 
 ## 1. Describe the task
 
-Opus 4.6 synthesizes across your full set of financial documents before building anything. It connects variables that most calculators treat independently — tax brackets, withdrawal sequences, Social Security timing — and reasons through how they cascade over decades.
+Claude Opus 5 synthesizes across your full set of financial documents before building anything. It connects variables that most calculators treat independently — tax brackets, withdrawal sequences, Social Security timing — and reasons through how they cascade over decades.
 
-Describe your situation and what you want to understand. Your financial documents, covered in the next section, provide the detail. Opus 4.6 determines the approach, runs the analysis, and produces working spreadsheets and scenario explorers. From there, you can keep working in [Claude in Excel(opens in new tab)](https://claude.com/claude-for-excel).
+Describe your situation and what you want to understand. Your financial documents, covered in the next section, provide the detail. Opus 5 determines the approach, runs the analysis, and produces working spreadsheets and scenario explorers. From there, you can keep working in [Claude for Excel(opens in new tab)](https://claude.com/claude-for-microsoft-365).
 
 I’m 52, hoping to retire at 62. My partner and I have about $1.2M across a 401(k), Roth IRA, and taxable brokerage. I make $185K, he makes $95K, we spend about $8,500/month. Mortgage is paid off in 2031. Not sure if we should be doing Roth conversions now while we’re in a lower bracket.
 
@@ -44,15 +44,11 @@ Tax ReturnPDF
 
 ### Optional context
 
-[Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) lets Claude scale how deeply it reasons based on task complexity. Turning it on gives Claude more room to reason through complex, interdependent variables before producing results.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+Opus 5 always thinks before it answers in Claude, so there is no thinking toggle to set. For complex, interdependent variables, raise the [effort level(opens in new tab)](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings) in the model menu.
 
 ## 3. What Claude creates
 
-Opus 4.6 produces a working financial model with probability distributions across a range of modeled scenarios, an interactive scenario explorer, and a clear action plan. Keep in mind, Claude produces outputs based on the documents you provide. You should review any strategies with a qualified financial professional before acting on them. Here’s the kind of analysis you’ll get:
+Opus 5 produces a working financial model with probability distributions across a range of modeled scenarios, an interactive scenario explorer, and a clear action plan. Keep in mind, Claude produces outputs based on the documents you provide. You should review any strategies with a qualified financial professional before acting on them. Here’s the kind of analysis you’ll get:
 
 I’ve read through all your documents. Before building anything, I want to flag something: your mortgage payoff in 2031, your peak earnings window, and the Roth conversion opportunity all overlap. That’s actually a timing advantage most calculators would miss. Here’s what I found.
 
@@ -76,7 +72,7 @@ Continue the conversation with Claude to refine, expand, or explore further.
 
 ### Stress-test a life change
 
-Opus 4.6 stays with the full complexity when you throw a wrench in the plan. Describe a scenario and it re-runs the entire analysis, tracing how one variable ripples through income, taxes, withdrawal sequences, and long-term success rate without simplifying away the interactions.
+Opus 5 stays with the full complexity when you throw a wrench in the plan. Describe a scenario and it re-runs the entire analysis, tracing how one variable ripples through income, taxes, withdrawal sequences, and long-term success rate without simplifying away the interactions.
 
 What if I lose my job at 57 and can only find work at $120K? How does that change the Roth conversion window?
 
@@ -84,7 +80,7 @@ Open in Claude
 
 ### Take the model into Excel
 
-Opus 4.6 produces downloadable spreadsheets you can open in [Claude in Excel(opens in new tab)](https://claude.com/claude-for-excel) to keep adjusting. Change an assumption, test a new scenario, or extend the projections without rebuilding anything from scratch.
+Opus 5 produces downloadable spreadsheets you can open in [Claude for Excel(opens in new tab)](https://claude.com/claude-for-microsoft-365) to keep adjusting. Change an assumption, test a new scenario, or extend the projections without rebuilding anything from scratch.
 
 I want to play with the inflation assumptions. What happens to the withdrawal sequence if we get a 5% inflation year in 2029?
 
@@ -92,7 +88,7 @@ Open in Claude
 
 ### Ask what you’re missing
 
-Opus 4.6 reasons across finance and tax at domain-expert level and will surface things you didn’t think to ask about, like a narrow window for conversions created by a tax bracket transition or a withdrawal order that saves you money over decades. Push it further.
+Opus 5 reasons across finance and tax at domain-expert level and will surface things you didn’t think to ask about, like a narrow window for conversions created by a tax bracket transition or a withdrawal order that saves you money over decades. Push it further.
 
 What would a financial planner flag about this plan that I haven’t asked about?
 
@@ -102,11 +98,11 @@ Open in Claude
 
 ### Start with your situation
 
-If you aren't sure about the approach you'd like to take, describe your financial situation and what you want to understand. Opus 4.6 identifies an analytical approach from your context on its own.
+If you aren't sure about the approach you'd like to take, describe your financial situation and what you want to understand. Opus 5 identifies an analytical approach from your context on its own.
 
 ### Upload everything at once
 
-Opus 4.6 synthesizes across your full document set before building anything, finding interactions between your tax returns, investment statements, and Social Security estimates that cascade through each other. The more complete the picture, the stronger the analysis.
+Opus 5 synthesizes across your full document set before building anything, finding interactions between your tax returns, investment statements, and Social Security estimates that cascade through each other. The more complete the picture, the stronger the analysis.
 
 ### Run longer analyses through Cowork
 
@@ -118,7 +114,7 @@ Financial modeling runs across many variables and scenarios. Open a new session 
 
 ## 6. Ready to try for yourself?
 
-Try Opus 4.6 with your financial plan and see how changing one input ripples through the entire model.
+Try Opus 5 with your financial plan and see how changing one input ripples through the entire model.
 
 I’m 52, hoping to retire at 62. My partner and I have about $1.2M across a 401(k), Roth IRA, and taxable brokerage. I make $185K, he makes $95K, we spend about $8,500/month. Mortgage is paid off in 2031. Not sure if we should be doing Roth conversions now while we’re in a lower bracket.
 

@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-batch-processing -->
 
-#  Batch Processing with Message Batches API
+#  Batch Processing with Message Batches API
 
 Message Batches allow you to process large volumes of Messages requests asynchronously and cost-effectively. This cookbook demonstrates how to use the Message Batches API to handle bulk operations while reducing costs by 50%.
 
@@ -11,15 +11,11 @@ In this cookbook, we will demonstrate how to:
 3. Retrieve and handle batch results
 4. Implement best practices for effective batching
 
-##  Setup
+##  Setup
 
 First, let's set up our environment with the necessary imports:
 
-
-
 %pip install anthropic
-
-
 
 import time
 
@@ -29,11 +25,9 @@ client = anthropic.Anthropic()
 
 MODEL\_NAME = "claude-sonnet-4-6"
 
-##  Example 1: Basic Batch Processing
+##  Example 1: Basic Batch Processing
 
 Let's start with a simple example that demonstrates creating and monitoring a batch of message requests.
-
-
 
 # Prepare a list of questions for batch processing
 
@@ -83,19 +77,15 @@ print(f"Status: {response.processing\_status}")
 
 print(f"Created at: {response.created\_at}")
 
-
-
 ```
 Batch ID: msgbatch_01GgqTz9XzriGNHzTSGZsJJ8
 Status: in_progress
 Created at: 2024-10-08 00:46:30.694748+00:00
 ```
 
-#  Monitoring Batch Progress
+#  Monitoring Batch Progress
 
 Now let's monitor the batch processing status:
-
-
 
 def monitor\_batch(batch\_id, polling\_interval=5):
 
@@ -133,8 +123,6 @@ print(f" Canceled: {batch\_result.request\_counts.canceled}")
 
 print(f" Expired: {batch\_result.request\_counts.expired}")
 
-
-
 ```
 BetaMessageBatch(id='msgbatch_01GgqTz9XzriGNHzTSGZsJJ8', cancel_initiated_at=None, created_at=datetime.datetime(2024, 10, 8, 0, 46, 30, 694748, tzinfo=datetime.timezone.utc), ended_at=None, expires_at=datetime.datetime(2024, 10, 9, 0, 46, 30, 694748, tzinfo=datetime.timezone.utc), processing_status='in_progress', request_counts=RequestCounts(canceled=0, errored=0, expired=0, processing=4, succeeded=0), results_url=None, type='message_batch')
 Status: in_progress
@@ -155,11 +143,9 @@ Request counts:
   Expired: 0
 ```
 
-#  Retrieving Results
+#  Retrieving Results
 
 Once the batch is complete, we can retrieve and process the results:
-
-
 
 def process\_results(batch\_id):
 
@@ -211,8 +197,6 @@ if batch\_status.processing\_status == "ended":
 
 process\_results(batch\_status.id)
 
-
-
 ```
 BetaMessageBatch(id='msgbatch_01GgqTz9XzriGNHzTSGZsJJ8', cancel_initiated_at=None, created_at=datetime.datetime(2024, 10, 8, 0, 46, 30, 694748, tzinfo=datetime.timezone.utc), ended_at=datetime.datetime(2024, 10, 8, 0, 46, 47, 283392, tzinfo=TzInfo(UTC)), expires_at=datetime.datetime(2024, 10, 9, 0, 46, 30, 694748, tzinfo=datetime.timezone.utc), processing_status='ended', request_counts=RequestCounts(canceled=0, errored=0, expired=0, processing=0, succeeded=4), results_url='https://api.anthropic.com/v1/messages/batches/msgbatch_01GgqTz9XzriGNHzTSGZsJJ8/results', type='message_batch')
 Status: ended
@@ -252,11 +236,9 @@ Content: Leaves change color in autumn due to a combination of factors, primaril
 1. C...
 ```
 
-##  Example 2: Advanced Batch Processing for Different Message Types
+##  Example 2: Advanced Batch Processing for Different Message Types
 
 This example demonstrates more advanced usage, including error handling and processing different types of requests in a single batch including a simple message, a message with a system prompt, a multi-turn message, and a message with an image.
-
-
 
 import base64
 
@@ -418,15 +400,11 @@ complex\_batch\_id = create\_complex\_batch()
 
 print(f"Complex batch ID: {complex\_batch\_id}")
 
-
-
 ```
 Complex batch ID: msgbatch_011FAkvqkL8pEskdyS3xdmNW
 ```
 
 Great now let's view the results of the batch:
-
-
 
 # Example usage:
 
@@ -435,8 +413,6 @@ batch\_status = monitor\_batch(complex\_batch\_id)
 if batch\_status.processing\_status == "ended":
 
 process\_results(batch\_status.id)
-
-
 
 ```
 BetaMessageBatch(id='msgbatch_011FAkvqkL8pEskdyS3xdmNW', cancel_initiated_at=None, created_at=datetime.datetime(2024, 10, 8, 0, 23, 58, 507550, tzinfo=datetime.timezone.utc), ended_at=None, expires_at=datetime.datetime(2024, 10, 9, 0, 23, 58, 507550, tzinfo=datetime.timezone.utc), processing_status='in_progress', request_counts=RequestCounts(canceled=0, errored=0, expired=0, processing=4, succeeded=0), results_url=None, type='message_batch')

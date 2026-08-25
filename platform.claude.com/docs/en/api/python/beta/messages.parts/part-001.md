@@ -3,18 +3,13 @@
 
 <!-- chunk-start -->
 
----
-title: Messages
-url: https://platform.claude.com/docs/en/api/python/beta/messages
----
-
 # Messages
 
 ## Create a Message
 
-`beta.messages.create(MessageCreateParams**kwargs)  -> BetaMessage`
+`beta.messages.create(**kwargs)  -> BetaMessage`
 
-**post** `/v1/messages`
+**POST** `/v1/messages`
 
 Send a structured list of input messages with text and/or image content, and the model will generate the next message in the conversation.
 
@@ -33,6 +28,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   Set to `0` to populate the [prompt cache](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
   Different models have different maximum values for this parameter.  See [models](https://platform.claude.com/docs/en/about-claude/models/overview) for details.
+
+  minimum: 0
 
 - `messages: Iterable[BetaMessageParam]`
 
@@ -95,17 +92,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `text: str`
 
-        - `type: Literal["text"]`
+          minLength: 1
 
-          - `"text"`
+        - `type: Literal["text"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
 
           - `type: Literal["ephemeral"]`
-
-            - `"ephemeral"`
 
           - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -130,15 +125,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_char_index: int`
 
             - `start_char_index: int`
 
-            - `type: Literal["char_location"]`
+              minimum: 0
 
-              - `"char_location"`
+            - `type: Literal["char_location"]`
 
           - `class BetaCitationPageLocationParam: …`
 
@@ -146,15 +145,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_page_number: int`
 
             - `start_page_number: int`
 
-            - `type: Literal["page_location"]`
+              minimum: 1
 
-              - `"page_location"`
+            - `type: Literal["page_location"]`
 
           - `class BetaCitationContentBlockLocationParam: …`
 
@@ -166,7 +169,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_block_index: int`
 
@@ -178,9 +185,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               0-based index of the first cited block in the source's `content` array.
 
-            - `type: Literal["content_block_location"]`
+              minimum: 0
 
-              - `"content_block_location"`
+            - `type: Literal["content_block_location"]`
 
           - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -190,11 +197,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `title: Optional[str]`
 
+              maxLength: 512, minLength: 1
+
             - `type: Literal["web_search_result_location"]`
 
-              - `"web_search_result_location"`
-
             - `url: str`
+
+              minLength: 1
 
           - `class BetaCitationSearchResultLocationParam: …`
 
@@ -216,17 +225,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Counted separately from `document_index`; server-side web search results are not included in this count.
 
+              minimum: 0
+
             - `source: str`
 
             - `start_block_index: int`
 
               0-based index of the first cited block in the source's `content` array.
 
+              minimum: 0
+
             - `title: Optional[str]`
 
             - `type: Literal["search_result_location"]`
-
-              - `"search_result_location"`
 
       - `class BetaImageBlockParam: …`
 
@@ -235,6 +246,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `class BetaBase64ImageSource: …`
 
             - `data: str`
+
+              format: byte
 
             - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -248,13 +261,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["base64"]`
 
-              - `"base64"`
-
           - `class BetaURLImageSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -264,11 +273,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["image"]`
-
-          - `"image"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -294,13 +299,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `data: str`
 
+              format: byte
+
             - `media_type: Literal["application/pdf"]`
 
-              - `"application/pdf"`
-
             - `type: Literal["base64"]`
-
-              - `"base64"`
 
           - `class BetaPlainTextSource: …`
 
@@ -308,11 +311,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `media_type: Literal["text/plain"]`
 
-              - `"text/plain"`
-
             - `type: Literal["text"]`
-
-              - `"text"`
 
           - `class BetaContentBlockSource: …`
 
@@ -328,13 +327,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["content"]`
 
-              - `"content"`
-
           - `class BetaURLPDFSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -344,11 +339,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["document"]`
-
-          - `"document"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -360,13 +351,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `context: Optional[str]`
 
+          minLength: 1
+
         - `title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
       - `class BetaSearchResultBlockParam: …`
 
         - `content: List[BetaTextBlockParam]`
 
           - `text: str`
+
+            minLength: 1
 
           - `type: Literal["text"]`
 
@@ -381,8 +378,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `title: str`
 
         - `type: Literal["search_result"]`
-
-          - `"search_result"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -404,8 +399,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["thinking"]`
 
-          - `"thinking"`
-
       - `class BetaRedactedThinkingBlockParam: …`
 
         - `data: str`
@@ -414,19 +407,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["redacted_thinking"]`
 
-          - `"redacted_thinking"`
-
       - `class BetaToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^[a-zA-Z0-9_-]+$
 
         - `input: Dict[str, object]`
 
         - `name: str`
 
-        - `type: Literal["tool_use"]`
+          maxLength: 200, minLength: 1
 
-          - `"tool_use"`
+        - `type: Literal["tool_use"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -442,37 +435,37 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["direct"]`
 
-              - `"direct"`
-
           - `class BetaServerToolCaller: …`
 
             Tool invocation generated by a server-side tool.
 
             - `tool_id: str`
 
-            - `type: Literal["code_execution_20250825"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_20250825"`
+            - `type: Literal["code_execution_20250825"]`
 
           - `class BetaServerToolCaller20260120: …`
 
             - `tool_id: str`
 
-            - `type: Literal["code_execution_20260120"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_20260120"`
+            - `type: Literal["code_execution_20260120"]`
 
         - `toolset_name: Optional[str]`
 
           For a toolset member tool_use, the toolset family this member belongs to.
 
+          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
       - `class BetaToolResultBlockParam: …`
 
         - `tool_use_id: str`
 
-        - `type: Literal["tool_result"]`
+          pattern: ^[a-zA-Z0-9_-]+$
 
-          - `"tool_result"`
+        - `type: Literal["tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -498,9 +491,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `tool_name: str`
 
-              - `type: Literal["tool_reference"]`
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `"tool_reference"`
+              - `type: Literal["tool_reference"]`
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -520,25 +513,31 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
 
+                maxItems: 100
+
                 - `tab_id: str`
 
                   The caller-assigned identifier for this tab, unique within the inventory.
+
+                  maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `title: str`
 
                   The title of the page the tab is showing. May be empty.
 
+                  maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                 - `url: str`
 
                   The URL of the page the tab is showing. May be empty.
+
+                  maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `active: Optional[bool]`
 
                   Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
               - `type: Literal["browser_state"]`
-
-                - `"browser_state"`
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -547,6 +546,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               - `state_changes: Optional[List[BetaBrowserStateChange]]`
 
                 Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                maxItems: 200, minItems: 1
 
                 - `class BetaBrowserStateChangeTabOpened: …`
 
@@ -562,9 +563,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
-                  - `type: Literal["tab_opened"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"tab_opened"`
+                  - `type: Literal["tab_opened"]`
 
                 - `class BetaBrowserStateChangeDownloadStarted: …`
 
@@ -574,13 +575,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_started"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_started"`
+                  - `type: Literal["download_started"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
+
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `class BetaBrowserStateChangeDownloadCompleted: …`
 
@@ -593,21 +596,27 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_completed"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_completed"`
+                  - `type: Literal["download_completed"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
 
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                   - `path: Optional[str]`
 
                     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
                   - `size_bytes: Optional[int]`
 
                     The completed download's size.
+
+                    minimum: 0
 
                 - `class BetaBrowserStateChangeDownloadFailed: …`
 
@@ -617,17 +626,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_failed"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_failed"`
+                  - `type: Literal["download_failed"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
 
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                   - `error: Optional[str]`
 
                     The failure or cancellation detail, when known.
+
+                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
         - `is_error: Optional[bool]`
 
@@ -635,9 +648,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           For a toolset member tool_result, the toolset family of the paired tool_use.
 
+          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
       - `class BetaServerToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `input: Dict[str, object]`
 
@@ -660,8 +677,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `"tool_search_tool_bm25"`
 
         - `type: Literal["server_tool_use"]`
-
-          - `"server_tool_use"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -693,8 +708,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["web_search_result"]`
 
-              - `"web_search_result"`
-
             - `url: str`
 
             - `page_age: Optional[str]`
@@ -717,13 +730,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["web_search_tool_result_error"]`
 
-              - `"web_search_tool_result_error"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["web_search_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"web_search_tool_result"`
+        - `type: Literal["web_search_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -771,15 +782,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["web_fetch_tool_result_error"]`
 
-              - `"web_fetch_tool_result_error"`
-
           - `class BetaWebFetchBlockParam: …`
 
             - `content: BetaRequestDocumentBlock`
 
             - `type: Literal["web_fetch_result"]`
-
-              - `"web_fetch_result"`
 
             - `url: str`
 
@@ -791,9 +798,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `tool_use_id: str`
 
-        - `type: Literal["web_fetch_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"web_fetch_tool_result"`
+        - `type: Literal["web_fetch_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -837,15 +844,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["advisor_tool_result_error"]`
 
-              - `"advisor_tool_result_error"`
-
           - `class BetaAdvisorResultBlockParam: …`
 
             - `text: str`
 
             - `type: Literal["advisor_result"]`
-
-              - `"advisor_result"`
 
             - `stop_reason: Optional[str]`
 
@@ -857,15 +860,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["advisor_redacted_result"]`
 
-              - `"advisor_redacted_result"`
-
             - `stop_reason: Optional[str]`
 
         - `tool_use_id: str`
 
-        - `type: Literal["advisor_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"advisor_tool_result"`
+        - `type: Literal["advisor_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -891,8 +892,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["code_execution_tool_result_error"]`
 
-              - `"code_execution_tool_result_error"`
-
           - `class BetaCodeExecutionResultBlockParam: …`
 
             - `content: List[BetaCodeExecutionOutputBlockParam]`
@@ -901,8 +900,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `type: Literal["code_execution_output"]`
 
-                - `"code_execution_output"`
-
             - `return_code: int`
 
             - `stderr: str`
@@ -910,8 +907,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `stdout: str`
 
             - `type: Literal["code_execution_result"]`
-
-              - `"code_execution_result"`
 
           - `class BetaEncryptedCodeExecutionResultBlockParam: …`
 
@@ -931,13 +926,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["encrypted_code_execution_result"]`
 
-              - `"encrypted_code_execution_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"code_execution_tool_result"`
+        - `type: Literal["code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -963,8 +956,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["bash_code_execution_tool_result_error"]`
 
-              - `"bash_code_execution_tool_result_error"`
-
           - `class BetaBashCodeExecutionResultBlockParam: …`
 
             - `content: List[BetaBashCodeExecutionOutputBlockParam]`
@@ -972,8 +963,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               - `file_id: str`
 
               - `type: Literal["bash_code_execution_output"]`
-
-                - `"bash_code_execution_output"`
 
             - `return_code: int`
 
@@ -983,13 +972,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["bash_code_execution_result"]`
 
-              - `"bash_code_execution_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["bash_code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"bash_code_execution_tool_result"`
+        - `type: Literal["bash_code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1015,8 +1002,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-              - `"text_editor_code_execution_tool_result_error"`
-
             - `error_message: Optional[str]`
 
           - `class BetaTextEditorCodeExecutionViewResultBlockParam: …`
@@ -1033,8 +1018,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["text_editor_code_execution_view_result"]`
 
-              - `"text_editor_code_execution_view_result"`
-
             - `num_lines: Optional[int]`
 
             - `start_line: Optional[int]`
@@ -1047,13 +1030,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["text_editor_code_execution_create_result"]`
 
-              - `"text_editor_code_execution_create_result"`
-
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam: …`
 
             - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-              - `"text_editor_code_execution_str_replace_result"`
 
             - `lines: Optional[List[str]]`
 
@@ -1067,9 +1046,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `tool_use_id: str`
 
-        - `type: Literal["text_editor_code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"text_editor_code_execution_tool_result"`
+        - `type: Literal["text_editor_code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1093,8 +1072,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["tool_search_tool_result_error"]`
 
-              - `"tool_search_tool_result_error"`
-
             - `error_message: Optional[str]`
 
           - `class BetaToolSearchToolSearchResultBlockParam: …`
@@ -1102,6 +1079,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `tool_references: List[BetaToolReferenceBlockParam]`
 
               - `tool_name: str`
+
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `type: Literal["tool_reference"]`
 
@@ -1111,13 +1090,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["tool_search_tool_search_result"]`
 
-              - `"tool_search_tool_search_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["tool_search_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"tool_search_tool_result"`
+        - `type: Literal["tool_search_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1126,6 +1103,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `class BetaMCPToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^[a-zA-Z0-9_-]+$
 
         - `input: Dict[str, object]`
 
@@ -1137,8 +1116,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["mcp_tool_use"]`
 
-          - `"mcp_tool_use"`
-
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
@@ -1147,9 +1124,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `tool_use_id: str`
 
-        - `type: Literal["mcp_tool_result"]`
+          pattern: ^[a-zA-Z0-9_-]+$
 
-          - `"mcp_tool_result"`
+        - `type: Literal["mcp_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1162,6 +1139,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           - `List[BetaTextBlockParam]`
 
             - `text: str`
+
+              minLength: 1
 
             - `type: Literal["text"]`
 
@@ -1182,8 +1161,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["container_upload"]`
 
-          - `"container_upload"`
-
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
@@ -1199,8 +1176,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         treats these as no-ops. Empty string content is not allowed.
 
         - `type: Literal["compaction"]`
-
-          - `"compaction"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1238,9 +1213,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `name: str`
 
-            - `type: Literal["tool_reference"]`
+              pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-              - `"tool_reference"`
+            - `type: Literal["tool_reference"]`
 
           - `class BetaToolChangeMCPToolReference: …`
 
@@ -1253,8 +1228,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["mcp_tool_reference"]`
 
-              - `"mcp_tool_reference"`
-
           - `class BetaToolChangeMCPToolsetReference: …`
 
             Reference to every tool in the named MCP server's toolset.
@@ -1263,11 +1236,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["mcp_toolset_reference"]`
 
-              - `"mcp_toolset_reference"`
-
         - `type: Literal["tool_addition"]`
-
-          - `"tool_addition"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1305,8 +1274,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Reference to every tool in the named MCP server's toolset.
 
         - `type: Literal["tool_removal"]`
-
-          - `"tool_removal"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -1428,8 +1395,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["fallback"]`
 
-          - `"fallback"`
-
         - `trigger: Optional[object]`
 
           The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -1468,9 +1433,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       List of skills to load in the container
 
+      maxItems: 20
+
       - `skill_id: str`
 
         Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `type: Literal["anthropic", "custom"]`
 
@@ -1484,6 +1453,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Skill version or 'latest' for most recent version
 
+        maxLength: 64, minLength: 1
+
   - `str`
 
 - `context_management: Optional[BetaContextManagementConfigParam]`
@@ -1496,11 +1467,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     List of context management edits to apply
 
+    minItems: 0
+
     - `class BetaClearToolUses20250919Edit: …`
 
       - `type: Literal["clear_tool_uses_20250919"]`
-
-        - `"clear_tool_uses_20250919"`
 
       - `clear_at_least: Optional[BetaInputTokensClearAtLeast]`
 
@@ -1508,9 +1479,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["input_tokens"]`
 
-          - `"input_tokens"`
-
         - `value: int`
+
+          minimum: 0
 
       - `clear_tool_inputs: Optional[Union[bool, List[str], null]]`
 
@@ -1530,9 +1501,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["tool_uses"]`
 
-          - `"tool_uses"`
-
         - `value: int`
+
+          minimum: 0
 
       - `trigger: Optional[Trigger]`
 
@@ -1542,23 +1513,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["input_tokens"]`
 
-            - `"input_tokens"`
-
           - `value: int`
+
+            minimum: 1
 
         - `class BetaToolUsesTrigger: …`
 
           - `type: Literal["tool_uses"]`
 
-            - `"tool_uses"`
-
           - `value: int`
+
+            minimum: 1
 
     - `class BetaClearThinking20251015Edit: …`
 
       - `type: Literal["clear_thinking_20251015"]`
-
-        - `"clear_thinking_20251015"`
 
       - `keep: Optional[Keep]`
 
@@ -1568,27 +1537,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["thinking_turns"]`
 
-            - `"thinking_turns"`
-
           - `value: int`
+
+            minimum: 1
 
         - `class BetaAllThinkingTurns: …`
 
           - `type: Literal["all"]`
 
-            - `"all"`
-
         - `Literal["all"]`
-
-          - `"all"`
 
     - `class BetaCompact20260112Edit: …`
 
       Automatically compact older context when reaching the configured trigger threshold.
 
       - `type: Literal["compact_20260112"]`
-
-        - `"compact_20260112"`
 
       - `instructions: Optional[str]`
 
@@ -1610,6 +1573,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `previous_message_id: Optional[str]`
 
     The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
+
+    maxLength: 256
 
 - `fallback_credit_token: Optional[FallbackCreditToken]`
 
@@ -1649,6 +1614,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `token: str`
 
       The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+      maxLength: 2048, minLength: 1
 
     - `mode: Optional[Literal["strict", "best_effort"]]`
 
@@ -1698,8 +1665,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["json_schema"]`
 
-          - `"json_schema"`
-
       - `task_budget: Optional[BetaTokenTaskBudget]`
 
         User-configurable total token budget across contexts.
@@ -1708,15 +1673,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Total token budget across all contexts in the session.
 
+          minimum: 1024
+
         - `type: Literal["tokens"]`
 
           The budget type. Currently only 'tokens' is supported.
 
-          - `"tokens"`
-
         - `remaining: Optional[int]`
 
           Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+          minimum: 0
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
@@ -1738,9 +1705,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-        - `type: Literal["enabled"]`
+          minimum: 1024
 
-          - `"enabled"`
+        - `type: Literal["enabled"]`
 
         - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -1754,13 +1721,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["disabled"]`
 
-          - `"disabled"`
-
       - `class BetaThinkingConfigAdaptive: …`
 
         - `type: Literal["adaptive"]`
-
-          - `"adaptive"`
 
         - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -1772,8 +1735,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `Literal["default"]`
 
-    - `"default"`
-
 - `inference_geo: Optional[str]`
 
   Specifies the geographic region for inference processing. If not specified, the workspace's `default_inference_geo` is used.
@@ -1782,11 +1743,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   MCP servers to be utilized in this request
 
+  maxItems: 20
+
   - `name: str`
 
   - `type: Literal["url"]`
-
-    - `"url"`
 
   - `url: str`
 
@@ -1808,15 +1769,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     This should be a uuid, hash value, or other opaque identifier. Anthropic may use this id to help detect abuse. Do not include any identifying information such as name, email address, or phone number.
 
+    maxLength: 512
+
 - `output_config: Optional[BetaOutputConfigParam]`
 
   Configuration options for the model's output, such as the output format.
-
-- `output_format: Optional[BetaJSONOutputFormatParam]`
-
-  Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-
-  A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
 - `service_tier: Optional[Literal["auto", "standard_only"]]`
 
@@ -1850,8 +1807,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   See [streaming](https://platform.claude.com/docs/en/build-with-claude/streaming) for details.
 
-  - `false`
-
 - `system: Optional[Union[str, Iterable[BetaTextBlockParam]]]`
 
   System prompt.
@@ -1863,6 +1818,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
   - `Iterable[BetaTextBlockParam]`
 
     - `text: str`
+
+      minLength: 1
 
     - `type: Literal["text"]`
 
@@ -1896,8 +1853,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type: Literal["auto"]`
 
-      - `"auto"`
-
     - `disable_parallel_tool_use: Optional[bool]`
 
       Whether to disable parallel tool use.
@@ -1909,8 +1864,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     The model will use any available tools.
 
     - `type: Literal["any"]`
-
-      - `"any"`
 
     - `disable_parallel_tool_use: Optional[bool]`
 
@@ -1928,8 +1881,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type: Literal["tool"]`
 
-      - `"tool"`
-
     - `disable_parallel_tool_use: Optional[bool]`
 
       Whether to disable parallel tool use.
@@ -1941,8 +1892,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     The model will not be allowed to use tools.
 
     - `type: Literal["none"]`
-
-      - `"none"`
 
 - `tools: Optional[Iterable[BetaToolUnionParam]]`
 
@@ -2018,8 +1967,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: Literal["object"]`
 
-        - `"object"`
-
       - `properties: Optional[Dict[str, object]]`
 
       - `required: Optional[List[str]]`
@@ -2029,6 +1976,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
+      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2066,8 +2015,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type: Optional[Literal["custom"]]`
 
-      - `"custom"`
-
   - `class BetaToolBash20241022: …`
 
     - `name: Literal["bash"]`
@@ -2076,11 +2023,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"bash"`
-
     - `type: Literal["bash_20241022"]`
-
-      - `"bash_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2114,11 +2057,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"bash"`
-
     - `type: Literal["bash_20250124"]`
-
-      - `"bash_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2152,11 +2091,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20250522"]`
-
-      - `"code_execution_20250522"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2188,11 +2123,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20250825"]`
-
-      - `"code_execution_20250825"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2226,11 +2157,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20260120"]`
-
-      - `"code_execution_20260120"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2264,11 +2191,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20260521"]`
-
-      - `"code_execution_20260521"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2300,8 +2223,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     from its schema.
 
     - `type: Literal["browser_toolset_20260801"]`
-
-      - `"browser_toolset_20260801"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2704,9 +2625,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -2714,11 +2639,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20241022"]`
-
-      - `"computer_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2742,6 +2663,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `input_examples: Optional[List[Dict[str, object]]]`
 
     - `strict: Optional[bool]`
@@ -2756,11 +2679,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"memory"`
-
     - `type: Literal["memory_20250818"]`
-
-      - `"memory_20250818"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2792,9 +2711,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -2802,11 +2725,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20250124"]`
-
-      - `"computer_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2830,6 +2749,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `input_examples: Optional[List[Dict[str, object]]]`
 
     - `strict: Optional[bool]`
@@ -2844,11 +2765,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_editor"`
-
     - `type: Literal["text_editor_20241022"]`
-
-      - `"text_editor_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2880,9 +2797,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -2890,11 +2811,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20251124"]`
-
-      - `"computer_20251124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -2918,6 +2835,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `enable_zoom: Optional[bool]`
 
       Whether to enable an action to take a zoomed-in screenshot of the screen.
@@ -2940,8 +2859,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     via `configs.zoom.enabled`.
 
     - `type: Literal["computer_toolset_20260801"]`
-
-      - `"computer_toolset_20260801"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3178,11 +3095,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_editor"`
-
     - `type: Literal["text_editor_20250124"]`
-
-      - `"text_editor_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3216,11 +3129,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_based_edit_tool"`
-
     - `type: Literal["text_editor_20250429"]`
-
-      - `"text_editor_20250429"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3254,11 +3163,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_based_edit_tool"`
-
     - `type: Literal["text_editor_20250728"]`
-
-      - `"text_editor_20250728"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3284,6 +3189,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
 
+      minimum: 1
+
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
@@ -3296,11 +3203,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20250305"]`
-
-      - `"web_search_20250305"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3332,6 +3235,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Maximum number of times the tool can be used in the API request.
 
+      exclusiveMinimum: 0
+
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
@@ -3342,23 +3247,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: Literal["approximate"]`
 
-        - `"approximate"`
-
       - `city: Optional[str]`
 
         The city of the user.
+
+        maxLength: 255, minLength: 1
 
       - `country: Optional[str]`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
+        maxLength: 2, minLength: 2
+
       - `region: Optional[str]`
 
         The region of the user.
 
+        maxLength: 255, minLength: 1
+
       - `timezone: Optional[str]`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+        maxLength: 255, minLength: 1
 
   - `class BetaWebFetchTool20250910: …`
 
@@ -3368,11 +3279,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20250910"]`
-
-      - `"web_fetch_20250910"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3408,9 +3315,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -3424,11 +3335,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20260209"]`
-
-      - `"web_search_20260209"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3459,6 +3366,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -3476,11 +3385,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260209"]`
-
-      - `"web_fetch_20260209"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3516,9 +3421,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -3534,11 +3443,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260309"]`
-
-      - `"web_fetch_20260309"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3574,9 +3479,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -3594,11 +3503,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20260318"]`
-
-      - `"web_search_20260318"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3629,6 +3534,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -3654,11 +3561,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260318"]`
-
-      - `"web_fetch_20260318"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3694,9 +3597,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -3728,11 +3635,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"advisor"`
-
     - `type: Literal["advisor_20260301"]`
-
-      - `"advisor_20260301"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -3760,9 +3663,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
 
+      minimum: 1024
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -3775,8 +3682,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `"tool_search_tool_bm25"`
 
     - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
 
@@ -3813,8 +3718,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `"tool_search_tool_regex"`
 
     - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
 
@@ -3855,9 +3758,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Name of the MCP server to configure tools for
 
-    - `type: Literal["mcp_toolset"]`
+      maxLength: 255, minLength: 1
 
-      - `"mcp_toolset"`
+    - `type: Literal["mcp_toolset"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -3959,6 +3862,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
+- `output_format: Optional[BetaJSONOutputFormatParam]`
+
+  **Deprecated**
+
+  Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+  A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
+
 ### Returns
 
 - `class BetaMessage: …`
@@ -3981,6 +3892,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The time at which the container will expire.
 
+      format: date-time
+
     - `skills: Optional[List[BetaSkill]]`
 
       Skills loaded in the container
@@ -3988,6 +3901,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `skill_id: str`
 
         Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `type: Literal["anthropic", "custom"]`
 
@@ -4000,6 +3915,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `version: str`
 
         The resolved version: a skill version ID for custom skills.
+
+        maxLength: 64, minLength: 1
 
   - `content: List[BetaContentBlock]`
 
@@ -4044,6 +3961,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `document_index: int`
 
+            minimum: 0
+
           - `document_title: Optional[str]`
 
           - `end_char_index: int`
@@ -4052,15 +3971,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `start_char_index: int`
 
+            minimum: 0
+
           - `type: Literal["char_location"]`
 
-            - `"char_location"`
+            default: char_location
 
         - `class BetaCitationPageLocation: …`
 
           - `cited_text: str`
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -4070,9 +3993,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `start_page_number: int`
 
+            minimum: 1
+
           - `type: Literal["page_location"]`
 
-            - `"page_location"`
+            default: page_location
 
         - `class BetaCitationContentBlockLocation: …`
 
@@ -4083,6 +4008,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -4098,9 +4025,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `type: Literal["content_block_location"]`
 
-            - `"content_block_location"`
+            default: content_block_location
 
         - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -4110,9 +4039,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `title: Optional[str]`
 
+            maxLength: 512
+
           - `type: Literal["web_search_result_location"]`
 
-            - `"web_search_result_location"`
+            default: web_search_result_location
 
           - `url: str`
 
@@ -4136,23 +4067,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Counted separately from `document_index`; server-side web search results are not included in this count.
 
+            minimum: 0
+
           - `source: str`
 
           - `start_block_index: int`
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `title: Optional[str]`
 
           - `type: Literal["search_result_location"]`
 
-            - `"search_result_location"`
+            default: search_result_location
 
       - `text: str`
 
+        maxLength: 5000000, minLength: 0
+
       - `type: Literal["text"]`
 
-        - `"text"`
+        default: text
 
     - `class BetaThinkingBlock: …`
 
@@ -4170,7 +4107,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: Literal["thinking"]`
 
-        - `"thinking"`
+        default: thinking
 
     - `class BetaRedactedThinkingBlock: …`
 
@@ -4184,19 +4121,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: Literal["redacted_thinking"]`
 
-        - `"redacted_thinking"`
+        default: redacted_thinking
 
     - `class BetaToolUseBlock: …`
 
       - `id: str`
 
+        pattern: ^[a-zA-Z0-9_-]+$
+
       - `input: Dict[str, object]`
 
       - `name: str`
 
+        minLength: 1
+
       - `type: Literal["tool_use"]`
 
-        - `"tool_use"`
+        default: tool_use
 
       - `caller: Optional[Caller]`
 
@@ -4208,33 +4149,35 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["direct"]`
 
-            - `"direct"`
-
         - `class BetaServerToolCaller: …`
 
           Tool invocation generated by a server-side tool.
 
           - `tool_id: str`
 
-          - `type: Literal["code_execution_20250825"]`
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `"code_execution_20250825"`
+          - `type: Literal["code_execution_20250825"]`
 
         - `class BetaServerToolCaller20260120: …`
 
           - `tool_id: str`
 
-          - `type: Literal["code_execution_20260120"]`
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `"code_execution_20260120"`
+          - `type: Literal["code_execution_20260120"]`
 
       - `toolset_name: Optional[str]`
 
         For a toolset member tool_use, the toolset family.
 
+        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
     - `class BetaServerToolUseBlock: …`
 
       - `id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `input: Dict[str, object]`
 
@@ -4258,7 +4201,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: Literal["server_tool_use"]`
 
-        - `"server_tool_use"`
+        default: server_tool_use
 
       - `caller: Optional[Caller]`
 
@@ -4296,7 +4239,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["web_search_tool_result_error"]`
 
-            - `"web_search_tool_result_error"`
+            default: web_search_tool_result_error
 
         - `List[BetaWebSearchResultBlock]`
 
@@ -4308,15 +4251,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["web_search_result"]`
 
-            - `"web_search_result"`
+            default: web_search_result
 
           - `url: str`
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["web_search_tool_result"]`
 
-        - `"web_search_tool_result"`
+        default: web_search_tool_result
 
       - `caller: Optional[Caller]`
 
@@ -4360,7 +4305,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["web_fetch_tool_result_error"]`
 
-            - `"web_fetch_tool_result_error"`
+            default: web_fetch_tool_result_error
 
         - `class BetaWebFetchBlock: …`
 
@@ -4372,19 +4317,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `enabled: bool`
 
+                default: false
+
             - `source: Source`
 
               - `class BetaBase64PDFSource: …`
 
                 - `data: str`
 
+                  format: byte
+
                 - `media_type: Literal["application/pdf"]`
 
-                  - `"application/pdf"`
-
                 - `type: Literal["base64"]`
-
-                  - `"base64"`
 
               - `class BetaPlainTextSource: …`
 
@@ -4392,11 +4337,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `media_type: Literal["text/plain"]`
 
-                  - `"text/plain"`
-
                 - `type: Literal["text"]`
-
-                  - `"text"`
 
             - `title: Optional[str]`
 
@@ -4404,7 +4345,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["document"]`
 
-              - `"document"`
+              default: document
 
           - `retrieved_at: Optional[str]`
 
@@ -4412,7 +4353,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["web_fetch_result"]`
 
-            - `"web_fetch_result"`
+            default: web_fetch_result
 
           - `url: str`
 
@@ -4420,9 +4361,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["web_fetch_tool_result"]`
 
-        - `"web_fetch_tool_result"`
+        default: web_fetch_tool_result
 
       - `caller: Optional[Caller]`
 
@@ -4462,7 +4405,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["advisor_tool_result_error"]`
 
-            - `"advisor_tool_result_error"`
+            default: advisor_tool_result_error
 
         - `class BetaAdvisorResultBlock: …`
 
@@ -4474,7 +4417,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["advisor_result"]`
 
-            - `"advisor_result"`
+            default: advisor_result
 
         - `class BetaAdvisorRedactedResultBlock: …`
 
@@ -4488,13 +4431,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["advisor_redacted_result"]`
 
-            - `"advisor_redacted_result"`
+            default: advisor_redacted_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["advisor_tool_result"]`
 
-        - `"advisor_tool_result"`
+        default: advisor_tool_result
 
     - `class BetaCodeExecutionToolResultBlock: …`
 
@@ -4516,7 +4461,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["code_execution_tool_result_error"]`
 
-            - `"code_execution_tool_result_error"`
+            default: code_execution_tool_result_error
 
         - `class BetaCodeExecutionResultBlock: …`
 
@@ -4526,7 +4471,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["code_execution_output"]`
 
-              - `"code_execution_output"`
+              default: code_execution_output
 
           - `return_code: int`
 
@@ -4536,7 +4481,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["code_execution_result"]`
 
-            - `"code_execution_result"`
+            default: code_execution_result
 
         - `class BetaEncryptedCodeExecutionResultBlock: …`
 
@@ -4548,6 +4493,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["code_execution_output"]`
 
+              default: code_execution_output
+
           - `encrypted_stdout: str`
 
           - `return_code: int`
@@ -4556,13 +4503,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["encrypted_code_execution_result"]`
 
-            - `"encrypted_code_execution_result"`
+            default: encrypted_code_execution_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["code_execution_tool_result"]`
 
-        - `"code_execution_tool_result"`
+        default: code_execution_tool_result
 
     - `class BetaBashCodeExecutionToolResultBlock: …`
 
@@ -4584,7 +4533,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["bash_code_execution_tool_result_error"]`
 
-            - `"bash_code_execution_tool_result_error"`
+            default: bash_code_execution_tool_result_error
 
         - `class BetaBashCodeExecutionResultBlock: …`
 
@@ -4594,7 +4543,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: Literal["bash_code_execution_output"]`
 
-              - `"bash_code_execution_output"`
+              default: bash_code_execution_output
 
           - `return_code: int`
 
@@ -4604,13 +4553,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["bash_code_execution_result"]`
 
-            - `"bash_code_execution_result"`
+            default: bash_code_execution_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["bash_code_execution_tool_result"]`
 
-        - `"bash_code_execution_tool_result"`
+        default: bash_code_execution_tool_result
 
     - `class BetaTextEditorCodeExecutionToolResultBlock: …`
 
@@ -4634,7 +4585,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-            - `"text_editor_code_execution_tool_result_error"`
+            default: text_editor_code_execution_tool_result_error
 
         - `class BetaTextEditorCodeExecutionViewResultBlock: …`
 
@@ -4656,7 +4607,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["text_editor_code_execution_view_result"]`
 
-            - `"text_editor_code_execution_view_result"`
+            default: text_editor_code_execution_view_result
 
         - `class BetaTextEditorCodeExecutionCreateResultBlock: …`
 
@@ -4664,7 +4615,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["text_editor_code_execution_create_result"]`
 
-            - `"text_editor_code_execution_create_result"`
+            default: text_editor_code_execution_create_result
 
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock: …`
 
@@ -4680,13 +4631,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
-            - `"text_editor_code_execution_str_replace_result"`
+            default: text_editor_code_execution_str_replace_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["text_editor_code_execution_tool_result"]`
 
-        - `"text_editor_code_execution_tool_result"`
+        default: text_editor_code_execution_tool_result
 
     - `class BetaToolSearchToolResultBlock: …`
 
@@ -4708,7 +4661,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["tool_search_tool_result_error"]`
 
-            - `"tool_search_tool_result_error"`
+            default: tool_search_tool_result_error
 
         - `class BetaToolSearchToolSearchResultBlock: …`
 
@@ -4716,23 +4669,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `tool_name: str`
 
+              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
             - `type: Literal["tool_reference"]`
 
-              - `"tool_reference"`
+              default: tool_reference
 
           - `type: Literal["tool_search_tool_search_result"]`
 
-            - `"tool_search_tool_search_result"`
+            default: tool_search_tool_search_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["tool_search_tool_result"]`
 
-        - `"tool_search_tool_result"`
+        default: tool_search_tool_result
 
     - `class BetaMCPToolUseBlock: …`
 
       - `id: str`
+
+        pattern: ^[a-zA-Z0-9_-]+$
 
       - `input: Dict[str, object]`
 
@@ -4746,7 +4705,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: Literal["mcp_tool_use"]`
 
-        - `"mcp_tool_use"`
+        default: mcp_tool_use
 
     - `class BetaMCPToolResultBlock: …`
 
@@ -4764,15 +4723,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `text: str`
 
+            maxLength: 5000000, minLength: 0
+
           - `type: Literal["text"]`
+
+            default: text
 
       - `is_error: bool`
 
+        default: false
+
       - `tool_use_id: str`
+
+        pattern: ^[a-zA-Z0-9_-]+$
 
       - `type: Literal["mcp_tool_result"]`
 
-        - `"mcp_tool_result"`
+        default: mcp_tool_result
 
     - `class BetaContainerUploadBlock: …`
 
@@ -4782,7 +4749,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: Literal["container_upload"]`
 
-        - `"container_upload"`
+        default: container_upload
 
     - `class BetaCompactionBlock: …`
 
@@ -4802,7 +4769,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `type: Literal["compaction"]`
 
-        - `"compaction"`
+        default: compaction
 
     - `class BetaFallbackBlock: …`
 
@@ -4946,11 +4913,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["refusal"]`
 
-          - `"refusal"`
+          default: refusal
 
       - `type: Literal["fallback"]`
 
-        - `"fallback"`
+        default: fallback
 
   - `context_management: Optional[BetaContextManagementResponse]`
 
@@ -4968,15 +4935,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Number of input tokens cleared by this edit.
 
+          minimum: 0
+
         - `cleared_tool_uses: int`
 
           Number of tool uses that were cleared.
+
+          minimum: 0
 
         - `type: Literal["clear_tool_uses_20250919"]`
 
           The type of context management edit applied.
 
-          - `"clear_tool_uses_20250919"`
+          default: clear_tool_uses_20250919
 
       - `class BetaClearThinking20251015EditResponse: …`
 
@@ -4984,15 +4955,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Number of input tokens cleared by this edit.
 
+          minimum: 0
+
         - `cleared_thinking_turns: int`
 
           Number of thinking turns that were cleared.
+
+          minimum: 0
 
         - `type: Literal["clear_thinking_20251015"]`
 
           The type of context management edit applied.
 
-          - `"clear_thinking_20251015"`
+          default: clear_thinking_20251015
 
   - `diagnostics: Optional[BetaDiagnostics]`
 
@@ -5011,7 +4986,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["model_changed"]`
 
-          - `"model_changed"`
+          default: model_changed
 
       - `class BetaCacheMissSystemChanged: …`
 
@@ -5021,7 +4996,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["system_changed"]`
 
-          - `"system_changed"`
+          default: system_changed
 
       - `class BetaCacheMissToolsChanged: …`
 
@@ -5031,7 +5006,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["tools_changed"]`
 
-          - `"tools_changed"`
+          default: tools_changed
 
       - `class BetaCacheMissMessagesChanged: …`
 
@@ -5041,19 +5016,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["messages_changed"]`
 
-          - `"messages_changed"`
+          default: messages_changed
 
       - `class BetaCacheMissPreviousMessageNotFound: …`
 
         - `type: Literal["previous_message_not_found"]`
 
-          - `"previous_message_not_found"`
+          default: previous_message_not_found
 
       - `class BetaCacheMissUnavailable: …`
 
         - `type: Literal["unavailable"]`
 
-          - `"unavailable"`
+          default: unavailable
 
   - `model: Model`
 
@@ -5067,7 +5042,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     This will always be `"assistant"`.
 
-    - `"assistant"`
+    default: assistant
 
   - `stop_details: Optional[BetaRefusalStopDetails]`
 
@@ -5154,7 +5129,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `type: Literal["refusal"]`
 
-      - `"refusal"`
+      default: refusal
 
   - `stop_reason: Optional[BetaStopReason]`
 
@@ -5200,7 +5175,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     For Messages, this is always `"message"`.
 
-    - `"message"`
+    default: message
 
   - `usage: BetaUsage`
 
@@ -5222,17 +5197,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The number of input tokens used to create the 1 hour cache entry.
 
+        default: 0, minimum: 0
+
       - `ephemeral_5m_input_tokens: int`
 
         The number of input tokens used to create the 5 minute cache entry.
+
+        default: 0, minimum: 0
 
     - `cache_creation_input_tokens: Optional[int]`
 
       The number of input tokens used to create the cache entry.
 
+      minimum: 0
+
     - `cache_read_input_tokens: Optional[int]`
 
       The number of input tokens read from the cache.
+
+      minimum: 0
 
     - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
@@ -5254,7 +5237,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["redeemed"]`
 
-            - `"redeemed"`
+            default: redeemed
 
         - `class BetaFallbackCreditNotApplied: …`
 
@@ -5293,7 +5276,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `type: Literal["not_applied"]`
 
-            - `"not_applied"`
+            default: not_applied
 
           - `remove_to_redeem: Optional[List[str]]`
 
@@ -5313,6 +5296,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `input_tokens: int`
 
       The number of input tokens which were used.
+
+      minimum: 0
 
     - `iterations: Optional[BetaIterationsUsage]`
 
@@ -5336,13 +5321,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -5354,11 +5345,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["message"]`
 
           Usage for a sampling iteration
 
-          - `"message"`
+          default: message
 
       - `class BetaCompactionIterationUsage: …`
 
@@ -5372,23 +5365,31 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
+
+          default: 0, minimum: 0
 
         - `input_tokens: int`
 
           The number of input tokens which were used.
 
+          minimum: 0
+
         - `output_tokens: int`
 
           The number of output tokens which were used.
+
+          minimum: 0
 
         - `type: Literal["compaction"]`
 
           Usage for a compaction iteration
 
-          - `"compaction"`
+          default: compaction
 
       - `class BetaAdvisorMessageIterationUsage: …`
 
@@ -5402,13 +5403,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -5420,11 +5427,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["advisor_message"]`
 
           Usage for an advisor sub-inference iteration
 
-          - `"advisor_message"`
+          default: advisor_message
 
       - `class BetaFallbackMessageIterationUsage: …`
 
@@ -5443,13 +5452,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -5461,15 +5476,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["fallback_message"]`
 
           Usage for the fallback-model attempt that served the response
 
-          - `"fallback_message"`
+          default: fallback_message
 
     - `output_tokens: int`
 
       The number of output tokens which were used.
+
+      minimum: 0
 
     - `output_tokens_details: Optional[BetaOutputTokensDetails]`
 
@@ -5491,6 +5510,8 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         generation count by a small number of tokens. Always ≤ `output_tokens`;
         `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+        default: 0, minimum: 0
+
     - `server_tool_use: Optional[BetaServerToolUsage]`
 
       The number of server tool requests.
@@ -5499,9 +5520,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The number of web fetch tool requests.
 
+        default: 0, minimum: 0
+
       - `web_search_requests: int`
 
         The number of web search tool requests.
+
+        default: 0, minimum: 0
 
     - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
 
@@ -5520,6 +5545,261 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `"standard"`
 
       - `"fast"`
+
+- `BetaRawMessageStreamEvent`
+
+  - `class BetaRawMessageStartEvent: …`
+
+    - `message: BetaMessage`
+
+    - `type: Literal["message_start"]`
+
+      default: message_start
+
+  - `class BetaRawMessageDeltaEvent: …`
+
+    - `context_management: Optional[BetaContextManagementResponse]`
+
+      Information about context management strategies applied during the request
+
+    - `delta: Delta`
+
+      - `container: Optional[BetaContainer]`
+
+        Information about the container used in the request (for the code execution tool)
+
+      - `stop_details: Optional[BetaRefusalStopDetails]`
+
+        Structured information about a refusal.
+
+      - `stop_reason: Optional[BetaStopReason]`
+
+      - `stop_sequence: Optional[str]`
+
+    - `type: Literal["message_delta"]`
+
+      default: message_delta
+
+    - `usage: BetaMessageDeltaUsage`
+
+      Billing and rate-limit usage.
+
+      Anthropic's API bills and rate-limits by token counts, as tokens represent the underlying cost to our systems.
+
+      Under the hood, the API transforms requests into a format suitable for the model. The model's output then goes through a parsing stage before becoming an API response. As a result, the token counts in `usage` will not match one-to-one with the exact visible content of an API request or response.
+
+      For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
+
+      Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
+      - `cache_creation_input_tokens: Optional[int]`
+
+        The cumulative number of input tokens used to create the cache entry.
+
+        minimum: 0
+
+      - `cache_read_input_tokens: Optional[int]`
+
+        The cumulative number of input tokens read from the cache.
+
+        minimum: 0
+
+      - `fallback_credit: Optional[BetaFallbackCreditUsage]`
+
+        Outcome of the `fallback_credit_token` presented on this request.
+
+      - `input_tokens: Optional[int]`
+
+        The cumulative number of input tokens which were used.
+
+        minimum: 0
+
+      - `iterations: Optional[BetaIterationsUsage]`
+
+        Per-iteration token usage breakdown.
+
+        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+
+        - Determine which iterations exceeded long context thresholds (>=200k tokens)
+        - Calculate the true context window size from the last iteration
+        - Understand token accumulation across server-side tool use loops
+
+      - `output_tokens: int`
+
+        The cumulative number of output tokens which were used.
+
+      - `output_tokens_details: Optional[BetaOutputTokensDetails]`
+
+        Breakdown of output tokens by category.
+
+        `output_tokens` remains the inclusive, authoritative total used for billing.
+        This object provides a read-only decomposition for observability — for example,
+        how many of the billed output tokens were spent on internal reasoning that may
+        have been summarized before being returned to you.
+
+      - `server_tool_use: Optional[BetaServerToolUsage]`
+
+        The number of server tool requests.
+
+  - `class BetaRawMessageStopEvent: …`
+
+    - `type: Literal["message_stop"]`
+
+      default: message_stop
+
+  - `class BetaRawContentBlockStartEvent: …`
+
+    - `content_block: ContentBlock`
+
+      Response model for a file uploaded to the container.
+
+      - `class BetaTextBlock: …`
+
+      - `class BetaThinkingBlock: …`
+
+      - `class BetaRedactedThinkingBlock: …`
+
+      - `class BetaToolUseBlock: …`
+
+      - `class BetaServerToolUseBlock: …`
+
+      - `class BetaWebSearchToolResultBlock: …`
+
+      - `class BetaWebFetchToolResultBlock: …`
+
+      - `class BetaAdvisorToolResultBlock: …`
+
+      - `class BetaCodeExecutionToolResultBlock: …`
+
+      - `class BetaBashCodeExecutionToolResultBlock: …`
+
+      - `class BetaTextEditorCodeExecutionToolResultBlock: …`
+
+      - `class BetaToolSearchToolResultBlock: …`
+
+      - `class BetaMCPToolUseBlock: …`
+
+      - `class BetaMCPToolResultBlock: …`
+
+      - `class BetaContainerUploadBlock: …`
+
+        Response model for a file uploaded to the container.
+
+      - `class BetaCompactionBlock: …`
+
+        A compaction block returned when autocompact is triggered.
+
+        When content is None, it indicates the compaction failed to produce a valid
+        summary (e.g., malformed output from the model). Clients may round-trip
+        compaction blocks with null content; the server treats them as no-ops.
+
+      - `class BetaFallbackBlock: …`
+
+        Marks the point in `content` where one model's output gives way to the next.
+
+        One block appears per hop where a preceding model actually ran this turn and
+        declined. A turn where no preceding model ran and declined has no such
+        boundary and carries no block — the signal for whether a fallback model
+        served the response is the presence of a `fallback_message` entry in
+        `usage.iterations`, not this block.
+
+        The block is treated like a server-tool content block for streaming: it
+        arrives via the standard `content_block_start` / `content_block_stop`
+        pair and carries no deltas.
+
+    - `index: int`
+
+    - `type: Literal["content_block_start"]`
+
+      default: content_block_start
+
+  - `class BetaRawContentBlockDeltaEvent: …`
+
+    - `delta: BetaRawContentBlockDelta`
+
+      - `class BetaTextDelta: …`
+
+        - `text: str`
+
+        - `type: Literal["text_delta"]`
+
+          default: text_delta
+
+      - `class BetaInputJSONDelta: …`
+
+        - `partial_json: str`
+
+        - `type: Literal["input_json_delta"]`
+
+          default: input_json_delta
+
+      - `class BetaCitationsDelta: …`
+
+        - `citation: Citation`
+
+          - `class BetaCitationCharLocation: …`
+
+          - `class BetaCitationPageLocation: …`
+
+          - `class BetaCitationContentBlockLocation: …`
+
+          - `class BetaCitationsWebSearchResultLocation: …`
+
+          - `class BetaCitationSearchResultLocation: …`
+
+        - `type: Literal["citations_delta"]`
+
+          default: citations_delta
+
+      - `class BetaThinkingDelta: …`
+
+        - `estimated_tokens: Optional[int]`
+
+          Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
+
+        - `thinking: str`
+
+          The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
+
+        - `type: Literal["thinking_delta"]`
+
+          default: thinking_delta
+
+      - `class BetaSignatureDelta: …`
+
+        - `signature: str`
+
+          The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
+
+        - `type: Literal["signature_delta"]`
+
+          default: signature_delta
+
+      - `class BetaCompactionContentBlockDelta: …`
+
+        - `content: Optional[str]`
+
+        - `encrypted_content: Optional[str]`
+
+          Opaque metadata from prior compaction, to be round-tripped verbatim
+
+        - `type: Literal["compaction_delta"]`
+
+          default: compaction_delta
+
+    - `index: int`
+
+    - `type: Literal["content_block_delta"]`
+
+      default: content_block_delta
+
+  - `class BetaRawContentBlockStopEvent: …`
+
+    - `index: int`
+
+    - `type: Literal["content_block_stop"]`
+
+      default: content_block_stop
 
 ### Example
 
@@ -5545,7 +5825,7 @@ beta_message = client.beta.messages.create(
 print(beta_message.id)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -5650,9 +5930,9 @@ print(beta_message.id)
 
 ## Count tokens in a Message
 
-`beta.messages.count_tokens(MessageCountTokensParams**kwargs)  -> BetaMessageTokensCount`
+`beta.messages.count_tokens(**kwargs)  -> BetaMessageTokensCount`
 
-**post** `/v1/messages/count_tokens`
+**POST** `/v1/messages/count_tokens`
 
 Count the number of tokens in a Message.
 
@@ -5723,17 +6003,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `text: str`
 
-        - `type: Literal["text"]`
+          minLength: 1
 
-          - `"text"`
+        - `type: Literal["text"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
 
           - `type: Literal["ephemeral"]`
-
-            - `"ephemeral"`
 
           - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -5758,15 +6036,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_char_index: int`
 
             - `start_char_index: int`
 
-            - `type: Literal["char_location"]`
+              minimum: 0
 
-              - `"char_location"`
+            - `type: Literal["char_location"]`
 
           - `class BetaCitationPageLocationParam: …`
 
@@ -5774,15 +6056,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_page_number: int`
 
             - `start_page_number: int`
 
-            - `type: Literal["page_location"]`
+              minimum: 1
 
-              - `"page_location"`
+            - `type: Literal["page_location"]`
 
           - `class BetaCitationContentBlockLocationParam: …`
 
@@ -5794,7 +6080,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_block_index: int`
 
@@ -5806,9 +6096,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               0-based index of the first cited block in the source's `content` array.
 
-            - `type: Literal["content_block_location"]`
+              minimum: 0
 
-              - `"content_block_location"`
+            - `type: Literal["content_block_location"]`
 
           - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -5818,11 +6108,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `title: Optional[str]`
 
+              maxLength: 512, minLength: 1
+
             - `type: Literal["web_search_result_location"]`
 
-              - `"web_search_result_location"`
-
             - `url: str`
+
+              minLength: 1
 
           - `class BetaCitationSearchResultLocationParam: …`
 
@@ -5844,17 +6136,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Counted separately from `document_index`; server-side web search results are not included in this count.
 
+              minimum: 0
+
             - `source: str`
 
             - `start_block_index: int`
 
               0-based index of the first cited block in the source's `content` array.
 
+              minimum: 0
+
             - `title: Optional[str]`
 
             - `type: Literal["search_result_location"]`
-
-              - `"search_result_location"`
 
       - `class BetaImageBlockParam: …`
 
@@ -5863,6 +6157,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `class BetaBase64ImageSource: …`
 
             - `data: str`
+
+              format: byte
 
             - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -5876,13 +6172,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["base64"]`
 
-              - `"base64"`
-
           - `class BetaURLImageSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -5892,11 +6184,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["image"]`
-
-          - `"image"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -5922,13 +6210,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `data: str`
 
+              format: byte
+
             - `media_type: Literal["application/pdf"]`
 
-              - `"application/pdf"`
-
             - `type: Literal["base64"]`
-
-              - `"base64"`
 
           - `class BetaPlainTextSource: …`
 
@@ -5936,11 +6222,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `media_type: Literal["text/plain"]`
 
-              - `"text/plain"`
-
             - `type: Literal["text"]`
-
-              - `"text"`
 
           - `class BetaContentBlockSource: …`
 
@@ -5956,13 +6238,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["content"]`
 
-              - `"content"`
-
           - `class BetaURLPDFSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -5972,11 +6250,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["document"]`
-
-          - `"document"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -5988,13 +6262,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `context: Optional[str]`
 
+          minLength: 1
+
         - `title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
       - `class BetaSearchResultBlockParam: …`
 
         - `content: List[BetaTextBlockParam]`
 
           - `text: str`
+
+            minLength: 1
 
           - `type: Literal["text"]`
 
@@ -6009,8 +6289,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         - `title: str`
 
         - `type: Literal["search_result"]`
-
-          - `"search_result"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6032,8 +6310,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type: Literal["thinking"]`
 
-          - `"thinking"`
-
       - `class BetaRedactedThinkingBlockParam: …`
 
         - `data: str`
@@ -6042,19 +6318,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type: Literal["redacted_thinking"]`
 
-          - `"redacted_thinking"`
-
       - `class BetaToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^[a-zA-Z0-9_-]+$
 
         - `input: Dict[str, object]`
 
         - `name: str`
 
-        - `type: Literal["tool_use"]`
+          maxLength: 200, minLength: 1
 
-          - `"tool_use"`
+        - `type: Literal["tool_use"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6070,37 +6346,37 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["direct"]`
 
-              - `"direct"`
-
           - `class BetaServerToolCaller: …`
 
             Tool invocation generated by a server-side tool.
 
             - `tool_id: str`
 
-            - `type: Literal["code_execution_20250825"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_20250825"`
+            - `type: Literal["code_execution_20250825"]`
 
           - `class BetaServerToolCaller20260120: …`
 
             - `tool_id: str`
 
-            - `type: Literal["code_execution_20260120"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_20260120"`
+            - `type: Literal["code_execution_20260120"]`
 
         - `toolset_name: Optional[str]`
 
           For a toolset member tool_use, the toolset family this member belongs to.
 
+          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
       - `class BetaToolResultBlockParam: …`
 
         - `tool_use_id: str`
 
-        - `type: Literal["tool_result"]`
+          pattern: ^[a-zA-Z0-9_-]+$
 
-          - `"tool_result"`
+        - `type: Literal["tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6126,9 +6402,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `tool_name: str`
 
-              - `type: Literal["tool_reference"]`
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `"tool_reference"`
+              - `type: Literal["tool_reference"]`
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6148,25 +6424,31 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
 
+                maxItems: 100
+
                 - `tab_id: str`
 
                   The caller-assigned identifier for this tab, unique within the inventory.
+
+                  maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `title: str`
 
                   The title of the page the tab is showing. May be empty.
 
+                  maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                 - `url: str`
 
                   The URL of the page the tab is showing. May be empty.
+
+                  maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `active: Optional[bool]`
 
                   Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
               - `type: Literal["browser_state"]`
-
-                - `"browser_state"`
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6175,6 +6457,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               - `state_changes: Optional[List[BetaBrowserStateChange]]`
 
                 Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                maxItems: 200, minItems: 1
 
                 - `class BetaBrowserStateChangeTabOpened: …`
 
@@ -6190,9 +6474,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
-                  - `type: Literal["tab_opened"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"tab_opened"`
+                  - `type: Literal["tab_opened"]`
 
                 - `class BetaBrowserStateChangeDownloadStarted: …`
 
@@ -6202,13 +6486,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_started"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_started"`
+                  - `type: Literal["download_started"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
+
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `class BetaBrowserStateChangeDownloadCompleted: …`
 
@@ -6221,21 +6507,27 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_completed"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_completed"`
+                  - `type: Literal["download_completed"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
 
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                   - `path: Optional[str]`
 
                     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
                   - `size_bytes: Optional[int]`
 
                     The completed download's size.
+
+                    minimum: 0
 
                 - `class BetaBrowserStateChangeDownloadFailed: …`
 
@@ -6245,17 +6537,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_failed"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_failed"`
+                  - `type: Literal["download_failed"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
 
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                   - `error: Optional[str]`
 
                     The failure or cancellation detail, when known.
+
+                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
         - `is_error: Optional[bool]`
 
@@ -6263,9 +6559,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           For a toolset member tool_result, the toolset family of the paired tool_use.
 
+          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
       - `class BetaServerToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `input: Dict[str, object]`
 
@@ -6288,8 +6588,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `"tool_search_tool_bm25"`
 
         - `type: Literal["server_tool_use"]`
-
-          - `"server_tool_use"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6321,8 +6619,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["web_search_result"]`
 
-              - `"web_search_result"`
-
             - `url: str`
 
             - `page_age: Optional[str]`
@@ -6345,13 +6641,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["web_search_tool_result_error"]`
 
-              - `"web_search_tool_result_error"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["web_search_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"web_search_tool_result"`
+        - `type: Literal["web_search_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6399,15 +6693,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["web_fetch_tool_result_error"]`
 
-              - `"web_fetch_tool_result_error"`
-
           - `class BetaWebFetchBlockParam: …`
 
             - `content: BetaRequestDocumentBlock`
 
             - `type: Literal["web_fetch_result"]`
-
-              - `"web_fetch_result"`
 
             - `url: str`
 
@@ -6419,9 +6709,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `tool_use_id: str`
 
-        - `type: Literal["web_fetch_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"web_fetch_tool_result"`
+        - `type: Literal["web_fetch_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6465,15 +6755,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["advisor_tool_result_error"]`
 
-              - `"advisor_tool_result_error"`
-
           - `class BetaAdvisorResultBlockParam: …`
 
             - `text: str`
 
             - `type: Literal["advisor_result"]`
-
-              - `"advisor_result"`
 
             - `stop_reason: Optional[str]`
 
@@ -6485,15 +6771,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["advisor_redacted_result"]`
 
-              - `"advisor_redacted_result"`
-
             - `stop_reason: Optional[str]`
 
         - `tool_use_id: str`
 
-        - `type: Literal["advisor_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"advisor_tool_result"`
+        - `type: Literal["advisor_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6519,8 +6803,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["code_execution_tool_result_error"]`
 
-              - `"code_execution_tool_result_error"`
-
           - `class BetaCodeExecutionResultBlockParam: …`
 
             - `content: List[BetaCodeExecutionOutputBlockParam]`
@@ -6529,8 +6811,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `type: Literal["code_execution_output"]`
 
-                - `"code_execution_output"`
-
             - `return_code: int`
 
             - `stderr: str`
@@ -6538,8 +6818,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             - `stdout: str`
 
             - `type: Literal["code_execution_result"]`
-
-              - `"code_execution_result"`
 
           - `class BetaEncryptedCodeExecutionResultBlockParam: …`
 
@@ -6559,13 +6837,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["encrypted_code_execution_result"]`
 
-              - `"encrypted_code_execution_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"code_execution_tool_result"`
+        - `type: Literal["code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6591,8 +6867,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["bash_code_execution_tool_result_error"]`
 
-              - `"bash_code_execution_tool_result_error"`
-
           - `class BetaBashCodeExecutionResultBlockParam: …`
 
             - `content: List[BetaBashCodeExecutionOutputBlockParam]`
@@ -6600,8 +6874,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               - `file_id: str`
 
               - `type: Literal["bash_code_execution_output"]`
-
-                - `"bash_code_execution_output"`
 
             - `return_code: int`
 
@@ -6611,13 +6883,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["bash_code_execution_result"]`
 
-              - `"bash_code_execution_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["bash_code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"bash_code_execution_tool_result"`
+        - `type: Literal["bash_code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6643,8 +6913,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-              - `"text_editor_code_execution_tool_result_error"`
-
             - `error_message: Optional[str]`
 
           - `class BetaTextEditorCodeExecutionViewResultBlockParam: …`
@@ -6661,8 +6929,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["text_editor_code_execution_view_result"]`
 
-              - `"text_editor_code_execution_view_result"`
-
             - `num_lines: Optional[int]`
 
             - `start_line: Optional[int]`
@@ -6675,13 +6941,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["text_editor_code_execution_create_result"]`
 
-              - `"text_editor_code_execution_create_result"`
-
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam: …`
 
             - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-              - `"text_editor_code_execution_str_replace_result"`
 
             - `lines: Optional[List[str]]`
 
@@ -6695,9 +6957,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `tool_use_id: str`
 
-        - `type: Literal["text_editor_code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"text_editor_code_execution_tool_result"`
+        - `type: Literal["text_editor_code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6721,8 +6983,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["tool_search_tool_result_error"]`
 
-              - `"tool_search_tool_result_error"`
-
             - `error_message: Optional[str]`
 
           - `class BetaToolSearchToolSearchResultBlockParam: …`
@@ -6730,6 +6990,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             - `tool_references: List[BetaToolReferenceBlockParam]`
 
               - `tool_name: str`
+
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `type: Literal["tool_reference"]`
 
@@ -6739,13 +7001,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["tool_search_tool_search_result"]`
 
-              - `"tool_search_tool_search_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["tool_search_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"tool_search_tool_result"`
+        - `type: Literal["tool_search_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6754,6 +7014,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       - `class BetaMCPToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^[a-zA-Z0-9_-]+$
 
         - `input: Dict[str, object]`
 
@@ -6765,8 +7027,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type: Literal["mcp_tool_use"]`
 
-          - `"mcp_tool_use"`
-
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
@@ -6775,9 +7035,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `tool_use_id: str`
 
-        - `type: Literal["mcp_tool_result"]`
+          pattern: ^[a-zA-Z0-9_-]+$
 
-          - `"mcp_tool_result"`
+        - `type: Literal["mcp_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6790,6 +7050,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           - `List[BetaTextBlockParam]`
 
             - `text: str`
+
+              minLength: 1
 
             - `type: Literal["text"]`
 
@@ -6810,8 +7072,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type: Literal["container_upload"]`
 
-          - `"container_upload"`
-
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
@@ -6827,8 +7087,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
         treats these as no-ops. Empty string content is not allowed.
 
         - `type: Literal["compaction"]`
-
-          - `"compaction"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6866,9 +7124,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `name: str`
 
-            - `type: Literal["tool_reference"]`
+              pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-              - `"tool_reference"`
+            - `type: Literal["tool_reference"]`
 
           - `class BetaToolChangeMCPToolReference: …`
 
@@ -6881,8 +7139,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["mcp_tool_reference"]`
 
-              - `"mcp_tool_reference"`
-
           - `class BetaToolChangeMCPToolsetReference: …`
 
             Reference to every tool in the named MCP server's toolset.
@@ -6891,11 +7147,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             - `type: Literal["mcp_toolset_reference"]`
 
-              - `"mcp_toolset_reference"`
-
         - `type: Literal["tool_addition"]`
-
-          - `"tool_addition"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -6933,8 +7185,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
             Reference to every tool in the named MCP server's toolset.
 
         - `type: Literal["tool_removal"]`
-
-          - `"tool_removal"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -7056,8 +7306,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type: Literal["fallback"]`
 
-          - `"fallback"`
-
         - `trigger: Optional[object]`
 
           The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -7090,11 +7338,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     List of context management edits to apply
 
+    minItems: 0
+
     - `class BetaClearToolUses20250919Edit: …`
 
       - `type: Literal["clear_tool_uses_20250919"]`
-
-        - `"clear_tool_uses_20250919"`
 
       - `clear_at_least: Optional[BetaInputTokensClearAtLeast]`
 
@@ -7102,9 +7350,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type: Literal["input_tokens"]`
 
-          - `"input_tokens"`
-
         - `value: int`
+
+          minimum: 0
 
       - `clear_tool_inputs: Optional[Union[bool, List[str], null]]`
 
@@ -7124,9 +7372,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         - `type: Literal["tool_uses"]`
 
-          - `"tool_uses"`
-
         - `value: int`
+
+          minimum: 0
 
       - `trigger: Optional[Trigger]`
 
@@ -7136,23 +7384,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `type: Literal["input_tokens"]`
 
-            - `"input_tokens"`
-
           - `value: int`
+
+            minimum: 1
 
         - `class BetaToolUsesTrigger: …`
 
           - `type: Literal["tool_uses"]`
 
-            - `"tool_uses"`
-
           - `value: int`
+
+            minimum: 1
 
     - `class BetaClearThinking20251015Edit: …`
 
       - `type: Literal["clear_thinking_20251015"]`
-
-        - `"clear_thinking_20251015"`
 
       - `keep: Optional[Keep]`
 
@@ -7162,27 +7408,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `type: Literal["thinking_turns"]`
 
-            - `"thinking_turns"`
-
           - `value: int`
+
+            minimum: 1
 
         - `class BetaAllThinkingTurns: …`
 
           - `type: Literal["all"]`
 
-            - `"all"`
-
         - `Literal["all"]`
-
-          - `"all"`
 
     - `class BetaCompact20260112Edit: …`
 
       Automatically compact older context when reaching the configured trigger threshold.
 
       - `type: Literal["compact_20260112"]`
-
-        - `"compact_20260112"`
 
       - `instructions: Optional[str]`
 
@@ -7200,11 +7440,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   MCP servers to be utilized in this request
 
+  maxItems: 20
+
   - `name: str`
 
   - `type: Literal["url"]`
-
-    - `"url"`
 
   - `url: str`
 
@@ -7244,8 +7484,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Literal["json_schema"]`
 
-      - `"json_schema"`
-
   - `task_budget: Optional[BetaTokenTaskBudget]`
 
     User-configurable total token budget across contexts.
@@ -7254,21 +7492,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Total token budget across all contexts in the session.
 
+      minimum: 1024
+
     - `type: Literal["tokens"]`
 
       The budget type. Currently only 'tokens' is supported.
-
-      - `"tokens"`
 
     - `remaining: Optional[int]`
 
       Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
 
-- `output_format: Optional[BetaJSONOutputFormatParam]`
-
-  Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-
-  A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
+      minimum: 0
 
 - `speed: Optional[Literal["standard", "fast"]]`
 
@@ -7289,6 +7523,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `Iterable[BetaTextBlockParam]`
 
     - `text: str`
+
+      minLength: 1
 
     - `type: Literal["text"]`
 
@@ -7316,9 +7552,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-    - `type: Literal["enabled"]`
+      minimum: 1024
 
-      - `"enabled"`
+    - `type: Literal["enabled"]`
 
     - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -7332,13 +7568,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Literal["disabled"]`
 
-      - `"disabled"`
-
   - `class BetaThinkingConfigAdaptive: …`
 
     - `type: Literal["adaptive"]`
-
-      - `"adaptive"`
 
     - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -7358,8 +7590,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Literal["auto"]`
 
-      - `"auto"`
-
     - `disable_parallel_tool_use: Optional[bool]`
 
       Whether to disable parallel tool use.
@@ -7371,8 +7601,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     The model will use any available tools.
 
     - `type: Literal["any"]`
-
-      - `"any"`
 
     - `disable_parallel_tool_use: Optional[bool]`
 
@@ -7390,8 +7618,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Literal["tool"]`
 
-      - `"tool"`
-
     - `disable_parallel_tool_use: Optional[bool]`
 
       Whether to disable parallel tool use.
@@ -7403,8 +7629,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     The model will not be allowed to use tools.
 
     - `type: Literal["none"]`
-
-      - `"none"`
 
 - `tools: Optional[Iterable[Tool]]`
 
@@ -7480,8 +7704,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `type: Literal["object"]`
 
-        - `"object"`
-
       - `properties: Optional[Dict[str, object]]`
 
       - `required: Optional[List[str]]`
@@ -7491,6 +7713,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
+      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -7528,8 +7752,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Optional[Literal["custom"]]`
 
-      - `"custom"`
-
   - `class BetaToolBash20241022: …`
 
     - `name: Literal["bash"]`
@@ -7538,11 +7760,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"bash"`
-
     - `type: Literal["bash_20241022"]`
-
-      - `"bash_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -7576,11 +7794,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"bash"`
-
     - `type: Literal["bash_20250124"]`
-
-      - `"bash_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -7614,11 +7828,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20250522"]`
-
-      - `"code_execution_20250522"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -7650,11 +7860,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20250825"]`
-
-      - `"code_execution_20250825"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -7688,11 +7894,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20260120"]`
-
-      - `"code_execution_20260120"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -7726,11 +7928,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20260521"]`
-
-      - `"code_execution_20260521"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -7762,8 +7960,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     from its schema.
 
     - `type: Literal["browser_toolset_20260801"]`
-
-      - `"browser_toolset_20260801"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8166,9 +8362,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -8176,11 +8376,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20241022"]`
-
-      - `"computer_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8204,6 +8400,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `input_examples: Optional[List[Dict[str, object]]]`
 
     - `strict: Optional[bool]`
@@ -8218,11 +8416,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"memory"`
-
     - `type: Literal["memory_20250818"]`
-
-      - `"memory_20250818"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8254,9 +8448,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -8264,11 +8462,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20250124"]`
-
-      - `"computer_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8292,6 +8486,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `input_examples: Optional[List[Dict[str, object]]]`
 
     - `strict: Optional[bool]`
@@ -8306,11 +8502,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_editor"`
-
     - `type: Literal["text_editor_20241022"]`
-
-      - `"text_editor_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8342,9 +8534,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -8352,11 +8548,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20251124"]`
-
-      - `"computer_20251124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8380,6 +8572,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `enable_zoom: Optional[bool]`
 
       Whether to enable an action to take a zoomed-in screenshot of the screen.
@@ -8402,8 +8596,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     via `configs.zoom.enabled`.
 
     - `type: Literal["computer_toolset_20260801"]`
-
-      - `"computer_toolset_20260801"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8640,11 +8832,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_editor"`
-
     - `type: Literal["text_editor_20250124"]`
-
-      - `"text_editor_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8678,11 +8866,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_based_edit_tool"`
-
     - `type: Literal["text_editor_20250429"]`
-
-      - `"text_editor_20250429"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8716,11 +8900,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_based_edit_tool"`
-
     - `type: Literal["text_editor_20250728"]`
-
-      - `"text_editor_20250728"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8746,6 +8926,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
 
+      minimum: 1
+
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
@@ -8758,11 +8940,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20250305"]`
-
-      - `"web_search_20250305"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8794,6 +8972,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of times the tool can be used in the API request.
 
+      exclusiveMinimum: 0
+
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
@@ -8804,23 +8984,29 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `type: Literal["approximate"]`
 
-        - `"approximate"`
-
       - `city: Optional[str]`
 
         The city of the user.
+
+        maxLength: 255, minLength: 1
 
       - `country: Optional[str]`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
+        maxLength: 2, minLength: 2
+
       - `region: Optional[str]`
 
         The region of the user.
 
+        maxLength: 255, minLength: 1
+
       - `timezone: Optional[str]`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+        maxLength: 255, minLength: 1
 
   - `class BetaWebFetchTool20250910: …`
 
@@ -8830,11 +9016,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20250910"]`
-
-      - `"web_fetch_20250910"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8870,9 +9052,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -8886,11 +9072,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20260209"]`
-
-      - `"web_search_20260209"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8921,6 +9103,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -8938,11 +9122,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260209"]`
-
-      - `"web_fetch_20260209"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -8978,9 +9158,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -8996,11 +9180,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260309"]`
-
-      - `"web_fetch_20260309"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -9036,9 +9216,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -9056,11 +9240,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20260318"]`
-
-      - `"web_search_20260318"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -9091,6 +9271,8 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -9116,11 +9298,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260318"]`
-
-      - `"web_fetch_20260318"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -9156,9 +9334,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -9190,11 +9372,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"advisor"`
-
     - `type: Literal["advisor_20260301"]`
-
-      - `"advisor_20260301"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -9222,9 +9400,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
 
+      minimum: 1024
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -9237,8 +9419,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `"tool_search_tool_bm25"`
 
     - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
 
@@ -9275,8 +9455,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `"tool_search_tool_regex"`
 
     - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
 
@@ -9317,9 +9495,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Name of the MCP server to configure tools for
 
-    - `type: Literal["mcp_toolset"]`
+      maxLength: 255, minLength: 1
 
-      - `"mcp_toolset"`
+    - `type: Literal["mcp_toolset"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -9421,6 +9599,14 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
 
+- `output_format: Optional[BetaJSONOutputFormatParam]`
+
+  **Deprecated**
+
+  Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
+
+  A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
+
 ### Returns
 
 - `class BetaMessageTokensCount: …`
@@ -9460,7 +9646,7 @@ beta_message_tokens_count = client.beta.messages.count_tokens(
 print(beta_message_tokens_count.context_management)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -9471,7 +9657,7 @@ print(beta_message_tokens_count.context_management)
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Advisor Message Iteration Usage
 
@@ -9487,21 +9673,31 @@ print(beta_message_tokens_count.context_management)
 
       The number of input tokens used to create the 1 hour cache entry.
 
+      default: 0, minimum: 0
+
     - `ephemeral_5m_input_tokens: int`
 
       The number of input tokens used to create the 5 minute cache entry.
+
+      default: 0, minimum: 0
 
   - `cache_creation_input_tokens: int`
 
     The number of input tokens used to create the cache entry.
 
+    default: 0, minimum: 0
+
   - `cache_read_input_tokens: int`
 
     The number of input tokens read from the cache.
 
+    default: 0, minimum: 0
+
   - `input_tokens: int`
 
     The number of input tokens which were used.
+
+    minimum: 0
 
   - `model: Model`
 
@@ -9597,11 +9793,13 @@ print(beta_message_tokens_count.context_management)
 
     The number of output tokens which were used.
 
+    minimum: 0
+
   - `type: Literal["advisor_message"]`
 
     Usage for an advisor sub-inference iteration
 
-    - `"advisor_message"`
+    default: advisor_message
 
 ### Beta Advisor Redacted Result Block
 
@@ -9617,7 +9815,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["advisor_redacted_result"]`
 
-    - `"advisor_redacted_result"`
+    default: advisor_redacted_result
 
 ### Beta Advisor Redacted Result Block Param
 
@@ -9628,8 +9826,6 @@ print(beta_message_tokens_count.context_management)
     Opaque blob produced by a prior response; must be round-tripped verbatim.
 
   - `type: Literal["advisor_redacted_result"]`
-
-    - `"advisor_redacted_result"`
 
   - `stop_reason: Optional[str]`
 
@@ -9645,7 +9841,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["advisor_result"]`
 
-    - `"advisor_result"`
+    default: advisor_result
 
 ### Beta Advisor Result Block Param
 
@@ -9654,8 +9850,6 @@ print(beta_message_tokens_count.context_management)
   - `text: str`
 
   - `type: Literal["advisor_result"]`
-
-    - `"advisor_result"`
 
   - `stop_reason: Optional[str]`
 
@@ -9759,11 +9953,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"advisor"`
-
   - `type: Literal["advisor_20260301"]`
-
-    - `"advisor_20260301"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -9780,8 +9970,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -9810,9 +9998,13 @@ print(beta_message_tokens_count.context_management)
 
     Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
 
+    minimum: 1024
+
   - `max_uses: Optional[int]`
 
     Maximum number of times the tool can be used in the API request.
+
+    exclusiveMinimum: 0
 
   - `strict: Optional[bool]`
 
@@ -9844,7 +10036,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["advisor_tool_result_error"]`
 
-        - `"advisor_tool_result_error"`
+        default: advisor_tool_result_error
 
     - `class BetaAdvisorResultBlock: …`
 
@@ -9856,7 +10048,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["advisor_result"]`
 
-        - `"advisor_result"`
+        default: advisor_result
 
     - `class BetaAdvisorRedactedResultBlock: …`
 
@@ -9870,13 +10062,15 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["advisor_redacted_result"]`
 
-        - `"advisor_redacted_result"`
+        default: advisor_redacted_result
 
   - `tool_use_id: str`
 
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
   - `type: Literal["advisor_tool_result"]`
 
-    - `"advisor_tool_result"`
+    default: advisor_tool_result
 
 ### Beta Advisor Tool Result Block Param
 
@@ -9904,15 +10098,11 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["advisor_tool_result_error"]`
 
-        - `"advisor_tool_result_error"`
-
     - `class BetaAdvisorResultBlockParam: …`
 
       - `text: str`
 
       - `type: Literal["advisor_result"]`
-
-        - `"advisor_result"`
 
       - `stop_reason: Optional[str]`
 
@@ -9924,23 +10114,19 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["advisor_redacted_result"]`
 
-        - `"advisor_redacted_result"`
-
       - `stop_reason: Optional[str]`
 
   - `tool_use_id: str`
 
-  - `type: Literal["advisor_tool_result"]`
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `"advisor_tool_result"`
+  - `type: Literal["advisor_tool_result"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -9979,7 +10165,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["advisor_tool_result_error"]`
 
-    - `"advisor_tool_result_error"`
+    default: advisor_tool_result_error
 
 ### Beta Advisor Tool Result Error Param
 
@@ -10003,21 +10189,19 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["advisor_tool_result_error"]`
 
-    - `"advisor_tool_result_error"`
-
 ### Beta All Thinking Turns
 
 - `class BetaAllThinkingTurns: …`
 
   - `type: Literal["all"]`
 
-    - `"all"`
-
 ### Beta Base64 Image Source
 
 - `class BetaBase64ImageSource: …`
 
   - `data: str`
+
+    format: byte
 
   - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -10031,21 +10215,17 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["base64"]`
 
-    - `"base64"`
-
 ### Beta Base64 PDF Source
 
 - `class BetaBase64PDFSource: …`
 
   - `data: str`
 
+    format: byte
+
   - `media_type: Literal["application/pdf"]`
 
-    - `"application/pdf"`
-
   - `type: Literal["base64"]`
-
-    - `"base64"`
 
 ### Beta Bash Code Execution Output Block
 
@@ -10055,7 +10235,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["bash_code_execution_output"]`
 
-    - `"bash_code_execution_output"`
+    default: bash_code_execution_output
 
 ### Beta Bash Code Execution Output Block Param
 
@@ -10064,8 +10244,6 @@ print(beta_message_tokens_count.context_management)
   - `file_id: str`
 
   - `type: Literal["bash_code_execution_output"]`
-
-    - `"bash_code_execution_output"`
 
 ### Beta Bash Code Execution Result Block
 
@@ -10077,7 +10255,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["bash_code_execution_output"]`
 
-      - `"bash_code_execution_output"`
+      default: bash_code_execution_output
 
   - `return_code: int`
 
@@ -10087,7 +10265,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["bash_code_execution_result"]`
 
-    - `"bash_code_execution_result"`
+    default: bash_code_execution_result
 
 ### Beta Bash Code Execution Result Block Param
 
@@ -10099,8 +10277,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["bash_code_execution_output"]`
 
-      - `"bash_code_execution_output"`
-
   - `return_code: int`
 
   - `stderr: str`
@@ -10108,8 +10284,6 @@ print(beta_message_tokens_count.context_management)
   - `stdout: str`
 
   - `type: Literal["bash_code_execution_result"]`
-
-    - `"bash_code_execution_result"`
 
 ### Beta Bash Code Execution Tool Result Block
 
@@ -10133,7 +10307,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["bash_code_execution_tool_result_error"]`
 
-        - `"bash_code_execution_tool_result_error"`
+        default: bash_code_execution_tool_result_error
 
     - `class BetaBashCodeExecutionResultBlock: …`
 
@@ -10143,7 +10317,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["bash_code_execution_output"]`
 
-          - `"bash_code_execution_output"`
+          default: bash_code_execution_output
 
       - `return_code: int`
 
@@ -10153,13 +10327,15 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["bash_code_execution_result"]`
 
-        - `"bash_code_execution_result"`
+        default: bash_code_execution_result
 
   - `tool_use_id: str`
 
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
   - `type: Literal["bash_code_execution_tool_result"]`
 
-    - `"bash_code_execution_tool_result"`
+    default: bash_code_execution_tool_result
 
 ### Beta Bash Code Execution Tool Result Block Param
 
@@ -10183,8 +10359,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["bash_code_execution_tool_result_error"]`
 
-        - `"bash_code_execution_tool_result_error"`
-
     - `class BetaBashCodeExecutionResultBlockParam: …`
 
       - `content: List[BetaBashCodeExecutionOutputBlockParam]`
@@ -10192,8 +10366,6 @@ print(beta_message_tokens_count.context_management)
         - `file_id: str`
 
         - `type: Literal["bash_code_execution_output"]`
-
-          - `"bash_code_execution_output"`
 
       - `return_code: int`
 
@@ -10203,21 +10375,17 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["bash_code_execution_result"]`
 
-        - `"bash_code_execution_result"`
-
   - `tool_use_id: str`
 
-  - `type: Literal["bash_code_execution_tool_result"]`
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `"bash_code_execution_tool_result"`
+  - `type: Literal["bash_code_execution_tool_result"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -10252,7 +10420,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["bash_code_execution_tool_result_error"]`
 
-    - `"bash_code_execution_tool_result_error"`
+    default: bash_code_execution_tool_result_error
 
 ### Beta Bash Code Execution Tool Result Error Param
 
@@ -10271,8 +10439,6 @@ print(beta_message_tokens_count.context_management)
     - `"output_file_too_large"`
 
   - `type: Literal["bash_code_execution_tool_result_error"]`
-
-    - `"bash_code_execution_tool_result_error"`
 
 ### Beta Browser Close Tab Config
 
@@ -10654,17 +10820,25 @@ print(beta_message_tokens_count.context_management)
 
     All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
 
+    maxItems: 100
+
     - `tab_id: str`
 
       The caller-assigned identifier for this tab, unique within the inventory.
+
+      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `title: str`
 
       The title of the page the tab is showing. May be empty.
 
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
     - `url: str`
 
       The URL of the page the tab is showing. May be empty.
+
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `active: Optional[bool]`
 
@@ -10672,15 +10846,11 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["browser_state"]`
 
-    - `"browser_state"`
-
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -10701,6 +10871,8 @@ print(beta_message_tokens_count.context_management)
 
     Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
 
+    maxItems: 200, minItems: 1
+
     - `class BetaBrowserStateChangeTabOpened: …`
 
       A tab this call's execution opened that remains open at its end —
@@ -10715,9 +10887,9 @@ print(beta_message_tokens_count.context_management)
 
         The `tab_id` of the opened tab, present in `tabs`.
 
-      - `type: Literal["tab_opened"]`
+        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-        - `"tab_opened"`
+      - `type: Literal["tab_opened"]`
 
     - `class BetaBrowserStateChangeDownloadStarted: …`
 
@@ -10727,13 +10899,15 @@ print(beta_message_tokens_count.context_management)
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      - `type: Literal["download_started"]`
+        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-        - `"download_started"`
+      - `type: Literal["download_started"]`
 
       - `url: str`
 
         The final post-redirect URL the download was served from.
+
+        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
     - `class BetaBrowserStateChangeDownloadCompleted: …`
 
@@ -10746,21 +10920,27 @@ print(beta_message_tokens_count.context_management)
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      - `type: Literal["download_completed"]`
+        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-        - `"download_completed"`
+      - `type: Literal["download_completed"]`
 
       - `url: str`
 
         The final post-redirect URL the download was served from.
 
+        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
       - `path: Optional[str]`
 
         Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
       - `size_bytes: Optional[int]`
 
         The completed download's size.
+
+        minimum: 0
 
     - `class BetaBrowserStateChangeDownloadFailed: …`
 
@@ -10770,17 +10950,21 @@ print(beta_message_tokens_count.context_management)
 
         The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-      - `type: Literal["download_failed"]`
+        maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-        - `"download_failed"`
+      - `type: Literal["download_failed"]`
 
       - `url: str`
 
         The final post-redirect URL the download was served from.
 
+        maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
       - `error: Optional[str]`
 
         The failure or cancellation detail, when known.
+
+        pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
 ### Beta Browser State Change
 
@@ -10808,9 +10992,9 @@ print(beta_message_tokens_count.context_management)
 
       The `tab_id` of the opened tab, present in `tabs`.
 
-    - `type: Literal["tab_opened"]`
+      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-      - `"tab_opened"`
+    - `type: Literal["tab_opened"]`
 
   - `class BetaBrowserStateChangeDownloadStarted: …`
 
@@ -10820,13 +11004,15 @@ print(beta_message_tokens_count.context_management)
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    - `type: Literal["download_started"]`
+      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-      - `"download_started"`
+    - `type: Literal["download_started"]`
 
     - `url: str`
 
       The final post-redirect URL the download was served from.
+
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `class BetaBrowserStateChangeDownloadCompleted: …`
 
@@ -10839,21 +11025,27 @@ print(beta_message_tokens_count.context_management)
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    - `type: Literal["download_completed"]`
+      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-      - `"download_completed"`
+    - `type: Literal["download_completed"]`
 
     - `url: str`
 
       The final post-redirect URL the download was served from.
 
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
     - `path: Optional[str]`
 
       Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
     - `size_bytes: Optional[int]`
 
       The completed download's size.
+
+      minimum: 0
 
   - `class BetaBrowserStateChangeDownloadFailed: …`
 
@@ -10863,17 +11055,21 @@ print(beta_message_tokens_count.context_management)
 
       The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-    - `type: Literal["download_failed"]`
+      maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-      - `"download_failed"`
+    - `type: Literal["download_failed"]`
 
     - `url: str`
 
       The final post-redirect URL the download was served from.
 
+      maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
     - `error: Optional[str]`
 
       The failure or cancellation detail, when known.
+
+      pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
 ### Beta Browser State Change Download Completed
 
@@ -10888,21 +11084,27 @@ print(beta_message_tokens_count.context_management)
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-  - `type: Literal["download_completed"]`
+    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-    - `"download_completed"`
+  - `type: Literal["download_completed"]`
 
   - `url: str`
 
     The final post-redirect URL the download was served from.
 
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
   - `path: Optional[str]`
 
     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
   - `size_bytes: Optional[int]`
 
     The completed download's size.
+
+    minimum: 0
 
 ### Beta Browser State Change Download Failed
 
@@ -10914,17 +11116,21 @@ print(beta_message_tokens_count.context_management)
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-  - `type: Literal["download_failed"]`
+    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-    - `"download_failed"`
+  - `type: Literal["download_failed"]`
 
   - `url: str`
 
     The final post-redirect URL the download was served from.
 
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
   - `error: Optional[str]`
 
     The failure or cancellation detail, when known.
+
+    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
 ### Beta Browser State Change Download Started
 
@@ -10936,13 +11142,15 @@ print(beta_message_tokens_count.context_management)
 
     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-  - `type: Literal["download_started"]`
+    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-    - `"download_started"`
+  - `type: Literal["download_started"]`
 
   - `url: str`
 
     The final post-redirect URL the download was served from.
+
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
 ### Beta Browser State Change Tab Opened
 
@@ -10960,9 +11168,9 @@ print(beta_message_tokens_count.context_management)
 
     The `tab_id` of the opened tab, present in `tabs`.
 
-  - `type: Literal["tab_opened"]`
+    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-    - `"tab_opened"`
+  - `type: Literal["tab_opened"]`
 
 ### Beta Browser State Tab Entry
 
@@ -10981,13 +11189,19 @@ print(beta_message_tokens_count.context_management)
 
     The caller-assigned identifier for this tab, unique within the inventory.
 
+    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
   - `title: str`
 
     The title of the page the tab is showing. May be empty.
 
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
   - `url: str`
 
     The URL of the page the tab is showing. May be empty.
+
+    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
   - `active: Optional[bool]`
 
@@ -11018,8 +11232,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["browser_toolset_20260801"]`
 
-    - `"browser_toolset_20260801"`
-
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
     - `"direct"`
@@ -11035,8 +11247,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -11879,8 +12089,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["ephemeral"]`
 
-    - `"ephemeral"`
-
   - `ttl: Optional[Literal["5m", "1h"]]`
 
     The time-to-live for the cache control breakpoint.
@@ -11904,9 +12112,13 @@ print(beta_message_tokens_count.context_management)
 
     The number of input tokens used to create the 1 hour cache entry.
 
+    default: 0, minimum: 0
+
   - `ephemeral_5m_input_tokens: int`
 
     The number of input tokens used to create the 5 minute cache entry.
+
+    default: 0, minimum: 0
 
 ### Beta Cache Miss Messages Changed
 
@@ -11918,7 +12130,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["messages_changed"]`
 
-    - `"messages_changed"`
+    default: messages_changed
 
 ### Beta Cache Miss Model Changed
 
@@ -11930,7 +12142,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["model_changed"]`
 
-    - `"model_changed"`
+    default: model_changed
 
 ### Beta Cache Miss Previous Message Not Found
 
@@ -11938,7 +12150,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["previous_message_not_found"]`
 
-    - `"previous_message_not_found"`
+    default: previous_message_not_found
 
 ### Beta Cache Miss System Changed
 
@@ -11950,7 +12162,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["system_changed"]`
 
-    - `"system_changed"`
+    default: system_changed
 
 ### Beta Cache Miss Tools Changed
 
@@ -11962,7 +12174,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["tools_changed"]`
 
-    - `"tools_changed"`
+    default: tools_changed
 
 ### Beta Cache Miss Unavailable
 
@@ -11970,7 +12182,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["unavailable"]`
 
-    - `"unavailable"`
+    default: unavailable
 
 ### Beta Citation Char Location
 
@@ -11980,6 +12192,8 @@ print(beta_message_tokens_count.context_management)
 
   - `document_index: int`
 
+    minimum: 0
+
   - `document_title: Optional[str]`
 
   - `end_char_index: int`
@@ -11988,9 +12202,11 @@ print(beta_message_tokens_count.context_management)
 
   - `start_char_index: int`
 
+    minimum: 0
+
   - `type: Literal["char_location"]`
 
-    - `"char_location"`
+    default: char_location
 
 ### Beta Citation Char Location Param
 
@@ -12000,21 +12216,27 @@ print(beta_message_tokens_count.context_management)
 
   - `document_index: int`
 
+    minimum: 0
+
   - `document_title: Optional[str]`
+
+    maxLength: 500, minLength: 1
 
   - `end_char_index: int`
 
   - `start_char_index: int`
 
-  - `type: Literal["char_location"]`
+    minimum: 0
 
-    - `"char_location"`
+  - `type: Literal["char_location"]`
 
 ### Beta Citation Config
 
 - `class BetaCitationConfig: …`
 
   - `enabled: bool`
+
+    default: false
 
 ### Beta Citation Content Block Location
 
@@ -12028,6 +12250,8 @@ print(beta_message_tokens_count.context_management)
 
   - `document_index: int`
 
+    minimum: 0
+
   - `document_title: Optional[str]`
 
   - `end_block_index: int`
@@ -12042,9 +12266,11 @@ print(beta_message_tokens_count.context_management)
 
     0-based index of the first cited block in the source's `content` array.
 
+    minimum: 0
+
   - `type: Literal["content_block_location"]`
 
-    - `"content_block_location"`
+    default: content_block_location
 
 ### Beta Citation Content Block Location Param
 
@@ -12058,7 +12284,11 @@ print(beta_message_tokens_count.context_management)
 
   - `document_index: int`
 
+    minimum: 0
+
   - `document_title: Optional[str]`
+
+    maxLength: 500, minLength: 1
 
   - `end_block_index: int`
 
@@ -12070,9 +12300,9 @@ print(beta_message_tokens_count.context_management)
 
     0-based index of the first cited block in the source's `content` array.
 
-  - `type: Literal["content_block_location"]`
+    minimum: 0
 
-    - `"content_block_location"`
+  - `type: Literal["content_block_location"]`
 
 ### Beta Citation Page Location
 
@@ -12082,6 +12312,8 @@ print(beta_message_tokens_count.context_management)
 
   - `document_index: int`
 
+    minimum: 0
+
   - `document_title: Optional[str]`
 
   - `end_page_number: int`
@@ -12090,9 +12322,11 @@ print(beta_message_tokens_count.context_management)
 
   - `start_page_number: int`
 
+    minimum: 1
+
   - `type: Literal["page_location"]`
 
-    - `"page_location"`
+    default: page_location
 
 ### Beta Citation Page Location Param
 
@@ -12102,15 +12336,19 @@ print(beta_message_tokens_count.context_management)
 
   - `document_index: int`
 
+    minimum: 0
+
   - `document_title: Optional[str]`
+
+    maxLength: 500, minLength: 1
 
   - `end_page_number: int`
 
   - `start_page_number: int`
 
-  - `type: Literal["page_location"]`
+    minimum: 1
 
-    - `"page_location"`
+  - `type: Literal["page_location"]`
 
 ### Beta Citation Search Result Location
 
@@ -12134,17 +12372,21 @@ print(beta_message_tokens_count.context_management)
 
     Counted separately from `document_index`; server-side web search results are not included in this count.
 
+    minimum: 0
+
   - `source: str`
 
   - `start_block_index: int`
 
     0-based index of the first cited block in the source's `content` array.
 
+    minimum: 0
+
   - `title: Optional[str]`
 
   - `type: Literal["search_result_location"]`
 
-    - `"search_result_location"`
+    default: search_result_location
 
 ### Beta Citation Search Result Location Param
 
@@ -12168,17 +12410,19 @@ print(beta_message_tokens_count.context_management)
 
     Counted separately from `document_index`; server-side web search results are not included in this count.
 
+    minimum: 0
+
   - `source: str`
 
   - `start_block_index: int`
 
     0-based index of the first cited block in the source's `content` array.
 
+    minimum: 0
+
   - `title: Optional[str]`
 
   - `type: Literal["search_result_location"]`
-
-    - `"search_result_location"`
 
 ### Beta Citation Web Search Result Location Param
 
@@ -12190,11 +12434,13 @@ print(beta_message_tokens_count.context_management)
 
   - `title: Optional[str]`
 
+    maxLength: 512, minLength: 1
+
   - `type: Literal["web_search_result_location"]`
 
-    - `"web_search_result_location"`
-
   - `url: str`
+
+    minLength: 1
 
 ### Beta Citations Config Param
 
@@ -12214,6 +12460,8 @@ print(beta_message_tokens_count.context_management)
 
       - `document_index: int`
 
+        minimum: 0
+
       - `document_title: Optional[str]`
 
       - `end_char_index: int`
@@ -12222,15 +12470,19 @@ print(beta_message_tokens_count.context_management)
 
       - `start_char_index: int`
 
+        minimum: 0
+
       - `type: Literal["char_location"]`
 
-        - `"char_location"`
+        default: char_location
 
     - `class BetaCitationPageLocation: …`
 
       - `cited_text: str`
 
       - `document_index: int`
+
+        minimum: 0
 
       - `document_title: Optional[str]`
 
@@ -12240,9 +12492,11 @@ print(beta_message_tokens_count.context_management)
 
       - `start_page_number: int`
 
+        minimum: 1
+
       - `type: Literal["page_location"]`
 
-        - `"page_location"`
+        default: page_location
 
     - `class BetaCitationContentBlockLocation: …`
 
@@ -12253,6 +12507,8 @@ print(beta_message_tokens_count.context_management)
         Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
       - `document_index: int`
+
+        minimum: 0
 
       - `document_title: Optional[str]`
 
@@ -12268,9 +12524,11 @@ print(beta_message_tokens_count.context_management)
 
         0-based index of the first cited block in the source's `content` array.
 
+        minimum: 0
+
       - `type: Literal["content_block_location"]`
 
-        - `"content_block_location"`
+        default: content_block_location
 
     - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -12280,9 +12538,11 @@ print(beta_message_tokens_count.context_management)
 
       - `title: Optional[str]`
 
+        maxLength: 512
+
       - `type: Literal["web_search_result_location"]`
 
-        - `"web_search_result_location"`
+        default: web_search_result_location
 
       - `url: str`
 
@@ -12306,21 +12566,25 @@ print(beta_message_tokens_count.context_management)
 
         Counted separately from `document_index`; server-side web search results are not included in this count.
 
+        minimum: 0
+
       - `source: str`
 
       - `start_block_index: int`
 
         0-based index of the first cited block in the source's `content` array.
 
+        minimum: 0
+
       - `title: Optional[str]`
 
       - `type: Literal["search_result_location"]`
 
-        - `"search_result_location"`
+        default: search_result_location
 
   - `type: Literal["citations_delta"]`
 
-    - `"citations_delta"`
+    default: citations_delta
 
 ### Beta Citations Web Search Result Location
 
@@ -12332,9 +12596,11 @@ print(beta_message_tokens_count.context_management)
 
   - `title: Optional[str]`
 
+    maxLength: 512
+
   - `type: Literal["web_search_result_location"]`
 
-    - `"web_search_result_location"`
+    default: web_search_result_location
 
   - `url: str`
 
@@ -12344,8 +12610,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["clear_thinking_20251015"]`
 
-    - `"clear_thinking_20251015"`
-
   - `keep: Optional[Keep]`
 
     Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
@@ -12354,19 +12618,15 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["thinking_turns"]`
 
-        - `"thinking_turns"`
-
       - `value: int`
+
+        minimum: 1
 
     - `class BetaAllThinkingTurns: …`
 
       - `type: Literal["all"]`
 
-        - `"all"`
-
     - `Literal["all"]`
-
-      - `"all"`
 
 ### Beta Clear Thinking 20251015 Edit Response
 
@@ -12376,15 +12636,19 @@ print(beta_message_tokens_count.context_management)
 
     Number of input tokens cleared by this edit.
 
+    minimum: 0
+
   - `cleared_thinking_turns: int`
 
     Number of thinking turns that were cleared.
+
+    minimum: 0
 
   - `type: Literal["clear_thinking_20251015"]`
 
     The type of context management edit applied.
 
-    - `"clear_thinking_20251015"`
+    default: clear_thinking_20251015
 
 ### Beta Clear Tool Uses 20250919 Edit
 
@@ -12392,17 +12656,15 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["clear_tool_uses_20250919"]`
 
-    - `"clear_tool_uses_20250919"`
-
   - `clear_at_least: Optional[BetaInputTokensClearAtLeast]`
 
     Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
 
     - `type: Literal["input_tokens"]`
 
-      - `"input_tokens"`
-
     - `value: int`
+
+      minimum: 0
 
   - `clear_tool_inputs: Optional[Union[bool, List[str], null]]`
 
@@ -12422,9 +12684,9 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["tool_uses"]`
 
-      - `"tool_uses"`
-
     - `value: int`
+
+      minimum: 0
 
   - `trigger: Optional[Trigger]`
 
@@ -12434,17 +12696,17 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["input_tokens"]`
 
-        - `"input_tokens"`
-
       - `value: int`
+
+        minimum: 1
 
     - `class BetaToolUsesTrigger: …`
 
       - `type: Literal["tool_uses"]`
 
-        - `"tool_uses"`
-
       - `value: int`
+
+        minimum: 1
 
 ### Beta Clear Tool Uses 20250919 Edit Response
 
@@ -12454,15 +12716,19 @@ print(beta_message_tokens_count.context_management)
 
     Number of input tokens cleared by this edit.
 
+    minimum: 0
+
   - `cleared_tool_uses: int`
 
     Number of tool uses that were cleared.
+
+    minimum: 0
 
   - `type: Literal["clear_tool_uses_20250919"]`
 
     The type of context management edit applied.
 
-    - `"clear_tool_uses_20250919"`
+    default: clear_tool_uses_20250919
 
 ### Beta Code Execution Output Block
 
@@ -12472,7 +12738,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["code_execution_output"]`
 
-    - `"code_execution_output"`
+    default: code_execution_output
 
 ### Beta Code Execution Output Block Param
 
@@ -12481,8 +12747,6 @@ print(beta_message_tokens_count.context_management)
   - `file_id: str`
 
   - `type: Literal["code_execution_output"]`
-
-    - `"code_execution_output"`
 
 ### Beta Code Execution Result Block
 
@@ -12494,7 +12758,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["code_execution_output"]`
 
-      - `"code_execution_output"`
+      default: code_execution_output
 
   - `return_code: int`
 
@@ -12504,7 +12768,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["code_execution_result"]`
 
-    - `"code_execution_result"`
+    default: code_execution_result
 
 ### Beta Code Execution Result Block Param
 
@@ -12516,8 +12780,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["code_execution_output"]`
 
-      - `"code_execution_output"`
-
   - `return_code: int`
 
   - `stderr: str`
@@ -12525,8 +12787,6 @@ print(beta_message_tokens_count.context_management)
   - `stdout: str`
 
   - `type: Literal["code_execution_result"]`
-
-    - `"code_execution_result"`
 
 ### Beta Code Execution Tool 20250522
 
@@ -12538,11 +12798,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"code_execution"`
-
   - `type: Literal["code_execution_20250522"]`
-
-    - `"code_execution_20250522"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -12559,8 +12815,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -12595,11 +12849,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"code_execution"`
-
   - `type: Literal["code_execution_20250825"]`
-
-    - `"code_execution_20250825"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -12616,8 +12866,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -12654,11 +12902,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"code_execution"`
-
   - `type: Literal["code_execution_20260120"]`
-
-    - `"code_execution_20260120"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -12675,8 +12919,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -12713,11 +12955,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"code_execution"`
-
   - `type: Literal["code_execution_20260521"]`
-
-    - `"code_execution_20260521"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -12734,8 +12972,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -12782,7 +13018,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["code_execution_tool_result_error"]`
 
-        - `"code_execution_tool_result_error"`
+        default: code_execution_tool_result_error
 
     - `class BetaCodeExecutionResultBlock: …`
 
@@ -12792,7 +13028,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["code_execution_output"]`
 
-          - `"code_execution_output"`
+          default: code_execution_output
 
       - `return_code: int`
 
@@ -12802,7 +13038,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["code_execution_result"]`
 
-        - `"code_execution_result"`
+        default: code_execution_result
 
     - `class BetaEncryptedCodeExecutionResultBlock: …`
 
@@ -12814,6 +13050,8 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["code_execution_output"]`
 
+          default: code_execution_output
+
       - `encrypted_stdout: str`
 
       - `return_code: int`
@@ -12822,13 +13060,15 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["encrypted_code_execution_result"]`
 
-        - `"encrypted_code_execution_result"`
+        default: encrypted_code_execution_result
 
   - `tool_use_id: str`
 
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
   - `type: Literal["code_execution_tool_result"]`
 
-    - `"code_execution_tool_result"`
+    default: code_execution_tool_result
 
 ### Beta Code Execution Tool Result Block Content
 
@@ -12850,7 +13090,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["code_execution_tool_result_error"]`
 
-      - `"code_execution_tool_result_error"`
+      default: code_execution_tool_result_error
 
   - `class BetaCodeExecutionResultBlock: …`
 
@@ -12860,7 +13100,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["code_execution_output"]`
 
-        - `"code_execution_output"`
+        default: code_execution_output
 
     - `return_code: int`
 
@@ -12870,7 +13110,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["code_execution_result"]`
 
-      - `"code_execution_result"`
+      default: code_execution_result
 
   - `class BetaEncryptedCodeExecutionResultBlock: …`
 
@@ -12882,6 +13122,8 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["code_execution_output"]`
 
+        default: code_execution_output
+
     - `encrypted_stdout: str`
 
     - `return_code: int`
@@ -12890,7 +13132,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["encrypted_code_execution_result"]`
 
-      - `"encrypted_code_execution_result"`
+      default: encrypted_code_execution_result
 
 ### Beta Code Execution Tool Result Block Param
 
@@ -12914,8 +13156,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["code_execution_tool_result_error"]`
 
-        - `"code_execution_tool_result_error"`
-
     - `class BetaCodeExecutionResultBlockParam: …`
 
       - `content: List[BetaCodeExecutionOutputBlockParam]`
@@ -12924,8 +13164,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["code_execution_output"]`
 
-          - `"code_execution_output"`
-
       - `return_code: int`
 
       - `stderr: str`
@@ -12933,8 +13171,6 @@ print(beta_message_tokens_count.context_management)
       - `stdout: str`
 
       - `type: Literal["code_execution_result"]`
-
-        - `"code_execution_result"`
 
     - `class BetaEncryptedCodeExecutionResultBlockParam: …`
 
@@ -12954,21 +13190,17 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["encrypted_code_execution_result"]`
 
-        - `"encrypted_code_execution_result"`
-
   - `tool_use_id: str`
 
-  - `type: Literal["code_execution_tool_result"]`
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `"code_execution_tool_result"`
+  - `type: Literal["code_execution_tool_result"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -13005,8 +13237,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["code_execution_tool_result_error"]`
 
-      - `"code_execution_tool_result_error"`
-
   - `class BetaCodeExecutionResultBlockParam: …`
 
     - `content: List[BetaCodeExecutionOutputBlockParam]`
@@ -13015,8 +13245,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["code_execution_output"]`
 
-        - `"code_execution_output"`
-
     - `return_code: int`
 
     - `stderr: str`
@@ -13024,8 +13252,6 @@ print(beta_message_tokens_count.context_management)
     - `stdout: str`
 
     - `type: Literal["code_execution_result"]`
-
-      - `"code_execution_result"`
 
   - `class BetaEncryptedCodeExecutionResultBlockParam: …`
 
@@ -13045,8 +13271,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["encrypted_code_execution_result"]`
 
-      - `"encrypted_code_execution_result"`
-
 ### Beta Code Execution Tool Result Error
 
 - `class BetaCodeExecutionToolResultError: …`
@@ -13063,7 +13287,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["code_execution_tool_result_error"]`
 
-    - `"code_execution_tool_result_error"`
+    default: code_execution_tool_result_error
 
 ### Beta Code Execution Tool Result Error Code
 
@@ -13093,8 +13317,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["code_execution_tool_result_error"]`
 
-    - `"code_execution_tool_result_error"`
-
 ### Beta Compact 20260112 Edit
 
 - `class BetaCompact20260112Edit: …`
@@ -13102,8 +13324,6 @@ print(beta_message_tokens_count.context_management)
   Automatically compact older context when reaching the configured trigger threshold.
 
   - `type: Literal["compact_20260112"]`
-
-    - `"compact_20260112"`
 
   - `instructions: Optional[str]`
 
@@ -13119,9 +13339,9 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["input_tokens"]`
 
-      - `"input_tokens"`
-
     - `value: int`
+
+      minimum: 1
 
 ### Beta Compaction Block
 
@@ -13143,7 +13363,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["compaction"]`
 
-    - `"compaction"`
+    default: compaction
 
 ### Beta Compaction Block Param
 
@@ -13159,15 +13379,11 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["compaction"]`
 
-    - `"compaction"`
-
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -13204,7 +13420,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["compaction_delta"]`
 
-    - `"compaction_delta"`
+    default: compaction_delta
 
 ### Beta Compaction Iteration Usage
 
@@ -13220,31 +13436,43 @@ print(beta_message_tokens_count.context_management)
 
       The number of input tokens used to create the 1 hour cache entry.
 
+      default: 0, minimum: 0
+
     - `ephemeral_5m_input_tokens: int`
 
       The number of input tokens used to create the 5 minute cache entry.
+
+      default: 0, minimum: 0
 
   - `cache_creation_input_tokens: int`
 
     The number of input tokens used to create the cache entry.
 
+    default: 0, minimum: 0
+
   - `cache_read_input_tokens: int`
 
     The number of input tokens read from the cache.
+
+    default: 0, minimum: 0
 
   - `input_tokens: int`
 
     The number of input tokens which were used.
 
+    minimum: 0
+
   - `output_tokens: int`
 
     The number of output tokens which were used.
+
+    minimum: 0
 
   - `type: Literal["compaction"]`
 
     Usage for a compaction iteration
 
-    - `"compaction"`
+    default: compaction
 
 ### Beta Computer Cursor Position Config
 
@@ -13443,8 +13671,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["computer_toolset_20260801"]`
 
-    - `"computer_toolset_20260801"`
-
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
     - `"direct"`
@@ -13460,8 +13686,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -13976,6 +14200,8 @@ print(beta_message_tokens_count.context_management)
 
     The time at which the container will expire.
 
+    format: date-time
+
   - `skills: Optional[List[BetaSkill]]`
 
     Skills loaded in the container
@@ -13983,6 +14209,8 @@ print(beta_message_tokens_count.context_management)
     - `skill_id: str`
 
       Skill ID
+
+      maxLength: 64, minLength: 1
 
     - `type: Literal["anthropic", "custom"]`
 
@@ -13995,6 +14223,8 @@ print(beta_message_tokens_count.context_management)
     - `version: str`
 
       The resolved version: a skill version ID for custom skills.
+
+      maxLength: 64, minLength: 1
 
 ### Beta Container Params
 
@@ -14010,9 +14240,13 @@ print(beta_message_tokens_count.context_management)
 
     List of skills to load in the container
 
+    maxItems: 20
+
     - `skill_id: str`
 
       Skill ID
+
+      maxLength: 64, minLength: 1
 
     - `type: Literal["anthropic", "custom"]`
 
@@ -14026,6 +14260,8 @@ print(beta_message_tokens_count.context_management)
 
       Skill version or 'latest' for most recent version
 
+      maxLength: 64, minLength: 1
+
 ### Beta Container Upload Block
 
 - `class BetaContainerUploadBlock: …`
@@ -14036,7 +14272,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["container_upload"]`
 
-    - `"container_upload"`
+    default: container_upload
 
 ### Beta Container Upload Block Param
 
@@ -14049,15 +14285,11 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["container_upload"]`
 
-    - `"container_upload"`
-
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -14094,6 +14326,8 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
 
         - `end_char_index: int`
@@ -14102,15 +14336,19 @@ print(beta_message_tokens_count.context_management)
 
         - `start_char_index: int`
 
+          minimum: 0
+
         - `type: Literal["char_location"]`
 
-          - `"char_location"`
+          default: char_location
 
       - `class BetaCitationPageLocation: …`
 
         - `cited_text: str`
 
         - `document_index: int`
+
+          minimum: 0
 
         - `document_title: Optional[str]`
 
@@ -14120,9 +14358,11 @@ print(beta_message_tokens_count.context_management)
 
         - `start_page_number: int`
 
+          minimum: 1
+
         - `type: Literal["page_location"]`
 
-          - `"page_location"`
+          default: page_location
 
       - `class BetaCitationContentBlockLocation: …`
 
@@ -14133,6 +14373,8 @@ print(beta_message_tokens_count.context_management)
           Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
         - `document_index: int`
+
+          minimum: 0
 
         - `document_title: Optional[str]`
 
@@ -14148,9 +14390,11 @@ print(beta_message_tokens_count.context_management)
 
           0-based index of the first cited block in the source's `content` array.
 
+          minimum: 0
+
         - `type: Literal["content_block_location"]`
 
-          - `"content_block_location"`
+          default: content_block_location
 
       - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -14160,9 +14404,11 @@ print(beta_message_tokens_count.context_management)
 
         - `title: Optional[str]`
 
+          maxLength: 512
+
         - `type: Literal["web_search_result_location"]`
 
-          - `"web_search_result_location"`
+          default: web_search_result_location
 
         - `url: str`
 
@@ -14186,23 +14432,29 @@ print(beta_message_tokens_count.context_management)
 
           Counted separately from `document_index`; server-side web search results are not included in this count.
 
+          minimum: 0
+
         - `source: str`
 
         - `start_block_index: int`
 
           0-based index of the first cited block in the source's `content` array.
 
+          minimum: 0
+
         - `title: Optional[str]`
 
         - `type: Literal["search_result_location"]`
 
-          - `"search_result_location"`
+          default: search_result_location
 
     - `text: str`
 
+      maxLength: 5000000, minLength: 0
+
     - `type: Literal["text"]`
 
-      - `"text"`
+      default: text
 
   - `class BetaThinkingBlock: …`
 
@@ -14220,7 +14472,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["thinking"]`
 
-      - `"thinking"`
+      default: thinking
 
   - `class BetaRedactedThinkingBlock: …`
 
@@ -14234,19 +14486,23 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["redacted_thinking"]`
 
-      - `"redacted_thinking"`
+      default: redacted_thinking
 
   - `class BetaToolUseBlock: …`
 
     - `id: str`
 
+      pattern: ^[a-zA-Z0-9_-]+$
+
     - `input: Dict[str, object]`
 
     - `name: str`
 
+      minLength: 1
+
     - `type: Literal["tool_use"]`
 
-      - `"tool_use"`
+      default: tool_use
 
     - `caller: Optional[Caller]`
 
@@ -14258,33 +14514,35 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["direct"]`
 
-          - `"direct"`
-
       - `class BetaServerToolCaller: …`
 
         Tool invocation generated by a server-side tool.
 
         - `tool_id: str`
 
-        - `type: Literal["code_execution_20250825"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"code_execution_20250825"`
+        - `type: Literal["code_execution_20250825"]`
 
       - `class BetaServerToolCaller20260120: …`
 
         - `tool_id: str`
 
-        - `type: Literal["code_execution_20260120"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"code_execution_20260120"`
+        - `type: Literal["code_execution_20260120"]`
 
     - `toolset_name: Optional[str]`
 
       For a toolset member tool_use, the toolset family.
 
+      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
   - `class BetaServerToolUseBlock: …`
 
     - `id: str`
+
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
     - `input: Dict[str, object]`
 
@@ -14308,7 +14566,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["server_tool_use"]`
 
-      - `"server_tool_use"`
+      default: server_tool_use
 
     - `caller: Optional[Caller]`
 
@@ -14346,7 +14604,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["web_search_tool_result_error"]`
 
-          - `"web_search_tool_result_error"`
+          default: web_search_tool_result_error
 
       - `List[BetaWebSearchResultBlock]`
 
@@ -14358,15 +14616,17 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["web_search_result"]`
 
-          - `"web_search_result"`
+          default: web_search_result
 
         - `url: str`
 
     - `tool_use_id: str`
 
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
     - `type: Literal["web_search_tool_result"]`
 
-      - `"web_search_tool_result"`
+      default: web_search_tool_result
 
     - `caller: Optional[Caller]`
 
@@ -14410,7 +14670,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["web_fetch_tool_result_error"]`
 
-          - `"web_fetch_tool_result_error"`
+          default: web_fetch_tool_result_error
 
       - `class BetaWebFetchBlock: …`
 
@@ -14422,19 +14682,19 @@ print(beta_message_tokens_count.context_management)
 
             - `enabled: bool`
 
+              default: false
+
           - `source: Source`
 
             - `class BetaBase64PDFSource: …`
 
               - `data: str`
 
+                format: byte
+
               - `media_type: Literal["application/pdf"]`
 
-                - `"application/pdf"`
-
               - `type: Literal["base64"]`
-
-                - `"base64"`
 
             - `class BetaPlainTextSource: …`
 
@@ -14442,11 +14702,7 @@ print(beta_message_tokens_count.context_management)
 
               - `media_type: Literal["text/plain"]`
 
-                - `"text/plain"`
-
               - `type: Literal["text"]`
-
-                - `"text"`
 
           - `title: Optional[str]`
 
@@ -14454,7 +14710,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["document"]`
 
-            - `"document"`
+            default: document
 
         - `retrieved_at: Optional[str]`
 
@@ -14462,7 +14718,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["web_fetch_result"]`
 
-          - `"web_fetch_result"`
+          default: web_fetch_result
 
         - `url: str`
 
@@ -14470,9 +14726,11 @@ print(beta_message_tokens_count.context_management)
 
     - `tool_use_id: str`
 
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
     - `type: Literal["web_fetch_tool_result"]`
 
-      - `"web_fetch_tool_result"`
+      default: web_fetch_tool_result
 
     - `caller: Optional[Caller]`
 
@@ -14512,7 +14770,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["advisor_tool_result_error"]`
 
-          - `"advisor_tool_result_error"`
+          default: advisor_tool_result_error
 
       - `class BetaAdvisorResultBlock: …`
 
@@ -14524,7 +14782,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["advisor_result"]`
 
-          - `"advisor_result"`
+          default: advisor_result
 
       - `class BetaAdvisorRedactedResultBlock: …`
 
@@ -14538,13 +14796,15 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["advisor_redacted_result"]`
 
-          - `"advisor_redacted_result"`
+          default: advisor_redacted_result
 
     - `tool_use_id: str`
 
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
     - `type: Literal["advisor_tool_result"]`
 
-      - `"advisor_tool_result"`
+      default: advisor_tool_result
 
   - `class BetaCodeExecutionToolResultBlock: …`
 
@@ -14566,7 +14826,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["code_execution_tool_result_error"]`
 
-          - `"code_execution_tool_result_error"`
+          default: code_execution_tool_result_error
 
       - `class BetaCodeExecutionResultBlock: …`
 
@@ -14576,7 +14836,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["code_execution_output"]`
 
-            - `"code_execution_output"`
+            default: code_execution_output
 
         - `return_code: int`
 
@@ -14586,7 +14846,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["code_execution_result"]`
 
-          - `"code_execution_result"`
+          default: code_execution_result
 
       - `class BetaEncryptedCodeExecutionResultBlock: …`
 
@@ -14598,6 +14858,8 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["code_execution_output"]`
 
+            default: code_execution_output
+
         - `encrypted_stdout: str`
 
         - `return_code: int`
@@ -14606,13 +14868,15 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["encrypted_code_execution_result"]`
 
-          - `"encrypted_code_execution_result"`
+          default: encrypted_code_execution_result
 
     - `tool_use_id: str`
 
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
     - `type: Literal["code_execution_tool_result"]`
 
-      - `"code_execution_tool_result"`
+      default: code_execution_tool_result
 
   - `class BetaBashCodeExecutionToolResultBlock: …`
 
@@ -14634,7 +14898,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["bash_code_execution_tool_result_error"]`
 
-          - `"bash_code_execution_tool_result_error"`
+          default: bash_code_execution_tool_result_error
 
       - `class BetaBashCodeExecutionResultBlock: …`
 
@@ -14644,7 +14908,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["bash_code_execution_output"]`
 
-            - `"bash_code_execution_output"`
+            default: bash_code_execution_output
 
         - `return_code: int`
 
@@ -14654,13 +14918,15 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["bash_code_execution_result"]`
 
-          - `"bash_code_execution_result"`
+          default: bash_code_execution_result
 
     - `tool_use_id: str`
 
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
     - `type: Literal["bash_code_execution_tool_result"]`
 
-      - `"bash_code_execution_tool_result"`
+      default: bash_code_execution_tool_result
 
   - `class BetaTextEditorCodeExecutionToolResultBlock: …`
 
@@ -14684,7 +14950,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-          - `"text_editor_code_execution_tool_result_error"`
+          default: text_editor_code_execution_tool_result_error
 
       - `class BetaTextEditorCodeExecutionViewResultBlock: …`
 
@@ -14706,7 +14972,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["text_editor_code_execution_view_result"]`
 
-          - `"text_editor_code_execution_view_result"`
+          default: text_editor_code_execution_view_result
 
       - `class BetaTextEditorCodeExecutionCreateResultBlock: …`
 
@@ -14714,7 +14980,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["text_editor_code_execution_create_result"]`
 
-          - `"text_editor_code_execution_create_result"`
+          default: text_editor_code_execution_create_result
 
       - `class BetaTextEditorCodeExecutionStrReplaceResultBlock: …`
 
@@ -14730,13 +14996,15 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
-          - `"text_editor_code_execution_str_replace_result"`
+          default: text_editor_code_execution_str_replace_result
 
     - `tool_use_id: str`
 
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
     - `type: Literal["text_editor_code_execution_tool_result"]`
 
-      - `"text_editor_code_execution_tool_result"`
+      default: text_editor_code_execution_tool_result
 
   - `class BetaToolSearchToolResultBlock: …`
 
@@ -14758,7 +15026,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["tool_search_tool_result_error"]`
 
-          - `"tool_search_tool_result_error"`
+          default: tool_search_tool_result_error
 
       - `class BetaToolSearchToolSearchResultBlock: …`
 
@@ -14766,23 +15034,29 @@ print(beta_message_tokens_count.context_management)
 
           - `tool_name: str`
 
+            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
           - `type: Literal["tool_reference"]`
 
-            - `"tool_reference"`
+            default: tool_reference
 
         - `type: Literal["tool_search_tool_search_result"]`
 
-          - `"tool_search_tool_search_result"`
+          default: tool_search_tool_search_result
 
     - `tool_use_id: str`
 
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
     - `type: Literal["tool_search_tool_result"]`
 
-      - `"tool_search_tool_result"`
+      default: tool_search_tool_result
 
   - `class BetaMCPToolUseBlock: …`
 
     - `id: str`
+
+      pattern: ^[a-zA-Z0-9_-]+$
 
     - `input: Dict[str, object]`
 
@@ -14796,7 +15070,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["mcp_tool_use"]`
 
-      - `"mcp_tool_use"`
+      default: mcp_tool_use
 
   - `class BetaMCPToolResultBlock: …`
 
@@ -14814,15 +15088,23 @@ print(beta_message_tokens_count.context_management)
 
         - `text: str`
 
+          maxLength: 5000000, minLength: 0
+
         - `type: Literal["text"]`
+
+          default: text
 
     - `is_error: bool`
 
+      default: false
+
     - `tool_use_id: str`
+
+      pattern: ^[a-zA-Z0-9_-]+$
 
     - `type: Literal["mcp_tool_result"]`
 
-      - `"mcp_tool_result"`
+      default: mcp_tool_result
 
   - `class BetaContainerUploadBlock: …`
 
@@ -14832,7 +15114,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["container_upload"]`
 
-      - `"container_upload"`
+      default: container_upload
 
   - `class BetaCompactionBlock: …`
 
@@ -14852,7 +15134,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["compaction"]`
 
-      - `"compaction"`
+      default: compaction
 
   - `class BetaFallbackBlock: …`
 
@@ -14996,11 +15278,11 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["refusal"]`
 
-        - `"refusal"`
+        default: refusal
 
     - `type: Literal["fallback"]`
 
-      - `"fallback"`
+      default: fallback
 
 ### Beta Content Block Param
 
@@ -15012,17 +15294,15 @@ print(beta_message_tokens_count.context_management)
 
     - `text: str`
 
-    - `type: Literal["text"]`
+      minLength: 1
 
-      - `"text"`
+    - `type: Literal["text"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
 
       - `type: Literal["ephemeral"]`
-
-        - `"ephemeral"`
 
       - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -15047,15 +15327,19 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_char_index: int`
 
         - `start_char_index: int`
 
-        - `type: Literal["char_location"]`
+          minimum: 0
 
-          - `"char_location"`
+        - `type: Literal["char_location"]`
 
       - `class BetaCitationPageLocationParam: …`
 
@@ -15063,15 +15347,19 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_page_number: int`
 
         - `start_page_number: int`
 
-        - `type: Literal["page_location"]`
+          minimum: 1
 
-          - `"page_location"`
+        - `type: Literal["page_location"]`
 
       - `class BetaCitationContentBlockLocationParam: …`
 
@@ -15083,7 +15371,11 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_block_index: int`
 
@@ -15095,9 +15387,9 @@ print(beta_message_tokens_count.context_management)
 
           0-based index of the first cited block in the source's `content` array.
 
-        - `type: Literal["content_block_location"]`
+          minimum: 0
 
-          - `"content_block_location"`
+        - `type: Literal["content_block_location"]`
 
       - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -15107,11 +15399,13 @@ print(beta_message_tokens_count.context_management)
 
         - `title: Optional[str]`
 
+          maxLength: 512, minLength: 1
+
         - `type: Literal["web_search_result_location"]`
 
-          - `"web_search_result_location"`
-
         - `url: str`
+
+          minLength: 1
 
       - `class BetaCitationSearchResultLocationParam: …`
 
@@ -15133,17 +15427,19 @@ print(beta_message_tokens_count.context_management)
 
           Counted separately from `document_index`; server-side web search results are not included in this count.
 
+          minimum: 0
+
         - `source: str`
 
         - `start_block_index: int`
 
           0-based index of the first cited block in the source's `content` array.
 
+          minimum: 0
+
         - `title: Optional[str]`
 
         - `type: Literal["search_result_location"]`
-
-          - `"search_result_location"`
 
   - `class BetaImageBlockParam: …`
 
@@ -15152,6 +15448,8 @@ print(beta_message_tokens_count.context_management)
       - `class BetaBase64ImageSource: …`
 
         - `data: str`
+
+          format: byte
 
         - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -15165,13 +15463,9 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["base64"]`
 
-          - `"base64"`
-
       - `class BetaURLImageSource: …`
 
         - `type: Literal["url"]`
-
-          - `"url"`
 
         - `url: str`
 
@@ -15181,11 +15475,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["file"]`
 
-          - `"file"`
-
     - `type: Literal["image"]`
-
-      - `"image"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15211,13 +15501,11 @@ print(beta_message_tokens_count.context_management)
 
         - `data: str`
 
+          format: byte
+
         - `media_type: Literal["application/pdf"]`
 
-          - `"application/pdf"`
-
         - `type: Literal["base64"]`
-
-          - `"base64"`
 
       - `class BetaPlainTextSource: …`
 
@@ -15225,11 +15513,7 @@ print(beta_message_tokens_count.context_management)
 
         - `media_type: Literal["text/plain"]`
 
-          - `"text/plain"`
-
         - `type: Literal["text"]`
-
-          - `"text"`
 
       - `class BetaContentBlockSource: …`
 
@@ -15245,13 +15529,9 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["content"]`
 
-          - `"content"`
-
       - `class BetaURLPDFSource: …`
 
         - `type: Literal["url"]`
-
-          - `"url"`
 
         - `url: str`
 
@@ -15261,11 +15541,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["file"]`
 
-          - `"file"`
-
     - `type: Literal["document"]`
-
-      - `"document"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15277,13 +15553,19 @@ print(beta_message_tokens_count.context_management)
 
     - `context: Optional[str]`
 
+      minLength: 1
+
     - `title: Optional[str]`
+
+      maxLength: 500, minLength: 1
 
   - `class BetaSearchResultBlockParam: …`
 
     - `content: List[BetaTextBlockParam]`
 
       - `text: str`
+
+        minLength: 1
 
       - `type: Literal["text"]`
 
@@ -15298,8 +15580,6 @@ print(beta_message_tokens_count.context_management)
     - `title: str`
 
     - `type: Literal["search_result"]`
-
-      - `"search_result"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15321,8 +15601,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["thinking"]`
 
-      - `"thinking"`
-
   - `class BetaRedactedThinkingBlockParam: …`
 
     - `data: str`
@@ -15331,19 +15609,19 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["redacted_thinking"]`
 
-      - `"redacted_thinking"`
-
   - `class BetaToolUseBlockParam: …`
 
     - `id: str`
+
+      pattern: ^[a-zA-Z0-9_-]+$
 
     - `input: Dict[str, object]`
 
     - `name: str`
 
-    - `type: Literal["tool_use"]`
+      maxLength: 200, minLength: 1
 
-      - `"tool_use"`
+    - `type: Literal["tool_use"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15359,37 +15637,37 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["direct"]`
 
-          - `"direct"`
-
       - `class BetaServerToolCaller: …`
 
         Tool invocation generated by a server-side tool.
 
         - `tool_id: str`
 
-        - `type: Literal["code_execution_20250825"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"code_execution_20250825"`
+        - `type: Literal["code_execution_20250825"]`
 
       - `class BetaServerToolCaller20260120: …`
 
         - `tool_id: str`
 
-        - `type: Literal["code_execution_20260120"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"code_execution_20260120"`
+        - `type: Literal["code_execution_20260120"]`
 
     - `toolset_name: Optional[str]`
 
       For a toolset member tool_use, the toolset family this member belongs to.
 
+      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
   - `class BetaToolResultBlockParam: …`
 
     - `tool_use_id: str`
 
-    - `type: Literal["tool_result"]`
+      pattern: ^[a-zA-Z0-9_-]+$
 
-      - `"tool_result"`
+    - `type: Literal["tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15415,9 +15693,9 @@ print(beta_message_tokens_count.context_management)
 
           - `tool_name: str`
 
-          - `type: Literal["tool_reference"]`
+            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `"tool_reference"`
+          - `type: Literal["tool_reference"]`
 
           - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15437,25 +15715,31 @@ print(beta_message_tokens_count.context_management)
 
             All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
 
+            maxItems: 100
+
             - `tab_id: str`
 
               The caller-assigned identifier for this tab, unique within the inventory.
+
+              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `title: str`
 
               The title of the page the tab is showing. May be empty.
 
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
             - `url: str`
 
               The URL of the page the tab is showing. May be empty.
+
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `active: Optional[bool]`
 
               Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
           - `type: Literal["browser_state"]`
-
-            - `"browser_state"`
 
           - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15464,6 +15748,8 @@ print(beta_message_tokens_count.context_management)
           - `state_changes: Optional[List[BetaBrowserStateChange]]`
 
             Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+            maxItems: 200, minItems: 1
 
             - `class BetaBrowserStateChangeTabOpened: …`
 
@@ -15479,9 +15765,9 @@ print(beta_message_tokens_count.context_management)
 
                 The `tab_id` of the opened tab, present in `tabs`.
 
-              - `type: Literal["tab_opened"]`
+                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                - `"tab_opened"`
+              - `type: Literal["tab_opened"]`
 
             - `class BetaBrowserStateChangeDownloadStarted: …`
 
@@ -15491,13 +15777,15 @@ print(beta_message_tokens_count.context_management)
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              - `type: Literal["download_started"]`
+                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                - `"download_started"`
+              - `type: Literal["download_started"]`
 
               - `url: str`
 
                 The final post-redirect URL the download was served from.
+
+                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
             - `class BetaBrowserStateChangeDownloadCompleted: …`
 
@@ -15510,21 +15798,27 @@ print(beta_message_tokens_count.context_management)
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              - `type: Literal["download_completed"]`
+                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                - `"download_completed"`
+              - `type: Literal["download_completed"]`
 
               - `url: str`
 
                 The final post-redirect URL the download was served from.
 
+                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
               - `path: Optional[str]`
 
                 Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+                pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
               - `size_bytes: Optional[int]`
 
                 The completed download's size.
+
+                minimum: 0
 
             - `class BetaBrowserStateChangeDownloadFailed: …`
 
@@ -15534,17 +15828,21 @@ print(beta_message_tokens_count.context_management)
 
                 The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-              - `type: Literal["download_failed"]`
+                maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                - `"download_failed"`
+              - `type: Literal["download_failed"]`
 
               - `url: str`
 
                 The final post-redirect URL the download was served from.
 
+                maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
               - `error: Optional[str]`
 
                 The failure or cancellation detail, when known.
+
+                pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
     - `is_error: Optional[bool]`
 
@@ -15552,9 +15850,13 @@ print(beta_message_tokens_count.context_management)
 
       For a toolset member tool_result, the toolset family of the paired tool_use.
 
+      maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
   - `class BetaServerToolUseBlockParam: …`
 
     - `id: str`
+
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
     - `input: Dict[str, object]`
 
@@ -15577,8 +15879,6 @@ print(beta_message_tokens_count.context_management)
       - `"tool_search_tool_bm25"`
 
     - `type: Literal["server_tool_use"]`
-
-      - `"server_tool_use"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15610,8 +15910,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["web_search_result"]`
 
-          - `"web_search_result"`
-
         - `url: str`
 
         - `page_age: Optional[str]`
@@ -15634,13 +15932,11 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["web_search_tool_result_error"]`
 
-          - `"web_search_tool_result_error"`
-
     - `tool_use_id: str`
 
-    - `type: Literal["web_search_tool_result"]`
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `"web_search_tool_result"`
+    - `type: Literal["web_search_tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15688,15 +15984,11 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["web_fetch_tool_result_error"]`
 
-          - `"web_fetch_tool_result_error"`
-
       - `class BetaWebFetchBlockParam: …`
 
         - `content: BetaRequestDocumentBlock`
 
         - `type: Literal["web_fetch_result"]`
-
-          - `"web_fetch_result"`
 
         - `url: str`
 
@@ -15708,9 +16000,9 @@ print(beta_message_tokens_count.context_management)
 
     - `tool_use_id: str`
 
-    - `type: Literal["web_fetch_tool_result"]`
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `"web_fetch_tool_result"`
+    - `type: Literal["web_fetch_tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15754,15 +16046,11 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["advisor_tool_result_error"]`
 
-          - `"advisor_tool_result_error"`
-
       - `class BetaAdvisorResultBlockParam: …`
 
         - `text: str`
 
         - `type: Literal["advisor_result"]`
-
-          - `"advisor_result"`
 
         - `stop_reason: Optional[str]`
 
@@ -15774,15 +16062,13 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["advisor_redacted_result"]`
 
-          - `"advisor_redacted_result"`
-
         - `stop_reason: Optional[str]`
 
     - `tool_use_id: str`
 
-    - `type: Literal["advisor_tool_result"]`
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `"advisor_tool_result"`
+    - `type: Literal["advisor_tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15808,8 +16094,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["code_execution_tool_result_error"]`
 
-          - `"code_execution_tool_result_error"`
-
       - `class BetaCodeExecutionResultBlockParam: …`
 
         - `content: List[BetaCodeExecutionOutputBlockParam]`
@@ -15818,8 +16102,6 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["code_execution_output"]`
 
-            - `"code_execution_output"`
-
         - `return_code: int`
 
         - `stderr: str`
@@ -15827,8 +16109,6 @@ print(beta_message_tokens_count.context_management)
         - `stdout: str`
 
         - `type: Literal["code_execution_result"]`
-
-          - `"code_execution_result"`
 
       - `class BetaEncryptedCodeExecutionResultBlockParam: …`
 
@@ -15848,13 +16128,11 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["encrypted_code_execution_result"]`
 
-          - `"encrypted_code_execution_result"`
-
     - `tool_use_id: str`
 
-    - `type: Literal["code_execution_tool_result"]`
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `"code_execution_tool_result"`
+    - `type: Literal["code_execution_tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15880,8 +16158,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["bash_code_execution_tool_result_error"]`
 
-          - `"bash_code_execution_tool_result_error"`
-
       - `class BetaBashCodeExecutionResultBlockParam: …`
 
         - `content: List[BetaBashCodeExecutionOutputBlockParam]`
@@ -15889,8 +16165,6 @@ print(beta_message_tokens_count.context_management)
           - `file_id: str`
 
           - `type: Literal["bash_code_execution_output"]`
-
-            - `"bash_code_execution_output"`
 
         - `return_code: int`
 
@@ -15900,13 +16174,11 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["bash_code_execution_result"]`
 
-          - `"bash_code_execution_result"`
-
     - `tool_use_id: str`
 
-    - `type: Literal["bash_code_execution_tool_result"]`
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `"bash_code_execution_tool_result"`
+    - `type: Literal["bash_code_execution_tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -15932,8 +16204,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-          - `"text_editor_code_execution_tool_result_error"`
-
         - `error_message: Optional[str]`
 
       - `class BetaTextEditorCodeExecutionViewResultBlockParam: …`
@@ -15950,8 +16220,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["text_editor_code_execution_view_result"]`
 
-          - `"text_editor_code_execution_view_result"`
-
         - `num_lines: Optional[int]`
 
         - `start_line: Optional[int]`
@@ -15964,13 +16232,9 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["text_editor_code_execution_create_result"]`
 
-          - `"text_editor_code_execution_create_result"`
-
       - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam: …`
 
         - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-          - `"text_editor_code_execution_str_replace_result"`
 
         - `lines: Optional[List[str]]`
 
@@ -15984,9 +16248,9 @@ print(beta_message_tokens_count.context_management)
 
     - `tool_use_id: str`
 
-    - `type: Literal["text_editor_code_execution_tool_result"]`
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `"text_editor_code_execution_tool_result"`
+    - `type: Literal["text_editor_code_execution_tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -16010,8 +16274,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["tool_search_tool_result_error"]`
 
-          - `"tool_search_tool_result_error"`
-
         - `error_message: Optional[str]`
 
       - `class BetaToolSearchToolSearchResultBlockParam: …`
@@ -16019,6 +16281,8 @@ print(beta_message_tokens_count.context_management)
         - `tool_references: List[BetaToolReferenceBlockParam]`
 
           - `tool_name: str`
+
+            maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
           - `type: Literal["tool_reference"]`
 
@@ -16028,13 +16292,11 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["tool_search_tool_search_result"]`
 
-          - `"tool_search_tool_search_result"`
-
     - `tool_use_id: str`
 
-    - `type: Literal["tool_search_tool_result"]`
+      pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `"tool_search_tool_result"`
+    - `type: Literal["tool_search_tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -16043,6 +16305,8 @@ print(beta_message_tokens_count.context_management)
   - `class BetaMCPToolUseBlockParam: …`
 
     - `id: str`
+
+      pattern: ^[a-zA-Z0-9_-]+$
 
     - `input: Dict[str, object]`
 
@@ -16054,8 +16318,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["mcp_tool_use"]`
 
-      - `"mcp_tool_use"`
-
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
@@ -16064,9 +16326,9 @@ print(beta_message_tokens_count.context_management)
 
     - `tool_use_id: str`
 
-    - `type: Literal["mcp_tool_result"]`
+      pattern: ^[a-zA-Z0-9_-]+$
 
-      - `"mcp_tool_result"`
+    - `type: Literal["mcp_tool_result"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -16079,6 +16341,8 @@ print(beta_message_tokens_count.context_management)
       - `List[BetaTextBlockParam]`
 
         - `text: str`
+
+          minLength: 1
 
         - `type: Literal["text"]`
 
@@ -16099,8 +16363,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["container_upload"]`
 
-      - `"container_upload"`
-
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
@@ -16116,8 +16378,6 @@ print(beta_message_tokens_count.context_management)
     treats these as no-ops. Empty string content is not allowed.
 
     - `type: Literal["compaction"]`
-
-      - `"compaction"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -16155,9 +16415,9 @@ print(beta_message_tokens_count.context_management)
 
         - `name: str`
 
-        - `type: Literal["tool_reference"]`
+          pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-          - `"tool_reference"`
+        - `type: Literal["tool_reference"]`
 
       - `class BetaToolChangeMCPToolReference: …`
 
@@ -16170,8 +16430,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["mcp_tool_reference"]`
 
-          - `"mcp_tool_reference"`
-
       - `class BetaToolChangeMCPToolsetReference: …`
 
         Reference to every tool in the named MCP server's toolset.
@@ -16180,11 +16438,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["mcp_toolset_reference"]`
 
-          - `"mcp_toolset_reference"`
-
     - `type: Literal["tool_addition"]`
-
-      - `"tool_addition"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -16222,8 +16476,6 @@ print(beta_message_tokens_count.context_management)
         Reference to every tool in the named MCP server's toolset.
 
     - `type: Literal["tool_removal"]`
-
-      - `"tool_removal"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -16345,8 +16597,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["fallback"]`
 
-      - `"fallback"`
-
     - `trigger: Optional[object]`
 
       The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -16365,17 +16615,15 @@ print(beta_message_tokens_count.context_management)
 
         - `text: str`
 
-        - `type: Literal["text"]`
+          minLength: 1
 
-          - `"text"`
+        - `type: Literal["text"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
 
           - `type: Literal["ephemeral"]`
-
-            - `"ephemeral"`
 
           - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -16400,15 +16648,19 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_char_index: int`
 
             - `start_char_index: int`
 
-            - `type: Literal["char_location"]`
+              minimum: 0
 
-              - `"char_location"`
+            - `type: Literal["char_location"]`
 
           - `class BetaCitationPageLocationParam: …`
 
@@ -16416,15 +16668,19 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_page_number: int`
 
             - `start_page_number: int`
 
-            - `type: Literal["page_location"]`
+              minimum: 1
 
-              - `"page_location"`
+            - `type: Literal["page_location"]`
 
           - `class BetaCitationContentBlockLocationParam: …`
 
@@ -16436,7 +16692,11 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_block_index: int`
 
@@ -16448,9 +16708,9 @@ print(beta_message_tokens_count.context_management)
 
               0-based index of the first cited block in the source's `content` array.
 
-            - `type: Literal["content_block_location"]`
+              minimum: 0
 
-              - `"content_block_location"`
+            - `type: Literal["content_block_location"]`
 
           - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -16460,11 +16720,13 @@ print(beta_message_tokens_count.context_management)
 
             - `title: Optional[str]`
 
+              maxLength: 512, minLength: 1
+
             - `type: Literal["web_search_result_location"]`
 
-              - `"web_search_result_location"`
-
             - `url: str`
+
+              minLength: 1
 
           - `class BetaCitationSearchResultLocationParam: …`
 
@@ -16486,17 +16748,19 @@ print(beta_message_tokens_count.context_management)
 
               Counted separately from `document_index`; server-side web search results are not included in this count.
 
+              minimum: 0
+
             - `source: str`
 
             - `start_block_index: int`
 
               0-based index of the first cited block in the source's `content` array.
 
+              minimum: 0
+
             - `title: Optional[str]`
 
             - `type: Literal["search_result_location"]`
-
-              - `"search_result_location"`
 
       - `class BetaImageBlockParam: …`
 
@@ -16505,6 +16769,8 @@ print(beta_message_tokens_count.context_management)
           - `class BetaBase64ImageSource: …`
 
             - `data: str`
+
+              format: byte
 
             - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -16518,13 +16784,9 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["base64"]`
 
-              - `"base64"`
-
           - `class BetaURLImageSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -16534,11 +16796,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["image"]`
-
-          - `"image"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -16558,8 +16816,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["content"]`
 
-    - `"content"`
-
 ### Beta Content Block Source Content
 
 - `BetaContentBlockSourceContent`
@@ -16568,17 +16824,15 @@ print(beta_message_tokens_count.context_management)
 
     - `text: str`
 
-    - `type: Literal["text"]`
+      minLength: 1
 
-      - `"text"`
+    - `type: Literal["text"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
 
       - `type: Literal["ephemeral"]`
-
-        - `"ephemeral"`
 
       - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -16603,15 +16857,19 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_char_index: int`
 
         - `start_char_index: int`
 
-        - `type: Literal["char_location"]`
+          minimum: 0
 
-          - `"char_location"`
+        - `type: Literal["char_location"]`
 
       - `class BetaCitationPageLocationParam: …`
 
@@ -16619,15 +16877,19 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_page_number: int`
 
         - `start_page_number: int`
 
-        - `type: Literal["page_location"]`
+          minimum: 1
 
-          - `"page_location"`
+        - `type: Literal["page_location"]`
 
       - `class BetaCitationContentBlockLocationParam: …`
 
@@ -16639,7 +16901,11 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_block_index: int`
 
@@ -16651,9 +16917,9 @@ print(beta_message_tokens_count.context_management)
 
           0-based index of the first cited block in the source's `content` array.
 
-        - `type: Literal["content_block_location"]`
+          minimum: 0
 
-          - `"content_block_location"`
+        - `type: Literal["content_block_location"]`
 
       - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -16663,11 +16929,13 @@ print(beta_message_tokens_count.context_management)
 
         - `title: Optional[str]`
 
+          maxLength: 512, minLength: 1
+
         - `type: Literal["web_search_result_location"]`
 
-          - `"web_search_result_location"`
-
         - `url: str`
+
+          minLength: 1
 
       - `class BetaCitationSearchResultLocationParam: …`
 
@@ -16689,17 +16957,19 @@ print(beta_message_tokens_count.context_management)
 
           Counted separately from `document_index`; server-side web search results are not included in this count.
 
+          minimum: 0
+
         - `source: str`
 
         - `start_block_index: int`
 
           0-based index of the first cited block in the source's `content` array.
 
+          minimum: 0
+
         - `title: Optional[str]`
 
         - `type: Literal["search_result_location"]`
-
-          - `"search_result_location"`
 
   - `class BetaImageBlockParam: …`
 
@@ -16708,6 +16978,8 @@ print(beta_message_tokens_count.context_management)
       - `class BetaBase64ImageSource: …`
 
         - `data: str`
+
+          format: byte
 
         - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -16721,13 +16993,9 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["base64"]`
 
-          - `"base64"`
-
       - `class BetaURLImageSource: …`
 
         - `type: Literal["url"]`
-
-          - `"url"`
 
         - `url: str`
 
@@ -16737,11 +17005,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["file"]`
 
-          - `"file"`
-
     - `type: Literal["image"]`
-
-      - `"image"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -16767,11 +17031,11 @@ print(beta_message_tokens_count.context_management)
 
     List of context management edits to apply
 
+    minItems: 0
+
     - `class BetaClearToolUses20250919Edit: …`
 
       - `type: Literal["clear_tool_uses_20250919"]`
-
-        - `"clear_tool_uses_20250919"`
 
       - `clear_at_least: Optional[BetaInputTokensClearAtLeast]`
 
@@ -16779,9 +17043,9 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["input_tokens"]`
 
-          - `"input_tokens"`
-
         - `value: int`
+
+          minimum: 0
 
       - `clear_tool_inputs: Optional[Union[bool, List[str], null]]`
 
@@ -16801,9 +17065,9 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["tool_uses"]`
 
-          - `"tool_uses"`
-
         - `value: int`
+
+          minimum: 0
 
       - `trigger: Optional[Trigger]`
 
@@ -16813,23 +17077,21 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["input_tokens"]`
 
-            - `"input_tokens"`
-
           - `value: int`
+
+            minimum: 1
 
         - `class BetaToolUsesTrigger: …`
 
           - `type: Literal["tool_uses"]`
 
-            - `"tool_uses"`
-
           - `value: int`
+
+            minimum: 1
 
     - `class BetaClearThinking20251015Edit: …`
 
       - `type: Literal["clear_thinking_20251015"]`
-
-        - `"clear_thinking_20251015"`
 
       - `keep: Optional[Keep]`
 
@@ -16839,27 +17101,21 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["thinking_turns"]`
 
-            - `"thinking_turns"`
-
           - `value: int`
+
+            minimum: 1
 
         - `class BetaAllThinkingTurns: …`
 
           - `type: Literal["all"]`
 
-            - `"all"`
-
         - `Literal["all"]`
-
-          - `"all"`
 
     - `class BetaCompact20260112Edit: …`
 
       Automatically compact older context when reaching the configured trigger threshold.
 
       - `type: Literal["compact_20260112"]`
-
-        - `"compact_20260112"`
 
       - `instructions: Optional[str]`
 
@@ -16887,15 +17143,19 @@ print(beta_message_tokens_count.context_management)
 
         Number of input tokens cleared by this edit.
 
+        minimum: 0
+
       - `cleared_tool_uses: int`
 
         Number of tool uses that were cleared.
+
+        minimum: 0
 
       - `type: Literal["clear_tool_uses_20250919"]`
 
         The type of context management edit applied.
 
-        - `"clear_tool_uses_20250919"`
+        default: clear_tool_uses_20250919
 
     - `class BetaClearThinking20251015EditResponse: …`
 
@@ -16903,15 +17163,19 @@ print(beta_message_tokens_count.context_management)
 
         Number of input tokens cleared by this edit.
 
+        minimum: 0
+
       - `cleared_thinking_turns: int`
 
         Number of thinking turns that were cleared.
+
+        minimum: 0
 
       - `type: Literal["clear_thinking_20251015"]`
 
         The type of context management edit applied.
 
-        - `"clear_thinking_20251015"`
+        default: clear_thinking_20251015
 
 ### Beta Count Tokens Context Management Response
 
@@ -16940,7 +17204,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["model_changed"]`
 
-        - `"model_changed"`
+        default: model_changed
 
     - `class BetaCacheMissSystemChanged: …`
 
@@ -16950,7 +17214,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["system_changed"]`
 
-        - `"system_changed"`
+        default: system_changed
 
     - `class BetaCacheMissToolsChanged: …`
 
@@ -16960,7 +17224,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["tools_changed"]`
 
-        - `"tools_changed"`
+        default: tools_changed
 
     - `class BetaCacheMissMessagesChanged: …`
 
@@ -16970,19 +17234,19 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["messages_changed"]`
 
-        - `"messages_changed"`
+        default: messages_changed
 
     - `class BetaCacheMissPreviousMessageNotFound: …`
 
       - `type: Literal["previous_message_not_found"]`
 
-        - `"previous_message_not_found"`
+        default: previous_message_not_found
 
     - `class BetaCacheMissUnavailable: …`
 
       - `type: Literal["unavailable"]`
 
-        - `"unavailable"`
+        default: unavailable
 
 ### Beta Diagnostics Param
 
@@ -16995,6 +17259,8 @@ print(beta_message_tokens_count.context_management)
 
     The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
 
+    maxLength: 256
+
 ### Beta Direct Caller
 
 - `class BetaDirectCaller: …`
@@ -17002,8 +17268,6 @@ print(beta_message_tokens_count.context_management)
   Tool invocation directly from the model.
 
   - `type: Literal["direct"]`
-
-    - `"direct"`
 
 ### Beta Document Block
 
@@ -17015,19 +17279,19 @@ print(beta_message_tokens_count.context_management)
 
     - `enabled: bool`
 
+      default: false
+
   - `source: Source`
 
     - `class BetaBase64PDFSource: …`
 
       - `data: str`
 
+        format: byte
+
       - `media_type: Literal["application/pdf"]`
 
-        - `"application/pdf"`
-
       - `type: Literal["base64"]`
-
-        - `"base64"`
 
     - `class BetaPlainTextSource: …`
 
@@ -17035,11 +17299,7 @@ print(beta_message_tokens_count.context_management)
 
       - `media_type: Literal["text/plain"]`
 
-        - `"text/plain"`
-
       - `type: Literal["text"]`
-
-        - `"text"`
 
   - `title: Optional[str]`
 
@@ -17047,7 +17307,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["document"]`
 
-    - `"document"`
+    default: document
 
 ### Beta Encrypted Code Execution Result Block
 
@@ -17061,7 +17321,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["code_execution_output"]`
 
-      - `"code_execution_output"`
+      default: code_execution_output
 
   - `encrypted_stdout: str`
 
@@ -17071,7 +17331,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["encrypted_code_execution_result"]`
 
-    - `"encrypted_code_execution_result"`
+    default: encrypted_code_execution_result
 
 ### Beta Encrypted Code Execution Result Block Param
 
@@ -17085,8 +17345,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["code_execution_output"]`
 
-      - `"code_execution_output"`
-
   - `encrypted_stdout: str`
 
   - `return_code: int`
@@ -17094,8 +17352,6 @@ print(beta_message_tokens_count.context_management)
   - `stderr: str`
 
   - `type: Literal["encrypted_code_execution_result"]`
-
-    - `"encrypted_code_execution_result"`
 
 ### Beta Fallback Block
 
@@ -17241,11 +17497,11 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["refusal"]`
 
-      - `"refusal"`
+      default: refusal
 
   - `type: Literal["fallback"]`
 
-    - `"fallback"`
+    default: fallback
 
 ### Beta Fallback Block Param
 
@@ -17365,8 +17621,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["fallback"]`
 
-    - `"fallback"`
-
   - `trigger: Optional[object]`
 
     The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -17410,7 +17664,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["not_applied"]`
 
-    - `"not_applied"`
+    default: not_applied
 
   - `remove_to_redeem: Optional[List[str]]`
 
@@ -17432,7 +17686,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["redeemed"]`
 
-    - `"redeemed"`
+    default: redeemed
 
 ### Beta Fallback Credit Token Param
 
@@ -17449,6 +17703,8 @@ print(beta_message_tokens_count.context_management)
   - `token: str`
 
     The opaque `fallback_credit_token` from a prior refusal's `stop_details` — the same string the bare-string form carries.
+
+    maxLength: 2048, minLength: 1
 
   - `mode: Optional[Literal["strict", "best_effort"]]`
 
@@ -17480,7 +17736,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["redeemed"]`
 
-        - `"redeemed"`
+        default: redeemed
 
     - `class BetaFallbackCreditNotApplied: …`
 
@@ -17519,7 +17775,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["not_applied"]`
 
-        - `"not_applied"`
+        default: not_applied
 
       - `remove_to_redeem: Optional[List[str]]`
 
@@ -17743,21 +17999,31 @@ print(beta_message_tokens_count.context_management)
 
       The number of input tokens used to create the 1 hour cache entry.
 
+      default: 0, minimum: 0
+
     - `ephemeral_5m_input_tokens: int`
 
       The number of input tokens used to create the 5 minute cache entry.
+
+      default: 0, minimum: 0
 
   - `cache_creation_input_tokens: int`
 
     The number of input tokens used to create the cache entry.
 
+    default: 0, minimum: 0
+
   - `cache_read_input_tokens: int`
 
     The number of input tokens read from the cache.
 
+    default: 0, minimum: 0
+
   - `input_tokens: int`
 
     The number of input tokens which were used.
+
+    minimum: 0
 
   - `model: Model`
 
@@ -17853,11 +18119,13 @@ print(beta_message_tokens_count.context_management)
 
     The number of output tokens which were used.
 
+    minimum: 0
+
   - `type: Literal["fallback_message"]`
 
     Usage for the fallback-model attempt that served the response
 
-    - `"fallback_message"`
+    default: fallback_message
 
 ### Beta Fallback Param
 
@@ -17988,8 +18256,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["json_schema"]`
 
-        - `"json_schema"`
-
     - `task_budget: Optional[BetaTokenTaskBudget]`
 
       User-configurable total token budget across contexts.
@@ -17998,15 +18264,17 @@ print(beta_message_tokens_count.context_management)
 
         Total token budget across all contexts in the session.
 
+        minimum: 1024
+
       - `type: Literal["tokens"]`
 
         The budget type. Currently only 'tokens' is supported.
 
-        - `"tokens"`
-
       - `remaining: Optional[int]`
 
         Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+        minimum: 0
 
   - `speed: Optional[Literal["standard", "fast"]]`
 
@@ -18028,9 +18296,9 @@ print(beta_message_tokens_count.context_management)
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-      - `type: Literal["enabled"]`
+        minimum: 1024
 
-        - `"enabled"`
+      - `type: Literal["enabled"]`
 
       - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -18044,13 +18312,9 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["disabled"]`
 
-        - `"disabled"`
-
     - `class BetaThinkingConfigAdaptive: …`
 
       - `type: Literal["adaptive"]`
-
-        - `"adaptive"`
 
       - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -18092,7 +18356,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["refusal"]`
 
-    - `"refusal"`
+    default: refusal
 
 ### Beta Fallbacks Param
 
@@ -18220,8 +18484,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["json_schema"]`
 
-          - `"json_schema"`
-
       - `task_budget: Optional[BetaTokenTaskBudget]`
 
         User-configurable total token budget across contexts.
@@ -18230,15 +18492,17 @@ print(beta_message_tokens_count.context_management)
 
           Total token budget across all contexts in the session.
 
+          minimum: 1024
+
         - `type: Literal["tokens"]`
 
           The budget type. Currently only 'tokens' is supported.
 
-          - `"tokens"`
-
         - `remaining: Optional[int]`
 
           Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+          minimum: 0
 
     - `speed: Optional[Literal["standard", "fast"]]`
 
@@ -18260,9 +18524,9 @@ print(beta_message_tokens_count.context_management)
 
           See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-        - `type: Literal["enabled"]`
+          minimum: 1024
 
-          - `"enabled"`
+        - `type: Literal["enabled"]`
 
         - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -18276,13 +18540,9 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["disabled"]`
 
-          - `"disabled"`
-
       - `class BetaThinkingConfigAdaptive: …`
 
         - `type: Literal["adaptive"]`
-
-          - `"adaptive"`
 
         - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -18294,8 +18554,6 @@ print(beta_message_tokens_count.context_management)
 
   - `Literal["default"]`
 
-    - `"default"`
-
 ### Beta File Document Source
 
 - `class BetaFileDocumentSource: …`
@@ -18304,8 +18562,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["file"]`
 
-    - `"file"`
-
 ### Beta File Image Source
 
 - `class BetaFileImageSource: …`
@@ -18313,8 +18569,6 @@ print(beta_message_tokens_count.context_management)
   - `file_id: str`
 
   - `type: Literal["file"]`
-
-    - `"file"`
 
 ### Beta Image Block Param
 
@@ -18325,6 +18579,8 @@ print(beta_message_tokens_count.context_management)
     - `class BetaBase64ImageSource: …`
 
       - `data: str`
+
+        format: byte
 
       - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -18338,13 +18594,9 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["base64"]`
 
-        - `"base64"`
-
     - `class BetaURLImageSource: …`
 
       - `type: Literal["url"]`
-
-        - `"url"`
 
       - `url: str`
 
@@ -18354,19 +18606,13 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["file"]`
 
-        - `"file"`
-
   - `type: Literal["image"]`
-
-    - `"image"`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -18417,7 +18663,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["input_json_delta"]`
 
-    - `"input_json_delta"`
+    default: input_json_delta
 
 ### Beta Input Tokens Clear At Least
 
@@ -18425,9 +18671,9 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["input_tokens"]`
 
-    - `"input_tokens"`
-
   - `value: int`
+
+    minimum: 0
 
 ### Beta Input Tokens Trigger
 
@@ -18435,9 +18681,9 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["input_tokens"]`
 
-    - `"input_tokens"`
-
   - `value: int`
+
+    minimum: 1
 
 ### Beta Iterations Usage
 
@@ -18463,21 +18709,31 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the 1 hour cache entry.
 
+        default: 0, minimum: 0
+
       - `ephemeral_5m_input_tokens: int`
 
         The number of input tokens used to create the 5 minute cache entry.
+
+        default: 0, minimum: 0
 
     - `cache_creation_input_tokens: int`
 
       The number of input tokens used to create the cache entry.
 
+      default: 0, minimum: 0
+
     - `cache_read_input_tokens: int`
 
       The number of input tokens read from the cache.
 
+      default: 0, minimum: 0
+
     - `input_tokens: int`
 
       The number of input tokens which were used.
+
+      minimum: 0
 
     - `model: Model`
 
@@ -18573,11 +18829,13 @@ print(beta_message_tokens_count.context_management)
 
       The number of output tokens which were used.
 
+      minimum: 0
+
     - `type: Literal["message"]`
 
       Usage for a sampling iteration
 
-      - `"message"`
+      default: message
 
   - `class BetaCompactionIterationUsage: …`
 
@@ -18591,23 +18849,31 @@ print(beta_message_tokens_count.context_management)
 
       The number of input tokens used to create the cache entry.
 
+      default: 0, minimum: 0
+
     - `cache_read_input_tokens: int`
 
       The number of input tokens read from the cache.
+
+      default: 0, minimum: 0
 
     - `input_tokens: int`
 
       The number of input tokens which were used.
 
+      minimum: 0
+
     - `output_tokens: int`
 
       The number of output tokens which were used.
+
+      minimum: 0
 
     - `type: Literal["compaction"]`
 
       Usage for a compaction iteration
 
-      - `"compaction"`
+      default: compaction
 
   - `class BetaAdvisorMessageIterationUsage: …`
 
@@ -18621,13 +18887,19 @@ print(beta_message_tokens_count.context_management)
 
       The number of input tokens used to create the cache entry.
 
+      default: 0, minimum: 0
+
     - `cache_read_input_tokens: int`
 
       The number of input tokens read from the cache.
 
+      default: 0, minimum: 0
+
     - `input_tokens: int`
 
       The number of input tokens which were used.
+
+      minimum: 0
 
     - `model: Model`
 
@@ -18639,11 +18911,13 @@ print(beta_message_tokens_count.context_management)
 
       The number of output tokens which were used.
 
+      minimum: 0
+
     - `type: Literal["advisor_message"]`
 
       Usage for an advisor sub-inference iteration
 
-      - `"advisor_message"`
+      default: advisor_message
 
   - `class BetaFallbackMessageIterationUsage: …`
 
@@ -18662,13 +18936,19 @@ print(beta_message_tokens_count.context_management)
 
       The number of input tokens used to create the cache entry.
 
+      default: 0, minimum: 0
+
     - `cache_read_input_tokens: int`
 
       The number of input tokens read from the cache.
 
+      default: 0, minimum: 0
+
     - `input_tokens: int`
 
       The number of input tokens which were used.
+
+      minimum: 0
 
     - `model: Model`
 
@@ -18680,11 +18960,13 @@ print(beta_message_tokens_count.context_management)
 
       The number of output tokens which were used.
 
+      minimum: 0
+
     - `type: Literal["fallback_message"]`
 
       Usage for the fallback-model attempt that served the response
 
-      - `"fallback_message"`
+      default: fallback_message
 
 ### Beta JSON Output Format
 
@@ -18695,8 +18977,6 @@ print(beta_message_tokens_count.context_management)
     The JSON schema of the format
 
   - `type: Literal["json_schema"]`
-
-    - `"json_schema"`
 
 ### Beta MCP Tool Config
 
@@ -18740,6 +19020,8 @@ print(beta_message_tokens_count.context_management)
 
           - `document_index: int`
 
+            minimum: 0
+
           - `document_title: Optional[str]`
 
           - `end_char_index: int`
@@ -18748,15 +19030,19 @@ print(beta_message_tokens_count.context_management)
 
           - `start_char_index: int`
 
+            minimum: 0
+
           - `type: Literal["char_location"]`
 
-            - `"char_location"`
+            default: char_location
 
         - `class BetaCitationPageLocation: …`
 
           - `cited_text: str`
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -18766,9 +19052,11 @@ print(beta_message_tokens_count.context_management)
 
           - `start_page_number: int`
 
+            minimum: 1
+
           - `type: Literal["page_location"]`
 
-            - `"page_location"`
+            default: page_location
 
         - `class BetaCitationContentBlockLocation: …`
 
@@ -18779,6 +19067,8 @@ print(beta_message_tokens_count.context_management)
             Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -18794,9 +19084,11 @@ print(beta_message_tokens_count.context_management)
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `type: Literal["content_block_location"]`
 
-            - `"content_block_location"`
+            default: content_block_location
 
         - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -18806,9 +19098,11 @@ print(beta_message_tokens_count.context_management)
 
           - `title: Optional[str]`
 
+            maxLength: 512
+
           - `type: Literal["web_search_result_location"]`
 
-            - `"web_search_result_location"`
+            default: web_search_result_location
 
           - `url: str`
 
@@ -18832,37 +19126,49 @@ print(beta_message_tokens_count.context_management)
 
             Counted separately from `document_index`; server-side web search results are not included in this count.
 
+            minimum: 0
+
           - `source: str`
 
           - `start_block_index: int`
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `title: Optional[str]`
 
           - `type: Literal["search_result_location"]`
 
-            - `"search_result_location"`
+            default: search_result_location
 
       - `text: str`
 
+        maxLength: 5000000, minLength: 0
+
       - `type: Literal["text"]`
 
-        - `"text"`
+        default: text
 
   - `is_error: bool`
 
+    default: false
+
   - `tool_use_id: str`
+
+    pattern: ^[a-zA-Z0-9_-]+$
 
   - `type: Literal["mcp_tool_result"]`
 
-    - `"mcp_tool_result"`
+    default: mcp_tool_result
 
 ### Beta MCP Tool Use Block
 
 - `class BetaMCPToolUseBlock: …`
 
   - `id: str`
+
+    pattern: ^[a-zA-Z0-9_-]+$
 
   - `input: Dict[str, object]`
 
@@ -18876,13 +19182,15 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["mcp_tool_use"]`
 
-    - `"mcp_tool_use"`
+    default: mcp_tool_use
 
 ### Beta MCP Tool Use Block Param
 
 - `class BetaMCPToolUseBlockParam: …`
 
   - `id: str`
+
+    pattern: ^[a-zA-Z0-9_-]+$
 
   - `input: Dict[str, object]`
 
@@ -18894,15 +19202,11 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["mcp_tool_use"]`
 
-    - `"mcp_tool_use"`
-
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -18932,17 +19236,15 @@ print(beta_message_tokens_count.context_management)
 
     Name of the MCP server to configure tools for
 
-  - `type: Literal["mcp_toolset"]`
+    maxLength: 255, minLength: 1
 
-    - `"mcp_toolset"`
+  - `type: Literal["mcp_toolset"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -18985,11 +19287,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"memory"`
-
   - `type: Literal["memory_20250818"]`
-
-    - `"memory_20250818"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -19006,8 +19304,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -19044,7 +19340,7 @@ print(beta_message_tokens_count.context_management)
 
       Command type identifier
 
-      - `"view"`
+      default: view
 
     - `path: str`
 
@@ -19054,13 +19350,15 @@ print(beta_message_tokens_count.context_management)
 
       Optional line range for viewing specific lines
 
+      minItems: 2, maxItems: 2
+
   - `class BetaMemoryTool20250818CreateCommand: …`
 
     - `command: Literal["create"]`
 
       Command type identifier
 
-      - `"create"`
+      default: create
 
     - `file_text: str`
 
@@ -19076,7 +19374,7 @@ print(beta_message_tokens_count.context_management)
 
       Command type identifier
 
-      - `"str_replace"`
+      default: str_replace
 
     - `new_str: str`
 
@@ -19096,11 +19394,13 @@ print(beta_message_tokens_count.context_management)
 
       Command type identifier
 
-      - `"insert"`
+      default: insert
 
     - `insert_line: int`
 
       Line number where text should be inserted
+
+      minimum: 1
 
     - `insert_text: str`
 
@@ -19116,7 +19416,7 @@ print(beta_message_tokens_count.context_management)
 
       Command type identifier
 
-      - `"delete"`
+      default: delete
 
     - `path: str`
 
@@ -19128,7 +19428,7 @@ print(beta_message_tokens_count.context_management)
 
       Command type identifier
 
-      - `"rename"`
+      default: rename
 
     - `new_path: str`
 
@@ -19146,7 +19446,7 @@ print(beta_message_tokens_count.context_management)
 
     Command type identifier
 
-    - `"create"`
+    default: create
 
   - `file_text: str`
 
@@ -19164,7 +19464,7 @@ print(beta_message_tokens_count.context_management)
 
     Command type identifier
 
-    - `"delete"`
+    default: delete
 
   - `path: str`
 
@@ -19178,11 +19478,13 @@ print(beta_message_tokens_count.context_management)
 
     Command type identifier
 
-    - `"insert"`
+    default: insert
 
   - `insert_line: int`
 
     Line number where text should be inserted
+
+    minimum: 1
 
   - `insert_text: str`
 
@@ -19200,7 +19502,7 @@ print(beta_message_tokens_count.context_management)
 
     Command type identifier
 
-    - `"rename"`
+    default: rename
 
   - `new_path: str`
 
@@ -19218,7 +19520,7 @@ print(beta_message_tokens_count.context_management)
 
     Command type identifier
 
-    - `"str_replace"`
+    default: str_replace
 
   - `new_str: str`
 
@@ -19240,7 +19542,7 @@ print(beta_message_tokens_count.context_management)
 
     Command type identifier
 
-    - `"view"`
+    default: view
 
   - `path: str`
 
@@ -19249,6 +19551,8 @@ print(beta_message_tokens_count.context_management)
   - `view_range: Optional[List[int]]`
 
     Optional line range for viewing specific lines
+
+    minItems: 2, maxItems: 2
 
 ### Beta Message
 
@@ -19272,6 +19576,8 @@ print(beta_message_tokens_count.context_management)
 
       The time at which the container will expire.
 
+      format: date-time
+
     - `skills: Optional[List[BetaSkill]]`
 
       Skills loaded in the container
@@ -19279,6 +19585,8 @@ print(beta_message_tokens_count.context_management)
       - `skill_id: str`
 
         Skill ID
+
+        maxLength: 64, minLength: 1
 
       - `type: Literal["anthropic", "custom"]`
 
@@ -19291,6 +19599,8 @@ print(beta_message_tokens_count.context_management)
       - `version: str`
 
         The resolved version: a skill version ID for custom skills.
+
+        maxLength: 64, minLength: 1
 
   - `content: List[BetaContentBlock]`
 
@@ -19335,6 +19645,8 @@ print(beta_message_tokens_count.context_management)
 
           - `document_index: int`
 
+            minimum: 0
+
           - `document_title: Optional[str]`
 
           - `end_char_index: int`
@@ -19343,15 +19655,19 @@ print(beta_message_tokens_count.context_management)
 
           - `start_char_index: int`
 
+            minimum: 0
+
           - `type: Literal["char_location"]`
 
-            - `"char_location"`
+            default: char_location
 
         - `class BetaCitationPageLocation: …`
 
           - `cited_text: str`
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -19361,9 +19677,11 @@ print(beta_message_tokens_count.context_management)
 
           - `start_page_number: int`
 
+            minimum: 1
+
           - `type: Literal["page_location"]`
 
-            - `"page_location"`
+            default: page_location
 
         - `class BetaCitationContentBlockLocation: …`
 
@@ -19374,6 +19692,8 @@ print(beta_message_tokens_count.context_management)
             Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -19389,9 +19709,11 @@ print(beta_message_tokens_count.context_management)
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `type: Literal["content_block_location"]`
 
-            - `"content_block_location"`
+            default: content_block_location
 
         - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -19401,9 +19723,11 @@ print(beta_message_tokens_count.context_management)
 
           - `title: Optional[str]`
 
+            maxLength: 512
+
           - `type: Literal["web_search_result_location"]`
 
-            - `"web_search_result_location"`
+            default: web_search_result_location
 
           - `url: str`
 
@@ -19427,23 +19751,29 @@ print(beta_message_tokens_count.context_management)
 
             Counted separately from `document_index`; server-side web search results are not included in this count.
 
+            minimum: 0
+
           - `source: str`
 
           - `start_block_index: int`
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `title: Optional[str]`
 
           - `type: Literal["search_result_location"]`
 
-            - `"search_result_location"`
+            default: search_result_location
 
       - `text: str`
 
+        maxLength: 5000000, minLength: 0
+
       - `type: Literal["text"]`
 
-        - `"text"`
+        default: text
 
     - `class BetaThinkingBlock: …`
 
@@ -19461,7 +19791,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["thinking"]`
 
-        - `"thinking"`
+        default: thinking
 
     - `class BetaRedactedThinkingBlock: …`
 
@@ -19475,19 +19805,23 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["redacted_thinking"]`
 
-        - `"redacted_thinking"`
+        default: redacted_thinking
 
     - `class BetaToolUseBlock: …`
 
       - `id: str`
 
+        pattern: ^[a-zA-Z0-9_-]+$
+
       - `input: Dict[str, object]`
 
       - `name: str`
 
+        minLength: 1
+
       - `type: Literal["tool_use"]`
 
-        - `"tool_use"`
+        default: tool_use
 
       - `caller: Optional[Caller]`
 
@@ -19499,33 +19833,35 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["direct"]`
 
-            - `"direct"`
-
         - `class BetaServerToolCaller: …`
 
           Tool invocation generated by a server-side tool.
 
           - `tool_id: str`
 
-          - `type: Literal["code_execution_20250825"]`
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `"code_execution_20250825"`
+          - `type: Literal["code_execution_20250825"]`
 
         - `class BetaServerToolCaller20260120: …`
 
           - `tool_id: str`
 
-          - `type: Literal["code_execution_20260120"]`
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `"code_execution_20260120"`
+          - `type: Literal["code_execution_20260120"]`
 
       - `toolset_name: Optional[str]`
 
         For a toolset member tool_use, the toolset family.
 
+        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
     - `class BetaServerToolUseBlock: …`
 
       - `id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `input: Dict[str, object]`
 
@@ -19549,7 +19885,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["server_tool_use"]`
 
-        - `"server_tool_use"`
+        default: server_tool_use
 
       - `caller: Optional[Caller]`
 
@@ -19587,7 +19923,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["web_search_tool_result_error"]`
 
-            - `"web_search_tool_result_error"`
+            default: web_search_tool_result_error
 
         - `List[BetaWebSearchResultBlock]`
 
@@ -19599,15 +19935,17 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["web_search_result"]`
 
-            - `"web_search_result"`
+            default: web_search_result
 
           - `url: str`
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["web_search_tool_result"]`
 
-        - `"web_search_tool_result"`
+        default: web_search_tool_result
 
       - `caller: Optional[Caller]`
 
@@ -19651,7 +19989,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["web_fetch_tool_result_error"]`
 
-            - `"web_fetch_tool_result_error"`
+            default: web_fetch_tool_result_error
 
         - `class BetaWebFetchBlock: …`
 
@@ -19663,19 +20001,19 @@ print(beta_message_tokens_count.context_management)
 
               - `enabled: bool`
 
+                default: false
+
             - `source: Source`
 
               - `class BetaBase64PDFSource: …`
 
                 - `data: str`
 
+                  format: byte
+
                 - `media_type: Literal["application/pdf"]`
 
-                  - `"application/pdf"`
-
                 - `type: Literal["base64"]`
-
-                  - `"base64"`
 
               - `class BetaPlainTextSource: …`
 
@@ -19683,11 +20021,7 @@ print(beta_message_tokens_count.context_management)
 
                 - `media_type: Literal["text/plain"]`
 
-                  - `"text/plain"`
-
                 - `type: Literal["text"]`
-
-                  - `"text"`
 
             - `title: Optional[str]`
 
@@ -19695,7 +20029,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["document"]`
 
-              - `"document"`
+              default: document
 
           - `retrieved_at: Optional[str]`
 
@@ -19703,7 +20037,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["web_fetch_result"]`
 
-            - `"web_fetch_result"`
+            default: web_fetch_result
 
           - `url: str`
 
@@ -19711,9 +20045,11 @@ print(beta_message_tokens_count.context_management)
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["web_fetch_tool_result"]`
 
-        - `"web_fetch_tool_result"`
+        default: web_fetch_tool_result
 
       - `caller: Optional[Caller]`
 
@@ -19753,7 +20089,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["advisor_tool_result_error"]`
 
-            - `"advisor_tool_result_error"`
+            default: advisor_tool_result_error
 
         - `class BetaAdvisorResultBlock: …`
 
@@ -19765,7 +20101,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["advisor_result"]`
 
-            - `"advisor_result"`
+            default: advisor_result
 
         - `class BetaAdvisorRedactedResultBlock: …`
 
@@ -19779,13 +20115,15 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["advisor_redacted_result"]`
 
-            - `"advisor_redacted_result"`
+            default: advisor_redacted_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["advisor_tool_result"]`
 
-        - `"advisor_tool_result"`
+        default: advisor_tool_result
 
     - `class BetaCodeExecutionToolResultBlock: …`
 
@@ -19807,7 +20145,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["code_execution_tool_result_error"]`
 
-            - `"code_execution_tool_result_error"`
+            default: code_execution_tool_result_error
 
         - `class BetaCodeExecutionResultBlock: …`
 
@@ -19817,7 +20155,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["code_execution_output"]`
 
-              - `"code_execution_output"`
+              default: code_execution_output
 
           - `return_code: int`
 
@@ -19827,7 +20165,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["code_execution_result"]`
 
-            - `"code_execution_result"`
+            default: code_execution_result
 
         - `class BetaEncryptedCodeExecutionResultBlock: …`
 
@@ -19839,6 +20177,8 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["code_execution_output"]`
 
+              default: code_execution_output
+
           - `encrypted_stdout: str`
 
           - `return_code: int`
@@ -19847,13 +20187,15 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["encrypted_code_execution_result"]`
 
-            - `"encrypted_code_execution_result"`
+            default: encrypted_code_execution_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["code_execution_tool_result"]`
 
-        - `"code_execution_tool_result"`
+        default: code_execution_tool_result
 
     - `class BetaBashCodeExecutionToolResultBlock: …`
 
@@ -19875,7 +20217,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["bash_code_execution_tool_result_error"]`
 
-            - `"bash_code_execution_tool_result_error"`
+            default: bash_code_execution_tool_result_error
 
         - `class BetaBashCodeExecutionResultBlock: …`
 
@@ -19885,7 +20227,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["bash_code_execution_output"]`
 
-              - `"bash_code_execution_output"`
+              default: bash_code_execution_output
 
           - `return_code: int`
 
@@ -19895,13 +20237,15 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["bash_code_execution_result"]`
 
-            - `"bash_code_execution_result"`
+            default: bash_code_execution_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["bash_code_execution_tool_result"]`
 
-        - `"bash_code_execution_tool_result"`
+        default: bash_code_execution_tool_result
 
     - `class BetaTextEditorCodeExecutionToolResultBlock: …`
 
@@ -19925,7 +20269,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-            - `"text_editor_code_execution_tool_result_error"`
+            default: text_editor_code_execution_tool_result_error
 
         - `class BetaTextEditorCodeExecutionViewResultBlock: …`
 
@@ -19947,7 +20291,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["text_editor_code_execution_view_result"]`
 
-            - `"text_editor_code_execution_view_result"`
+            default: text_editor_code_execution_view_result
 
         - `class BetaTextEditorCodeExecutionCreateResultBlock: …`
 
@@ -19955,7 +20299,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["text_editor_code_execution_create_result"]`
 
-            - `"text_editor_code_execution_create_result"`
+            default: text_editor_code_execution_create_result
 
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock: …`
 
@@ -19971,13 +20315,15 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
-            - `"text_editor_code_execution_str_replace_result"`
+            default: text_editor_code_execution_str_replace_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["text_editor_code_execution_tool_result"]`
 
-        - `"text_editor_code_execution_tool_result"`
+        default: text_editor_code_execution_tool_result
 
     - `class BetaToolSearchToolResultBlock: …`
 
@@ -19999,7 +20345,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["tool_search_tool_result_error"]`
 
-            - `"tool_search_tool_result_error"`
+            default: tool_search_tool_result_error
 
         - `class BetaToolSearchToolSearchResultBlock: …`
 
@@ -20007,23 +20353,29 @@ print(beta_message_tokens_count.context_management)
 
             - `tool_name: str`
 
+              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
             - `type: Literal["tool_reference"]`
 
-              - `"tool_reference"`
+              default: tool_reference
 
           - `type: Literal["tool_search_tool_search_result"]`
 
-            - `"tool_search_tool_search_result"`
+            default: tool_search_tool_search_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["tool_search_tool_result"]`
 
-        - `"tool_search_tool_result"`
+        default: tool_search_tool_result
 
     - `class BetaMCPToolUseBlock: …`
 
       - `id: str`
+
+        pattern: ^[a-zA-Z0-9_-]+$
 
       - `input: Dict[str, object]`
 
@@ -20037,7 +20389,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["mcp_tool_use"]`
 
-        - `"mcp_tool_use"`
+        default: mcp_tool_use
 
     - `class BetaMCPToolResultBlock: …`
 
@@ -20055,15 +20407,23 @@ print(beta_message_tokens_count.context_management)
 
           - `text: str`
 
+            maxLength: 5000000, minLength: 0
+
           - `type: Literal["text"]`
+
+            default: text
 
       - `is_error: bool`
 
+        default: false
+
       - `tool_use_id: str`
+
+        pattern: ^[a-zA-Z0-9_-]+$
 
       - `type: Literal["mcp_tool_result"]`
 
-        - `"mcp_tool_result"`
+        default: mcp_tool_result
 
     - `class BetaContainerUploadBlock: …`
 
@@ -20073,7 +20433,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["container_upload"]`
 
-        - `"container_upload"`
+        default: container_upload
 
     - `class BetaCompactionBlock: …`
 
@@ -20093,7 +20453,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["compaction"]`
 
-        - `"compaction"`
+        default: compaction
 
     - `class BetaFallbackBlock: …`
 
@@ -20237,11 +20597,11 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["refusal"]`
 
-          - `"refusal"`
+          default: refusal
 
       - `type: Literal["fallback"]`
 
-        - `"fallback"`
+        default: fallback
 
   - `context_management: Optional[BetaContextManagementResponse]`
 
@@ -20259,15 +20619,19 @@ print(beta_message_tokens_count.context_management)
 
           Number of input tokens cleared by this edit.
 
+          minimum: 0
+
         - `cleared_tool_uses: int`
 
           Number of tool uses that were cleared.
+
+          minimum: 0
 
         - `type: Literal["clear_tool_uses_20250919"]`
 
           The type of context management edit applied.
 
-          - `"clear_tool_uses_20250919"`
+          default: clear_tool_uses_20250919
 
       - `class BetaClearThinking20251015EditResponse: …`
 
@@ -20275,15 +20639,19 @@ print(beta_message_tokens_count.context_management)
 
           Number of input tokens cleared by this edit.
 
+          minimum: 0
+
         - `cleared_thinking_turns: int`
 
           Number of thinking turns that were cleared.
+
+          minimum: 0
 
         - `type: Literal["clear_thinking_20251015"]`
 
           The type of context management edit applied.
 
-          - `"clear_thinking_20251015"`
+          default: clear_thinking_20251015
 
   - `diagnostics: Optional[BetaDiagnostics]`
 
@@ -20302,7 +20670,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["model_changed"]`
 
-          - `"model_changed"`
+          default: model_changed
 
       - `class BetaCacheMissSystemChanged: …`
 
@@ -20312,7 +20680,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["system_changed"]`
 
-          - `"system_changed"`
+          default: system_changed
 
       - `class BetaCacheMissToolsChanged: …`
 
@@ -20322,7 +20690,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["tools_changed"]`
 
-          - `"tools_changed"`
+          default: tools_changed
 
       - `class BetaCacheMissMessagesChanged: …`
 
@@ -20332,19 +20700,19 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["messages_changed"]`
 
-          - `"messages_changed"`
+          default: messages_changed
 
       - `class BetaCacheMissPreviousMessageNotFound: …`
 
         - `type: Literal["previous_message_not_found"]`
 
-          - `"previous_message_not_found"`
+          default: previous_message_not_found
 
       - `class BetaCacheMissUnavailable: …`
 
         - `type: Literal["unavailable"]`
 
-          - `"unavailable"`
+          default: unavailable
 
   - `model: Model`
 
@@ -20358,7 +20726,7 @@ print(beta_message_tokens_count.context_management)
 
     This will always be `"assistant"`.
 
-    - `"assistant"`
+    default: assistant
 
   - `stop_details: Optional[BetaRefusalStopDetails]`
 
@@ -20445,7 +20813,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["refusal"]`
 
-      - `"refusal"`
+      default: refusal
 
   - `stop_reason: Optional[BetaStopReason]`
 
@@ -20491,7 +20859,7 @@ print(beta_message_tokens_count.context_management)
 
     For Messages, this is always `"message"`.
 
-    - `"message"`
+    default: message
 
   - `usage: BetaUsage`
 
@@ -20513,17 +20881,25 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the 1 hour cache entry.
 
+        default: 0, minimum: 0
+
       - `ephemeral_5m_input_tokens: int`
 
         The number of input tokens used to create the 5 minute cache entry.
+
+        default: 0, minimum: 0
 
     - `cache_creation_input_tokens: Optional[int]`
 
       The number of input tokens used to create the cache entry.
 
+      minimum: 0
+
     - `cache_read_input_tokens: Optional[int]`
 
       The number of input tokens read from the cache.
+
+      minimum: 0
 
     - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
@@ -20545,7 +20921,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["redeemed"]`
 
-            - `"redeemed"`
+            default: redeemed
 
         - `class BetaFallbackCreditNotApplied: …`
 
@@ -20584,7 +20960,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["not_applied"]`
 
-            - `"not_applied"`
+            default: not_applied
 
           - `remove_to_redeem: Optional[List[str]]`
 
@@ -20604,6 +20980,8 @@ print(beta_message_tokens_count.context_management)
     - `input_tokens: int`
 
       The number of input tokens which were used.
+
+      minimum: 0
 
     - `iterations: Optional[BetaIterationsUsage]`
 
@@ -20627,13 +21005,19 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -20645,11 +21029,13 @@ print(beta_message_tokens_count.context_management)
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["message"]`
 
           Usage for a sampling iteration
 
-          - `"message"`
+          default: message
 
       - `class BetaCompactionIterationUsage: …`
 
@@ -20663,23 +21049,31 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
+
+          default: 0, minimum: 0
 
         - `input_tokens: int`
 
           The number of input tokens which were used.
 
+          minimum: 0
+
         - `output_tokens: int`
 
           The number of output tokens which were used.
+
+          minimum: 0
 
         - `type: Literal["compaction"]`
 
           Usage for a compaction iteration
 
-          - `"compaction"`
+          default: compaction
 
       - `class BetaAdvisorMessageIterationUsage: …`
 
@@ -20693,13 +21087,19 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -20711,11 +21111,13 @@ print(beta_message_tokens_count.context_management)
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["advisor_message"]`
 
           Usage for an advisor sub-inference iteration
 
-          - `"advisor_message"`
+          default: advisor_message
 
       - `class BetaFallbackMessageIterationUsage: …`
 
@@ -20734,13 +21136,19 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -20752,15 +21160,19 @@ print(beta_message_tokens_count.context_management)
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["fallback_message"]`
 
           Usage for the fallback-model attempt that served the response
 
-          - `"fallback_message"`
+          default: fallback_message
 
     - `output_tokens: int`
 
       The number of output tokens which were used.
+
+      minimum: 0
 
     - `output_tokens_details: Optional[BetaOutputTokensDetails]`
 
@@ -20782,6 +21194,8 @@ print(beta_message_tokens_count.context_management)
         generation count by a small number of tokens. Always ≤ `output_tokens`;
         `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+        default: 0, minimum: 0
+
     - `server_tool_use: Optional[BetaServerToolUsage]`
 
       The number of server tool requests.
@@ -20790,9 +21204,13 @@ print(beta_message_tokens_count.context_management)
 
         The number of web fetch tool requests.
 
+        default: 0, minimum: 0
+
       - `web_search_requests: int`
 
         The number of web search tool requests.
+
+        default: 0, minimum: 0
 
     - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
 
@@ -20820,9 +21238,13 @@ print(beta_message_tokens_count.context_management)
 
     The cumulative number of input tokens used to create the cache entry.
 
+    minimum: 0
+
   - `cache_read_input_tokens: Optional[int]`
 
     The cumulative number of input tokens read from the cache.
+
+    minimum: 0
 
   - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
@@ -20844,7 +21266,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["redeemed"]`
 
-          - `"redeemed"`
+          default: redeemed
 
       - `class BetaFallbackCreditNotApplied: …`
 
@@ -20883,7 +21305,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["not_applied"]`
 
-          - `"not_applied"`
+          default: not_applied
 
         - `remove_to_redeem: Optional[List[str]]`
 
@@ -20899,6 +21321,8 @@ print(beta_message_tokens_count.context_management)
   - `input_tokens: Optional[int]`
 
     The cumulative number of input tokens which were used.
+
+    minimum: 0
 
   - `iterations: Optional[BetaIterationsUsage]`
 
@@ -20922,21 +21346,31 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the 1 hour cache entry.
 
+          default: 0, minimum: 0
+
         - `ephemeral_5m_input_tokens: int`
 
           The number of input tokens used to create the 5 minute cache entry.
+
+          default: 0, minimum: 0
 
       - `cache_creation_input_tokens: int`
 
         The number of input tokens used to create the cache entry.
 
+        default: 0, minimum: 0
+
       - `cache_read_input_tokens: int`
 
         The number of input tokens read from the cache.
 
+        default: 0, minimum: 0
+
       - `input_tokens: int`
 
         The number of input tokens which were used.
+
+        minimum: 0
 
       - `model: Model`
 
@@ -21032,11 +21466,13 @@ print(beta_message_tokens_count.context_management)
 
         The number of output tokens which were used.
 
+        minimum: 0
+
       - `type: Literal["message"]`
 
         Usage for a sampling iteration
 
-        - `"message"`
+        default: message
 
     - `class BetaCompactionIterationUsage: …`
 
@@ -21050,23 +21486,31 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the cache entry.
 
+        default: 0, minimum: 0
+
       - `cache_read_input_tokens: int`
 
         The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
 
       - `input_tokens: int`
 
         The number of input tokens which were used.
 
+        minimum: 0
+
       - `output_tokens: int`
 
         The number of output tokens which were used.
+
+        minimum: 0
 
       - `type: Literal["compaction"]`
 
         Usage for a compaction iteration
 
-        - `"compaction"`
+        default: compaction
 
     - `class BetaAdvisorMessageIterationUsage: …`
 
@@ -21080,13 +21524,19 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the cache entry.
 
+        default: 0, minimum: 0
+
       - `cache_read_input_tokens: int`
 
         The number of input tokens read from the cache.
 
+        default: 0, minimum: 0
+
       - `input_tokens: int`
 
         The number of input tokens which were used.
+
+        minimum: 0
 
       - `model: Model`
 
@@ -21098,11 +21548,13 @@ print(beta_message_tokens_count.context_management)
 
         The number of output tokens which were used.
 
+        minimum: 0
+
       - `type: Literal["advisor_message"]`
 
         Usage for an advisor sub-inference iteration
 
-        - `"advisor_message"`
+        default: advisor_message
 
     - `class BetaFallbackMessageIterationUsage: …`
 
@@ -21121,13 +21573,19 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the cache entry.
 
+        default: 0, minimum: 0
+
       - `cache_read_input_tokens: int`
 
         The number of input tokens read from the cache.
 
+        default: 0, minimum: 0
+
       - `input_tokens: int`
 
         The number of input tokens which were used.
+
+        minimum: 0
 
       - `model: Model`
 
@@ -21139,11 +21597,13 @@ print(beta_message_tokens_count.context_management)
 
         The number of output tokens which were used.
 
+        minimum: 0
+
       - `type: Literal["fallback_message"]`
 
         Usage for the fallback-model attempt that served the response
 
-        - `"fallback_message"`
+        default: fallback_message
 
   - `output_tokens: int`
 
@@ -21169,6 +21629,8 @@ print(beta_message_tokens_count.context_management)
       generation count by a small number of tokens. Always ≤ `output_tokens`;
       `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+      default: 0, minimum: 0
+
   - `server_tool_use: Optional[BetaServerToolUsage]`
 
     The number of server tool requests.
@@ -21177,9 +21639,13 @@ print(beta_message_tokens_count.context_management)
 
       The number of web fetch tool requests.
 
+      default: 0, minimum: 0
+
     - `web_search_requests: int`
 
       The number of web search tool requests.
+
+      default: 0, minimum: 0
 
 ### Beta Message Iteration Usage
 
@@ -21195,21 +21661,31 @@ print(beta_message_tokens_count.context_management)
 
       The number of input tokens used to create the 1 hour cache entry.
 
+      default: 0, minimum: 0
+
     - `ephemeral_5m_input_tokens: int`
 
       The number of input tokens used to create the 5 minute cache entry.
+
+      default: 0, minimum: 0
 
   - `cache_creation_input_tokens: int`
 
     The number of input tokens used to create the cache entry.
 
+    default: 0, minimum: 0
+
   - `cache_read_input_tokens: int`
 
     The number of input tokens read from the cache.
 
+    default: 0, minimum: 0
+
   - `input_tokens: int`
 
     The number of input tokens which were used.
+
+    minimum: 0
 
   - `model: Model`
 
@@ -21305,11 +21781,13 @@ print(beta_message_tokens_count.context_management)
 
     The number of output tokens which were used.
 
+    minimum: 0
+
   - `type: Literal["message"]`
 
     Usage for a sampling iteration
 
-    - `"message"`
+    default: message
 
 ### Beta Message Param
 
@@ -21325,17 +21803,15 @@ print(beta_message_tokens_count.context_management)
 
         - `text: str`
 
-        - `type: Literal["text"]`
+          minLength: 1
 
-          - `"text"`
+        - `type: Literal["text"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
 
           - `type: Literal["ephemeral"]`
-
-            - `"ephemeral"`
 
           - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -21360,15 +21836,19 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_char_index: int`
 
             - `start_char_index: int`
 
-            - `type: Literal["char_location"]`
+              minimum: 0
 
-              - `"char_location"`
+            - `type: Literal["char_location"]`
 
           - `class BetaCitationPageLocationParam: …`
 
@@ -21376,15 +21856,19 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_page_number: int`
 
             - `start_page_number: int`
 
-            - `type: Literal["page_location"]`
+              minimum: 1
 
-              - `"page_location"`
+            - `type: Literal["page_location"]`
 
           - `class BetaCitationContentBlockLocationParam: …`
 
@@ -21396,7 +21880,11 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_block_index: int`
 
@@ -21408,9 +21896,9 @@ print(beta_message_tokens_count.context_management)
 
               0-based index of the first cited block in the source's `content` array.
 
-            - `type: Literal["content_block_location"]`
+              minimum: 0
 
-              - `"content_block_location"`
+            - `type: Literal["content_block_location"]`
 
           - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -21420,11 +21908,13 @@ print(beta_message_tokens_count.context_management)
 
             - `title: Optional[str]`
 
+              maxLength: 512, minLength: 1
+
             - `type: Literal["web_search_result_location"]`
 
-              - `"web_search_result_location"`
-
             - `url: str`
+
+              minLength: 1
 
           - `class BetaCitationSearchResultLocationParam: …`
 
@@ -21446,17 +21936,19 @@ print(beta_message_tokens_count.context_management)
 
               Counted separately from `document_index`; server-side web search results are not included in this count.
 
+              minimum: 0
+
             - `source: str`
 
             - `start_block_index: int`
 
               0-based index of the first cited block in the source's `content` array.
 
+              minimum: 0
+
             - `title: Optional[str]`
 
             - `type: Literal["search_result_location"]`
-
-              - `"search_result_location"`
 
       - `class BetaImageBlockParam: …`
 
@@ -21465,6 +21957,8 @@ print(beta_message_tokens_count.context_management)
           - `class BetaBase64ImageSource: …`
 
             - `data: str`
+
+              format: byte
 
             - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -21478,13 +21972,9 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["base64"]`
 
-              - `"base64"`
-
           - `class BetaURLImageSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -21494,11 +21984,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["image"]`
-
-          - `"image"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -21524,13 +22010,11 @@ print(beta_message_tokens_count.context_management)
 
             - `data: str`
 
+              format: byte
+
             - `media_type: Literal["application/pdf"]`
 
-              - `"application/pdf"`
-
             - `type: Literal["base64"]`
-
-              - `"base64"`
 
           - `class BetaPlainTextSource: …`
 
@@ -21538,11 +22022,7 @@ print(beta_message_tokens_count.context_management)
 
             - `media_type: Literal["text/plain"]`
 
-              - `"text/plain"`
-
             - `type: Literal["text"]`
-
-              - `"text"`
 
           - `class BetaContentBlockSource: …`
 
@@ -21558,13 +22038,9 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["content"]`
 
-              - `"content"`
-
           - `class BetaURLPDFSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -21574,11 +22050,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["document"]`
-
-          - `"document"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -21590,13 +22062,19 @@ print(beta_message_tokens_count.context_management)
 
         - `context: Optional[str]`
 
+          minLength: 1
+
         - `title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
       - `class BetaSearchResultBlockParam: …`
 
         - `content: List[BetaTextBlockParam]`
 
           - `text: str`
+
+            minLength: 1
 
           - `type: Literal["text"]`
 
@@ -21611,8 +22089,6 @@ print(beta_message_tokens_count.context_management)
         - `title: str`
 
         - `type: Literal["search_result"]`
-
-          - `"search_result"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -21634,8 +22110,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["thinking"]`
 
-          - `"thinking"`
-
       - `class BetaRedactedThinkingBlockParam: …`
 
         - `data: str`
@@ -21644,19 +22118,19 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["redacted_thinking"]`
 
-          - `"redacted_thinking"`
-
       - `class BetaToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^[a-zA-Z0-9_-]+$
 
         - `input: Dict[str, object]`
 
         - `name: str`
 
-        - `type: Literal["tool_use"]`
+          maxLength: 200, minLength: 1
 
-          - `"tool_use"`
+        - `type: Literal["tool_use"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -21672,37 +22146,37 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["direct"]`
 
-              - `"direct"`
-
           - `class BetaServerToolCaller: …`
 
             Tool invocation generated by a server-side tool.
 
             - `tool_id: str`
 
-            - `type: Literal["code_execution_20250825"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_20250825"`
+            - `type: Literal["code_execution_20250825"]`
 
           - `class BetaServerToolCaller20260120: …`
 
             - `tool_id: str`
 
-            - `type: Literal["code_execution_20260120"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_20260120"`
+            - `type: Literal["code_execution_20260120"]`
 
         - `toolset_name: Optional[str]`
 
           For a toolset member tool_use, the toolset family this member belongs to.
 
+          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
       - `class BetaToolResultBlockParam: …`
 
         - `tool_use_id: str`
 
-        - `type: Literal["tool_result"]`
+          pattern: ^[a-zA-Z0-9_-]+$
 
-          - `"tool_result"`
+        - `type: Literal["tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -21728,9 +22202,9 @@ print(beta_message_tokens_count.context_management)
 
               - `tool_name: str`
 
-              - `type: Literal["tool_reference"]`
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `"tool_reference"`
+              - `type: Literal["tool_reference"]`
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -21750,25 +22224,31 @@ print(beta_message_tokens_count.context_management)
 
                 All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
 
+                maxItems: 100
+
                 - `tab_id: str`
 
                   The caller-assigned identifier for this tab, unique within the inventory.
+
+                  maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `title: str`
 
                   The title of the page the tab is showing. May be empty.
 
+                  maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                 - `url: str`
 
                   The URL of the page the tab is showing. May be empty.
+
+                  maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `active: Optional[bool]`
 
                   Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
               - `type: Literal["browser_state"]`
-
-                - `"browser_state"`
 
               - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -21777,6 +22257,8 @@ print(beta_message_tokens_count.context_management)
               - `state_changes: Optional[List[BetaBrowserStateChange]]`
 
                 Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+                maxItems: 200, minItems: 1
 
                 - `class BetaBrowserStateChangeTabOpened: …`
 
@@ -21792,9 +22274,9 @@ print(beta_message_tokens_count.context_management)
 
                     The `tab_id` of the opened tab, present in `tabs`.
 
-                  - `type: Literal["tab_opened"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"tab_opened"`
+                  - `type: Literal["tab_opened"]`
 
                 - `class BetaBrowserStateChangeDownloadStarted: …`
 
@@ -21804,13 +22286,15 @@ print(beta_message_tokens_count.context_management)
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_started"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_started"`
+                  - `type: Literal["download_started"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
+
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
                 - `class BetaBrowserStateChangeDownloadCompleted: …`
 
@@ -21823,21 +22307,27 @@ print(beta_message_tokens_count.context_management)
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_completed"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_completed"`
+                  - `type: Literal["download_completed"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
 
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                   - `path: Optional[str]`
 
                     Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
                   - `size_bytes: Optional[int]`
 
                     The completed download's size.
+
+                    minimum: 0
 
                 - `class BetaBrowserStateChangeDownloadFailed: …`
 
@@ -21847,17 +22337,21 @@ print(beta_message_tokens_count.context_management)
 
                     The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-                  - `type: Literal["download_failed"]`
+                    maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `"download_failed"`
+                  - `type: Literal["download_failed"]`
 
                   - `url: str`
 
                     The final post-redirect URL the download was served from.
 
+                    maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
                   - `error: Optional[str]`
 
                     The failure or cancellation detail, when known.
+
+                    pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
         - `is_error: Optional[bool]`
 
@@ -21865,9 +22359,13 @@ print(beta_message_tokens_count.context_management)
 
           For a toolset member tool_result, the toolset family of the paired tool_use.
 
+          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
       - `class BetaServerToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `input: Dict[str, object]`
 
@@ -21890,8 +22388,6 @@ print(beta_message_tokens_count.context_management)
           - `"tool_search_tool_bm25"`
 
         - `type: Literal["server_tool_use"]`
-
-          - `"server_tool_use"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -21923,8 +22419,6 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["web_search_result"]`
 
-              - `"web_search_result"`
-
             - `url: str`
 
             - `page_age: Optional[str]`
@@ -21947,13 +22441,11 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["web_search_tool_result_error"]`
 
-              - `"web_search_tool_result_error"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["web_search_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"web_search_tool_result"`
+        - `type: Literal["web_search_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22001,15 +22493,11 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["web_fetch_tool_result_error"]`
 
-              - `"web_fetch_tool_result_error"`
-
           - `class BetaWebFetchBlockParam: …`
 
             - `content: BetaRequestDocumentBlock`
 
             - `type: Literal["web_fetch_result"]`
-
-              - `"web_fetch_result"`
 
             - `url: str`
 
@@ -22021,9 +22509,9 @@ print(beta_message_tokens_count.context_management)
 
         - `tool_use_id: str`
 
-        - `type: Literal["web_fetch_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"web_fetch_tool_result"`
+        - `type: Literal["web_fetch_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22067,15 +22555,11 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["advisor_tool_result_error"]`
 
-              - `"advisor_tool_result_error"`
-
           - `class BetaAdvisorResultBlockParam: …`
 
             - `text: str`
 
             - `type: Literal["advisor_result"]`
-
-              - `"advisor_result"`
 
             - `stop_reason: Optional[str]`
 
@@ -22087,15 +22571,13 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["advisor_redacted_result"]`
 
-              - `"advisor_redacted_result"`
-
             - `stop_reason: Optional[str]`
 
         - `tool_use_id: str`
 
-        - `type: Literal["advisor_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"advisor_tool_result"`
+        - `type: Literal["advisor_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22121,8 +22603,6 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["code_execution_tool_result_error"]`
 
-              - `"code_execution_tool_result_error"`
-
           - `class BetaCodeExecutionResultBlockParam: …`
 
             - `content: List[BetaCodeExecutionOutputBlockParam]`
@@ -22131,8 +22611,6 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["code_execution_output"]`
 
-                - `"code_execution_output"`
-
             - `return_code: int`
 
             - `stderr: str`
@@ -22140,8 +22618,6 @@ print(beta_message_tokens_count.context_management)
             - `stdout: str`
 
             - `type: Literal["code_execution_result"]`
-
-              - `"code_execution_result"`
 
           - `class BetaEncryptedCodeExecutionResultBlockParam: …`
 
@@ -22161,13 +22637,11 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["encrypted_code_execution_result"]`
 
-              - `"encrypted_code_execution_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"code_execution_tool_result"`
+        - `type: Literal["code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22193,8 +22667,6 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["bash_code_execution_tool_result_error"]`
 
-              - `"bash_code_execution_tool_result_error"`
-
           - `class BetaBashCodeExecutionResultBlockParam: …`
 
             - `content: List[BetaBashCodeExecutionOutputBlockParam]`
@@ -22202,8 +22674,6 @@ print(beta_message_tokens_count.context_management)
               - `file_id: str`
 
               - `type: Literal["bash_code_execution_output"]`
-
-                - `"bash_code_execution_output"`
 
             - `return_code: int`
 
@@ -22213,13 +22683,11 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["bash_code_execution_result"]`
 
-              - `"bash_code_execution_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["bash_code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"bash_code_execution_tool_result"`
+        - `type: Literal["bash_code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22245,8 +22713,6 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-              - `"text_editor_code_execution_tool_result_error"`
-
             - `error_message: Optional[str]`
 
           - `class BetaTextEditorCodeExecutionViewResultBlockParam: …`
@@ -22263,8 +22729,6 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["text_editor_code_execution_view_result"]`
 
-              - `"text_editor_code_execution_view_result"`
-
             - `num_lines: Optional[int]`
 
             - `start_line: Optional[int]`
@@ -22277,13 +22741,9 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["text_editor_code_execution_create_result"]`
 
-              - `"text_editor_code_execution_create_result"`
-
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam: …`
 
             - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-              - `"text_editor_code_execution_str_replace_result"`
 
             - `lines: Optional[List[str]]`
 
@@ -22297,9 +22757,9 @@ print(beta_message_tokens_count.context_management)
 
         - `tool_use_id: str`
 
-        - `type: Literal["text_editor_code_execution_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"text_editor_code_execution_tool_result"`
+        - `type: Literal["text_editor_code_execution_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22323,8 +22783,6 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["tool_search_tool_result_error"]`
 
-              - `"tool_search_tool_result_error"`
-
             - `error_message: Optional[str]`
 
           - `class BetaToolSearchToolSearchResultBlockParam: …`
@@ -22332,6 +22790,8 @@ print(beta_message_tokens_count.context_management)
             - `tool_references: List[BetaToolReferenceBlockParam]`
 
               - `tool_name: str`
+
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
               - `type: Literal["tool_reference"]`
 
@@ -22341,13 +22801,11 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["tool_search_tool_search_result"]`
 
-              - `"tool_search_tool_search_result"`
-
         - `tool_use_id: str`
 
-        - `type: Literal["tool_search_tool_result"]`
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `"tool_search_tool_result"`
+        - `type: Literal["tool_search_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22356,6 +22814,8 @@ print(beta_message_tokens_count.context_management)
       - `class BetaMCPToolUseBlockParam: …`
 
         - `id: str`
+
+          pattern: ^[a-zA-Z0-9_-]+$
 
         - `input: Dict[str, object]`
 
@@ -22367,8 +22827,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["mcp_tool_use"]`
 
-          - `"mcp_tool_use"`
-
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
@@ -22377,9 +22835,9 @@ print(beta_message_tokens_count.context_management)
 
         - `tool_use_id: str`
 
-        - `type: Literal["mcp_tool_result"]`
+          pattern: ^[a-zA-Z0-9_-]+$
 
-          - `"mcp_tool_result"`
+        - `type: Literal["mcp_tool_result"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22392,6 +22850,8 @@ print(beta_message_tokens_count.context_management)
           - `List[BetaTextBlockParam]`
 
             - `text: str`
+
+              minLength: 1
 
             - `type: Literal["text"]`
 
@@ -22412,8 +22872,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["container_upload"]`
 
-          - `"container_upload"`
-
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
@@ -22429,8 +22887,6 @@ print(beta_message_tokens_count.context_management)
         treats these as no-ops. Empty string content is not allowed.
 
         - `type: Literal["compaction"]`
-
-          - `"compaction"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22468,9 +22924,9 @@ print(beta_message_tokens_count.context_management)
 
             - `name: str`
 
-            - `type: Literal["tool_reference"]`
+              pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-              - `"tool_reference"`
+            - `type: Literal["tool_reference"]`
 
           - `class BetaToolChangeMCPToolReference: …`
 
@@ -22483,8 +22939,6 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["mcp_tool_reference"]`
 
-              - `"mcp_tool_reference"`
-
           - `class BetaToolChangeMCPToolsetReference: …`
 
             Reference to every tool in the named MCP server's toolset.
@@ -22493,11 +22947,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["mcp_toolset_reference"]`
 
-              - `"mcp_toolset_reference"`
-
         - `type: Literal["tool_addition"]`
-
-          - `"tool_addition"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22535,8 +22985,6 @@ print(beta_message_tokens_count.context_management)
             Reference to every tool in the named MCP server's toolset.
 
         - `type: Literal["tool_removal"]`
-
-          - `"tool_removal"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -22658,8 +23106,6 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["fallback"]`
 
-          - `"fallback"`
-
         - `trigger: Optional[object]`
 
           The response block's `trigger`, echoed verbatim. Accepted and ignored by the server; any object or `null` is allowed.
@@ -22698,6 +23144,8 @@ print(beta_message_tokens_count.context_management)
 
     This should be a uuid, hash value, or other opaque identifier. Anthropic may use this id to help detect abuse. Do not include any identifying information such as name, email address, or phone number.
 
+    maxLength: 512
+
 ### Beta Output Config
 
 - `class BetaOutputConfig: …`
@@ -22726,8 +23174,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["json_schema"]`
 
-      - `"json_schema"`
-
   - `task_budget: Optional[BetaTokenTaskBudget]`
 
     User-configurable total token budget across contexts.
@@ -22736,15 +23182,17 @@ print(beta_message_tokens_count.context_management)
 
       Total token budget across all contexts in the session.
 
+      minimum: 1024
+
     - `type: Literal["tokens"]`
 
       The budget type. Currently only 'tokens' is supported.
 
-      - `"tokens"`
-
     - `remaining: Optional[int]`
 
       Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+      minimum: 0
 
 ### Beta Output Tokens Details
 
@@ -22761,6 +23209,8 @@ print(beta_message_tokens_count.context_management)
     generation count by a small number of tokens. Always ≤ `output_tokens`;
     `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+    default: 0, minimum: 0
+
 ### Beta Plain Text Source
 
 - `class BetaPlainTextSource: …`
@@ -22769,11 +23219,7 @@ print(beta_message_tokens_count.context_management)
 
   - `media_type: Literal["text/plain"]`
 
-    - `"text/plain"`
-
   - `type: Literal["text"]`
-
-    - `"text"`
 
 ### Beta Raw Content Block Delta
 
@@ -22785,7 +23231,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["text_delta"]`
 
-      - `"text_delta"`
+      default: text_delta
 
   - `class BetaInputJSONDelta: …`
 
@@ -22793,7 +23239,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["input_json_delta"]`
 
-      - `"input_json_delta"`
+      default: input_json_delta
 
   - `class BetaCitationsDelta: …`
 
@@ -22805,6 +23251,8 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
 
         - `end_char_index: int`
@@ -22813,15 +23261,19 @@ print(beta_message_tokens_count.context_management)
 
         - `start_char_index: int`
 
+          minimum: 0
+
         - `type: Literal["char_location"]`
 
-          - `"char_location"`
+          default: char_location
 
       - `class BetaCitationPageLocation: …`
 
         - `cited_text: str`
 
         - `document_index: int`
+
+          minimum: 0
 
         - `document_title: Optional[str]`
 
@@ -22831,9 +23283,11 @@ print(beta_message_tokens_count.context_management)
 
         - `start_page_number: int`
 
+          minimum: 1
+
         - `type: Literal["page_location"]`
 
-          - `"page_location"`
+          default: page_location
 
       - `class BetaCitationContentBlockLocation: …`
 
@@ -22844,6 +23298,8 @@ print(beta_message_tokens_count.context_management)
           Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
         - `document_index: int`
+
+          minimum: 0
 
         - `document_title: Optional[str]`
 
@@ -22859,9 +23315,11 @@ print(beta_message_tokens_count.context_management)
 
           0-based index of the first cited block in the source's `content` array.
 
+          minimum: 0
+
         - `type: Literal["content_block_location"]`
 
-          - `"content_block_location"`
+          default: content_block_location
 
       - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -22871,9 +23329,11 @@ print(beta_message_tokens_count.context_management)
 
         - `title: Optional[str]`
 
+          maxLength: 512
+
         - `type: Literal["web_search_result_location"]`
 
-          - `"web_search_result_location"`
+          default: web_search_result_location
 
         - `url: str`
 
@@ -22897,21 +23357,25 @@ print(beta_message_tokens_count.context_management)
 
           Counted separately from `document_index`; server-side web search results are not included in this count.
 
+          minimum: 0
+
         - `source: str`
 
         - `start_block_index: int`
 
           0-based index of the first cited block in the source's `content` array.
 
+          minimum: 0
+
         - `title: Optional[str]`
 
         - `type: Literal["search_result_location"]`
 
-          - `"search_result_location"`
+          default: search_result_location
 
     - `type: Literal["citations_delta"]`
 
-      - `"citations_delta"`
+      default: citations_delta
 
   - `class BetaThinkingDelta: …`
 
@@ -22925,7 +23389,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["thinking_delta"]`
 
-      - `"thinking_delta"`
+      default: thinking_delta
 
   - `class BetaSignatureDelta: …`
 
@@ -22935,7 +23399,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["signature_delta"]`
 
-      - `"signature_delta"`
+      default: signature_delta
 
   - `class BetaCompactionContentBlockDelta: …`
 
@@ -22947,7 +23411,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["compaction_delta"]`
 
-      - `"compaction_delta"`
+      default: compaction_delta
 
 ### Beta Raw Content Block Delta Event
 
@@ -22961,7 +23425,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["text_delta"]`
 
-        - `"text_delta"`
+        default: text_delta
 
     - `class BetaInputJSONDelta: …`
 
@@ -22969,7 +23433,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["input_json_delta"]`
 
-        - `"input_json_delta"`
+        default: input_json_delta
 
     - `class BetaCitationsDelta: …`
 
@@ -22981,6 +23445,8 @@ print(beta_message_tokens_count.context_management)
 
           - `document_index: int`
 
+            minimum: 0
+
           - `document_title: Optional[str]`
 
           - `end_char_index: int`
@@ -22989,15 +23455,19 @@ print(beta_message_tokens_count.context_management)
 
           - `start_char_index: int`
 
+            minimum: 0
+
           - `type: Literal["char_location"]`
 
-            - `"char_location"`
+            default: char_location
 
         - `class BetaCitationPageLocation: …`
 
           - `cited_text: str`
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -23007,9 +23477,11 @@ print(beta_message_tokens_count.context_management)
 
           - `start_page_number: int`
 
+            minimum: 1
+
           - `type: Literal["page_location"]`
 
-            - `"page_location"`
+            default: page_location
 
         - `class BetaCitationContentBlockLocation: …`
 
@@ -23020,6 +23492,8 @@ print(beta_message_tokens_count.context_management)
             Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -23035,9 +23509,11 @@ print(beta_message_tokens_count.context_management)
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `type: Literal["content_block_location"]`
 
-            - `"content_block_location"`
+            default: content_block_location
 
         - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -23047,9 +23523,11 @@ print(beta_message_tokens_count.context_management)
 
           - `title: Optional[str]`
 
+            maxLength: 512
+
           - `type: Literal["web_search_result_location"]`
 
-            - `"web_search_result_location"`
+            default: web_search_result_location
 
           - `url: str`
 
@@ -23073,21 +23551,25 @@ print(beta_message_tokens_count.context_management)
 
             Counted separately from `document_index`; server-side web search results are not included in this count.
 
+            minimum: 0
+
           - `source: str`
 
           - `start_block_index: int`
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `title: Optional[str]`
 
           - `type: Literal["search_result_location"]`
 
-            - `"search_result_location"`
+            default: search_result_location
 
       - `type: Literal["citations_delta"]`
 
-        - `"citations_delta"`
+        default: citations_delta
 
     - `class BetaThinkingDelta: …`
 
@@ -23101,7 +23583,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["thinking_delta"]`
 
-        - `"thinking_delta"`
+        default: thinking_delta
 
     - `class BetaSignatureDelta: …`
 
@@ -23111,7 +23593,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["signature_delta"]`
 
-        - `"signature_delta"`
+        default: signature_delta
 
     - `class BetaCompactionContentBlockDelta: …`
 
@@ -23123,13 +23605,13 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["compaction_delta"]`
 
-        - `"compaction_delta"`
+        default: compaction_delta
 
   - `index: int`
 
   - `type: Literal["content_block_delta"]`
 
-    - `"content_block_delta"`
+    default: content_block_delta
 
 ### Beta Raw Content Block Start Event
 
@@ -23153,6 +23635,8 @@ print(beta_message_tokens_count.context_management)
 
           - `document_index: int`
 
+            minimum: 0
+
           - `document_title: Optional[str]`
 
           - `end_char_index: int`
@@ -23161,15 +23645,19 @@ print(beta_message_tokens_count.context_management)
 
           - `start_char_index: int`
 
+            minimum: 0
+
           - `type: Literal["char_location"]`
 
-            - `"char_location"`
+            default: char_location
 
         - `class BetaCitationPageLocation: …`
 
           - `cited_text: str`
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -23179,9 +23667,11 @@ print(beta_message_tokens_count.context_management)
 
           - `start_page_number: int`
 
+            minimum: 1
+
           - `type: Literal["page_location"]`
 
-            - `"page_location"`
+            default: page_location
 
         - `class BetaCitationContentBlockLocation: …`
 
@@ -23192,6 +23682,8 @@ print(beta_message_tokens_count.context_management)
             Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
           - `document_index: int`
+
+            minimum: 0
 
           - `document_title: Optional[str]`
 
@@ -23207,9 +23699,11 @@ print(beta_message_tokens_count.context_management)
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `type: Literal["content_block_location"]`
 
-            - `"content_block_location"`
+            default: content_block_location
 
         - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -23219,9 +23713,11 @@ print(beta_message_tokens_count.context_management)
 
           - `title: Optional[str]`
 
+            maxLength: 512
+
           - `type: Literal["web_search_result_location"]`
 
-            - `"web_search_result_location"`
+            default: web_search_result_location
 
           - `url: str`
 
@@ -23245,23 +23741,29 @@ print(beta_message_tokens_count.context_management)
 
             Counted separately from `document_index`; server-side web search results are not included in this count.
 
+            minimum: 0
+
           - `source: str`
 
           - `start_block_index: int`
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `title: Optional[str]`
 
           - `type: Literal["search_result_location"]`
 
-            - `"search_result_location"`
+            default: search_result_location
 
       - `text: str`
 
+        maxLength: 5000000, minLength: 0
+
       - `type: Literal["text"]`
 
-        - `"text"`
+        default: text
 
     - `class BetaThinkingBlock: …`
 
@@ -23279,7 +23781,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["thinking"]`
 
-        - `"thinking"`
+        default: thinking
 
     - `class BetaRedactedThinkingBlock: …`
 
@@ -23293,19 +23795,23 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["redacted_thinking"]`
 
-        - `"redacted_thinking"`
+        default: redacted_thinking
 
     - `class BetaToolUseBlock: …`
 
       - `id: str`
 
+        pattern: ^[a-zA-Z0-9_-]+$
+
       - `input: Dict[str, object]`
 
       - `name: str`
 
+        minLength: 1
+
       - `type: Literal["tool_use"]`
 
-        - `"tool_use"`
+        default: tool_use
 
       - `caller: Optional[Caller]`
 
@@ -23317,33 +23823,35 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["direct"]`
 
-            - `"direct"`
-
         - `class BetaServerToolCaller: …`
 
           Tool invocation generated by a server-side tool.
 
           - `tool_id: str`
 
-          - `type: Literal["code_execution_20250825"]`
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `"code_execution_20250825"`
+          - `type: Literal["code_execution_20250825"]`
 
         - `class BetaServerToolCaller20260120: …`
 
           - `tool_id: str`
 
-          - `type: Literal["code_execution_20260120"]`
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `"code_execution_20260120"`
+          - `type: Literal["code_execution_20260120"]`
 
       - `toolset_name: Optional[str]`
 
         For a toolset member tool_use, the toolset family.
 
+        maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
     - `class BetaServerToolUseBlock: …`
 
       - `id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
       - `input: Dict[str, object]`
 
@@ -23367,7 +23875,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["server_tool_use"]`
 
-        - `"server_tool_use"`
+        default: server_tool_use
 
       - `caller: Optional[Caller]`
 
@@ -23405,7 +23913,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["web_search_tool_result_error"]`
 
-            - `"web_search_tool_result_error"`
+            default: web_search_tool_result_error
 
         - `List[BetaWebSearchResultBlock]`
 
@@ -23417,15 +23925,17 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["web_search_result"]`
 
-            - `"web_search_result"`
+            default: web_search_result
 
           - `url: str`
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["web_search_tool_result"]`
 
-        - `"web_search_tool_result"`
+        default: web_search_tool_result
 
       - `caller: Optional[Caller]`
 
@@ -23469,7 +23979,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["web_fetch_tool_result_error"]`
 
-            - `"web_fetch_tool_result_error"`
+            default: web_fetch_tool_result_error
 
         - `class BetaWebFetchBlock: …`
 
@@ -23481,19 +23991,19 @@ print(beta_message_tokens_count.context_management)
 
               - `enabled: bool`
 
+                default: false
+
             - `source: Source`
 
               - `class BetaBase64PDFSource: …`
 
                 - `data: str`
 
+                  format: byte
+
                 - `media_type: Literal["application/pdf"]`
 
-                  - `"application/pdf"`
-
                 - `type: Literal["base64"]`
-
-                  - `"base64"`
 
               - `class BetaPlainTextSource: …`
 
@@ -23501,11 +24011,7 @@ print(beta_message_tokens_count.context_management)
 
                 - `media_type: Literal["text/plain"]`
 
-                  - `"text/plain"`
-
                 - `type: Literal["text"]`
-
-                  - `"text"`
 
             - `title: Optional[str]`
 
@@ -23513,7 +24019,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["document"]`
 
-              - `"document"`
+              default: document
 
           - `retrieved_at: Optional[str]`
 
@@ -23521,7 +24027,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["web_fetch_result"]`
 
-            - `"web_fetch_result"`
+            default: web_fetch_result
 
           - `url: str`
 
@@ -23529,9 +24035,11 @@ print(beta_message_tokens_count.context_management)
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["web_fetch_tool_result"]`
 
-        - `"web_fetch_tool_result"`
+        default: web_fetch_tool_result
 
       - `caller: Optional[Caller]`
 
@@ -23571,7 +24079,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["advisor_tool_result_error"]`
 
-            - `"advisor_tool_result_error"`
+            default: advisor_tool_result_error
 
         - `class BetaAdvisorResultBlock: …`
 
@@ -23583,7 +24091,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["advisor_result"]`
 
-            - `"advisor_result"`
+            default: advisor_result
 
         - `class BetaAdvisorRedactedResultBlock: …`
 
@@ -23597,13 +24105,15 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["advisor_redacted_result"]`
 
-            - `"advisor_redacted_result"`
+            default: advisor_redacted_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["advisor_tool_result"]`
 
-        - `"advisor_tool_result"`
+        default: advisor_tool_result
 
     - `class BetaCodeExecutionToolResultBlock: …`
 
@@ -23625,7 +24135,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["code_execution_tool_result_error"]`
 
-            - `"code_execution_tool_result_error"`
+            default: code_execution_tool_result_error
 
         - `class BetaCodeExecutionResultBlock: …`
 
@@ -23635,7 +24145,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["code_execution_output"]`
 
-              - `"code_execution_output"`
+              default: code_execution_output
 
           - `return_code: int`
 
@@ -23645,7 +24155,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["code_execution_result"]`
 
-            - `"code_execution_result"`
+            default: code_execution_result
 
         - `class BetaEncryptedCodeExecutionResultBlock: …`
 
@@ -23657,6 +24167,8 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["code_execution_output"]`
 
+              default: code_execution_output
+
           - `encrypted_stdout: str`
 
           - `return_code: int`
@@ -23665,13 +24177,15 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["encrypted_code_execution_result"]`
 
-            - `"encrypted_code_execution_result"`
+            default: encrypted_code_execution_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["code_execution_tool_result"]`
 
-        - `"code_execution_tool_result"`
+        default: code_execution_tool_result
 
     - `class BetaBashCodeExecutionToolResultBlock: …`
 
@@ -23693,7 +24207,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["bash_code_execution_tool_result_error"]`
 
-            - `"bash_code_execution_tool_result_error"`
+            default: bash_code_execution_tool_result_error
 
         - `class BetaBashCodeExecutionResultBlock: …`
 
@@ -23703,7 +24217,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["bash_code_execution_output"]`
 
-              - `"bash_code_execution_output"`
+              default: bash_code_execution_output
 
           - `return_code: int`
 
@@ -23713,13 +24227,15 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["bash_code_execution_result"]`
 
-            - `"bash_code_execution_result"`
+            default: bash_code_execution_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["bash_code_execution_tool_result"]`
 
-        - `"bash_code_execution_tool_result"`
+        default: bash_code_execution_tool_result
 
     - `class BetaTextEditorCodeExecutionToolResultBlock: …`
 
@@ -23743,7 +24259,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-            - `"text_editor_code_execution_tool_result_error"`
+            default: text_editor_code_execution_tool_result_error
 
         - `class BetaTextEditorCodeExecutionViewResultBlock: …`
 
@@ -23765,7 +24281,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["text_editor_code_execution_view_result"]`
 
-            - `"text_editor_code_execution_view_result"`
+            default: text_editor_code_execution_view_result
 
         - `class BetaTextEditorCodeExecutionCreateResultBlock: …`
 
@@ -23773,7 +24289,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["text_editor_code_execution_create_result"]`
 
-            - `"text_editor_code_execution_create_result"`
+            default: text_editor_code_execution_create_result
 
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock: …`
 
@@ -23789,13 +24305,15 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
-            - `"text_editor_code_execution_str_replace_result"`
+            default: text_editor_code_execution_str_replace_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["text_editor_code_execution_tool_result"]`
 
-        - `"text_editor_code_execution_tool_result"`
+        default: text_editor_code_execution_tool_result
 
     - `class BetaToolSearchToolResultBlock: …`
 
@@ -23817,7 +24335,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["tool_search_tool_result_error"]`
 
-            - `"tool_search_tool_result_error"`
+            default: tool_search_tool_result_error
 
         - `class BetaToolSearchToolSearchResultBlock: …`
 
@@ -23825,23 +24343,29 @@ print(beta_message_tokens_count.context_management)
 
             - `tool_name: str`
 
+              maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
             - `type: Literal["tool_reference"]`
 
-              - `"tool_reference"`
+              default: tool_reference
 
           - `type: Literal["tool_search_tool_search_result"]`
 
-            - `"tool_search_tool_search_result"`
+            default: tool_search_tool_search_result
 
       - `tool_use_id: str`
 
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
       - `type: Literal["tool_search_tool_result"]`
 
-        - `"tool_search_tool_result"`
+        default: tool_search_tool_result
 
     - `class BetaMCPToolUseBlock: …`
 
       - `id: str`
+
+        pattern: ^[a-zA-Z0-9_-]+$
 
       - `input: Dict[str, object]`
 
@@ -23855,7 +24379,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["mcp_tool_use"]`
 
-        - `"mcp_tool_use"`
+        default: mcp_tool_use
 
     - `class BetaMCPToolResultBlock: …`
 
@@ -23873,15 +24397,23 @@ print(beta_message_tokens_count.context_management)
 
           - `text: str`
 
+            maxLength: 5000000, minLength: 0
+
           - `type: Literal["text"]`
+
+            default: text
 
       - `is_error: bool`
 
+        default: false
+
       - `tool_use_id: str`
+
+        pattern: ^[a-zA-Z0-9_-]+$
 
       - `type: Literal["mcp_tool_result"]`
 
-        - `"mcp_tool_result"`
+        default: mcp_tool_result
 
     - `class BetaContainerUploadBlock: …`
 
@@ -23891,7 +24423,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["container_upload"]`
 
-        - `"container_upload"`
+        default: container_upload
 
     - `class BetaCompactionBlock: …`
 
@@ -23911,7 +24443,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["compaction"]`
 
-        - `"compaction"`
+        default: compaction
 
     - `class BetaFallbackBlock: …`
 
@@ -24055,17 +24587,17 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["refusal"]`
 
-          - `"refusal"`
+          default: refusal
 
       - `type: Literal["fallback"]`
 
-        - `"fallback"`
+        default: fallback
 
   - `index: int`
 
   - `type: Literal["content_block_start"]`
 
-    - `"content_block_start"`
+    default: content_block_start
 
 ### Beta Raw Content Block Stop Event
 
@@ -24075,7 +24607,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["content_block_stop"]`
 
-    - `"content_block_stop"`
+    default: content_block_stop
 
 ### Beta Raw Message Delta Event
 
@@ -24095,15 +24627,19 @@ print(beta_message_tokens_count.context_management)
 
           Number of input tokens cleared by this edit.
 
+          minimum: 0
+
         - `cleared_tool_uses: int`
 
           Number of tool uses that were cleared.
+
+          minimum: 0
 
         - `type: Literal["clear_tool_uses_20250919"]`
 
           The type of context management edit applied.
 
-          - `"clear_tool_uses_20250919"`
+          default: clear_tool_uses_20250919
 
       - `class BetaClearThinking20251015EditResponse: …`
 
@@ -24111,15 +24647,19 @@ print(beta_message_tokens_count.context_management)
 
           Number of input tokens cleared by this edit.
 
+          minimum: 0
+
         - `cleared_thinking_turns: int`
 
           Number of thinking turns that were cleared.
+
+          minimum: 0
 
         - `type: Literal["clear_thinking_20251015"]`
 
           The type of context management edit applied.
 
-          - `"clear_thinking_20251015"`
+          default: clear_thinking_20251015
 
   - `delta: Delta`
 
@@ -24135,6 +24675,8 @@ print(beta_message_tokens_count.context_management)
 
         The time at which the container will expire.
 
+        format: date-time
+
       - `skills: Optional[List[BetaSkill]]`
 
         Skills loaded in the container
@@ -24142,6 +24684,8 @@ print(beta_message_tokens_count.context_management)
         - `skill_id: str`
 
           Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `type: Literal["anthropic", "custom"]`
 
@@ -24154,6 +24698,8 @@ print(beta_message_tokens_count.context_management)
         - `version: str`
 
           The resolved version: a skill version ID for custom skills.
+
+          maxLength: 64, minLength: 1
 
     - `stop_details: Optional[BetaRefusalStopDetails]`
 
@@ -24240,7 +24786,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["refusal"]`
 
-        - `"refusal"`
+        default: refusal
 
     - `stop_reason: Optional[BetaStopReason]`
 
@@ -24264,7 +24810,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["message_delta"]`
 
-    - `"message_delta"`
+    default: message_delta
 
   - `usage: BetaMessageDeltaUsage`
 
@@ -24282,9 +24828,13 @@ print(beta_message_tokens_count.context_management)
 
       The cumulative number of input tokens used to create the cache entry.
 
+      minimum: 0
+
     - `cache_read_input_tokens: Optional[int]`
 
       The cumulative number of input tokens read from the cache.
+
+      minimum: 0
 
     - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
@@ -24306,7 +24856,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["redeemed"]`
 
-            - `"redeemed"`
+            default: redeemed
 
         - `class BetaFallbackCreditNotApplied: …`
 
@@ -24345,7 +24895,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["not_applied"]`
 
-            - `"not_applied"`
+            default: not_applied
 
           - `remove_to_redeem: Optional[List[str]]`
 
@@ -24361,6 +24911,8 @@ print(beta_message_tokens_count.context_management)
     - `input_tokens: Optional[int]`
 
       The cumulative number of input tokens which were used.
+
+      minimum: 0
 
     - `iterations: Optional[BetaIterationsUsage]`
 
@@ -24384,21 +24936,31 @@ print(beta_message_tokens_count.context_management)
 
             The number of input tokens used to create the 1 hour cache entry.
 
+            default: 0, minimum: 0
+
           - `ephemeral_5m_input_tokens: int`
 
             The number of input tokens used to create the 5 minute cache entry.
+
+            default: 0, minimum: 0
 
         - `cache_creation_input_tokens: int`
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -24494,11 +25056,13 @@ print(beta_message_tokens_count.context_management)
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["message"]`
 
           Usage for a sampling iteration
 
-          - `"message"`
+          default: message
 
       - `class BetaCompactionIterationUsage: …`
 
@@ -24512,23 +25076,31 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
+
+          default: 0, minimum: 0
 
         - `input_tokens: int`
 
           The number of input tokens which were used.
 
+          minimum: 0
+
         - `output_tokens: int`
 
           The number of output tokens which were used.
+
+          minimum: 0
 
         - `type: Literal["compaction"]`
 
           Usage for a compaction iteration
 
-          - `"compaction"`
+          default: compaction
 
       - `class BetaAdvisorMessageIterationUsage: …`
 
@@ -24542,13 +25114,19 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -24560,11 +25138,13 @@ print(beta_message_tokens_count.context_management)
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["advisor_message"]`
 
           Usage for an advisor sub-inference iteration
 
-          - `"advisor_message"`
+          default: advisor_message
 
       - `class BetaFallbackMessageIterationUsage: …`
 
@@ -24583,13 +25163,19 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the cache entry.
 
+          default: 0, minimum: 0
+
         - `cache_read_input_tokens: int`
 
           The number of input tokens read from the cache.
 
+          default: 0, minimum: 0
+
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `model: Model`
 
@@ -24601,11 +25187,13 @@ print(beta_message_tokens_count.context_management)
 
           The number of output tokens which were used.
 
+          minimum: 0
+
         - `type: Literal["fallback_message"]`
 
           Usage for the fallback-model attempt that served the response
 
-          - `"fallback_message"`
+          default: fallback_message
 
     - `output_tokens: int`
 
@@ -24631,6 +25219,8 @@ print(beta_message_tokens_count.context_management)
         generation count by a small number of tokens. Always ≤ `output_tokens`;
         `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+        default: 0, minimum: 0
+
     - `server_tool_use: Optional[BetaServerToolUsage]`
 
       The number of server tool requests.
@@ -24639,9 +25229,13 @@ print(beta_message_tokens_count.context_management)
 
         The number of web fetch tool requests.
 
+        default: 0, minimum: 0
+
       - `web_search_requests: int`
 
         The number of web search tool requests.
+
+        default: 0, minimum: 0
 
 ### Beta Raw Message Start Event
 
@@ -24667,6 +25261,8 @@ print(beta_message_tokens_count.context_management)
 
         The time at which the container will expire.
 
+        format: date-time
+
       - `skills: Optional[List[BetaSkill]]`
 
         Skills loaded in the container
@@ -24674,6 +25270,8 @@ print(beta_message_tokens_count.context_management)
         - `skill_id: str`
 
           Skill ID
+
+          maxLength: 64, minLength: 1
 
         - `type: Literal["anthropic", "custom"]`
 
@@ -24686,6 +25284,8 @@ print(beta_message_tokens_count.context_management)
         - `version: str`
 
           The resolved version: a skill version ID for custom skills.
+
+          maxLength: 64, minLength: 1
 
     - `content: List[BetaContentBlock]`
 
@@ -24730,6 +25330,8 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
 
             - `end_char_index: int`
@@ -24738,15 +25340,19 @@ print(beta_message_tokens_count.context_management)
 
             - `start_char_index: int`
 
+              minimum: 0
+
             - `type: Literal["char_location"]`
 
-              - `"char_location"`
+              default: char_location
 
           - `class BetaCitationPageLocation: …`
 
             - `cited_text: str`
 
             - `document_index: int`
+
+              minimum: 0
 
             - `document_title: Optional[str]`
 
@@ -24756,9 +25362,11 @@ print(beta_message_tokens_count.context_management)
 
             - `start_page_number: int`
 
+              minimum: 1
+
             - `type: Literal["page_location"]`
 
-              - `"page_location"`
+              default: page_location
 
           - `class BetaCitationContentBlockLocation: …`
 
@@ -24769,6 +25377,8 @@ print(beta_message_tokens_count.context_management)
               Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
             - `document_index: int`
+
+              minimum: 0
 
             - `document_title: Optional[str]`
 
@@ -24784,9 +25394,11 @@ print(beta_message_tokens_count.context_management)
 
               0-based index of the first cited block in the source's `content` array.
 
+              minimum: 0
+
             - `type: Literal["content_block_location"]`
 
-              - `"content_block_location"`
+              default: content_block_location
 
           - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -24796,9 +25408,11 @@ print(beta_message_tokens_count.context_management)
 
             - `title: Optional[str]`
 
+              maxLength: 512
+
             - `type: Literal["web_search_result_location"]`
 
-              - `"web_search_result_location"`
+              default: web_search_result_location
 
             - `url: str`
 
@@ -24822,23 +25436,29 @@ print(beta_message_tokens_count.context_management)
 
               Counted separately from `document_index`; server-side web search results are not included in this count.
 
+              minimum: 0
+
             - `source: str`
 
             - `start_block_index: int`
 
               0-based index of the first cited block in the source's `content` array.
 
+              minimum: 0
+
             - `title: Optional[str]`
 
             - `type: Literal["search_result_location"]`
 
-              - `"search_result_location"`
+              default: search_result_location
 
         - `text: str`
 
+          maxLength: 5000000, minLength: 0
+
         - `type: Literal["text"]`
 
-          - `"text"`
+          default: text
 
       - `class BetaThinkingBlock: …`
 
@@ -24856,7 +25476,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["thinking"]`
 
-          - `"thinking"`
+          default: thinking
 
       - `class BetaRedactedThinkingBlock: …`
 
@@ -24870,19 +25490,23 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["redacted_thinking"]`
 
-          - `"redacted_thinking"`
+          default: redacted_thinking
 
       - `class BetaToolUseBlock: …`
 
         - `id: str`
 
+          pattern: ^[a-zA-Z0-9_-]+$
+
         - `input: Dict[str, object]`
 
         - `name: str`
 
+          minLength: 1
+
         - `type: Literal["tool_use"]`
 
-          - `"tool_use"`
+          default: tool_use
 
         - `caller: Optional[Caller]`
 
@@ -24894,33 +25518,35 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["direct"]`
 
-              - `"direct"`
-
           - `class BetaServerToolCaller: …`
 
             Tool invocation generated by a server-side tool.
 
             - `tool_id: str`
 
-            - `type: Literal["code_execution_20250825"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_20250825"`
+            - `type: Literal["code_execution_20250825"]`
 
           - `class BetaServerToolCaller20260120: …`
 
             - `tool_id: str`
 
-            - `type: Literal["code_execution_20260120"]`
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `"code_execution_20260120"`
+            - `type: Literal["code_execution_20260120"]`
 
         - `toolset_name: Optional[str]`
 
           For a toolset member tool_use, the toolset family.
 
+          maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
       - `class BetaServerToolUseBlock: …`
 
         - `id: str`
+
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
         - `input: Dict[str, object]`
 
@@ -24944,7 +25570,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["server_tool_use"]`
 
-          - `"server_tool_use"`
+          default: server_tool_use
 
         - `caller: Optional[Caller]`
 
@@ -24982,7 +25608,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["web_search_tool_result_error"]`
 
-              - `"web_search_tool_result_error"`
+              default: web_search_tool_result_error
 
           - `List[BetaWebSearchResultBlock]`
 
@@ -24994,15 +25620,17 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["web_search_result"]`
 
-              - `"web_search_result"`
+              default: web_search_result
 
             - `url: str`
 
         - `tool_use_id: str`
 
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
         - `type: Literal["web_search_tool_result"]`
 
-          - `"web_search_tool_result"`
+          default: web_search_tool_result
 
         - `caller: Optional[Caller]`
 
@@ -25046,7 +25674,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["web_fetch_tool_result_error"]`
 
-              - `"web_fetch_tool_result_error"`
+              default: web_fetch_tool_result_error
 
           - `class BetaWebFetchBlock: …`
 
@@ -25058,19 +25686,19 @@ print(beta_message_tokens_count.context_management)
 
                 - `enabled: bool`
 
+                  default: false
+
               - `source: Source`
 
                 - `class BetaBase64PDFSource: …`
 
                   - `data: str`
 
+                    format: byte
+
                   - `media_type: Literal["application/pdf"]`
 
-                    - `"application/pdf"`
-
                   - `type: Literal["base64"]`
-
-                    - `"base64"`
 
                 - `class BetaPlainTextSource: …`
 
@@ -25078,11 +25706,7 @@ print(beta_message_tokens_count.context_management)
 
                   - `media_type: Literal["text/plain"]`
 
-                    - `"text/plain"`
-
                   - `type: Literal["text"]`
-
-                    - `"text"`
 
               - `title: Optional[str]`
 
@@ -25090,7 +25714,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["document"]`
 
-                - `"document"`
+                default: document
 
             - `retrieved_at: Optional[str]`
 
@@ -25098,7 +25722,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["web_fetch_result"]`
 
-              - `"web_fetch_result"`
+              default: web_fetch_result
 
             - `url: str`
 
@@ -25106,9 +25730,11 @@ print(beta_message_tokens_count.context_management)
 
         - `tool_use_id: str`
 
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
         - `type: Literal["web_fetch_tool_result"]`
 
-          - `"web_fetch_tool_result"`
+          default: web_fetch_tool_result
 
         - `caller: Optional[Caller]`
 
@@ -25148,7 +25774,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["advisor_tool_result_error"]`
 
-              - `"advisor_tool_result_error"`
+              default: advisor_tool_result_error
 
           - `class BetaAdvisorResultBlock: …`
 
@@ -25160,7 +25786,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["advisor_result"]`
 
-              - `"advisor_result"`
+              default: advisor_result
 
           - `class BetaAdvisorRedactedResultBlock: …`
 
@@ -25174,13 +25800,15 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["advisor_redacted_result"]`
 
-              - `"advisor_redacted_result"`
+              default: advisor_redacted_result
 
         - `tool_use_id: str`
 
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
         - `type: Literal["advisor_tool_result"]`
 
-          - `"advisor_tool_result"`
+          default: advisor_tool_result
 
       - `class BetaCodeExecutionToolResultBlock: …`
 
@@ -25202,7 +25830,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["code_execution_tool_result_error"]`
 
-              - `"code_execution_tool_result_error"`
+              default: code_execution_tool_result_error
 
           - `class BetaCodeExecutionResultBlock: …`
 
@@ -25212,7 +25840,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["code_execution_output"]`
 
-                - `"code_execution_output"`
+                default: code_execution_output
 
             - `return_code: int`
 
@@ -25222,7 +25850,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["code_execution_result"]`
 
-              - `"code_execution_result"`
+              default: code_execution_result
 
           - `class BetaEncryptedCodeExecutionResultBlock: …`
 
@@ -25234,6 +25862,8 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["code_execution_output"]`
 
+                default: code_execution_output
+
             - `encrypted_stdout: str`
 
             - `return_code: int`
@@ -25242,13 +25872,15 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["encrypted_code_execution_result"]`
 
-              - `"encrypted_code_execution_result"`
+              default: encrypted_code_execution_result
 
         - `tool_use_id: str`
 
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
         - `type: Literal["code_execution_tool_result"]`
 
-          - `"code_execution_tool_result"`
+          default: code_execution_tool_result
 
       - `class BetaBashCodeExecutionToolResultBlock: …`
 
@@ -25270,7 +25902,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["bash_code_execution_tool_result_error"]`
 
-              - `"bash_code_execution_tool_result_error"`
+              default: bash_code_execution_tool_result_error
 
           - `class BetaBashCodeExecutionResultBlock: …`
 
@@ -25280,7 +25912,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["bash_code_execution_output"]`
 
-                - `"bash_code_execution_output"`
+                default: bash_code_execution_output
 
             - `return_code: int`
 
@@ -25290,13 +25922,15 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["bash_code_execution_result"]`
 
-              - `"bash_code_execution_result"`
+              default: bash_code_execution_result
 
         - `tool_use_id: str`
 
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
         - `type: Literal["bash_code_execution_tool_result"]`
 
-          - `"bash_code_execution_tool_result"`
+          default: bash_code_execution_tool_result
 
       - `class BetaTextEditorCodeExecutionToolResultBlock: …`
 
@@ -25320,7 +25954,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-              - `"text_editor_code_execution_tool_result_error"`
+              default: text_editor_code_execution_tool_result_error
 
           - `class BetaTextEditorCodeExecutionViewResultBlock: …`
 
@@ -25342,7 +25976,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["text_editor_code_execution_view_result"]`
 
-              - `"text_editor_code_execution_view_result"`
+              default: text_editor_code_execution_view_result
 
           - `class BetaTextEditorCodeExecutionCreateResultBlock: …`
 
@@ -25350,7 +25984,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["text_editor_code_execution_create_result"]`
 
-              - `"text_editor_code_execution_create_result"`
+              default: text_editor_code_execution_create_result
 
           - `class BetaTextEditorCodeExecutionStrReplaceResultBlock: …`
 
@@ -25366,13 +26000,15 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
-              - `"text_editor_code_execution_str_replace_result"`
+              default: text_editor_code_execution_str_replace_result
 
         - `tool_use_id: str`
 
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
         - `type: Literal["text_editor_code_execution_tool_result"]`
 
-          - `"text_editor_code_execution_tool_result"`
+          default: text_editor_code_execution_tool_result
 
       - `class BetaToolSearchToolResultBlock: …`
 
@@ -25394,7 +26030,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["tool_search_tool_result_error"]`
 
-              - `"tool_search_tool_result_error"`
+              default: tool_search_tool_result_error
 
           - `class BetaToolSearchToolSearchResultBlock: …`
 
@@ -25402,23 +26038,29 @@ print(beta_message_tokens_count.context_management)
 
               - `tool_name: str`
 
+                maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
               - `type: Literal["tool_reference"]`
 
-                - `"tool_reference"`
+                default: tool_reference
 
             - `type: Literal["tool_search_tool_search_result"]`
 
-              - `"tool_search_tool_search_result"`
+              default: tool_search_tool_search_result
 
         - `tool_use_id: str`
 
+          pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
         - `type: Literal["tool_search_tool_result"]`
 
-          - `"tool_search_tool_result"`
+          default: tool_search_tool_result
 
       - `class BetaMCPToolUseBlock: …`
 
         - `id: str`
+
+          pattern: ^[a-zA-Z0-9_-]+$
 
         - `input: Dict[str, object]`
 
@@ -25432,7 +26074,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["mcp_tool_use"]`
 
-          - `"mcp_tool_use"`
+          default: mcp_tool_use
 
       - `class BetaMCPToolResultBlock: …`
 
@@ -25450,15 +26092,23 @@ print(beta_message_tokens_count.context_management)
 
             - `text: str`
 
+              maxLength: 5000000, minLength: 0
+
             - `type: Literal["text"]`
+
+              default: text
 
         - `is_error: bool`
 
+          default: false
+
         - `tool_use_id: str`
+
+          pattern: ^[a-zA-Z0-9_-]+$
 
         - `type: Literal["mcp_tool_result"]`
 
-          - `"mcp_tool_result"`
+          default: mcp_tool_result
 
       - `class BetaContainerUploadBlock: …`
 
@@ -25468,7 +26118,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["container_upload"]`
 
-          - `"container_upload"`
+          default: container_upload
 
       - `class BetaCompactionBlock: …`
 
@@ -25488,7 +26138,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["compaction"]`
 
-          - `"compaction"`
+          default: compaction
 
       - `class BetaFallbackBlock: …`
 
@@ -25632,11 +26282,11 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["refusal"]`
 
-            - `"refusal"`
+            default: refusal
 
         - `type: Literal["fallback"]`
 
-          - `"fallback"`
+          default: fallback
 
     - `context_management: Optional[BetaContextManagementResponse]`
 
@@ -25654,15 +26304,19 @@ print(beta_message_tokens_count.context_management)
 
             Number of input tokens cleared by this edit.
 
+            minimum: 0
+
           - `cleared_tool_uses: int`
 
             Number of tool uses that were cleared.
+
+            minimum: 0
 
           - `type: Literal["clear_tool_uses_20250919"]`
 
             The type of context management edit applied.
 
-            - `"clear_tool_uses_20250919"`
+            default: clear_tool_uses_20250919
 
         - `class BetaClearThinking20251015EditResponse: …`
 
@@ -25670,15 +26324,19 @@ print(beta_message_tokens_count.context_management)
 
             Number of input tokens cleared by this edit.
 
+            minimum: 0
+
           - `cleared_thinking_turns: int`
 
             Number of thinking turns that were cleared.
+
+            minimum: 0
 
           - `type: Literal["clear_thinking_20251015"]`
 
             The type of context management edit applied.
 
-            - `"clear_thinking_20251015"`
+            default: clear_thinking_20251015
 
     - `diagnostics: Optional[BetaDiagnostics]`
 
@@ -25697,7 +26355,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["model_changed"]`
 
-            - `"model_changed"`
+            default: model_changed
 
         - `class BetaCacheMissSystemChanged: …`
 
@@ -25707,7 +26365,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["system_changed"]`
 
-            - `"system_changed"`
+            default: system_changed
 
         - `class BetaCacheMissToolsChanged: …`
 
@@ -25717,7 +26375,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["tools_changed"]`
 
-            - `"tools_changed"`
+            default: tools_changed
 
         - `class BetaCacheMissMessagesChanged: …`
 
@@ -25727,19 +26385,19 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["messages_changed"]`
 
-            - `"messages_changed"`
+            default: messages_changed
 
         - `class BetaCacheMissPreviousMessageNotFound: …`
 
           - `type: Literal["previous_message_not_found"]`
 
-            - `"previous_message_not_found"`
+            default: previous_message_not_found
 
         - `class BetaCacheMissUnavailable: …`
 
           - `type: Literal["unavailable"]`
 
-            - `"unavailable"`
+            default: unavailable
 
     - `model: Model`
 
@@ -25753,7 +26411,7 @@ print(beta_message_tokens_count.context_management)
 
       This will always be `"assistant"`.
 
-      - `"assistant"`
+      default: assistant
 
     - `stop_details: Optional[BetaRefusalStopDetails]`
 
@@ -25840,7 +26498,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["refusal"]`
 
-        - `"refusal"`
+        default: refusal
 
     - `stop_reason: Optional[BetaStopReason]`
 
@@ -25886,7 +26544,7 @@ print(beta_message_tokens_count.context_management)
 
       For Messages, this is always `"message"`.
 
-      - `"message"`
+      default: message
 
     - `usage: BetaUsage`
 
@@ -25908,17 +26566,25 @@ print(beta_message_tokens_count.context_management)
 
           The number of input tokens used to create the 1 hour cache entry.
 
+          default: 0, minimum: 0
+
         - `ephemeral_5m_input_tokens: int`
 
           The number of input tokens used to create the 5 minute cache entry.
+
+          default: 0, minimum: 0
 
       - `cache_creation_input_tokens: Optional[int]`
 
         The number of input tokens used to create the cache entry.
 
+        minimum: 0
+
       - `cache_read_input_tokens: Optional[int]`
 
         The number of input tokens read from the cache.
+
+        minimum: 0
 
       - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
@@ -25940,7 +26606,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["redeemed"]`
 
-              - `"redeemed"`
+              default: redeemed
 
           - `class BetaFallbackCreditNotApplied: …`
 
@@ -25979,7 +26645,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["not_applied"]`
 
-              - `"not_applied"`
+              default: not_applied
 
             - `remove_to_redeem: Optional[List[str]]`
 
@@ -25999,6 +26665,8 @@ print(beta_message_tokens_count.context_management)
       - `input_tokens: int`
 
         The number of input tokens which were used.
+
+        minimum: 0
 
       - `iterations: Optional[BetaIterationsUsage]`
 
@@ -26022,13 +26690,19 @@ print(beta_message_tokens_count.context_management)
 
             The number of input tokens used to create the cache entry.
 
+            default: 0, minimum: 0
+
           - `cache_read_input_tokens: int`
 
             The number of input tokens read from the cache.
 
+            default: 0, minimum: 0
+
           - `input_tokens: int`
 
             The number of input tokens which were used.
+
+            minimum: 0
 
           - `model: Model`
 
@@ -26040,11 +26714,13 @@ print(beta_message_tokens_count.context_management)
 
             The number of output tokens which were used.
 
+            minimum: 0
+
           - `type: Literal["message"]`
 
             Usage for a sampling iteration
 
-            - `"message"`
+            default: message
 
         - `class BetaCompactionIterationUsage: …`
 
@@ -26058,23 +26734,31 @@ print(beta_message_tokens_count.context_management)
 
             The number of input tokens used to create the cache entry.
 
+            default: 0, minimum: 0
+
           - `cache_read_input_tokens: int`
 
             The number of input tokens read from the cache.
+
+            default: 0, minimum: 0
 
           - `input_tokens: int`
 
             The number of input tokens which were used.
 
+            minimum: 0
+
           - `output_tokens: int`
 
             The number of output tokens which were used.
+
+            minimum: 0
 
           - `type: Literal["compaction"]`
 
             Usage for a compaction iteration
 
-            - `"compaction"`
+            default: compaction
 
         - `class BetaAdvisorMessageIterationUsage: …`
 
@@ -26088,13 +26772,19 @@ print(beta_message_tokens_count.context_management)
 
             The number of input tokens used to create the cache entry.
 
+            default: 0, minimum: 0
+
           - `cache_read_input_tokens: int`
 
             The number of input tokens read from the cache.
 
+            default: 0, minimum: 0
+
           - `input_tokens: int`
 
             The number of input tokens which were used.
+
+            minimum: 0
 
           - `model: Model`
 
@@ -26106,11 +26796,13 @@ print(beta_message_tokens_count.context_management)
 
             The number of output tokens which were used.
 
+            minimum: 0
+
           - `type: Literal["advisor_message"]`
 
             Usage for an advisor sub-inference iteration
 
-            - `"advisor_message"`
+            default: advisor_message
 
         - `class BetaFallbackMessageIterationUsage: …`
 
@@ -26129,13 +26821,19 @@ print(beta_message_tokens_count.context_management)
 
             The number of input tokens used to create the cache entry.
 
+            default: 0, minimum: 0
+
           - `cache_read_input_tokens: int`
 
             The number of input tokens read from the cache.
 
+            default: 0, minimum: 0
+
           - `input_tokens: int`
 
             The number of input tokens which were used.
+
+            minimum: 0
 
           - `model: Model`
 
@@ -26147,15 +26845,19 @@ print(beta_message_tokens_count.context_management)
 
             The number of output tokens which were used.
 
+            minimum: 0
+
           - `type: Literal["fallback_message"]`
 
             Usage for the fallback-model attempt that served the response
 
-            - `"fallback_message"`
+            default: fallback_message
 
       - `output_tokens: int`
 
         The number of output tokens which were used.
+
+        minimum: 0
 
       - `output_tokens_details: Optional[BetaOutputTokensDetails]`
 
@@ -26177,6 +26879,8 @@ print(beta_message_tokens_count.context_management)
           generation count by a small number of tokens. Always ≤ `output_tokens`;
           `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+          default: 0, minimum: 0
+
       - `server_tool_use: Optional[BetaServerToolUsage]`
 
         The number of server tool requests.
@@ -26185,9 +26889,13 @@ print(beta_message_tokens_count.context_management)
 
           The number of web fetch tool requests.
 
+          default: 0, minimum: 0
+
         - `web_search_requests: int`
 
           The number of web search tool requests.
+
+          default: 0, minimum: 0
 
       - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
 
@@ -26209,7 +26917,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["message_start"]`
 
-    - `"message_start"`
+    default: message_start
 
 ### Beta Raw Message Stop Event
 
@@ -26217,7 +26925,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["message_stop"]`
 
-    - `"message_stop"`
+    default: message_stop
 
 ### Beta Raw Message Stream Event
 
@@ -26245,6 +26953,8 @@ print(beta_message_tokens_count.context_management)
 
           The time at which the container will expire.
 
+          format: date-time
+
         - `skills: Optional[List[BetaSkill]]`
 
           Skills loaded in the container
@@ -26252,6 +26962,8 @@ print(beta_message_tokens_count.context_management)
           - `skill_id: str`
 
             Skill ID
+
+            maxLength: 64, minLength: 1
 
           - `type: Literal["anthropic", "custom"]`
 
@@ -26264,6 +26976,8 @@ print(beta_message_tokens_count.context_management)
           - `version: str`
 
             The resolved version: a skill version ID for custom skills.
+
+            maxLength: 64, minLength: 1
 
       - `content: List[BetaContentBlock]`
 
@@ -26308,6 +27022,8 @@ print(beta_message_tokens_count.context_management)
 
               - `document_index: int`
 
+                minimum: 0
+
               - `document_title: Optional[str]`
 
               - `end_char_index: int`
@@ -26316,15 +27032,19 @@ print(beta_message_tokens_count.context_management)
 
               - `start_char_index: int`
 
+                minimum: 0
+
               - `type: Literal["char_location"]`
 
-                - `"char_location"`
+                default: char_location
 
             - `class BetaCitationPageLocation: …`
 
               - `cited_text: str`
 
               - `document_index: int`
+
+                minimum: 0
 
               - `document_title: Optional[str]`
 
@@ -26334,9 +27054,11 @@ print(beta_message_tokens_count.context_management)
 
               - `start_page_number: int`
 
+                minimum: 1
+
               - `type: Literal["page_location"]`
 
-                - `"page_location"`
+                default: page_location
 
             - `class BetaCitationContentBlockLocation: …`
 
@@ -26347,6 +27069,8 @@ print(beta_message_tokens_count.context_management)
                 Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
               - `document_index: int`
+
+                minimum: 0
 
               - `document_title: Optional[str]`
 
@@ -26362,9 +27086,11 @@ print(beta_message_tokens_count.context_management)
 
                 0-based index of the first cited block in the source's `content` array.
 
+                minimum: 0
+
               - `type: Literal["content_block_location"]`
 
-                - `"content_block_location"`
+                default: content_block_location
 
             - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -26374,9 +27100,11 @@ print(beta_message_tokens_count.context_management)
 
               - `title: Optional[str]`
 
+                maxLength: 512
+
               - `type: Literal["web_search_result_location"]`
 
-                - `"web_search_result_location"`
+                default: web_search_result_location
 
               - `url: str`
 
@@ -26400,23 +27128,29 @@ print(beta_message_tokens_count.context_management)
 
                 Counted separately from `document_index`; server-side web search results are not included in this count.
 
+                minimum: 0
+
               - `source: str`
 
               - `start_block_index: int`
 
                 0-based index of the first cited block in the source's `content` array.
 
+                minimum: 0
+
               - `title: Optional[str]`
 
               - `type: Literal["search_result_location"]`
 
-                - `"search_result_location"`
+                default: search_result_location
 
           - `text: str`
 
+            maxLength: 5000000, minLength: 0
+
           - `type: Literal["text"]`
 
-            - `"text"`
+            default: text
 
         - `class BetaThinkingBlock: …`
 
@@ -26434,7 +27168,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["thinking"]`
 
-            - `"thinking"`
+            default: thinking
 
         - `class BetaRedactedThinkingBlock: …`
 
@@ -26448,19 +27182,23 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["redacted_thinking"]`
 
-            - `"redacted_thinking"`
+            default: redacted_thinking
 
         - `class BetaToolUseBlock: …`
 
           - `id: str`
 
+            pattern: ^[a-zA-Z0-9_-]+$
+
           - `input: Dict[str, object]`
 
           - `name: str`
 
+            minLength: 1
+
           - `type: Literal["tool_use"]`
 
-            - `"tool_use"`
+            default: tool_use
 
           - `caller: Optional[Caller]`
 
@@ -26472,33 +27210,35 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["direct"]`
 
-                - `"direct"`
-
             - `class BetaServerToolCaller: …`
 
               Tool invocation generated by a server-side tool.
 
               - `tool_id: str`
 
-              - `type: Literal["code_execution_20250825"]`
+                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `"code_execution_20250825"`
+              - `type: Literal["code_execution_20250825"]`
 
             - `class BetaServerToolCaller20260120: …`
 
               - `tool_id: str`
 
-              - `type: Literal["code_execution_20260120"]`
+                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `"code_execution_20260120"`
+              - `type: Literal["code_execution_20260120"]`
 
           - `toolset_name: Optional[str]`
 
             For a toolset member tool_use, the toolset family.
 
+            maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
         - `class BetaServerToolUseBlock: …`
 
           - `id: str`
+
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
           - `input: Dict[str, object]`
 
@@ -26522,7 +27262,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["server_tool_use"]`
 
-            - `"server_tool_use"`
+            default: server_tool_use
 
           - `caller: Optional[Caller]`
 
@@ -26560,7 +27300,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["web_search_tool_result_error"]`
 
-                - `"web_search_tool_result_error"`
+                default: web_search_tool_result_error
 
             - `List[BetaWebSearchResultBlock]`
 
@@ -26572,15 +27312,17 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["web_search_result"]`
 
-                - `"web_search_result"`
+                default: web_search_result
 
               - `url: str`
 
           - `tool_use_id: str`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `type: Literal["web_search_tool_result"]`
 
-            - `"web_search_tool_result"`
+            default: web_search_tool_result
 
           - `caller: Optional[Caller]`
 
@@ -26624,7 +27366,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["web_fetch_tool_result_error"]`
 
-                - `"web_fetch_tool_result_error"`
+                default: web_fetch_tool_result_error
 
             - `class BetaWebFetchBlock: …`
 
@@ -26636,19 +27378,19 @@ print(beta_message_tokens_count.context_management)
 
                   - `enabled: bool`
 
+                    default: false
+
                 - `source: Source`
 
                   - `class BetaBase64PDFSource: …`
 
                     - `data: str`
 
+                      format: byte
+
                     - `media_type: Literal["application/pdf"]`
 
-                      - `"application/pdf"`
-
                     - `type: Literal["base64"]`
-
-                      - `"base64"`
 
                   - `class BetaPlainTextSource: …`
 
@@ -26656,11 +27398,7 @@ print(beta_message_tokens_count.context_management)
 
                     - `media_type: Literal["text/plain"]`
 
-                      - `"text/plain"`
-
                     - `type: Literal["text"]`
-
-                      - `"text"`
 
                 - `title: Optional[str]`
 
@@ -26668,7 +27406,7 @@ print(beta_message_tokens_count.context_management)
 
                 - `type: Literal["document"]`
 
-                  - `"document"`
+                  default: document
 
               - `retrieved_at: Optional[str]`
 
@@ -26676,7 +27414,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["web_fetch_result"]`
 
-                - `"web_fetch_result"`
+                default: web_fetch_result
 
               - `url: str`
 
@@ -26684,9 +27422,11 @@ print(beta_message_tokens_count.context_management)
 
           - `tool_use_id: str`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `type: Literal["web_fetch_tool_result"]`
 
-            - `"web_fetch_tool_result"`
+            default: web_fetch_tool_result
 
           - `caller: Optional[Caller]`
 
@@ -26726,7 +27466,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["advisor_tool_result_error"]`
 
-                - `"advisor_tool_result_error"`
+                default: advisor_tool_result_error
 
             - `class BetaAdvisorResultBlock: …`
 
@@ -26738,7 +27478,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["advisor_result"]`
 
-                - `"advisor_result"`
+                default: advisor_result
 
             - `class BetaAdvisorRedactedResultBlock: …`
 
@@ -26752,13 +27492,15 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["advisor_redacted_result"]`
 
-                - `"advisor_redacted_result"`
+                default: advisor_redacted_result
 
           - `tool_use_id: str`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `type: Literal["advisor_tool_result"]`
 
-            - `"advisor_tool_result"`
+            default: advisor_tool_result
 
         - `class BetaCodeExecutionToolResultBlock: …`
 
@@ -26780,7 +27522,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["code_execution_tool_result_error"]`
 
-                - `"code_execution_tool_result_error"`
+                default: code_execution_tool_result_error
 
             - `class BetaCodeExecutionResultBlock: …`
 
@@ -26790,7 +27532,7 @@ print(beta_message_tokens_count.context_management)
 
                 - `type: Literal["code_execution_output"]`
 
-                  - `"code_execution_output"`
+                  default: code_execution_output
 
               - `return_code: int`
 
@@ -26800,7 +27542,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["code_execution_result"]`
 
-                - `"code_execution_result"`
+                default: code_execution_result
 
             - `class BetaEncryptedCodeExecutionResultBlock: …`
 
@@ -26812,6 +27554,8 @@ print(beta_message_tokens_count.context_management)
 
                 - `type: Literal["code_execution_output"]`
 
+                  default: code_execution_output
+
               - `encrypted_stdout: str`
 
               - `return_code: int`
@@ -26820,13 +27564,15 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["encrypted_code_execution_result"]`
 
-                - `"encrypted_code_execution_result"`
+                default: encrypted_code_execution_result
 
           - `tool_use_id: str`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `type: Literal["code_execution_tool_result"]`
 
-            - `"code_execution_tool_result"`
+            default: code_execution_tool_result
 
         - `class BetaBashCodeExecutionToolResultBlock: …`
 
@@ -26848,7 +27594,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["bash_code_execution_tool_result_error"]`
 
-                - `"bash_code_execution_tool_result_error"`
+                default: bash_code_execution_tool_result_error
 
             - `class BetaBashCodeExecutionResultBlock: …`
 
@@ -26858,7 +27604,7 @@ print(beta_message_tokens_count.context_management)
 
                 - `type: Literal["bash_code_execution_output"]`
 
-                  - `"bash_code_execution_output"`
+                  default: bash_code_execution_output
 
               - `return_code: int`
 
@@ -26868,13 +27614,15 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["bash_code_execution_result"]`
 
-                - `"bash_code_execution_result"`
+                default: bash_code_execution_result
 
           - `tool_use_id: str`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `type: Literal["bash_code_execution_tool_result"]`
 
-            - `"bash_code_execution_tool_result"`
+            default: bash_code_execution_tool_result
 
         - `class BetaTextEditorCodeExecutionToolResultBlock: …`
 
@@ -26898,7 +27646,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-                - `"text_editor_code_execution_tool_result_error"`
+                default: text_editor_code_execution_tool_result_error
 
             - `class BetaTextEditorCodeExecutionViewResultBlock: …`
 
@@ -26920,7 +27668,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["text_editor_code_execution_view_result"]`
 
-                - `"text_editor_code_execution_view_result"`
+                default: text_editor_code_execution_view_result
 
             - `class BetaTextEditorCodeExecutionCreateResultBlock: …`
 
@@ -26928,7 +27676,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["text_editor_code_execution_create_result"]`
 
-                - `"text_editor_code_execution_create_result"`
+                default: text_editor_code_execution_create_result
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlock: …`
 
@@ -26944,13 +27692,15 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
-                - `"text_editor_code_execution_str_replace_result"`
+                default: text_editor_code_execution_str_replace_result
 
           - `tool_use_id: str`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `type: Literal["text_editor_code_execution_tool_result"]`
 
-            - `"text_editor_code_execution_tool_result"`
+            default: text_editor_code_execution_tool_result
 
         - `class BetaToolSearchToolResultBlock: …`
 
@@ -26972,7 +27722,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["tool_search_tool_result_error"]`
 
-                - `"tool_search_tool_result_error"`
+                default: tool_search_tool_result_error
 
             - `class BetaToolSearchToolSearchResultBlock: …`
 
@@ -26980,23 +27730,29 @@ print(beta_message_tokens_count.context_management)
 
                 - `tool_name: str`
 
+                  maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
                 - `type: Literal["tool_reference"]`
 
-                  - `"tool_reference"`
+                  default: tool_reference
 
               - `type: Literal["tool_search_tool_search_result"]`
 
-                - `"tool_search_tool_search_result"`
+                default: tool_search_tool_search_result
 
           - `tool_use_id: str`
 
+            pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
           - `type: Literal["tool_search_tool_result"]`
 
-            - `"tool_search_tool_result"`
+            default: tool_search_tool_result
 
         - `class BetaMCPToolUseBlock: …`
 
           - `id: str`
+
+            pattern: ^[a-zA-Z0-9_-]+$
 
           - `input: Dict[str, object]`
 
@@ -27010,7 +27766,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["mcp_tool_use"]`
 
-            - `"mcp_tool_use"`
+            default: mcp_tool_use
 
         - `class BetaMCPToolResultBlock: …`
 
@@ -27028,15 +27784,23 @@ print(beta_message_tokens_count.context_management)
 
               - `text: str`
 
+                maxLength: 5000000, minLength: 0
+
               - `type: Literal["text"]`
+
+                default: text
 
           - `is_error: bool`
 
+            default: false
+
           - `tool_use_id: str`
+
+            pattern: ^[a-zA-Z0-9_-]+$
 
           - `type: Literal["mcp_tool_result"]`
 
-            - `"mcp_tool_result"`
+            default: mcp_tool_result
 
         - `class BetaContainerUploadBlock: …`
 
@@ -27046,7 +27810,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["container_upload"]`
 
-            - `"container_upload"`
+            default: container_upload
 
         - `class BetaCompactionBlock: …`
 
@@ -27066,7 +27830,7 @@ print(beta_message_tokens_count.context_management)
 
           - `type: Literal["compaction"]`
 
-            - `"compaction"`
+            default: compaction
 
         - `class BetaFallbackBlock: …`
 
@@ -27210,11 +27974,11 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["refusal"]`
 
-              - `"refusal"`
+              default: refusal
 
           - `type: Literal["fallback"]`
 
-            - `"fallback"`
+            default: fallback
 
       - `context_management: Optional[BetaContextManagementResponse]`
 
@@ -27232,15 +27996,19 @@ print(beta_message_tokens_count.context_management)
 
               Number of input tokens cleared by this edit.
 
+              minimum: 0
+
             - `cleared_tool_uses: int`
 
               Number of tool uses that were cleared.
+
+              minimum: 0
 
             - `type: Literal["clear_tool_uses_20250919"]`
 
               The type of context management edit applied.
 
-              - `"clear_tool_uses_20250919"`
+              default: clear_tool_uses_20250919
 
           - `class BetaClearThinking20251015EditResponse: …`
 
@@ -27248,15 +28016,19 @@ print(beta_message_tokens_count.context_management)
 
               Number of input tokens cleared by this edit.
 
+              minimum: 0
+
             - `cleared_thinking_turns: int`
 
               Number of thinking turns that were cleared.
+
+              minimum: 0
 
             - `type: Literal["clear_thinking_20251015"]`
 
               The type of context management edit applied.
 
-              - `"clear_thinking_20251015"`
+              default: clear_thinking_20251015
 
       - `diagnostics: Optional[BetaDiagnostics]`
 
@@ -27275,7 +28047,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["model_changed"]`
 
-              - `"model_changed"`
+              default: model_changed
 
           - `class BetaCacheMissSystemChanged: …`
 
@@ -27285,7 +28057,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["system_changed"]`
 
-              - `"system_changed"`
+              default: system_changed
 
           - `class BetaCacheMissToolsChanged: …`
 
@@ -27295,7 +28067,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["tools_changed"]`
 
-              - `"tools_changed"`
+              default: tools_changed
 
           - `class BetaCacheMissMessagesChanged: …`
 
@@ -27305,19 +28077,19 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["messages_changed"]`
 
-              - `"messages_changed"`
+              default: messages_changed
 
           - `class BetaCacheMissPreviousMessageNotFound: …`
 
             - `type: Literal["previous_message_not_found"]`
 
-              - `"previous_message_not_found"`
+              default: previous_message_not_found
 
           - `class BetaCacheMissUnavailable: …`
 
             - `type: Literal["unavailable"]`
 
-              - `"unavailable"`
+              default: unavailable
 
       - `model: Model`
 
@@ -27331,7 +28103,7 @@ print(beta_message_tokens_count.context_management)
 
         This will always be `"assistant"`.
 
-        - `"assistant"`
+        default: assistant
 
       - `stop_details: Optional[BetaRefusalStopDetails]`
 
@@ -27418,7 +28190,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["refusal"]`
 
-          - `"refusal"`
+          default: refusal
 
       - `stop_reason: Optional[BetaStopReason]`
 
@@ -27464,7 +28236,7 @@ print(beta_message_tokens_count.context_management)
 
         For Messages, this is always `"message"`.
 
-        - `"message"`
+        default: message
 
       - `usage: BetaUsage`
 
@@ -27486,17 +28258,25 @@ print(beta_message_tokens_count.context_management)
 
             The number of input tokens used to create the 1 hour cache entry.
 
+            default: 0, minimum: 0
+
           - `ephemeral_5m_input_tokens: int`
 
             The number of input tokens used to create the 5 minute cache entry.
+
+            default: 0, minimum: 0
 
         - `cache_creation_input_tokens: Optional[int]`
 
           The number of input tokens used to create the cache entry.
 
+          minimum: 0
+
         - `cache_read_input_tokens: Optional[int]`
 
           The number of input tokens read from the cache.
+
+          minimum: 0
 
         - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
@@ -27518,7 +28298,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["redeemed"]`
 
-                - `"redeemed"`
+                default: redeemed
 
             - `class BetaFallbackCreditNotApplied: …`
 
@@ -27557,7 +28337,7 @@ print(beta_message_tokens_count.context_management)
 
               - `type: Literal["not_applied"]`
 
-                - `"not_applied"`
+                default: not_applied
 
               - `remove_to_redeem: Optional[List[str]]`
 
@@ -27577,6 +28357,8 @@ print(beta_message_tokens_count.context_management)
         - `input_tokens: int`
 
           The number of input tokens which were used.
+
+          minimum: 0
 
         - `iterations: Optional[BetaIterationsUsage]`
 
@@ -27600,13 +28382,19 @@ print(beta_message_tokens_count.context_management)
 
               The number of input tokens used to create the cache entry.
 
+              default: 0, minimum: 0
+
             - `cache_read_input_tokens: int`
 
               The number of input tokens read from the cache.
 
+              default: 0, minimum: 0
+
             - `input_tokens: int`
 
               The number of input tokens which were used.
+
+              minimum: 0
 
             - `model: Model`
 
@@ -27618,11 +28406,13 @@ print(beta_message_tokens_count.context_management)
 
               The number of output tokens which were used.
 
+              minimum: 0
+
             - `type: Literal["message"]`
 
               Usage for a sampling iteration
 
-              - `"message"`
+              default: message
 
           - `class BetaCompactionIterationUsage: …`
 
@@ -27636,23 +28426,31 @@ print(beta_message_tokens_count.context_management)
 
               The number of input tokens used to create the cache entry.
 
+              default: 0, minimum: 0
+
             - `cache_read_input_tokens: int`
 
               The number of input tokens read from the cache.
+
+              default: 0, minimum: 0
 
             - `input_tokens: int`
 
               The number of input tokens which were used.
 
+              minimum: 0
+
             - `output_tokens: int`
 
               The number of output tokens which were used.
+
+              minimum: 0
 
             - `type: Literal["compaction"]`
 
               Usage for a compaction iteration
 
-              - `"compaction"`
+              default: compaction
 
           - `class BetaAdvisorMessageIterationUsage: …`
 
@@ -27666,13 +28464,19 @@ print(beta_message_tokens_count.context_management)
 
               The number of input tokens used to create the cache entry.
 
+              default: 0, minimum: 0
+
             - `cache_read_input_tokens: int`
 
               The number of input tokens read from the cache.
 
+              default: 0, minimum: 0
+
             - `input_tokens: int`
 
               The number of input tokens which were used.
+
+              minimum: 0
 
             - `model: Model`
 
@@ -27684,11 +28488,13 @@ print(beta_message_tokens_count.context_management)
 
               The number of output tokens which were used.
 
+              minimum: 0
+
             - `type: Literal["advisor_message"]`
 
               Usage for an advisor sub-inference iteration
 
-              - `"advisor_message"`
+              default: advisor_message
 
           - `class BetaFallbackMessageIterationUsage: …`
 
@@ -27707,13 +28513,19 @@ print(beta_message_tokens_count.context_management)
 
               The number of input tokens used to create the cache entry.
 
+              default: 0, minimum: 0
+
             - `cache_read_input_tokens: int`
 
               The number of input tokens read from the cache.
 
+              default: 0, minimum: 0
+
             - `input_tokens: int`
 
               The number of input tokens which were used.
+
+              minimum: 0
 
             - `model: Model`
 
@@ -27725,15 +28537,19 @@ print(beta_message_tokens_count.context_management)
 
               The number of output tokens which were used.
 
+              minimum: 0
+
             - `type: Literal["fallback_message"]`
 
               Usage for the fallback-model attempt that served the response
 
-              - `"fallback_message"`
+              default: fallback_message
 
         - `output_tokens: int`
 
           The number of output tokens which were used.
+
+          minimum: 0
 
         - `output_tokens_details: Optional[BetaOutputTokensDetails]`
 
@@ -27755,6 +28571,8 @@ print(beta_message_tokens_count.context_management)
             generation count by a small number of tokens. Always ≤ `output_tokens`;
             `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+            default: 0, minimum: 0
+
         - `server_tool_use: Optional[BetaServerToolUsage]`
 
           The number of server tool requests.
@@ -27763,9 +28581,13 @@ print(beta_message_tokens_count.context_management)
 
             The number of web fetch tool requests.
 
+            default: 0, minimum: 0
+
           - `web_search_requests: int`
 
             The number of web search tool requests.
+
+            default: 0, minimum: 0
 
         - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
 
@@ -27787,7 +28609,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["message_start"]`
 
-      - `"message_start"`
+      default: message_start
 
   - `class BetaRawMessageDeltaEvent: …`
 
@@ -27811,7 +28633,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["message_delta"]`
 
-      - `"message_delta"`
+      default: message_delta
 
     - `usage: BetaMessageDeltaUsage`
 
@@ -27829,9 +28651,13 @@ print(beta_message_tokens_count.context_management)
 
         The cumulative number of input tokens used to create the cache entry.
 
+        minimum: 0
+
       - `cache_read_input_tokens: Optional[int]`
 
         The cumulative number of input tokens read from the cache.
+
+        minimum: 0
 
       - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
@@ -27840,6 +28666,8 @@ print(beta_message_tokens_count.context_management)
       - `input_tokens: Optional[int]`
 
         The cumulative number of input tokens which were used.
+
+        minimum: 0
 
       - `iterations: Optional[BetaIterationsUsage]`
 
@@ -27872,7 +28700,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["message_stop"]`
 
-      - `"message_stop"`
+      default: message_stop
 
   - `class BetaRawContentBlockStartEvent: …`
 
@@ -27938,7 +28766,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["content_block_start"]`
 
-      - `"content_block_start"`
+      default: content_block_start
 
   - `class BetaRawContentBlockDeltaEvent: …`
 
@@ -27950,7 +28778,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["text_delta"]`
 
-          - `"text_delta"`
+          default: text_delta
 
       - `class BetaInputJSONDelta: …`
 
@@ -27958,7 +28786,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["input_json_delta"]`
 
-          - `"input_json_delta"`
+          default: input_json_delta
 
       - `class BetaCitationsDelta: …`
 
@@ -27976,7 +28804,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["citations_delta"]`
 
-          - `"citations_delta"`
+          default: citations_delta
 
       - `class BetaThinkingDelta: …`
 
@@ -27990,7 +28818,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["thinking_delta"]`
 
-          - `"thinking_delta"`
+          default: thinking_delta
 
       - `class BetaSignatureDelta: …`
 
@@ -28000,7 +28828,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["signature_delta"]`
 
-          - `"signature_delta"`
+          default: signature_delta
 
       - `class BetaCompactionContentBlockDelta: …`
 
@@ -28012,13 +28840,13 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["compaction_delta"]`
 
-          - `"compaction_delta"`
+          default: compaction_delta
 
     - `index: int`
 
     - `type: Literal["content_block_delta"]`
 
-      - `"content_block_delta"`
+      default: content_block_delta
 
   - `class BetaRawContentBlockStopEvent: …`
 
@@ -28026,7 +28854,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["content_block_stop"]`
 
-      - `"content_block_stop"`
+      default: content_block_stop
 
 ### Beta Redacted Thinking Block
 
@@ -28042,7 +28870,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["redacted_thinking"]`
 
-    - `"redacted_thinking"`
+    default: redacted_thinking
 
 ### Beta Redacted Thinking Block Param
 
@@ -28053,8 +28881,6 @@ print(beta_message_tokens_count.context_management)
     The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
   - `type: Literal["redacted_thinking"]`
-
-    - `"redacted_thinking"`
 
 ### Beta Refusal Stop Details
 
@@ -28143,7 +28969,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["refusal"]`
 
-    - `"refusal"`
+    default: refusal
 
 ### Beta Request Document Block
 
@@ -28155,13 +28981,11 @@ print(beta_message_tokens_count.context_management)
 
       - `data: str`
 
+        format: byte
+
       - `media_type: Literal["application/pdf"]`
 
-        - `"application/pdf"`
-
       - `type: Literal["base64"]`
-
-        - `"base64"`
 
     - `class BetaPlainTextSource: …`
 
@@ -28169,11 +28993,7 @@ print(beta_message_tokens_count.context_management)
 
       - `media_type: Literal["text/plain"]`
 
-        - `"text/plain"`
-
       - `type: Literal["text"]`
-
-        - `"text"`
 
     - `class BetaContentBlockSource: …`
 
@@ -28187,17 +29007,15 @@ print(beta_message_tokens_count.context_management)
 
             - `text: str`
 
-            - `type: Literal["text"]`
+              minLength: 1
 
-              - `"text"`
+            - `type: Literal["text"]`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
               Create a cache control breakpoint at this content block.
 
               - `type: Literal["ephemeral"]`
-
-                - `"ephemeral"`
 
               - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -28222,15 +29040,19 @@ print(beta_message_tokens_count.context_management)
 
                 - `document_index: int`
 
+                  minimum: 0
+
                 - `document_title: Optional[str]`
+
+                  maxLength: 500, minLength: 1
 
                 - `end_char_index: int`
 
                 - `start_char_index: int`
 
-                - `type: Literal["char_location"]`
+                  minimum: 0
 
-                  - `"char_location"`
+                - `type: Literal["char_location"]`
 
               - `class BetaCitationPageLocationParam: …`
 
@@ -28238,15 +29060,19 @@ print(beta_message_tokens_count.context_management)
 
                 - `document_index: int`
 
+                  minimum: 0
+
                 - `document_title: Optional[str]`
+
+                  maxLength: 500, minLength: 1
 
                 - `end_page_number: int`
 
                 - `start_page_number: int`
 
-                - `type: Literal["page_location"]`
+                  minimum: 1
 
-                  - `"page_location"`
+                - `type: Literal["page_location"]`
 
               - `class BetaCitationContentBlockLocationParam: …`
 
@@ -28258,7 +29084,11 @@ print(beta_message_tokens_count.context_management)
 
                 - `document_index: int`
 
+                  minimum: 0
+
                 - `document_title: Optional[str]`
+
+                  maxLength: 500, minLength: 1
 
                 - `end_block_index: int`
 
@@ -28270,9 +29100,9 @@ print(beta_message_tokens_count.context_management)
 
                   0-based index of the first cited block in the source's `content` array.
 
-                - `type: Literal["content_block_location"]`
+                  minimum: 0
 
-                  - `"content_block_location"`
+                - `type: Literal["content_block_location"]`
 
               - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -28282,11 +29112,13 @@ print(beta_message_tokens_count.context_management)
 
                 - `title: Optional[str]`
 
+                  maxLength: 512, minLength: 1
+
                 - `type: Literal["web_search_result_location"]`
 
-                  - `"web_search_result_location"`
-
                 - `url: str`
+
+                  minLength: 1
 
               - `class BetaCitationSearchResultLocationParam: …`
 
@@ -28308,17 +29140,19 @@ print(beta_message_tokens_count.context_management)
 
                   Counted separately from `document_index`; server-side web search results are not included in this count.
 
+                  minimum: 0
+
                 - `source: str`
 
                 - `start_block_index: int`
 
                   0-based index of the first cited block in the source's `content` array.
 
+                  minimum: 0
+
                 - `title: Optional[str]`
 
                 - `type: Literal["search_result_location"]`
-
-                  - `"search_result_location"`
 
           - `class BetaImageBlockParam: …`
 
@@ -28327,6 +29161,8 @@ print(beta_message_tokens_count.context_management)
               - `class BetaBase64ImageSource: …`
 
                 - `data: str`
+
+                  format: byte
 
                 - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -28340,13 +29176,9 @@ print(beta_message_tokens_count.context_management)
 
                 - `type: Literal["base64"]`
 
-                  - `"base64"`
-
               - `class BetaURLImageSource: …`
 
                 - `type: Literal["url"]`
-
-                  - `"url"`
 
                 - `url: str`
 
@@ -28356,11 +29188,7 @@ print(beta_message_tokens_count.context_management)
 
                 - `type: Literal["file"]`
 
-                  - `"file"`
-
             - `type: Literal["image"]`
-
-              - `"image"`
 
             - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -28380,13 +29208,9 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["content"]`
 
-        - `"content"`
-
     - `class BetaURLPDFSource: …`
 
       - `type: Literal["url"]`
-
-        - `"url"`
 
       - `url: str`
 
@@ -28396,11 +29220,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["file"]`
 
-        - `"file"`
-
   - `type: Literal["document"]`
-
-    - `"document"`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -28412,7 +29232,11 @@ print(beta_message_tokens_count.context_management)
 
   - `context: Optional[str]`
 
+    minLength: 1
+
   - `title: Optional[str]`
+
+    maxLength: 500, minLength: 1
 
 ### Beta Request MCP Server Tool Configuration
 
@@ -28430,8 +29254,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["url"]`
 
-    - `"url"`
-
   - `url: str`
 
   - `authorization_token: Optional[str]`
@@ -28448,17 +29270,15 @@ print(beta_message_tokens_count.context_management)
 
   - `tool_use_id: str`
 
-  - `type: Literal["mcp_tool_result"]`
+    pattern: ^[a-zA-Z0-9_-]+$
 
-    - `"mcp_tool_result"`
+  - `type: Literal["mcp_tool_result"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -28483,9 +29303,9 @@ print(beta_message_tokens_count.context_management)
 
       - `text: str`
 
-      - `type: Literal["text"]`
+        minLength: 1
 
-        - `"text"`
+      - `type: Literal["text"]`
 
       - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -28499,15 +29319,19 @@ print(beta_message_tokens_count.context_management)
 
           - `document_index: int`
 
+            minimum: 0
+
           - `document_title: Optional[str]`
+
+            maxLength: 500, minLength: 1
 
           - `end_char_index: int`
 
           - `start_char_index: int`
 
-          - `type: Literal["char_location"]`
+            minimum: 0
 
-            - `"char_location"`
+          - `type: Literal["char_location"]`
 
         - `class BetaCitationPageLocationParam: …`
 
@@ -28515,15 +29339,19 @@ print(beta_message_tokens_count.context_management)
 
           - `document_index: int`
 
+            minimum: 0
+
           - `document_title: Optional[str]`
+
+            maxLength: 500, minLength: 1
 
           - `end_page_number: int`
 
           - `start_page_number: int`
 
-          - `type: Literal["page_location"]`
+            minimum: 1
 
-            - `"page_location"`
+          - `type: Literal["page_location"]`
 
         - `class BetaCitationContentBlockLocationParam: …`
 
@@ -28535,7 +29363,11 @@ print(beta_message_tokens_count.context_management)
 
           - `document_index: int`
 
+            minimum: 0
+
           - `document_title: Optional[str]`
+
+            maxLength: 500, minLength: 1
 
           - `end_block_index: int`
 
@@ -28547,9 +29379,9 @@ print(beta_message_tokens_count.context_management)
 
             0-based index of the first cited block in the source's `content` array.
 
-          - `type: Literal["content_block_location"]`
+            minimum: 0
 
-            - `"content_block_location"`
+          - `type: Literal["content_block_location"]`
 
         - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -28559,11 +29391,13 @@ print(beta_message_tokens_count.context_management)
 
           - `title: Optional[str]`
 
+            maxLength: 512, minLength: 1
+
           - `type: Literal["web_search_result_location"]`
 
-            - `"web_search_result_location"`
-
           - `url: str`
+
+            minLength: 1
 
         - `class BetaCitationSearchResultLocationParam: …`
 
@@ -28585,17 +29419,19 @@ print(beta_message_tokens_count.context_management)
 
             Counted separately from `document_index`; server-side web search results are not included in this count.
 
+            minimum: 0
+
           - `source: str`
 
           - `start_block_index: int`
 
             0-based index of the first cited block in the source's `content` array.
 
+            minimum: 0
+
           - `title: Optional[str]`
 
           - `type: Literal["search_result_location"]`
-
-            - `"search_result_location"`
 
   - `is_error: Optional[bool]`
 
@@ -28625,9 +29461,9 @@ print(beta_message_tokens_count.context_management)
 
       - `name: str`
 
-      - `type: Literal["tool_reference"]`
+        pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-        - `"tool_reference"`
+      - `type: Literal["tool_reference"]`
 
     - `class BetaToolChangeMCPToolReference: …`
 
@@ -28640,8 +29476,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["mcp_tool_reference"]`
 
-        - `"mcp_tool_reference"`
-
     - `class BetaToolChangeMCPToolsetReference: …`
 
       Reference to every tool in the named MCP server's toolset.
@@ -28650,19 +29484,13 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["mcp_toolset_reference"]`
 
-        - `"mcp_toolset_reference"`
-
   - `type: Literal["tool_addition"]`
-
-    - `"tool_addition"`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -28705,9 +29533,9 @@ print(beta_message_tokens_count.context_management)
 
       - `name: str`
 
-      - `type: Literal["tool_reference"]`
+        pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-        - `"tool_reference"`
+      - `type: Literal["tool_reference"]`
 
     - `class BetaToolChangeMCPToolReference: …`
 
@@ -28720,8 +29548,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["mcp_tool_reference"]`
 
-        - `"mcp_tool_reference"`
-
     - `class BetaToolChangeMCPToolsetReference: …`
 
       Reference to every tool in the named MCP server's toolset.
@@ -28730,19 +29556,13 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["mcp_toolset_reference"]`
 
-        - `"mcp_toolset_reference"`
-
   - `type: Literal["tool_removal"]`
-
-    - `"tool_removal"`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -28767,17 +29587,15 @@ print(beta_message_tokens_count.context_management)
 
     - `text: str`
 
-    - `type: Literal["text"]`
+      minLength: 1
 
-      - `"text"`
+    - `type: Literal["text"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
 
       - `type: Literal["ephemeral"]`
-
-        - `"ephemeral"`
 
       - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -28802,15 +29620,19 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_char_index: int`
 
         - `start_char_index: int`
 
-        - `type: Literal["char_location"]`
+          minimum: 0
 
-          - `"char_location"`
+        - `type: Literal["char_location"]`
 
       - `class BetaCitationPageLocationParam: …`
 
@@ -28818,15 +29640,19 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_page_number: int`
 
         - `start_page_number: int`
 
-        - `type: Literal["page_location"]`
+          minimum: 1
 
-          - `"page_location"`
+        - `type: Literal["page_location"]`
 
       - `class BetaCitationContentBlockLocationParam: …`
 
@@ -28838,7 +29664,11 @@ print(beta_message_tokens_count.context_management)
 
         - `document_index: int`
 
+          minimum: 0
+
         - `document_title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
         - `end_block_index: int`
 
@@ -28850,9 +29680,9 @@ print(beta_message_tokens_count.context_management)
 
           0-based index of the first cited block in the source's `content` array.
 
-        - `type: Literal["content_block_location"]`
+          minimum: 0
 
-          - `"content_block_location"`
+        - `type: Literal["content_block_location"]`
 
       - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -28862,11 +29692,13 @@ print(beta_message_tokens_count.context_management)
 
         - `title: Optional[str]`
 
+          maxLength: 512, minLength: 1
+
         - `type: Literal["web_search_result_location"]`
 
-          - `"web_search_result_location"`
-
         - `url: str`
+
+          minLength: 1
 
       - `class BetaCitationSearchResultLocationParam: …`
 
@@ -28888,25 +29720,25 @@ print(beta_message_tokens_count.context_management)
 
           Counted separately from `document_index`; server-side web search results are not included in this count.
 
+          minimum: 0
+
         - `source: str`
 
         - `start_block_index: int`
 
           0-based index of the first cited block in the source's `content` array.
 
+          minimum: 0
+
         - `title: Optional[str]`
 
         - `type: Literal["search_result_location"]`
-
-          - `"search_result_location"`
 
   - `source: str`
 
   - `title: str`
 
   - `type: Literal["search_result"]`
-
-    - `"search_result"`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -28924,9 +29756,9 @@ print(beta_message_tokens_count.context_management)
 
   - `tool_id: str`
 
-  - `type: Literal["code_execution_20250825"]`
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `"code_execution_20250825"`
+  - `type: Literal["code_execution_20250825"]`
 
 ### Beta Server Tool Caller 20260120
 
@@ -28934,9 +29766,9 @@ print(beta_message_tokens_count.context_management)
 
   - `tool_id: str`
 
-  - `type: Literal["code_execution_20260120"]`
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `"code_execution_20260120"`
+  - `type: Literal["code_execution_20260120"]`
 
 ### Beta Server Tool Usage
 
@@ -28946,15 +29778,21 @@ print(beta_message_tokens_count.context_management)
 
     The number of web fetch tool requests.
 
+    default: 0, minimum: 0
+
   - `web_search_requests: int`
 
     The number of web search tool requests.
+
+    default: 0, minimum: 0
 
 ### Beta Server Tool Use Block
 
 - `class BetaServerToolUseBlock: …`
 
   - `id: str`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
   - `input: Dict[str, object]`
 
@@ -28978,7 +29816,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["server_tool_use"]`
 
-    - `"server_tool_use"`
+    default: server_tool_use
 
   - `caller: Optional[Caller]`
 
@@ -28990,31 +29828,31 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["direct"]`
 
-        - `"direct"`
-
     - `class BetaServerToolCaller: …`
 
       Tool invocation generated by a server-side tool.
 
       - `tool_id: str`
 
-      - `type: Literal["code_execution_20250825"]`
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `"code_execution_20250825"`
+      - `type: Literal["code_execution_20250825"]`
 
     - `class BetaServerToolCaller20260120: …`
 
       - `tool_id: str`
 
-      - `type: Literal["code_execution_20260120"]`
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `"code_execution_20260120"`
+      - `type: Literal["code_execution_20260120"]`
 
 ### Beta Server Tool Use Block Param
 
 - `class BetaServerToolUseBlockParam: …`
 
   - `id: str`
+
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
   - `input: Dict[str, object]`
 
@@ -29038,15 +29876,11 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["server_tool_use"]`
 
-    - `"server_tool_use"`
-
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -29073,25 +29907,23 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["direct"]`
 
-        - `"direct"`
-
     - `class BetaServerToolCaller: …`
 
       Tool invocation generated by a server-side tool.
 
       - `tool_id: str`
 
-      - `type: Literal["code_execution_20250825"]`
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `"code_execution_20250825"`
+      - `type: Literal["code_execution_20250825"]`
 
     - `class BetaServerToolCaller20260120: …`
 
       - `tool_id: str`
 
-      - `type: Literal["code_execution_20260120"]`
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `"code_execution_20260120"`
+      - `type: Literal["code_execution_20260120"]`
 
 ### Beta Signature Delta
 
@@ -29103,7 +29935,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["signature_delta"]`
 
-    - `"signature_delta"`
+    default: signature_delta
 
 ### Beta Skill
 
@@ -29114,6 +29946,8 @@ print(beta_message_tokens_count.context_management)
   - `skill_id: str`
 
     Skill ID
+
+    maxLength: 64, minLength: 1
 
   - `type: Literal["anthropic", "custom"]`
 
@@ -29127,6 +29961,8 @@ print(beta_message_tokens_count.context_management)
 
     The resolved version: a skill version ID for custom skills.
 
+    maxLength: 64, minLength: 1
+
 ### Beta Skill Params
 
 - `class BetaSkillParams: …`
@@ -29136,6 +29972,8 @@ print(beta_message_tokens_count.context_management)
   - `skill_id: str`
 
     Skill ID
+
+    maxLength: 64, minLength: 1
 
   - `type: Literal["anthropic", "custom"]`
 
@@ -29148,6 +29986,8 @@ print(beta_message_tokens_count.context_management)
   - `version: Optional[str]`
 
     Skill version or 'latest' for most recent version
+
+    maxLength: 64, minLength: 1
 
 ### Beta Stop Reason
 
@@ -29185,6 +30025,8 @@ print(beta_message_tokens_count.context_management)
 
       - `document_index: int`
 
+        minimum: 0
+
       - `document_title: Optional[str]`
 
       - `end_char_index: int`
@@ -29193,15 +30035,19 @@ print(beta_message_tokens_count.context_management)
 
       - `start_char_index: int`
 
+        minimum: 0
+
       - `type: Literal["char_location"]`
 
-        - `"char_location"`
+        default: char_location
 
     - `class BetaCitationPageLocation: …`
 
       - `cited_text: str`
 
       - `document_index: int`
+
+        minimum: 0
 
       - `document_title: Optional[str]`
 
@@ -29211,9 +30057,11 @@ print(beta_message_tokens_count.context_management)
 
       - `start_page_number: int`
 
+        minimum: 1
+
       - `type: Literal["page_location"]`
 
-        - `"page_location"`
+        default: page_location
 
     - `class BetaCitationContentBlockLocation: …`
 
@@ -29224,6 +30072,8 @@ print(beta_message_tokens_count.context_management)
         Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
       - `document_index: int`
+
+        minimum: 0
 
       - `document_title: Optional[str]`
 
@@ -29239,9 +30089,11 @@ print(beta_message_tokens_count.context_management)
 
         0-based index of the first cited block in the source's `content` array.
 
+        minimum: 0
+
       - `type: Literal["content_block_location"]`
 
-        - `"content_block_location"`
+        default: content_block_location
 
     - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -29251,9 +30103,11 @@ print(beta_message_tokens_count.context_management)
 
       - `title: Optional[str]`
 
+        maxLength: 512
+
       - `type: Literal["web_search_result_location"]`
 
-        - `"web_search_result_location"`
+        default: web_search_result_location
 
       - `url: str`
 
@@ -29277,23 +30131,29 @@ print(beta_message_tokens_count.context_management)
 
         Counted separately from `document_index`; server-side web search results are not included in this count.
 
+        minimum: 0
+
       - `source: str`
 
       - `start_block_index: int`
 
         0-based index of the first cited block in the source's `content` array.
 
+        minimum: 0
+
       - `title: Optional[str]`
 
       - `type: Literal["search_result_location"]`
 
-        - `"search_result_location"`
+        default: search_result_location
 
   - `text: str`
 
+    maxLength: 5000000, minLength: 0
+
   - `type: Literal["text"]`
 
-    - `"text"`
+    default: text
 
 ### Beta Text Block Param
 
@@ -29301,17 +30161,15 @@ print(beta_message_tokens_count.context_management)
 
   - `text: str`
 
-  - `type: Literal["text"]`
+    minLength: 1
 
-    - `"text"`
+  - `type: Literal["text"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -29336,15 +30194,19 @@ print(beta_message_tokens_count.context_management)
 
       - `document_index: int`
 
+        minimum: 0
+
       - `document_title: Optional[str]`
+
+        maxLength: 500, minLength: 1
 
       - `end_char_index: int`
 
       - `start_char_index: int`
 
-      - `type: Literal["char_location"]`
+        minimum: 0
 
-        - `"char_location"`
+      - `type: Literal["char_location"]`
 
     - `class BetaCitationPageLocationParam: …`
 
@@ -29352,15 +30214,19 @@ print(beta_message_tokens_count.context_management)
 
       - `document_index: int`
 
+        minimum: 0
+
       - `document_title: Optional[str]`
+
+        maxLength: 500, minLength: 1
 
       - `end_page_number: int`
 
       - `start_page_number: int`
 
-      - `type: Literal["page_location"]`
+        minimum: 1
 
-        - `"page_location"`
+      - `type: Literal["page_location"]`
 
     - `class BetaCitationContentBlockLocationParam: …`
 
@@ -29372,7 +30238,11 @@ print(beta_message_tokens_count.context_management)
 
       - `document_index: int`
 
+        minimum: 0
+
       - `document_title: Optional[str]`
+
+        maxLength: 500, minLength: 1
 
       - `end_block_index: int`
 
@@ -29384,9 +30254,9 @@ print(beta_message_tokens_count.context_management)
 
         0-based index of the first cited block in the source's `content` array.
 
-      - `type: Literal["content_block_location"]`
+        minimum: 0
 
-        - `"content_block_location"`
+      - `type: Literal["content_block_location"]`
 
     - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -29396,11 +30266,13 @@ print(beta_message_tokens_count.context_management)
 
       - `title: Optional[str]`
 
+        maxLength: 512, minLength: 1
+
       - `type: Literal["web_search_result_location"]`
 
-        - `"web_search_result_location"`
-
       - `url: str`
+
+        minLength: 1
 
     - `class BetaCitationSearchResultLocationParam: …`
 
@@ -29422,17 +30294,19 @@ print(beta_message_tokens_count.context_management)
 
         Counted separately from `document_index`; server-side web search results are not included in this count.
 
+        minimum: 0
+
       - `source: str`
 
       - `start_block_index: int`
 
         0-based index of the first cited block in the source's `content` array.
 
+        minimum: 0
+
       - `title: Optional[str]`
 
       - `type: Literal["search_result_location"]`
-
-        - `"search_result_location"`
 
 ### Beta Text Citation
 
@@ -29444,6 +30318,8 @@ print(beta_message_tokens_count.context_management)
 
     - `document_index: int`
 
+      minimum: 0
+
     - `document_title: Optional[str]`
 
     - `end_char_index: int`
@@ -29452,15 +30328,19 @@ print(beta_message_tokens_count.context_management)
 
     - `start_char_index: int`
 
+      minimum: 0
+
     - `type: Literal["char_location"]`
 
-      - `"char_location"`
+      default: char_location
 
   - `class BetaCitationPageLocation: …`
 
     - `cited_text: str`
 
     - `document_index: int`
+
+      minimum: 0
 
     - `document_title: Optional[str]`
 
@@ -29470,9 +30350,11 @@ print(beta_message_tokens_count.context_management)
 
     - `start_page_number: int`
 
+      minimum: 1
+
     - `type: Literal["page_location"]`
 
-      - `"page_location"`
+      default: page_location
 
   - `class BetaCitationContentBlockLocation: …`
 
@@ -29483,6 +30365,8 @@ print(beta_message_tokens_count.context_management)
       Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
 
     - `document_index: int`
+
+      minimum: 0
 
     - `document_title: Optional[str]`
 
@@ -29498,9 +30382,11 @@ print(beta_message_tokens_count.context_management)
 
       0-based index of the first cited block in the source's `content` array.
 
+      minimum: 0
+
     - `type: Literal["content_block_location"]`
 
-      - `"content_block_location"`
+      default: content_block_location
 
   - `class BetaCitationsWebSearchResultLocation: …`
 
@@ -29510,9 +30396,11 @@ print(beta_message_tokens_count.context_management)
 
     - `title: Optional[str]`
 
+      maxLength: 512
+
     - `type: Literal["web_search_result_location"]`
 
-      - `"web_search_result_location"`
+      default: web_search_result_location
 
     - `url: str`
 
@@ -29536,17 +30424,21 @@ print(beta_message_tokens_count.context_management)
 
       Counted separately from `document_index`; server-side web search results are not included in this count.
 
+      minimum: 0
+
     - `source: str`
 
     - `start_block_index: int`
 
       0-based index of the first cited block in the source's `content` array.
 
+      minimum: 0
+
     - `title: Optional[str]`
 
     - `type: Literal["search_result_location"]`
 
-      - `"search_result_location"`
+      default: search_result_location
 
 ### Beta Text Citation Param
 
@@ -29558,15 +30450,19 @@ print(beta_message_tokens_count.context_management)
 
     - `document_index: int`
 
+      minimum: 0
+
     - `document_title: Optional[str]`
+
+      maxLength: 500, minLength: 1
 
     - `end_char_index: int`
 
     - `start_char_index: int`
 
-    - `type: Literal["char_location"]`
+      minimum: 0
 
-      - `"char_location"`
+    - `type: Literal["char_location"]`
 
   - `class BetaCitationPageLocationParam: …`
 
@@ -29574,15 +30470,19 @@ print(beta_message_tokens_count.context_management)
 
     - `document_index: int`
 
+      minimum: 0
+
     - `document_title: Optional[str]`
+
+      maxLength: 500, minLength: 1
 
     - `end_page_number: int`
 
     - `start_page_number: int`
 
-    - `type: Literal["page_location"]`
+      minimum: 1
 
-      - `"page_location"`
+    - `type: Literal["page_location"]`
 
   - `class BetaCitationContentBlockLocationParam: …`
 
@@ -29594,7 +30494,11 @@ print(beta_message_tokens_count.context_management)
 
     - `document_index: int`
 
+      minimum: 0
+
     - `document_title: Optional[str]`
+
+      maxLength: 500, minLength: 1
 
     - `end_block_index: int`
 
@@ -29606,9 +30510,9 @@ print(beta_message_tokens_count.context_management)
 
       0-based index of the first cited block in the source's `content` array.
 
-    - `type: Literal["content_block_location"]`
+      minimum: 0
 
-      - `"content_block_location"`
+    - `type: Literal["content_block_location"]`
 
   - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -29618,11 +30522,13 @@ print(beta_message_tokens_count.context_management)
 
     - `title: Optional[str]`
 
+      maxLength: 512, minLength: 1
+
     - `type: Literal["web_search_result_location"]`
 
-      - `"web_search_result_location"`
-
     - `url: str`
+
+      minLength: 1
 
   - `class BetaCitationSearchResultLocationParam: …`
 
@@ -29644,17 +30550,19 @@ print(beta_message_tokens_count.context_management)
 
       Counted separately from `document_index`; server-side web search results are not included in this count.
 
+      minimum: 0
+
     - `source: str`
 
     - `start_block_index: int`
 
       0-based index of the first cited block in the source's `content` array.
 
+      minimum: 0
+
     - `title: Optional[str]`
 
     - `type: Literal["search_result_location"]`
-
-      - `"search_result_location"`
 
 ### Beta Text Delta
 
@@ -29664,7 +30572,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["text_delta"]`
 
-    - `"text_delta"`
+    default: text_delta
 
 ### Beta Text Editor Code Execution Create Result Block
 
@@ -29674,7 +30582,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["text_editor_code_execution_create_result"]`
 
-    - `"text_editor_code_execution_create_result"`
+    default: text_editor_code_execution_create_result
 
 ### Beta Text Editor Code Execution Create Result Block Param
 
@@ -29683,8 +30591,6 @@ print(beta_message_tokens_count.context_management)
   - `is_file_update: bool`
 
   - `type: Literal["text_editor_code_execution_create_result"]`
-
-    - `"text_editor_code_execution_create_result"`
 
 ### Beta Text Editor Code Execution Str Replace Result Block
 
@@ -29702,15 +30608,13 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
-    - `"text_editor_code_execution_str_replace_result"`
+    default: text_editor_code_execution_str_replace_result
 
 ### Beta Text Editor Code Execution Str Replace Result Block Param
 
 - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam: …`
 
   - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-    - `"text_editor_code_execution_str_replace_result"`
 
   - `lines: Optional[List[str]]`
 
@@ -29746,7 +30650,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-        - `"text_editor_code_execution_tool_result_error"`
+        default: text_editor_code_execution_tool_result_error
 
     - `class BetaTextEditorCodeExecutionViewResultBlock: …`
 
@@ -29768,7 +30672,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["text_editor_code_execution_view_result"]`
 
-        - `"text_editor_code_execution_view_result"`
+        default: text_editor_code_execution_view_result
 
     - `class BetaTextEditorCodeExecutionCreateResultBlock: …`
 
@@ -29776,7 +30680,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["text_editor_code_execution_create_result"]`
 
-        - `"text_editor_code_execution_create_result"`
+        default: text_editor_code_execution_create_result
 
     - `class BetaTextEditorCodeExecutionStrReplaceResultBlock: …`
 
@@ -29792,13 +30696,15 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["text_editor_code_execution_str_replace_result"]`
 
-        - `"text_editor_code_execution_str_replace_result"`
+        default: text_editor_code_execution_str_replace_result
 
   - `tool_use_id: str`
 
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
   - `type: Literal["text_editor_code_execution_tool_result"]`
 
-    - `"text_editor_code_execution_tool_result"`
+    default: text_editor_code_execution_tool_result
 
 ### Beta Text Editor Code Execution Tool Result Block Param
 
@@ -29822,8 +30728,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-        - `"text_editor_code_execution_tool_result_error"`
-
       - `error_message: Optional[str]`
 
     - `class BetaTextEditorCodeExecutionViewResultBlockParam: …`
@@ -29840,8 +30744,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["text_editor_code_execution_view_result"]`
 
-        - `"text_editor_code_execution_view_result"`
-
       - `num_lines: Optional[int]`
 
       - `start_line: Optional[int]`
@@ -29854,13 +30756,9 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["text_editor_code_execution_create_result"]`
 
-        - `"text_editor_code_execution_create_result"`
-
     - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam: …`
 
       - `type: Literal["text_editor_code_execution_str_replace_result"]`
-
-        - `"text_editor_code_execution_str_replace_result"`
 
       - `lines: Optional[List[str]]`
 
@@ -29874,17 +30772,15 @@ print(beta_message_tokens_count.context_management)
 
   - `tool_use_id: str`
 
-  - `type: Literal["text_editor_code_execution_tool_result"]`
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `"text_editor_code_execution_tool_result"`
+  - `type: Literal["text_editor_code_execution_tool_result"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -29921,7 +30817,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["text_editor_code_execution_tool_result_error"]`
 
-    - `"text_editor_code_execution_tool_result_error"`
+    default: text_editor_code_execution_tool_result_error
 
 ### Beta Text Editor Code Execution Tool Result Error Param
 
@@ -29940,8 +30836,6 @@ print(beta_message_tokens_count.context_management)
     - `"file_not_found"`
 
   - `type: Literal["text_editor_code_execution_tool_result_error"]`
-
-    - `"text_editor_code_execution_tool_result_error"`
 
   - `error_message: Optional[str]`
 
@@ -29967,7 +30861,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["text_editor_code_execution_view_result"]`
 
-    - `"text_editor_code_execution_view_result"`
+    default: text_editor_code_execution_view_result
 
 ### Beta Text Editor Code Execution View Result Block Param
 
@@ -29984,8 +30878,6 @@ print(beta_message_tokens_count.context_management)
     - `"pdf"`
 
   - `type: Literal["text_editor_code_execution_view_result"]`
-
-    - `"text_editor_code_execution_view_result"`
 
   - `num_lines: Optional[int]`
 
@@ -30011,7 +30903,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["thinking"]`
 
-    - `"thinking"`
+    default: thinking
 
 ### Beta Thinking Block Param
 
@@ -30029,15 +30921,11 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["thinking"]`
 
-    - `"thinking"`
-
 ### Beta Thinking Config Adaptive
 
 - `class BetaThinkingConfigAdaptive: …`
 
   - `type: Literal["adaptive"]`
-
-    - `"adaptive"`
 
   - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -30053,8 +30941,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["disabled"]`
 
-    - `"disabled"`
-
 ### Beta Thinking Config Enabled
 
 - `class BetaThinkingConfigEnabled: …`
@@ -30067,9 +30953,9 @@ print(beta_message_tokens_count.context_management)
 
     See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-  - `type: Literal["enabled"]`
+    minimum: 1024
 
-    - `"enabled"`
+  - `type: Literal["enabled"]`
 
   - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -30099,9 +30985,9 @@ print(beta_message_tokens_count.context_management)
 
       See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
 
-    - `type: Literal["enabled"]`
+      minimum: 1024
 
-      - `"enabled"`
+    - `type: Literal["enabled"]`
 
     - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -30115,13 +31001,9 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["disabled"]`
 
-      - `"disabled"`
-
   - `class BetaThinkingConfigAdaptive: …`
 
     - `type: Literal["adaptive"]`
-
-      - `"adaptive"`
 
     - `display: Optional[Literal["summarized", "omitted"]]`
 
@@ -30145,7 +31027,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["thinking_delta"]`
 
-    - `"thinking_delta"`
+    default: thinking_delta
 
 ### Beta Thinking Turns
 
@@ -30153,9 +31035,9 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["thinking_turns"]`
 
-    - `"thinking_turns"`
-
   - `value: int`
+
+    minimum: 1
 
 ### Beta Token Task Budget
 
@@ -30167,15 +31049,17 @@ print(beta_message_tokens_count.context_management)
 
     Total token budget across all contexts in the session.
 
+    minimum: 1024
+
   - `type: Literal["tokens"]`
 
     The budget type. Currently only 'tokens' is supported.
 
-    - `"tokens"`
-
   - `remaining: Optional[int]`
 
     Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+    minimum: 0
 
 ### Beta Tool
 
@@ -30189,8 +31073,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["object"]`
 
-      - `"object"`
-
     - `properties: Optional[Dict[str, object]]`
 
     - `required: Optional[List[str]]`
@@ -30200,6 +31082,8 @@ print(beta_message_tokens_count.context_management)
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
+
+    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -30216,8 +31100,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -30256,8 +31138,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Optional[Literal["custom"]]`
 
-    - `"custom"`
-
 ### Beta Tool Bash 20241022
 
 - `class BetaToolBash20241022: …`
@@ -30268,11 +31148,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"bash"`
-
   - `type: Literal["bash_20241022"]`
-
-    - `"bash_20241022"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -30289,8 +31165,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -30327,11 +31201,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"bash"`
-
   - `type: Literal["bash_20250124"]`
-
-    - `"bash_20250124"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -30348,8 +31218,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -30389,8 +31257,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["mcp_tool_reference"]`
 
-    - `"mcp_tool_reference"`
-
 ### Beta Tool Change MCP Toolset Reference
 
 - `class BetaToolChangeMCPToolsetReference: …`
@@ -30400,8 +31266,6 @@ print(beta_message_tokens_count.context_management)
   - `server_name: str`
 
   - `type: Literal["mcp_toolset_reference"]`
-
-    - `"mcp_toolset_reference"`
 
 ### Beta Tool Change Tool Reference
 
@@ -30414,9 +31278,9 @@ print(beta_message_tokens_count.context_management)
 
   - `name: str`
 
-  - `type: Literal["tool_reference"]`
+    pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-    - `"tool_reference"`
+  - `type: Literal["tool_reference"]`
 
 ### Beta Tool Choice
 
@@ -30430,8 +31294,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["auto"]`
 
-      - `"auto"`
-
     - `disable_parallel_tool_use: Optional[bool]`
 
       Whether to disable parallel tool use.
@@ -30443,8 +31305,6 @@ print(beta_message_tokens_count.context_management)
     The model will use any available tools.
 
     - `type: Literal["any"]`
-
-      - `"any"`
 
     - `disable_parallel_tool_use: Optional[bool]`
 
@@ -30462,8 +31322,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["tool"]`
 
-      - `"tool"`
-
     - `disable_parallel_tool_use: Optional[bool]`
 
       Whether to disable parallel tool use.
@@ -30476,8 +31334,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["none"]`
 
-      - `"none"`
-
 ### Beta Tool Choice Any
 
 - `class BetaToolChoiceAny: …`
@@ -30485,8 +31341,6 @@ print(beta_message_tokens_count.context_management)
   The model will use any available tools.
 
   - `type: Literal["any"]`
-
-    - `"any"`
 
   - `disable_parallel_tool_use: Optional[bool]`
 
@@ -30502,8 +31356,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["auto"]`
 
-    - `"auto"`
-
   - `disable_parallel_tool_use: Optional[bool]`
 
     Whether to disable parallel tool use.
@@ -30518,8 +31370,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["none"]`
 
-    - `"none"`
-
 ### Beta Tool Choice Tool
 
 - `class BetaToolChoiceTool: …`
@@ -30531,8 +31381,6 @@ print(beta_message_tokens_count.context_management)
     The name of the tool to use.
 
   - `type: Literal["tool"]`
-
-    - `"tool"`
 
   - `disable_parallel_tool_use: Optional[bool]`
 
@@ -30548,9 +31396,13 @@ print(beta_message_tokens_count.context_management)
 
     The height of the display in pixels.
 
+    minimum: 1
+
   - `display_width_px: int`
 
     The width of the display in pixels.
+
+    minimum: 1
 
   - `name: Literal["computer"]`
 
@@ -30558,11 +31410,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"computer"`
-
   - `type: Literal["computer_20241022"]`
-
-    - `"computer_20241022"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -30579,8 +31427,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -30604,6 +31450,8 @@ print(beta_message_tokens_count.context_management)
   - `display_number: Optional[int]`
 
     The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
 
   - `input_examples: Optional[List[Dict[str, object]]]`
 
@@ -30619,9 +31467,13 @@ print(beta_message_tokens_count.context_management)
 
     The height of the display in pixels.
 
+    minimum: 1
+
   - `display_width_px: int`
 
     The width of the display in pixels.
+
+    minimum: 1
 
   - `name: Literal["computer"]`
 
@@ -30629,11 +31481,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"computer"`
-
   - `type: Literal["computer_20250124"]`
-
-    - `"computer_20250124"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -30650,8 +31498,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -30675,6 +31521,8 @@ print(beta_message_tokens_count.context_management)
   - `display_number: Optional[int]`
 
     The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
 
   - `input_examples: Optional[List[Dict[str, object]]]`
 
@@ -30690,9 +31538,13 @@ print(beta_message_tokens_count.context_management)
 
     The height of the display in pixels.
 
+    minimum: 1
+
   - `display_width_px: int`
 
     The width of the display in pixels.
+
+    minimum: 1
 
   - `name: Literal["computer"]`
 
@@ -30700,11 +31552,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"computer"`
-
   - `type: Literal["computer_20251124"]`
-
-    - `"computer_20251124"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -30721,8 +31569,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -30746,6 +31592,8 @@ print(beta_message_tokens_count.context_management)
   - `display_number: Optional[int]`
 
     The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
 
   - `enable_zoom: Optional[bool]`
 
@@ -30763,9 +31611,11 @@ print(beta_message_tokens_count.context_management)
 
   - `tool_name: str`
 
+    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
   - `type: Literal["tool_reference"]`
 
-    - `"tool_reference"`
+    default: tool_reference
 
 ### Beta Tool Reference Block Param
 
@@ -30775,17 +31625,15 @@ print(beta_message_tokens_count.context_management)
 
   - `tool_name: str`
 
-  - `type: Literal["tool_reference"]`
+    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-    - `"tool_reference"`
+  - `type: Literal["tool_reference"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -30808,17 +31656,15 @@ print(beta_message_tokens_count.context_management)
 
   - `tool_use_id: str`
 
-  - `type: Literal["tool_result"]`
+    pattern: ^[a-zA-Z0-9_-]+$
 
-    - `"tool_result"`
+  - `type: Literal["tool_result"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -30845,9 +31691,9 @@ print(beta_message_tokens_count.context_management)
 
         - `text: str`
 
-        - `type: Literal["text"]`
+          minLength: 1
 
-          - `"text"`
+        - `type: Literal["text"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -30861,15 +31707,19 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_char_index: int`
 
             - `start_char_index: int`
 
-            - `type: Literal["char_location"]`
+              minimum: 0
 
-              - `"char_location"`
+            - `type: Literal["char_location"]`
 
           - `class BetaCitationPageLocationParam: …`
 
@@ -30877,15 +31727,19 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_page_number: int`
 
             - `start_page_number: int`
 
-            - `type: Literal["page_location"]`
+              minimum: 1
 
-              - `"page_location"`
+            - `type: Literal["page_location"]`
 
           - `class BetaCitationContentBlockLocationParam: …`
 
@@ -30897,7 +31751,11 @@ print(beta_message_tokens_count.context_management)
 
             - `document_index: int`
 
+              minimum: 0
+
             - `document_title: Optional[str]`
+
+              maxLength: 500, minLength: 1
 
             - `end_block_index: int`
 
@@ -30909,9 +31767,9 @@ print(beta_message_tokens_count.context_management)
 
               0-based index of the first cited block in the source's `content` array.
 
-            - `type: Literal["content_block_location"]`
+              minimum: 0
 
-              - `"content_block_location"`
+            - `type: Literal["content_block_location"]`
 
           - `class BetaCitationWebSearchResultLocationParam: …`
 
@@ -30921,11 +31779,13 @@ print(beta_message_tokens_count.context_management)
 
             - `title: Optional[str]`
 
+              maxLength: 512, minLength: 1
+
             - `type: Literal["web_search_result_location"]`
 
-              - `"web_search_result_location"`
-
             - `url: str`
+
+              minLength: 1
 
           - `class BetaCitationSearchResultLocationParam: …`
 
@@ -30947,17 +31807,19 @@ print(beta_message_tokens_count.context_management)
 
               Counted separately from `document_index`; server-side web search results are not included in this count.
 
+              minimum: 0
+
             - `source: str`
 
             - `start_block_index: int`
 
               0-based index of the first cited block in the source's `content` array.
 
+              minimum: 0
+
             - `title: Optional[str]`
 
             - `type: Literal["search_result_location"]`
-
-              - `"search_result_location"`
 
       - `class BetaImageBlockParam: …`
 
@@ -30966,6 +31828,8 @@ print(beta_message_tokens_count.context_management)
           - `class BetaBase64ImageSource: …`
 
             - `data: str`
+
+              format: byte
 
             - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
 
@@ -30979,13 +31843,9 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["base64"]`
 
-              - `"base64"`
-
           - `class BetaURLImageSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -30995,11 +31855,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["image"]`
-
-          - `"image"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -31023,6 +31879,8 @@ print(beta_message_tokens_count.context_management)
 
           - `text: str`
 
+            minLength: 1
+
           - `type: Literal["text"]`
 
           - `cache_control: Optional[BetaCacheControlEphemeral]`
@@ -31036,8 +31894,6 @@ print(beta_message_tokens_count.context_management)
         - `title: str`
 
         - `type: Literal["search_result"]`
-
-          - `"search_result"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -31055,13 +31911,11 @@ print(beta_message_tokens_count.context_management)
 
             - `data: str`
 
+              format: byte
+
             - `media_type: Literal["application/pdf"]`
 
-              - `"application/pdf"`
-
             - `type: Literal["base64"]`
-
-              - `"base64"`
 
           - `class BetaPlainTextSource: …`
 
@@ -31069,11 +31923,7 @@ print(beta_message_tokens_count.context_management)
 
             - `media_type: Literal["text/plain"]`
 
-              - `"text/plain"`
-
             - `type: Literal["text"]`
-
-              - `"text"`
 
           - `class BetaContentBlockSource: …`
 
@@ -31089,13 +31939,9 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["content"]`
 
-              - `"content"`
-
           - `class BetaURLPDFSource: …`
 
             - `type: Literal["url"]`
-
-              - `"url"`
 
             - `url: str`
 
@@ -31105,11 +31951,7 @@ print(beta_message_tokens_count.context_management)
 
             - `type: Literal["file"]`
 
-              - `"file"`
-
         - `type: Literal["document"]`
-
-          - `"document"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -31119,7 +31961,11 @@ print(beta_message_tokens_count.context_management)
 
         - `context: Optional[str]`
 
+          minLength: 1
+
         - `title: Optional[str]`
+
+          maxLength: 500, minLength: 1
 
       - `class BetaToolReferenceBlockParam: …`
 
@@ -31127,9 +31973,9 @@ print(beta_message_tokens_count.context_management)
 
         - `tool_name: str`
 
-        - `type: Literal["tool_reference"]`
+          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-          - `"tool_reference"`
+        - `type: Literal["tool_reference"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -31149,25 +31995,31 @@ print(beta_message_tokens_count.context_management)
 
           All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
 
+          maxItems: 100
+
           - `tab_id: str`
 
             The caller-assigned identifier for this tab, unique within the inventory.
+
+            maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `title: str`
 
             The title of the page the tab is showing. May be empty.
 
+            maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
           - `url: str`
 
             The URL of the page the tab is showing. May be empty.
+
+            maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `active: Optional[bool]`
 
             Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
         - `type: Literal["browser_state"]`
-
-          - `"browser_state"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -31176,6 +32028,8 @@ print(beta_message_tokens_count.context_management)
         - `state_changes: Optional[List[BetaBrowserStateChange]]`
 
           Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+          maxItems: 200, minItems: 1
 
           - `class BetaBrowserStateChangeTabOpened: …`
 
@@ -31191,9 +32045,9 @@ print(beta_message_tokens_count.context_management)
 
               The `tab_id` of the opened tab, present in `tabs`.
 
-            - `type: Literal["tab_opened"]`
+              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-              - `"tab_opened"`
+            - `type: Literal["tab_opened"]`
 
           - `class BetaBrowserStateChangeDownloadStarted: …`
 
@@ -31203,13 +32057,15 @@ print(beta_message_tokens_count.context_management)
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-            - `type: Literal["download_started"]`
+              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-              - `"download_started"`
+            - `type: Literal["download_started"]`
 
             - `url: str`
 
               The final post-redirect URL the download was served from.
+
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
           - `class BetaBrowserStateChangeDownloadCompleted: …`
 
@@ -31222,21 +32078,27 @@ print(beta_message_tokens_count.context_management)
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-            - `type: Literal["download_completed"]`
+              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-              - `"download_completed"`
+            - `type: Literal["download_completed"]`
 
             - `url: str`
 
               The final post-redirect URL the download was served from.
 
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
             - `path: Optional[str]`
 
               Where the executor saved the file, on the executor's filesystem. Only included when another tool in the same environment can read the file at that path.
 
+              pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
+
             - `size_bytes: Optional[int]`
 
               The completed download's size.
+
+              minimum: 0
 
           - `class BetaBrowserStateChangeDownloadFailed: …`
 
@@ -31246,23 +32108,29 @@ print(beta_message_tokens_count.context_management)
 
               The caller-assigned identifier for this download, stable across the state changes reporting it.
 
-            - `type: Literal["download_failed"]`
+              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-              - `"download_failed"`
+            - `type: Literal["download_failed"]`
 
             - `url: str`
 
               The final post-redirect URL the download was served from.
 
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
             - `error: Optional[str]`
 
               The failure or cancellation detail, when known.
+
+              pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$, maxLength: 4096
 
   - `is_error: Optional[bool]`
 
   - `toolset_name: Optional[str]`
 
     For a toolset member tool_result, the toolset family of the paired tool_use.
+
+    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Beta Tool Search Tool Bm25 20251119
 
@@ -31273,8 +32141,6 @@ print(beta_message_tokens_count.context_management)
     Name of the tool.
 
     This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"tool_search_tool_bm25"`
 
   - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
 
@@ -31297,8 +32163,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31333,8 +32197,6 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"tool_search_tool_regex"`
-
   - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
 
     - `"tool_search_tool_regex_20251119"`
@@ -31356,8 +32218,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31404,7 +32264,7 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["tool_search_tool_result_error"]`
 
-        - `"tool_search_tool_result_error"`
+        default: tool_search_tool_result_error
 
     - `class BetaToolSearchToolSearchResultBlock: …`
 
@@ -31412,19 +32272,23 @@ print(beta_message_tokens_count.context_management)
 
         - `tool_name: str`
 
+          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
         - `type: Literal["tool_reference"]`
 
-          - `"tool_reference"`
+          default: tool_reference
 
       - `type: Literal["tool_search_tool_search_result"]`
 
-        - `"tool_search_tool_search_result"`
+        default: tool_search_tool_search_result
 
   - `tool_use_id: str`
 
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
   - `type: Literal["tool_search_tool_result"]`
 
-    - `"tool_search_tool_result"`
+    default: tool_search_tool_result
 
 ### Beta Tool Search Tool Result Block Param
 
@@ -31446,8 +32310,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["tool_search_tool_result_error"]`
 
-        - `"tool_search_tool_result_error"`
-
       - `error_message: Optional[str]`
 
     - `class BetaToolSearchToolSearchResultBlockParam: …`
@@ -31456,17 +32318,15 @@ print(beta_message_tokens_count.context_management)
 
         - `tool_name: str`
 
-        - `type: Literal["tool_reference"]`
+          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-          - `"tool_reference"`
+        - `type: Literal["tool_reference"]`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
           Create a cache control breakpoint at this content block.
 
           - `type: Literal["ephemeral"]`
-
-            - `"ephemeral"`
 
           - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31485,13 +32345,11 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["tool_search_tool_search_result"]`
 
-        - `"tool_search_tool_search_result"`
-
   - `tool_use_id: str`
 
-  - `type: Literal["tool_search_tool_result"]`
+    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-    - `"tool_search_tool_result"`
+  - `type: Literal["tool_search_tool_result"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -31515,7 +32373,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["tool_search_tool_result_error"]`
 
-    - `"tool_search_tool_result_error"`
+    default: tool_search_tool_result_error
 
 ### Beta Tool Search Tool Result Error Param
 
@@ -31533,8 +32391,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["tool_search_tool_result_error"]`
 
-    - `"tool_search_tool_result_error"`
-
   - `error_message: Optional[str]`
 
 ### Beta Tool Search Tool Search Result Block
@@ -31545,13 +32401,15 @@ print(beta_message_tokens_count.context_management)
 
     - `tool_name: str`
 
+      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
     - `type: Literal["tool_reference"]`
 
-      - `"tool_reference"`
+      default: tool_reference
 
   - `type: Literal["tool_search_tool_search_result"]`
 
-    - `"tool_search_tool_search_result"`
+    default: tool_search_tool_search_result
 
 ### Beta Tool Search Tool Search Result Block Param
 
@@ -31561,17 +32419,15 @@ print(beta_message_tokens_count.context_management)
 
     - `tool_name: str`
 
-    - `type: Literal["tool_reference"]`
+      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-      - `"tool_reference"`
+    - `type: Literal["tool_reference"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
 
       - `type: Literal["ephemeral"]`
-
-        - `"ephemeral"`
 
       - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31590,8 +32446,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["tool_search_tool_search_result"]`
 
-    - `"tool_search_tool_search_result"`
-
 ### Beta Tool Text Editor 20241022
 
 - `class BetaToolTextEditor20241022: …`
@@ -31602,11 +32456,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"str_replace_editor"`
-
   - `type: Literal["text_editor_20241022"]`
-
-    - `"text_editor_20241022"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -31623,8 +32473,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31661,11 +32509,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"str_replace_editor"`
-
   - `type: Literal["text_editor_20250124"]`
-
-    - `"text_editor_20250124"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -31682,8 +32526,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31720,11 +32562,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"str_replace_based_edit_tool"`
-
   - `type: Literal["text_editor_20250429"]`
-
-    - `"text_editor_20250429"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -31741,8 +32579,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31779,11 +32615,7 @@ print(beta_message_tokens_count.context_management)
 
     This is how the tool will be called by the model and in `tool_use` blocks.
 
-    - `"str_replace_based_edit_tool"`
-
   - `type: Literal["text_editor_20250728"]`
-
-    - `"text_editor_20250728"`
 
   - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -31800,8 +32632,6 @@ print(beta_message_tokens_count.context_management)
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31828,6 +32658,8 @@ print(beta_message_tokens_count.context_management)
 
     Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
 
+    minimum: 1
+
   - `strict: Optional[bool]`
 
     When true, guarantees schema validation on tool names and inputs
@@ -31848,8 +32680,6 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["object"]`
 
-        - `"object"`
-
       - `properties: Optional[Dict[str, object]]`
 
       - `required: Optional[List[str]]`
@@ -31859,6 +32689,8 @@ print(beta_message_tokens_count.context_management)
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
+
+      maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -31875,8 +32707,6 @@ print(beta_message_tokens_count.context_management)
       Create a cache control breakpoint at this content block.
 
       - `type: Literal["ephemeral"]`
-
-        - `"ephemeral"`
 
       - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -31915,8 +32745,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Optional[Literal["custom"]]`
 
-      - `"custom"`
-
   - `class BetaToolBash20241022: …`
 
     - `name: Literal["bash"]`
@@ -31925,11 +32753,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"bash"`
-
     - `type: Literal["bash_20241022"]`
-
-      - `"bash_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -31963,11 +32787,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"bash"`
-
     - `type: Literal["bash_20250124"]`
-
-      - `"bash_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32001,11 +32821,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20250522"]`
-
-      - `"code_execution_20250522"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32037,11 +32853,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20250825"]`
-
-      - `"code_execution_20250825"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32075,11 +32887,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20260120"]`
-
-      - `"code_execution_20260120"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32113,11 +32921,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"code_execution"`
-
     - `type: Literal["code_execution_20260521"]`
-
-      - `"code_execution_20260521"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32149,8 +32953,6 @@ print(beta_message_tokens_count.context_management)
     from its schema.
 
     - `type: Literal["browser_toolset_20260801"]`
-
-      - `"browser_toolset_20260801"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32553,9 +33355,13 @@ print(beta_message_tokens_count.context_management)
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -32563,11 +33369,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20241022"]`
-
-      - `"computer_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32591,6 +33393,8 @@ print(beta_message_tokens_count.context_management)
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `input_examples: Optional[List[Dict[str, object]]]`
 
     - `strict: Optional[bool]`
@@ -32605,11 +33409,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"memory"`
-
     - `type: Literal["memory_20250818"]`
-
-      - `"memory_20250818"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32641,9 +33441,13 @@ print(beta_message_tokens_count.context_management)
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -32651,11 +33455,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20250124"]`
-
-      - `"computer_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32679,6 +33479,8 @@ print(beta_message_tokens_count.context_management)
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `input_examples: Optional[List[Dict[str, object]]]`
 
     - `strict: Optional[bool]`
@@ -32693,11 +33495,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_editor"`
-
     - `type: Literal["text_editor_20241022"]`
-
-      - `"text_editor_20241022"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32729,9 +33527,13 @@ print(beta_message_tokens_count.context_management)
 
       The height of the display in pixels.
 
+      minimum: 1
+
     - `display_width_px: int`
 
       The width of the display in pixels.
+
+      minimum: 1
 
     - `name: Literal["computer"]`
 
@@ -32739,11 +33541,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"computer"`
-
     - `type: Literal["computer_20251124"]`
-
-      - `"computer_20251124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -32767,6 +33565,8 @@ print(beta_message_tokens_count.context_management)
 
       The X11 display number (e.g. 0, 1) for the display.
 
+      minimum: 0
+
     - `enable_zoom: Optional[bool]`
 
       Whether to enable an action to take a zoomed-in screenshot of the screen.
@@ -32789,8 +33589,6 @@ print(beta_message_tokens_count.context_management)
     via `configs.zoom.enabled`.
 
     - `type: Literal["computer_toolset_20260801"]`
-
-      - `"computer_toolset_20260801"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33027,11 +33825,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_editor"`
-
     - `type: Literal["text_editor_20250124"]`
-
-      - `"text_editor_20250124"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33065,11 +33859,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_based_edit_tool"`
-
     - `type: Literal["text_editor_20250429"]`
-
-      - `"text_editor_20250429"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33103,11 +33893,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"str_replace_based_edit_tool"`
-
     - `type: Literal["text_editor_20250728"]`
-
-      - `"text_editor_20250728"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33133,6 +33919,8 @@ print(beta_message_tokens_count.context_management)
 
       Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
 
+      minimum: 1
+
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
@@ -33145,11 +33933,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20250305"]`
-
-      - `"web_search_20250305"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33181,6 +33965,8 @@ print(beta_message_tokens_count.context_management)
 
       Maximum number of times the tool can be used in the API request.
 
+      exclusiveMinimum: 0
+
     - `strict: Optional[bool]`
 
       When true, guarantees schema validation on tool names and inputs
@@ -33191,23 +33977,29 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["approximate"]`
 
-        - `"approximate"`
-
       - `city: Optional[str]`
 
         The city of the user.
+
+        maxLength: 255, minLength: 1
 
       - `country: Optional[str]`
 
         The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
+        maxLength: 2, minLength: 2
+
       - `region: Optional[str]`
 
         The region of the user.
 
+        maxLength: 255, minLength: 1
+
       - `timezone: Optional[str]`
 
         The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+        maxLength: 255, minLength: 1
 
   - `class BetaWebFetchTool20250910: …`
 
@@ -33217,11 +34009,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20250910"]`
-
-      - `"web_fetch_20250910"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33259,9 +34047,13 @@ print(beta_message_tokens_count.context_management)
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -33275,11 +34067,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20260209"]`
-
-      - `"web_search_20260209"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33310,6 +34098,8 @@ print(beta_message_tokens_count.context_management)
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -33327,11 +34117,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260209"]`
-
-      - `"web_fetch_20260209"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33367,9 +34153,13 @@ print(beta_message_tokens_count.context_management)
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -33385,11 +34175,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260309"]`
-
-      - `"web_fetch_20260309"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33425,9 +34211,13 @@ print(beta_message_tokens_count.context_management)
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -33445,11 +34235,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_search"`
-
     - `type: Literal["web_search_20260318"]`
-
-      - `"web_search_20260318"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33480,6 +34266,8 @@ print(beta_message_tokens_count.context_management)
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -33505,11 +34293,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"web_fetch"`
-
     - `type: Literal["web_fetch_20260318"]`
-
-      - `"web_fetch_20260318"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33545,9 +34329,13 @@ print(beta_message_tokens_count.context_management)
 
       Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
 
+      exclusiveMinimum: 0
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `response_inclusion: Optional[Literal["full", "excluded"]]`
 
@@ -33663,11 +34451,7 @@ print(beta_message_tokens_count.context_management)
 
       This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `"advisor"`
-
     - `type: Literal["advisor_20260301"]`
-
-      - `"advisor_20260301"`
 
     - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
 
@@ -33695,9 +34479,13 @@ print(beta_message_tokens_count.context_management)
 
       Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
 
+      minimum: 1024
+
     - `max_uses: Optional[int]`
 
       Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
 
     - `strict: Optional[bool]`
 
@@ -33710,8 +34498,6 @@ print(beta_message_tokens_count.context_management)
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `"tool_search_tool_bm25"`
 
     - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
 
@@ -33748,8 +34534,6 @@ print(beta_message_tokens_count.context_management)
       Name of the tool.
 
       This is how the tool will be called by the model and in `tool_use` blocks.
-
-      - `"tool_search_tool_regex"`
 
     - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
 
@@ -33790,9 +34574,9 @@ print(beta_message_tokens_count.context_management)
 
       Name of the MCP server to configure tools for
 
-    - `type: Literal["mcp_toolset"]`
+      maxLength: 255, minLength: 1
 
-      - `"mcp_toolset"`
+    - `type: Literal["mcp_toolset"]`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -33820,13 +34604,17 @@ print(beta_message_tokens_count.context_management)
 
   - `id: str`
 
+    pattern: ^[a-zA-Z0-9_-]+$
+
   - `input: Dict[str, object]`
 
   - `name: str`
 
+    minLength: 1
+
   - `type: Literal["tool_use"]`
 
-    - `"tool_use"`
+    default: tool_use
 
   - `caller: Optional[Caller]`
 
@@ -33838,29 +34626,29 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["direct"]`
 
-        - `"direct"`
-
     - `class BetaServerToolCaller: …`
 
       Tool invocation generated by a server-side tool.
 
       - `tool_id: str`
 
-      - `type: Literal["code_execution_20250825"]`
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `"code_execution_20250825"`
+      - `type: Literal["code_execution_20250825"]`
 
     - `class BetaServerToolCaller20260120: …`
 
       - `tool_id: str`
 
-      - `type: Literal["code_execution_20260120"]`
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `"code_execution_20260120"`
+      - `type: Literal["code_execution_20260120"]`
 
   - `toolset_name: Optional[str]`
 
     For a toolset member tool_use, the toolset family.
+
+    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Beta Tool Use Block Param
 
@@ -33868,21 +34656,21 @@ print(beta_message_tokens_count.context_management)
 
   - `id: str`
 
+    pattern: ^[a-zA-Z0-9_-]+$
+
   - `input: Dict[str, object]`
 
   - `name: str`
 
-  - `type: Literal["tool_use"]`
+    maxLength: 200, minLength: 1
 
-    - `"tool_use"`
+  - `type: Literal["tool_use"]`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
 
     - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
 
     - `ttl: Optional[Literal["5m", "1h"]]`
 
@@ -33909,29 +34697,29 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["direct"]`
 
-        - `"direct"`
-
     - `class BetaServerToolCaller: …`
 
       Tool invocation generated by a server-side tool.
 
       - `tool_id: str`
 
-      - `type: Literal["code_execution_20250825"]`
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `"code_execution_20250825"`
+      - `type: Literal["code_execution_20250825"]`
 
     - `class BetaServerToolCaller20260120: …`
 
       - `tool_id: str`
 
-      - `type: Literal["code_execution_20260120"]`
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-        - `"code_execution_20260120"`
+      - `type: Literal["code_execution_20260120"]`
 
   - `toolset_name: Optional[str]`
 
     For a toolset member tool_use, the toolset family this member belongs to.
+
+    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
 
 ### Beta Tool Uses Keep
 
@@ -33939,9 +34727,9 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["tool_uses"]`
 
-    - `"tool_uses"`
-
   - `value: int`
+
+    minimum: 0
 
 ### Beta Tool Uses Trigger
 
@@ -33949,17 +34737,15 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["tool_uses"]`
 
-    - `"tool_uses"`
-
   - `value: int`
+
+    minimum: 1
 
 ### Beta URL Image Source
 
 - `class BetaURLImageSource: …`
 
   - `type: Literal["url"]`
-
-    - `"url"`
 
   - `url: str`
 
@@ -33968,8 +34754,6 @@ print(beta_message_tokens_count.context_management)
 - `class BetaURLPDFSource: …`
 
   - `type: Literal["url"]`
-
-    - `"url"`
 
   - `url: str`
 
@@ -33985,17 +34769,25 @@ print(beta_message_tokens_count.context_management)
 
       The number of input tokens used to create the 1 hour cache entry.
 
+      default: 0, minimum: 0
+
     - `ephemeral_5m_input_tokens: int`
 
       The number of input tokens used to create the 5 minute cache entry.
+
+      default: 0, minimum: 0
 
   - `cache_creation_input_tokens: Optional[int]`
 
     The number of input tokens used to create the cache entry.
 
+    minimum: 0
+
   - `cache_read_input_tokens: Optional[int]`
 
     The number of input tokens read from the cache.
+
+    minimum: 0
 
   - `fallback_credit: Optional[BetaFallbackCreditUsage]`
 
@@ -34017,7 +34809,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["redeemed"]`
 
-          - `"redeemed"`
+          default: redeemed
 
       - `class BetaFallbackCreditNotApplied: …`
 
@@ -34056,7 +34848,7 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["not_applied"]`
 
-          - `"not_applied"`
+          default: not_applied
 
         - `remove_to_redeem: Optional[List[str]]`
 
@@ -34076,6 +34868,8 @@ print(beta_message_tokens_count.context_management)
   - `input_tokens: int`
 
     The number of input tokens which were used.
+
+    minimum: 0
 
   - `iterations: Optional[BetaIterationsUsage]`
 
@@ -34099,13 +34893,19 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the cache entry.
 
+        default: 0, minimum: 0
+
       - `cache_read_input_tokens: int`
 
         The number of input tokens read from the cache.
 
+        default: 0, minimum: 0
+
       - `input_tokens: int`
 
         The number of input tokens which were used.
+
+        minimum: 0
 
       - `model: Model`
 
@@ -34201,11 +35001,13 @@ print(beta_message_tokens_count.context_management)
 
         The number of output tokens which were used.
 
+        minimum: 0
+
       - `type: Literal["message"]`
 
         Usage for a sampling iteration
 
-        - `"message"`
+        default: message
 
     - `class BetaCompactionIterationUsage: …`
 
@@ -34219,23 +35021,31 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the cache entry.
 
+        default: 0, minimum: 0
+
       - `cache_read_input_tokens: int`
 
         The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
 
       - `input_tokens: int`
 
         The number of input tokens which were used.
 
+        minimum: 0
+
       - `output_tokens: int`
 
         The number of output tokens which were used.
+
+        minimum: 0
 
       - `type: Literal["compaction"]`
 
         Usage for a compaction iteration
 
-        - `"compaction"`
+        default: compaction
 
     - `class BetaAdvisorMessageIterationUsage: …`
 
@@ -34249,13 +35059,19 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the cache entry.
 
+        default: 0, minimum: 0
+
       - `cache_read_input_tokens: int`
 
         The number of input tokens read from the cache.
 
+        default: 0, minimum: 0
+
       - `input_tokens: int`
 
         The number of input tokens which were used.
+
+        minimum: 0
 
       - `model: Model`
 
@@ -34267,11 +35083,13 @@ print(beta_message_tokens_count.context_management)
 
         The number of output tokens which were used.
 
+        minimum: 0
+
       - `type: Literal["advisor_message"]`
 
         Usage for an advisor sub-inference iteration
 
-        - `"advisor_message"`
+        default: advisor_message
 
     - `class BetaFallbackMessageIterationUsage: …`
 
@@ -34290,13 +35108,19 @@ print(beta_message_tokens_count.context_management)
 
         The number of input tokens used to create the cache entry.
 
+        default: 0, minimum: 0
+
       - `cache_read_input_tokens: int`
 
         The number of input tokens read from the cache.
 
+        default: 0, minimum: 0
+
       - `input_tokens: int`
 
         The number of input tokens which were used.
+
+        minimum: 0
 
       - `model: Model`
 
@@ -34308,15 +35132,19 @@ print(beta_message_tokens_count.context_management)
 
         The number of output tokens which were used.
 
+        minimum: 0
+
       - `type: Literal["fallback_message"]`
 
         Usage for the fallback-model attempt that served the response
 
-        - `"fallback_message"`
+        default: fallback_message
 
   - `output_tokens: int`
 
     The number of output tokens which were used.
+
+    minimum: 0
 
   - `output_tokens_details: Optional[BetaOutputTokensDetails]`
 
@@ -34338,6 +35166,8 @@ print(beta_message_tokens_count.context_management)
       generation count by a small number of tokens. Always ≤ `output_tokens`;
       `output_tokens - thinking_tokens` approximates the non-reasoning output.
 
+      default: 0, minimum: 0
+
   - `server_tool_use: Optional[BetaServerToolUsage]`
 
     The number of server tool requests.
@@ -34346,9 +35176,13 @@ print(beta_message_tokens_count.context_management)
 
       The number of web fetch tool requests.
 
+      default: 0, minimum: 0
+
     - `web_search_requests: int`
 
       The number of web search tool requests.
+
+      default: 0, minimum: 0
 
   - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
 
@@ -34374,23 +35208,29 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["approximate"]`
 
-    - `"approximate"`
-
   - `city: Optional[str]`
 
     The city of the user.
+
+    maxLength: 255, minLength: 1
 
   - `country: Optional[str]`
 
     The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
 
+    maxLength: 2, minLength: 2
+
   - `region: Optional[str]`
 
     The region of the user.
 
+    maxLength: 255, minLength: 1
+
   - `timezone: Optional[str]`
 
     The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+    maxLength: 255, minLength: 1
 
 ### Beta Web Fetch Block
 
@@ -34404,19 +35244,19 @@ print(beta_message_tokens_count.context_management)
 
       - `enabled: bool`
 
+        default: false
+
     - `source: Source`
 
       - `class BetaBase64PDFSource: …`
 
         - `data: str`
 
+          format: byte
+
         - `media_type: Literal["application/pdf"]`
 
-          - `"application/pdf"`
-
         - `type: Literal["base64"]`
-
-          - `"base64"`
 
       - `class BetaPlainTextSource: …`
 
@@ -34424,11 +35264,7 @@ print(beta_message_tokens_count.context_management)
 
         - `media_type: Literal["text/plain"]`
 
-          - `"text/plain"`
-
         - `type: Literal["text"]`
-
-          - `"text"`
 
     - `title: Optional[str]`
 
@@ -34436,7 +35272,7 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["document"]`
 
-      - `"document"`
+      default: document
 
   - `retrieved_at: Optional[str]`
 
@@ -34444,7 +35280,7 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["web_fetch_result"]`
 
-    - `"web_fetch_result"`
+    default: web_fetch_result
 
   - `url: str`
 
@@ -34462,848 +35298,12 @@ print(beta_message_tokens_count.context_management)
 
         - `data: str`
 
+          format: byte
+
         - `media_type: Literal["application/pdf"]`
 
-          - `"application/pdf"`
-
         - `type: Literal["base64"]`
-
-          - `"base64"`
 
       - `class BetaPlainTextSource: …`
 
         - `data: str`
-
-        - `media_type: Literal["text/plain"]`
-
-          - `"text/plain"`
-
-        - `type: Literal["text"]`
-
-          - `"text"`
-
-      - `class BetaContentBlockSource: …`
-
-        - `content: Union[str, List[BetaContentBlockSourceContent]]`
-
-          - `str`
-
-          - `List[BetaContentBlockSourceContent]`
-
-            - `class BetaTextBlockParam: …`
-
-              - `text: str`
-
-              - `type: Literal["text"]`
-
-                - `"text"`
-
-              - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-                Create a cache control breakpoint at this content block.
-
-                - `type: Literal["ephemeral"]`
-
-                  - `"ephemeral"`
-
-                - `ttl: Optional[Literal["5m", "1h"]]`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
-              - `citations: Optional[List[BetaTextCitationParam]]`
-
-                - `class BetaCitationCharLocationParam: …`
-
-                  - `cited_text: str`
-
-                  - `document_index: int`
-
-                  - `document_title: Optional[str]`
-
-                  - `end_char_index: int`
-
-                  - `start_char_index: int`
-
-                  - `type: Literal["char_location"]`
-
-                    - `"char_location"`
-
-                - `class BetaCitationPageLocationParam: …`
-
-                  - `cited_text: str`
-
-                  - `document_index: int`
-
-                  - `document_title: Optional[str]`
-
-                  - `end_page_number: int`
-
-                  - `start_page_number: int`
-
-                  - `type: Literal["page_location"]`
-
-                    - `"page_location"`
-
-                - `class BetaCitationContentBlockLocationParam: …`
-
-                  - `cited_text: str`
-
-                    The full text of the cited block range, concatenated.
-
-                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                  - `document_index: int`
-
-                  - `document_title: Optional[str]`
-
-                  - `end_block_index: int`
-
-                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                  - `start_block_index: int`
-
-                    0-based index of the first cited block in the source's `content` array.
-
-                  - `type: Literal["content_block_location"]`
-
-                    - `"content_block_location"`
-
-                - `class BetaCitationWebSearchResultLocationParam: …`
-
-                  - `cited_text: str`
-
-                  - `encrypted_index: str`
-
-                  - `title: Optional[str]`
-
-                  - `type: Literal["web_search_result_location"]`
-
-                    - `"web_search_result_location"`
-
-                  - `url: str`
-
-                - `class BetaCitationSearchResultLocationParam: …`
-
-                  - `cited_text: str`
-
-                    The full text of the cited block range, concatenated.
-
-                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                  - `end_block_index: int`
-
-                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                  - `search_result_index: int`
-
-                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                    Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                  - `source: str`
-
-                  - `start_block_index: int`
-
-                    0-based index of the first cited block in the source's `content` array.
-
-                  - `title: Optional[str]`
-
-                  - `type: Literal["search_result_location"]`
-
-                    - `"search_result_location"`
-
-            - `class BetaImageBlockParam: …`
-
-              - `source: Source`
-
-                - `class BetaBase64ImageSource: …`
-
-                  - `data: str`
-
-                  - `media_type: Literal["image/jpeg", "image/png", "image/gif", "image/webp"]`
-
-                    - `"image/jpeg"`
-
-                    - `"image/png"`
-
-                    - `"image/gif"`
-
-                    - `"image/webp"`
-
-                  - `type: Literal["base64"]`
-
-                    - `"base64"`
-
-                - `class BetaURLImageSource: …`
-
-                  - `type: Literal["url"]`
-
-                    - `"url"`
-
-                  - `url: str`
-
-                - `class BetaFileImageSource: …`
-
-                  - `file_id: str`
-
-                  - `type: Literal["file"]`
-
-                    - `"file"`
-
-              - `type: Literal["image"]`
-
-                - `"image"`
-
-              - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-                Create a cache control breakpoint at this content block.
-
-              - `transformations: Optional[BetaImageTransformationsParam]`
-
-                Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
-
-                - `oversized_image: Optional[Literal["downsize", "error"]]`
-
-                  What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
-
-                  - `"downsize"`
-
-                  - `"error"`
-
-        - `type: Literal["content"]`
-
-          - `"content"`
-
-      - `class BetaURLPDFSource: …`
-
-        - `type: Literal["url"]`
-
-          - `"url"`
-
-        - `url: str`
-
-      - `class BetaFileDocumentSource: …`
-
-        - `file_id: str`
-
-        - `type: Literal["file"]`
-
-          - `"file"`
-
-    - `type: Literal["document"]`
-
-      - `"document"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `citations: Optional[BetaCitationsConfigParam]`
-
-      - `enabled: Optional[bool]`
-
-    - `context: Optional[str]`
-
-    - `title: Optional[str]`
-
-  - `type: Literal["web_fetch_result"]`
-
-    - `"web_fetch_result"`
-
-  - `url: str`
-
-    Fetched content URL
-
-  - `retrieved_at: Optional[str]`
-
-    ISO 8601 timestamp when the content was retrieved
-
-### Beta Web Fetch Tool 20250910
-
-- `class BetaWebFetchTool20250910: …`
-
-  - `name: Literal["web_fetch"]`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch"`
-
-  - `type: Literal["web_fetch_20250910"]`
-
-    - `"web_fetch_20250910"`
-
-  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
-
-  - `allowed_domains: Optional[List[str]]`
-
-    List of domains to allow fetching from
-
-  - `blocked_domains: Optional[List[str]]`
-
-    List of domains to block fetching from
-
-  - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
-
-    - `ttl: Optional[Literal["5m", "1h"]]`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `citations: Optional[BetaCitationsConfigParam]`
-
-    Citations configuration for fetched documents. Citations are disabled by default.
-
-    - `enabled: Optional[bool]`
-
-  - `defer_loading: Optional[bool]`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `max_content_tokens: Optional[int]`
-
-    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-  - `max_uses: Optional[int]`
-
-    Maximum number of times the tool can be used in the API request.
-
-  - `strict: Optional[bool]`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Web Fetch Tool 20260209
-
-- `class BetaWebFetchTool20260209: …`
-
-  - `name: Literal["web_fetch"]`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch"`
-
-  - `type: Literal["web_fetch_20260209"]`
-
-    - `"web_fetch_20260209"`
-
-  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
-
-  - `allowed_domains: Optional[List[str]]`
-
-    List of domains to allow fetching from
-
-  - `blocked_domains: Optional[List[str]]`
-
-    List of domains to block fetching from
-
-  - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
-
-    - `ttl: Optional[Literal["5m", "1h"]]`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `citations: Optional[BetaCitationsConfigParam]`
-
-    Citations configuration for fetched documents. Citations are disabled by default.
-
-    - `enabled: Optional[bool]`
-
-  - `defer_loading: Optional[bool]`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `max_content_tokens: Optional[int]`
-
-    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-  - `max_uses: Optional[int]`
-
-    Maximum number of times the tool can be used in the API request.
-
-  - `strict: Optional[bool]`
-
-    When true, guarantees schema validation on tool names and inputs
-
-### Beta Web Fetch Tool 20260309
-
-- `class BetaWebFetchTool20260309: …`
-
-  Web fetch tool with use_cache parameter for bypassing cached content.
-
-  - `name: Literal["web_fetch"]`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch"`
-
-  - `type: Literal["web_fetch_20260309"]`
-
-    - `"web_fetch_20260309"`
-
-  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
-
-  - `allowed_domains: Optional[List[str]]`
-
-    List of domains to allow fetching from
-
-  - `blocked_domains: Optional[List[str]]`
-
-    List of domains to block fetching from
-
-  - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
-
-    - `ttl: Optional[Literal["5m", "1h"]]`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `citations: Optional[BetaCitationsConfigParam]`
-
-    Citations configuration for fetched documents. Citations are disabled by default.
-
-    - `enabled: Optional[bool]`
-
-  - `defer_loading: Optional[bool]`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `max_content_tokens: Optional[int]`
-
-    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-  - `max_uses: Optional[int]`
-
-    Maximum number of times the tool can be used in the API request.
-
-  - `strict: Optional[bool]`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `use_cache: Optional[bool]`
-
-    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-### Beta Web Fetch Tool 20260318
-
-- `class BetaWebFetchTool20260318: …`
-
-  - `name: Literal["web_fetch"]`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `"web_fetch"`
-
-  - `type: Literal["web_fetch_20260318"]`
-
-    - `"web_fetch_20260318"`
-
-  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
-
-  - `allowed_domains: Optional[List[str]]`
-
-    List of domains to allow fetching from
-
-  - `blocked_domains: Optional[List[str]]`
-
-    List of domains to block fetching from
-
-  - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: Literal["ephemeral"]`
-
-      - `"ephemeral"`
-
-    - `ttl: Optional[Literal["5m", "1h"]]`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `citations: Optional[BetaCitationsConfigParam]`
-
-    Citations configuration for fetched documents. Citations are disabled by default.
-
-    - `enabled: Optional[bool]`
-
-  - `defer_loading: Optional[bool]`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `max_content_tokens: Optional[int]`
-
-    Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-  - `max_uses: Optional[int]`
-
-    Maximum number of times the tool can be used in the API request.
-
-  - `response_inclusion: Optional[Literal["full", "excluded"]]`
-
-    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-    - `"full"`
-
-    - `"excluded"`
-
-  - `strict: Optional[bool]`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `use_cache: Optional[bool]`
-
-    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-### Beta Web Fetch Tool Result Block
-
-- `class BetaWebFetchToolResultBlock: …`
-
-  - `content: Content`
-
-    - `class BetaWebFetchToolResultErrorBlock: …`
-
-      - `error_code: BetaWebFetchToolResultErrorCode`
-
-        - `"invalid_tool_input"`
-
-        - `"url_too_long"`
-
-        - `"url_not_allowed"`
-
-        - `"url_not_in_prior_context"`
-
-        - `"url_not_accessible"`
-
-        - `"unsupported_content_type"`
-
-        - `"too_many_requests"`
-
-        - `"max_uses_exceeded"`
-
-        - `"unavailable"`
-
-      - `type: Literal["web_fetch_tool_result_error"]`
-
-        - `"web_fetch_tool_result_error"`
-
-    - `class BetaWebFetchBlock: …`
-
-      - `content: BetaDocumentBlock`
-
-        - `citations: Optional[BetaCitationConfig]`
-
-          Citation configuration for the document
-
-          - `enabled: bool`
-
-        - `source: Source`
-
-          - `class BetaBase64PDFSource: …`
-
-            - `data: str`
-
-            - `media_type: Literal["application/pdf"]`
-
-              - `"application/pdf"`
-
-            - `type: Literal["base64"]`
-
-              - `"base64"`
-
-          - `class BetaPlainTextSource: …`
-
-            - `data: str`
-
-            - `media_type: Literal["text/plain"]`
-
-              - `"text/plain"`
-
-            - `type: Literal["text"]`
-
-              - `"text"`
-
-        - `title: Optional[str]`
-
-          The title of the document
-
-        - `type: Literal["document"]`
-
-          - `"document"`
-
-      - `retrieved_at: Optional[str]`
-
-        ISO 8601 timestamp when the content was retrieved
-
-      - `type: Literal["web_fetch_result"]`
-
-        - `"web_fetch_result"`
-
-      - `url: str`
-
-        Fetched content URL
-
-  - `tool_use_id: str`
-
-  - `type: Literal["web_fetch_tool_result"]`
-
-    - `"web_fetch_tool_result"`
-
-  - `caller: Optional[Caller]`
-
-    Tool invocation directly from the model.
-
-    - `class BetaDirectCaller: …`
-
-      Tool invocation directly from the model.
-
-      - `type: Literal["direct"]`
-
-        - `"direct"`
-
-    - `class BetaServerToolCaller: …`
-
-      Tool invocation generated by a server-side tool.
-
-      - `tool_id: str`
-
-      - `type: Literal["code_execution_20250825"]`
-
-        - `"code_execution_20250825"`
-
-    - `class BetaServerToolCaller20260120: …`
-
-      - `tool_id: str`
-
-      - `type: Literal["code_execution_20260120"]`
-
-        - `"code_execution_20260120"`
-
-### Beta Web Fetch Tool Result Block Param
-
-- `class BetaWebFetchToolResultBlockParam: …`
-
-  - `content: Content`
-
-    - `class BetaWebFetchToolResultErrorBlockParam: …`
-
-      - `error_code: BetaWebFetchToolResultErrorCode`
-
-        - `"invalid_tool_input"`
-
-        - `"url_too_long"`
-
-        - `"url_not_allowed"`
-
-        - `"url_not_in_prior_context"`
-
-        - `"url_not_accessible"`
-
-        - `"unsupported_content_type"`
-
-        - `"too_many_requests"`
-
-        - `"max_uses_exceeded"`
-
-        - `"unavailable"`
-
-      - `type: Literal["web_fetch_tool_result_error"]`
-
-        - `"web_fetch_tool_result_error"`
-
-    - `class BetaWebFetchBlockParam: …`
-
-      - `content: BetaRequestDocumentBlock`
-
-        - `source: Source`
-
-          - `class BetaBase64PDFSource: …`
-
-            - `data: str`
-
-            - `media_type: Literal["application/pdf"]`
-
-              - `"application/pdf"`
-
-            - `type: Literal["base64"]`
-
-              - `"base64"`
-
-          - `class BetaPlainTextSource: …`
-
-            - `data: str`
-
-            - `media_type: Literal["text/plain"]`
-
-              - `"text/plain"`
-
-            - `type: Literal["text"]`
-
-              - `"text"`
-
-          - `class BetaContentBlockSource: …`
-
-            - `content: Union[str, List[BetaContentBlockSourceContent]]`
-
-              - `str`
-
-              - `List[BetaContentBlockSourceContent]`
-
-                - `class BetaTextBlockParam: …`
-
-                  - `text: str`
-
-                  - `type: Literal["text"]`
-
-                    - `"text"`
-
-                  - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-                    Create a cache control breakpoint at this content block.
-
-                    - `type: Literal["ephemeral"]`
-
-                      - `"ephemeral"`
-
-                    - `ttl: Optional[Literal["5m", "1h"]]`
-
-                      The time-to-live for the cache control breakpoint.
-
-                      This may be one the following values:
-
-                      - `5m`: 5 minutes
-                      - `1h`: 1 hour
-
-                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-                      - `"5m"`
-
-                      - `"1h"`
-
-                  - `citations: Optional[List[BetaTextCitationParam]]`
-
-                    - `class BetaCitationCharLocationParam: …`
-
-                      - `cited_text: str`
-
-                      - `document_index: int`
-
-                      - `document_title: Optional[str]`
-
-                      - `end_char_index: int`
-
-                      - `start_char_index: int`
-
-                      - `type: Literal["char_location"]`

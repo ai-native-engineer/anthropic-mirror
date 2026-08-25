@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-coordinate-specialist-team -->
 
-#  Multiagent: coordinate a specialist team
+#  Multiagent: coordinate a specialist team
 
 We'll use Claude Managed Agents and the multi-agent coordinator pattern to automate sales-proposal writing for a fictional company called Northstar, which sells a workflow-automation platform to mid-market operations teams.
 
@@ -8,17 +8,13 @@ Right now, their reps build a tailored proposal for each prospect: research what
 
 We'll have a coordinator agent run three specialists to do this. A researcher uses web search to find what's typical for the prospect's segment. A librarian reads the case-study library and picks the two best matches. A pricing modeler sees only the rules file and the seat count. The coordinator sequences them and writes the proposal.
 
-##  1. Set up the client
+##  1. Set up the client
 
 First, let's install the SDK and set up the Anthropic client. The multiagent config and event types are part of the Managed Agents beta.
-
-
 
 %%capture
 
 %pip install -qU "anthropic>=0.121.0" python-dotenv
-
-
 
 import os
 
@@ -36,11 +32,9 @@ ADVISOR\_MODEL = os.environ.get("COOKBOOK\_ADVISOR\_MODEL", "claude-opus-5")
 
 client = anthropic.Anthropic()
 
-##  2. Define three specialist subagents
+##  2. Define three specialist subagents
 
 Next, we'll create the three teammates. Each one gets its own system prompt, its own output shape, and only the tools it needs for its job. The researcher gets web search, the case-study picker can only read the local library, and the pricing modeler just sees `pricing_rules.md` and the seat count. Scoping tools per role keeps the pricer from pulling a competitor's number off the web and keeps the full case-study library out of the coordinator's context.
-
-
 
 def make\_agent(name, description, system, tools):
 
@@ -130,11 +124,9 @@ Show the first-year total for each. Return via send\_to\_parent: {"options": [{"
 
 )
 
-##  3. Give the team something to work with
+##  3. Give the team something to work with
 
 The librarian needs a library to choose from. We'll give it seven short case studies across healthcare, manufacturing, logistics, retail, fintech, and public sector, so you can see it actually pick the two that fit our prospect.
-
-
 
 CASE\_STUDIES = [
 
@@ -252,11 +244,9 @@ Result with Northstar: single digital intake with parallel department review; me
 
 ]
 
-###  Product and pricing collateral
+###  Product and pricing collateral
 
 We'll also provide the product one-pager that the coordinator reads when writing the "How we help" section, and the pricing rules file that the modeler uses to build options.
-
-
 
 PRODUCT = """# Northstar Platform — One-Pager
 
@@ -276,13 +266,11 @@ PRICING = """# Pricing Rules (internal)
 
 - All options include onboarding; enterprise includes a named CSM."""
 
-###  Wire up the coordinator and start a session
+###  Wire up the coordinator and start a session
 
 Now let's create an environment, upload the nine files, and create the coordinator with its `multiagent` roster of three specialists. Each entry is a full agent with its own model, prompt, and toolset, so you could mix model tiers per role.
 
 The roster also holds one entry that isn't an agent: `{"type": "advisor", "model": ...}` names a stronger model the coordinator can consult mid-turn. It has no tools and can't be spawned or messaged. The coordinator calls its `advisor` tool, the platform shows that model the conversation so far, and the guidance comes back into the turn. Here it sanity-checks the case-study picks and the pricing framing before the write. The full pattern is in [`CMA_consult_an_advisor.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_consult_an_advisor.ipynb).
-
-
 
 env = client.beta.environments.create(
 
@@ -378,11 +366,9 @@ betas=BETAS,
 
 print(f"Session {session.id} ready with {len(resources)} files mounted")
 
-##  4. Kick off the proposal
+##  4. Kick off the proposal
 
 Let's send the prospect profile and watch the coordinator work. It will start the researcher and the pricing modeler in parallel, then run the case-study picker once the researcher's findings come back, since the picker needs those priorities to score relevance. Before the write, it consults its advisor, which appears on the stream as a short-lived `anthropic.advisor` thread.
-
-
 
 PROSPECT = {
 
@@ -456,11 +442,9 @@ print("[done]")
 
 break
 
-###  What each teammate sent back
+###  What each teammate sent back
 
 Before we look at the assembled proposal, let's print the three raw `send_to_parent` payloads plus the advisor's guidance. Each subagent ran in its own context with only its own tools, so the three reports look quite different from one another; the advisor's block is the sanity check the coordinator asked for before writing.
-
-
 
 def text\_of(content):
 
@@ -488,11 +472,9 @@ print(body[:1200] + (f"\n…[{len(body) - 1200} more chars]" if len(body) > 1200
 
 print()
 
-##  5. Read the proposal
+##  5. Read the proposal
 
 Finally, let's pull the assembled proposal. The coordinator wrote it to `proposal.md` with the `write` tool, so we'll find that event in the log and look at the sections it produced. Print `proposal` itself if you want to read the full document.
-
-
 
 proposal = ""
 
@@ -520,7 +502,7 @@ if line.startswith("#"):
 
 print(line)
 
-##  Why three subagents instead of one
+##  Why three subagents instead of one
 
 A single agent with all three tools could write this proposal, so why split it up? Scoping each role to its own tools means the pricing modeler can't pull a competitor's list price off the web, because it only has the rules file. The case-study picker reads seven files here, but in production it would read hundreds, and that volume stays in the subagent's context instead of the coordinator's. And the coordinator gets to decide the order and the hand-offs without doing any of the specialist work itself.
 

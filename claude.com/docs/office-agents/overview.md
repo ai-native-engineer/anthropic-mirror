@@ -47,3 +47,6 @@ These pages cover enterprise admin setup and observability.
 * [Security, admin auditability, and analytics](https://claude.com/docs/office-agents/enterprise-readiness):
   security architecture diagrams, OpenTelemetry audit, usage analytics,
   and spend tracking.
+* [Configure a custom OpenTelemetry collector](https://claude.com/docs/office-agents/opentelemetry):
+  route the full audit trail to a collector you operate, with the
+  configuration keys and span reference.

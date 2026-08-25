@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/capabilities-contextual-embeddings-guide -->
 
-#  Enhancing RAG with Contextual Retrieval
+#  Enhancing RAG with Contextual Retrieval
 
 > Note: For more background information on Contextual Retrieval, including additional performance evaluations on various datasets, we recommend reading our accompanying [blog post(opens in new tab)](https://www.anthropic.com/news/contextual-retrieval).
 
@@ -20,19 +20,19 @@ In this guide, we'll demonstrate how to build and optimize a Contextual Retrieva
 4. Contextual BM25: improving performance with *contextual* BM25 hybrid search.
 5. Improving performance with reranking,
 
-###  Evaluation Metrics & Dataset:
+###  Evaluation Metrics & Dataset:
 
 We use a pre-chunked dataset of 9 codebases - all of which have been chunked according to a basic character splitting mechanism. Our evaluation dataset contains 248 queries - each of which contains a 'golden chunk.' We'll use a metric called Pass@k to evaluate performance. Pass@k checks whether or not the 'golden document' was present in the first k documents retrieved for each query. Contextual Embeddings in this case helped us to improve Pass@10 performance from ~87% --> ~95%.
 
 You can find the code files and their chunks in `data/codebase_chunks.json` and the evaluation dataset in `data/evaluation_set.jsonl`
 
-####  Additional Notes:
+####  Additional Notes:
 
 Prompt caching is helpful in managing costs when using this retrieval method. This feature is currently available on Anthropic's first-party API, and is coming soon to our third-party partner environments in AWS Bedrock and GCP Vertex. We know that many of our customers leverage AWS Knowledge Bases and GCP Vertex AI APIs when building RAG solutions, and this method can be used on either platform with a bit of customization. Consider reaching out to Anthropic or your AWS/GCP account team for guidance on this!
 
 To make it easier to use this method on Bedrock, the AWS team has provided us with code that you can use to implement a Lambda function that adds context to each document. If you deploy this Lambda function, you can select it as a custom chunking option when configuring a [Bedrock Knowledge Base(opens in new tab)](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create.html). You can find this code in `contextual-rag-lambda-function`. The main lambda function code is in `lambda_function.py`.
 
-##  Table of Contents
+##  Table of Contents
 
 1. Setup
 2. Basic RAG
@@ -40,7 +40,7 @@ To make it easier to use this method on Bedrock, the AWS team has provided us wi
 4. Contextual BM25
 5. Reranking
 
-##  Setup
+##  Setup
 
 Before starting this guide, ensure you have:
 
@@ -69,7 +69,7 @@ Before starting this guide, ensure you have:
 * Expected completion time: 30-45 minutes
 * API costs: ~$5-10 to run through the full dataset
 
-###  Libraries
+###  Libraries
 
 We'll need a few libraries, including:
 
@@ -79,11 +79,9 @@ We'll need a few libraries, including:
 4. `elasticsearch` for performant BM25 search
 5. `pandas`, `numpy`, `matplotlib`, and `scikit-learn` for data manipulation and visualization
 
-###  Environment Variables
+###  Environment Variables
 
 Ensure the following environment variables are set:
-
-
 
 - VOYAGE\_API\_KEY
 
@@ -91,21 +89,15 @@ Ensure the following environment variables are set:
 
 - COHERE\_API\_KEY
 
-
-
 %%capture
 
 !pip install --upgrade anthropic voyageai cohere elasticsearch pandas numpy
 
 We define our model names up front to make it easier to change models as new models are released
 
-
-
 MODEL\_NAME = "claude-haiku-4-5"
 
 We'll start by initializing the Anthropic client that we'll use for generating contextual descriptions.
-
-
 
 import os
 
@@ -119,7 +111,7 @@ api\_key=os.getenv("ANTHROPIC\_API\_KEY"),
 
 )
 
-##  Initialize a Vector DB Class
+##  Initialize a Vector DB Class
 
 We'll create a VectorDB class to handle embedding storage and similarity search. This class serves three key functions in our RAG pipeline:
 
@@ -132,8 +124,6 @@ For this guide, we're using a simple in-memory vector database with pickle seria
 For production use, consider hosted vector database solutions.
 
 The VectorDB class below follows the same interface patterns you'd use with production solutions, making it easy to swap out later. Key features include batch processing (128 chunks at a time), progress tracking with tqdm, and query caching to speed up repeated searches during evaluation.
-
-
 
 import json
 
@@ -321,8 +311,6 @@ self.query\_cache = json.loads(data["query\_cache"])
 
 Now we can use this class to load our dataset
 
-
-
 # Load your transformed dataset
 
 with open("data/codebase\_chunks.json") as f:
@@ -337,23 +325,19 @@ base\_db = VectorDB("base\_db")
 
 base\_db.load\_data(transformed\_dataset)
 
-
-
 ```
 Processing chunks: 100%|██████████| 737/737 [00:00<00:00, 985400.72it/s]
 Embedding chunks: 100%|██████████| 737/737 [00:42<00:00, 17.28it/s]
 Vector database loaded and saved. Total chunks processed: 737
 ```
 
-##  Basic RAG
+##  Basic RAG
 
 To get started, we'll set up a basic RAG pipeline using a bare bones approach. This is sometimes called 'Naive RAG' by many in the industry. A basic RAG pipeline includes the following 3 steps:
 
 1. Chunk documents by heading - containing only the content from each subheading
 2. Embed each document
 3. Use Cosine similarity to retrieve documents in order to answer query
-
-
 
 import json
 
@@ -565,15 +549,11 @@ return results
 
 Now let's establish our baseline performance by evaluating the basic RAG system. We'll test at k=5, 10, and 20 to see how many of the golden chunks appear in the top retrieved results. This gives us a benchmark to measure improvement against.
 
-
-
 results = evaluate\_and\_display(
 
 base\_db, "data/evaluation\_set.jsonl", k\_values=[5, 10, 20], db\_name="Baseline RAG"
 
 )
-
-
 
 ```
 ============================================================
@@ -603,13 +583,13 @@ Pass@20         90.06%          0.9006
 
 These results show our baseline RAG performance. The system successfully retrieves the correct chunk 81% of the time in the top 5 results, improving to 87% in the top 10, and 90% in the top 20.
 
-##  Contextual Embeddings
+##  Contextual Embeddings
 
 With basic RAG, individual chunks often lack sufficient context when embedded in isolation. Contextual Embeddings solve this by using Claude to generate a brief description that "situates" each chunk within its source document. We then embed the chunk together with this context, creating richer vector representations.
 
 For each chunk in our codebase dataset, we pass both the chunk and its full source file to Claude. Claude generates a concise explanation of what the chunk contains and where it fits in the overall file. This context gets prepended to the chunk before embedding.
 
-###  Cost and Latency Considerations
+###  Cost and Latency Considerations
 
 **When does this cost occur?** The contextualization happens once at ingestion time, not during every query. Unlike techniques like HyDE (hypothetical document embeddings) that add latency to each search, contextual embeddings are a one-time cost when building your vector database. Prompt caching makes this practical. Since we process all chunks from the same document sequentially, we can leverage prompt caching for significant savings.
 
@@ -624,8 +604,6 @@ For each chunk in our codebase dataset, we pass both the chunk and its full sour
 ---
 
 Let's see an example of how contextual embeddings work by generating context for a single chunk. We'll use Claude to create a situating context, and you'll also see the prompt caching metrics in action.
-
-
 
 DOCUMENT\_CONTEXT\_PROMPT = """
 
@@ -727,8 +705,6 @@ print(f"Cache creation input tokens: {response.usage.cache\_creation\_input\_tok
 
 print(f"Cache read input tokens: {response.usage.cache\_read\_input\_tokens}")
 
-
-
 ```
 Situated context: This chunk contains the module documentation and initial struct definition for a differential fuzzing executor. It introduces the `DiffExecutor` struct that wraps two executors (primary and secondary) to run them sequentially with the same input, comparing their behavior for differential testing. The chunk establishes the core data structure and imports needed for the differential fuzzing implementation.
 ----------
@@ -738,7 +714,7 @@ Cache creation input tokens: 0
 Cache read input tokens: 0
 ```
 
-###  Building the Contextual Vector Database
+###  Building the Contextual Vector Database
 
 Now that we've seen how to generate contextual descriptions for individual chunks, let's scale this up to process our entire dataset. The `ContextualVectorDB` class below extends our basic `VectorDB` with automatic contextualization during ingestion.
 
@@ -750,8 +726,6 @@ Now that we've seen how to generate contextual descriptions for individual chunk
 * **Persistent storage**: Saves both embeddings and contextualized metadata to disk
 
 When you run this, pay attention to the token usage statistics—you'll see that 70-80% of input tokens are read from cache, demonstrating the dramatic cost savings from prompt caching. On our 737-chunk dataset, this reduces what would be a ~15ingestionjobdownto 15 ingestion job down to ~15ingestionjobdownto 3.
-
-
 
 import json
 
@@ -1101,8 +1075,6 @@ self.metadata = data["metadata"]
 
 self.query\_cache = json.loads(data["query\_cache"])
 
-
-
 # Load the transformed dataset
 
 with open("data/codebase\_chunks.json") as f:
@@ -1118,8 +1090,6 @@ contextual\_db = ContextualVectorDB("my\_contextual\_db")
 # note: consider increasing the number of parallel threads to run this faster, or reducing the number of parallel threads if concerned about hitting your API rate limit
 
 contextual\_db.load\_data(transformed\_dataset, parallel\_threads=5)
-
-
 
 ```
 Processing 737 chunks with 5 threads
@@ -1146,8 +1116,6 @@ The cache hit rate depends on how many chunks each document contains. Files with
 
 Now let's evaluate how much this contextualization improves our retrieval performance compared to the baseline.
 
-
-
 results = evaluate\_and\_display(
 
 contextual\_db,
@@ -1159,8 +1127,6 @@ k\_values=[5, 10, 20],
 db\_name="Contextual Embeddings",
 
 )
-
-
 
 ```
 ============================================================
@@ -1192,11 +1158,11 @@ By adding context to each chunk before embedding, we've reduced retrieval failur
 
 The improvement is most pronounced at Pass@5, where precision matters most—suggesting that contextualized chunks aren't just retrieved more often, but rank higher when relevant.
 
-##  Contextual BM25: Hybrid Search
+##  Contextual BM25: Hybrid Search
 
 Contextual embeddings alone improved our Pass@10 from 87% to 92%. We can push performance even higher by combining semantic search with keyword-based search using **Contextual BM25**—a hybrid approach that reduces retrieval failure rates further.
 
-###  Why Hybrid Search?
+###  Why Hybrid Search?
 
 Semantic search excels at understanding meaning and context, but can miss exact keyword matches. BM25 (a probabilistic keyword ranking algorithm) excels at finding specific terms, but lacks semantic understanding. By combining both, we get the best of both worlds:
 
@@ -1204,17 +1170,15 @@ Semantic search excels at understanding meaning and context, but can miss exact 
 * **BM25**: Catches exact terminology, function names, and specific phrases
 * **Reciprocal Rank Fusion**: Intelligently merges results from both sources
 
-###  What is BM25?
+###  What is BM25?
 
 BM25 is a probabilistic ranking function that improves upon TF-IDF by accounting for document length and term saturation. It's widely used in production search engines (including Elasticsearch) for its effectiveness at ranking keyword relevance. For technical details, see [this blog post(opens in new tab)](https://www.elastic.co/blog/practical-bm25-part-2-the-bm25-algorithm-and-its-variables).
 
 Instead of only searching the raw chunk content, we search both the chunk *and* the contextual description we generated earlier. This means BM25 can match keywords in either the original text or the explanatory context.
 
-###  Setup: Running Elasticsearch
+###  Setup: Running Elasticsearch
 
 Before running the code below, you'll need Elasticsearch running locally. The easiest way is with Docker:
-
-
 
 docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 \
 
@@ -1224,13 +1188,13 @@ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 \
 
 elasticsearch:9.2.0
 
-##  Troubleshooting:
+##  Troubleshooting:
 
 * Verify it's running: docker ps | grep elasticsearch
 * If port 9200 is in use: docker stop elasticsearch && docker rm elasticsearch
 * Check logs if issues occur: docker logs elasticsearch
 
-##  How the Hybrid Search Works
+##  How the Hybrid Search Works
 
 The retrieve\_advanced function below implements a three-step process:
 
@@ -1241,8 +1205,6 @@ The retrieve\_advanced function below implements a three-step process:
 3. Return top-k: Select the highest-scoring results after fusion
 
 The weighting system lets you balance between semantic understanding and keyword precision based on your data characteristics.
-
-
 
 import json
 
@@ -1750,8 +1712,6 @@ es\_bm25.es\_client.indices.delete(index=es\_bm25.index\_name)
 
 print(f"Deleted Elasticsearch index: {es\_bm25.index\_name}")
 
-
-
 results = evaluate\_db\_advanced(
 
 contextual\_db,
@@ -1763,8 +1723,6 @@ k\_values=[5, 10, 20],
 db\_name="Contextual BM25 Hybrid Search",
 
 )
-
-
 
 ```
 Created index: contextual_bm25_index
@@ -1804,11 +1762,11 @@ Pass@20           95.23%     0.9523       60.8%       39.2%
 Deleted Elasticsearch index: contextual_bm25_index
 ```
 
-##  Reranking
+##  Reranking
 
 We've achieved strong results with hybrid search (93.21% Pass@10), but there's one more technique that can squeeze out additional performance: **reranking**.
 
-###  What is Reranking?
+###  What is Reranking?
 
 Reranking is a two-stage retrieval approach:
 
@@ -1817,7 +1775,7 @@ Reranking is a two-stage retrieval approach:
 
 **Why does this work?** Initial retrieval methods (embeddings, BM25) are optimized for speed across millions of documents. Reranking models are slower but more accurate—they can afford to do deeper analysis on a smaller candidate set. This creates a speed/accuracy trade-off that works well in practice.
 
-###  Our Reranking Approach
+###  Our Reranking Approach
 
 For this example, we'll use a simpler reranking pipeline that builds on contextual embeddings alone (not the full hybrid search). Here's the process:
 
@@ -1827,7 +1785,7 @@ For this example, we'll use a simpler reranking pipeline that builds on contextu
 
 The reranking model has access to both the original chunk content and the contextual descriptions we generated, giving it rich information to make precise relevance judgments.
 
-###  Expected Performance
+###  Expected Performance
 
 Adding reranking delivers a modest but meaningful improvement:
 
@@ -1835,8 +1793,6 @@ Adding reranking delivers a modest but meaningful improvement:
 * **With reranking**: ~95% Pass@10 (additional 2-3% gain)
 
 This might seem small, but in production systems, reducing failures from 7.66% to ~5% can significantly improve user experience. The trade-off is query latency—reranking adds ~100-200ms per query depending on candidate set size.
-
-
 
 import json
 
@@ -2030,8 +1986,6 @@ print(f"{'=' \* 60}\n")
 
 return results
 
-
-
 results = evaluate\_db\_rerank(
 
 contextual\_db,
@@ -2043,8 +1997,6 @@ k\_values=[5, 10, 20],
 db\_name="Contextual Embeddings + Reranking",
 
 )
-
-
 
 ```
 ============================================================
@@ -2108,7 +2060,7 @@ Starting from our baseline RAG system at 87% Pass@10, we've climbed to over 95% 
 
 For most production RAG systems, **contextual embeddings provide the best performance-to-cost ratio**, delivering 92% Pass@10 with only one-time ingestion costs. Hybrid search and reranking are available when you need that extra 2-3 percentage points of precision and can afford the additional infrastructure or query costs.
 
-###  Next Steps and Key Takeaways
+###  Next Steps and Key Takeaways
 
 1. We demonstrated how to use Contextual Embeddings to improve retrieval performance, then delivered additional improvements with Contextual BM25 and reranking.
 2. This example used codebases, but these methods also apply to other data types such as internal company knowledge bases, financial & legal content, educational content, and much more.

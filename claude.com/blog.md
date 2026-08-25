@@ -156,6 +156,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d226ca443e2e05990c00_83d7d2fe412ceb4dfe627f0d5f3d64aff1a3f5db-1000x1000.svg)
+
+Aug 24, 2026
+
+How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+
+Claude Code
+
+How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+
+August 24, 2026
+
+[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](https://claude.com/blog/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+
+[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](#)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 Aug 21, 2026
@@ -380,22 +396,6 @@ August 12, 2026
 
 [The Claude in Chrome side panel is now Claude Cowork](#)The Claude in Chrome side panel is now Claude Cowork
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Aug 11, 2026
-
-Compliance API coverage extends to Claude Cowork and Claude Code
-
-Enterprise AI
-
-Compliance API coverage extends to Claude Cowork and Claude Code
-
-August 11, 2026
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 15
@@ -405,6 +405,22 @@ Category
 Product
 
 Usecase
+
+### How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+
+Category
+
+Claude Code
+
+Product
+
+Usecase
+
+August 24, 2026
+
+[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](https://claude.com/blog/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
+
+[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](#)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
 
 ### Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
 
@@ -629,22 +645,6 @@ August 12, 2026
 [The Claude in Chrome side panel is now Claude Cowork](https://claude.com/blog/cowork-chrome-side-panel)The Claude in Chrome side panel is now Claude Cowork
 
 [The Claude in Chrome side panel is now Claude Cowork](#)The Claude in Chrome side panel is now Claude Cowork
-
-### Compliance API coverage extends to Claude Cowork and Claude Code
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 11, 2026
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

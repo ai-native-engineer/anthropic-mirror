@@ -1,18 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-tool-use-with-pydantic -->
 
-#  Note-Saving Tool with Pydantic and Anthropic Tool Use
+#  Note-Saving Tool with Pydantic and Anthropic Tool Use
 
 In this example, we'll create a tool that saves a note with the author and metadata, and use Pydantic to validate the model's response when calling the tool. We'll define the necessary Pydantic models, process the tool call, and ensure that the model's response conforms to the expected schema.
 
-##  Step 1: Set up the environment
+##  Step 1: Set up the environment
 
 First, let's install the required libraries and set up the Claude API client.
 
-
-
 %pip install anthropic pydantic 'pydantic[email]'
-
-
 
 from anthropic import Anthropic
 
@@ -22,11 +18,9 @@ client = Anthropic()
 
 MODEL\_NAME = "claude-opus-4-1"
 
-##  Step 2: Define the Pydantic models
+##  Step 2: Define the Pydantic models
 
 We'll define Pydantic models to represent the expected schema for the note, author, and the model's response. This will allow us to validate and type-check the model's response when saving a note.
-
-
 
 class Author(BaseModel):
 
@@ -52,11 +46,9 @@ success: bool
 
 message: str
 
-##  Step 3: Define the client-side tool
+##  Step 3: Define the client-side tool
 
 Next, we'll define the client-side tool that our chatbot will use to save notes.
-
-
 
 tools = [
 
@@ -132,21 +124,17 @@ tools = [
 
 ]
 
-##  Step 4: Implement the note-saving tool
+##  Step 4: Implement the note-saving tool
 
 We'll create a dummy note saving function that just prints out that the note was saved successfully. If you actually want this note to be saved somewhere, you can implement this function.
-
-
 
 def save\_note(note: str, author: dict, priority: int = 3, is\_public: bool = False) -> None:
 
 print("Note saved successfully!")
 
-##  Step 5: Process the tool call and generate the response
+##  Step 5: Process the tool call and generate the response
 
 We'll create functions to process the tool call made by Claude and generate the response indicating the success of saving the note.
-
-
 
 def process\_tool\_call(tool\_name, tool\_input):
 
@@ -172,11 +160,9 @@ def generate\_response(save\_note\_response):
 
 return f"Response: {save\_note\_response.message}"
 
-##  Step 6: Interact with the chatbot
+##  Step 6: Interact with the chatbot
 
 Now, let's create a function to interact with the chatbot. We'll send a user message, process the tool call made by Claude, generate the response, validate the model's response using Pydantic, and return the final response to the user.
-
-
 
 def chatbot\_interaction(user\_message):
 
@@ -268,11 +254,9 @@ print(f"\nFinal Response: {final\_response}")
 
 return final\_response
 
-##  Step 7: Test the chatbot
+##  Step 7: Test the chatbot
 
 Let's test our chatbot with a sample query to save a note.
-
-
 
 chatbot\_interaction("""
 
@@ -285,8 +269,6 @@ Author: John Doe (johndoe@gmail.com)
 Priority: 4
 
 """)
-
-
 
 ```
 ==================================================

@@ -1,13 +1,8 @@
 <!-- source: https://platform.claude.com/docs/en/api/compliance/code/artifacts/list -->
 
----
-title: List Code Artifacts
-url: https://platform.claude.com/docs/en/api/compliance/code/artifacts/list
----
+# List Code Artifacts
 
-## List Code Artifacts
-
-**get** `/v1/compliance/apps/code/artifacts`
+**GET** `/v1/compliance/apps/code/artifacts`
 
 List Claude Code Artifacts owned by organizations under the parent
 organization.
@@ -22,49 +17,63 @@ quiesces.
 Artifacts owned by a since-deleted child organization are not
 returned.
 
-### Query Parameters
+## Query parameters
 
 - `limit: optional number`
 
   Maximum results (default: 20, max: 100)
 
+  default: 20, maximum: 100, minimum: 1
+
 - `organization_ids: optional array of string`
 
   Filter by organization IDs (accepts `org_...` or organization UUID, up to 500). Enumerate IDs via `GET /v1/compliance/organizations`.
+
+  maxItems: 500
 
 - `page: optional string`
 
   Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
 
-- `updated_at: optional object { gt, gte, lt, lte }`
+- `updated_at: optional object`
 
   - `gt: optional string`
 
     Return only Artifacts updated after this time (RFC 3339 format). See `updated_at.gte` for the completeness caveat.
 
+    format: date-time
+
   - `gte: optional string`
 
     Return only Artifacts updated at or after this time (RFC 3339 format). Time filters match an eventually-consistent index and Artifacts published before this field was recorded never match — omit the time filter for compliance-complete enumeration. For incremental export, apply a generous overlap margin between windows and dedupe by `id`: adjacent tiling silently misses items whose index update lagged their publish.
+
+    format: date-time
 
   - `lt: optional string`
 
     Return only Artifacts updated before this time (RFC 3339 format). Multiple time operators are AND-ed to the tightest bound. See `updated_at.gte` for the completeness caveat.
 
+    format: date-time
+
   - `lte: optional string`
 
     Return only Artifacts updated at or before this time (RFC 3339 format). See `updated_at.gte` for the completeness caveat.
+
+    format: date-time
 
 - `user_ids: optional array of string`
 
   Filter by owner user IDs (up to 200). Enumerate IDs via `GET /v1/compliance/organizations/{org_uuid}/users`.
 
-### Header Parameters
+  maxItems: 200
+
+## Headers
 
 - `"x-api-key": optional string`
 
-### Returns
+## Returns
 
-- `data: array of object { id, organization_uuid, owner_user_id, 5 more }`
+- `data: array of object`
 
   Page of Artifacts
 
@@ -100,7 +109,9 @@ returned.
 
     Artifact last update timestamp, or null for Artifacts published before this field was recorded
 
-  - `user: object { id, email_address }  or null`
+    format: date-time
+
+  - `user: object or null`
 
     The user who owns a Code Artifact.
 
@@ -117,7 +128,7 @@ returned.
 
       User's email address
 
-  - `versions: array of object { id, created_at, name }`
+  - `versions: array of object`
 
     Up to roughly 20 most-recently-published versions of this Artifact (older versions are not retained). Metadata only — use `GET /v1/compliance/apps/code/artifacts/{artifact_id}/versions/{version_id}` to download a version's content.
 
@@ -128,6 +139,8 @@ returned.
     - `created_at: string or null`
 
       When this version was published
+
+      format: date-time
 
     - `name: string`
 
@@ -141,14 +154,14 @@ returned.
 
   Token to retrieve the next page. Use this as the 'page' parameter in your next request
 
-### Example
+## Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/compliance/apps/code/artifacts \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

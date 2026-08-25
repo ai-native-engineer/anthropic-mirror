@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/skills/versions/delete -->
 
----
-title: Delete Skill Version
-url: https://platform.claude.com/docs/en/api/ruby/beta/skills/versions/delete
----
-
-## Delete Skill Version
+# Delete Skill Version
 
 `beta.skills.versions.delete(version, **kwargs) -> VersionDeleteResponse`
 
-**delete** `/v1/skills/{skill_id}/versions/{version}`
+**DELETE** `/v1/skills/{skill_id}/versions/{version}`
 
 Delete Skill Version
 
-### Parameters
+## Parameters
 
 - `skill_id: String`
 
@@ -103,7 +98,7 @@ Delete Skill Version
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class VersionDeleteResponse`
 
@@ -119,7 +114,7 @@ Delete Skill Version
 
     For Skill Versions, this is always `"skill_version_deleted"`.
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -131,7 +126,7 @@ version = anthropic.beta.skills.versions.delete("version", skill_id: "skill_id")
 puts(version)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

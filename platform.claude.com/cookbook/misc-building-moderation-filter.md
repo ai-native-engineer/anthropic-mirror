@@ -1,16 +1,14 @@
 <!-- source: https://platform.claude.com/cookbook/misc-building-moderation-filter -->
 
-#  Building a moderation filter with Claude
+#  Building a moderation filter with Claude
 
 This guide will show you how to use Claude to build a content moderation filter for user-generated text. The key idea is to define the moderation rules and categories directly in the prompt, allowing for easy customization and experimentation.
 
-##  Basic Approach
+##  Basic Approach
 
 The basic approach is to provide Claude with a prompt that describes the categories you want to filter for (e.g. "ALLOW" and "BLOCK"), along with detailed descriptions or examples of what kinds of content should fall into each category. Then, you insert the user-generated text to be classified as part of the prompt, and ask Claude to categorize it based on the provided guidelines.
 
 Here's an example prompt structure:
-
-
 
 You are a content moderation expert tasked with categorizing user-generated text based on the following guidelines:
 
@@ -30,15 +28,11 @@ Based on the guidelines above, classify this text as either ALLOW or BLOCK. Retu
 
 To use this, you would replace `{{USER_TEXT}}` with the actual user-generated text to be classified, and then send the prompt to Claude using the Claude API. Claude's response should be either "ALLOW" or "BLOCK", indicating how the text should be handled based on your provided guidelines.
 
-##  Example usage
+##  Example usage
 
 Here's some example Python code that demonstrates how to use this approach:
 
-
-
 %pip install anthropic
-
-
 
 from anthropic import Anthropic
 
@@ -86,8 +80,6 @@ return response
 
 And here's an example of how you could use this function to moderate an array of user comments:
 
-
-
 example\_guidelines = """BLOCK CATEGORY:
 
 - Promoting violence, illegal activities, or hate speech
@@ -120,8 +112,6 @@ classification = moderate\_text(comment, example\_guidelines)
 
 print(f"Comment: {comment}\nClassification: {classification}\n")
 
-
-
 ```
 Comment: This movie was great, I really enjoyed it. The main actor really killed it!
 Classification: ALLOW
@@ -136,13 +126,11 @@ Comment: Thanks for the helpful information!
 Classification: ALLOW
 ```
 
-##  Customization
+##  Customization
 
 One of the key benefits of this approach is that you can easily customize the moderation rules by modifying the descriptions or examples provided in the prompt for the "BLOCK" and "ALLOW" categories. This allows you to fine-tune the filtering to suit your specific needs or preferences.
 
 For example, if you wanted to Claude to moderate a rollercoaster enthusiast forum and ensure posts stay on topic, you could update the "ALLOW" and "BLOCK" category descriptions accordingly:
-
-
 
 rollercoaster\_guidelines = """BLOCK CATEGORY:
 
@@ -184,8 +172,6 @@ classification = moderate\_text(title, rollercoaster\_guidelines)
 
 print(f"Title: {title}\nClassification: {classification}\n")
 
-
-
 ```
 Title: Top 10 Wildest Inversions on Steel Coasters
 Classification: ALLOW
@@ -203,13 +189,11 @@ Title: My Thoughts on the Latest Marvel Movie
 Classification: BLOCK
 ```
 
-##  Improving Performance with Chain of Thought (CoT)
+##  Improving Performance with Chain of Thought (CoT)
 
 One technique that can enhance Claude's content moderation capabilities is "chain-of-thought" (CoT) prompting. This approach encourages Claude to break down its reasoning process into a step-by-step chain of thoughts, rather than just providing the final output.
 
 To leverage chain of thought for moderation, you can modify your prompt to explicitly instruct Claude to break down its process into clear steps inside `<thinking>` tags. Here's an example:
-
-
 
 cot\_prompt = """You are a content moderation expert tasked with categorizing user-generated text based on the following guidelines:
 
@@ -259,8 +243,6 @@ messages=[{"role": "user", "content": cot\_prompt.format(user\_post=user\_post)}
 
 print(response)
 
-
-
 ```
 <thinking>
 The post appears to be promoting a band rather than discussing rollercoasters, theme parks, or the amusement industry. This falls under the "spam, advertisements, or self-promotion" category, which is grounds for blocking the post.
@@ -269,11 +251,9 @@ The post appears to be promoting a band rather than discussing rollercoasters, t
 <output>BLOCK</output>
 ```
 
-##  Improving Performance with Examples
+##  Improving Performance with Examples
 
 Another technique for improving performance is by adding a few examples to the prompt, you provide Claude with some initial training data or "few-shot learning" to better understand the desired categorization. This can be especially helpful for nuanced or ambiguous cases where the category boundaries may not be entirely clear from the text descriptions alone. Here's an example of how you could modify the prompt template to include examples:
-
-
 
 examples\_prompt = """You are a content moderation expert tasked with categorizing user-generated text based on the following guidelines:
 
@@ -344,8 +324,6 @@ messages=[{"role": "user", "content": examples\_prompt.format(user\_text=user\_p
 )
 
 print(response)
-
-
 
 ```
 ALLOW

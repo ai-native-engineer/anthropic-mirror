@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/capabilities-content-moderation-guide -->
 
-#  Content policy enforcement with Claude
+#  Content policy enforcement with Claude
 
 Content moderation is the process of checking content against a written policy before it
 goes out, then deciding what happens to it: publish, reject, or send to a human
@@ -21,7 +21,7 @@ over three domains and measure it against labeled samples.
 > do not represent real advertising or moderation requirements, so don't use them as
 > compliance guidance.
 
-##  What you'll learn
+##  What you'll learn
 
 * Designing an extraction schema whose descriptions double as extraction instructions
 * A small JSON rule language with **scopes** and three-valued logic
@@ -31,7 +31,7 @@ over three domains and measure it against labeled samples.
 * Adding a rule from one plain-English sentence
 * Evaluating against labeled samples across three domains
 
-##  Prerequisites
+##  Prerequisites
 
 * Python 3.10+ and an Anthropic API key (`ANTHROPIC_API_KEY` in your environment or a
   `.env` file; the setup cell loads it).
@@ -48,7 +48,7 @@ this on the cookbook site, the full files are on GitHub:
 about a dollar with defaults; `RUN_FULL_EVAL=1` (Step 10) doubles that. The committed
 outputs are from a full run, so you can also just read along.
 
-##  The approach
+##  The approach
 
 The obvious LLM build is to paste the policy into a prompt and ask for a verdict. It
 works in a demo and causes problems at production volume:
@@ -61,8 +61,6 @@ works in a demo and causes problems at production volume:
 
 This cookbook restructures the problem so Claude runs in exactly two places, and
 **never decides the verdict**:
-
-
 
 from IPython.display import Image
 
@@ -84,8 +82,6 @@ a policy person and content like a reviewer. That's the part Claude supplies.
 The worked example is ad-creative clearance for **Northwind**, a fictional media
 network. Two more domains, marketplace listings and community content, reuse every line
 of code.
-
-
 
 %%capture
 
@@ -111,7 +107,7 @@ s = json.dumps(obj, indent=2)
 
 print(s[:limit] + ("\n… (truncated)" if len(s) > limit else ""))
 
-##  Step 1: Define the extraction schema
+##  Step 1: Define the extraction schema
 
 Everything in this pipeline builds on the schema, so we start there. The schema is the
 contract between the model and the rule engine: the complete set of facts that can be
@@ -127,8 +123,6 @@ known about a piece of content. Two design points matter more than anything else
 Fields mix objective facts (`price_or_rate_shown`) with bounded judgments
 (`text_coverage`). The schema is where you decide how much judgment to allow.
 
-
-
 schema = json.loads((DATA / "ad\_creatives" / "schema.json").read\_text())
 
 for name, spec in schema["properties"].items():
@@ -140,8 +134,6 @@ t = f"enum[{', '.join(spec['enum'])}]" if "enum" in spec else t
 print(f"{name:<36} {t}")
 
 print(f"\n{len(schema['properties'])} fields")
-
-
 
 ```
 ad_category                          enum[alcohol, gambling, financial_services, pharma_supplements, weight_loss, cosmetics_skincare, apparel_footwear, electronics, food_beverage, other]
@@ -165,7 +157,7 @@ target_min_age                       integer | null
 17 fields
 ```
 
-###  The context schema
+###  The context schema
 
 Not everything a rule needs can be read out of the content itself. Where the ad will
 run, which channel it runs on, whether the advertiser is managed or self-serve: your
@@ -176,13 +168,9 @@ These go in a second, smaller schema called the **context schema**. Your code pa
 them in when it asks for a verdict, and nothing is ever extracted for them. In Step 2
 you'll see how a rule can be limited to a particular context, like "only in New Jersey".
 
-
-
 context\_schema = json.loads((DATA / "ad\_creatives" / "context.json").read\_text())
 
 show({k: v.get("enum", v["type"]) for k, v in context\_schema["properties"].items()})
-
-
 
 ```
 {
@@ -204,12 +192,10 @@ show({k: v.get("enum", v["type"]) for k, v in context\_schema["properties"].item
 }
 ```
 
-##  Step 2: The rule language
+##  Step 2: The rule language
 
 Before asking Claude to compile anything, let's look at what it needs to produce.
 A compiled ruleset is one JSON document:
-
-
 
 {
 
@@ -265,14 +251,12 @@ Three design choices matter:
 * **Three-valued logic.** Missing values evaluate to *unknown*, and a rule that would
   fire but can't be confirmed yields `needs_review` instead of a confident verdict.
 
-##  Step 3: The rule engine
+##  Step 3: The rule engine
 
 Now the part that decides. The engine (`engine.py`, about 200 lines) is a pure function
 of `(rules, fields, context)`, with no model and no I/O. This is the part your
 compliance team gets to unit-test, and the reason two identical pieces of content can
 never get different verdicts. Its heart:
-
-
 
 def evaluate\_rule(rule, fields, context=None):
 
@@ -323,13 +307,11 @@ else: decision = "approve"
 [engine.py(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/capabilities/content_moderation/engine.py) also holds `validate_document`, the static checker the
 compiler's repair loop uses in Step 5.
 
-###  Trying it out
+###  Trying it out
 
 No model is involved yet, so we can play with the engine directly. Hand-write one rule
 and one fields dict, and watch the trace, including what happens when a value is `null`
 and when context changes the scope.
-
-
 
 demo\_rules = [
 
@@ -375,8 +357,6 @@ print("\n── Bonus amount unreadable (null) — three-valued logic routes to 
 
 print(evaluate(demo\_rules, {"bonus\_amount\_usd": None}, {"state": "NJ"}).explain())
 
-
-
 ```
 ── California:
 DECISION: FLAG
@@ -399,7 +379,7 @@ DECISION: NEEDS_REVIEW
   ? [block] nj_bonus_cap_block  — could not determine: bonus_amount_usd
 ```
 
-##  Step 4: LLM assertions
+##  Step 4: LLM assertions
 
 The engine so far only compares values. But some policy clauses can't reduce to
 comparisons over extractable facts: *"Alcohol creatives must not depict anyone who
@@ -407,8 +387,6 @@ appears to be under 25."* No field says that. Calling a model from inside the en
 would break everything we just built, so instead the compiler **manufactures a field**:
 a `derived_fields` entry whose `judge` instruction is a precise yes/no question,
 referenced like any other field:
-
-
 
 "derived\_fields": {
 
@@ -437,20 +415,16 @@ The compiler tries these in order: an operator on an existing field, then a deri
 judged field, then `uncompilable` (for clauses that need external data, like a
 gaming-license registry lookup).
 
-##  Step 5: Compile the policy document
+##  Step 5: Compile the policy document
 
 With the schema, the rule language, and the engine in place, we can compile the real
 policy. It is written the way policy teams actually write: prose clauses, for humans.
 Read it before compiling; note clause 1.1's under-25 line (needs a judgment), clause
 1.2's licensing line (uncompilable), and section 5's regional rules (scopes).
 
-
-
 policies = (DATA / "ad\_creatives" / "policies.md").read\_text()
 
 print(policies)
-
-
 
 ```
 # Ad Creative Acceptance Policy — Northwind Media Network
@@ -505,8 +479,6 @@ problems (an invented field, an enum value outside its set, a context key leakin
 `when`) go back to Claude as a fix-only turn. Hallucinations don't survive contact with
 the validator.
 
-
-
 for round\_no in range(max\_repair\_rounds + 1):
 
 doc = \_parse\_json\_reply(claude\_reply(messages))
@@ -518,8 +490,6 @@ if not problems:
 return doc, attempts
 
 messages += [assistant(reply), user("Fix ONLY these problems: " + json.dumps(problems))]
-
-
 
 compiled, attempts = compile\_policies(policies, schema, context\_schema)
 
@@ -551,8 +521,6 @@ for u in compiled.get("uncompilable", []):
 
 print(f" [{u['policy\_ref']}] {u['policy\_text'][:80]}… → {u['reason'][:100]}")
 
-
-
 ```
 round 0: clean
 
@@ -573,12 +541,10 @@ uncompilable:
   [1.2] Gambling advertisers must hold a valid gaming license in every state the campaig… → Requires an external lookup of state gaming-license registries per advertiser and per targeted state
 ```
 
-###  What the validator catches
+###  What the validator catches
 
 To see what the repair loop is defending against, corrupt a rule three different ways
 and validate. In a live compile these exact messages go back to Claude to fix.
-
-
 
 broken = {
 
@@ -624,8 +590,6 @@ broken = {
 
 show(validate\_document(broken, schema, context\_schema))
 
-
-
 ```
 {
   "bad1": [
@@ -640,7 +604,7 @@ show(validate\_document(broken, schema, context\_schema))
 }
 ```
 
-###  Comparing against a hand-written ruleset
+###  Comparing against a hand-written ruleset
 
 `rules.golden.json` is our hand-written compilation of the same policy. The compiled
 version typically covers the same clauses but often leans more on derived fields
@@ -650,8 +614,6 @@ trade-off is yours to review is the point of rules being an artifact.
 
 **For the rest of this notebook we use the golden ruleset**, so results are reproducible
 run to run; swap in `compiled` to use yours.
-
-
 
 golden = json.loads((DATA / "ad\_creatives" / "rules.golden.json").read\_text())
 
@@ -677,22 +639,18 @@ sorted(c\_refs - g\_refs) or "none",
 
 active = golden # ← the ruleset used below
 
-
-
 ```
 clause coverage — golden: ['1.1', '1.2', '1.3', '1.4', '2.1', '2.2', '3.1', '3.2', '4.1', '4.2', '5.1', '5.2', '5.3']
 missing vs golden: none · extra: none
 ```
 
-##  Step 6: Extract fields from content
+##  Step 6: Extract fields from content
 
 We have rules. Now we need fields to run them against, and that is extraction
 (`pipeline.extract_fields`): one Claude call per piece of content. This is the call that
 scales with volume, so it uses Sonnet, while compilation (once per policy change) uses
 Opus. The output schema is the extraction schema plus the ruleset's judged fields,
 enforced with **structured outputs**, so fields come back typed:
-
-
 
 response = \_client().messages.create(
 
@@ -717,8 +675,6 @@ deliberately when the image was composed: a **$1,500** bonus figure, a **21+** b
 a small-print strip that says *"Gamble Responsibly."* but **not** the 1-800-GAMBLER
 helpline that New Jersey requires.
 
-
-
 from IPython.display import Image as IPImage
 
 from IPython.display import display
@@ -742,8 +698,6 @@ submission = {
 fields = extract\_fields(submission, schema, active.get("derived\_fields", {}), image\_path=img\_path)
 
 show(fields)
-
-
 
 ```
 {
@@ -770,15 +724,13 @@ show(fields)
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/capabilities-content-moderation-guide/capabilities-content-moderation-guide_cell24_out0_6b075dbf.png)
 
-##  Step 7: Evaluate
+##  Step 7: Evaluate
 
 Fields extracted, rules compiled: the verdict is now just a function call. Every fired
 rule names its policy clause and every assertion shows expected vs. actual. And because
 evaluation is free, **changing the placement context doesn't re-invoke the model**: the
 same fields evaluated for New Jersey and for California give different verdicts, for
 reasons you can point at.
-
-
 
 print("── New Jersey placement:")
 
@@ -812,8 +764,6 @@ fields,
 
 )
 
-
-
 ```
 ── New Jersey placement:
 DECISION: BLOCK
@@ -837,7 +787,7 @@ DECISION: FLAG
   – out of scope: 1.1a_alcohol_targeting_21, 1.1b_alcohol_responsible_message, 1.1c_alcohol_no_under_25, 1.3a_finance_apr_required, 1.3b_finance_no_guaranteed_approval, 1.4c_weight_loss_targeting_18, 5.1_nj_gambling_helpline, 5.2_no_alcohol_gambling_email, 5.3_self_serve_finance_review
 ```
 
-##  Step 8: Add a rule in plain English
+##  Step 8: Add a rule in plain English
 
 Policy changes rarely arrive as a rewritten document. They arrive as a sentence from the
 policy team. `pipeline.compile_single_rule` runs the same compiler pattern one clause at a time:
@@ -846,8 +796,6 @@ fit), validate with the same repair loop, and append the additions as a **new ve
 of the ruleset. Note that one sentence can legitimately compile to
 *several* rules (flag generally, but block in one state), and the compiler is told not to
 collapse or drop any part.
-
-
 
 addition = compile\_single\_rule(
 
@@ -880,8 +828,6 @@ active\_v2 = {
 assert not validate\_document(active\_v2, schema, context\_schema)
 
 print(f"\nruleset v2: {len(active\_v2['rules'])} rules")
-
-
 
 ```
 {
@@ -942,8 +888,6 @@ The BetPeak creative advertises a $1,500 bonus, so the new rule should catch it.
 derived judgment wasn't in the extraction we ran earlier, so re-extract against v2's
 derived fields, then evaluate. Note the flag in California vs. the block in New Jersey.
 
-
-
 fields\_v2 = extract\_fields(submission, schema, active\_v2["derived\_fields"], image\_path=img\_path)
 
 print("── New Jersey, ruleset v2:")
@@ -961,8 +905,6 @@ fields\_v2,
 ).explain()
 
 )
-
-
 
 ```
 ── New Jersey, ruleset v2:
@@ -985,7 +927,7 @@ DECISION: BLOCK
   – out of scope: 1.1a_alcohol_targeting_21, 1.1b_alcohol_responsible_message, 1.1c_alcohol_no_under_25, 1.3a_finance_apr_required, 1.3b_finance_no_guaranteed_approval, 1.4c_weight_loss_targeting_18, 5.2_no_alcohol_gambling_email, 5.3_self_serve_finance_review, custom_signup_bonus_over_1000_flag
 ```
 
-##  Step 9: Try a different domain
+##  Step 9: Try a different domain
 
 Nothing above mentions advertising except three data files. A domain is
 `schema.json + context.json + policies.md`. Here are two more:
@@ -997,8 +939,6 @@ Nothing above mentions advertising except three data files. A domain is
 
 Compile each and run one representative sample end-to-end. (Compiled rulesets are cached
 under `evaluation/compiled/` so re-runs don't recompile.)
-
-
 
 CACHE = pathlib.Path("evaluation/compiled")
 
@@ -1066,8 +1006,6 @@ print(f"═══ {name}: {len(doc['rules'])} rules · sample: {s['name']}")
 
 print(" " + v.explain().replace("\n", "\n "), "\n")
 
-
-
 ```
 ═══ product_listings: 9 rules · sample: Rolex at $89, 'authentic'
    DECISION: BLOCK
@@ -1085,7 +1023,7 @@ print(" " + v.explain().replace("\n", "\n "), "\n")
      – out of scope: 1.2b_profanity_forum, 3.2_new_account_links, 4.1_undisclosed_incentive
 ```
 
-##  Step 10: Measure it
+##  Step 10: Measure it
 
 Finally, how well does the whole thing work? Every domain ships `samples.jsonl`: submissions (some with creative images) plus the
 expected decision under that domain's policy. Extraction is the only nondeterministic
@@ -1095,8 +1033,6 @@ effort should go in production (field descriptions, judge instructions, image qu
 To keep this notebook cheap to execute, the cell below runs 2 samples per domain by
 default. Set `RUN_FULL_EVAL=1` in your environment (or run `evaluation/run_eval.py`) for
 the full 22-sample table. The committed outputs below are from a full run.
-
-
 
 import os
 
@@ -1164,8 +1100,6 @@ f"({100 \* totals['correct'] / totals['n']:.0f}%)"
 
 )
 
-
-
 ```
 ═══ ad_creatives — 10 of 10 samples
 
@@ -1223,7 +1157,7 @@ f"({100 \* totals['correct'] / totals['n']:.0f}%)"
 TOTAL: 22/22 decisions correct (100%)
 ```
 
-###  A borderline case
+###  A borderline case
 
 One UGC sample is genuinely borderline: a new account posting *"I wrote a longer
 response on my blog: [link]"*. Expected **flag** (new-account link review), and
@@ -1235,7 +1169,7 @@ The lesson is the fix path: you don't touch the rules or the engine, you sharpen
 field description and re-run the eval. Prompt engineering here has a narrow, measurable
 blast radius: one field, one description, one number in a table.
 
-##  Taking this to production
+##  Taking this to production
 
 Compilation runs once per policy change; extraction is the one call per piece of
 content, so at volume you optimize exactly one prompt (put the schema in a
@@ -1249,7 +1183,7 @@ lets you replay history against a proposed ruleset before adopting it. Route
 description needs work. And keep the limits visible: rules with `uses_llm_fields` rest
 on model judgment, and `uncompilable` clauses need systems this pipeline doesn't have.
 
-##  When to use this pattern
+##  When to use this pattern
 
 Good fit: the policy is yours and changes often, verdicts must be explained to
 submitters or auditors, the same content gets re-checked across placements or policy

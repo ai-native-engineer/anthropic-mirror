@@ -1,27 +1,26 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/memory_stores/create -->
 
----
-title: Create a memory store
-url: https://platform.claude.com/docs/en/api/ruby/beta/memory_stores/create
----
-
-## Create a memory store
+# Create a memory store
 
 `beta.memory_stores.create(**kwargs) -> BetaManagedAgentsMemoryStore`
 
-**post** `/v1/memory_stores`
+**POST** `/v1/memory_stores`
 
 Create a memory store
 
-### Parameters
+## Parameters
 
 - `name: String`
 
   Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
 
+  minLength: 1, maxLength: 255
+
 - `description: String`
 
   Free-text description of what the store contains, up to 1024 characters. Included in the agent's system prompt when the store is attached, so word it to be useful to the agent.
+
+  maxLength: 1024
 
 - `metadata: Hash[Symbol, String]`
 
@@ -103,7 +102,7 @@ Create a memory store
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsMemoryStore`
 
@@ -117,21 +116,25 @@ Create a memory store
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `name: String`
 
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: :memory_store`
 
-    - `:memory_store`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `archived_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: String`
 
@@ -141,7 +144,7 @@ Create a memory store
 
     Arbitrary key-value tags for your own bookkeeping (such as the end user a store belongs to). Up to 16 pairs; keys 1–64 characters; values up to 512 characters. Returned on retrieve/list but not filterable.
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -153,7 +156,7 @@ beta_managed_agents_memory_store = anthropic.beta.memory_stores.create(name: "x"
 puts(beta_managed_agents_memory_store)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

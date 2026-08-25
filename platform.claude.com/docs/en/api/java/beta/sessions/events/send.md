@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/sessions/events/send -->
 
----
-title: Send Events
-url: https://platform.claude.com/docs/en/api/java/beta/sessions/events/send
----
+# Send Events
 
-## Send Events
+`BetaManagedAgentsSendSessionEvents beta().sessions().events().send(params, requestOptions = RequestOptions.none())`
 
-`BetaManagedAgentsSendSessionEvents beta().sessions().events().send(EventSendParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**post** `/v1/sessions/{session_id}/events`
+**POST** `/v1/sessions/{session_id}/events`
 
 Send Events
 
-### Parameters
+## Parameters
 
 - `EventSendParams params`
 
@@ -111,9 +106,9 @@ Send Events
 
             The text content.
 
-          - `Type type`
+            minLength: 1
 
-            - `TEXT("text")`
+          - `Type type`
 
         - `class BetaManagedAgentsImageBlock:`
 
@@ -131,13 +126,15 @@ Send Events
 
                 Base64-encoded image data.
 
+                minLength: 1
+
               - `String mediaType`
 
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-              - `Type type`
+                minLength: 1
 
-                - `BASE64("base64")`
+              - `Type type`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
@@ -145,11 +142,11 @@ Send Events
 
               - `Type type`
 
-                - `URL("url")`
-
               - `String url`
 
                 URL of the image to fetch.
+
+                minLength: 1
 
             - `class BetaManagedAgentsFileImageSource:`
 
@@ -159,13 +156,11 @@ Send Events
 
                 ID of a previously uploaded file.
 
+                minLength: 1
+
               - `Type type`
 
-                - `FILE("file")`
-
           - `Type type`
-
-            - `IMAGE("image")`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
@@ -183,13 +178,15 @@ Send Events
 
                 Base64-encoded document data.
 
+                minLength: 1
+
               - `String mediaType`
 
                 MIME type of the document (e.g., "application/pdf").
 
-              - `Type type`
+                minLength: 1
 
-                - `BASE64("base64")`
+              - `Type type`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
@@ -199,15 +196,13 @@ Send Events
 
                 The plain text content.
 
+                minLength: 1
+
               - `MediaType mediaType`
 
                 MIME type of the text content. Must be "text/plain".
 
-                - `TEXT_PLAIN("text/plain")`
-
               - `Type type`
-
-                - `TEXT("text")`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
@@ -215,11 +210,11 @@ Send Events
 
               - `Type type`
 
-                - `URL("url")`
-
               - `String url`
 
                 URL of the document to fetch.
+
+                minLength: 1
 
             - `class BetaManagedAgentsFileDocumentSource:`
 
@@ -229,13 +224,11 @@ Send Events
 
                 ID of a previously uploaded file.
 
+                minLength: 1
+
               - `Type type`
 
-                - `FILE("file")`
-
           - `Type type`
-
-            - `DOCUMENT("document")`
 
           - `Optional<String> context`
 
@@ -251,19 +244,13 @@ Send Events
 
           - `Type type`
 
-            - `REDACTED("redacted")`
-
       - `Type type`
-
-        - `USER_MESSAGE("user.message")`
 
     - `class BetaManagedAgentsUserInterruptEventParams:`
 
       Parameters for sending an interrupt to pause the agent.
 
       - `Type type`
-
-        - `USER_INTERRUPT("user.interrupt")`
 
       - `Optional<String> sessionThreadId`
 
@@ -285,13 +272,15 @@ Send Events
 
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
-      - `Type type`
+        minLength: 1, maxLength: 128
 
-        - `USER_TOOL_CONFIRMATION("user.tool_confirmation")`
+      - `Type type`
 
       - `Optional<String> denyMessage`
 
         Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+        maxLength: 10000
 
     - `class BetaManagedAgentsUserCustomToolResultEventParams:`
 
@@ -301,9 +290,9 @@ Send Events
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
-      - `Type type`
+        minLength: 1, maxLength: 128
 
-        - `USER_CUSTOM_TOOL_RESULT("user.custom_tool_result")`
+      - `Type type`
 
       - `Optional<List<Content>> content`
 
@@ -341,21 +330,23 @@ Send Events
 
               The text content.
 
-            - `Type type`
+              minLength: 1
 
-              - `TEXT("text")`
+            - `Type type`
 
           - `String source`
 
             The URL source of the search result.
 
+            minLength: 1
+
           - `String title`
 
             The title of the search result.
 
-          - `Type type`
+            minLength: 1
 
-            - `SEARCH_RESULT("search_result")`
+          - `Type type`
 
       - `Optional<Boolean> isError`
 
@@ -383,8 +374,6 @@ Send Events
 
           - `Type type`
 
-            - `FILE("file")`
-
         - `class BetaManagedAgentsTextRubricParams:`
 
           Rubric content provided inline as text.
@@ -393,17 +382,17 @@ Send Events
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
+            maxLength: 262144
+
           - `Type type`
 
-            - `TEXT("text")`
-
       - `Type type`
-
-        - `USER_DEFINE_OUTCOME("user.define_outcome")`
 
       - `Optional<Long> maxIterations`
 
         Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
 
     - `class BetaManagedAgentsUserToolResultEventParams:`
 
@@ -413,9 +402,9 @@ Send Events
 
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
-      - `Type type`
+        minLength: 1, maxLength: 128
 
-        - `USER_TOOL_RESULT("user.tool_result")`
+      - `Type type`
 
       - `Optional<List<Content>> content`
 
@@ -453,15 +442,13 @@ Send Events
 
           The text content.
 
-        - `Type type`
+          minLength: 1
 
-          - `TEXT("text")`
+        - `Type type`
 
       - `Type type`
 
-        - `SYSTEM_MESSAGE("system.message")`
-
-### Returns
+## Returns
 
 - `class BetaManagedAgentsSendSessionEvents:`
 
@@ -491,9 +478,9 @@ Send Events
 
             The text content.
 
-          - `Type type`
+            minLength: 1
 
-            - `TEXT("text")`
+          - `Type type`
 
         - `class BetaManagedAgentsImageBlock:`
 
@@ -511,13 +498,15 @@ Send Events
 
                 Base64-encoded image data.
 
+                minLength: 1
+
               - `String mediaType`
 
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-              - `Type type`
+                minLength: 1
 
-                - `BASE64("base64")`
+              - `Type type`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
@@ -525,11 +514,11 @@ Send Events
 
               - `Type type`
 
-                - `URL("url")`
-
               - `String url`
 
                 URL of the image to fetch.
+
+                minLength: 1
 
             - `class BetaManagedAgentsFileImageSource:`
 
@@ -539,13 +528,11 @@ Send Events
 
                 ID of a previously uploaded file.
 
+                minLength: 1
+
               - `Type type`
 
-                - `FILE("file")`
-
           - `Type type`
-
-            - `IMAGE("image")`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
@@ -563,13 +550,15 @@ Send Events
 
                 Base64-encoded document data.
 
+                minLength: 1
+
               - `String mediaType`
 
                 MIME type of the document (e.g., "application/pdf").
 
-              - `Type type`
+                minLength: 1
 
-                - `BASE64("base64")`
+              - `Type type`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
@@ -579,15 +568,13 @@ Send Events
 
                 The plain text content.
 
+                minLength: 1
+
               - `MediaType mediaType`
 
                 MIME type of the text content. Must be "text/plain".
 
-                - `TEXT_PLAIN("text/plain")`
-
               - `Type type`
-
-                - `TEXT("text")`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
@@ -595,11 +582,11 @@ Send Events
 
               - `Type type`
 
-                - `URL("url")`
-
               - `String url`
 
                 URL of the document to fetch.
+
+                minLength: 1
 
             - `class BetaManagedAgentsFileDocumentSource:`
 
@@ -609,13 +596,11 @@ Send Events
 
                 ID of a previously uploaded file.
 
+                minLength: 1
+
               - `Type type`
 
-                - `FILE("file")`
-
           - `Type type`
-
-            - `DOCUMENT("document")`
 
           - `Optional<String> context`
 
@@ -631,15 +616,13 @@ Send Events
 
           - `Type type`
 
-            - `REDACTED("redacted")`
-
       - `Type type`
-
-        - `USER_MESSAGE("user.message")`
 
       - `Optional<LocalDateTime> processedAt`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
     - `class BetaManagedAgentsUserInterruptEvent:`
 
@@ -651,11 +634,11 @@ Send Events
 
       - `Type type`
 
-        - `USER_INTERRUPT("user.interrupt")`
-
       - `Optional<LocalDateTime> processedAt`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `Optional<String> sessionThreadId`
 
@@ -683,15 +666,17 @@ Send Events
 
       - `Type type`
 
-        - `USER_TOOL_CONFIRMATION("user.tool_confirmation")`
-
       - `Optional<String> denyMessage`
 
         Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
 
+        maxLength: 10000
+
       - `Optional<LocalDateTime> processedAt`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `Optional<String> sessionThreadId`
 
@@ -710,8 +695,6 @@ Send Events
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `Type type`
-
-        - `USER_CUSTOM_TOOL_RESULT("user.custom_tool_result")`
 
       - `Optional<List<Content>> content`
 
@@ -749,21 +732,23 @@ Send Events
 
               The text content.
 
-            - `Type type`
+              minLength: 1
 
-              - `TEXT("text")`
+            - `Type type`
 
           - `String source`
 
             The URL source of the search result.
 
+            minLength: 1
+
           - `String title`
 
             The title of the search result.
 
-          - `Type type`
+            minLength: 1
 
-            - `SEARCH_RESULT("search_result")`
+          - `Type type`
 
       - `Optional<Boolean> isError`
 
@@ -772,6 +757,8 @@ Send Events
       - `Optional<LocalDateTime> processedAt`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `Optional<String> sessionThreadId`
 
@@ -793,6 +780,8 @@ Send Events
 
         Evaluate-then-revise cycles before giving up. Default 3, max 20.
 
+        format: int32
+
       - `String outcomeId`
 
         Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
@@ -800,6 +789,8 @@ Send Events
       - `LocalDateTime processedAt`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `Rubric rubric`
 
@@ -815,8 +806,6 @@ Send Events
 
           - `Type type`
 
-            - `FILE("file")`
-
         - `class BetaManagedAgentsTextRubric:`
 
           Rubric content provided inline as text.
@@ -827,11 +816,7 @@ Send Events
 
           - `Type type`
 
-            - `TEXT("text")`
-
       - `Type type`
-
-        - `USER_DEFINE_OUTCOME("user.define_outcome")`
 
     - `class BetaManagedAgentsUserToolResultEvent:`
 
@@ -846,8 +831,6 @@ Send Events
         The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `Type type`
-
-        - `USER_TOOL_RESULT("user.tool_result")`
 
       - `Optional<List<Content>> content`
 
@@ -877,6 +860,8 @@ Send Events
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `Optional<String> sessionThreadId`
 
         Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
@@ -897,19 +882,19 @@ Send Events
 
           The text content.
 
+          minLength: 1
+
         - `Type type`
 
-          - `TEXT("text")`
-
       - `Type type`
-
-        - `SYSTEM_MESSAGE("system.message")`
 
       - `Optional<LocalDateTime> processedAt`
 
         A timestamp in RFC 3339 format
 
-### Example
+        format: date-time
+
+## Example
 
 ```java
 package com.anthropic.example;
@@ -940,7 +925,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

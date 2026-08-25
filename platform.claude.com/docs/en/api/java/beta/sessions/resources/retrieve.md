@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/sessions/resources/retrieve -->
 
----
-title: Get Session Resource
-url: https://platform.claude.com/docs/en/api/java/beta/sessions/resources/retrieve
----
+# Get Session Resource
 
-## Get Session Resource
+`ResourceRetrieveResponse beta().sessions().resources().retrieve(params, requestOptions = RequestOptions.none())`
 
-`ResourceRetrieveResponse beta().sessions().resources().retrieve(ResourceRetrieveParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**get** `/v1/sessions/{session_id}/resources/{resource_id}`
+**GET** `/v1/sessions/{session_id}/resources/{resource_id}`
 
 Get Session Resource
 
-### Parameters
+## Parameters
 
 - `ResourceRetrieveParams params`
 
@@ -93,9 +88,9 @@ Get Session Resource
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+## Returns
 
-- `class ResourceRetrieveResponse: A class that can be one of several variants.union`
+- `class ResourceRetrieveResponse: union`
 
   The requested session resource.
 
@@ -107,15 +102,17 @@ Get Session Resource
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `String mountPath`
 
     - `Type type`
 
-      - `GITHUB_REPOSITORY("github_repository")`
-
     - `LocalDateTime updatedAt`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `String url`
 
@@ -127,9 +124,9 @@ Get Session Resource
 
           Branch name to check out.
 
-        - `Type type`
+          minLength: 1, maxLength: 255
 
-          - `BRANCH("branch")`
+        - `Type type`
 
       - `class BetaManagedAgentsCommitCheckout:`
 
@@ -137,9 +134,9 @@ Get Session Resource
 
           Full commit SHA to check out.
 
-        - `Type type`
+          minLength: 7, maxLength: 64
 
-          - `COMMIT("commit")`
+        - `Type type`
 
   - `class BetaManagedAgentsFileResource:`
 
@@ -149,17 +146,19 @@ Get Session Resource
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `String fileId`
 
     - `String mountPath`
 
     - `Type type`
 
-      - `FILE("file")`
-
     - `LocalDateTime updatedAt`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsMemoryStoreResource:`
 
@@ -170,8 +169,6 @@ Get Session Resource
       The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
     - `Type type`
-
-      - `MEMORY_STORE("memory_store")`
 
     - `Optional<Access> access`
 
@@ -189,6 +186,8 @@ Get Session Resource
 
       Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+      maxLength: 4096
+
     - `Optional<String> mountPath`
 
       Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
@@ -197,7 +196,7 @@ Get Session Resource
 
       Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
 
-### Example
+## Example
 
 ```java
 package com.anthropic.example;
@@ -222,7 +221,7 @@ public final class Main {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

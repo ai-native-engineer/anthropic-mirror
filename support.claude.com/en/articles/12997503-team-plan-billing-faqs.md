@@ -18,7 +18,7 @@ Your organization's billing address determines where your invoices are sent. You
 
 If you want to use a name other than the one tied to your payment method, an organization Owner should check the "Use a different name on invoices" box when adding or updating your payment method in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1787426100&signature=efc83526b753ed4501b011bfc285e0bdd7d0c6fe3e8d1036ba601dce3e064e2c&req=dSklFMh6mINaWvMW1HO4zRZTxF3Fuc3SKAqLF4ERnlWJsTGMb1Hzvf9EuJ4u%0Agw8m4QF5iv5A9i8Wurw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1787426100&signature=efc83526b753ed4501b011bfc285e0bdd7d0c6fe3e8d1036ba601dce3e064e2c&req=dSklFMh6mINaWvMW1HO4zRZTxF3Fuc3SKAqLF4ERnlWJsTGMb1Hzvf9EuJ4u%0Agw8m4QF5iv5A9i8Wurw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1787622300&signature=8a254e6f342aa8c575bf8d19a66203c36c2013a4ed61ae86e5f14e47e8046b4a&req=dSklFMh6mINaWvMW1HO4zRZTxF3HucnQKAqLF4ERnlV4BoZeblfmU8n03LOw%0A5%2Ft%2BmmZuyBkdjU9r8C4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1787622300&signature=8a254e6f342aa8c575bf8d19a66203c36c2013a4ed61ae86e5f14e47e8046b4a&req=dSklFMh6mINaWvMW1HO4zRZTxF3HucnQKAqLF4ERnlV4BoZeblfmU8n03LOw%0A5%2Ft%2BmmZuyBkdjU9r8C4%3D%0A)
 
 ## When will I be billed?
 
@@ -49,7 +49,7 @@ Please click on the message icon in the bottom right of our Help Center to conta
 An organization owner can resubscribe for Team plan access by navigating to **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**.
 
 * [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
-* [How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)
 * [Add or update your Team plan's tax or VAT ID](https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id)
-* [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
 * [Understanding your billing address and tax calculation](https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation)
+* [Understanding your Pro or Max plan invoices](https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices)
+* [Understanding your Team plan invoices](https://support.claude.com/en/articles/16607668-understanding-your-team-plan-invoices)

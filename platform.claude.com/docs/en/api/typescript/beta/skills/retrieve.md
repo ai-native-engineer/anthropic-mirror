@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/skills/retrieve -->
 
----
-title: Get Skill
-url: https://platform.claude.com/docs/en/api/typescript/beta/skills/retrieve
----
+# Get Skill
 
-## Get Skill
+`client.beta.skills.retrieve(skillID, params?, options?): SkillRetrieveResponse`
 
-`client.beta.skills.retrieve(stringskillID, SkillRetrieveParamsparams?, RequestOptionsoptions?): SkillRetrieveResponse`
-
-**get** `/v1/skills/{skill_id}`
+**GET** `/v1/skills/{skill_id}`
 
 Get Skill
 
-### Parameters
+## Parameters
 
 - `skillID: string`
 
@@ -99,7 +94,7 @@ Get Skill
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `SkillRetrieveResponse`
 
@@ -140,11 +135,13 @@ Get Skill
 
     For Skills, this is always `"skill"`.
 
+    default: skill
+
   - `updated_at: string`
 
     ISO 8601 timestamp of when the skill was last updated.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -158,7 +155,7 @@ const skill = await client.beta.skills.retrieve("skill_id");
 console.log(skill.id);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

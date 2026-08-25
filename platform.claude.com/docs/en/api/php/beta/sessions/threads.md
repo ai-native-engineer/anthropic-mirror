@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/threads -->
 
----
-title: Threads
-url: https://platform.claude.com/docs/en/api/php/beta/sessions/threads
----
-
 # Threads
 
 ## List Session Threads
 
 `$client->beta->sessions->threads->list(string sessionID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsSessionThread>`
 
-**get** `/v1/sessions/{session_id}/threads`
+**GET** `/v1/sessions/{session_id}/threads`
 
 List Session Threads
 
@@ -96,7 +91,7 @@ $page = $client->beta->sessions->threads->list(
 var_dump($page);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -194,7 +189,7 @@ var_dump($page);
 
 `$client->beta->sessions->threads->retrieve(string threadID, string sessionID, ?list<AnthropicBeta> betas): ManagedAgentsSessionThread`
 
-**get** `/v1/sessions/{session_id}/threads/{thread_id}`
+**GET** `/v1/sessions/{session_id}/threads/{thread_id}`
 
 Get Session Thread
 
@@ -272,7 +267,7 @@ $betaManagedAgentsSessionThread = $client->beta->sessions->threads->retrieve(
 var_dump($betaManagedAgentsSessionThread);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -365,7 +360,7 @@ var_dump($betaManagedAgentsSessionThread);
 
 `$client->beta->sessions->threads->archive(string threadID, string sessionID, ?list<AnthropicBeta> betas): ManagedAgentsSessionThread`
 
-**post** `/v1/sessions/{session_id}/threads/{thread_id}/archive`
+**POST** `/v1/sessions/{session_id}/threads/{thread_id}/archive`
 
 Archive Session Thread
 
@@ -443,7 +438,7 @@ $betaManagedAgentsSessionThread = $client->beta->sessions->threads->archive(
 var_dump($betaManagedAgentsSessionThread);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -532,7 +527,7 @@ var_dump($betaManagedAgentsSessionThread);
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Session Thread
 
@@ -1388,17 +1383,17 @@ var_dump($betaManagedAgentsSessionThread);
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-# Events
+## Threads › Events
 
-## List Session Thread Events
+### List Session Thread Events
 
 `$client->beta->sessions->threads->events->list(string threadID, string sessionID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsSessionEvent>`
 
-**get** `/v1/sessions/{session_id}/threads/{thread_id}/events`
+**GET** `/v1/sessions/{session_id}/threads/{thread_id}/events`
 
 List Session Thread Events
 
-### Parameters
+#### Parameters
 
 - `sessionID: string`
 
@@ -1416,7 +1411,7 @@ List Session Thread Events
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `ManagedAgentsSessionEvent`
 
@@ -2144,7 +2139,7 @@ List Session Thread Events
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-### Example
+#### Example
 
 ```php
 <?php
@@ -2164,7 +2159,7 @@ $page = $client->beta->sessions->threads->events->list(
 var_dump($page);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -2185,15 +2180,15 @@ var_dump($page);
 }
 ```
 
-## Stream Session Thread Events
+### Stream Session Thread Events
 
 `$client->beta->sessions->threads->events->stream(string threadID, string sessionID, ?list<BetaManagedAgentsDeltaType> eventDeltas, ?list<AnthropicBeta> betas): ManagedAgentsStreamSessionThreadEvents`
 
-**get** `/v1/sessions/{session_id}/threads/{thread_id}/stream`
+**GET** `/v1/sessions/{session_id}/threads/{thread_id}/stream`
 
 Stream Session Thread Events
 
-### Parameters
+#### Parameters
 
 - `sessionID: string`
 
@@ -2207,7 +2202,7 @@ Stream Session Thread Events
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+#### Returns
 
 - `ManagedAgentsStreamSessionThreadEvents`
 
@@ -2955,7 +2950,9 @@ Stream Session Thread Events
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-### Example
+- `ManagedAgentsStreamSessionThreadEvents`
+
+#### Example
 
 ```php
 <?php
@@ -2979,7 +2976,7 @@ $betaManagedAgentsStreamSessionThreadEvents = $client
 var_dump($betaManagedAgentsStreamSessionThreadEvents);
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {

@@ -1,12 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-llamaindex-multi-document-agents -->
 
-#  Multi-Document Agents
+#  Multi-Document Agents
 
 In this notebook we will look into Building RAG when you have a large number of documents using `DocumentAgents` concept with `ReAct Agent`.
 
-###  Installation
-
-
+###  Installation
 
 !pip install llama-index
 
@@ -14,9 +12,7 @@ In this notebook we will look into Building RAG when you have a large number of 
 
 !pip install llama-index-embeddings-huggingface
 
-###  Set Logging
-
-
+###  Set Logging
 
 # NOTE: This is ONLY necessary in jupyter notebook.
 
@@ -56,31 +52,23 @@ logger.addHandler(handler)
 
 from IPython.display import HTML, display
 
-###  Set Claude API Key
-
-
+###  Set Claude API Key
 
 import os
 
 os.environ["ANTHROPIC\_API\_KEY"] = "YOUR Claude API KEY"
 
-###  Set LLM and Embedding model
+###  Set LLM and Embedding model
 
 We will use anthropic latest released `Claude-3 Opus` LLM.
-
-
 
 from llama\_index.embeddings.huggingface import HuggingFaceEmbedding
 
 from llama\_index.llms.anthropic import Anthropic
 
-
-
 llm = Anthropic(temperature=0.0, model="claude-opus-4-1")
 
 embed\_model = HuggingFaceEmbedding(model\_name="BAAI/bge-base-en-v1.5")
-
-
 
 from llama\_index.core import Settings
 
@@ -90,11 +78,9 @@ Settings.embed\_model = embed\_model
 
 Settings.chunk\_size = 512
 
-###  Download Documents
+###  Download Documents
 
 We will use Wikipedia pages of `Toronto`, `Seattle`, `Chicago`, `Boston`, `Houston` cities and build RAG pipeline.
-
-
 
 wiki\_titles = ["Toronto", "Seattle", "Chicago", "Boston", "Houston"]
 
@@ -142,9 +128,7 @@ with open(data\_path / f"{title}.txt", "w") as fp:
 
 fp.write(wiki\_text)
 
-###  Load Document
-
-
+###  Load Document
 
 # Load all wiki documents
 
@@ -160,9 +144,7 @@ input\_files=[f"data/{wiki\_title}.txt"]
 
 ).load\_data()
 
-####  Build ReAct Agent for each city
-
-
+####  Build ReAct Agent for each city
 
 from llama\_index.core import SummaryIndex, VectorStoreIndex
 
@@ -246,9 +228,7 @@ verbose=True,
 
 agents[wiki\_title] = agent
 
-####  Define IndexNode for each of these Agents
-
-
+####  Define IndexNode for each of these Agents
 
 from llama\_index.core.schema import IndexNode
 
@@ -276,9 +256,7 @@ node = IndexNode(text=wiki\_summary, index\_id=wiki\_title, obj=agents[wiki\_tit
 
 objects.append(node)
 
-####  Define Top-Level Retriever to choose an Agent
-
-
+####  Define Top-Level Retriever to choose an Agent
 
 vector\_index = VectorStoreIndex(
 
@@ -288,17 +266,13 @@ objects=objects,
 
 query\_engine = vector\_index.as\_query\_engine(similarity\_top\_k=1, verbose=True)
 
-####  Test Queries
+####  Test Queries
 
 Should choose a vector tool/ summary tool for a specific agent based on the query.
-
-
 
 # should use Toronto agent -> vector tool
 
 response = query\_engine.query("What is the population of Toronto?")
-
-
 
 ```
 Retrieval entering Toronto: ReActAgent
@@ -315,23 +289,15 @@ Answer: According to the information provided, the population of Toronto in 2021
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-
-
 # should use Houston agent -> vector tool
 
 response = query\_engine.query("Who and when was Houston founded?")
-
-
 
 ```
 Retrieval entering Houston: ReActAgent
@@ -348,23 +314,15 @@ Answer: Houston was founded by land investors on August 30, 1836. The city was i
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-
-
 # should use Boston agent -> summary tool
 
 response = query\_engine.query("Summarize about the sports teams in Boston")
-
-
 
 ```
 Retrieval entering Boston: ReActAgent
@@ -393,23 +351,15 @@ Answer: Boston is home to successful professional sports teams in baseball (Red 
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
 
-
-
 # should use Seattle agent -> summary tool
 
 response = query\_engine.query("Give me a summary on all the positive aspects of Chicago")
-
-
 
 ```
 Retrieval entering Chicago: ReActAgent
@@ -454,11 +404,7 @@ Overall, Chicago stands out as a world-class city known for its robust economy, 
 HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 ```
 
-
-
 display(HTML(f'<p style="font-size:20px">{response.response}</p>'))
-
-
 
 ```
 <IPython.core.display.HTML object>

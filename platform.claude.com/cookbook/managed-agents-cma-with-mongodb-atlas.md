@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-with-mongodb-atlas -->
 
-#  Fraud Review Agent with MongoDB Atlas and Claude Managed Agents
+#  Fraud Review Agent with MongoDB Atlas and Claude Managed Agents
 
 This cookbook shows how to bring **MongoDB Atlas** to an agent running on
 [Claude Managed Agents(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/README.md) (CMA) — as its retrieval engine, its graph store, and its
@@ -40,15 +40,13 @@ The worked example is a **human-in-the-loop fraud-review agent**, but the patter
 vertical-agnostic: swap the collection and the tools, and the same shape serves a support,
 research, or operations agent.
 
-##  What this guide covers
+##  What this guide covers
 
 1. [Connect MongoDB to a managed agent](#1-connect-mongodb-to-a-managed-agent)
 2. [Retrieve: four patterns, one engine](#2-retrieve-four-patterns-one-engine)
 3. [The end-to-end agent: human-in-the-loop fraud review](#3-the-end-to-end-agent-human-in-the-loop-fraud-review)
 4. [MongoDB Atlas as the system of record and audit backbone](#4-mongodb-atlas-as-the-system-of-record-and-audit-backbone)
 5. [Recap](#5-recap)
-
-
 
 %%capture
 
@@ -62,7 +60,7 @@ research, or operations agent.
 
 %pip install -q "anthropic>=0.109.0" pymongo python-dotenv cryptography pyjwt
 
-##  Prerequisites
+##  Prerequisites
 
 **Required knowledge:** Python and `pymongo` basics, plus passing familiarity with the Claude
 API. New to MongoDB + Claude? The
@@ -73,15 +71,13 @@ first. New to the custom-tool gate?
 **Required tools:** Python 3.11+, an [Anthropic API key(opens in new tab)](https://console.anthropic.com), and a
 MongoDB Atlas cluster.
 
-##  Setup
+##  Setup
 
 **Required:** `MONGO_URI` (an Atlas SRV connection string) plus Anthropic API access. A **free
 M0 cluster runs everything in this cookbook** — vector, full-text, hybrid `$rankFusion`, and
 graph traversal — so there is no paid-tier requirement. Hybrid search uses the native
 `$rankFusion` stage, which needs MongoDB 8.0+; every current Atlas cluster (M0 included) is on
 8.0 or later, so this holds by default.
-
-
 
 uv sync --all-extras # from the repo root
 
@@ -106,8 +102,6 @@ shapers), [`ap2_mandates.py`(opens in new tab)](https://github.com/anthropics/cl
 crypto black box you call through `verify_mandates`), and
 [`seed.py`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/mongodb_on_cma/seed.py) (the example-data loader). Import them, connect the clients,
 and resolve the run configuration.
-
-
 
 import hashlib
 
@@ -221,14 +215,12 @@ f"model={MODEL} rerank={'on' if ENABLE\_RERANK else 'off'} provider={'yes' if ai
 
 )
 
-
-
 ```
 warning: no ANTHROPIC_API_KEY / ANTHROPIC_AUTH_TOKEN / ANTHROPIC_PROFILE found; relying on the SDK / `ant` CLI to resolve credentials.
 model=claude-haiku-4-5  rerank=on  provider=yes
 ```
 
-##  1. Connect MongoDB to a managed agent
+##  1. Connect MongoDB to a managed agent
 
 The agent loop and its sandbox are **Anthropic-hosted** — that is what "Managed" means. The
 only thing you host is the **data path** to MongoDB. On every path, the MongoDB credential
@@ -254,7 +246,7 @@ There are three ways to wire the data path. **This cookbook uses Path A througho
 the recommended, lightest pattern and the one that keeps the credential fully host-side. Paths
 B and C are summarized after it for completeness.
 
-###  Path A: host-side custom tool (recommended)
+###  Path A: host-side custom tool (recommended)
 
 Your application defines a `custom` tool. When the agent calls it, the session pauses with
 `requires_action`, **your** process runs the query with `pymongo`, and you post back a
@@ -266,8 +258,6 @@ To see the wiring unobscured, here is the whole round-trip with one tiny `find_n
 a throwaway `notes` collection. **This is the core integration: a few lines of `pymongo`, run
 host-side, behind a custom tool.** Section 3 scales this exact shape to five tools and a real
 workload.
-
-
 
 notes = mongo["cookbook\_mongodb\_on\_cma"]["notes"]
 
@@ -353,8 +343,6 @@ title="MongoDB notes (host-side custom tool)",
 
 print(f"seeded {notes.count\_documents({})} notes; session: {notes\_session.id}")
 
-
-
 ```
 seeded 3 notes; session: sesn_016ufm58BVJ8aZeWjUt39bsq
 ```
@@ -363,8 +351,6 @@ Open the event stream, ask a question, and drive the round-trip: on each
 `agent.custom_tool_use`, run the query **host-side** with `pymongo` and post back a
 `user.custom_tool_result`. Results are projected with `{"_id": 0}` because a raw MongoDB
 `ObjectId` is not JSON-serializable.
-
-
 
 def run\_find\_notes(args: dict) -> dict:
 
@@ -472,15 +458,13 @@ notes.drop()
 
 print("archived the demo agent / environment / session; dropped the notes collection")
 
-
-
 ```
 host-side find_notes round-trips:
   find_notes({'tag': 'todo'}) -> 2 notes
 archived the demo agent / environment / session; dropped the notes collection
 ```
 
-###  Other options (brief)
+###  Other options (brief)
 
 Path A is the default and the rest of this cookbook uses it. Two alternatives exist for cases
 it doesn't fit — you don't need them to follow along:
@@ -498,7 +482,7 @@ The trade-off in one line: **Path A** keeps the query set fixed and the secret i
 (the safest default); **Path B** hands the sandbox direct access; **Path C** gives the agent the
 broadest query surface at the cost of running a server. When in doubt, stay on Path A.
 
-##  2. Retrieve: four patterns, one engine
+##  2. Retrieve: four patterns, one engine
 
 An agent is only as well-grounded as its retrieval. These are the four MongoDB retrieval
 patterns shown **in isolation** — here's the builder, here's what it returns — so you can lift a
@@ -520,8 +504,6 @@ setup cell above.
 First, load the seed fixture from
 [`example_data/mongodb_on_cma/`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/example_data/mongodb_on_cma/seed_transactions.jsonl) and build
 the indexes. The fixture ships precomputed embeddings, so this runs with no provider key.
-
-
 
 # The four retrieval builders — each returns a plain aggregation pipeline you can lift into your
 
@@ -773,8 +755,6 @@ return {
 
 }
 
-
-
 docs = prepare\_seed(load\_seed(), now=datetime.now(UTC))
 
 count = seed\_collection(coll, docs)
@@ -813,20 +793,16 @@ f"self-hosted MongoDB 8.0+."
 
 print(f"server={version} hybrid search=$rankFusion (native)")
 
-
-
 ```
 seeded 20 transactions
 server=8.0.27  hybrid search=$rankFusion (native)
 ```
 
-###  Pattern 1: Vector search (`$vectorSearch`)
+###  Pattern 1: Vector search (`$vectorSearch`)
 
 Semantic recall: find documents whose `embedding` is nearest the query vector. This example
 reuses an existing document's embedding as the query (a pending case looking for decided
 precedent), so no embedding API call is needed. The builder filters to decided cases via the `status` field.
-
-
 
 query\_doc = coll.find\_one({"transaction\_id": "txn-review-struct"}) # a pending case
 
@@ -838,8 +814,6 @@ for h in hits:
 
 print(f" {h['transaction\_id']}: {h['text'][:72]}")
 
-
-
 ```
 nearest decided precedents:
   txn-struct-01: Cash deposit of 4950 USD, just under the 5000 reporting threshold. Third
@@ -847,12 +821,10 @@ nearest decided precedents:
   txn-struct-03: Transfer of 4999 USD deliberately under 5000 to avoid reporting. Pattern
 ```
 
-###  Pattern 2: Full-text search (`$search`, BM25)
+###  Pattern 2: Full-text search (`$search`, BM25)
 
 Keyword and phrase matching over text fields — this is what catches the exact names, IDs, and
 codes that embeddings blur.
-
-
 
 hits = list(
 
@@ -870,8 +842,6 @@ for h in hits:
 
 print(f" {h['transaction\_id']}: {h['text'][:72]}")
 
-
-
 ```
 full-text matches:
   txn-struct-01: Cash deposit of 4950 USD, just under the 5000 reporting threshold. Third
@@ -879,13 +849,11 @@ full-text matches:
   txn-struct-02: Cash deposit of 4900 USD just below the 5000 CTR threshold, same account
 ```
 
-###  Pattern 3: Hybrid (reciprocal rank fusion)
+###  Pattern 3: Hybrid (reciprocal rank fusion)
 
 Fuse the vector and full-text rankings into one result set. `$rankFusion` (MongoDB 8.0+) runs
 both input pipelines server-side and combines them by reciprocal rank — no client-side merging,
 no second round-trip.
-
-
 
 qvec, query = query\_doc["embedding"], "structuring: cash deposit just under the threshold"
 
@@ -897,8 +865,6 @@ for h in hits:
 
 print(f" {h['transaction\_id']}: {h['text'][:72]}")
 
-
-
 ```
 hybrid via $rankFusion (server-side):
   txn-struct-01: Cash deposit of 4950 USD, just under the 5000 reporting threshold. Third
@@ -906,13 +872,11 @@ hybrid via $rankFusion (server-side):
   txn-struct-03: Transfer of 4999 USD deliberately under 5000 to avoid reporting. Pattern
 ```
 
-###  Pattern 4: Graph traversal (`$graphLookup`)
+###  Pattern 4: Graph traversal (`$graphLookup`)
 
 Follow `sender.account_number -> recipient.account_number` links to surface a network (here, a
 circular money-flow ring). This is a *relationship* signal, deliberately separate from the
 similarity ranking above.
-
-
 
 graph\_doc = next(
 
@@ -930,8 +894,6 @@ f"circular\_flow={ring['circular\_flow']} suspicious={ring['suspicious\_patterns
 
 )
 
-
-
 ```
 graph traversal from ACC-RING-A: network_size=4 circular_flow=True suspicious=True
 ```
@@ -942,7 +904,7 @@ tune the `$rankFusion` input weights to bias semantic vs. lexical; change the gr
 `connectFromField`/`connectToField` to your relationship (citations, org charts, supply chains).
 All four are defined in the cell above — lift them straight into your own project.
 
-##  3. The end-to-end agent: human-in-the-loop fraud review
+##  3. The end-to-end agent: human-in-the-loop fraud review
 
 Now everything works together. A Managed Agent reviews flagged transactions, grounding each
 recommendation in the MongoDB signals from Section 2 (exposed as **custom tools** over the
@@ -957,7 +919,7 @@ session sits idle server-side via `requires_action` until you respond — while 
 streaming loop below is for development (drive it from a durable backend with the webhook
 pattern in production).
 
-###  AP2 mandates: verify, then reason
+###  AP2 mandates: verify, then reason
 
 This agent reviews *agent-initiated* payments, so before any behavioral analysis it verifies an
 **AP2 (Agent Payments Protocol)** mandate — the cryptographically signed credential that proves a
@@ -972,8 +934,6 @@ receipts are stored in MongoDB alongside the transactions.
 The cell below plays the "Trusted Surface" (generates a keypair, attaches signed mandates to the
 pending cases). The private key stays in local Python state — never the agent, a tool result, or
 the database.
-
-
 
 from cryptography.hazmat.primitives import serialization
 
@@ -1011,13 +971,11 @@ mandates = attach\_mandates(coll, PENDING, agent\_pk=AGENT\_PK, ts\_private\_key
 
 print(f"attached AP2 mandates to {len(mandates)} transactions agent\_pk={AGENT\_PK[:16]}…")
 
-
-
 ```
 attached AP2 mandates to 5 transactions  agent_pk=04e1e32b7414d6f7…
 ```
 
-###  The custom tools and host-side handlers
+###  The custom tools and host-side handlers
 
 Each tool is a `type: "custom"` tool. When the agent calls one, the session pauses, **this
 notebook** runs the handler with `pymongo`, and sends the JSON result back — the agent never
@@ -1025,8 +983,6 @@ touches the database or the connection string. The handler implementations are d
 next cell: they wrap the Section 2 builders plus the AP2 verification (`verify_mandates`).
 `HANDLERS` maps only the five data tools; `escalate` is deliberately absent because the gate
 loop routes it to the human resolver instead of a handler (see the next section).
-
-
 
 # The host-side tool implementations — the pymongo work behind each custom tool. These run in
 
@@ -1294,8 +1250,6 @@ db["transactions"].update\_one({"transaction\_id": transaction\_id}, {"$set": {"
 
 return {"recorded": True, "decision\_id": decision\_doc["decision\_id"]}
 
-
-
 TOOLS = [
 
 {
@@ -1460,8 +1414,6 @@ TOOLS = [
 
 ]
 
-
-
 # Host-side handlers — map each data tool to its handler function.
 
 reranker = (
@@ -1564,12 +1516,10 @@ HANDLERS = {
 
 }
 
-###  Create the agent, environment, and session
+###  Create the agent, environment, and session
 
 `model`, `system`, and `tools` live on the **agent**. The session references it and provisions
 the sandbox. Networking is `limited`: the agent reaches MongoDB only through the host-side round-trip.
-
-
 
 SYSTEM = """You are a financial fraud reviewer. You will be given transaction IDs to review.
 
@@ -1639,22 +1589,18 @@ print("session:", session.id)
 
 print(f"Watch in Console: https://platform.claude.com/workspaces/default/sessions/{session.id}")
 
-
-
 ```
 session: sesn_01LbAUC1V36CQS3Sk26eixTc
 Watch in Console: https://platform.claude.com/workspaces/default/sessions/sesn_01LbAUC1V36CQS3Sk26eixTc
 ```
 
-###  Run the review with the human gate
+###  Run the review with the human gate
 
 Open the event stream, send the queue of pending transactions, and drive the gate loop with
 `run_gate_loop`: data-tool calls are serviced automatically from `HANDLERS`, and an `escalate`
 call pauses for a human. With `AUTO_APPROVE` set (for example, in CI), the gate resolves
 deterministically and **overrides the agent on the seeded structuring case** so a differing
 human verdict is visible. Otherwise, you are prompted inline.
-
-
 
 OVERRIDE\_IDS = {"txn-review-struct"}
 
@@ -1834,8 +1780,6 @@ wait\_for\_idle\_status(client, session.id)
 
 print(f"\nserviced {len(gate\_result['serviced'])} tool calls")
 
-
-
 ```
 [verify_mandates] txn-review-clean: pass
 
@@ -1862,7 +1806,7 @@ print(f"\nserviced {len(gate\_result['serviced'])} tool calls")
 serviced 28 tool calls
 ```
 
-###  Review the decisions and audit trail
+###  Review the decisions and audit trail
 
 Read the decisions and audit trail back from MongoDB. The decision and audit collections are
 **append-only**, so the read-back is scoped to this run. The closing asserts make this a
@@ -1871,8 +1815,6 @@ Read the decisions and audit trail back from MongoDB. The decision and audit col
 The human-override count reflects how the gate was resolved: with `AUTO_APPROVE` it is 1 (the
 seeded override on `txn-review-struct` is shown), while in an interactive run it is 0 whenever
 you concur with the agent's recommendation on every escalation — both are expected.
-
-
 
 from collections import Counter
 
@@ -1948,8 +1890,6 @@ assert overrides, "AUTO\_APPROVE run should show the seeded override on txn-revi
 
 print("\nself-check OK")
 
-
-
 ```
 Decisions by lane:
   clean_approve -> approve: 1
@@ -1964,15 +1904,13 @@ human overrides (verdict != agent recommendation): 0
 self-check OK
 ```
 
-##  4. MongoDB Atlas as the system of record and audit backbone
+##  4. MongoDB Atlas as the system of record and audit backbone
 
 Step back and look at where the run's state lives: everything the agent did is durable in the
 same cluster it retrieved from. That is the single-engine payoff on the write side —
 `transactions` is the operational record (each case advances `pending` → `approved` or
 `rejected`), `transaction_decisions` holds immutable verdicts, `audit_events` is an append-only
 trail, and `mandate_receipts` powers double-spend detection. One case, end to end:
-
-
 
 case = "txn-review-struct"
 
@@ -2028,8 +1966,6 @@ f"mandate receipt: mandate\_id={receipt['mandate\_id'][:12]}… decision={receip
 
 )
 
-
-
 ```
 operational record: txn-review-struct  lane=structuring  status=rejected
 decision record:    reject  reviewed_by=human  confidence=0.9
@@ -2043,8 +1979,6 @@ development but does not survive a restart. For production, register a webhook f
 `user.custom_tool_result`. The **data-tool handlers are identical**; only the trigger changes.
 See [`CMA_operate_in_production.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_operate_in_production.ipynb).
 
-
-
 client.beta.sessions.archive(session.id)
 
 client.beta.environments.archive(environment.id)
@@ -2055,13 +1989,11 @@ mongo.close()
 
 print("archived session + environment; closed MongoDB connection")
 
-
-
 ```
 archived session + environment; closed MongoDB connection
 ```
 
-##  5. Recap
+##  5. Recap
 
 You connected MongoDB Atlas to a Claude Managed Agent and took it from connection to system of
 record in one build:

@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/user_profiles -->
 
----
-title: User Profiles
-url: https://platform.claude.com/docs/en/api/ruby/beta/user_profiles
----
-
 # User Profiles
 
 ## Create User Profile
 
 `beta.user_profiles.create(**kwargs) -> BetaUserProfile`
 
-**post** `/v1/user_profiles`
+**POST** `/v1/user_profiles`
 
 Create User Profile
 
@@ -29,6 +24,8 @@ Create User Profile
 
   Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
 
+  minLength: 1, maxLength: 255
+
 - `metadata: Hash[Symbol, String]`
 
   Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
@@ -36,6 +33,8 @@ Create User Profile
 - `name: String`
 
   Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a resold-to company (`relationship` `resold` / `access_type` `passthrough`), that company's name where known. Maximum 255 characters.
+
+  minLength: 1, maxLength: 255
 
 - `relationship: :external | :resold | :internal`
 
@@ -135,6 +134,8 @@ Create User Profile
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `metadata: Hash[Symbol, String]`
 
     Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
@@ -157,11 +158,11 @@ Create User Profile
 
     Object type. Always `user_profile`.
 
-    - `:user_profile`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: :application | :passthrough`
 
@@ -201,7 +202,7 @@ beta_user_profile = anthropic.beta.user_profiles.create
 puts(beta_user_profile)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -226,7 +227,7 @@ puts(beta_user_profile)
 
 `beta.user_profiles.list(**kwargs) -> PageCursor<BetaUserProfile>`
 
-**get** `/v1/user_profiles`
+**GET** `/v1/user_profiles`
 
 List User Profiles
 
@@ -235,6 +236,8 @@ List User Profiles
 - `limit: Integer`
 
   Query parameter for limit
+
+  format: int32
 
 - `order: :asc | :desc`
 
@@ -336,6 +339,8 @@ List User Profiles
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `metadata: Hash[Symbol, String]`
 
     Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
@@ -358,11 +363,11 @@ List User Profiles
 
     Object type. Always `user_profile`.
 
-    - `:user_profile`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: :application | :passthrough`
 
@@ -402,7 +407,7 @@ page = anthropic.beta.user_profiles.list
 puts(page)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -432,7 +437,7 @@ puts(page)
 
 `beta.user_profiles.retrieve(user_profile_id, **kwargs) -> BetaUserProfile`
 
-**get** `/v1/user_profiles/{user_profile_id}`
+**GET** `/v1/user_profiles/{user_profile_id}`
 
 Get User Profile
 
@@ -528,6 +533,8 @@ Get User Profile
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `metadata: Hash[Symbol, String]`
 
     Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
@@ -550,11 +557,11 @@ Get User Profile
 
     Object type. Always `user_profile`.
 
-    - `:user_profile`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: :application | :passthrough`
 
@@ -594,7 +601,7 @@ beta_user_profile = anthropic.beta.user_profiles.retrieve("uprof_011CZkZCu8hGbp5
 puts(beta_user_profile)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -619,7 +626,7 @@ puts(beta_user_profile)
 
 `beta.user_profiles.update(user_profile_id, **kwargs) -> BetaUserProfile`
 
-**post** `/v1/user_profiles/{user_profile_id}`
+**POST** `/v1/user_profiles/{user_profile_id}`
 
 Update User Profile
 
@@ -639,6 +646,8 @@ Update User Profile
 
   If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters.
 
+  minLength: 1, maxLength: 255
+
 - `metadata: Hash[Symbol, String]`
 
   Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
@@ -646,6 +655,8 @@ Update User Profile
 - `name: String`
 
   If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
+
+  minLength: 1, maxLength: 255
 
 - `relationship: :external | :resold | :internal`
 
@@ -745,6 +756,8 @@ Update User Profile
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `metadata: Hash[Symbol, String]`
 
     Arbitrary key-value metadata. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
@@ -767,11 +780,11 @@ Update User Profile
 
     Object type. Always `user_profile`.
 
-    - `:user_profile`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: :application | :passthrough`
 
@@ -811,7 +824,7 @@ beta_user_profile = anthropic.beta.user_profiles.update("uprof_011CZkZCu8hGbp5mY
 puts(beta_user_profile)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -836,7 +849,7 @@ puts(beta_user_profile)
 
 `beta.user_profiles.create_enrollment_url(user_profile_id, **kwargs) -> BetaUserProfileEnrollmentURL`
 
-**post** `/v1/user_profiles/{user_profile_id}/enrollment_url`
+**POST** `/v1/user_profiles/{user_profile_id}/enrollment_url`
 
 Create Enrollment URL
 
@@ -928,11 +941,11 @@ Create Enrollment URL
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `type: :enrollment_url`
 
     Object type. Always `enrollment_url`.
-
-    - `:enrollment_url`
 
   - `url: String`
 
@@ -950,7 +963,7 @@ beta_user_profile_enrollment_url = anthropic.beta.user_profiles.create_enrollmen
 puts(beta_user_profile_enrollment_url)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -960,7 +973,7 @@ puts(beta_user_profile_enrollment_url)
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta User Profile
 
@@ -973,6 +986,8 @@ puts(beta_user_profile_enrollment_url)
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `metadata: Hash[Symbol, String]`
 
@@ -996,11 +1011,11 @@ puts(beta_user_profile_enrollment_url)
 
     Object type. Always `user_profile`.
 
-    - `:user_profile`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `access_type: :application | :passthrough`
 
@@ -1036,11 +1051,11 @@ puts(beta_user_profile_enrollment_url)
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `type: :enrollment_url`
 
     Object type. Always `enrollment_url`.
-
-    - `:enrollment_url`
 
   - `url: String`
 

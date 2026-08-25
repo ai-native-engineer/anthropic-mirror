@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/fable-5-fallback-billing-guide -->
 
-#  Classifier Fallback & Billing
+#  Classifier Fallback & Billing
 
 Claude Fable 5's advanced capabilities in areas like cybersecurity, biology, and chemistry create real risk of misuse: the same skills that make it useful could help bad actors build cyberattacks or dangerous weapons. For that reason, Claude Fable 5 ships with safeguards that limit its performance in these specific areas, and automated safety checks run on every request. These checks block requests in three areas:
 
@@ -14,7 +14,7 @@ These safeguards are deliberately conservative. They are tuned first for robustn
 
 We've also made billing changes so that customers don't incur token costs in most cases of Fable 5 fallback. Action is needed to adopt these changes **when you are not using the server-side fallback feature** — see [below](#4-billing-changes).
 
-##  What this guide covers
+##  What this guide covers
 
 1. [What a classifier block looks like](#1-what-a-classifier-block-looks-like)
 2. [Server-side fallback (recommended)](#2-server-side-fallback-recommended)
@@ -23,13 +23,9 @@ We've also made billing changes so that customers don't incur token costs in mos
 5. [Client-side fallback with the SDK](#5-client-side-fallback-with-the-sdk)
 6. [Common anti-patterns](#6-common-anti-patterns)
 
-
-
 %%capture
 
 %pip install -U "anthropic>=0.108.0"
-
-
 
 import os
 
@@ -57,11 +53,9 @@ print(
 
 )
 
-##  1. What a classifier block looks like
+##  1. What a classifier block looks like
 
 A *classifier block* is what the API returns when a request appears to violate our safeguards. The API returns `200` with `stop_reason: "refusal"` and a `stop_details` object describing the category:
-
-
 
 {
 
@@ -95,13 +89,11 @@ Classifier blocks are distinct from **model refusals** (the model itself declini
 
 > **Note:** When you are **not** using the server-side fallback feature, `stop_details` also includes a `fallback_credit_token`, which you use to bill your fallback model request as a cache read — see [Billing changes](#4-billing-changes).
 
-##  2. Server-side fallback (recommended)
+##  2. Server-side fallback (recommended)
 
 The Messages API can run the fallback for you. Pass `fallbacks` with `[{"model": "claude-opus-4-8"}]` and the `server-side-fallback-2026-06-01` beta header. If Fable's classifiers block the turn, the API automatically retries it with Opus 4.8 — annotated so you can tell what happened.
 
 The automatic fallback feature is currently supported on the **Claude API** and **Claude Platform on AWS**. Today it only supports falling back from Fable 5 to Opus 4.8; we expect to expand this.
-
-
 
 curl https://api.anthropic.com/v1/messages \
 
@@ -133,11 +125,9 @@ curl https://api.anthropic.com/v1/messages \
 
 }'
 
-###  When the fallback can't run
+###  When the fallback can't run
 
 When you've configured `fallbacks` but the API can't reach the fallback model — its rate limit is exhausted or it's overloaded — the turn still comes back as a refusal, and `stop_details.recommended_model` names the canonical model id to retry directly:
-
-
 
 {
 
@@ -156,8 +146,6 @@ When you've configured `fallbacks` but the API can't reach the fallback model �
 }
 
 `recommended_model` is populated **only** in this case (fallbacks configured *and* the fallback couldn't execute). On a plain block with no fallbacks configured, it isn't present — which is why it's absent from the basic example in [section 1](#1-what-a-classifier-block-looks-like).
-
-
 
 # Fable applies extra safety filters. With a fallback chain configured, the API
 
@@ -187,11 +175,9 @@ fallbacks=[{"model": FALLBACK\_MODEL}],
 
 )
 
-###  Detecting fallback (non-streaming)
+###  Detecting fallback (non-streaming)
 
 A fallback response carries a `{"type": "fallback"}` content block at each switch point, and `usage.iterations` records per-model usage. Note that a **sticky-served** turn — one routed directly to the fallback model because an earlier turn in the conversation fell back — carries *no* fallback block, because the request was routed directly and there is no boundary in `content` to mark. `usage.iterations` is the reliable way to tell whether a fallback model served the turn.
-
-
 
 def fallback\_hops(response):
 
@@ -241,11 +227,9 @@ if not hops and served\_by\_fallback(response):
 
 print(f"[sticky: served directly by {response.model}]")
 
-###  Detecting fallback while streaming
+###  Detecting fallback while streaming
 
 Watch for a `content_block_start` event whose block is `{"type": "fallback"}` — that marks an in-stream switch point. But for the definitive per-turn answer, check `usage.iterations` on the **final** message, exactly as you would for a non-streaming response. That check is reliable in every case, including a stream that was served directly by the fallback model, so use it as your source of truth rather than depending on the in-stream events alone.
-
-
 
 with client.beta.messages.stream(
 
@@ -287,11 +271,9 @@ if served\_by\_fallback(final):
 
 print(f"[fallback model served this stream: {final.model}]")
 
-###  The fallback response shape
+###  The fallback response shape
 
 A fallback response contains `message.model` (the model that eventually answered), a `{"type": "fallback"}` content block marking each switch point, and per-attempt usage in `usage.iterations`:
-
-
 
 {
 
@@ -339,8 +321,6 @@ A fallback response contains `message.model` (the model that eventually answered
 
 **Per-attempt overrides.** Each fallback entry may override `max_tokens`, `thinking`, `output_config`, and `speed` for that attempt only (`output_config` and `speed` additionally require the same beta headers as the corresponding top-level fields). The request with an entry's overrides merged in must be a correctly formatted direct request to that entry's model.
 
-
-
 {
 
 "model": "claude-fable-5",
@@ -363,13 +343,11 @@ A fallback response contains `message.model` (the model that eventually answered
 
 **Billing.** `usage.input_tokens` is counted once for the turn. `usage.output_tokens` reflects the answer. Use `usage.iterations` if you need exact per-model attribution.
 
-##  3. Streaming
+##  3. Streaming
 
 In streaming, fallback is designed to work automatically. If the classifier blocks **before any output reaches you**, the stream starts with the fallback model's response. This retry is invisible and no fallback SSE event is emitted.
 
 If the classifier blocks **mid-stream**, the retry happens on the same stream too: the partial output is kept, a `{"type": "fallback"}` content block marks the boundary, and the fallback model continues from the partial. Nothing streamed is ever discarded.
-
-
 
 def stream\_turn(messages, max\_tokens=1024):
 
@@ -403,7 +381,7 @@ print(f"{final.model}: {text}")
 
 return final
 
-##  4. Billing changes
+##  4. Billing changes
 
 We've made billing changes to minimize the cost impact of fallback. These apply automatically when you use fallback and the Anthropic SDK helpers. **Action is only needed to adopt the cache-miss billing change, and only when you are not using server-side fallback.**
 
@@ -414,7 +392,7 @@ We've made billing changes to minimize the cost impact of fallback. These apply 
 * **Using the server-side fallback feature:** this billing change is applied automatically.
 * **Not using the server-side fallback feature:** see the credit-token flow below.
 
-###  Redeeming the fallback credit token (client-side fallback only)
+###  Redeeming the fallback credit token (client-side fallback only)
 
 Fable requests blocked by safety classifiers include a `fallback_credit_token` in `stop_details`. The token is present **only** when the blocked request had a billable cached prefix, and is `null` otherwise.
 
@@ -429,8 +407,6 @@ The prefix that was cached on the Fable request is then billed at the cache-read
 **Validity:** the token is valid only on Opus 4.8 requests that occur **within 5 minutes** of the blocked Fable 5 request and originate from the **same org and workspace**.
 
 **Mid-stream blocks.** If the Fable 5 request is blocked in the middle of streaming output tokens, `stop_details` also includes `fallback_has_prefill_claim: true` alongside the credit token. This means that in your subsequent Opus 4.8 request you can append that partial output as an assistant prefill and continue from where Fable stopped — something [normally not allowed(opens in new tab)](https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/increase-consistency#prefill-claudes-response) in Opus 4.8 requests.
-
-
 
 def redeem\_credit\_after\_block(blocked\_response, messages, max\_tokens=1024):
 
@@ -470,7 +446,7 @@ extra\_body=extra or None,
 
 )
 
-##  5. Client-side fallback with the SDK
+##  5. Client-side fallback with the SDK
 
 Server-side fallback is available on the native Claude API and Claude Platform on AWS, but not currently on Amazon Bedrock, Vertex AI, Microsoft Foundry, or the Message Batches API. For those, or any time you want the fallback logic in your client, the Anthropic SDKs (Python, TypeScript, Go, Java, C#) ship a **refusal-fallback middleware**.
 
@@ -482,8 +458,6 @@ Configure it once on a client with your fallback model list and a `BetaFallbackS
 * records the accepting model in `BetaFallbackState` so follow-up turns stay pinned to it.
 
 It is **mutually exclusive** with the server-side `fallbacks` parameter; use one or the other. (To send a server-side `fallbacks` request from an app that installs the middleware, use a separate client instance without it.)
-
-
 
 from anthropic import Anthropic, BetaFallbackState, BetaRefusalFallbackMiddleware
 
@@ -543,7 +517,7 @@ final = stream.get\_final\_message()
 
 print(f"\nserved by: {final.model}")
 
-##  6. Common anti-patterns
+##  6. Common anti-patterns
 
 **Set the fallback on every request, not once per account.** There is no account-level or session-level switch that enables the Opus 4.8 fallback. Each API call must include the fallback configuration. A call that doesn't turn on fallbacks returns a refusal instead of silently retrying on the fallback model.
 

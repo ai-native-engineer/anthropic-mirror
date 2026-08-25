@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/capabilities-summarization-guide -->
 
-#  Summarization with Claude
+#  Summarization with Claude
 
-##  Introduction
+##  Introduction
 
 Summarization is a crucial task in natural language processing that involves condensing large amounts of text into shorter, more digestible formats while retaining key information. In today's information-rich world, the ability to quickly extract and synthesize essential points from lengthy documents is invaluable across various industries and applications.
 
@@ -21,7 +21,7 @@ By the end of this guide, you'll have a solid understanding of how to implement 
 
 Before we get going, it's worth talking about evaluations in this guide. Evaluating the quality of summarization is a notoriously challenging task. Unlike many other natural language processing tasks, summarization evaluation often lacks clear-cut, objective metrics. The process can be highly subjective, with different readers valuing different aspects of a summary. Traditional empirical methods like ROUGE scores, while useful, have limitations in capturing nuanced aspects such as coherence, factual accuracy, and relevance. Moreover, the "best" summary can vary depending on the specific use case, target audience, and desired level of detail. Despite these challenges, we explore several different approaches in this guide that can be leveraged, combining automated metrics, regular expressions, and task-specific criteria. In this guide we recognize that the most effective approach often involves a tailored combination of techniques suited to the particular summarization task at hand.
 
-##  Table of Contents
+##  Table of Contents
 
 1. [Setup](#setup)
 2. [Data Preparation](#data-preparation)
@@ -37,7 +37,7 @@ Before we get going, it's worth talking about evaluations in this guide. Evaluat
 8. [Iterative Improvement](#iterative-improvement)
 9. [Conclusion and Best Practices](#conclusion-and-best-practices)
 
-##  Setup
+##  Setup
 
 To complete this guide, you'll need to install the following packages:
 
@@ -56,13 +56,9 @@ You'll also need an Claude API key.
 
 Let's start by installing the required packages and setting up our environment:
 
-
-
 # install packages
 
 !pip install anthropic pypdf pandas matplotlib numpy rouge-score nltk seaborn --quiet
-
-
 
 import re
 
@@ -92,21 +88,17 @@ client = anthropic.Anthropic(api\_key=api\_key)
 
 print("Setup complete!")
 
-
-
 ```
 Setup complete!
 ```
 
-##  Data Preparation
+##  Data Preparation
 
 Before we can begin summarizing documents, we need to prepare our data. This involves extracting text from PDFs, cleaning the text, and ensuring it's ready for input into our language model. For the purposes of this demo, we have sourced a [publicly available Sublease Agreement from the sec.gov website(opens in new tab)](https://www.sec.gov/Archives/edgar/data/1045425/000119312507044370/dex1032.htm).
 
 If you have any PDF you want to test this on, feel free to import it into this directory, and then change the file path below. **If you want to just use a text blob via copy and paste, skip this step and define `text = <text blob>`**.
 
 Here's a set of functions to handle this process:
-
-
 
 import re
 
@@ -162,21 +154,17 @@ text = get\_llm\_text(pdf\_path)
 
 print(text[:500])
 
-
-
 ```
 EX-10.32 7 dex1032.htm SUBLEASE AGREEMENT Exhibit 10.32 SUBLEASE AGREEMENT THIS SUBLEASE AGREEMENT (“Sublease ”), is dated as of April 1, 2006, by and between COHEN BROTHERS, LLC d/b/a COHEN & COMP ANY (“Sublessor ”) and TABERNA CAPIT AL MANAGEMENT , LLC (“Sublessee ”), collectively , the “ Parties ” and each a “ Party ”. WHEREAS, Sublessor is the lessee under a written lease agreement dated June 22, 2005 wherein Brandywine Cira, L.P ., a Delaware limited partnership (“ Lessor ”), leased Suite N
 ```
 
 This setup allows us to easily process PDF documents and prepare them for summarization. In the next section, we'll start with a basic summarization approach and then build upon it with more advanced techniques.
 
-##  Basic Summarization
+##  Basic Summarization
 
 Let's start with a simple summarization function using Claude. This is a simple attempt at using Claude to summarize the text from the document above. As we progress through this guide, we will improve on this method.
 
 One thing to note is while this might seem basic, we are actually using some important functionality of Claude already. One piece worth noting is the use of the assistant role and stop sequences. The assistant preamble tees Claude up to include the summary directly after the final phrase `<summary>`. The stop sequence `</summary>` then tells Claude to stop generating. This is a pattern we will continue to use throughout this guide.
-
-
 
 def basic\_summarize(text, max\_tokens=1000):
 
@@ -216,13 +204,9 @@ stop\_sequences=["</summary>"],
 
 return response.content[0].text
 
-
-
 basic\_response = basic\_summarize(text, max\_tokens=1000)
 
 print(basic\_response)
-
-
 
 ```
 Key Points:
@@ -256,7 +240,7 @@ This basic approach provides a simple summary, but it may not capture all the nu
 
 Let's see if we can tweak our prompt to get a more structure version of our summary.
 
-##  Multi-Shot Basic Summarization
+##  Multi-Shot Basic Summarization
 
 It's pretty cool that we can summarize massive documents so fast, but we can do even better. Let's try adding a few examples to our prompt to see if we can improve the output and create a bit of structure in our output before we move on to even more advanced techniques.
 
@@ -266,8 +250,6 @@ Note, here we haven't really change the actual format of the request, although w
 2. We append 3 examples of summarized documents. This is called few-shot or multi-shot learning, and it can help the model understand what we're looking for.
 
 Let's see how the output changes:
-
-
 
 # We import from our data directory to save space in our notebook
 
@@ -363,13 +345,9 @@ stop\_sequences=["</summary>"],
 
 return response.content[0].text
 
-
-
 basic\_multishot\_response = basic\_summarize\_multishot(text, max\_tokens=1000)
 
 print(basic\_multishot\_response)
-
-
 
 ```
 Description: This is a sublease agreement between Cohen Brothers, LLC (Sublessor) and Taberna Capital Management, LLC (Sublessee) for office space in Philadelphia.
@@ -415,15 +393,13 @@ Access to services: Includes file space, copiers, conference rooms, receptionist
 
 If you look at the examples we provided, you see see that the format of the output above is the same *(go to data/<any of the .txt files> to see)*. This is interesting – we didn't explicitly tell Claude to follow the format of the examples, but it seems to have picked up on it anyway. This illustrates the power of few-shot learning, and how Claude can generalize from a few examples to new inputs.
 
-##  Advanced Summarization Techniques
+##  Advanced Summarization Techniques
 
-###  Guided Summarization
+###  Guided Summarization
 
 Guided summarization is where we explicitly define a framework for the model to abide by in it's summarization task. We can do this all via prompting, changing the details of the prompt to guide Claude to be more or less verbose, include more or less technical terminology, or provide a higher or lower level summary of the context at hand. For legal documents, we can guide the summarization to focus on specific aspects.
 
 Note, we could likely accomplish the same formatted output we reveal below via examples (which we explored above)!
-
-
 
 def guided\_legal\_summary(text, max\_tokens=1000):
 
@@ -477,15 +453,11 @@ stop\_sequences=["</summary>"],
 
 return response.content[0].text
 
-
-
 # Example usage
 
 legal\_summary = guided\_legal\_summary(text)
 
 print(legal\_summary)
-
-
 
 ```
 1. Parties Involved
@@ -524,13 +496,11 @@ print(legal\_summary)
 
 This certainly makes it easier to parse out the most relevant sections of the document and understand the implications of specific line items and important clauses.
 
-###  Domain-Specific Guided Summarization
+###  Domain-Specific Guided Summarization
 
 You could give the above guided summarization prompt to any type of document, but we can make it even more powerful by tailoring it to specific document types. For example, if we know we're dealing with a sublease agreement, we can guide the model to focus on the most relevant legal terms and concepts for that particular type of document. This would be most relevant when we are working on a specific use case using Claude and explicitly know the most relevant values we want to extract.
 
 Here's an example of how we might modify our guided summarization function for sublease agreements. Note that we'll also add the 'model' as an additional parameter to our function so that we can more easily choose different models for summarization based upon the task:
-
-
 
 def guided\_sublease\_summary(text, model="claude-sonnet-4-6", max\_tokens=1000):
 
@@ -596,15 +566,11 @@ stop\_sequences=["</summary>"],
 
 return response.content[0].text
 
-
-
 # Example usage
 
 sublease\_summary = guided\_sublease\_summary(text)
 
 print(sublease\_summary)
-
-
 
 ```
 <parties involved>
@@ -650,8 +616,6 @@ print(sublease\_summary)
 
 Because we decided to output each section of the summary in XML tags, we can now parse them individually out like so (this could also be done via JSON or any other format):
 
-
-
 import re
 
 def parse\_sections\_regex(text):
@@ -690,8 +654,6 @@ print("Error: Parsing failed or 'parties involved' section not found.")
 
 print("Parsed result:", parsed\_sections)
 
-
-
 ```
 Parties involved:
 - Sublessor: Cohen Brothers, LLC (d/b/a Cohen & Company)
@@ -699,13 +661,11 @@ Parties involved:
 - Original Lessor: Brandywine Cira, L.P. (Master Lease holder)
 ```
 
-###  Including the Context of Multiple Documents (Meta-Summarization)
+###  Including the Context of Multiple Documents (Meta-Summarization)
 
 What if we have a lot of documents related to the same client? We can use a chunking method in order to handle this. This is a technique that involves breaking down documents into smaller, manageable chunks and then processing each chunk separately. We can then combine the summaries of each chunk to create a meta-summary of the entire document. This can be particularly helpful when we want to summarize a large number of documents or when we want to summarize a single document that is very long.
 
 Here's an example of how we might do this:
-
-
 
 from data.multiple\_subleases import document1, document2, document3
 
@@ -803,8 +763,6 @@ long\_summary = summarize\_long\_document(text)
 
 print(long\_summary)
 
-
-
 ```
 <parties involved>
 - Sublessor: Apex Innovations, Inc. (Delaware corporation) later identified as TechHub Enterprises, LLC
@@ -844,13 +802,13 @@ print(long\_summary)
 </special provisions>
 ```
 
-##  Summary Indexed Documents: An Advanced RAG Approach
+##  Summary Indexed Documents: An Advanced RAG Approach
 
 Summary Indexed Documents is an advanced approach to Retrieval-Augmented Generation (RAG) that operates at the document level.
 
 This method offers several advantages over traditional RAG techniques, particularly in scenarios involving large documents or when precise information retrieval is crucial.
 
-####  How It Works
+####  How It Works
 
 1. Document Summarization: Generate concise summaries for each document in your corpus (subset of text is queried and quickly summarized).
 2. Context Window Optimization: Ensure all summaries fit within the context window of your language model.
@@ -863,8 +821,6 @@ There are some distinct advantages to this approach:
 * More efficient way of ranking documents for retrieval, using less context than traditional RAG methods.
 * Superior Performance on Specific Tasks: Outperforms other RAG methods, consistently ranking the correct document first.
 * Optimized Information Retrieval: Reranking helps compress results, ensuring the most concise and relevant information is presented to the model.
-
-
 
 class LegalSummaryIndexedDocuments:
 
@@ -1034,8 +990,6 @@ clauses = re.split(r"\n\s\*---\s\*\n", response.content[0].text.strip())
 
 return [clause.strip() for clause in clauses if clause.strip()]
 
-
-
 from data.multiple\_subleases import document1, document2, document3
 
 lsid = LegalSummaryIndexedDocuments(client=client)
@@ -1072,8 +1026,6 @@ for i, clause in enumerate(relevant\_clauses[1:], 1):
 
 print(f"Clause {i}: {clause}")
 
-
-
 ```
 Initial ranking: [('doc1', 8.0), ('doc3', 0.0), ('doc2', 0.0)]
 
@@ -1090,7 +1042,7 @@ Clause 3: Answer: There appears to be an error in the legal query. The query ref
 2. A Master Lease Agreement dated January 1, 2020, where they are the Tenant under Innovate Properties, LLP
 ```
 
-###  Best Practices for Summarization RAG
+###  Best Practices for Summarization RAG
 
 * Optimal Summary Length: Experiment with different summary lengths to find the right balance between conciseness and informativeness.
 * Iterative Reranking: Consider multiple rounds of reranking for more precise results, especially with larger document sets.
@@ -1098,7 +1050,7 @@ Clause 3: Answer: There appears to be an error in the legal query. The query ref
 
 Summary Indexed Documents offer a powerful approach to RAG, particularly excelling in scenarios involving large documents or when precise information retrieval is crucial. By leveraging document summarization, log probability scoring, and optional reranking, this method provides an efficient and effective way to retrieve and present relevant information to language models.
 
-##  Evaluations
+##  Evaluations
 
 As mentioned in the introduction to this cookbook, evaluating the quality of a summary is hard work. This is because there are many ways to summarize a document, and different summaries may be equally valid. Depending on the use case, different aspects of a summary may be more or less important.
 
@@ -1107,8 +1059,6 @@ You can read more about our empirical methodology to prompt engineering [here(op
 In this section of the guide we will explore using [Promptfoo(opens in new tab)](https://www.promptfoo.dev/) an open source LLM evaluation toolkit. To get started head over to the `./evaluation` directory and checkout the `./evaluation/README.md`.
 
 When you have successfully run an evaluation come back here to view the results. You can also view the results in a dynamic way using the command `npx promptfoo@latest view`, after creating some results.
-
-
 
 import re
 
@@ -1214,8 +1164,6 @@ summary\_stats = df[[col for col in df.columns if col.endswith("\_score")]].desc
 
 display(summary\_stats)
 
-
-
 ```
 /var/folders/c8/rjj6d5_15tj4qh_zhlnz9xxr0000gp/T/ipykernel_58010/2701104606.py:7: MatplotlibDeprecationWarning: The seaborn styles shipped by Matplotlib are deprecated since 3.6, as they no longer correspond to the styles shipped by seaborn. However, they will remain available as 'seaborn-v0_8-<style>'. Alternatively, directly use the seaborn API instead.
   plt.style.use('seaborn')
@@ -1288,7 +1236,7 @@ max                                             1.650000
 
 Looking at the results, it seems like our best performer is 3.5 Sonnet, with a 66% pass rate across all evals and only 3 failed tests out of 45 (when one test fails for a prompt, it's deemed a fail). And this is just the beginning – we are using entirely notional data here that was either (a) generated by Claude, or (b) taken from the SEC gov website. We can do much better when we have real data, because we know more about the distinct problem set we are working with.
 
-##  Iterative Improvement
+##  Iterative Improvement
 
 As we look into the eval results more, there's continued room for improvement. This is where the iterative part of prompt engineering comes in. Here are some steps we can take to improve our results:
 
@@ -1298,7 +1246,7 @@ As we look into the eval results more, there's continued room for improvement. T
 4. Fine-tune temperature and max\_tokens parameters.
 5. Implement post-processing steps to enhance summary quality.
 
-##  Conclusion and Best Practices
+##  Conclusion and Best Practices
 
 In this guide, we've covered a range of techniques for summarizing documents with Claude, with a focus on legal documents. Building a perfect summarization system and eval framework for summarization is an art: it requires a combination of these methods in order to succeed. As we mentioned at the beginning, summarization is a very subjective topic, and yet we've had a good stab at finding feasible ways to evaluate it and feel comfortable with our results. Always remember too – you aren't benchmarking your results against 100% accuracy. You're benchmarking against how well you could perform this complex task yourself; and with the speed and efficiency of Claude as demonstrated in this guide, you start to realise the true benefits to such a methodological approach, so you can spend time on the real decision making.
 

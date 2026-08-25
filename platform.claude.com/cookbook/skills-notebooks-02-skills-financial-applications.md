@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/skills-notebooks-02-skills-financial-applications -->
 
-#  Claude Skills for Financial Applications
+#  Claude Skills for Financial Applications
 
 Build real-world financial dashboards, portfolio analytics, and automated reporting workflows using Claude's Excel, PowerPoint, and PDF skills.
 
@@ -13,7 +13,7 @@ Build real-world financial dashboards, portfolio analytics, and automated report
 * Build portfolio analysis tools with risk metrics
 * Automate multi-format reporting pipelines
 
-##  Table of Contents
+##  Table of Contents
 
 1. [Setup & Data Loading](#setup)
 2. [Use Case 1: Financial Dashboard Creation](#financial-dashboard)
@@ -25,7 +25,7 @@ Build real-world financial dashboards, portfolio analytics, and automated report
    * [Investment Committee Deck](#investment-deck)
 4. [Use Case 3: Automated Reporting Pipeline](#reporting-pipeline)
 
-##  Prerequisites
+##  Prerequisites
 
 This notebook assumes you've completed **Notebook 1: Introduction to Skills**.
 
@@ -41,11 +41,9 @@ If you haven't:
 * SDK version 0.69.0 installed from whl
 * Virtual environment activated
 
-##  1. Setup & Data Loading
+##  1. Setup & Data Loading
 
 Let's start by importing our dependencies and loading the financial data we'll work with throughout this notebook.
-
-
 
 # Standard imports
 
@@ -111,11 +109,9 @@ print(f"✓ Output directory: {OUTPUT\_DIR}")
 
 print(f"✓ Data directory: {DATA\_DIR}")
 
-###  Load Financial Data
+###  Load Financial Data
 
 We have four datasets representing different aspects of a company's financial position:
-
-
 
 # Load financial statements
 
@@ -136,8 +132,6 @@ print()
 print("Sample data (first 5 rows):")
 
 financial\_statements.head()
-
-
 
 # Load portfolio holdings
 
@@ -166,8 +160,6 @@ portfolio\_df = pd.DataFrame(portfolio\_data["holdings"])
 print("Top 5 holdings by value:")
 
 portfolio\_df.nlargest(5, "market\_value")[["ticker", "name", "market\_value", "unrealized\_gain"]]
-
-
 
 # Load quarterly metrics
 
@@ -205,11 +197,9 @@ else:
 
 print(f" {key.replace('\_', ' ').title()}: {value:,.0f}")
 
-###  Helper Functions
+###  Helper Functions
 
 Let's define some helper functions for this notebook:
-
-
 
 def create\_skills\_message(client, prompt, skills, prefix="", show\_token\_usage=True):
 
@@ -287,11 +277,11 @@ return f"{value:,.{decimals}f}"
 
 print("✓ Helper functions defined")
 
-##  2. Use Case 1: Financial Dashboard Creation
+##  2. Use Case 1: Financial Dashboard Creation
 
 Now that we have our data loaded and helper functions defined, let's dive into our first practical use case: creating comprehensive financial dashboards. We'll start by generating multi-sheet Excel workbooks that automatically include formulas, formatting, and charts.
 
-###  2.1 Excel Financial Model
+###  2.1 Excel Financial Model
 
 We'll create a financial dashboard that includes:
 
@@ -301,8 +291,6 @@ We'll create a financial dashboard that includes:
 * KPI dashboards with visualizations
 
 This demonstrates how Claude's Skills can handle complex Excel generation tasks that would typically require hours of manual work.
-
-
 
 # Create Financial Dashboard Excel
 
@@ -414,7 +402,7 @@ if len(excel\_results) > 0 and excel\_results[0]["success"]:
 
 print("\n✅ Financial dashboard Excel created successfully!")
 
-###  💡 Best Practices for Excel Generation
+###  💡 Best Practices for Excel Generation
 
 Based on our testing, here are the optimal approaches for creating Excel files with Skills:
 
@@ -437,7 +425,7 @@ Based on our testing, here are the optimal approaches for creating Excel files w
 * PowerPoint and PDF generation: Very reliable for complex content
 * Token usage: Structured data (JSON/CSV) is more efficient than prose
 
-###  2.2 Executive PowerPoint
+###  2.2 Executive PowerPoint
 
 With our financial data now organized in Excel, let's create an executive presentation that summarizes the key insights. This demonstrates how Skills can generate professional PowerPoint presentations with charts, formatted text, and multiple slides - perfect for board meetings or investor updates.
 
@@ -447,8 +435,6 @@ The presentation will include:
 * Financial metrics with year-over-year comparisons
 * Profitability trends with visualizations
 * Key takeaways and outlook
-
-
 
 print("Creating executive presentation from financial metrics...")
 
@@ -576,7 +562,7 @@ if len(ppt\_results) > 0 and ppt\_results[0]["success"]:
 
 print("\n✅ Executive presentation created successfully!")
 
-##  3. Use Case 2: Portfolio Analysis Workflow
+##  3. Use Case 2: Portfolio Analysis Workflow
 
 Now let's shift our focus from company financials to investment portfolio analysis. In this section, we'll demonstrate how to create comprehensive portfolio analytics and investment committee presentations using the portfolio data we loaded earlier.
 
@@ -589,11 +575,9 @@ This workflow showcases:
 
 We'll start by creating an Excel workbook with portfolio analytics, then generate an investment committee presentation that summarizes our findings.
 
-###  First, let's create a comprehensive portfolio analysis Excel workbook
+###  First, let's create a comprehensive portfolio analysis Excel workbook
 
 Before we create the investment committee presentation, we need to analyze our portfolio data in detail. This Excel workbook will serve as the foundation for our investment recommendations.
-
-
 
 print("Creating portfolio analysis Excel workbook...")
 
@@ -693,7 +677,7 @@ if len(portfolio\_results) > 0 and portfolio\_results[0]["success"]:
 
 print("\n✅ Portfolio analysis Excel created successfully!")
 
-###  3.2 Investment Committee Presentation
+###  3.2 Investment Committee Presentation
 
 With our detailed portfolio analysis complete, let's now create a professional presentation for the investment committee. This presentation will distill the key insights from our Excel analysis into a concise, visual format suitable for decision-makers.
 
@@ -703,8 +687,6 @@ The presentation will cover:
 * Asset allocation and diversification analysis
 * Risk metrics and risk-adjusted returns
 * Strategic recommendations for rebalancing
-
-
 
 print("Creating investment committee presentation...")
 
@@ -824,7 +806,7 @@ print\_download\_summary(investment\_results)
 
 print("\n✅ Investment committee presentation created successfully!")
 
-##  4. Use Case 3: Automated Reporting Pipeline
+##  4. Use Case 3: Automated Reporting Pipeline
 
 So far, we've created individual documents for specific purposes. Now let's demonstrate the power of chaining multiple Skills together in an automated workflow. This pipeline pattern is essential for production systems where you need to generate multiple related documents from the same data source.
 
@@ -844,8 +826,6 @@ This showcases how Skills can work together to create a comprehensive reporting 
 * Scalable to multiple report types
 
 **⏱️ Total expected time:** 2-3 minutes for the complete pipeline
-
-
 
 print("🔄 Starting Automated Reporting Pipeline")
 
@@ -1135,9 +1115,9 @@ print("\n✅ Automated reporting pipeline executed successfully!")
 
 print(" All three documents created and linked in workflow.")
 
-##  Summary & Next Steps
+##  Summary & Next Steps
 
-###  What We've Accomplished
+###  What We've Accomplished
 
 In this notebook, you've learned how to:
 
@@ -1159,14 +1139,14 @@ In this notebook, you've learned how to:
 * Optimized token usage
 * Built production-ready patterns
 
-###  Key Takeaways
+###  Key Takeaways
 
 1. **Skills dramatically simplify financial document creation** - What would take hours manually takes minutes
 2. **Token efficiency is excellent** - Skills use ~90% fewer tokens than manual instructions
 3. **Quality is professional-grade** - Documents are immediately usable in business contexts
 4. **Automation is straightforward** - Pipeline patterns enable complex workflows
 
-###  Continue Your Learning
+###  Continue Your Learning
 
 📚 **Next: [Notebook 3 - Custom Skills Development(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/skills/notebooks/03_skills_custom_development.ipynb)**
 
@@ -1174,7 +1154,7 @@ In this notebook, you've learned how to:
 * Create company-specific templates
 * Implement advanced automation
 
-###  Try These Experiments
+###  Try These Experiments
 
 1. **Modify the financial dashboard** to include your own metrics
 2. **Create a custom portfolio** with different asset classes
@@ -1182,7 +1162,7 @@ In this notebook, you've learned how to:
 4. **Experiment with complexity** to understand generation times
 5. **Track token usage** across different document types
 
-###  Resources
+###  Resources
 
 * [Claude API Documentation(opens in new tab)](https://docs.anthropic.com/en/api/messages)
 * [Skills Documentation(opens in new tab)](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview)

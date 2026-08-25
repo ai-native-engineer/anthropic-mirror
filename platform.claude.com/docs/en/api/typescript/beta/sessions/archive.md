@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/typescript/beta/sessions/archive -->
 
----
-title: Archive Session
-url: https://platform.claude.com/docs/en/api/typescript/beta/sessions/archive
----
+# Archive Session
 
-## Archive Session
+`client.beta.sessions.archive(sessionID, params?, options?): BetaManagedAgentsSession`
 
-`client.beta.sessions.archive(stringsessionID, SessionArchiveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsSession`
-
-**post** `/v1/sessions/{session_id}/archive`
+**POST** `/v1/sessions/{session_id}/archive`
 
 Archive Session
 
-### Parameters
+## Parameters
 
 - `sessionID: string`
 
@@ -95,7 +90,7 @@ Archive Session
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `BetaManagedAgentsSession`
 
@@ -116,8 +111,6 @@ Archive Session
       - `name: string`
 
       - `type: "url"`
-
-        - `"url"`
 
       - `url: string`
 
@@ -197,15 +190,11 @@ Archive Session
 
           - `type: "low"`
 
-            - `"low"`
-
         - `BetaManagedAgentsEffortMedium`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `type: "medium"`
-
-            - `"medium"`
 
         - `BetaManagedAgentsEffortHigh`
 
@@ -213,23 +202,17 @@ Archive Session
 
           - `type: "high"`
 
-            - `"high"`
-
         - `BetaManagedAgentsEffortXhigh`
 
           Extra-high effort. Not all models accept this level.
 
           - `type: "xhigh"`
 
-            - `"xhigh"`
-
         - `BetaManagedAgentsEffortMax`
 
           Maximum effort. Favors reasoning depth over latency.
 
           - `type: "max"`
-
-            - `"max"`
 
       - `inference_geo?: string`
 
@@ -283,8 +266,6 @@ Archive Session
 
               - `type: "anthropic"`
 
-                - `"anthropic"`
-
               - `version: string`
 
             - `BetaManagedAgentsCustomSkill`
@@ -294,8 +275,6 @@ Archive Session
               - `skill_id: string`
 
               - `type: "custom"`
-
-                - `"custom"`
 
               - `version: string`
 
@@ -315,8 +294,6 @@ Archive Session
 
                   - `name: "bash"`
 
-                    - `"bash"`
-
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                     Permission policy for tool execution.
@@ -327,19 +304,13 @@ Archive Session
 
                       - `type: "always_allow"`
 
-                        - `"always_allow"`
-
                     - `BetaManagedAgentsAlwaysAskPolicy`
 
                       Tool calls require user confirmation before execution.
 
                       - `type: "always_ask"`
 
-                        - `"always_ask"`
-
                   - `type: "bash"`
-
-                    - `"bash"`
 
                 - `BetaManagedAgentsEditToolConfig`
 
@@ -348,8 +319,6 @@ Archive Session
                   - `enabled: boolean`
 
                   - `name: "edit"`
-
-                    - `"edit"`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -365,8 +334,6 @@ Archive Session
 
                   - `type: "edit"`
 
-                    - `"edit"`
-
                 - `BetaManagedAgentsReadToolConfig`
 
                   Configuration for the read tool.
@@ -374,8 +341,6 @@ Archive Session
                   - `enabled: boolean`
 
                   - `name: "read"`
-
-                    - `"read"`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -391,8 +356,6 @@ Archive Session
 
                   - `type: "read"`
 
-                    - `"read"`
-
                 - `BetaManagedAgentsWriteToolConfig`
 
                   Configuration for the write tool.
@@ -400,8 +363,6 @@ Archive Session
                   - `enabled: boolean`
 
                   - `name: "write"`
-
-                    - `"write"`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -417,8 +378,6 @@ Archive Session
 
                   - `type: "write"`
 
-                    - `"write"`
-
                 - `BetaManagedAgentsGlobToolConfig`
 
                   Configuration for the glob tool.
@@ -426,8 +385,6 @@ Archive Session
                   - `enabled: boolean`
 
                   - `name: "glob"`
-
-                    - `"glob"`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -443,8 +400,6 @@ Archive Session
 
                   - `type: "glob"`
 
-                    - `"glob"`
-
                 - `BetaManagedAgentsGrepToolConfig`
 
                   Configuration for the grep tool.
@@ -452,8 +407,6 @@ Archive Session
                   - `enabled: boolean`
 
                   - `name: "grep"`
-
-                    - `"grep"`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -469,8 +422,6 @@ Archive Session
 
                   - `type: "grep"`
 
-                    - `"grep"`
-
                 - `BetaManagedAgentsWebFetchToolConfig`
 
                   Configuration for the web_fetch tool.
@@ -478,8 +429,6 @@ Archive Session
                   - `enabled: boolean`
 
                   - `name: "web_fetch"`
-
-                    - `"web_fetch"`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -495,13 +444,13 @@ Archive Session
 
                   - `type: "web_fetch"`
 
-                    - `"web_fetch"`
-
                   - `allowed_domains?: Array<string>`
 
                   - `blocked_domains?: Array<string>`
 
                   - `max_content_tokens?: number | null`
+
+                    format: int32
 
                 - `BetaManagedAgentsWebSearchToolConfig`
 
@@ -510,8 +459,6 @@ Archive Session
                   - `enabled: boolean`
 
                   - `name: "web_search"`
-
-                    - `"web_search"`
 
                   - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -527,8 +474,6 @@ Archive Session
 
                   - `type: "web_search"`
 
-                    - `"web_search"`
-
                   - `allowed_domains?: Array<string>`
 
                   - `blocked_domains?: Array<string>`
@@ -541,11 +486,11 @@ Archive Session
 
                       Location precision. Only "approximate" is supported.
 
-                      - `"approximate"`
-
                     - `city?: string | null`
 
                       City name.
+
+                      minLength: 1, maxLength: 255
 
                     - `country?: string | null`
 
@@ -555,9 +500,13 @@ Archive Session
 
                       Region or state name.
 
+                      minLength: 1, maxLength: 255
+
                     - `timezone?: string | null`
 
                       IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                      minLength: 1, maxLength: 255
 
               - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -578,8 +527,6 @@ Archive Session
                     Tool calls require user confirmation before execution.
 
               - `type: "agent_toolset_20260401"`
-
-                - `"agent_toolset_20260401"`
 
             - `BetaManagedAgentsMCPToolset`
 
@@ -623,8 +570,6 @@ Archive Session
 
               - `type: "mcp_toolset"`
 
-                - `"mcp_toolset"`
-
             - `BetaManagedAgentsCustomTool`
 
               A custom tool as returned in API responses.
@@ -637,8 +582,6 @@ Archive Session
 
                 - `type: "object"`
 
-                  - `"object"`
-
                 - `properties?: Record<string, unknown> | null`
 
                 - `required?: Array<string> | null`
@@ -647,13 +590,11 @@ Archive Session
 
               - `type: "custom"`
 
-                - `"custom"`
-
           - `type: "agent"`
 
-            - `"agent"`
-
           - `version: number`
+
+            format: int32
 
         - `BetaManagedAgentsAdvisor`
 
@@ -665,11 +606,7 @@ Archive Session
 
           - `type: "advisor"`
 
-            - `"advisor"`
-
       - `type: "coordinator"`
-
-        - `"coordinator"`
 
     - `name: string`
 
@@ -697,13 +634,15 @@ Archive Session
 
     - `type: "agent"`
 
-      - `"agent"`
-
     - `version: number`
+
+      format: int32
 
   - `archived_at: string | null`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `budget: BetaManagedAgentsBudgetLimit | null`
 
@@ -721,15 +660,13 @@ Archive Session
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `"USD"`
-
     - `type: "limit"`
-
-      - `"limit"`
 
   - `created_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `environment_id: string`
 
@@ -743,6 +680,8 @@ Archive Session
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `description: string`
 
       What the agent should produce.
@@ -755,6 +694,8 @@ Archive Session
 
       0-indexed revision cycle the outcome is currently on.
 
+      format: int32
+
     - `outcome_id: string`
 
       Server-generated outc_ ID for this outcome.
@@ -764,8 +705,6 @@ Archive Session
       Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `type: "outcome_evaluation"`
-
-      - `"outcome_evaluation"`
 
   - `resources: Array<BetaManagedAgentsSessionResource>`
 
@@ -777,15 +716,17 @@ Archive Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `mount_path: string`
 
       - `type: "github_repository"`
 
-        - `"github_repository"`
-
       - `updated_at: string`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `url: string`
 
@@ -797,9 +738,9 @@ Archive Session
 
             Branch name to check out.
 
-          - `type: "branch"`
+            minLength: 1, maxLength: 255
 
-            - `"branch"`
+          - `type: "branch"`
 
         - `BetaManagedAgentsCommitCheckout`
 
@@ -807,9 +748,9 @@ Archive Session
 
             Full commit SHA to check out.
 
-          - `type: "commit"`
+            minLength: 7, maxLength: 64
 
-            - `"commit"`
+          - `type: "commit"`
 
     - `BetaManagedAgentsFileResource`
 
@@ -819,17 +760,19 @@ Archive Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `file_id: string`
 
       - `mount_path: string`
 
       - `type: "file"`
 
-        - `"file"`
-
       - `updated_at: string`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
     - `BetaManagedAgentsMemoryStoreResource`
 
@@ -840,8 +783,6 @@ Archive Session
         The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
 
       - `type: "memory_store"`
-
-        - `"memory_store"`
 
       - `access?: "read_write" | "read_only" | null`
 
@@ -859,6 +800,8 @@ Archive Session
 
         Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+        maxLength: 4096
+
       - `mount_path?: string | null`
 
         Filesystem path where the store is mounted in the session container, e.g. /mnt/memory/user-preferences. Derived from the store's name. Output-only.
@@ -875,9 +818,13 @@ Archive Session
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
 
+      format: double
+
     - `duration_seconds?: number`
 
       Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
+
+      format: double
 
   - `status: "rescheduling" | "running" | "idle" | "terminated"`
 
@@ -895,11 +842,11 @@ Archive Session
 
   - `type: "session"`
 
-    - `"session"`
-
   - `updated_at: string`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `usage: BetaManagedAgentsSessionUsage`
 
@@ -909,6 +856,8 @@ Archive Session
 
       Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
 
+      format: double
+
     - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -917,17 +866,25 @@ Archive Session
 
         Tokens used to create 1-hour ephemeral cache entries.
 
+        format: int32
+
       - `ephemeral_5m_input_tokens?: number`
 
         Tokens used to create 5-minute ephemeral cache entries.
+
+        format: int32
 
     - `cache_read_input_tokens?: number`
 
       Total tokens read from prompt cache.
 
+      format: int32
+
     - `input_tokens?: number`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `list_cost?: BetaMonetaryAmount | null`
 
@@ -937,6 +894,8 @@ Archive Session
 
       Total output tokens generated across all turns.
 
+      format: int32
+
     - `server_tool_use?: BetaManagedAgentsServerToolUsage | null`
 
       Cumulative count of server-executed tool invocations, broken down by tool.
@@ -945,9 +904,13 @@ Archive Session
 
         Number of server-executed web fetch requests.
 
+        format: int32
+
       - `web_search_requests?: number`
 
         Number of server-executed web search requests.
+
+        format: int32
 
   - `vault_ids: Array<string>`
 
@@ -957,7 +920,7 @@ Archive Session
 
     Deployment ID when the session was created from a deployment reference. Null otherwise.
 
-### Example
+## Example
 
 ```typescript
 import Anthropic from "@anthropic-ai/sdk";
@@ -973,7 +936,7 @@ const betaManagedAgentsSession = await client.beta.sessions.archive(
 console.log(betaManagedAgentsSession.id);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

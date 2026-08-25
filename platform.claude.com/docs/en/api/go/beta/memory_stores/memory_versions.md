@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/memory_stores/memory_versions -->
 
----
-title: Memory Versions
-url: https://platform.claude.com/docs/en/api/go/beta/memory_stores/memory_versions
----
-
 # Memory Versions
 
 ## List memory versions
 
 `client.Beta.MemoryStores.MemoryVersions.List(ctx, memoryStoreID, params) (*PageCursor[BetaManagedAgentsMemoryVersion], error)`
 
-**get** `/v1/memory_stores/{memory_store_id}/memory_versions`
+**GET** `/v1/memory_stores/{memory_store_id}/memory_versions`
 
 List memory versions
 
@@ -21,47 +16,53 @@ List memory versions
 
 - `params BetaMemoryStoreMemoryVersionListParams`
 
-  - `APIKeyID param.Field[string]`
+  - `APIKeyID param.Field[string] Optional`
 
     Query param: Query parameter for api_key_id
 
-  - `CreatedAtGte param.Field[Time]`
+  - `CreatedAtGte param.Field[Time] Optional`
 
     Query param: Return versions created at or after this time (inclusive).
 
-  - `CreatedAtLte param.Field[Time]`
+    format: date-time
+
+  - `CreatedAtLte param.Field[Time] Optional`
 
     Query param: Return versions created at or before this time (inclusive).
 
-  - `Limit param.Field[int64]`
+    format: date-time
+
+  - `Limit param.Field[int64] Optional`
 
     Query param: Query parameter for limit
 
-  - `MemoryID param.Field[string]`
+    format: int32
+
+  - `MemoryID param.Field[string] Optional`
 
     Query param: Query parameter for memory_id
 
-  - `Operation param.Field[BetaManagedAgentsMemoryVersionOperation]`
+  - `Operation param.Field[BetaManagedAgentsMemoryVersionOperation] Optional`
 
     Query param: Query parameter for operation
 
-  - `Page param.Field[string]`
+  - `Page param.Field[string] Optional`
 
     Query param: Query parameter for page
 
-  - `ServiceAccountID param.Field[string]`
+  - `ServiceAccountID param.Field[string] Optional`
 
     Query param: Query parameter for service_account_id
 
-  - `SessionID param.Field[string]`
+  - `SessionID param.Field[string] Optional`
 
     Query param: Query parameter for session_id
 
-  - `View param.Field[BetaManagedAgentsMemoryView]`
+  - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
     Query param: Query parameter for view
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -151,6 +152,8 @@ List memory versions
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `MemoryID string`
 
     ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
@@ -171,21 +174,21 @@ List memory versions
 
   - `Type BetaManagedAgentsMemoryVersionType`
 
-    - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
-
-  - `Content string`
+  - `Content string Optional`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
 
-  - `ContentSha256 string`
+  - `ContentSha256 string Optional`
 
     Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `ContentSizeBytes int64`
+  - `ContentSizeBytes int64 Optional`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `CreatedBy BetaManagedAgentsActorUnion`
+    format: int32
+
+  - `CreatedBy BetaManagedAgentsActorUnion Optional`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -197,9 +200,9 @@ List memory versions
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-      - `Type BetaManagedAgentsSessionActorType`
+        minLength: 1
 
-        - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
+      - `Type BetaManagedAgentsSessionActorType`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
@@ -209,9 +212,9 @@ List memory versions
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
-      - `Type BetaManagedAgentsAPIActorType`
+        minLength: 1
 
-        - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
+      - `Type BetaManagedAgentsAPIActorType`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
@@ -219,11 +222,11 @@ List memory versions
 
       - `Type BetaManagedAgentsUserActorType`
 
-        - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
-
       - `UserID string`
 
         ID of the user who performed the write (a `user_...` value).
+
+        minLength: 1
 
     - `type BetaManagedAgentsServiceAccountActor struct{…}`
 
@@ -233,19 +236,21 @@ List memory versions
 
         ID of the service account that performed the write (a `svac_...` value).
 
+        minLength: 1
+
       - `Type ServiceAccountActor`
 
-        - `const ServiceAccountActorServiceAccountActor ServiceAccountActor = "service_account_actor"`
-
-  - `Path string`
+  - `Path string Optional`
 
     The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
 
-  - `RedactedAt Time`
+  - `RedactedAt Time Optional`
 
     A timestamp in RFC 3339 format
 
-  - `RedactedBy BetaManagedAgentsActorUnion`
+    format: date-time
+
+  - `RedactedBy BetaManagedAgentsActorUnion Optional`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -278,7 +283,7 @@ func main() {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -313,7 +318,7 @@ func main() {
 
 `client.Beta.MemoryStores.MemoryVersions.Get(ctx, memoryVersionID, params) (*BetaManagedAgentsMemoryVersion, error)`
 
-**get** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}`
+**GET** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}`
 
 Retrieve a memory version
 
@@ -327,11 +332,11 @@ Retrieve a memory version
 
     Path param: Path parameter memory_store_id
 
-  - `View param.Field[BetaManagedAgentsMemoryView]`
+  - `View param.Field[BetaManagedAgentsMemoryView] Optional`
 
     Query param: Query parameter for view
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -421,6 +426,8 @@ Retrieve a memory version
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `MemoryID string`
 
     ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
@@ -441,21 +448,21 @@ Retrieve a memory version
 
   - `Type BetaManagedAgentsMemoryVersionType`
 
-    - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
-
-  - `Content string`
+  - `Content string Optional`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
 
-  - `ContentSha256 string`
+  - `ContentSha256 string Optional`
 
     Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `ContentSizeBytes int64`
+  - `ContentSizeBytes int64 Optional`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `CreatedBy BetaManagedAgentsActorUnion`
+    format: int32
+
+  - `CreatedBy BetaManagedAgentsActorUnion Optional`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -467,9 +474,9 @@ Retrieve a memory version
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-      - `Type BetaManagedAgentsSessionActorType`
+        minLength: 1
 
-        - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
+      - `Type BetaManagedAgentsSessionActorType`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
@@ -479,9 +486,9 @@ Retrieve a memory version
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
-      - `Type BetaManagedAgentsAPIActorType`
+        minLength: 1
 
-        - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
+      - `Type BetaManagedAgentsAPIActorType`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
@@ -489,11 +496,11 @@ Retrieve a memory version
 
       - `Type BetaManagedAgentsUserActorType`
 
-        - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
-
       - `UserID string`
 
         ID of the user who performed the write (a `user_...` value).
+
+        minLength: 1
 
     - `type BetaManagedAgentsServiceAccountActor struct{…}`
 
@@ -503,19 +510,21 @@ Retrieve a memory version
 
         ID of the service account that performed the write (a `svac_...` value).
 
+        minLength: 1
+
       - `Type ServiceAccountActor`
 
-        - `const ServiceAccountActorServiceAccountActor ServiceAccountActor = "service_account_actor"`
-
-  - `Path string`
+  - `Path string Optional`
 
     The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
 
-  - `RedactedAt Time`
+  - `RedactedAt Time Optional`
 
     A timestamp in RFC 3339 format
 
-  - `RedactedBy BetaManagedAgentsActorUnion`
+    format: date-time
+
+  - `RedactedBy BetaManagedAgentsActorUnion Optional`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -550,7 +559,7 @@ func main() {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -580,7 +589,7 @@ func main() {
 
 `client.Beta.MemoryStores.MemoryVersions.Redact(ctx, memoryVersionID, params) (*BetaManagedAgentsMemoryVersion, error)`
 
-**post** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
+**POST** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
 
 Redact a memory version
 
@@ -594,7 +603,7 @@ Redact a memory version
 
     Path param: Path parameter memory_store_id
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -684,6 +693,8 @@ Redact a memory version
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `MemoryID string`
 
     ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
@@ -704,21 +715,21 @@ Redact a memory version
 
   - `Type BetaManagedAgentsMemoryVersionType`
 
-    - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
-
-  - `Content string`
+  - `Content string Optional`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
 
-  - `ContentSha256 string`
+  - `ContentSha256 string Optional`
 
     Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `ContentSizeBytes int64`
+  - `ContentSizeBytes int64 Optional`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `CreatedBy BetaManagedAgentsActorUnion`
+    format: int32
+
+  - `CreatedBy BetaManagedAgentsActorUnion Optional`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -730,9 +741,9 @@ Redact a memory version
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-      - `Type BetaManagedAgentsSessionActorType`
+        minLength: 1
 
-        - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
+      - `Type BetaManagedAgentsSessionActorType`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
@@ -742,9 +753,9 @@ Redact a memory version
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
-      - `Type BetaManagedAgentsAPIActorType`
+        minLength: 1
 
-        - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
+      - `Type BetaManagedAgentsAPIActorType`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
@@ -752,11 +763,11 @@ Redact a memory version
 
       - `Type BetaManagedAgentsUserActorType`
 
-        - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
-
       - `UserID string`
 
         ID of the user who performed the write (a `user_...` value).
+
+        minLength: 1
 
     - `type BetaManagedAgentsServiceAccountActor struct{…}`
 
@@ -766,19 +777,21 @@ Redact a memory version
 
         ID of the service account that performed the write (a `svac_...` value).
 
+        minLength: 1
+
       - `Type ServiceAccountActor`
 
-        - `const ServiceAccountActorServiceAccountActor ServiceAccountActor = "service_account_actor"`
-
-  - `Path string`
+  - `Path string Optional`
 
     The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
 
-  - `RedactedAt Time`
+  - `RedactedAt Time Optional`
 
     A timestamp in RFC 3339 format
 
-  - `RedactedBy BetaManagedAgentsActorUnion`
+    format: date-time
+
+  - `RedactedBy BetaManagedAgentsActorUnion Optional`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -813,7 +826,7 @@ func main() {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -839,7 +852,7 @@ func main() {
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Actor
 
@@ -855,9 +868,9 @@ func main() {
 
       ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-    - `Type BetaManagedAgentsSessionActorType`
+      minLength: 1
 
-      - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
+    - `Type BetaManagedAgentsSessionActorType`
 
   - `type BetaManagedAgentsAPIActor struct{…}`
 
@@ -867,9 +880,9 @@ func main() {
 
       ID of the API key that performed the write. This identifies the key, not the secret.
 
-    - `Type BetaManagedAgentsAPIActorType`
+      minLength: 1
 
-      - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
+    - `Type BetaManagedAgentsAPIActorType`
 
   - `type BetaManagedAgentsUserActor struct{…}`
 
@@ -877,11 +890,11 @@ func main() {
 
     - `Type BetaManagedAgentsUserActorType`
 
-      - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
-
     - `UserID string`
 
       ID of the user who performed the write (a `user_...` value).
+
+      minLength: 1
 
   - `type BetaManagedAgentsServiceAccountActor struct{…}`
 
@@ -891,9 +904,9 @@ func main() {
 
       ID of the service account that performed the write (a `svac_...` value).
 
-    - `Type ServiceAccountActor`
+      minLength: 1
 
-      - `const ServiceAccountActorServiceAccountActor ServiceAccountActor = "service_account_actor"`
+    - `Type ServiceAccountActor`
 
 ### Beta Managed Agents API Actor
 
@@ -905,9 +918,9 @@ func main() {
 
     ID of the API key that performed the write. This identifies the key, not the secret.
 
-  - `Type BetaManagedAgentsAPIActorType`
+    minLength: 1
 
-    - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
+  - `Type BetaManagedAgentsAPIActorType`
 
 ### Beta Managed Agents Memory Version
 
@@ -922,6 +935,8 @@ func main() {
   - `CreatedAt Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `MemoryID string`
 
@@ -943,21 +958,21 @@ func main() {
 
   - `Type BetaManagedAgentsMemoryVersionType`
 
-    - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
-
-  - `Content string`
+  - `Content string Optional`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
 
-  - `ContentSha256 string`
+  - `ContentSha256 string Optional`
 
     Lowercase hex SHA-256 digest of `content` as of this version (64 characters). `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `ContentSizeBytes int64`
+  - `ContentSizeBytes int64 Optional`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
 
-  - `CreatedBy BetaManagedAgentsActorUnion`
+    format: int32
+
+  - `CreatedBy BetaManagedAgentsActorUnion Optional`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -969,9 +984,9 @@ func main() {
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-      - `Type BetaManagedAgentsSessionActorType`
+        minLength: 1
 
-        - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
+      - `Type BetaManagedAgentsSessionActorType`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
@@ -981,9 +996,9 @@ func main() {
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
-      - `Type BetaManagedAgentsAPIActorType`
+        minLength: 1
 
-        - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
+      - `Type BetaManagedAgentsAPIActorType`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
@@ -991,11 +1006,11 @@ func main() {
 
       - `Type BetaManagedAgentsUserActorType`
 
-        - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
-
       - `UserID string`
 
         ID of the user who performed the write (a `user_...` value).
+
+        minLength: 1
 
     - `type BetaManagedAgentsServiceAccountActor struct{…}`
 
@@ -1005,19 +1020,21 @@ func main() {
 
         ID of the service account that performed the write (a `svac_...` value).
 
+        minLength: 1
+
       - `Type ServiceAccountActor`
 
-        - `const ServiceAccountActorServiceAccountActor ServiceAccountActor = "service_account_actor"`
-
-  - `Path string`
+  - `Path string Optional`
 
     The memory's path at the time of this write. `null` if and only if `redacted_at` is set.
 
-  - `RedactedAt Time`
+  - `RedactedAt Time Optional`
 
     A timestamp in RFC 3339 format
 
-  - `RedactedBy BetaManagedAgentsActorUnion`
+    format: date-time
+
+  - `RedactedBy BetaManagedAgentsActorUnion Optional`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
@@ -1043,9 +1060,9 @@ func main() {
 
     ID of the service account that performed the write (a `svac_...` value).
 
-  - `Type ServiceAccountActor`
+    minLength: 1
 
-    - `const ServiceAccountActorServiceAccountActor ServiceAccountActor = "service_account_actor"`
+  - `Type ServiceAccountActor`
 
 ### Beta Managed Agents Session Actor
 
@@ -1057,9 +1074,9 @@ func main() {
 
     ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-  - `Type BetaManagedAgentsSessionActorType`
+    minLength: 1
 
-    - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
+  - `Type BetaManagedAgentsSessionActorType`
 
 ### Beta Managed Agents User Actor
 
@@ -1069,8 +1086,8 @@ func main() {
 
   - `Type BetaManagedAgentsUserActorType`
 
-    - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
-
   - `UserID string`
 
     ID of the user who performed the write (a `user_...` value).
+
+    minLength: 1

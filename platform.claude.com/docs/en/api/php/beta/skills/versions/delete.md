@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/skills/versions/delete -->
 
----
-title: Delete Skill Version
-url: https://platform.claude.com/docs/en/api/php/beta/skills/versions/delete
----
-
-## Delete Skill Version
+# Delete Skill Version
 
 `$client->beta->skills->versions->delete(string version, string skillID, ?list<AnthropicBeta> betas): VersionDeleteResponse`
 
-**delete** `/v1/skills/{skill_id}/versions/{version}`
+**DELETE** `/v1/skills/{skill_id}/versions/{version}`
 
 Delete Skill Version
 
-### Parameters
+## Parameters
 
 - `skillID: string`
 
@@ -31,7 +26,7 @@ Delete Skill Version
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `VersionDeleteResponse`
 
@@ -47,7 +42,7 @@ Delete Skill Version
 
     For Skill Versions, this is always `"skill_version_deleted"`.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -65,7 +60,7 @@ $version = $client->beta->skills->versions->delete(
 var_dump($version);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -6,7 +6,7 @@
 
 [Get started7 articles](https://support.claude.com/en/collections/18901835-get-started)
 
-[Billing6 articles](https://support.claude.com/en/collections/9811436-billing)
+[Billing7 articles](https://support.claude.com/en/collections/9811436-billing)
 
 [Admin management22 articles](https://support.claude.com/en/collections/9811449-admin-management)
 

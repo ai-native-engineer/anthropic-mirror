@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/sessions/resources/delete -->
 
----
-title: Delete Session Resource
-url: https://platform.claude.com/docs/en/api/python/beta/sessions/resources/delete
----
+# Delete Session Resource
 
-## Delete Session Resource
+`beta.sessions.resources.delete(resource_id, **kwargs)  -> BetaManagedAgentsDeleteSessionResource`
 
-`beta.sessions.resources.delete(strresource_id, ResourceDeleteParams**kwargs)  -> BetaManagedAgentsDeleteSessionResource`
-
-**delete** `/v1/sessions/{session_id}/resources/{resource_id}`
+**DELETE** `/v1/sessions/{session_id}/resources/{resource_id}`
 
 Delete Session Resource
 
-### Parameters
+## Parameters
 
 - `session_id: str`
 
@@ -95,7 +90,7 @@ Delete Session Resource
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsDeleteSessionResource: …`
 
@@ -105,9 +100,7 @@ Delete Session Resource
 
   - `type: Literal["session_resource_deleted"]`
 
-    - `"session_resource_deleted"`
-
-### Example
+## Example
 
 ```python
 import os
@@ -125,7 +118,7 @@ beta_managed_agents_delete_session_resource = client.beta.sessions.resources.del
 print(beta_managed_agents_delete_session_resource.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

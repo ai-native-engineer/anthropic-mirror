@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/patterns-agents-basic-workflows -->
 
-##  Basic Multi-LLM Workflows
+##  Basic Multi-LLM Workflows
 
 This notebook demonstrates three simple multi-LLM workflows. They trade off cost or latency for potentially improved task performances:
 
@@ -10,13 +10,9 @@ This notebook demonstrates three simple multi-LLM workflows. They trade off cost
 
 Note: These are sample implementations meant to demonstrate core concepts - not production code.
 
-
-
 from concurrent.futures import ThreadPoolExecutor
 
 from util import extract\_xml, llm\_call
-
-
 
 def chain(input: str, prompts: list[str]) -> str:
 
@@ -92,15 +88,13 @@ selected\_prompt = routes[route\_key]
 
 return llm\_call(f"{selected\_prompt}\nInput: {input}")
 
-##  Example Usage
+##  Example Usage
 
 Below are practical examples demonstrating each workflow:
 
 1. Chain workflow for structured data extraction and formatting
 2. Parallelization workflow for stakeholder impact analysis
 3. Route workflow for customer support ticket handling
-
-
 
 # Example 1: Chain workflow for structured data extraction and formatting
 
@@ -178,8 +172,6 @@ print(report)
 
 formatted\_result = chain(report, data\_processing\_steps)
 
-
-
 ```
 Input text:
 
@@ -242,8 +234,6 @@ Step 4:
 | Customer Churn | 5% |
 ```
 
-
-
 # Example 2: Parallelization workflow for stakeholder impact analysis
 
 # Process impact analysis for multiple stakeholder groups concurrently
@@ -301,8 +291,6 @@ for result in impact\_results:
 print(result)
 
 print("+" \* 80)
-
-
 
 ```
 MARKET IMPACT ANALYSIS FOR CUSTOMERS
@@ -558,8 +546,6 @@ MONITORING METRICS:
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ```
 
-
-
 # Example 3: Route workflow for customer support ticket handling
 
 # Route support tickets to appropriate teams based on content analysis
@@ -687,8 +673,6 @@ response = route(ticket, support\_routes)
 print(response)
 
 print("+" \* 80)
-
-
 
 ```
 Processing support tickets...

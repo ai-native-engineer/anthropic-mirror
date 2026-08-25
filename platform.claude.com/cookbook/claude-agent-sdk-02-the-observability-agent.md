@@ -1,7 +1,5 @@
 <!-- source: https://platform.claude.com/cookbook/claude-agent-sdk-02-the-observability-agent -->
 
-
-
 import os
 
 import shutil
@@ -28,7 +26,7 @@ visualize\_conversation,
 
 from claude\_agent\_sdk import ClaudeAgentOptions, ClaudeSDKClient
 
-#  02 - The Observability Agent
+#  02 - The Observability Agent
 
 In the previous notebooks we have built a basic research agent and a Chief of Staff multi-agent framework. While the agents we have built are already powerful, they were still limited in what they could do: the web search agent is limited to searching the internet and our Chief of Staff agent was limited to interacting with its own filesystem.
 
@@ -36,13 +34,11 @@ This is a serious constraint: real-world agents often need to interact with othe
 
 **Need more details on MCP?** For comprehensive setup instructions, configuration best practices, and troubleshooting tips, see the [Claude Code MCP documentation(opens in new tab)](https://docs.claude.com/en/docs/claude-code/mcp).
 
-##  Introduction to the MCP Server
+##  Introduction to the MCP Server
 
-###  1. The Git MCP server
+###  1. The Git MCP server
 
 Let's first give our agent the ability to understand and work with Git repositories. By adding the [Git MCP server(opens in new tab)](https://github.com/modelcontextprotocol/servers/tree/main/src/git) to our agent, it gains access to 13 Git-specific tools that let it examine commit history, check file changes, create branches, and even make commits. This transforms our agent from a passive observer into an active participant in your development workflow. In this example, we'll configure the agent to explore a repository's history using only Git tools. This is pretty simple, but knowing this, it is not difficult to imagine agents that can automatically create pull requests, analyze code evolution patterns, or help manage complex Git workflows across multiple repositories.
-
-
 
 # Get the git repository root (mcp\_server\_git requires a valid git repo path)
 
@@ -80,8 +76,6 @@ git\_mcp: dict[str, Any] = {
 
 }
 
-
-
 messages = []
 
 async with ClaudeSDKClient(
@@ -116,8 +110,6 @@ print\_activity(msg)
 
 messages.append(msg)
 
-
-
 ```
 🤖 Using: mcp__git__git_log()
 🤖 Using: mcp__git__git_status()
@@ -134,22 +126,18 @@ messages.append(msg)
 ✓ Tool completed
 🤖 Thinking...
 ```
-
-
 
 display(Markdown(f"\nResult:\n{messages[-1].result}"))
-
-
 
 ```
 <IPython.core.display.Markdown object>
 ```
 
-###  2. The GitHub MCP server
+###  2. The GitHub MCP server
 
 Now let's level up from local Git operations to full GitHub platform integration. By switching to the [official GitHub MCP server(opens in new tab)](https://github.com/github/github-mcp-server/tree/main), our agent gains access to over 100 tools that interact with GitHub's entire ecosystem – from managing issues and pull requests to monitoring CI/CD workflows and analyzing code security alerts. This server can work with both public and private repositories, giving your agent the ability to automate complex GitHub workflows that would typically require multiple manual steps.
 
-####  Step 1: Set up your GitHub Token
+####  Step 1: Set up your GitHub Token
 
 You need a GitHub Personal Access Token. Get one [here(opens in new tab)](https://github.com/settings/personal-access-tokens/new) and put in the .env file as `GITHUB_TOKEN="<token>"`
 
@@ -164,9 +152,7 @@ Also, for this example you will have to have [Docker(opens in new tab)](https://
 * Verify with `docker --version` in your terminal
 * **Troubleshooting:** If Docker won't start, check that virtualization is enabled in your BIOS. For detailed setup instructions, see the [Docker documentation(opens in new tab)](https://docs.docker.com/get-docker/)
 
-####  Step 2: Define the mcp server and start the agent loop!
-
-
+####  Step 2: Define the mcp server and start the agent loop!
 
 # define our github mcp server
 
@@ -199,8 +185,6 @@ github\_mcp: dict[str, Any] = {
 }
 
 }
-
-
 
 # run our agent
 
@@ -238,29 +222,21 @@ print\_activity(msg)
 
 messages.append(msg)
 
-
-
 ```
 🤖 Using: mcp__github__search_repositories()
 ✓ Tool completed
 🤖 Thinking...
 ```
 
-
-
 display(Markdown(f"\nResult:\n{messages[-1].result}"))
-
-
 
 ```
 <IPython.core.display.Markdown object>
 ```
 
-##  Real use case: An observability agent
+##  Real use case: An observability agent
 
 Now, with such simple setup we can already have an agent acting as self-healing software system!
-
-
 
 load\_dotenv(override=True)
 
@@ -342,8 +318,6 @@ print\_activity(msg)
 
 messages.append(msg)
 
-
-
 ```
 🤖 Using: mcp__github__get_file_contents()
 🤖 Using: mcp__github__list_commits()
@@ -388,41 +362,29 @@ messages.append(msg)
 🤖 Thinking...
 ```
 
-
-
 display(Markdown(f"\nResult:\n{messages[-1].result}"))
-
-
 
 ```
 <IPython.core.display.Markdown object>
 ```
 
-
-
 reset\_activity\_context()
 
 visualize\_conversation(messages)
 
-
-
 ```
 <IPython.core.display.HTML object>
 ```
-
-
 
 reset\_activity\_context()
 
 display\_agent\_response(messages)
 
-
-
 ```
 <IPython.core.display.HTML object>
 ```
 
-###  Observability Agent as Module
+###  Observability Agent as Module
 
 The `observability_agent/agent.py` module wraps the observability pattern into a reusable `send_query` function. It imports and uses the shared visualization utilities from `utils.agent_visualizer` internally:
 
@@ -431,8 +393,6 @@ The `observability_agent/agent.py` module wraps the observability pattern into a
 * **`display_agent_response()`**: Renders the final result (controlled by `display_result` parameter)
 
 This means you can use the module with minimal code:
-
-
 
 # Reload the module to pick up any changes (useful during development)
 
@@ -445,8 +405,6 @@ result = await send\_query(
 "Check the CI status for the last 2 runs in anthropics/claude-agent-sdk-python. Just do 3 tool calls, be efficient."
 
 )
-
-
 
 ```
 🤖 Using: mcp__github__list_commits()
@@ -462,13 +420,9 @@ result = await send\_query(
 
 Multi-turn conversations work seamlessly - just pass `continue_conversation=True`:
 
-
-
 # Example 2: Multi-turn conversation for deeper monitoring
 
 result1 = await send\_query("What's the current CI status for facebook/react?")
-
-
 
 ```
 🤖 Using: mcp__github__list_pull_requests()
@@ -489,8 +443,6 @@ result1 = await send\_query("What's the current CI status for facebook/react?")
 <IPython.core.display.HTML object>
 ```
 
-
-
 # Continue the conversation to dig deeper
 
 result2 = await send\_query(
@@ -501,8 +453,6 @@ continue\_conversation=True,
 
 )
 
-
-
 ```
 🤖 Using: mcp__github__search_issues()
 ✓ Tool completed
@@ -511,7 +461,7 @@ continue\_conversation=True,
 <IPython.core.display.HTML object>
 ```
 
-##  Conclusion
+##  Conclusion
 
 We've demonstrated how the Claude Code SDK enables seamless integration with external systems through the Model Context Protocol (MCP). Starting with local Git operations through the Git MCP server, we progressively expanded to full GitHub platform integration with access to over 100 GitHub-specific tools. This transformed our agent from a local assistant into a powerful observability system capable of monitoring workflows, analyzing CI/CD failures, and providing actionable insights for production systems.
 
@@ -519,7 +469,7 @@ By connecting MCP servers to our agent, we created an autonomous observability s
 
 This concludes, for now, our journey through the Claude Code SDK tutorial series. We've progressed from simple research agents to sophisticated multi-agent orchestration, and finally to external system integration through MCP. Together, these patterns provide the foundation for building production-ready agentic systems that can handle real-world complexity while maintaining governance, compliance, and observability.
 
-###  What You've Learned Across All Notebooks
+###  What You've Learned Across All Notebooks
 
 **From Notebook 00 (Research Agent)**
 

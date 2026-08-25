@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/sessions/resources/retrieve -->
 
----
-title: Get Session Resource
-url: https://platform.claude.com/docs/en/api/php/beta/sessions/resources/retrieve
----
-
-## Get Session Resource
+# Get Session Resource
 
 `$client->beta->sessions->resources->retrieve(string resourceID, string sessionID, ?list<AnthropicBeta> betas): ResourceGetResponse`
 
-**get** `/v1/sessions/{session_id}/resources/{resource_id}`
+**GET** `/v1/sessions/{session_id}/resources/{resource_id}`
 
 Get Session Resource
 
-### Parameters
+## Parameters
 
 - `sessionID: string`
 
@@ -23,7 +18,7 @@ Get Session Resource
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `ResourceGetResponse`
 
@@ -93,7 +88,7 @@ Get Session Resource
 
       Display name of the memory store, snapshotted at attach time. Later edits to the store's name do not propagate to this resource.
 
-### Example
+## Example
 
 ```php
 <?php
@@ -111,7 +106,7 @@ $resource = $client->beta->sessions->resources->retrieve(
 var_dump($resource);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

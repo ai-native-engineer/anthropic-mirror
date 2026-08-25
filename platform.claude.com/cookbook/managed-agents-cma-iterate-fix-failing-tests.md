@@ -1,12 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-cma-iterate-fix-failing-tests -->
 
-#  Iterate: do → observe → fix
+#  Iterate: do → observe → fix
 
 This is the entry-point notebook. You'll learn the Managed Agents API surface by doing the most universal thing an agent does: try something, read what happened, try again. We upload a tiny package with two planted bugs, tell the agent to make the tests pass, and watch it work the loop, run the tests, read the traceback, edit the code, rerun, repeat until green.
 
 Along the way you'll see every API shape the rest of the cookbook builds on: agent / environment / session, the file mount, the event stream, and the archive call. By the end of this notebook you'll have done everything you need to drive an agent end-to-end.
 
-##  Concepts
+##  Concepts
 
 Three resources to know about:
 
@@ -15,8 +15,6 @@ Three resources to know about:
 * **Session**, binds an agent and an environment, mounts any files the agent needs, and produces an event stream
 
 You create an agent and an environment once and reuse them across many sessions. Each session is one self-contained run.
-
-
 
 import os
 
@@ -30,13 +28,11 @@ client = Anthropic()
 
 FIXTURE = Path("example\_data") / "iterate"
 
-##  1. Create the agent
+##  1. Create the agent
 
 The system prompt is deliberately sparse. We want the agent to figure out the iterate loop for itself rather than follow a step-by-step script, the test output makes the task obvious enough without further hand-holding.
 
 `agent_toolset_20260401` is the built-in toolset: bash, read, write, edit, glob, grep, web\_fetch, and web\_search. Setting `permission_policy` to `always_allow` lets the agent run them without round-tripping for confirmation.
-
-
 
 agent = client.beta.agents.create(
 
@@ -74,11 +70,9 @@ tools=[
 
 )
 
-##  2. Create the environment
+##  2. Create the environment
 
 An environment is a container template. `type: cloud` runs in Anthropic's hosted sandbox. `networking: limited` blocks arbitrary outbound traffic, this notebook doesn't need network access at all, so we keep it locked down.
-
-
 
 env = client.beta.environments.create(
 
@@ -88,13 +82,11 @@ config={"type": "cloud", "networking": {"type": "limited"}},
 
 )
 
-##  3. Upload the failing tests
+##  3. Upload the failing tests
 
 Upload files through the Files API to get back IDs. We'll mount them on the session in step 4.
 
 `calc.py` has two planted bugs and `test_calc.py` has three assertions that catch them. One of the failures (`test_mean`) is downstream of the other two, which quietly teaches the agent not to over-fix: `mean()` calls `add` and `divide` internally, so once those are fixed `test_mean` starts passing on its own without any direct edit to `mean()`.
-
-
 
 calc\_file = client.beta.files.upload(
 
@@ -110,13 +102,11 @@ file=("test\_calc.py", (FIXTURE / "test\_calc.py").read\_bytes(), "text/x-python
 
 print(f"uploaded: {calc\_file.id}, {test\_file.id}")
 
-##  4. Create the session
+##  4. Create the session
 
 A session binds the agent and the environment, mounts any files the agent needs, and starts a fresh container. `resources=` is how you put data into the container before the agent starts — the orchestrate notebook shows how to use the same field to clone a GitHub repo instead of mounting individual files.
 
 Files mount under `/mnt/session/uploads/<mount_path>`, which is read-only. The agent has to copy files into a writable directory like `/mnt/user` or `/tmp` before it can edit them, and anything you want to retrieve later goes in `/mnt/session/outputs/`.
-
-
 
 session = client.beta.sessions.create(
 
@@ -138,7 +128,7 @@ title="Get the tests green",
 
 print(f"session: {session.id}")
 
-##  5. Drive the agent and watch it work
+##  5. Drive the agent and watch it work
 
 Two steps: send a `user.message` event with the task, then read the event stream until the agent reaches `end_turn`.
 
@@ -148,8 +138,6 @@ Two patterns to internalize:
 
 1. **Open the stream first, then send.** The `with` block opens the SSE connection; anything you `send` inside the block is guaranteed to be observable. Sending before opening risks losing events that fire in the race window.
 2. **Exit on `session.status_idle` with `stop_reason.type == "end_turn"`.** The session goes idle any time it's waiting for input, both at end of turn AND when a custom tool call needs a response. `stop_reason.type` disambiguates; `end_turn` is our exit signal. The gate notebook shows the `requires_action` side of the same loop.
-
-
 
 with client.beta.sessions.events.stream(session.id) as stream:
 
@@ -225,15 +213,11 @@ That `match ev.type:` block is the canonical streaming pattern. Every other note
 
 `wait_for_idle_status` is the second helper from `utilities.py`. It absorbs the race described in the callout in step 7: even after a stream has yielded `session.status_idle`, the server-side `status` field on the session record can briefly still read `running`, and an immediate `archive()` call would 400. The helper just polls `sessions.retrieve` until the field settles. Code that streams and then archives in the next breath needs it.
 
-
-
 from utilities import stream\_until\_end\_turn, wait\_for\_idle\_status
 
-##  6. Verify
+##  6. Verify
 
 Don't take the agent's word for it. Re-run every assertion one more time independently and print the final `calc.py`. If the agent over-fixed or regressed something between the last in-loop run and the end of the turn, this catches it.
-
-
 
 client.beta.sessions.events.send(
 
@@ -277,11 +261,9 @@ events=[
 
 stream\_until\_end\_turn(client, session.id)
 
-##  7. Cleanup
+##  7. Cleanup
 
 Archiving is how you mark a session, environment, or agent as finished. It tears down any live container, stops the resource from counting against your workspace quotas, and hides it from default list views, but it keeps the record, configuration, and event history around for audit and for anyone who wants to retrieve the resource later by ID. If you want to remove the record entirely, most resources also expose a separate `delete` endpoint (the operate notebook walks through resource lifecycle in detail), but `archive` is almost always what you want at the end of a run.
-
-
 
 wait\_for\_idle\_status(client, session.id)
 
@@ -293,11 +275,9 @@ client.beta.agents.archive(agent.id)
 
 print("archived")
 
-##  Sidebar: polling instead of streaming
+##  Sidebar: polling instead of streaming
 
 The streaming pattern in step 5 is the right choice when you want live progress on something the agent will spend more than a few seconds on. For shorter tasks, or for production code where you don't want a long-lived HTTP connection, you can do the same thing with `events.list` polling instead:
-
-
 
 client.beta.sessions.events.send(session\_id=..., events=[...])
 
@@ -337,7 +317,7 @@ Polling wins in the opposite situation. It's stateless, survives process restart
 
 In production setups where the agent might run for minutes and your handler can't hold a connection open, the polling pattern (or its production cousin, the `session.status_idled` webhook shown in the gate notebook) is what you want.
 
-##  Where to go next
+##  Where to go next
 
 The iterate loop is the simplest shape an agent loop takes. Four companion notebooks in this directory build on the same API shapes and show other workflows you can drive:
 

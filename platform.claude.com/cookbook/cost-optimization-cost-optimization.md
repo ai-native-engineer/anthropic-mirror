@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/cost-optimization-cost-optimization -->
 
-#  Cost Optimization on the Claude API
+#  Cost Optimization on the Claude API
 
 AI adoption is starting to take a familiar shape: you build on AI to stay at the intelligence frontier, but scaling your product makes token costs unsustainable. The zeitgeist refers to this phenomenon as a shift from "tokenmaxxing" to "budgetmaxxing." Yet, the defensible solution isn't to downgrade your models or shrink the scope of your AI use cases. Instead, we see successful teams focus on optimizing the architecture surrounding their models to reach the Pareto frontier of intelligence and cost.
 
@@ -16,7 +16,7 @@ This cookbook lays out the checklist Anthropic's Applied AI team runs builders t
 
 Notice how model selection sits near the bottom. It's the easiest lever to pull but directly constrains the intelligence of your product. The goal of this cookbook is to maintain your intelligence ceiling while recouping cost where the dollars are not driving any material gains in product performance.
 
-##  Prerequisites
+##  Prerequisites
 
 > **Note**: Running this cookbook top to bottom costs ~$40 in API credits. We recommend only running cells live when you want to experiment with the inputs.
 
@@ -26,17 +26,13 @@ To run this notebook, you will need:
 * **Python 3.10+** with the `anthropic`, `matplotlib`, `pillow`, and `python-dotenv` packages
 * **The `assets/` directory** in the same location as this notebook, which can be pulled from the [cookbooks repo(opens in new tab)](https://github.com/anthropics/claude-cookbooks)
 
-##  Setup
+##  Setup
 
 To get started, create a `.env` file in this directory and drop in your Anthropic API key with `ANTHROPIC_API_KEY=your-anthropic-api-key`. Then install and import the handful of dependencies, including [Anthropic's Python SDK(opens in new tab)](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python).
-
-
 
 %%capture
 
 %pip install --upgrade anthropic matplotlib pillow python-dotenv
-
-
 
 import base64
 
@@ -75,8 +71,6 @@ client = anthropic.Anthropic()
 With that in place, define the base models and pricing schemas. We'll use Opus as the default workhorse for this notebook, but your use case might warrant a different intelligence ceiling – the baseline eval in the next section will help us identify the right starting point. Here we just load in some helper functions to make our eval results easily legible.
 
 To *optimize* cost, we need to ensure we're *measuring* cost at every turn. Anthropic's API carries a `usage` block with input, output, and cache token counts. Below we define `usage_cost()` to turn those raw counts into dollar amounts using the [current per-million-token prices(opens in new tab)](https://platform.claude.com/docs/en/about-claude/pricing). Note that the `PRICING` table below is a hardcoded snapshot of list prices at the time of writing, and per-token rates are subject to change as new models ship or introductory pricing expires.
-
-
 
 FABLE = "claude-fable-5"
 
@@ -196,8 +190,6 @@ tag = " <- our default" if m == MODEL else ""
 
 print(f"{m:<18s} {p['in']:>8.2f} {p['out']:>9.2f}{tag}")
 
-
-
 ```
 model                $/M in   $/M out
 claude-fable-5        10.00     50.00
@@ -205,8 +197,6 @@ claude-opus-5          5.00     25.00  <- our default
 claude-sonnet-5        2.00     10.00
 claude-haiku-4-5       1.00      5.00
 ```
-
-
 
 # Shared eval output format
 
@@ -379,8 +369,6 @@ print(f"{label:<32s} {bar:<{width}s} {cache}{seen:>8,}{delta}", flush=True)
 To anchor this cost optimization exercise in reality, we'll run through a use case that embodies what our Applied AI team might face in the field: a claims adjuster agent for Acme Insurance, a fictional auto-insurance company. The cell below loads synthetic data from `assets/`, which serves as environment context for our agent to work with. It mocks a real production backend without all of the underlying infra.
 
 The agent's system prompt and tool schema (known as its "prefix") are defined in the following cell. The system prompt assigns the agent's persona, specifies the desired response shape, and embeds a full ~12K-token underwriting manual from `assets/policy_manual.md`. The agent has eight investigation actions it can call on via tools (pull the claim, policy, fraud score, repair estimate, photos) plus four terminal verdicts (`approve_claim`, `deny_claim`, `route_to_supervisor`, `refer_to_siu`) that the loop watches for. `count_tokens` at the end shows what this fixed prefix weighs before a single user turn is added.
-
-
 
 # Load in mock data from CSVs in the Cookbook's assets/ directory
 
@@ -632,8 +620,6 @@ return json.dumps(
 
 return json.dumps({"tool": name, "args": args, "result": "ok"})
 
-
-
 POLICY\_MANUAL = Path("assets/policy\_manual.md").read\_text()
 
 SYSTEM\_PROMPT = (
@@ -830,8 +816,6 @@ print(textwrap.fill(", ".join(t["name"] for t in TOOLS), 84))
 
 print(f"\nStatic prefix (system + tools): {n\_tokens:,} tokens")
 
-
-
 ```
 --- system prompt (30,395 chars) ---
 
@@ -846,15 +830,13 @@ approve_claim, deny_claim, route_to_supervisor, refer_to_siu
 Static prefix (system + tools): 13,027 tokens
 ```
 
-##  Before you start optimizing
+##  Before you start optimizing
 
 First ensure that the agent actually works, regardless of whether or not the unit economics are scalable. If you can't make *an* agent that solves your problem, you definitely won't be able to make a cost-optimal one. Run the agent on Opus or Fable to start; you should maintain a high intelligence ceiling and pull on other cost levers before sacrificing the agent's overall reasoning capabilities.
 
 Determining to what extent the agent works requires an eval that measures both **pass rate** and **cost per task**. We measure cost per task instead of cost per token because a model with a higher sticker price can be the cheaper option if it finishes the job in fewer turns. Pass rate allows us to establish a quality bar such that we don't degrade the quality of the agent itself as we reduce cost per task.
 
 The eval doesn't need to be elaborate; a few representative tasks with known-good answers is enough to catch regressions. Check out [this blog post(opens in new tab)](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) for additional direction on building your eval suite. For the purposes of this cookbook, we'll simply use ten claims from `claims.csv` with human-labeled correct verdicts.
-
-
 
 with open("assets/eval\_set.csv") as f:
 
@@ -865,8 +847,6 @@ print(f"Eval set: {len(EVAL\_CLAIMS)} claims")
 for c in EVAL\_CLAIMS:
 
 print(f" {c['id']} → expected {c['expected']}")
-
-
 
 ```
 Eval set: 10 claims
@@ -883,8 +863,6 @@ Eval set: 10 claims
 ```
 
 The `adjudicate()` function below defines our agent config. We'll run the baseline eval in an unoptimized state – assume this is how we've inherited the agent. It uses Opus at `effort=high`, full tool loop, no caching, and no context management. Opus High should be able to correctly classify all eval claims with enough intelligence headroom to flex to harder problems. `run_eval()` walks it across all ten claims and prints the scoreboard.
-
-
 
 def adjudicate(
 
@@ -1110,8 +1088,6 @@ lambda c: adjudicate(c),
 
 BASELINE\_TRIAL = dict(run\_eval.last)
 
-
-
 ```
 baseline (opus · effort=high)
   ✓ CLM-001  APPROVE    (exp APPROVE)    4 turns  $0.2844
@@ -1131,15 +1107,13 @@ Our baseline run lands at **10/10 correct** for \*\*~0.29/task∗∗.Atamillionc
 
 > **Note**: Model outputs are nondeterministic, so the same configuration can land at a different pass rate and cost per task from one run to the next. Your live eval runs in this notebook may return different results than what we've hardcoded in text. When conducting a cost optimization audit for your own agent, be sure to run many parallel trials so you're making decisions based on a representative distribution rather than a single sample.
 
-##  Prompt caching
+##  Prompt caching
 
 The first cost optimization strategy we'll employ is prompt caching. Right now our system prompt and tool schemas weigh ~13K tokens, and we're paying full input price to reprocess all of it on every turn of every claim. But that content doesn't change, so why should we repeatedly pay full price for sampling it?
 
 That's where [prompt caching(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) comes in – it lets Claude reuse an already-processed prefix across calls by temporarily storing it server-side. You can cache for five minutes at 1.25× the normal input rate or for one hour at a 2× multiple, and then reprocessing those tokens only costs 0.1× (so long as the prefix block doesn't change). You declare the static prefix by placing a "breakpoint" after it. Prompt caching is a great cost saver in multi-turn conversations and doesn't come at the expense of output quality, which is why we usually pull this lever first.
 
 The simplest way to get started is top-level [**auto caching**(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#automatic-caching). Pass `cache_control={"type": "ephemeral"}` on the request and the API places a single breakpoint after the last cacheable block, sliding it forward as the conversation grows. Below, we ask two follow-ups on the same claim with and without auto-caching. Watch the `cache_r` column – without caching, it stays at zero and every call re-pays for the same system prompt and tool definitions; with caching, call 1 pays a small write premium and call 2 reads back the whole prefix at a tenth of the price.
-
-
 
 claim = EVAL\_CLAIMS[0]
 
@@ -1213,8 +1187,6 @@ print(f"→ total ${t2:.4f}")
 
 print(f"→ {(1 - t2 / t1):.0%} cheaper vs no caching")
 
-
-
 ```
 in  cache_w  cache_r     out       cost
 no caching · claim A · call 1      13099        0        0      17    $0.0659
@@ -1231,8 +1203,6 @@ auto cache · claim A · call 2          2       26    13097      82    $0.0088
 Auto caching only pays off if the prefix is actually stable. The most common way to "break the cache" is having something dynamic (a timestamp, a request ID, a user name) in the system prompt or a tool description. The prefix might look the same to you, but the cache key is different every call and you'll see `cache_read` stay at zero.
 
 The fix is to **keep the static prefix byte-stable** and push anything volatile below the breakpoint. In the cell below, the "before" run stamps `datetime.now()` into the system prompt and never gets a hit; the "after" run freezes the system prompt by placing an explicit `cache_control` marker on that block and then moving the timestamp into the user turn instead. The same information reaches the model but now the static content is only paid for once.
-
-
 
 # Both variants build off the same base, the only delta is where the timestamp goes
 
@@ -1318,8 +1288,6 @@ print(f"→ total ${t2:.4f}")
 
 print(f"→ {(1 - t2 / t1):.0%} cheaper vs unstable prefix")
 
-
-
 ```
 in  cache_w  cache_r     out       cost
 unstable · claim A · call 1          132    12995        0     179    $0.0864
@@ -1336,8 +1304,6 @@ byte-stable · claim A · call 2       153        0    12969     124    $0.0103
 Auto caching gives you one breakpoint that slides. Sometimes you want more control than that, typically when different layers of your prefix change at different rates. [**Explicit breakpoints**(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#explicit-cache-breakpoints) let you place up to four `cache_control` markers yourself, so an upstream tier (the policy manual in the system prompt) can keep hitting even when a downstream one (per-claim context) changes.
 
 The cell below asks the same question about three different claims. In the first pass a dynamic per-claim intake packet leads the system block, so the prefix diverges from the very first token. In the second pass the manual comes first with the breakpoint after it and the per-claim packet is an uncached suffix, so the manual is written once on claim 1 and read on claims 2 and 3.
-
-
 
 # One question about three claims
 
@@ -1443,8 +1409,6 @@ lambda cid: [
 
 print(f"→ {(1 - t2 / t1):.0%} cheaper vs variable-first")
 
-
-
 ```
 in  cache_w  cache_r     out       cost
 variable-first · claim 1              86    14062        0     226    $0.0940
@@ -1470,13 +1434,11 @@ If you have a multi-turn agent or reuse the same prompts and tools across conver
 
 We recommend tracking your cache hit rate during and after cost optimization to ensure you don't introduce any breaking changes. The [Claude Console(opens in new tab)](https://platform.claude.com/usage) shows your cache read/write token split, or you can log `usage.cache_read_input_tokens` and `usage.cache_creation_input_tokens` off each response and watch the ratio yourself.
 
-##  Input token management
+##  Input token management
 
 Caching makes repeat tokens cheap, but do we really have to send those tokens to the model in the first place? Ideally the model gets only essential context upfront, and everything else stays within reach if it turns out to matter. This is **progressive disclosure**, the same way you'd brief a colleague by handing over just enough information for the decision at hand without burying them in context.
 
 Our baseline agent started with all context passed upfront: a full underwriting manual embedded in the system prompt, restated tool definitions, and twelve tool schemas loaded. Let's streamline this so the model only uses the tokens it absolutely needs. We'll call [`count_tokens`(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/token-counting) to measure how prefix bloat changes over time.
-
-
 
 tool\_recap = "\n\nAVAILABLE TOOLS:\n" + "\n".join(
 
@@ -1498,15 +1460,11 @@ messages=[{"role": "user", "content": f"Claim {claim['id']}: {claim['summary']}"
 
 print(f"{'bloated prefix':30s} {bloated.input\_tokens:>6,} tokens")
 
-
-
 ```
 bloated prefix                 13,462 tokens
 ```
 
 First we'll **move rarely-used reference material behind a tool.** The underwriting manual is ~11K tokens sitting in every prefix. Instead, we should expose it via a `read_manual` tool so Claude pulls the section it needs only when a claim actually turns on a specific rule. The trade-off is that the manual now costs a tool turn when it *is* needed. If most calls consult it anyway, keeping it in the (cached) system prompt is cheaper; retrieval wins when reference context is large and rarely hit.
-
-
 
 SYSTEM\_LEAN = (
 
@@ -1566,15 +1524,11 @@ f"(+{bloated.input\_tokens - retrieval.input\_tokens:,} tokens saved)"
 
 )
 
-
-
 ```
 manual → read_manual tool       2,517 tokens (+10,945 tokens saved)
 ```
 
 Next let's **remove tool recaps from the system prompt**. Tool schemas are already rendered into the request, so restating "here are your available tools" in the system prompt just inflates the prefix. If the model fails to call the right tools, fix it at the source by sharpening tool names and writing non-overlapping descriptions. That typically resolves the confusion without incurring any extra tokens.
-
-
 
 clean = client.messages.count\_tokens(
 
@@ -1596,15 +1550,11 @@ f"(+{retrieval.input\_tokens - clean.input\_tokens:,} tokens saved)"
 
 )
 
-
-
 ```
 drop tool prose recap           2,125 tokens (+392 tokens saved)
 ```
 
 We can do more to alleviate tool overhead by **deferring tools that aren't needed on every turn.** The [**tool search tool**(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool) lets you mark tools with `defer_loading: True`, so only `tool_search` plus whatever you leave un-deferred render into the prefix. Claude loads the rest by name when it actually needs them while preserving your cache. We're only using a dozen tools in this example so the savings are modest, but once your schemas run past ~10K tokens (which MCP servers hit fast), tool search often pays for itself.
-
-
 
 tool\_search = {"type": "tool\_search\_tool\_regex\_20251119", "name": "tool\_search\_tool\_regex"}
 
@@ -1642,8 +1592,6 @@ f"(+{clean.input\_tokens - lean.input\_tokens:,} tokens saved)"
 
 )
 
-
-
 ```
 defer tools via tool_search     1,696 tokens (+429 tokens saved)
 ```
@@ -1651,8 +1599,6 @@ defer tools via tool_search     1,696 tokens (+429 tokens saved)
 Keep in mind that a smaller prefix doesn't always translate to a cheaper cost per task. By deferring context so it's progressively disclosed, the model may incur more tokens trying to find that context than if it had just read it upfront. Prefix cost savings depend on the shape of your agent trajectory and should be validated against your own eval. You can see the impact of these changes on our claims agent in the [§Putting it all together](#putting-it-all-together) section.
 
 Now let's look at how artifacts can bloat your input context. [Images(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/vision) and [PDFs(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/pdf-support) are tokenized by pixel area at roughly one token per 28×28 patch, so cost scales with resolution rather than information content. You should pre-downscale to the minimum resolution your task actually needs. 1280×720 is a safe default that caps every image at ~1,200 tokens. In the cell below, the raw claim photo costs ~4,000 tokens, but a 4x downsample still lets the model answer "is this bumper dented" without issue.
-
-
 
 # https://commons.wikimedia.org/wiki/File:Car\_crash\_1.jpg (public domain)
 
@@ -1730,8 +1676,6 @@ for label, img in [("native", photo), ("downscaled", thumb)]:
 
 print(f"{label:11s} {img.width}x{img.height} {image\_tokens(img):>5,} tokens")
 
-
-
 ```
 Car_crash_1.jpg by Thue · public domain via Wikimedia Commons
 
@@ -1742,8 +1686,6 @@ downscaled  960x720    928 tokens
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/cost-optimization-cost-optimization/cost-optimization-cost-optimization_cell33_out0_011a036d.png)
 
 Better still, keep large artifacts out of the context window entirely and give Claude a way to query them. Below, the agent needs one aggregate number from a 5,000-row payout ledger. Pasting the CSV inline is more than 100K tokens, but uploading it via the [**Files API**(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/files) and mounting it into the [**code execution tool**(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool) means Claude runs pandas against it in a sandbox and only the answer reaches context.
-
-
 
 LEDGER = Path("assets/claims\_ledger.csv")
 
@@ -1835,8 +1777,6 @@ after = print\_usage("CSV via code\_execution", r.usage, cache=False)
 
 print(f"→ {(1 - after / before):.0%} cheaper vs in-context CSV")
 
-
-
 ```
 in     out       cost
 CSV pasted in context             135201     256    $0.6824
@@ -1850,13 +1790,11 @@ PDFs benefit from the same treatment. Rather than rasterizing every page into co
 
 Sometimes a large context dump just isn't useful enough for the task to justify its token weight. The [token counting endpoint(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/token-counting) returns the exact input token count for a request without running inference, so you can gate, truncate, or reject oversize payloads before you pay to process them.
 
-##  Agent-loop efficiency
+##  Agent-loop efficiency
 
 In a multi-turn agent, most tokens are a means to an end, like a screenshot taken to decide where to click next or a thinking block that reasons its way to a tool call. Left alone, those intermediate tokens accumulate on every subsequent turn's input, and cost compounds with them. This section is about keeping that growth bounded.
 
 Our eval runs one agent per claim and typically doesn't exceed five turns, so the following cells will instead assume we have one agent processing multiple claims in a single trajectory. One of those claims requires the 5,000-line ledger we just handled via code execution, but this time the agent needs to read the precedents to weigh them, not compute an aggregate, and the full payload lands in context on the second turn below.
-
-
 
 # Claims ledger stands in as a bulky tool result that accumulates in long-running agents
 
@@ -2034,8 +1972,6 @@ return total, seen\_list
 
 before\_total, unmanaged\_in = run\_queue("unmanaged", cache\_control={"type": "ephemeral"})
 
-
-
 ```
 context window                                   cache_w    cache_r  tokens in context
 unmanaged · CLM-001 · t1         ███                                               13,237          0   13,239
@@ -2058,8 +1994,6 @@ Notice how the ledger stays in the context window, occupying significant space e
 * `clear_thinking` removes thinking blocks from prior turns
 
 Tool clearing is what we need here. It's trigger-based, meaning you set a token threshold, and once the conversation crosses it the API clears the older matching blocks before the request reaches the model. Each clear invalidates the prompt cache from the edited point forward, so set the trigger high enough that clears stay infrequent. Below we run the same queue with `clear_tool_uses` at a 150K trigger. The ledger sits in context for a few turns after it lands, then the edit fires once accumulated results push the total past the threshold.
-
-
 
 # Tool use clearing enabled at a 150K trigger
 
@@ -2093,8 +2027,6 @@ cache\_control={"type": "ephemeral"},
 
 print(f"→ {(1 - total / before\_total):.0%} cheaper vs unmanaged")
 
-
-
 ```
 context window                                   cache_w    cache_r  tokens in context
 context editing · CLM-001 · t1   ███                                               13,235          0   13,237
@@ -2116,8 +2048,6 @@ Context editing *drops* content once it's stale, but we might just want to shrin
 
 The cell below leaves the trigger at the default. Like tool clearing above, it fires once accumulated results push the history over 150K, but instead of dropping the older turns it summarizes them, so the model keeps a compressed account of the claims it already decided.
 
-
-
 # Agent loop with server-side compaction at the default 150K trigger
 
 total, \_ = run\_queue(
@@ -2133,8 +2063,6 @@ cache\_control={"type": "ephemeral"},
 )
 
 print(f"→ {(1 - total / before\_total):.0%} cheaper vs unmanaged")
-
-
 
 ```
 context window                                   cache_w    cache_r  tokens in context
@@ -2157,8 +2085,6 @@ compaction · CLM-003 · t12       ████                                 
 When you need finer control than either server-side option gives you, run a client-side rolling buffer instead. You decide what survives and when. Server-side context editing swaps the whole result for a generic placeholder, but client-side you can collapse a bulky result to a one-line extract, leave the small ones untouched, and time the prune to protect a cache prefix.
 
 **Jagged compaction** is the timing pattern. Let bulky results build up, then drop them in a single pass so the message array stays byte-identical between prunes. The cell below prunes only at claim boundaries. Watch the `cache_r` column – each boundary prune is one cold miss, then cache picks back up.
-
-
 
 def prune\_tool\_results(messages, summarize):
 
@@ -2204,8 +2130,6 @@ cache\_control={"type": "ephemeral"},
 
 print(f"→ {(1 - total / before\_total):.0%} cheaper vs unmanaged")
 
-
-
 ```
 context window                                   cache_w    cache_r  tokens in context
 jagged prune · CLM-001 · t1      ███                                               13,237          0   13,239
@@ -2225,8 +2149,6 @@ jagged prune · CLM-003 · t12     ████                                 
 ```
 
 Editing and compaction assume the work is one continuous thread whose earlier steps you might still need. When a subtask is self-contained and you only need its result, you can spin it off as a subagent instead. A subagent is just a nested `messages` loop with its own context. It runs its own tool calls, absorbs its own bulky results, and hands back a single line. In our queue, the precedents lookup is that subtask. The cell below runs it once on Haiku and passes the one-line extract into the orchestrator's opening message such that the ledger never enters the orchestrator's context.
-
-
 
 def subagent(task, tool\_names, \*, model=HAIKU, max\_turns=3):
 
@@ -2334,8 +2256,6 @@ print(f"→ total ${sub\_total:.4f} (subagent + orchestrator)")
 
 print(f"→ {(1 - sub\_total / before\_total):.0%} cheaper vs unmanaged")
 
-
-
 ```
 context window                                   cache_w    cache_r  tokens in context
 subagent · precedents (haiku)    █████████████████████████████                          0          0  117,248
@@ -2355,13 +2275,11 @@ orchestrator · CLM-003 · t10     ████                                 
 
 Because the subagent is an independent call, you can give it a different (often cheaper) model string. The trade-off is that it starts from a fresh prefix with no cache shared with the parent, so this wins when the subtask's tool results are large relative to the parent's cached prompt. We'll come back to this pattern in [§Model selection](#model-selection-and-effort) as a routing lever.
 
-##  Output token management
+##  Output token management
 
 Claude decides when to stop generating, so managing output tokens is mostly about handing the model tighter constraints. `max_tokens` is a hard ceiling on tokens generated in a single response. The model never sees the value you set, so if it hits the ceiling the response is simply cut off mid-thought with `stop_reason="max_tokens"`. That makes it a backstop as opposed to a tuning knob. You should set `max_tokens` to the largest legitimate response your task produces plus some headroom, and let it catch the occasional runaway jobs rather than shape everyday output.
 
 If you want Claude to spend fewer tokens *reasoning* (shorter thinking blocks, fewer exploratory tool calls), the lever is `effort`, covered in the [§Model selection](#model-selection-and-effort) section. But if you just want the *visible response* to be shorter, prompt Claude for it. Specify the exact output shape in the prompt, ideally with an example. Below, both calls run with the same generous `max_tokens`, the only difference is that the second one tells the model precisely what a complete answer looks like.
-
-
 
 # The agentic SYSTEM\_PROMPT tells the model to investigate with tools
 
@@ -2479,8 +2397,6 @@ show(r)
 
 print(f"→ {(1 - after / before):.0%} cheaper vs open-ended")
 
-
-
 ```
 in     out       cost
 open-ended prompt                  11218    4096    $0.1585
@@ -2499,8 +2415,6 @@ shaped prompt                      11294      61    $0.0580
 ```
 
 [**Stop sequences**(opens in new tab)](https://platform.claude.com/docs/en/api/messages#body-stop-sequences) are the content-aware complement to `max_tokens`. Instead of stopping at a token count, generation halts when a string you specify appears in the output. It's useful if you know exactly what the tail of a valid response looks like, or for catching and preventing runaway errors. Instruct the model to emit a sentinel like `<CANNOT_REVIEW>` the moment it detects it can't proceed, register that sentinel as a stop sequence, and the model won't burn tokens explaining the failure.
-
-
 
 bad\_input = (
 
@@ -2558,8 +2472,6 @@ print(f"\n stop\_reason={r.stop\_reason} — sentinel fired, generation halted\n
 
 print(f"→ {(1 - after / before):.0%} cheaper vs no sentinel")
 
-
-
 ```
 in     out       cost
 no sentinel                        11175    2890    $0.1281
@@ -2578,13 +2490,11 @@ stop-sequence sentinel             11217      13    $0.0564
 
 That gives you three levers for output token management. Cap runaways with `max_tokens`, shrink normal responses by specifying the exact output shape, and register a stop-sequence sentinel for the cases where the right answer is to bail early.
 
-##  Batch API
+##  Batch API
 
 Rather than reducing the tokens you send or generate, the [Batch API(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/batch-processing) changes the delivery contract. Submit a set of requests to be processed asynchronously within 24 hours, and every token in them bills at 50% off. Prompt caching still applies within the batch, so the discounts stack.
 
 Batch requests are single-shot (no mid-batch tool loop), so the natural fit for our agent is the initial classification pass where a fast read on every claim decides which ones even need the agent. Below, ten identical triage requests go through once synchronously and once as a batch. Once the batched responses are returned, notice how the token columns match but the cost per task is 50% less.
-
-
 
 # Batch is single-shot, so demo it on the pre-adjudication triage pass
 
@@ -2688,8 +2598,6 @@ print(f"→ total ${batch\_cost:.4f}")
 
 print(f"→ {(1 - batch\_cost / sync\_cost):.0%} cheaper vs sync")
 
-
-
 ```
 in     out       cost
 sync · CLM-001                     11452     603    $0.0723
@@ -2721,15 +2629,13 @@ batch · CLM-003                    11439     622    $0.0364
 
 Reach for the Batch API for anything that's not time-sensitive, like nightly evals or data exploration. Batches usually complete well inside the 24-hour window, but that window is an expiry, not an SLA, so keep anything user-facing or deadline-bound on the synchronous path.
 
-##  Model selection and effort
+##  Model selection and effort
 
 So far we've kept the model fixed and cut cost around it. We chose to toggle the model last because we want to keep our intelligence ceiling as high as possible, and because per-token price isn't per-task cost. A more capable model that finishes in fewer turns can be cheaper end to end. If you have a cost budget to hit, take the free wins from caching, batching, input/output token management, and agent loop efficiency before you touch the model.
 
 Start with toggling [`effort`(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/effort) on your baseline model. It scales how many thinking and tool-use tokens the model spends on the problem without changing which model is running, so lowering it cuts output tokens and turns while keeping capability intact. Swapping the model string, on the other hand, changes the per-token price *and* the intelligence ceiling. Not every model exposes the same range: Opus and Sonnet accept `low` through `max`, while Haiku 4.5 doesn't take an `effort` parameter at all. The [effort levels chart(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/effort#effort-levels) lists what each model supports.
 
 We've been running our baseline with Opus on `high` effort. If we get to `low` and the eval still passes, we'll drop a model tier, reset effort to `high` (we are not using `xhigh` or `max` here for simplicity), and repeat. We're looking for the cheapest model and effort combination that still clears our quality bar of 10/10.
-
-
 
 # Model + effort ladder, two trials each to minimize variance
 
@@ -2775,8 +2681,6 @@ trials.append(dict(run\_eval.last))
 
 LADDER.append((label, trials))
 
-
-
 ```
 config                             trial   pass/n  requests   $ / task  $ / 10k tasks   misses
 opus · effort=high                     1    10/10        34    $0.1498         $1,498   —
@@ -2795,13 +2699,9 @@ haiku                                  1     7/10        30    $0.0200          
 haiku                                  2     4/10        29    $0.0189           $189   CLM-003, CLM-004, CLM-007, CLM-008, CLM-009, CLM-010
 ```
 
-
-
 # Ladder summary table of model variants vs. baseline
 
 results\_table(LADDER)
-
-
 
 ```
 <IPython.core.display.HTML object>
@@ -2810,8 +2710,6 @@ results\_table(LADDER)
 On the ten-claim eval above, everything holds at 10/10 through `sonnet · medium`, and the pass rate starts to slip at `sonnet · low`. Notice how the number of turns and cost per task step down with each drop in effort and intelligence. Haiku is clearly under-levered for this task, with a 55% pass rate across two trials. Also observe how the pass rate and specific claims the agent mislabels vary from trial to trial, even though the configuration is the same; that's why it's important to run multiple trials and minimize variance.
 
 That sweep assumes one model handles every task, but real agent workloads are usually spiky, and a single tier either over-pays on the easy ones or under-delivers on the hard ones. In our case, perhaps most claims are routine but a few need genuine judgment. The [**advisor tool**(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool) lets us split the difference by running a cheaper model as the driver and giving it a more capable model on call. The driver does the legwork and consults the advisor when it can't confidently complete a task, so we pay Opus rates only on the turns that actually need high intelligence.
-
-
 
 advisor = {"type": "advisor\_20260301", "name": "advisor", "model": OPUS}
 
@@ -2859,8 +2757,6 @@ trial=trial,
 
 dest.append(dict(run\_eval.last))
 
-
-
 ```
 config                             trial   pass/n  requests   $ / task  $ / 10k tasks   misses
 sonnet · low + opus advisor            1     8/10        34    $0.0754           $754   CLM-007, CLM-010
@@ -2872,8 +2768,6 @@ haiku + opus advisor                   2     7/10        34    $0.0952          
 Above we give Sonnet Low and Haiku access to an Opus advisor. Across a couple of trials each, the Haiku driver recovers some of its misses and the Sonnet driver does no better than it did alone. The claims they consult on come back correct. The misses are the borderline escalation cases the driver decides on its own without asking. The advisor pattern works best when there's a cheap signal to gate the consult on, like a payout threshold or a fraud score band, because asking the driver to recognize the hard cases itself demands the very judgment it's missing.
 
 The other model routing pattern is the one from [§Agent-loop efficiency](#agent-loop-efficiency): decompose the task and assign each piece to the cheapest model that can handle it. In practice, planning and judgment tend to warrant a bigger model, but once the plan exists, execution is often mechanical enough for Haiku, and sometimes deterministic enough to not need a model at all. In the example below, five Haiku subagents gather the facts (loss details, policy and exclusions, claim history, the fraud record, and the payout), and a single Sonnet call reads their findings against a rule card condensed from the manual to output a recommended action.
-
-
 
 terminal\_tools = [t for t in TOOLS if t["name"] in TERMINAL]
 
@@ -3021,8 +2915,6 @@ run\_eval(adjudicate\_decomposed, "haiku subagents + sonnet decide", quiet=True,
 
 DECOMPOSED.append(dict(run\_eval.last))
 
-
-
 ```
 config                             trial   pass/n  requests   $ / task  $ / 10k tasks   misses
 haiku subagents + sonnet decide        1     9/10       120    $0.0188           $188   CLM-003
@@ -3031,11 +2923,9 @@ haiku subagents + sonnet decide        2     9/10       120    $0.0187          
 
 That's roughly 90% under the Opus baseline on cost and it clears every escalation case, but it denies the same routine claim in both trials. The subagents surfaced what the decision needed, including that the unauthorized driver was the policyholder's son living at home. The rule card carried the relevant exclusion but not the exception the manual attaches to it, so the decider denied a claim the full manual would have approved. Adding that clause back would pass this eval, but the manual carries dozens of carve-outs like it and the next claim would find the next one. Flattening a manual into a rule list is where decomposition gives up accuracy. Cheap and slightly wrong is still not an optimization at our bar, and that's the failure mode our eval exists to catch.
 
-##  Putting it all together
+##  Putting it all together
 
 Now that we've explored cost optimization levers in isolation, let's see if we get even better returns when we combine them. We'll start with the cheapest config from the previous section that clears 10/10 eval tasks. In this notebook's saved run, that's Sonnet at medium effort with auto caching on, but recall that agent loops are nondeterministic and your local results may differ. When evaluating a production workload, be sure to run enough trials to shrink your error bars until adjacent configurations stop trading places between runs.
-
-
 
 def from\_ladder(label):
 
@@ -3079,8 +2969,6 @@ trial\_row(label, k, t, note="carried over")
 
 SWEEP.append((label, trials))
 
-
-
 ```
 config                             trial   pass/n  requests   $ / task  $ / 10k tasks   misses
 opus · high · cold (baseline)          1    10/10        36    $0.2906         $2,906   —   (carried over)
@@ -3100,17 +2988,11 @@ haiku · cached                         1     7/10        30    $0.0200         
 haiku · cached                         2     4/10        29    $0.0189           $189   CLM-003, CLM-004, CLM-007, CLM-008, CLM-009, CLM-010   (carried over)
 ```
 
-
-
 results\_table(SWEEP, numbered=True)
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
-
-
 
 # Pareto frontier: cheapest-first, keep configs that raise the mean-pass ceiling
 
@@ -3402,8 +3284,6 @@ The chart plots each configuration by cost per 10k claims against mean pass coun
 
 The next cell adds the remaining levers from prior sections – prompt caching, input token management, agent-loop efficiency, and output token management – to the frontier configuration and reruns the eval. The advisor and subagent-routing rows from §Model selection are carried over as measured, without a rerun. A true multivariate sweep would test every combination of levers in case two particular levers compound one another, but for simplicity we'll evaluate each lever in isolation.
 
-
-
 # Each lever on top of model and effort
 
 code\_exec = {"type": "code\_execution\_20260120", "name": "code\_execution"}
@@ -3620,8 +3500,6 @@ trial\_row(label, k, t, note="carried over")
 
 LEVERS.append((label, trials))
 
-
-
 ```
 config                             trial   pass/n  requests   $ / task  $ / 10k tasks   misses
 sonnet · medium · cached               1    10/10        32    $0.0500           $500   —   (carried over)
@@ -3646,17 +3524,11 @@ haiku subagents + sonnet decide        1     9/10       120    $0.0188          
 haiku subagents + sonnet decide        2     9/10       120    $0.0187           $187   CLM-003   (carried over)
 ```
 
-
-
 results\_table(LEVERS, ref="frontier")
-
-
 
 ```
 <IPython.core.display.HTML object>
 ```
-
-
 
 pareto\_plot(SWEEP, LEVERS[1:], title="Cost vs. quality with the remaining levers added")
 
@@ -3674,8 +3546,6 @@ So the explicit breakpoint moves the frontier at our bar and nothing else does. 
 * **Subagent routing** – the cheapest row on the table but one claim short of the bar because compressing the manual into a ruleset makes edge case judgments difficult.
 
 The one additional lever not mentioned above is batch processing. Our agent thus far has run in a synchronous loop, where each turn depends on the last tool result. But the Batch API requires independent, single-shot requests, which we can accommodate by changing the shape of our task. The cell below pre-fetches every record the loop could have asked for and inlines them into one request per claim, with the same explicit breakpoint on the shared system prompt. The standard-investigation records go first and the procedure from the system prompt is restated as a reading order, since there are no retrieval tools left to sequence it. It then submits the ten requests as a batch with only the terminal tools attached.
-
-
 
 STANDARD = ["get\_claim", "get\_policy", "get\_customer\_history", "check\_fraud\_signals"]
 
@@ -3825,15 +3695,11 @@ BATCH.append(run\_batch())
 
 trial\_row("sonnet · medium · batch (one-shot)", trial, BATCH[-1])
 
-
-
 ```
 config                             trial   pass/n  requests   $ / task  $ / 10k tasks   misses
 sonnet · medium · batch (one-shot)     1     9/10        10    $0.0060            $60   CLM-009
 sonnet · medium · batch (one-shot)     2     9/10        10    $0.0194           $194   CLM-009
 ```
-
-
 
 pareto\_plot(
 
@@ -3851,7 +3717,7 @@ Restructured this way, batched claims run at roughly half of the interactive fro
 
 Since we're looking for a 100% pass rate, our Pareto-optimal config is **`sonnet · medium` with explicit breakpoints**, a 13x reduction from the unoptimized Opus High configuration this notebook started with. As you continue experimentation with different architectures and combinations of levers beyond this cookbook, you'll want to see the Pareto frontier shift left, moving cheaper without dropping accuracy. And before making a production decision, you should aim for around fifty eval cases and at least five trials per configuration to minimize nondeterministic variance.
 
-##  Takeaways and next steps
+##  Takeaways and next steps
 
 There are a few key takeaways that generalize beyond the mock workloads of this cookbook.
 
@@ -3881,7 +3747,7 @@ Use the table below to map your workload's shape to the levers that may help red
 | Mostly routine cases with a few hard ones | Advisor tool on a cheaper driver | There is no cheap signal to gate the consult, leaving the driver to spot hard cases itself |
 | No one is waiting on the response | Batch API, flattening a tool loop into one request by pre-fetching its inputs if you have to | A user is waiting, or when flattening changes how the model reasons |
 
-###  What this cookbook didn't cover
+###  What this cookbook didn't cover
 
 **Non-API surfaces.** This cookbook only addresses cost optimization levers on the Claude API. It doesn't cover framework or product abstractions like the Agent SDK, Claude Code, or Managed Agents, which wrap the API and several of these levers for you.
 
@@ -3891,6 +3757,6 @@ Use the table below to map your workload's shape to the levers that may help red
 
 **Commercial pricing.** Pricing that isn't set by a request parameter, like committed-use discounts and workspace spend limits, is also out of scope. If your steady-state spend is material, talk to your Anthropic account team.
 
-###  Conclusion
+###  Conclusion
 
 Cost optimization is iterative. The frontier you land on today shifts as your workload changes, as new models ship, and as your eval set grows to cover the edge cases production sends you. Keep the eval and dollars-per-task logging in your loop, rerun the sweep when something moves, and treat the rest of this cookbook as a reference for cost optimization levers that might help down the road.

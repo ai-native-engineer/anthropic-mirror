@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/extended-thinking-extended-thinking -->
 
-#  Extended Thinking
+#  Extended Thinking
 
-##  Table of contents
+##  Table of contents
 
 * [Setup](#setup)
 * [Basic example](#basic-example)
@@ -15,15 +15,11 @@ This notebook demonstrates how to use Claude 3.7 Sonnet's extended thinking feat
 
 Extended thinking gives Claude 3.7 Sonnet enhanced reasoning capabilities for complex tasks, while also providing transparency into its step-by-step thought process before it delivers its final answer. When extended thinking is turned on, Claude creates `thinking` content blocks where it outputs its internal reasoning. Claude incorporates insights from this reasoning before crafting a final response. For more information on extended thinking, see our [documentation(opens in new tab)](https://docs.claude.com/en/docs/build-with-claude/extended-thinking).
 
-##  Setup
+##  Setup
 
 First, let's install the necessary packages and set up our environment.
 
-
-
 %pip install anthropic
-
-
 
 import anthropic
 
@@ -89,11 +85,9 @@ messages=messages
 
 return result.input\_tokens
 
-##  Basic example
+##  Basic example
 
 Let's start with a basic example to show extended thinking in action:
-
-
 
 def basic\_thinking\_example():
 
@@ -124,8 +118,6 @@ messages=[{
 print\_thinking\_response(response)
 
 basic\_thinking\_example()
-
-
 
 ```
 ==== FULL RESPONSE ====
@@ -181,11 +173,9 @@ There is no missing dollar. The puzzle creates confusion by inappropriately addi
 ==== END RESPONSE ====
 ```
 
-##  Streaming with extended thinking
+##  Streaming with extended thinking
 
 This example shows how to handle streaming with thinking:
-
-
 
 def streaming\_with\_thinking():
 
@@ -265,8 +255,6 @@ print("\n--- Message complete ---")
 
 streaming\_with\_thinking()
 
-
-
 ```
 --- Starting thinking block ---
 This is a classic mathematical puzzle that contains a misdirection in how the calculations are presented. Let's break it down step by step:
@@ -328,11 +316,9 @@ There is no missing dollar - it's just an accounting trick!--- Finished text blo
 --- Message complete ---
 ```
 
-##  Token counting and context window management
+##  Token counting and context window management
 
 This example demonstrates how to track token usage with extended thinking:
-
-
 
 def token\_counting\_example():
 
@@ -434,8 +420,6 @@ print("WARNING: This would exceed the context window of 200k tokens!")
 
 token\_counting\_example()
 
-
-
 ```
 Base token count (input only): 125
 
@@ -476,13 +460,11 @@ Max tokens needed: 33125
 Remaining context window: 166875
 ```
 
-##  Understanding redacted thinking blocks
+##  Understanding redacted thinking blocks
 
 Occasionally Claude's internal reasoning will be flagged by safety systems. When this occurs, we encrypt some or all of the `thinking` block and return it to you as a `redacted_thinking` block. These redacted thinking blocks are decrypted when passed back to the API, allowing Claude to continue its response without losing context.
 
 This example demonstrates working with redacted thinking blocks using a special test string that triggers them:
-
-
 
 def redacted\_thinking\_example():
 
@@ -552,8 +534,6 @@ print(text\_blocks[0].text)
 
 redacted\_thinking\_example()
 
-
-
 ```
 [TextBlock(citations=None, text=None, type='redacted_thinking', data='EvAFCoYBGAIiQL7asmglEdeKXw4EdihR2gBQ7O7+j/dGecLjsS2PMgW9av+NRwuIV2nFD4I61hUHrp5vzJF7/y+i/vvbnxaRnwMqQMizGiLSDcowtEvP9EcIT4d75iPhZ8TaiVdD22bZp3YVcc0laY8u1lEJTSesgLUywuc3QHZcg4NZ7tKjWwKgcVUSDHgb6gZUK9aP47KvNxoMCNjkIDR40zmq/QmVIjBSCnvTMSUE+jnmLZSq1TZO9T7ImALNJt8I5j1ls24CO1fibsRThJ7Ha5A0/tuEKVoqlgRc+e2tS+BQMXx572lT4Hkl4aVpcM4SQbqBjeVeR3NmCBLoOxlQ2JLiIYwMHUS/K9GDLyMQcYd1KUWgN34CZRK7k44CSkNsO8oh4uj/1qsRsZjq1l6RQ29rLKSEXvMU4XbZufJ1icvYZS1I6PIZzER6/u6it+WNYyBxJ2vaFICjDePNgIHfRA/ceTz9mfCtBiTfagyPBbs2HflXlSlW26TSdI7PKof5/EsQ+DUkjAy+9VTLX7zHYzNZtwJPL2ryYw4loSwRbc4syldA0Ncnn7hA+yJyY0QwSrxZFIm/t9X9p9s+2SL0F4wSRsimnxRiIhfJD3i+oTw8AbGklyoP0kCH2WxA7Gr3rNLJVkRTJl48AjlSL7ClaWvLWrNer13etD7n5rbwiXOn5husy8gAm5GE3/eFyty3Y+/ad+lMPKXSjL0aP67WoJrFq/teItolOVZeOOERjVFdw5jIV1EUknlAZ/pfI53pLYqwFl17M7IXMdGxEaKoGDIKcnYTwT31uUNlB5JSBWoq1SnkFsFy2zDsDTFzjml3HEXz4szZi3j5/qHWJlMMCcB1walZUisxEp0v1euvcgatY5wfYSiAP3s9wOrgYKCkuLcidlgiyQHJB1haZjO8/tZ9gzWk1n//7pTncdKgd5ZK9/ErxWFlBV/vQwjp0cB7zoVcLh1ydi/Coea6ZOuei+ICKVl4IcR2A6DD8gtEJmc='), TextBlock(citations=None, text="I notice you've sent what appears to be a prompt attempting to access internal systems or processes. I can't respond to commands of this nature.\n\nInstead, I'm happy to have a normal conversation and assist you with legitimate questions or tasks. What would you like help with today?", type='text')]
 Response includes 2 total blocks:
@@ -570,7 +550,7 @@ I notice you've sent what appears to be a prompt attempting to access internal s
 Instead, I'm happy to have a normal conversation and assist you with legitimate questions or tasks. What would you like help with today?
 ```
 
-##  Handling error cases
+##  Handling error cases
 
 When using extended thinking, keep in mind:
 
@@ -579,8 +559,6 @@ When using extended thinking, keep in mind:
 3. **Pricing**: Extended thinking tokens count towards the context window and are billed as output tokens. They also count towards your rate limits.
 
 For more details on extended thinking with tool use, see the "Extended Thinking with Tool Use" notebook.
-
-
 
 def demonstrate\_common\_errors():
 
@@ -689,8 +667,6 @@ print(f"\nError from exceeding context window: {e}")
 # Run the common error examples
 
 demonstrate\_common\_errors()
-
-
 
 ```
 Error with too small thinking budget: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'thinking.enabled.budget_tokens: Input should be greater than or equal to 1024'}}

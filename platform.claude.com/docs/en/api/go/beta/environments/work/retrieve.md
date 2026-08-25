@@ -1,21 +1,16 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/environments/work/retrieve -->
 
----
-title: Get Work Item
-url: https://platform.claude.com/docs/en/api/go/beta/environments/work/retrieve
----
-
-## Get Work Item
+# Get Work Item
 
 `client.Beta.Environments.Work.Get(ctx, workID, params) (*BetaSelfHostedWork, error)`
 
-**get** `/v1/environments/{environment_id}/work/{work_id}`
+**GET** `/v1/environments/{environment_id}/work/{work_id}`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Retrieve detailed information about a specific work item.
 
-### Parameters
+## Parameters
 
 - `workID string`
 
@@ -25,7 +20,7 @@ Retrieve detailed information about a specific work item.
 
     Path param
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -101,7 +96,7 @@ Retrieve detailed information about a specific work item.
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaSelfHostedWork struct{…}`
 
@@ -134,8 +129,6 @@ Retrieve detailed information about a specific work item.
     - `Type Session`
 
       Type of work data
-
-      - `const SessionSession Session = "session"`
 
   - `EnvironmentID string`
 
@@ -183,9 +176,9 @@ Retrieve detailed information about a specific work item.
 
     The type of object (always 'work')
 
-    - `const WorkWork Work = "work"`
+    default: work
 
-### Example
+## Example
 
 ```go
 package main
@@ -216,7 +209,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

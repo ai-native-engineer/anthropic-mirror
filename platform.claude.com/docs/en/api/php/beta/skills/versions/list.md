@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/skills/versions/list -->
 
----
-title: List Skill Versions
-url: https://platform.claude.com/docs/en/api/php/beta/skills/versions/list
----
-
-## List Skill Versions
+# List Skill Versions
 
 `$client->beta->skills->versions->list(string skillID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<VersionListResponse>`
 
-**get** `/v1/skills/{skill_id}/versions`
+**GET** `/v1/skills/{skill_id}/versions`
 
 List Skill Versions
 
-### Parameters
+## Parameters
 
 - `skillID: string`
 
@@ -35,7 +30,7 @@ List Skill Versions
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `VersionListResponse`
 
@@ -83,7 +78,7 @@ List Skill Versions
 
     Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-### Example
+## Example
 
 ```php
 <?php
@@ -102,7 +97,7 @@ $page = $client->beta->skills->versions->list(
 var_dump($page);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

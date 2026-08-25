@@ -19,7 +19,7 @@ Organizations share the tenant’s sign-in and provisioning setup. You configure
 
 ##  The organization list
 
-Each organization appears with its name and ID. Clicking an organization’s name opens its organization admin view. When you do this you are acting as an administrator of that organization, and you can manage its users, seats, and settings exactly as one of its own owners would.
+Each organization appears with its name and ID. Clicking an organization’s name opens its organization admin view. When you do this you are acting as an Owner of that organization and can manage its users, seats, and settings. You cannot grant or remove its [Primary Owner role](https://claude.com/docs/government/org-admin/users#understanding-roles), which stays with that organization’s own Primary Owners.
 
 Which organization a user joins isn’t controlled on this page. That’s set by the routing rules on the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access) page.
 
@@ -28,7 +28,7 @@ Which organization a user joins isn’t controlled on this page. That’s set by
 Expand the **Add organization** section to create a new organization. You’ll provide the following:
 
 * **Name** is what the organization will be called. Leading and trailing spaces are trimmed, and the name can be up to 256 characters. There is no uniqueness requirement, so you can create two organizations with the same name, but you generally shouldn’t.
-* **Primary owner email** is the email address of the person who will be the new organization’s first administrator. This person becomes the Primary Owner and can immediately manage the organization’s users and settings. They do **not** become a tenant administrator; tenant-level access is granted separately on the [Admins](https://claude.com/docs/government/tenant-admin/admins) page.
+* **Primary Owner email** is the email address of the person who will be the new organization’s first administrator. This person becomes the Primary Owner and can immediately manage the organization’s users and settings. They do **not** become a tenant administrator; tenant-level access is granted separately on the [Admins](https://claude.com/docs/government/tenant-admin/admins) page.
 * **Billing account** determines where the organization’s credits and seats come from. Choose an existing billing account from the list; the new organization draws from that account’s credit balance and seat pool alongside any other organizations already on it. Only billing accounts that are active and tenant-managed appear in the list.
 
 If the list is empty, your tenant has no active tenant-managed billing accounts yet. Contact Anthropic to have one set up.
@@ -41,10 +41,11 @@ The new organization appears in the list immediately and you can click through t
 * Give it seats on the [Seats](https://claude.com/docs/government/tenant-admin/seats) page. A newly created organization starts with no seats distributed to it, so its Primary Owner has no seat tier and cannot use Claude yet. Saving the organization’s first seats also seats the Primary Owner, and anyone else already in it without a seat tier, automatically.
 * If you want to limit how much the new organization can spend from its billing account, set a spend cap on it on the [Billing](https://claude.com/docs/government/tenant-admin/credits) page. This is optional. With no cap, the account’s balance is the only limit.
 
-> **For organization owners:** Being named the primary owner of a new organization does **not** make you a tenant administrator. Tenant admin access is granted separately on the [Admins](https://claude.com/docs/government/tenant-admin/admins) page.
+> **For organization owners:** Being named the Primary Owner of a new organization does **not** make you a tenant administrator. Tenant admin access is granted separately on the [Admins](https://claude.com/docs/government/tenant-admin/admins) page.
 
 ##  Things to know
 
+* You choose an organization’s first Primary Owner when you create it. After that, only that organization’s Primary Owners can grant or remove the role. If an organization no longer has a Primary Owner who can sign in, for example because that person left your agency, contact Anthropic to have a new one appointed.
 * You cannot delete an organization from this page. If an organization is no longer needed, contact Anthropic to have it deactivated. Routing rules that target a deactivated organization stop matching, and users in a deactivated organization cannot sign in until it is reactivated or they are moved.
 * Organization names can be changed later from the organization’s own admin view.
 * There is no fixed limit on the number of organizations you can create, but each one adds a row to your seat distribution and configuration surfaces, so create only as many as you need to keep administration manageable.

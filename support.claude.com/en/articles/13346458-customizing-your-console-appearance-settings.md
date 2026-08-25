@@ -6,7 +6,7 @@
 2. Navigate to [Settings > Appearance](https://platform.claude.com/settings/appearance).
 3. Select from Light, System, or Dark under **Color mode**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922579101/ede30d38dca693c59f9c15d79e69/CleanShot+2026-01-08+at+15_45_20%402x.png?expires=1787426100&signature=b075ee5c357233a80a3904741bb742896020844e1856fe95a52e3b9944bb520d&req=dSklFMx5lIBfWPMW1HO4zRpFC88ATxR3O9Kw38RlAYLFZPw1h1X5j2cPaCan%0AH08hGnr3ZiRPQWKtpQc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922579101/ede30d38dca693c59f9c15d79e69/CleanShot+2026-01-08+at+15_45_20%402x.png?expires=1787426100&signature=b075ee5c357233a80a3904741bb742896020844e1856fe95a52e3b9944bb520d&req=dSklFMx5lIBfWPMW1HO4zRpFC88ATxR3O9Kw38RlAYLFZPw1h1X5j2cPaCan%0AH08hGnr3ZiRPQWKtpQc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922579101/ede30d38dca693c59f9c15d79e69/CleanShot+2026-01-08+at+15_45_20%402x.png?expires=1787622300&signature=2a23e8f918f4165d80e30b10c12a405c5955bd2054c14135ef82d33dab84201c&req=dSklFMx5lIBfWPMW1HO4zRpFC88CTxB1O9Kw38RlAYI0cf75ylLbXEmxfRiZ%0ATvQ7QV7vBg4L7bTNYuk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922579101/ede30d38dca693c59f9c15d79e69/CleanShot+2026-01-08+at+15_45_20%402x.png?expires=1787622300&signature=2a23e8f918f4165d80e30b10c12a405c5955bd2054c14135ef82d33dab84201c&req=dSklFMx5lIBfWPMW1HO4zRpFC88CTxB1O9Kw38RlAYI0cf75ylLbXEmxfRiZ%0ATvQ7QV7vBg4L7bTNYuk%3D%0A)
 
 * [Customizing your appearance settings](https://support.claude.com/en/articles/8887527-customizing-your-appearance-settings)
 * [Creating and managing Workspaces in the Claude Console](https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console)

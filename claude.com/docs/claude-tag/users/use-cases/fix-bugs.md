@@ -34,6 +34,16 @@ A bug report arrives with reproduction steps and nobody free to take it. This ge
 The done definition, CI green and the PR linking back, gives the session a finish line it can check itself against.
 The pull request appears under the Claude GitHub App and links back to the Slack thread it came from. See [how agent identity works](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-access).
 
+###  Move a bug report to the owning team’s channel
+
+A report that landed in a general channel belongs with the team that owns the code. Fork the thread into their channel and put the fix prompt in the fork, so the owners see the work as it happens and the original thread gets a link to follow.
+
+```
+@Claude !fork #data-platform in acme/data-pipeline, reproduce the bug described in the linked thread, fix it, and open a draft PR. Done means CI is green and the PR links back here.
+```
+
+Both channels must be public, and you and Claude must both be in the target. See [Fork a thread](https://claude.com/docs/claude-tag/users/commands#fork-a-thread).
+
 ###  Watch a bug channel
 
 Reports arrive faster than the team triages them. The standing form watches the channel and opens drafts for anything reproducible.

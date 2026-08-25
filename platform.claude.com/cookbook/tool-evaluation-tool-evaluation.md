@@ -1,10 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/tool-evaluation-tool-evaluation -->
 
-#  Tool Evaluation
+#  Tool Evaluation
 
 Multiple agents independently run a single evaluation task from an evaluation file.
-
-
 
 import json
 
@@ -22,9 +20,7 @@ from typing import Any
 
 from anthropic import Anthropic
 
-##  Prompts
-
-
+##  Prompts
 
 # Embedded evaluator prompt
 
@@ -86,9 +82,7 @@ Response Requirements:
 
 - Your response should go last"""
 
-##  Agent Loop
-
-
+##  Agent Loop
 
 client = Anthropic()
 
@@ -210,9 +204,7 @@ None,
 
 return response, tool\_metrics
 
-##  Helper Functions
-
-
+##  Helper Functions
 
 def parse\_evaluation\_file(file\_path: Path) -> list[dict[str, Any]]:
 
@@ -257,8 +249,6 @@ except Exception as e:
 print(f"Error parsing evaluation file {file\_path}: {e}")
 
 return []
-
-
 
 def evaluate\_single\_task(
 
@@ -316,9 +306,7 @@ return {
 
 }
 
-##  Main Evaluation Function
-
-
+##  Main Evaluation Function
 
 # Report Templates
 
@@ -464,9 +452,7 @@ for task, result in zip(tasks, results, strict=False)
 
 return report
 
-##  Calculator Tool
-
-
+##  Calculator Tool
 
 def calculator(expression: str) -> str:
 
@@ -520,9 +506,7 @@ calculator\_tool = {
 
 tools = [calculator\_tool]
 
-##  Run Evaluation
-
-
+##  Run Evaluation
 
 # Run evaluation
 
@@ -531,8 +515,6 @@ print("✅ Using calculator tool")
 report = run\_evaluation(eval\_path="evaluation.xml", tools=tools)
 
 print(report)
-
-
 
 ```
 ✅ Using calculator tool

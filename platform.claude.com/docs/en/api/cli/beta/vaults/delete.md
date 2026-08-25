@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/cli/beta/vaults/delete -->
 
----
-title: Delete Vault
-url: https://platform.claude.com/docs/en/api/cli/beta/vaults/delete
----
-
-## Delete Vault
+# Delete Vault
 
 `$ ant beta:vaults delete`
 
-**delete** `/v1/vaults/{vault_id}`
+**DELETE** `/v1/vaults/{vault_id}`
 
 Delete Vault
 
-### Parameters
+## Parameters
 
 - `--vault-id: string`
 
@@ -23,9 +18,9 @@ Delete Vault
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
-- `beta_managed_agents_deleted_vault: object { id, type }`
+- `beta_managed_agents_deleted_vault: object`
 
   Confirmation of a deleted vault.
 
@@ -35,17 +30,15 @@ Delete Vault
 
   - `type: "vault_deleted"`
 
-    - `"vault_deleted"`
+## Example
 
-### Example
-
-```cli
+```bash
 ant beta:vaults delete \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

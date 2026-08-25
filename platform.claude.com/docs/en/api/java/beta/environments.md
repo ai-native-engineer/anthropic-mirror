@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/environments -->
 
----
-title: Environments
-url: https://platform.claude.com/docs/en/api/java/beta/environments
----
-
 # Environments
 
 ## Create Environment
 
-`BetaEnvironment beta().environments().create(EnvironmentCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaEnvironment beta().environments().create(params, requestOptions = RequestOptions.none())`
 
-**post** `/v1/environments`
+**POST** `/v1/environments`
 
 Create a new environment with the specified configuration.
 
@@ -95,6 +90,8 @@ Create a new environment with the specified configuration.
 
     Human-readable name for the environment
 
+    maxLength: 256, minLength: 1
+
   - `Optional<Config> config`
 
     Environment configuration
@@ -106,11 +103,9 @@ Create a new environment with the specified configuration.
       Fields default to null; on update, omitted fields preserve the
       existing value.
 
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
       - `Optional<Networking> networking`
 
@@ -120,11 +115,9 @@ Create a new environment with the specified configuration.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetworkParams:`
 
@@ -133,11 +126,9 @@ Create a new environment with the specified configuration.
           Fields default to null; on update, omitted fields preserve the
           existing value.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
           - `Optional<Boolean> allowMcpServers`
 
@@ -185,21 +176,19 @@ Create a new environment with the specified configuration.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `Optional<String> description`
 
     Optional description of the environment
+
+    maxLength: 1024
 
   - `Optional<Metadata> metadata`
 
@@ -243,11 +232,9 @@ Create a new environment with the specified configuration.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
@@ -265,11 +252,9 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
@@ -303,23 +288,17 @@ Create a new environment with the specified configuration.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -337,11 +316,9 @@ Create a new environment with the specified configuration.
 
     Human-readable name for the environment
 
-  - `JsonValue; type "environment"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'environment')
-
-    - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
@@ -379,7 +356,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -430,9 +407,9 @@ public final class Main {
 
 ## List Environments
 
-`EnvironmentListPage beta().environments().list(EnvironmentListParamsparams = EnvironmentListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`EnvironmentListPage beta().environments().list(params = EnvironmentListParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/environments`
+**GET** `/v1/environments`
 
 List environments with pagination support.
 
@@ -447,6 +424,8 @@ List environments with pagination support.
   - `Optional<Long> limit`
 
     Maximum number of environments to return
+
+    maximum: 1000, minimum: 1
 
   - `Optional<String> page`
 
@@ -554,11 +533,9 @@ List environments with pagination support.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
@@ -576,11 +553,9 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
@@ -614,23 +589,17 @@ List environments with pagination support.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -648,11 +617,9 @@ List environments with pagination support.
 
     Human-readable name for the environment
 
-  - `JsonValue; type "environment"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'environment')
-
-    - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
@@ -687,7 +654,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -743,9 +710,9 @@ public final class Main {
 
 ## Get Environment
 
-`BetaEnvironment beta().environments().retrieve(EnvironmentRetrieveParamsparams = EnvironmentRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaEnvironment beta().environments().retrieve(params = EnvironmentRetrieveParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/environments/{environment_id}`
+**GET** `/v1/environments/{environment_id}`
 
 Retrieve a specific environment by ID.
 
@@ -857,11 +824,9 @@ Retrieve a specific environment by ID.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
@@ -879,11 +844,9 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
@@ -917,23 +880,17 @@ Retrieve a specific environment by ID.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -951,11 +908,9 @@ Retrieve a specific environment by ID.
 
     Human-readable name for the environment
 
-  - `JsonValue; type "environment"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'environment')
-
-    - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
@@ -990,7 +945,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1041,9 +996,9 @@ public final class Main {
 
 ## Update Environment
 
-`BetaEnvironment beta().environments().update(EnvironmentUpdateParamsparams = EnvironmentUpdateParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaEnvironment beta().environments().update(params = EnvironmentUpdateParams.none(), requestOptions = RequestOptions.none())`
 
-**post** `/v1/environments/{environment_id}`
+**POST** `/v1/environments/{environment_id}`
 
 Update an existing environment's configuration.
 
@@ -1136,11 +1091,9 @@ Update an existing environment's configuration.
       Fields default to null; on update, omitted fields preserve the
       existing value.
 
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
       - `Optional<Networking> networking`
 
@@ -1150,11 +1103,9 @@ Update an existing environment's configuration.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetworkParams:`
 
@@ -1163,11 +1114,9 @@ Update an existing environment's configuration.
           Fields default to null; on update, omitted fields preserve the
           existing value.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
           - `Optional<Boolean> allowMcpServers`
 
@@ -1215,21 +1164,19 @@ Update an existing environment's configuration.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
     - `class BetaSelfHostedConfigParams:`
 
       Request params for `self_hosted` environment configuration.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `Optional<String> description`
 
     Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
+
+    maxLength: 1024
 
   - `Optional<Metadata> metadata`
 
@@ -1238,6 +1185,8 @@ Update an existing environment's configuration.
   - `Optional<String> name`
 
     Updated name for the environment
+
+    maxLength: 256, minLength: 1
 
   - `Optional<Scope> scope`
 
@@ -1277,11 +1226,9 @@ Update an existing environment's configuration.
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
@@ -1299,11 +1246,9 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
@@ -1337,23 +1282,17 @@ Update an existing environment's configuration.
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -1371,11 +1310,9 @@ Update an existing environment's configuration.
 
     Human-readable name for the environment
 
-  - `JsonValue; type "environment"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'environment')
-
-    - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
@@ -1410,7 +1347,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1461,9 +1398,9 @@ public final class Main {
 
 ## Delete Environment
 
-`BetaEnvironmentDeleteResponse beta().environments().delete(EnvironmentDeleteParamsparams = EnvironmentDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaEnvironmentDeleteResponse beta().environments().delete(params = EnvironmentDeleteParams.none(), requestOptions = RequestOptions.none())`
 
-**delete** `/v1/environments/{environment_id}`
+**DELETE** `/v1/environments/{environment_id}`
 
 Delete an environment by ID. Returns a confirmation of the deletion.
 
@@ -1559,8 +1496,6 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     The type of response
 
-    - `ENVIRONMENT_DELETED("environment_deleted")`
-
 ### Example
 
 ```java
@@ -1582,7 +1517,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1593,9 +1528,9 @@ public final class Main {
 
 ## Archive Environment
 
-`BetaEnvironment beta().environments().archive(EnvironmentArchiveParamsparams = EnvironmentArchiveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaEnvironment beta().environments().archive(params = EnvironmentArchiveParams.none(), requestOptions = RequestOptions.none())`
 
-**post** `/v1/environments/{environment_id}/archive`
+**POST** `/v1/environments/{environment_id}/archive`
 
 Archive an environment by ID. Archived environments cannot be used to create new sessions.
 
@@ -1707,11 +1642,9 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
@@ -1729,11 +1662,9 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
@@ -1767,23 +1698,17 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -1801,11 +1726,9 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     Human-readable name for the environment
 
-  - `JsonValue; type "environment"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'environment')
-
-    - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
@@ -1840,7 +1763,7 @@ public final class Main {
 }
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1889,7 +1812,7 @@ public final class Main {
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Cloud Config
 
@@ -1905,11 +1828,9 @@ public final class Main {
 
       Unrestricted network access.
 
-      - `JsonValue; type "unrestricted"constant`
+      - `JsonValue type constant`
 
         Network policy type
-
-        - `UNRESTRICTED("unrestricted")`
 
     - `class BetaLimitedNetwork:`
 
@@ -1927,11 +1848,9 @@ public final class Main {
 
         Specifies domains the container can reach.
 
-      - `JsonValue; type "limited"constant`
+      - `JsonValue type constant`
 
         Network policy type
-
-        - `LIMITED("limited")`
 
   - `BetaPackages packages`
 
@@ -1965,13 +1884,9 @@ public final class Main {
 
       Package configuration type
 
-      - `PACKAGES("packages")`
-
-  - `JsonValue; type "cloud"constant`
+  - `JsonValue type constant`
 
     Environment type
-
-    - `CLOUD("cloud")`
 
 ### Beta Cloud Config Params
 
@@ -1982,11 +1897,9 @@ public final class Main {
   Fields default to null; on update, omitted fields preserve the
   existing value.
 
-  - `JsonValue; type "cloud"constant`
+  - `JsonValue type constant`
 
     Environment type
-
-    - `CLOUD("cloud")`
 
   - `Optional<Networking> networking`
 
@@ -1996,11 +1909,9 @@ public final class Main {
 
       Unrestricted network access.
 
-      - `JsonValue; type "unrestricted"constant`
+      - `JsonValue type constant`
 
         Network policy type
-
-        - `UNRESTRICTED("unrestricted")`
 
     - `class BetaLimitedNetworkParams:`
 
@@ -2009,11 +1920,9 @@ public final class Main {
       Fields default to null; on update, omitted fields preserve the
       existing value.
 
-      - `JsonValue; type "limited"constant`
+      - `JsonValue type constant`
 
         Network policy type
-
-        - `LIMITED("limited")`
 
       - `Optional<Boolean> allowMcpServers`
 
@@ -2061,8 +1970,6 @@ public final class Main {
 
       Package configuration type
 
-      - `PACKAGES("packages")`
-
 ### Beta Environment
 
 - `class BetaEnvironment:`
@@ -2093,11 +2000,9 @@ public final class Main {
 
           Unrestricted network access.
 
-          - `JsonValue; type "unrestricted"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `UNRESTRICTED("unrestricted")`
 
         - `class BetaLimitedNetwork:`
 
@@ -2115,11 +2020,9 @@ public final class Main {
 
             Specifies domains the container can reach.
 
-          - `JsonValue; type "limited"constant`
+          - `JsonValue type constant`
 
             Network policy type
-
-            - `LIMITED("limited")`
 
       - `BetaPackages packages`
 
@@ -2153,23 +2056,17 @@ public final class Main {
 
           Package configuration type
 
-          - `PACKAGES("packages")`
-
-      - `JsonValue; type "cloud"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `CLOUD("cloud")`
 
     - `class BetaSelfHostedConfig:`
 
       Configuration for self-hosted environments.
 
-      - `JsonValue; type "self_hosted"constant`
+      - `JsonValue type constant`
 
         Environment type
-
-        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -2187,11 +2084,9 @@ public final class Main {
 
     Human-readable name for the environment
 
-  - `JsonValue; type "environment"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'environment')
-
-    - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
@@ -2219,8 +2114,6 @@ public final class Main {
 
     The type of response
 
-    - `ENVIRONMENT_DELETED("environment_deleted")`
-
 ### Beta Limited Network
 
 - `class BetaLimitedNetwork:`
@@ -2239,11 +2132,9 @@ public final class Main {
 
     Specifies domains the container can reach.
 
-  - `JsonValue; type "limited"constant`
+  - `JsonValue type constant`
 
     Network policy type
-
-    - `LIMITED("limited")`
 
 ### Beta Limited Network Params
 
@@ -2254,11 +2145,9 @@ public final class Main {
   Fields default to null; on update, omitted fields preserve the
   existing value.
 
-  - `JsonValue; type "limited"constant`
+  - `JsonValue type constant`
 
     Network policy type
-
-    - `LIMITED("limited")`
 
   - `Optional<Boolean> allowMcpServers`
 
@@ -2306,8 +2195,6 @@ public final class Main {
 
     Package configuration type
 
-    - `PACKAGES("packages")`
-
 ### Beta Packages Params
 
 - `class BetaPackagesParams:`
@@ -2344,19 +2231,15 @@ public final class Main {
 
     Package configuration type
 
-    - `PACKAGES("packages")`
-
 ### Beta Self Hosted Config
 
 - `class BetaSelfHostedConfig:`
 
   Configuration for self-hosted environments.
 
-  - `JsonValue; type "self_hosted"constant`
+  - `JsonValue type constant`
 
     Environment type
-
-    - `SELF_HOSTED("self_hosted")`
 
 ### Beta Self Hosted Config Params
 
@@ -2364,11 +2247,9 @@ public final class Main {
 
   Request params for `self_hosted` environment configuration.
 
-  - `JsonValue; type "self_hosted"constant`
+  - `JsonValue type constant`
 
     Environment type
-
-    - `SELF_HOSTED("self_hosted")`
 
 ### Beta Unrestricted Network
 
@@ -2376,25 +2257,23 @@ public final class Main {
 
   Unrestricted network access.
 
-  - `JsonValue; type "unrestricted"constant`
+  - `JsonValue type constant`
 
     Network policy type
 
-    - `UNRESTRICTED("unrestricted")`
+## Environments › Work
 
-# Work
+### Get Work Item
 
-## Get Work Item
+`BetaSelfHostedWork beta().environments().work().retrieve(params, requestOptions = RequestOptions.none())`
 
-`BetaSelfHostedWork beta().environments().work().retrieve(WorkRetrieveParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
-
-**get** `/v1/environments/{environment_id}/work/{work_id}`
+**GET** `/v1/environments/{environment_id}/work/{work_id}`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Retrieve detailed information about a specific work item.
 
-### Parameters
+#### Parameters
 
 - `WorkRetrieveParams params`
 
@@ -2474,7 +2353,7 @@ Retrieve detailed information about a specific work item.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+#### Returns
 
 - `class BetaSelfHostedWork:`
 
@@ -2504,11 +2383,9 @@ Retrieve detailed information about a specific work item.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonValue; type "session"constant`
+    - `JsonValue type constant`
 
       Type of work data
-
-      - `SESSION("session")`
 
   - `String environmentId`
 
@@ -2552,13 +2429,11 @@ Retrieve detailed information about a specific work item.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonValue; type "work"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'work')
 
-    - `WORK("work")`
-
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -2583,7 +2458,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -2608,17 +2483,17 @@ public final class Main {
 }
 ```
 
-## Poll for Work
+### Poll for Work
 
-`BetaSelfHostedWork beta().environments().work().poll(WorkPollParamsparams = WorkPollParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaSelfHostedWork beta().environments().work().poll(params = WorkPollParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/environments/{environment_id}/work/poll`
+**GET** `/v1/environments/{environment_id}/work/poll`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Long poll for work items in the queue.
 
-### Parameters
+#### Parameters
 
 - `WorkPollParams params`
 
@@ -2628,9 +2503,13 @@ Long poll for work items in the queue.
 
     How long to wait for work to arrive before returning. Must be 1-999 in milliseconds. Defaults to non-blocking (returns immediately if no work is available).
 
+    minimum: 1
+
   - `Optional<Long> reclaimOlderThanMs`
 
     Reclaim unacknowledged work items older than this many milliseconds. If omitted, uses the default (5000ms).
+
+    minimum: 1
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -2708,7 +2587,7 @@ Long poll for work items in the queue.
 
     Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
 
-### Returns
+#### Returns
 
 - `class BetaSelfHostedWork:`
 
@@ -2738,11 +2617,9 @@ Long poll for work items in the queue.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonValue; type "session"constant`
+    - `JsonValue type constant`
 
       Type of work data
-
-      - `SESSION("session")`
 
   - `String environmentId`
 
@@ -2786,13 +2663,11 @@ Long poll for work items in the queue.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonValue; type "work"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'work')
 
-    - `WORK("work")`
-
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -2814,7 +2689,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -2839,17 +2714,17 @@ public final class Main {
 }
 ```
 
-## Acknowledge Work
+### Acknowledge Work
 
-`BetaSelfHostedWork beta().environments().work().ack(WorkAckParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaSelfHostedWork beta().environments().work().ack(params, requestOptions = RequestOptions.none())`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/ack`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/ack`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting' and removing it from the queue.
 
-### Parameters
+#### Parameters
 
 - `WorkAckParams params`
 
@@ -2929,7 +2804,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+#### Returns
 
 - `class BetaSelfHostedWork:`
 
@@ -2959,11 +2834,9 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonValue; type "session"constant`
+    - `JsonValue type constant`
 
       Type of work data
-
-      - `SESSION("session")`
 
   - `String environmentId`
 
@@ -3007,13 +2880,11 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonValue; type "work"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'work')
 
-    - `WORK("work")`
-
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -3038,7 +2909,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3063,17 +2934,17 @@ public final class Main {
 }
 ```
 
-## Record Heartbeat
+### Record Heartbeat
 
-`BetaSelfHostedWorkHeartbeatResponse beta().environments().work().heartbeat(WorkHeartbeatParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaSelfHostedWorkHeartbeatResponse beta().environments().work().heartbeat(params, requestOptions = RequestOptions.none())`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/heartbeat`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Record a heartbeat for a work item to maintain the lease.
 
-### Parameters
+#### Parameters
 
 - `WorkHeartbeatParams params`
 
@@ -3161,7 +3032,7 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+#### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse:`
 
@@ -3193,13 +3064,11 @@ Record a heartbeat for a work item to maintain the lease.
 
     Effective TTL applied to the lease
 
-  - `JsonValue; type "work_heartbeat"constant`
+  - `JsonValue type constant`
 
     The type of response
 
-    - `WORK_HEARTBEAT("work_heartbeat")`
-
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -3224,7 +3093,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3236,17 +3105,17 @@ public final class Main {
 }
 ```
 
-## Stop Work
+### Stop Work
 
-`BetaSelfHostedWork beta().environments().work().stop(WorkStopParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaSelfHostedWork beta().environments().work().stop(params, requestOptions = RequestOptions.none())`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/stop`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/stop`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Stop a work item, initiating graceful or forced shutdown.
 
-### Parameters
+#### Parameters
 
 - `WorkStopParams params`
 
@@ -3330,7 +3199,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
     Request to stop a work item.
 
-### Returns
+#### Returns
 
 - `class BetaSelfHostedWork:`
 
@@ -3360,11 +3229,9 @@ Stop a work item, initiating graceful or forced shutdown.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonValue; type "session"constant`
+    - `JsonValue type constant`
 
       Type of work data
-
-      - `SESSION("session")`
 
   - `String environmentId`
 
@@ -3408,13 +3275,11 @@ Stop a work item, initiating graceful or forced shutdown.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonValue; type "work"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'work')
 
-    - `WORK("work")`
-
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -3441,7 +3306,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3466,17 +3331,17 @@ public final class Main {
 }
 ```
 
-## List Work Items
+### List Work Items
 
-`WorkListPage beta().environments().work().list(WorkListParamsparams = WorkListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`WorkListPage beta().environments().work().list(params = WorkListParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/environments/{environment_id}/work`
+**GET** `/v1/environments/{environment_id}/work`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 List work items in an environment.
 
-### Parameters
+#### Parameters
 
 - `WorkListParams params`
 
@@ -3485,6 +3350,8 @@ List work items in an environment.
   - `Optional<Long> limit`
 
     Maximum number of work items to return
+
+    maximum: 1000, minimum: 1
 
   - `Optional<String> page`
 
@@ -3562,7 +3429,7 @@ List work items in an environment.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+#### Returns
 
 - `class BetaSelfHostedWork:`
 
@@ -3592,11 +3459,9 @@ List work items in an environment.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonValue; type "session"constant`
+    - `JsonValue type constant`
 
       Type of work data
-
-      - `SESSION("session")`
 
   - `String environmentId`
 
@@ -3640,13 +3505,11 @@ List work items in an environment.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonValue; type "work"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'work')
 
-    - `WORK("work")`
-
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -3667,7 +3530,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3697,17 +3560,17 @@ public final class Main {
 }
 ```
 
-## Update Work Item
+### Update Work Item
 
-`BetaSelfHostedWork beta().environments().work().update(WorkUpdateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaSelfHostedWork beta().environments().work().update(params, requestOptions = RequestOptions.none())`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}`
+**POST** `/v1/environments/{environment_id}/work/{work_id}`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Update work item metadata with merge semantics.
 
-### Parameters
+#### Parameters
 
 - `WorkUpdateParams params`
 
@@ -3791,7 +3654,7 @@ Update work item metadata with merge semantics.
 
     Request to update work item metadata.
 
-### Returns
+#### Returns
 
 - `class BetaSelfHostedWork:`
 
@@ -3821,11 +3684,9 @@ Update work item metadata with merge semantics.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonValue; type "session"constant`
+    - `JsonValue type constant`
 
       Type of work data
-
-      - `SESSION("session")`
 
   - `String environmentId`
 
@@ -3869,13 +3730,11 @@ Update work item metadata with merge semantics.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonValue; type "work"constant`
+  - `JsonValue type constant`
 
     The type of object (always 'work')
 
-    - `WORK("work")`
-
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -3907,7 +3766,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -3932,15 +3791,15 @@ public final class Main {
 }
 ```
 
-## Get Queue Statistics
+### Get Queue Statistics
 
-`BetaSelfHostedWorkQueueStats beta().environments().work().stats(WorkStatsParamsparams = WorkStatsParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
+`BetaSelfHostedWorkQueueStats beta().environments().work().stats(params = WorkStatsParams.none(), requestOptions = RequestOptions.none())`
 
-**get** `/v1/environments/{environment_id}/work/stats`
+**GET** `/v1/environments/{environment_id}/work/stats`
 
 Get statistics about the work queue for an environment.
 
-### Parameters
+#### Parameters
 
 - `WorkStatsParams params`
 
@@ -4018,7 +3877,7 @@ Get statistics about the work queue for an environment.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Returns
+#### Returns
 
 - `class BetaSelfHostedWorkQueueStats:`
 
@@ -4038,17 +3897,15 @@ Get statistics about the work queue for an environment.
 
     Number of work items being processed (polled but not acknowledged)
 
-  - `JsonValue; type "work_queue_stats"constant`
+  - `JsonValue type constant`
 
     The type of object
-
-    - `WORK_QUEUE_STATS("work_queue_stats")`
 
   - `Optional<Long> workersPolling`
 
     Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
 
-### Example
+#### Example
 
 ```java
 package com.anthropic.example;
@@ -4069,7 +3926,7 @@ public final class Main {
 }
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -4080,284 +3937,3 @@ public final class Main {
   "workers_polling": 0
 }
 ```
-
-## Domain Types
-
-### Beta Self Hosted Work
-
-- `class BetaSelfHostedWork:`
-
-  Work resource representing a unit of work in a self-hosted environment.
-
-  Work items are queued when sessions are created or when long-dormant sessions
-  receive new messages. The environment worker polls for work to execute in a
-  self-hosted sandbox.
-
-  - `String id`
-
-    Work identifier (e.g., 'work_...')
-
-  - `Optional<String> acknowledgedAt`
-
-    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
-
-  - `String createdAt`
-
-    RFC 3339 timestamp when work was created
-
-  - `BetaSessionWorkData data`
-
-    The actual work to be performed
-
-    - `String id`
-
-      Session identifier (e.g., 'session_...')
-
-    - `JsonValue; type "session"constant`
-
-      Type of work data
-
-      - `SESSION("session")`
-
-  - `String environmentId`
-
-    Environment identifier this work belongs to (e.g., `env_...`)
-
-  - `Optional<String> latestHeartbeatAt`
-
-    RFC 3339 timestamp of the most recent heartbeat
-
-  - `Metadata metadata`
-
-    User-provided metadata key-value pairs associated with this work item
-
-  - `Optional<String> secret`
-
-    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
-
-  - `Optional<String> startedAt`
-
-    RFC 3339 timestamp when work execution started
-
-  - `State state`
-
-    Current state of the work item
-
-    - `QUEUED("queued")`
-
-    - `STARTING("starting")`
-
-    - `ACTIVE("active")`
-
-    - `STOPPING("stopping")`
-
-    - `STOPPED("stopped")`
-
-  - `Optional<String> stopRequestedAt`
-
-    RFC 3339 timestamp when stop was requested
-
-  - `Optional<String> stoppedAt`
-
-    RFC 3339 timestamp when work execution stopped
-
-  - `JsonValue; type "work"constant`
-
-    The type of object (always 'work')
-
-    - `WORK("work")`
-
-### Beta Self Hosted Work Heartbeat Response
-
-- `class BetaSelfHostedWorkHeartbeatResponse:`
-
-  Response after recording a heartbeat for a work item.
-
-  - `String lastHeartbeat`
-
-    RFC 3339 timestamp of the actual heartbeat from DB
-
-  - `boolean leaseExtended`
-
-    Whether the heartbeat succeeded in extending the lease
-
-  - `State state`
-
-    Current state of the work item (active/stopping/stopped)
-
-    - `QUEUED("queued")`
-
-    - `STARTING("starting")`
-
-    - `ACTIVE("active")`
-
-    - `STOPPING("stopping")`
-
-    - `STOPPED("stopped")`
-
-  - `long ttlSeconds`
-
-    Effective TTL applied to the lease
-
-  - `JsonValue; type "work_heartbeat"constant`
-
-    The type of response
-
-    - `WORK_HEARTBEAT("work_heartbeat")`
-
-### Beta Self Hosted Work List Response
-
-- `class BetaSelfHostedWorkListResponse:`
-
-  Response when listing work items with cursor-based pagination.
-
-  - `List<BetaSelfHostedWork> data`
-
-    List of work items
-
-    - `String id`
-
-      Work identifier (e.g., 'work_...')
-
-    - `Optional<String> acknowledgedAt`
-
-      RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
-
-    - `String createdAt`
-
-      RFC 3339 timestamp when work was created
-
-    - `BetaSessionWorkData data`
-
-      The actual work to be performed
-
-      - `String id`
-
-        Session identifier (e.g., 'session_...')
-
-      - `JsonValue; type "session"constant`
-
-        Type of work data
-
-        - `SESSION("session")`
-
-    - `String environmentId`
-
-      Environment identifier this work belongs to (e.g., `env_...`)
-
-    - `Optional<String> latestHeartbeatAt`
-
-      RFC 3339 timestamp of the most recent heartbeat
-
-    - `Metadata metadata`
-
-      User-provided metadata key-value pairs associated with this work item
-
-    - `Optional<String> secret`
-
-      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
-
-    - `Optional<String> startedAt`
-
-      RFC 3339 timestamp when work execution started
-
-    - `State state`
-
-      Current state of the work item
-
-      - `QUEUED("queued")`
-
-      - `STARTING("starting")`
-
-      - `ACTIVE("active")`
-
-      - `STOPPING("stopping")`
-
-      - `STOPPED("stopped")`
-
-    - `Optional<String> stopRequestedAt`
-
-      RFC 3339 timestamp when stop was requested
-
-    - `Optional<String> stoppedAt`
-
-      RFC 3339 timestamp when work execution stopped
-
-    - `JsonValue; type "work"constant`
-
-      The type of object (always 'work')
-
-      - `WORK("work")`
-
-  - `Optional<String> nextPage`
-
-    Opaque cursor for fetching the next page of results
-
-### Beta Self Hosted Work Queue Stats
-
-- `class BetaSelfHostedWorkQueueStats:`
-
-  Statistics about the work queue for an environment.
-
-  Uses Redis Stream consumer group metrics for O(1) queries.
-
-  - `long depth`
-
-    Number of work items waiting to be picked up (lag from consumer group)
-
-  - `Optional<String> oldestQueuedAt`
-
-    RFC 3339 timestamp of oldest item in the work stream (includes both queued and pending items), null if stream empty
-
-  - `long pending`
-
-    Number of work items being processed (polled but not acknowledged)
-
-  - `JsonValue; type "work_queue_stats"constant`
-
-    The type of object
-
-    - `WORK_QUEUE_STATS("work_queue_stats")`
-
-  - `Optional<Long> workersPolling`
-
-    Number of workers that have polled for work in the last 30 seconds. Requires worker_id to be sent with poll requests.
-
-### Beta Self Hosted Work Stop Request
-
-- `class BetaSelfHostedWorkStopRequest:`
-
-  Request to stop a work item.
-
-  - `Optional<Boolean> force`
-
-    If true, immediately stop work without graceful shutdown
-
-### Beta Self Hosted Work Update Request
-
-- `class BetaSelfHostedWorkUpdateRequest:`
-
-  Request to update work item metadata.
-
-  - `Metadata metadata`
-
-    Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omit the field to preserve existing metadata.
-
-### Beta Session Work Data
-
-- `class BetaSessionWorkData:`
-
-  Work data for session work items.
-
-  This resource type is used when work represents a session that needs to be executed
-  in a self-hosted environment.
-
-  - `String id`
-
-    Session identifier (e.g., 'session_...')
-
-  - `JsonValue; type "session"constant`
-
-    Type of work data
-
-    - `SESSION("session")`

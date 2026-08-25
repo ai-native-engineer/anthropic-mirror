@@ -35,7 +35,7 @@ If your work involves a physical machine, Claude keeps working while you step aw
 
 Claude asks for your permission before accessing each application. You’ll see a prompt and must approve before Claude can interact with that app. Some apps are off-limits by default.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193297849/243cf7bd2386d92a253c2cec7d32/46cb6fcb-c0ee-4d1c-9974-9c1c1058c81c?expires=1787426100&signature=193cd3d83f58f9343413bb7230e88abe2c5e092204b19db51c3fee9bd340e5cf&req=diEuFct3molbUPMW1HO4za8%2BRnuGQSadOFMEfKzd96rGUSmJSX44EQE4Wahs%0AbpvXuvupjiAaSfr9dKs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193297849/243cf7bd2386d92a253c2cec7d32/46cb6fcb-c0ee-4d1c-9974-9c1c1058c81c?expires=1787426100&signature=193cd3d83f58f9343413bb7230e88abe2c5e092204b19db51c3fee9bd340e5cf&req=diEuFct3molbUPMW1HO4za8%2BRnuGQSadOFMEfKzd96rGUSmJSX44EQE4Wahs%0AbpvXuvupjiAaSfr9dKs%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193297849/243cf7bd2386d92a253c2cec7d32/46cb6fcb-c0ee-4d1c-9974-9c1c1058c81c?expires=1787622300&signature=375bf14395ab4a26b2d0e578372974efcd6083353dd4147d327428786a259ec1&req=diEuFct3molbUPMW1HO4za8%2BRnuEQSKfOFMEfKzd96qQVwJSb1NP4qlt1ur0%0ANE4J8X8Zld70YCmt3Mo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193297849/243cf7bd2386d92a253c2cec7d32/46cb6fcb-c0ee-4d1c-9974-9c1c1058c81c?expires=1787622300&signature=375bf14395ab4a26b2d0e578372974efcd6083353dd4147d327428786a259ec1&req=diEuFct3molbUPMW1HO4za8%2BRnuEQSKfOFMEfKzd96qQVwJSb1NP4qlt1ur0%0ANE4J8X8Zld70YCmt3Mo%3D%0A)
 
 Claude is trained to avoid risky operations—like transferring funds, modifying or deleting files, or handling sensitive data—and to flag signs of prompt injection. However, these safeguards aren't perfect, and Claude may occasionally act outside these boundaries.
 
@@ -109,11 +109,11 @@ To start using computer use:
 2. Open the desktop app and go to **Settings > General** (under **Desktop app**).
 3. Find the **Computer use** toggle and turn it on:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193911341/630e6df3b08b27d1c7b4f1ca6a1f/image.png?expires=1787426100&signature=690f0eec51906e084c4e8da49162e9eca8d2448137cac0b75061d47863b2e712&req=diEuFcB%2FnIJbWPMW1HO4zR8GoUN4R0wxjdPXX%2BaSOrE7H9jPxlt406BumpiG%0AXr4v%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193911341/630e6df3b08b27d1c7b4f1ca6a1f/image.png?expires=1787426100&signature=690f0eec51906e084c4e8da49162e9eca8d2448137cac0b75061d47863b2e712&req=diEuFcB%2FnIJbWPMW1HO4zR8GoUN4R0wxjdPXX%2BaSOrE7H9jPxlt406BumpiG%0AXr4v%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193911341/630e6df3b08b27d1c7b4f1ca6a1f/image.png?expires=1787622300&signature=972257c05dc683d3ae62b96155f108df69bcd8d35628fe41345d3dbc5695073b&req=diEuFcB%2FnIJbWPMW1HO4zR8GoUN6R0gzjdPXX%2BaSOrHVbb1BB%2BL4NoP0C7d5%0AoC9B%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193911341/630e6df3b08b27d1c7b4f1ca6a1f/image.png?expires=1787622300&signature=972257c05dc683d3ae62b96155f108df69bcd8d35628fe41345d3dbc5695073b&req=diEuFcB%2FnIJbWPMW1HO4zR8GoUN6R0gzjdPXX%2BaSOrHVbb1BB%2BL4NoP0C7d5%0AoC9B%0A)
 4. Open Cowork or Claude Code in the desktop app and start a session.
 5. Ask Claude to do something that involves an app on your computer. Claude will ask for permission to access the app before proceeding.
 
-We’re sharing this early because it’s the kind of capability that gets better with real usage. If something doesn’t work as expected, use the in-app feedback button or reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#b2c7c1d7c0c1d3d4d7c6cbf2d3dcc6dac0ddc2dbd19cd1dddf).
+We’re sharing this early because it’s the kind of capability that gets better with real usage. If something doesn’t work as expected, use the in-app feedback button or reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#81f4f2e4f3f2e0e7e4f5f8c1e0eff5e9f3eef1e8e2afe2eeec).
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)

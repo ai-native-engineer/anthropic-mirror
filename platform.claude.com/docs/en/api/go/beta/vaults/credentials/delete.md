@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/vaults/credentials/delete -->
 
----
-title: Delete Credential
-url: https://platform.claude.com/docs/en/api/go/beta/vaults/credentials/delete
----
-
-## Delete Credential
+# Delete Credential
 
 `client.Beta.Vaults.Credentials.Delete(ctx, credentialID, params) (*BetaManagedAgentsDeletedCredential, error)`
 
-**delete** `/v1/vaults/{vault_id}/credentials/{credential_id}`
+**DELETE** `/v1/vaults/{vault_id}/credentials/{credential_id}`
 
 Delete Credential
 
-### Parameters
+## Parameters
 
 - `credentialID string`
 
@@ -23,7 +18,7 @@ Delete Credential
 
     Path param: Path parameter vault_id
 
-  - `Betas param.Field[[]AnthropicBeta]`
+  - `Betas param.Field[[]AnthropicBeta] Optional`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
@@ -99,7 +94,7 @@ Delete Credential
 
       - `const AnthropicBetaMidConversationToolChanges2026_07_01 AnthropicBeta = "mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `type BetaManagedAgentsDeletedCredential struct{…}`
 
@@ -111,9 +106,7 @@ Delete Credential
 
   - `Type BetaManagedAgentsDeletedCredentialType`
 
-    - `const BetaManagedAgentsDeletedCredentialTypeVaultCredentialDeleted BetaManagedAgentsDeletedCredentialType = "vault_credential_deleted"`
-
-### Example
+## Example
 
 ```go
 package main
@@ -144,7 +137,7 @@ func main() {
 }
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

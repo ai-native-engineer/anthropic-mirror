@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/messages/batches -->
 
----
-title: Batches
-url: https://platform.claude.com/docs/en/api/php/messages/batches
----
-
 # Batches
 
 ## Create a Message Batch
 
 `$client->messages->batches->create(list<Request> requests, ?string userProfileID): MessageBatch`
 
-**post** `/v1/messages/batches`
+**POST** `/v1/messages/batches`
 
 Send a batch of Message creation requests.
 
@@ -165,7 +160,7 @@ $messageBatch = $client->messages->batches->create(
 var_dump($messageBatch);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -192,7 +187,7 @@ var_dump($messageBatch);
 
 `$client->messages->batches->retrieve(string messageBatchID): MessageBatch`
 
-**get** `/v1/messages/batches/{message_batch_id}`
+**GET** `/v1/messages/batches/{message_batch_id}`
 
 This endpoint is idempotent and can be used to poll for Message Batch completion. To access the results of a Message Batch, make a request to the `results_url` field in the response.
 
@@ -272,7 +267,7 @@ $messageBatch = $client->messages->batches->retrieve('message_batch_id');
 var_dump($messageBatch);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -299,7 +294,7 @@ var_dump($messageBatch);
 
 `$client->messages->batches->list(?string afterID, ?string beforeID, ?int limit): Page<MessageBatch>`
 
-**get** `/v1/messages/batches`
+**GET** `/v1/messages/batches`
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
@@ -320,6 +315,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
   Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20
 
 ### Returns
 
@@ -391,7 +388,7 @@ $page = $client->messages->batches->list(
 var_dump($page);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -425,7 +422,7 @@ var_dump($page);
 
 `$client->messages->batches->cancel(string messageBatchID): MessageBatch`
 
-**post** `/v1/messages/batches/{message_batch_id}/cancel`
+**POST** `/v1/messages/batches/{message_batch_id}/cancel`
 
 Batches may be canceled any time before processing ends. Once cancellation is initiated, the batch enters a `canceling` state, at which time the system may complete any in-progress, non-interruptible requests before finalizing cancellation.
 
@@ -507,7 +504,7 @@ $messageBatch = $client->messages->batches->cancel('message_batch_id');
 var_dump($messageBatch);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -534,7 +531,7 @@ var_dump($messageBatch);
 
 `$client->messages->batches->delete(string messageBatchID): DeletedMessageBatch`
 
-**delete** `/v1/messages/batches/{message_batch_id}`
+**DELETE** `/v1/messages/batches/{message_batch_id}`
 
 Delete a Message Batch.
 
@@ -576,7 +573,7 @@ $deletedMessageBatch = $client->messages->batches->delete('message_batch_id');
 var_dump($deletedMessageBatch);
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -589,7 +586,7 @@ var_dump($deletedMessageBatch);
 
 `$client->messages->batches->results(string messageBatchID): MessageBatchIndividualResponse`
 
-**get** `/v1/messages/batches/{message_batch_id}/results`
+**GET** `/v1/messages/batches/{message_batch_id}/results`
 
 Streams the results of a Message Batch as a `.jsonl` file.
 
@@ -635,7 +632,7 @@ $messageBatchIndividualResponse = $client->messages->batches->resultsStream(
 var_dump($messageBatchIndividualResponse);
 ```
 
-## Domain Types
+## Domain types
 
 ### Deleted Message Batch
 

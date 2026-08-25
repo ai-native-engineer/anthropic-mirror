@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/python/beta/memory_stores/memory_versions/redact -->
 
----
-title: Redact a memory version
-url: https://platform.claude.com/docs/en/api/python/beta/memory_stores/memory_versions/redact
----
+# Redact a memory version
 
-## Redact a memory version
+`beta.memory_stores.memory_versions.redact(memory_version_id, **kwargs)  -> BetaManagedAgentsMemoryVersion`
 
-`beta.memory_stores.memory_versions.redact(strmemory_version_id, MemoryVersionRedactParams**kwargs)  -> BetaManagedAgentsMemoryVersion`
-
-**post** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
+**POST** `/v1/memory_stores/{memory_store_id}/memory_versions/{memory_version_id}/redact`
 
 Redact a memory version
 
-### Parameters
+## Parameters
 
 - `memory_store_id: str`
 
@@ -95,7 +90,7 @@ Redact a memory version
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsMemoryVersion: …`
 
@@ -108,6 +103,8 @@ Redact a memory version
   - `created_at: datetime`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `memory_id: str`
 
@@ -129,8 +126,6 @@ Redact a memory version
 
   - `type: Literal["memory_version"]`
 
-    - `"memory_version"`
-
   - `content: Optional[str]`
 
     The memory's UTF-8 text content as of this version. `null` when `view=basic`, when `operation` is `deleted`, or when `redacted_at` is set.
@@ -142,6 +137,8 @@ Redact a memory version
   - `content_size_bytes: Optional[int]`
 
     Size of `content` in bytes as of this version. `null` when `redacted_at` is set or `operation` is `deleted`. Populated regardless of `view` otherwise.
+
+    format: int32
 
   - `created_by: Optional[BetaManagedAgentsActor]`
 
@@ -155,9 +152,9 @@ Redact a memory version
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
-      - `type: Literal["session_actor"]`
+        minLength: 1
 
-        - `"session_actor"`
+      - `type: Literal["session_actor"]`
 
     - `class BetaManagedAgentsAPIActor: …`
 
@@ -167,9 +164,9 @@ Redact a memory version
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
-      - `type: Literal["api_actor"]`
+        minLength: 1
 
-        - `"api_actor"`
+      - `type: Literal["api_actor"]`
 
     - `class BetaManagedAgentsUserActor: …`
 
@@ -177,11 +174,11 @@ Redact a memory version
 
       - `type: Literal["user_actor"]`
 
-        - `"user_actor"`
-
       - `user_id: str`
 
         ID of the user who performed the write (a `user_...` value).
+
+        minLength: 1
 
     - `class BetaManagedAgentsServiceAccountActor: …`
 
@@ -191,9 +188,9 @@ Redact a memory version
 
         ID of the service account that performed the write (a `svac_...` value).
 
-      - `type: Literal["service_account_actor"]`
+        minLength: 1
 
-        - `"service_account_actor"`
+      - `type: Literal["service_account_actor"]`
 
   - `path: Optional[str]`
 
@@ -203,11 +200,13 @@ Redact a memory version
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `redacted_by: Optional[BetaManagedAgentsActor]`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
-### Example
+## Example
 
 ```python
 import os
@@ -225,7 +224,7 @@ beta_managed_agents_memory_version = client.beta.memory_stores.memory_versions.r
 print(beta_managed_agents_memory_version.id)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/extended-thinking-extended-thinking-with-tool-use -->
 
-#  Extended Thinking with Tool Use
+#  Extended Thinking with Tool Use
 
-##  Table of contents
+##  Table of contents
 
 * [Setup](#setup)
 * [Basic example](#basic-example)
@@ -13,15 +13,11 @@ This notebook demonstrates how to use Claude 3.7 Sonnet's extended thinking feat
 
 When using extended thinking with tool use, the model will show its thinking before making tool requests, but not repeat the thinking process after receiving tool results. Claude will not output another thinking block until after the next non-`tool_result` `user` turn. For more information on extended thinking, see our [documentation(opens in new tab)](https://docs.claude.com/en/docs/build-with-claude/extended-thinking).
 
-##  Setup
+##  Setup
 
 First, let's install the necessary packages and set up our environment.
 
-
-
 %pip install anthropic
-
-
 
 import anthropic
 
@@ -111,11 +107,9 @@ messages=messages
 
 return response.input\_tokens
 
-##  Single tool calls with thinking
+##  Single tool calls with thinking
 
 This example demonstrates how to combine thinking and make a single tool call, with a mock weather tool.
-
-
 
 def tool\_use\_with\_thinking():
 
@@ -341,8 +335,6 @@ print\_thinking\_response(response)
 
 tool\_use\_with\_thinking()
 
-
-
 ```
 === INITIAL RESPONSE ===
 Response ID: msg_01NhR4vE9nVh2sHs5fXbzji8
@@ -382,11 +374,9 @@ Currently in Paris, it's 65°F (18°C) and rainy. You might want to bring an umb
 ==== END RESPONSE ====
 ```
 
-##  Multiple tool calls with thinking
+##  Multiple tool calls with thinking
 
 This example demonstrates how to handle multiple tool calls, such as a mock news and weather service, while observing the thinking process.
-
-
 
 def multiple\_tool\_calls\_with\_thinking():
 
@@ -742,8 +732,6 @@ break
 
 multiple\_tool\_calls\_with\_thinking()
 
-
-
 ```
 === INITIAL RESPONSE ===
 Response ID: msg_01VwqpBMARVoTP1H8Ytvmvsb
@@ -829,7 +817,7 @@ Currently, it's 62°F and cloudy in London.
 === END FINAL RESPONSE ===
 ```
 
-##  Preserving thinking blocks
+##  Preserving thinking blocks
 
 When working with extended thinking and tools, make sure to:
 
@@ -838,8 +826,6 @@ When working with extended thinking and tools, make sure to:
 3. **Handle both thinking and redacted\_thinking blocks**: Both types of blocks must be preserved in the conversation history, even if the content of redacted blocks is not human readable.
 
 For more details on extended thinking without tools, see the main "Extended Thinking" notebook.
-
-
 
 def thinking\_block\_preservation\_example():
 
@@ -1087,8 +1073,6 @@ print(f"ERROR: {e}")
 
 thinking\_block\_preservation\_example()
 
-
-
 ```
 === INITIAL RESPONSE ===
 Response contains:
@@ -1116,7 +1100,7 @@ Note: The second response after tool use doesn't contain thinking blocks.
 This is expected behavior - thinking is shown before tool use but not after receiving tool results.
 ```
 
-##  Conclusion
+##  Conclusion
 
 This notebook shows how to combine Claude's extended thinking feature with tool use. Key benefits include:
 

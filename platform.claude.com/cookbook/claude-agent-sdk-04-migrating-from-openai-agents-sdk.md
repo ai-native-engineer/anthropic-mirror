@@ -1,12 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/claude-agent-sdk-04-migrating-from-openai-agents-sdk -->
 
-#  Migrating from the OpenAI Agents SDK
+#  Migrating from the OpenAI Agents SDK
 
 If you have an app on the OpenAI Agents SDK and want to port it to the Claude Agent SDK, this notebook maps each primitive using a single example: an expense approval agent.
 
 **What you get after migrating.** The Claude Agent SDK runs on the same runtime as Claude Code — you inherit its built-in `Read`, `Edit`, `Bash`, and `Grep` tools, a layered permission system for gating what the agent can touch, automatic prompt caching, and direct access to the event stream for progress streaming or mid-run interception. Tool definitions are explicit (you declare schemas rather than relying on type-hint introspection), and the loop is yours to drive. Most ports involve more boilerplate per tool and less boilerplate everywhere else.
 
-##  By the end of this notebook, you'll be able to:
+##  By the end of this notebook, you'll be able to:
 
 * Replace `@function_tool`, guardrails, and `Runner.run` with their Claude equivalents without rewriting your business logic
 * Port a single-agent app: custom tool, input/output guardrails, multi-turn sessions, and durable resume
@@ -27,13 +27,13 @@ Both SDKs run live. You'll need `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` in your
 | Built-in tracing dashboard | OTel-native — plugs into your existing Grafana/Datadog/Honeycomb |
 | `handoffs=[...]` | `AgentDefinition` + Agent tool — see appendix |
 
-##  The example: expense approval
+##  The example: expense approval
 
 A single agent that approves or flags expense submissions. One tool (`check_policy`), one input guardrail (reject if no dollar amount), the loop.
 
 We build it once in the OpenAI Agents SDK, then port each primitive.
 
-##  Prerequisites
+##  Prerequisites
 
 **Required Knowledge**
 
@@ -51,15 +51,11 @@ We build it once in the OpenAI Agents SDK, then port each primitive.
 
 > `openai-agents` is pinned to `0.9.3` — it's pre-1.0 and its API changes frequently. If you bump the version, re-verify the `Agent`/`Runner`/`@function_tool` signatures.
 
-
-
 %%capture
 
 # openai-agents pinned to 0.9.3 — see prereqs note before bumping
 
 %pip install "openai-agents==0.9.3" claude-agent-sdk python-dotenv
-
-
 
 import os
 
@@ -78,8 +74,6 @@ assert os.getenv("ANTHROPIC\_API\_KEY"), "ANTHROPIC\_API\_KEY missing from .env"
 OAI\_MODEL = "gpt-4.1"
 
 CLAUDE\_MODEL = "claude-sonnet-4-6"
-
-
 
 # ===== OpenAI Agents SDK — full implementation =====
 
@@ -147,23 +141,19 @@ return result.final\_output
 
 print(await run\_oai("Lunch with Acme, $47"))
 
-
-
 ```
 This lunch expense of $47 falls under the "meals" category, which has an approval limit of $75. Since the amount is below the limit, I approve the expense (assuming a receipt is provided, as required by policy).
 ```
 
-##  Porting primitive by primitive
+##  Porting primitive by primitive
 
-###  `@function_tool` → `@tool` + `create_sdk_mcp_server`
+###  `@function_tool` → `@tool` + `create_sdk_mcp_server`
 
 **OpenAI:** `@function_tool` derives the tool schema from type hints and the docstring. The decorated function goes straight into `tools=[...]`.
 
 **Claude:** `@tool` takes name, description, and schema as explicit arguments — what you write is what the model sees. The handler is `async`, receives a single `args` dict, and returns `{"content": [{"type": "text", "text": ...}]}`. Tools are bundled into an in-process MCP server (no subprocess or network transport despite the name), which is the unit you pass to the agent.
 
 The logic inside your function doesn't change. Only the wrapper does.
-
-
 
 import json
 
@@ -199,7 +189,7 @@ return {"content": [{"type": "text", "text": json.dumps(result)}]}
 
 policy\_server = create\_sdk\_mcp\_server(name="expense", tools=[check\_policy\_claude])
 
-###  `Agent(...)` → `ClaudeAgentOptions`
+###  `Agent(...)` → `ClaudeAgentOptions`
 
 `ClaudeAgentOptions` carries model, tools, and system prompt — the config that actually gets sent to Claude. Your guardrail logic stays in application code instead of being registered on a framework object. OpenAI's `Agent` bundles all of these together.
 
@@ -214,8 +204,6 @@ policy\_server = create\_sdk\_mcp\_server(name="expense", tools=[check\_policy\_
 Tool names in `allowed_tools` follow the pattern `mcp__{server_name}__{tool_name}`.
 
 > **A note on permissions:** `allowed_tools` is an allow-rule — it makes the tool *available* to the agent. Whether the agent can call it without user approval depends on `permission_mode`. Read-only custom tools like `check_policy` run freely by default; tools that write files or run shell commands will prompt unless you set `permission_mode="acceptEdits"` or `"bypassPermissions"`. See the [permissions guide(opens in new tab)](https://platform.claude.com/docs/en/agent-sdk/permissions) if your tool does more than read.
-
-
 
 from claude\_agent\_sdk import ClaudeAgentOptions
 
@@ -243,7 +231,7 @@ allowed\_tools=["mcp\_\_expense\_\_check\_policy"],
 
 > **Built-in tools.** The expense agent only uses a custom tool, but the SDK ships `Read`, `Edit`, `Bash`, `Grep`, and more — add them to `allowed_tools` by name (e.g., `allowed_tools=["Read", "Grep", "mcp__expense__check_policy"]`). See [notebook 00(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./00_The_one_liner_research_agent.ipynb) for filesystem patterns.
 
-###  `@input_guardrail` / `@output_guardrail` → pre/post-call checks
+###  `@input_guardrail` / `@output_guardrail` → pre/post-call checks
 
 **OpenAI:** `@input_guardrail` validates the user's message; `@output_guardrail` validates the agent's final answer. Both return `GuardrailFunctionOutput(tripwire_triggered=True)` to block, which raises `InputGuardrailTripwireTriggered` (or the output variant). Input guardrails run concurrently with the agent.
 
@@ -256,11 +244,9 @@ allowed\_tools=["mcp\_\_expense\_\_check\_policy"],
 | `tripwire_triggered=True` raises | Return early (input) or override result (output) |
 | Registered on `Agent(input_guardrails=[...])` | Called in your run function |
 
-####  The `UserPromptSubmit` hook alternative
+####  The `UserPromptSubmit` hook alternative
 
 The SDK's `UserPromptSubmit` hook fires before the prompt reaches Claude and can block it — the closest structural match to `@input_guardrail`. We show both below but demonstrate with plain functions for two reasons: the rejection message stays in your control (when a hook blocks, `ResultMessage.result` comes back empty — the reason isn't surfaced to the caller), and the guardrail logic stays visible in your run function rather than registered on the options object. `@output_guardrail` has no clean hook equivalent — `Stop` fires after the response completes but doesn't rewrite output. See [notebook 03(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./03_The_site_reliability_agent.ipynb) for `PreToolUse` hooks gating tool calls, which is a different use case.
-
-
 
 def has\_dollar\_amount\_check(user\_input: str) -> tuple[bool, str | None]:
 
@@ -290,8 +276,6 @@ To try it, replace `options=expense_options` with `options=hooked_options` in th
 
 For tool-level guardrails — guarding what the agent *does* rather than what the user *sends* — see the `PreToolUse` hook pattern in [notebook 03(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./03_The_site_reliability_agent.ipynb).
 
-
-
 from claude\_agent\_sdk import HookMatcher
 
 async def has\_dollar\_amount\_hook(input\_data, tool\_use\_id, context):
@@ -318,7 +302,7 @@ hooks={"UserPromptSubmit": [HookMatcher(hooks=[has\_dollar\_amount\_hook])]},
 
 )
 
-###  `Runner.run()` → `ClaudeSDKClient`
+###  `Runner.run()` → `ClaudeSDKClient`
 
 **OpenAI:** `result = await Runner.run(agent, msg)` runs the loop and returns a result object. Read `result.final_output` for the text.
 
@@ -334,8 +318,6 @@ hooks={"UserPromptSubmit": [HookMatcher(hooks=[has\_dollar\_amount\_hook])]},
 The final answer is `messages[-1].result`.
 
 > The SDK also exposes a stateless `query()` function (see [notebook 00(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./00_The_one_liner_research_agent.ipynb)) for one-off calls using built-in tools. `ClaudeSDKClient` is the right choice when you're bringing custom tools via `create_sdk_mcp_server`, since its persistent transport handles the in-process MCP handshake.
-
-
 
 from utils.agent\_visualizer import display\_agent\_response, print\_activity, reset\_activity\_context
 
@@ -383,8 +365,6 @@ display\_agent\_response(messages)
 
 await run\_claude("Lunch with Acme, $47")
 
-
-
 ```
 🤖 Thinking...
 🤖 Thinking...
@@ -395,7 +375,7 @@ await run\_claude("Lunch with Acme, $47")
 <IPython.core.display.HTML object>
 ```
 
-###  Sessions → `ClaudeSDKClient` (in-memory) or `resume=` (disk-backed)
+###  Sessions → `ClaudeSDKClient` (in-memory) or `resume=` (disk-backed)
 
 OpenAI offers two session modes:
 
@@ -409,8 +389,6 @@ OpenAI offers two session modes:
 **Disk-backed:** Every run produces a `session_id` (on `ResultMessage.session_id`). Store it, then pass `ClaudeAgentOptions(resume=session_id, ...)` on the next run. The transcript lives on the local filesystem, not on Anthropic's servers — it's durable across restarts but not across machines.
 
 For conversations that outgrow the context window in either mode, see [`../misc/session_memory_compaction.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/../misc/session_memory_compaction.ipynb).
-
-
 
 # --- In-memory: reuse the same client ---
 
@@ -436,8 +414,6 @@ return turn2[-1].result
 
 print(await run\_claude\_multiturn())
 
-
-
 ```
 🚩 **Flagged for Manager Review**
 
@@ -452,8 +428,6 @@ print(await run\_claude\_multiturn())
 
 The $90 lunch exceeds the $75 meals limit by **$15.00**, so it requires manager approval before it can be reimbursed.
 ```
-
-
 
 # --- Disk-backed: capture session\_id, resume later ---
 
@@ -479,8 +453,6 @@ turn2 = [m async for m in client.receive\_response()]
 
 print(f"[resumed {session\_id[:8]}...] {turn2[-1].result}")
 
-
-
 ```
 [resumed 4fc6dc1e...] Here's the rundown for both expenses:
 
@@ -493,11 +465,9 @@ print(f"[resumed {session\_id[:8]}...] {turn2[-1].result}")
 - **$90** – Exceeds the $75 meals limit by $15, so it's **flagged for manager review**.
 ```
 
-##  Side-by-side comparison
+##  Side-by-side comparison
 
 Run all three test inputs through both SDKs. We expect both to approve the 47lunch,flagthe47 lunch, flag the 47lunch,flagthe650 flight, and reject the input with no dollar amount.
-
-
 
 from agents.exceptions import InputGuardrailTripwireTriggered
 
@@ -549,8 +519,6 @@ print(f"OAI: {str(oai\_out)[:200]}")
 
 print(f"Claude: {str(claude\_out)[:200]}")
 
-
-
 ```
 ============================================================
 INPUT: Lunch with Acme, $47  (expect: approve)
@@ -589,15 +557,13 @@ OAI:    [guardrail: InputGuardrailTripwireTriggered]
 Claude: I need a dollar amount to process this. Please include one (e.g., '$47').
 ```
 
-##  Tracing
+##  Tracing
 
 Claude emits to the standard your team already runs.
 
 **Per-run metrics are already in your hands.** Every `ResultMessage` carries `.total_cost_usd` and `.usage` — input/output tokens, cache reads, cache writes, turn count. You'll see this in the caching cell below. For programmatic cost tracking, see [`../observability/usage_cost_api.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/../observability/usage_cost_api.ipynb).
 
 **OpenTelemetry is native.** The SDK shares the Claude Code runtime, which exports OTel metrics and events when enabled:
-
-
 
 export CLAUDE\_CODE\_ENABLE\_TELEMETRY=1
 
@@ -613,13 +579,11 @@ None of this is required for the port — your agent runs identically whether te
 
 Every tool call and API request emits an event tagged with a `prompt.id`, so you can correlate all activity back to the originating prompt. Point it at your existing Grafana / Datadog / Honeycomb / Langfuse stack. See the [monitoring docs(opens in new tab)](https://code.claude.com/docs/en/monitoring-usage) for the full event schema.
 
-##  Claude-only: prompt caching
+##  Claude-only: prompt caching
 
 The system prompt and tool schemas are cached automatically after the first call — no configuration needed. Subsequent calls with the same prefix pay roughly 10% of the input token cost for that prefix.
 
 > Since earlier cells already ran with `expense_options`, the cache is warm by the time we get here — so even Run 1 shows substantial `cache_read_input_tokens`. In a cold notebook, Run 1 would be mostly `cache_creation`, Run 2 mostly `cache_read`. The tool-calling loop makes multiple API requests per query, each extending the cached prefix — so cache\_creation won't hit zero even on repeat runs, but it should shrink while cache\_read grows.
-
-
 
 for i in range(2):
 
@@ -643,8 +607,6 @@ f"input={usage.get('input\_tokens', 0):>5}"
 
 )
 
-
-
 ```
 Run 1: cache_creation=38728  cache_read=66272  input=    4
 Run 2: cache_creation=  659  cache_read=95025  input=    4
@@ -652,7 +614,7 @@ Run 2: cache_creation=  659  cache_read=95025  input=    4
 
 ---
 
-##  Appendix: Migrating `handoffs`
+##  Appendix: Migrating `handoffs`
 
 If your OpenAI Agents SDK app uses `handoffs=[...]`, this is where the mental model shifts.
 
@@ -663,8 +625,6 @@ If your OpenAI Agents SDK app uses `handoffs=[...]`, this is where the mental mo
 For pure routers (triage → specialist) the difference is small. For apps where "agent B takes over and A never runs again" is load-bearing, consider a thin Python dispatcher instead of LLM-decided routing.
 
 > You may also see subagents defined as `.claude/agents/*.md` files in Claude Code CLI workflows (e.g., [notebook 01(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./01_The_chief_of_staff_agent.ipynb)). That's the filesystem-based path for interactive use. For an SDK application that ships as code, the programmatic `agents=` parameter below is the natural fit — no filesystem dependency.
-
-
 
 from claude\_agent\_sdk import AgentDefinition
 
@@ -708,26 +668,24 @@ print(f"Orchestrator configured with subagents: {list(triage\_options.agents)}")
 
 # see ./01\_The\_chief\_of\_staff\_agent.ipynb
 
-
-
 ```
 Orchestrator configured with subagents: ['approver', 'escalator']
 ```
 
-##  Conclusion
+##  Conclusion
 
-###  What you built
+###  What you built
 
 One expense-approval agent, ported primitive by primitive: `@function_tool` → `@tool`, `Agent` → `ClaudeAgentOptions`, `@input_guardrail`/`@output_guardrail` → plain pre/post checks, `Runner.run` → `ClaudeSDKClient`, sessions in-memory and disk-backed.
 
-###  Key takeaways
+###  Key takeaways
 
 * **Tools:** Explicit schemas mean what you write is what the model sees — no introspection surprises. Bundle as an in-process MCP server and pass via `ClaudeSDKClient`.
 * **Guardrails:** Plain functions put the rejection flow in your code, not a framework's. The `UserPromptSubmit` hook is there when you want it registered on options.
 * **Sessions:** One `ClaudeSDKClient` for in-memory multi-turn. `resume=session_id` for disk-backed conversations that survive restarts.
 * **Tracing:** OpenTelemetry-native, so it plugs into the stack you already run. Per-turn cost and token usage are on every `ResultMessage` — no extra wiring.
 
-###  Next steps
+###  Next steps
 
 * Multi-agent orchestration: [01\_The\_chief\_of\_staff\_agent.ipynb(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./01_The_chief_of_staff_agent.ipynb)
 * Tool-lifecycle hooks (`PreToolUse`/`PostToolUse`): [03\_The\_site\_reliability\_agent.ipynb(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/./03_The_site_reliability_agent.ipynb)

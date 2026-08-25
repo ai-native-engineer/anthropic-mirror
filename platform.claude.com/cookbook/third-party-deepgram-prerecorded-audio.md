@@ -1,12 +1,12 @@
 <!-- source: https://platform.claude.com/cookbook/third-party-deepgram-prerecorded-audio -->
 
-#  Transcribe an audio file with Deepgram & use Anthropic to prepare interview questions!
+#  Transcribe an audio file with Deepgram & use Anthropic to prepare interview questions!
 
 **Make a copy of this notebook into your own drive, and follow the instructions below!** 🥳🥳🥳
 
 ---
 
-#  Get started:
+#  Get started:
 
 Running the following three cells will allow you to transcribe any audio you wish. The comments below point out the variables you can manipulate to modify your output as you wish.
 
@@ -14,13 +14,11 @@ Before running this notebook, you'll need to have a couple audio URLs to transcr
 
 And by the way, if you haven't yet signed up for Deepgram, check out this link here: [https://dpgr.am/prerecorded-notebook-signup(opens in new tab)](https://dpgr.am/prerecorded-notebook-signup)
 
-#  Step 1: Dependencies
+#  Step 1: Dependencies
 
 Run this cell to download all necessary dependencies.
 
 Note: You can run a cell by clicking the play button on the left or by clicking on the cell and pressing `shift`+`ENTER` at the same time. (Or `shift` + `return` on Mac).
-
-
 
 ! pip install requests ffmpeg-python
 
@@ -30,17 +28,15 @@ Note: You can run a cell by clicking the play button on the left or by clicking 
 
 ! pip install anthropic
 
-#  Step 2: Audio URL files
+#  Step 2: Audio URL files
 
 Find some audio files hosted on a server so you can use this notebook. OR An example file is provided by Deepgram is code below.
-
-
 
 # Have you completed Step 2 above? 👀
 
 # Do you see your audio file in the folder on the left? 📂
 
-#  Step 3: Transcription
+#  Step 3: Transcription
 
 Fill in the following variables:
 
@@ -55,8 +51,6 @@ And by the way, if you're already a Deepgram user, and you're getting an error i
 
 1. You may need to update your installation of the deepgram-sdk.
 2. You may need to check how many credits you have left in your Deepgram account.
-
-
 
 import requests
 
@@ -134,7 +128,7 @@ main()
 
 If the cell above succeeds, you should see JSON output file(s) in the content directory. Note: There may be a small delay between when the cell finishes running and when the JSON file actually appears. This is normal. Just wait a few moments for the file(s) to appear.
 
-#  Step 4: Check out your transcription
+#  Step 4: Check out your transcription
 
 The function below parses the output JSON and prints out the transcription of one of the files you just transcribed! (Make sure
 the file you're trying to examine is indeed already loaded into the content directory.)
@@ -142,8 +136,6 @@ the file you're trying to examine is indeed already loaded into the content dire
 **Set the `OUTPUT` variable to the name of the file you wish to see the transcription of.**
 
 Then run this cell (`Shift`+`Enter`) to see a sentence-by-sentence transcription of your audio!
-
-
 
 import json
 
@@ -173,11 +165,9 @@ print\_transcript(OUTPUT)
 
 If the cell above succeeds you should see a plain text version of your audio transcription.
 
-#  Step 5: Prepare Interview Questions using Anthropic
+#  Step 5: Prepare Interview Questions using Anthropic
 
 Now we can send off our transcript to Anthropic for analysis to help us prepare some interview questions. Run the cell below (`Shift`+`Enter`) to get a suggested set of interview questions provided by Anthropic based on your audio transcript above.
-
-
 
 import json
 

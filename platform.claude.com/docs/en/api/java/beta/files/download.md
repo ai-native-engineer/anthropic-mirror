@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/java/beta/files/download -->
 
----
-title: Download File
-url: https://platform.claude.com/docs/en/api/java/beta/files/download
----
+# Download File
 
-## Download File
+`HttpResponse beta().files().download(params = FileDownloadParams.none(), requestOptions = RequestOptions.none())`
 
-`HttpResponse beta().files().download(FileDownloadParamsparams = FileDownloadParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
-
-**get** `/v1/files/{file_id}/content`
+**GET** `/v1/files/{file_id}/content`
 
 Download File
 
-### Parameters
+## Parameters
 
 - `FileDownloadParams params`
 
@@ -93,7 +88,7 @@ Download File
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-### Example
+## Example
 
 ```java
 package com.anthropic.example;

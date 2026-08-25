@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-sre-incident-responder -->
 
-#  Build an SRE Incident Response Agent with Claude Managed Agents
+#  Build an SRE Incident Response Agent with Claude Managed Agents
 
-##  Introduction
+##  Introduction
 
 When a production alert fires at 3 a.m., someone has to pull the logs, find the right runbook, trace the misconfiguration, open a PR, and get it approved. An agent can take that first pass for you and have a fix waiting for review by the time you're at the keyboard — as long as it has the right context and a human makes the final call.
 
@@ -16,7 +16,7 @@ When a production alert fires at 3 a.m., someone has to pull the logs, find the 
 
 Everything below runs with only `ANTHROPIC_API_KEY`. PagerDuty, GitHub, and Datadog are mocked with local fixtures so you can focus on the Managed Agents pieces; the closing section shows how to swap each mock for the real service.
 
-###  What you'll learn
+###  What you'll learn
 
 * Upload a Skill and attach it to a Claude Managed Agent
 * Mix the built-in toolset with custom tools your application handles
@@ -24,15 +24,11 @@ Everything below runs with only `ANTHROPIC_API_KEY`. PagerDuty, GitHub, and Data
 * Gate a destructive action behind human approval
 * Read the full session trace in the Console
 
-###  Prerequisites
+###  Prerequisites
 
 Set `ANTHROPIC_API_KEY` in your environment, then install dependencies:
 
-
-
 %pip install -q "anthropic>=0.91.0" python-dotenv
-
-
 
 import json
 
@@ -56,13 +52,11 @@ MODEL = os.getenv("COOKBOOK\_MODEL", "claude-opus-4-6")
 
 FIXTURE = Path("example\_data/sre")
 
-##  1. Upload a runbook skill
+##  1. Upload a runbook skill
 
 A [**Skill**(opens in new tab)](https://platform.claude.com/docs/en/managed-agents/skills) is a small filesystem bundle the platform mounts into the agent's context with progressive disclosure: the agent sees a one-line description up front and reads the body only when it's relevant. It's a good place for team conventions that shouldn't live in the system prompt.
 
 The sample skill below encodes one rule — *consult the runbook before touching infrastructure* — the way a real team playbook would. You upload it once via the Skills API and reference it by ID on every agent that needs it.
-
-
 
 # A real skill is usually a folder on disk (SKILL.md plus any helper
 
@@ -112,13 +106,11 @@ files=[("incident-runbooks/SKILL.md", RUNBOOK\_SKILL.encode(), "text/markdown")]
 
 print(f"skill: {skill.id} (version {skill.latest\_version})")
 
-
-
 ```
 skill: skill_01WPWHALbtEVBUWG6mHa7Tna (version 1775588716519983)
 ```
 
-##  2. Create the agent
+##  2. Create the agent
 
 The agent's `tools` list combines three kinds of capability:
 
@@ -127,8 +119,6 @@ The agent's `tools` list combines three kinds of capability:
 * Three **custom tools** — `open_pull_request`, `request_approval`, and `merge_pull_request` — that the agent can call but *your application* executes. They're how the agent reaches systems outside the sandbox, and how you put a human in the loop.
 
 The system prompt is persona and workflow only. The alert itself arrives as the first user event, so the same agent handles any incident.
-
-
 
 SRE\_SYSTEM\_PROMPT = """\
 
@@ -282,19 +272,15 @@ tools=[
 
 print(f"agent: {agent.id} v{agent.version}")
 
-
-
 ```
 agent: agent_011CZpw3Y76Vu4t2j2QEosVa v1
 ```
 
-##  3. Create an environment and mount the data
+##  3. Create an environment and mount the data
 
 The agent needs three things in its workspace to investigate: the recent service logs, the infrastructure repo, and the team runbooks. Upload each via the Files API and list them as `resources` so they're mounted into every session at the paths the system prompt expects. A `limited`-networking cloud environment is enough because the agent only needs its own filesystem.
 
 To keep this notebook runnable with only `ANTHROPIC_API_KEY`, the infra "repo" is a single manifest with a too-low `memory: 128Mi` limit. In production you'd replace that upload with a `github_repository` resource that clones the real repo straight into the sandbox:
-
-
 
 {
 
@@ -309,8 +295,6 @@ To keep this notebook runnable with only `ANTHROPIC_API_KEY`, the infra "repo" i
 "mount\_path": "infra",
 
 }
-
-
 
 env = client.beta.environments.create(
 
@@ -344,17 +328,13 @@ RESOURCES = [
 
 print(f"environment: {env.id}")
 
-
-
 ```
 environment: env_01R6hmJkd6BhpPotXnoC7rqU
 ```
 
-##  4. Handle the incident alert
+##  4. Handle the incident alert
 
 The handler below is the one function you'd deploy — a Flask or FastAPI route that your alerting system calls when an incident fires. It creates a session referencing the agent and environment, mounts the data, and sends the alert JSON as the first `user.message` event. This example uses a [PagerDuty V3 webhook(opens in new tab)](https://developer.pagerduty.com/docs/webhooks-overview) payload, but any pager that can POST JSON works the same way; here you call the handler directly with the fixture.
-
-
 
 def handle\_pagerduty\_webhook(payload: dict) -> str:
 
@@ -400,21 +380,17 @@ session\_id = handle\_pagerduty\_webhook(alert)
 
 print(f"session: {session\_id}")
 
-
-
 ```
 session: sesn_011CZpw3gtC691y7qmaLNmLM
 ```
 
-##  5. Service the agent's custom tool calls
+##  5. Service the agent's custom tool calls
 
 This is where the built-in tools and your custom tools come together. The agent's `read`/`bash`/`edit` calls run on the container and appear in the event log as `agent.tool_use` — that's the investigation, and you just print it. But when the agent calls one of your custom tools, the session goes `idle` with `stop_reason.type == "requires_action"` and waits for *your application* to respond with a `user.custom_tool_result`.
 
 The loop below polls `events.list`, answers `open_pull_request` and `merge_pull_request` inline by writing to a local list — that's the GitHub mock — but **returns** when `request_approval` arrives, because that one needs a human.
 
 In production, "needs a human" usually means *post it to Slack*: drop the agent's summary into the on-call channel with an **Approve** button, and send the result back when someone clicks. The [`slack_data_bot` cookbook(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/slack_data_bot.ipynb) shows the Bolt wiring for that; here you'll approve inline in the next cell so the notebook stays self-contained.
-
-
 
 prs: list[dict] = []
 
@@ -546,8 +522,6 @@ time.sleep(1.0)
 
 approval\_event\_id = run\_until\_approval\_or\_end(session\_id)
 
-
-
 ```
 I'll help you triage this production incident. The alert shows checkout-svc pods are crash-looping with 7 restarts in 5 minutes. Let me start by exploring the workspace to find logs and the infrastructure configuration.
   [bash]
@@ -606,8 +580,6 @@ Excellent! PR #1 has been created. Now requesting approval from the on-call engi
 
 The agent has read the logs, matched the `OOMKilled` signature to `runbooks/oom.md` via the skill, found the 128Mi memory limit in `infra/k8s/checkout-deploy.yaml`, edited it, opened a PR, and is now waiting on you. This is the message that would land in your `#oncall` Slack channel:
 
-
-
 pr = prs[0]
 
 print(pr["body"], "\n")
@@ -617,8 +589,6 @@ print(pr["diff"])
 print("\n" + "─" \* 60)
 
 print("APPROVAL REQUESTED:", pending\_approvals[0]["summary"])
-
-
 
 ```
 ## Issue
@@ -667,11 +637,9 @@ APPROVAL REQUESTED: **Incident:** checkout-svc CrashLoopBackOff with OOMKilled (
 **Impact:** Provides 4x headroom while maintaining resource efficiency. No service logic changes.
 ```
 
-##  6. Approve and let the agent merge
+##  6. Approve and let the agent merge
 
 Send `"approved"` back as the `request_approval` result. The agent resumes, calls `merge_pull_request`, and ends its turn. In the Slack version this send happens in your button-click handler — the payload is identical.
-
-
 
 client.beta.sessions.events.send(
 
@@ -696,8 +664,6 @@ events=[
 run\_until\_approval\_or\_end(session\_id)
 
 print(f"\n\nPR #{pr['number']} merged: {prs[0]['merged']}")
-
-
 
 ```
 Great! The fix has been approved. Now merging:
@@ -730,17 +696,15 @@ The deployment update will trigger a rolling restart of the 3 replicas, allowing
 PR #1 merged: True
 ```
 
-##  7. Review the run in the Console
+##  7. Review the run in the Console
 
 Because the investigation ran as a Managed Agents session, every step above — the file reads, the `bash` diff, the manifest edit, the three custom tool calls, and the approval you sent — is persisted as an event on the session. Open it in the [Console(opens in new tab)](https://platform.claude.com/) under **Managed Agents → Sessions** for the full audit trail with no extra instrumentation:
 
 ![Console session view for the incident-response run](https://raw.githubusercontent.com/anthropics/claude-cookbooks/main/managed_agents/example_data/sre/console_session.png)
 
-###  Cleanup
+###  Cleanup
 
 Archive the session and the resources you created.
-
-
 
 wait\_for\_idle\_status(client, session\_id)
 
@@ -756,19 +720,15 @@ client.beta.skills.delete(skill.id)
 
 print("archived")
 
-
-
 ```
 archived
 ```
 
-##  Next steps: production wiring
+##  Next steps: production wiring
 
 Three swaps take this from notebook to on-call.
 
 **Approve in Slack.** When `request_approval` arrives, post it to the on-call channel with Block Kit buttons and send the `user.custom_tool_result` back from the action handler. The [`slack_data_bot` cookbook(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/slack_data_bot.ipynb) covers the Bolt app setup; the approval-specific bit is small:
-
-
 
 def post\_for\_approval(session\_id, event\_id, summary):
 
@@ -824,8 +784,6 @@ To drop the polling loop entirely, register a Console webhook on `session.requir
 
 **GitHub instead of the mock.** Drop the `open_pull_request` / `merge_pull_request` custom tools and give the agent the GitHub MCP server instead, with the token stored in a vault so it never appears in your code. [`CMA_operate_in_production.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/CMA_operate_in_production.ipynb) walks through per-user credentials.
 
-
-
 agent = client.beta.agents.create(
 
 ...,
@@ -848,7 +806,7 @@ session = client.beta.sessions.create(..., vault\_ids=[github\_vault.id])
 
 > See also the [Agent SDK site-reliability agent(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/03_The_site_reliability_agent.ipynb) for the same problem solved with the local Agent SDK instead of the hosted Managed Agents runtime.
 
-##  What you learned
+##  What you learned
 
 * Trigger a session from any external event — one API call from a PagerDuty webhook started the whole run.
 * Attach a **Skill** to give the agent your team's conventions.

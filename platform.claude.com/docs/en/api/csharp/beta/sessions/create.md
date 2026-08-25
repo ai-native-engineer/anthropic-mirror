@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/csharp/beta/sessions/create -->
 
----
-title: Create Session
-url: https://platform.claude.com/docs/en/api/csharp/beta/sessions/create
----
+# Create Session
 
-## Create Session
+`BetaManagedAgentsSession Beta.Sessions.Create(parameters, cancellationToken = default)`
 
-`BetaManagedAgentsSession Beta.Sessions.Create(SessionCreateParamsparameters, CancellationTokencancellationToken = default)`
-
-**post** `/v1/sessions`
+**POST** `/v1/sessions`
 
 Create Session
 
-### Parameters
+## Parameters
 
 - `SessionCreateParams parameters`
 
@@ -31,13 +26,15 @@ Create Session
 
         The `agent` ID.
 
+        minLength: 1, maxLength: 128
+
       - `required Type Type`
 
-        - `"agent"Agent`
-
-      - `Int Version`
+      - `int Version`
 
         The specific `agent` version to use. Omit to use the latest version. Must be at least 1 if specified.
+
+        format: int32
 
     - `class BetaManagedAgentsAgentWithOverridesParams:`
 
@@ -47,9 +44,9 @@ Create Session
 
         The `agent` ID.
 
-      - `required Type Type`
+        minLength: 1, maxLength: 128
 
-        - `"agent_with_overrides"AgentWithOverrides`
+      - `required Type Type`
 
       - `IReadOnlyList<BetaManagedAgentsUrlMcpServerParams> McpServers`
 
@@ -59,13 +56,15 @@ Create Session
 
           Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
-        - `required Type Type`
+          minLength: 1, maxLength: 255
 
-          - `"url"Url`
+        - `required Type Type`
 
         - `required string Url`
 
           Endpoint URL for the MCP server.
+
+          maxLength: 2048
 
       - `Model Model`
 
@@ -77,55 +76,55 @@ Create Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `"claude-sonnet-5"ClaudeSonnet5`
+          - `ClaudeSonnet5`
 
             High-performance model for coding and agents
 
-          - `"claude-fable-5"ClaudeFable5`
+          - `ClaudeFable5`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `"claude-opus-5"ClaudeOpus5`
+          - `ClaudeOpus5`
 
             Powerful intelligence for long-running agents and coding
 
-          - `"claude-opus-4-8"ClaudeOpus4_8`
+          - `ClaudeOpus4_8`
 
             Powerful intelligence for long-running agents and coding
 
-          - `"claude-opus-4-7"ClaudeOpus4_7`
+          - `ClaudeOpus4_7`
 
             Powerful intelligence for long-running agents and coding
 
-          - `"claude-opus-4-6"ClaudeOpus4_6`
+          - `ClaudeOpus4_6`
 
             Powerful intelligence for long-running agents and coding
 
-          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6`
 
             Best combination of speed and intelligence
 
-          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5`
 
             Fastest model with near-frontier intelligence
 
-          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001`
 
             Fastest model with near-frontier intelligence
 
-          - `"claude-opus-4-5"ClaudeOpus4_5`
+          - `ClaudeOpus4_5`
 
             Powerful intelligence for long-running agents and coding
 
-          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101`
 
             Powerful intelligence for long-running agents and coding
 
-          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5`
 
             High-performance model for agents and coding
 
-          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929`
 
             High-performance model for agents and coding
 
@@ -139,55 +138,55 @@ Create Session
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `"claude-sonnet-5"ClaudeSonnet5`
+            - `ClaudeSonnet5`
 
               High-performance model for coding and agents
 
-            - `"claude-fable-5"ClaudeFable5`
+            - `ClaudeFable5`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
-            - `"claude-opus-5"ClaudeOpus5`
+            - `ClaudeOpus5`
 
               Powerful intelligence for long-running agents and coding
 
-            - `"claude-opus-4-8"ClaudeOpus4_8`
+            - `ClaudeOpus4_8`
 
               Powerful intelligence for long-running agents and coding
 
-            - `"claude-opus-4-7"ClaudeOpus4_7`
+            - `ClaudeOpus4_7`
 
               Powerful intelligence for long-running agents and coding
 
-            - `"claude-opus-4-6"ClaudeOpus4_6`
+            - `ClaudeOpus4_6`
 
               Powerful intelligence for long-running agents and coding
 
-            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+            - `ClaudeSonnet4_6`
 
               Best combination of speed and intelligence
 
-            - `"claude-haiku-4-5"ClaudeHaiku4_5`
+            - `ClaudeHaiku4_5`
 
               Fastest model with near-frontier intelligence
 
-            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+            - `ClaudeHaiku4_5_20251001`
 
               Fastest model with near-frontier intelligence
 
-            - `"claude-opus-4-5"ClaudeOpus4_5`
+            - `ClaudeOpus4_5`
 
               Powerful intelligence for long-running agents and coding
 
-            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+            - `ClaudeOpus4_5_20251101`
 
               Powerful intelligence for long-running agents and coding
 
-            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+            - `ClaudeSonnet4_5`
 
               High-performance model for agents and coding
 
-            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+            - `ClaudeSonnet4_5_20250929`
 
               High-performance model for agents and coding
 
@@ -199,15 +198,15 @@ Create Session
 
               How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
 
-              - `"low"Low`
+              - `Low`
 
-              - `"medium"Medium`
+              - `Medium`
 
-              - `"high"High`
+              - `High`
 
-              - `"xhigh"Xhigh`
+              - `Xhigh`
 
-              - `"max"Max`
+              - `Max`
 
             - `class BetaManagedAgentsEffortLow:`
 
@@ -215,15 +214,11 @@ Create Session
 
               - `required Type Type`
 
-                - `"low"Low`
-
             - `class BetaManagedAgentsEffortMedium:`
 
               Medium effort. Balances latency and reasoning depth.
 
               - `required Type Type`
-
-                - `"medium"Medium`
 
             - `class BetaManagedAgentsEffortHigh:`
 
@@ -231,23 +226,17 @@ Create Session
 
               - `required Type Type`
 
-                - `"high"High`
-
             - `class BetaManagedAgentsEffortXhigh:`
 
               Extra-high effort. Not all models accept this level.
 
               - `required Type Type`
 
-                - `"xhigh"Xhigh`
-
             - `class BetaManagedAgentsEffortMax:`
 
               Maximum effort. Favors reasoning depth over latency.
 
               - `required Type Type`
-
-                - `"max"Max`
 
           - `string? InferenceGeo`
 
@@ -257,9 +246,9 @@ Create Session
 
             Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-            - `"standard"Standard`
+            - `Standard`
 
-            - `"fast"Fast`
+            - `Fast`
 
       - `IReadOnlyList<BetaManagedAgentsSkillParams> Skills`
 
@@ -273,13 +262,15 @@ Create Session
 
             Identifier of the Anthropic skill (e.g., "xlsx").
 
-          - `required Type Type`
+            minLength: 1, maxLength: 64
 
-            - `"anthropic"Anthropic`
+          - `required Type Type`
 
           - `string? Version`
 
             Version to pin. Defaults to latest if omitted.
+
+            minLength: 1, maxLength: 64
 
         - `class BetaManagedAgentsCustomSkillParams:`
 
@@ -289,17 +280,21 @@ Create Session
 
             Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
-          - `required Type Type`
+            minLength: 1, maxLength: 64
 
-            - `"custom"Custom`
+          - `required Type Type`
 
           - `string? Version`
 
             Version to pin. Defaults to latest if omitted.
 
+            minLength: 1, maxLength: 64
+
       - `string? System`
 
         Replacement system prompt. Up to 100,000 characters. Set to null to clear the agent's system prompt; omit to preserve it.
+
+        maxLength: 100000
 
       - `IReadOnlyList<Tool> Tools`
 
@@ -311,8 +306,6 @@ Create Session
 
           - `required Type Type`
 
-            - `"agent_toolset_20260401"AgentToolset20260401`
-
           - `IReadOnlyList<BetaManagedAgentsAgentToolConfigParams> Configs`
 
             Per-tool configuration overrides.
@@ -321,11 +314,11 @@ Create Session
 
               Configuration override for the bash tool.
 
-              - `JsonElement Name "bash"constant`
+              - `JsonElement Name constant`
 
                 Must be "bash".
 
-              - `Boolean? Enabled`
+              - `bool? Enabled`
 
                 Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
@@ -339,29 +332,23 @@ Create Session
 
                   - `required Type Type`
 
-                    - `"always_allow"AlwaysAllow`
-
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
                   - `required Type Type`
 
-                    - `"always_ask"AlwaysAsk`
-
               - `Type Type`
-
-                - `"bash"Bash`
 
             - `class BetaManagedAgentsEditToolConfigParams:`
 
               Configuration override for the edit tool.
 
-              - `JsonElement Name "edit"constant`
+              - `JsonElement Name constant`
 
                 Must be "edit".
 
-              - `Boolean? Enabled`
+              - `bool? Enabled`
 
                 Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
@@ -378,18 +365,16 @@ Create Session
                   Tool calls require user confirmation before execution.
 
               - `Type Type`
-
-                - `"edit"Edit`
 
             - `class BetaManagedAgentsReadToolConfigParams:`
 
               Configuration override for the read tool.
 
-              - `JsonElement Name "read"constant`
+              - `JsonElement Name constant`
 
                 Must be "read".
 
-              - `Boolean? Enabled`
+              - `bool? Enabled`
 
                 Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
@@ -406,18 +391,16 @@ Create Session
                   Tool calls require user confirmation before execution.
 
               - `Type Type`
-
-                - `"read"Read`
 
             - `class BetaManagedAgentsWriteToolConfigParams:`
 
               Configuration override for the write tool.
 
-              - `JsonElement Name "write"constant`
+              - `JsonElement Name constant`
 
                 Must be "write".
 
-              - `Boolean? Enabled`
+              - `bool? Enabled`
 
                 Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
@@ -434,18 +417,16 @@ Create Session
                   Tool calls require user confirmation before execution.
 
               - `Type Type`
-
-                - `"write"Write`
 
             - `class BetaManagedAgentsGlobToolConfigParams:`
 
               Configuration override for the glob tool.
 
-              - `JsonElement Name "glob"constant`
+              - `JsonElement Name constant`
 
                 Must be "glob".
 
-              - `Boolean? Enabled`
+              - `bool? Enabled`
 
                 Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
@@ -462,18 +443,16 @@ Create Session
                   Tool calls require user confirmation before execution.
 
               - `Type Type`
-
-                - `"glob"Glob`
 
             - `class BetaManagedAgentsGrepToolConfigParams:`
 
               Configuration override for the grep tool.
 
-              - `JsonElement Name "grep"constant`
+              - `JsonElement Name constant`
 
                 Must be "grep".
 
-              - `Boolean? Enabled`
+              - `bool? Enabled`
 
                 Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
@@ -491,13 +470,11 @@ Create Session
 
               - `Type Type`
 
-                - `"grep"Grep`
-
             - `class BetaManagedAgentsWebFetchToolConfigParams:`
 
               Configuration override for the web_fetch tool.
 
-              - `JsonElement Name "web_fetch"constant`
+              - `JsonElement Name constant`
 
                 Must be "web_fetch".
 
@@ -509,13 +486,15 @@ Create Session
 
                 Never fetch URLs whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme, port, or path). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
 
-              - `Boolean? Enabled`
+              - `bool? Enabled`
 
                 Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
-              - `Int? MaxContentTokens`
+              - `int? MaxContentTokens`
 
                 Maximum number of tokens of fetched text content to include in context per call. Does not apply to binary content such as PDFs.
+
+                format: int32
 
               - `PermissionPolicy? PermissionPolicy`
 
@@ -531,13 +510,11 @@ Create Session
 
               - `Type Type`
 
-                - `"web_fetch"WebFetch`
-
             - `class BetaManagedAgentsWebSearchToolConfigParams:`
 
               Configuration override for the web_search tool.
 
-              - `JsonElement Name "web_search"constant`
+              - `JsonElement Name constant`
 
                 Must be "web_search".
 
@@ -549,7 +526,7 @@ Create Session
 
                 Never return search results whose host is one of these domains or a subdomain of one. Each entry is a plain hostname like "ads.example.com" (no scheme or port; an optional path suffix is accepted). At most 64 entries; an empty list is rejected (omit the field instead). Cannot be combined with allowed_domains.
 
-              - `Boolean? Enabled`
+              - `bool? Enabled`
 
                 Whether this tool is enabled and available to Claude. Overrides the default_config setting.
 
@@ -567,19 +544,19 @@ Create Session
 
               - `Type Type`
 
-                - `"web_search"WebSearch`
-
               - `BetaManagedAgentsUserLocation? UserLocation`
 
                 Approximate user location for search result localization.
 
-                - `JsonElement Type "approximate"constant`
+                - `JsonElement Type constant`
 
                   Location precision. Only "approximate" is supported.
 
                 - `string? City`
 
                   City name.
+
+                  minLength: 1, maxLength: 255
 
                 - `string? Country`
 
@@ -589,15 +566,19 @@ Create Session
 
                   Region or state name.
 
+                  minLength: 1, maxLength: 255
+
                 - `string? Timezone`
 
                   IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                  minLength: 1, maxLength: 255
 
           - `BetaManagedAgentsAgentToolsetDefaultConfigParams? DefaultConfig`
 
             Default configuration for all tools in a toolset.
 
-            - `Boolean? Enabled`
+            - `bool? Enabled`
 
               Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
 
@@ -621,9 +602,9 @@ Create Session
 
             Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
-          - `required Type Type`
+            minLength: 1, maxLength: 255
 
-            - `"mcp_toolset"McpToolset`
+          - `required Type Type`
 
           - `IReadOnlyList<BetaManagedAgentsMcpToolConfigParams> Configs`
 
@@ -633,7 +614,9 @@ Create Session
 
               Name of the MCP tool to configure. 1-128 characters.
 
-            - `Boolean? Enabled`
+              minLength: 1, maxLength: 128
+
+            - `bool? Enabled`
 
               Whether this tool is enabled. Overrides the `default_config` setting.
 
@@ -653,7 +636,7 @@ Create Session
 
             Default configuration for all tools from an MCP server.
 
-            - `Boolean? Enabled`
+            - `bool? Enabled`
 
               Whether tools are enabled by default. Defaults to true if not specified.
 
@@ -677,11 +660,13 @@ Create Session
 
             Description of what the tool does, shown to the agent to help it decide when to use the tool.
 
+            minLength: 1
+
           - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonElement Type "object"constant`
+            - `JsonElement Type constant`
 
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -691,17 +676,21 @@ Create Session
 
             Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
+            minLength: 1, maxLength: 128
+
           - `required Type Type`
 
-            - `"custom"Custom`
-
-      - `Int Version`
+      - `int Version`
 
         The specific `agent` version to use. Omit to use the latest version.
+
+        format: int32
 
   - `required string environmentID`
 
     Body param: ID of the `environment` defining the container configuration for this session.
+
+    minLength: 1, maxLength: 128
 
   - `BetaManagedAgentsBudgetLimit budget`
 
@@ -727,9 +716,9 @@ Create Session
 
             The text content.
 
-          - `required Type Type`
+            minLength: 1
 
-            - `"text"Text`
+          - `required Type Type`
 
         - `class BetaManagedAgentsImageBlock:`
 
@@ -747,13 +736,15 @@ Create Session
 
                 Base64-encoded image data.
 
+                minLength: 1
+
               - `required string MediaType`
 
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-              - `required Type Type`
+                minLength: 1
 
-                - `"base64"Base64`
+              - `required Type Type`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
@@ -761,11 +752,11 @@ Create Session
 
               - `required Type Type`
 
-                - `"url"Url`
-
               - `required string Url`
 
                 URL of the image to fetch.
+
+                minLength: 1
 
             - `class BetaManagedAgentsFileImageSource:`
 
@@ -775,13 +766,11 @@ Create Session
 
                 ID of a previously uploaded file.
 
+                minLength: 1
+
               - `required Type Type`
 
-                - `"file"File`
-
           - `required Type Type`
-
-            - `"image"Image`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
@@ -799,13 +788,15 @@ Create Session
 
                 Base64-encoded document data.
 
+                minLength: 1
+
               - `required string MediaType`
 
                 MIME type of the document (e.g., "application/pdf").
 
-              - `required Type Type`
+                minLength: 1
 
-                - `"base64"Base64`
+              - `required Type Type`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
@@ -815,15 +806,13 @@ Create Session
 
                 The plain text content.
 
+                minLength: 1
+
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
 
-                - `"text/plain"TextPlain`
-
               - `required Type Type`
-
-                - `"text"Text`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
@@ -831,11 +820,11 @@ Create Session
 
               - `required Type Type`
 
-                - `"url"Url`
-
               - `required string Url`
 
                 URL of the document to fetch.
+
+                minLength: 1
 
             - `class BetaManagedAgentsFileDocumentSource:`
 
@@ -845,13 +834,11 @@ Create Session
 
                 ID of a previously uploaded file.
 
+                minLength: 1
+
               - `required Type Type`
 
-                - `"file"File`
-
           - `required Type Type`
-
-            - `"document"Document`
 
           - `string? Context`
 
@@ -867,11 +854,7 @@ Create Session
 
           - `required Type Type`
 
-            - `"redacted"Redacted`
-
       - `required Type Type`
-
-        - `"user.message"UserMessage`
 
     - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
 
@@ -895,8 +878,6 @@ Create Session
 
           - `required Type Type`
 
-            - `"file"File`
-
         - `class BetaManagedAgentsTextRubricParams:`
 
           Rubric content provided inline as text.
@@ -905,17 +886,17 @@ Create Session
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
-          - `required Type Type`
+            maxLength: 262144
 
-            - `"text"Text`
+          - `required Type Type`
 
       - `required Type Type`
 
-        - `"user.define_outcome"UserDefineOutcome`
-
-      - `Int? MaxIterations`
+      - `int? MaxIterations`
 
         Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
 
   - `IReadOnlyDictionary<string, string> metadata`
 
@@ -933,13 +914,15 @@ Create Session
 
         GitHub authorization token used to clone the repository.
 
-      - `required Type Type`
+        minLength: 1, maxLength: 4096
 
-        - `"github_repository"GitHubRepository`
+      - `required Type Type`
 
       - `required string Url`
 
         Github URL of the repository
+
+        minLength: 1, maxLength: 2048
 
       - `Checkout? Checkout`
 
@@ -951,9 +934,9 @@ Create Session
 
             Branch name to check out.
 
-          - `required Type Type`
+            minLength: 1, maxLength: 255
 
-            - `"branch"Branch`
+          - `required Type Type`
 
         - `class BetaManagedAgentsCommitCheckout:`
 
@@ -961,13 +944,15 @@ Create Session
 
             Full commit SHA to check out.
 
-          - `required Type Type`
+            minLength: 7, maxLength: 64
 
-            - `"commit"Commit`
+          - `required Type Type`
 
       - `string? MountPath`
 
         Mount path in the container. Defaults to `/workspace/<repo-name>`.
+
+        minLength: 1, maxLength: 4096
 
     - `class BetaManagedAgentsFileResourceParams:`
 
@@ -977,13 +962,15 @@ Create Session
 
         ID of a previously uploaded file.
 
-      - `required Type Type`
+        minLength: 1, maxLength: 128
 
-        - `"file"File`
+      - `required Type Type`
 
       - `string? MountPath`
 
         Mount path in the container. Defaults to `/mnt/session/uploads/<file_id>`.
+
+        minLength: 1, maxLength: 4096
 
     - `class BetaManagedAgentsMemoryStoreResourceParam:`
 
@@ -995,23 +982,25 @@ Create Session
 
       - `required Type Type`
 
-        - `"memory_store"MemoryStore`
-
       - `Access? Access`
 
         Access mode for an attached memory store.
 
-        - `"read_write"ReadWrite`
+        - `ReadWrite`
 
-        - `"read_only"ReadOnly`
+        - `ReadOnly`
 
       - `string? Instructions`
 
         Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
 
+        maxLength: 4096
+
   - `string? title`
 
     Body param: Human-readable session title.
+
+    maxLength: 500
 
   - `IReadOnlyList<string> vaultIds`
 
@@ -1021,75 +1010,75 @@ Create Session
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `"message-batches-2024-09-24"MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24`
 
-    - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31`
 
-    - `"computer-use-2024-10-22"ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22`
 
-    - `"computer-use-2025-01-24"ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24`
 
-    - `"pdfs-2024-09-25"Pdfs2024_09_25`
+    - `Pdfs2024_09_25`
 
-    - `"token-counting-2024-11-01"TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01`
 
-    - `"token-efficient-tools-2025-02-19"TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19`
 
-    - `"output-128k-2025-02-19"Output128k2025_02_19`
+    - `Output128k2025_02_19`
 
-    - `"files-api-2025-04-14"FilesApi2025_04_14`
+    - `FilesApi2025_04_14`
 
-    - `"mcp-client-2025-04-04"McpClient2025_04_04`
+    - `McpClient2025_04_04`
 
-    - `"mcp-client-2025-11-20"McpClient2025_11_20`
+    - `McpClient2025_11_20`
 
-    - `"dev-full-thinking-2025-05-14"DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14`
 
-    - `"interleaved-thinking-2025-05-14"InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14`
 
-    - `"code-execution-2025-05-22"CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22`
 
-    - `"extended-cache-ttl-2025-04-11"ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11`
 
-    - `"context-1m-2025-08-07"Context1m2025_08_07`
+    - `Context1m2025_08_07`
 
-    - `"context-management-2025-06-27"ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27`
 
-    - `"model-context-window-exceeded-2025-08-26"ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26`
 
-    - `"skills-2025-10-02"Skills2025_10_02`
+    - `Skills2025_10_02`
 
-    - `"fast-mode-2026-02-01"FastMode2026_02_01`
+    - `FastMode2026_02_01`
 
-    - `"output-300k-2026-03-24"Output300k2026_03_24`
+    - `Output300k2026_03_24`
 
-    - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24`
 
-    - `"user-profiles-2026-08-18"UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18`
 
-    - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01`
 
-    - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01`
 
-    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07`
 
-    - `"dreaming-2026-04-21"Dreaming2026_04_21`
+    - `Dreaming2026_04_21`
 
-    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13`
 
-    - `"server-side-fallback-2026-06-01"ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01`
 
-    - `"server-side-fallback-2026-07-01"ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01`
 
-    - `"fallback-credit-2026-06-01"FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01`
 
-    - `"fallback-credit-2026-07-01"FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01`
 
-    - `"agent-memory-2026-07-22"AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22`
 
-    - `"mid-conversation-tool-changes-2026-07-01"MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01`
 
-### Returns
+## Returns
 
 - `class BetaManagedAgentsSession:`
 
@@ -1111,8 +1100,6 @@ Create Session
 
       - `required Type Type`
 
-        - `"url"Url`
-
       - `required string Url`
 
     - `required BetaManagedAgentsModelConfig Model`
@@ -1125,55 +1112,55 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `"claude-sonnet-5"ClaudeSonnet5`
+        - `ClaudeSonnet5`
 
           High-performance model for coding and agents
 
-        - `"claude-fable-5"ClaudeFable5`
+        - `ClaudeFable5`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
-        - `"claude-opus-5"ClaudeOpus5`
+        - `ClaudeOpus5`
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-opus-4-8"ClaudeOpus4_8`
+        - `ClaudeOpus4_8`
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-opus-4-7"ClaudeOpus4_7`
+        - `ClaudeOpus4_7`
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-opus-4-6"ClaudeOpus4_6`
+        - `ClaudeOpus4_6`
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+        - `ClaudeSonnet4_6`
 
           Best combination of speed and intelligence
 
-        - `"claude-haiku-4-5"ClaudeHaiku4_5`
+        - `ClaudeHaiku4_5`
 
           Fastest model with near-frontier intelligence
 
-        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+        - `ClaudeHaiku4_5_20251001`
 
           Fastest model with near-frontier intelligence
 
-        - `"claude-opus-4-5"ClaudeOpus4_5`
+        - `ClaudeOpus4_5`
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+        - `ClaudeOpus4_5_20251101`
 
           Powerful intelligence for long-running agents and coding
 
-        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+        - `ClaudeSonnet4_5`
 
           High-performance model for agents and coding
 
-        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+        - `ClaudeSonnet4_5_20250929`
 
           High-performance model for agents and coding
 
@@ -1187,15 +1174,11 @@ Create Session
 
           - `required Type Type`
 
-            - `"low"Low`
-
         - `class BetaManagedAgentsEffortMedium:`
 
           Medium effort. Balances latency and reasoning depth.
 
           - `required Type Type`
-
-            - `"medium"Medium`
 
         - `class BetaManagedAgentsEffortHigh:`
 
@@ -1203,23 +1186,17 @@ Create Session
 
           - `required Type Type`
 
-            - `"high"High`
-
         - `class BetaManagedAgentsEffortXhigh:`
 
           Extra-high effort. Not all models accept this level.
 
           - `required Type Type`
 
-            - `"xhigh"Xhigh`
-
         - `class BetaManagedAgentsEffortMax:`
 
           Maximum effort. Favors reasoning depth over latency.
 
           - `required Type Type`
-
-            - `"max"Max`
 
       - `string InferenceGeo`
 
@@ -1229,9 +1206,9 @@ Create Session
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `"standard"Standard`
+        - `Standard`
 
-        - `"fast"Fast`
+        - `Fast`
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -1273,8 +1250,6 @@ Create Session
 
               - `required Type Type`
 
-                - `"anthropic"Anthropic`
-
               - `required string Version`
 
             - `class BetaManagedAgentsCustomSkill:`
@@ -1284,8 +1259,6 @@ Create Session
               - `required string SkillID`
 
               - `required Type Type`
-
-                - `"custom"Custom`
 
               - `required string Version`
 
@@ -1301,9 +1274,9 @@ Create Session
 
                   Configuration for the bash tool.
 
-                  - `required Boolean Enabled`
+                  - `required bool Enabled`
 
-                  - `JsonElement Name "bash"constant`
+                  - `JsonElement Name constant`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -1315,25 +1288,21 @@ Create Session
 
                       - `required Type Type`
 
-                        - `"always_allow"AlwaysAllow`
-
                     - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                       Tool calls require user confirmation before execution.
 
                       - `required Type Type`
 
-                        - `"always_ask"AlwaysAsk`
-
-                  - `JsonElement Type "bash"constant`
+                  - `JsonElement Type constant`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
                   Configuration for the edit tool.
 
-                  - `required Boolean Enabled`
+                  - `required bool Enabled`
 
-                  - `JsonElement Name "edit"constant`
+                  - `JsonElement Name constant`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -1347,15 +1316,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type "edit"constant`
+                  - `JsonElement Type constant`
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
                   Configuration for the read tool.
 
-                  - `required Boolean Enabled`
+                  - `required bool Enabled`
 
-                  - `JsonElement Name "read"constant`
+                  - `JsonElement Name constant`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -1369,15 +1338,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type "read"constant`
+                  - `JsonElement Type constant`
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
                   Configuration for the write tool.
 
-                  - `required Boolean Enabled`
+                  - `required bool Enabled`
 
-                  - `JsonElement Name "write"constant`
+                  - `JsonElement Name constant`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -1391,15 +1360,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type "write"constant`
+                  - `JsonElement Type constant`
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
                   Configuration for the glob tool.
 
-                  - `required Boolean Enabled`
+                  - `required bool Enabled`
 
-                  - `JsonElement Name "glob"constant`
+                  - `JsonElement Name constant`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -1413,15 +1382,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type "glob"constant`
+                  - `JsonElement Type constant`
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
                   Configuration for the grep tool.
 
-                  - `required Boolean Enabled`
+                  - `required bool Enabled`
 
-                  - `JsonElement Name "grep"constant`
+                  - `JsonElement Name constant`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -1435,15 +1404,15 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type "grep"constant`
+                  - `JsonElement Type constant`
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
                   Configuration for the web_fetch tool.
 
-                  - `required Boolean Enabled`
+                  - `required bool Enabled`
 
-                  - `JsonElement Name "web_fetch"constant`
+                  - `JsonElement Name constant`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -1457,21 +1426,23 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type "web_fetch"constant`
+                  - `JsonElement Type constant`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
                   - `IReadOnlyList<string> BlockedDomains`
 
-                  - `Int? MaxContentTokens`
+                  - `int? MaxContentTokens`
+
+                    format: int32
 
                 - `class BetaManagedAgentsWebSearchToolConfig:`
 
                   Configuration for the web_search tool.
 
-                  - `required Boolean Enabled`
+                  - `required bool Enabled`
 
-                  - `JsonElement Name "web_search"constant`
+                  - `JsonElement Name constant`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -1485,7 +1456,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type "web_search"constant`
+                  - `JsonElement Type constant`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -1495,13 +1466,15 @@ Create Session
 
                     Approximate user location for search result localization.
 
-                    - `JsonElement Type "approximate"constant`
+                    - `JsonElement Type constant`
 
                       Location precision. Only "approximate" is supported.
 
                     - `string? City`
 
                       City name.
+
+                      minLength: 1, maxLength: 255
 
                     - `string? Country`
 
@@ -1511,15 +1484,19 @@ Create Session
 
                       Region or state name.
 
+                      minLength: 1, maxLength: 255
+
                     - `string? Timezone`
 
                       IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                      minLength: 1, maxLength: 255
 
               - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
                 Resolved default configuration for agent tools.
 
-                - `required Boolean Enabled`
+                - `required bool Enabled`
 
                 - `required PermissionPolicy PermissionPolicy`
 
@@ -1535,13 +1512,11 @@ Create Session
 
               - `required Type Type`
 
-                - `"agent_toolset_20260401"AgentToolset20260401`
-
             - `class BetaManagedAgentsMcpToolset:`
 
               - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
 
-                - `required Boolean Enabled`
+                - `required bool Enabled`
 
                 - `required string Name`
 
@@ -1561,7 +1536,7 @@ Create Session
 
                 Resolved default configuration for all tools from an MCP server.
 
-                - `required Boolean Enabled`
+                - `required bool Enabled`
 
                 - `required PermissionPolicy PermissionPolicy`
 
@@ -1579,8 +1554,6 @@ Create Session
 
               - `required Type Type`
 
-                - `"mcp_toolset"McpToolset`
-
             - `class BetaManagedAgentsCustomTool:`
 
               A custom tool as returned in API responses.
@@ -1591,7 +1564,7 @@ Create Session
 
                 JSON Schema for custom tool input parameters.
 
-                - `JsonElement Type "object"constant`
+                - `JsonElement Type constant`
 
                 - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -1601,13 +1574,11 @@ Create Session
 
               - `required Type Type`
 
-                - `"custom"Custom`
-
           - `required Type Type`
 
-            - `"agent"Agent`
+          - `required int Version`
 
-          - `required Int Version`
+            format: int32
 
         - `class BetaManagedAgentsAdvisor:`
 
@@ -1619,11 +1590,7 @@ Create Session
 
           - `required Type Type`
 
-            - `"advisor"Advisor`
-
       - `required Type Type`
-
-        - `"coordinator"Coordinator`
 
     - `required string Name`
 
@@ -1651,13 +1618,15 @@ Create Session
 
     - `required Type Type`
 
-      - `"agent"Agent`
+    - `required int Version`
 
-    - `required Int Version`
+      format: int32
 
   - `required DateTimeOffset? ArchivedAt`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `required BetaManagedAgentsBudgetLimit? Budget`
 
@@ -1675,15 +1644,13 @@ Create Session
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `"USD"Usd`
-
     - `required Type Type`
-
-      - `"limit"Limit`
 
   - `required DateTimeOffset CreatedAt`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `required string EnvironmentID`
 
@@ -1697,6 +1664,8 @@ Create Session
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `required string Description`
 
       What the agent should produce.
@@ -1705,9 +1674,11 @@ Create Session
 
       Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
 
-    - `required Int Iteration`
+    - `required int Iteration`
 
       0-indexed revision cycle the outcome is currently on.
+
+      format: int32
 
     - `required string OutcomeID`
 
@@ -1719,8 +1690,6 @@ Create Session
 
     - `required Type Type`
 
-      - `"outcome_evaluation"OutcomeEvaluation`
-
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Resources`
 
     - `class BetaManagedAgentsGitHubRepositoryResource:`
@@ -1731,15 +1700,17 @@ Create Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `required string MountPath`
 
       - `required Type Type`
 
-        - `"github_repository"GitHubRepository`
-
       - `required DateTimeOffset UpdatedAt`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
       - `required string Url`
 
@@ -1751,9 +1722,9 @@ Create Session
 
             Branch name to check out.
 
-          - `required Type Type`
+            minLength: 1, maxLength: 255
 
-            - `"branch"Branch`
+          - `required Type Type`
 
         - `class BetaManagedAgentsCommitCheckout:`
 
@@ -1761,9 +1732,9 @@ Create Session
 
             Full commit SHA to check out.
 
-          - `required Type Type`
+            minLength: 7, maxLength: 64
 
-            - `"commit"Commit`
+          - `required Type Type`
 
     - `class BetaManagedAgentsFileResource:`
 
@@ -1773,17 +1744,19 @@ Create Session
 
         A timestamp in RFC 3339 format
 
+        format: date-time
+
       - `required string FileID`
 
       - `required string MountPath`
 
       - `required Type Type`
 
-        - `"file"File`
-
       - `required DateTimeOffset UpdatedAt`
 
         A timestamp in RFC 3339 format
+
+        format: date-time
 
     - `class BetaManagedAgentsMemoryStoreResource:`
 
@@ -1795,15 +1768,13 @@ Create Session
 
       - `required Type Type`
 
-        - `"memory_store"MemoryStore`
-
       - `Access? Access`
 
         Access mode for an attached memory store.
 
-        - `"read_write"ReadWrite`
+        - `ReadWrite`
 
-        - `"read_only"ReadOnly`
+        - `ReadOnly`
 
       - `string Description`
 
@@ -1812,6 +1783,8 @@ Create Session
       - `string? Instructions`
 
         Per-attachment guidance for the agent on how to use this store. Rendered into the memory section of the system prompt. Max 4096 chars.
+
+        maxLength: 4096
 
       - `string? MountPath`
 
@@ -1825,83 +1798,103 @@ Create Session
 
     Timing statistics for a session.
 
-    - `Double ActiveSeconds`
+    - `double ActiveSeconds`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
 
-    - `Double DurationSeconds`
+      format: double
+
+    - `double DurationSeconds`
 
       Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
+
+      format: double
 
   - `required Status Status`
 
     SessionStatus enum
 
-    - `"rescheduling"Rescheduling`
+    - `Rescheduling`
 
-    - `"running"Running`
+    - `Running`
 
-    - `"idle"Idle`
+    - `Idle`
 
-    - `"terminated"Terminated`
+    - `Terminated`
 
   - `required string? Title`
 
   - `required Type Type`
 
-    - `"session"Session`
-
   - `required DateTimeOffset UpdatedAt`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `required BetaManagedAgentsSessionUsage Usage`
 
     Cumulative token usage for a session across all turns.
 
-    - `Double ActiveSeconds`
+    - `double ActiveSeconds`
 
       Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once, unlike `stats.active_seconds`, which sums each thread's own active time. This is the duration the session's runtime cost is priced on.
+
+      format: double
 
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
 
-      - `Int Ephemeral1hInputTokens`
+      - `int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
 
-      - `Int Ephemeral5mInputTokens`
+        format: int32
+
+      - `int Ephemeral5mInputTokens`
 
         Tokens used to create 5-minute ephemeral cache entries.
 
-    - `Int CacheReadInputTokens`
+        format: int32
+
+    - `int CacheReadInputTokens`
 
       Total tokens read from prompt cache.
 
-    - `Int InputTokens`
+      format: int32
+
+    - `int InputTokens`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `BetaMonetaryAmount? ListCost`
 
       A monetary amount in a specific currency.
 
-    - `Int OutputTokens`
+    - `int OutputTokens`
 
       Total output tokens generated across all turns.
+
+      format: int32
 
     - `BetaManagedAgentsServerToolUsage? ServerToolUse`
 
       Cumulative count of server-executed tool invocations, broken down by tool.
 
-      - `Int WebFetchRequests`
+      - `int WebFetchRequests`
 
         Number of server-executed web fetch requests.
 
-      - `Int WebSearchRequests`
+        format: int32
+
+      - `int WebSearchRequests`
 
         Number of server-executed web search requests.
+
+        format: int32
 
   - `required IReadOnlyList<string> VaultIds`
 
@@ -1911,7 +1904,7 @@ Create Session
 
     Deployment ID when the session was created from a deployment reference. Null otherwise.
 
-### Example
+## Example
 
 ```csharp
 SessionCreateParams parameters = new()
@@ -1925,7 +1918,7 @@ var betaManagedAgentsSession = await client.Beta.Sessions.Create(parameters);
 Console.WriteLine(betaManagedAgentsSession);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

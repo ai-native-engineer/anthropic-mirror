@@ -23,7 +23,7 @@ Claude for nonprofits is available on two plans:
 * **Team plan:** $8/user/month
 * **Enterprise plan:** $10/user/month
 
-Both plans include access to Claude Sonnet 4.5 and Haiku 4.5, with a minimum of 2 seats for teams under 150.
+Both plans include access to the same models as our standard Team and Enterprise plans, with a minimum of 2 seats for teams under 150.
 
 To get started, verify your nonprofit status through our partner Goodstack by completing [this short form(opens in new tab)](https://validate.poweredbypercent.com/anthropic). The verification process takes 2–3 minutes for Team plans. For Enterprise pricing, [contact our sales team(opens in new tab)](https://claude.com/contact-sales/nonprofits).
 

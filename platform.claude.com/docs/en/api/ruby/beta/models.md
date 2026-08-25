@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/models -->
 
----
-title: Models
-url: https://platform.claude.com/docs/en/api/ruby/beta/models
----
-
 # Models
 
 ## List Models
 
 `beta.models.list(**kwargs) -> Page<BetaModelInfo>`
 
-**get** `/v1/models`
+**GET** `/v1/models`
 
 List available models.
 
@@ -32,6 +27,8 @@ The Models API response can be used to determine which models are available for 
   Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `1000`.
+
+  maximum: 1000, minimum: 1
 
 - `betas: Array[AnthropicBeta]`
 
@@ -225,6 +222,8 @@ The Models API response can be used to determine which models are available for 
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
 
+    format: date-time
+
   - `display_name: String`
 
     A human-readable name for the model.
@@ -243,8 +242,6 @@ The Models API response can be used to determine which models are available for 
 
     For Models, this is always `"model"`.
 
-    - `:model`
-
 ### Example
 
 ```ruby
@@ -257,7 +254,7 @@ page = anthropic.beta.models.list
 puts(page)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -345,7 +342,7 @@ puts(page)
 
 `beta.models.retrieve(model_id, **kwargs) -> BetaModelInfo`
 
-**get** `/v1/models/{model_id}`
+**GET** `/v1/models/{model_id}`
 
 Get a specific model.
 
@@ -549,6 +546,8 @@ The Models API response can be used to determine information about a specific mo
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
 
+    format: date-time
+
   - `display_name: String`
 
     A human-readable name for the model.
@@ -567,8 +566,6 @@ The Models API response can be used to determine information about a specific mo
 
     For Models, this is always `"model"`.
 
-    - `:model`
-
 ### Example
 
 ```ruby
@@ -581,7 +578,7 @@ beta_model_info = anthropic.beta.models.retrieve("model_id")
 puts(beta_model_info)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -658,7 +655,7 @@ puts(beta_model_info)
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Capability Support
 
@@ -948,6 +945,8 @@ puts(beta_model_info)
 
     RFC 3339 datetime string representing the time at which the model was released. May be set to an epoch value if the release date is unknown.
 
+    format: date-time
+
   - `display_name: String`
 
     A human-readable name for the model.
@@ -965,8 +964,6 @@ puts(beta_model_info)
     Object type.
 
     For Models, this is always `"model"`.
-
-    - `:model`
 
 ### Beta Thinking Capability
 

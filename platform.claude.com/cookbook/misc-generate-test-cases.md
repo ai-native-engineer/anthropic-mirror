@@ -1,6 +1,6 @@
 <!-- source: https://platform.claude.com/cookbook/misc-generate-test-cases -->
 
-#  Generate Synthetic Test Data for Your Prompt Template
+#  Generate Synthetic Test Data for Your Prompt Template
 
 Imagine you have a prompt roughly along these lines:
 
@@ -21,11 +21,7 @@ How can you test this prompt template? Maybe you have some real-life values you 
 2. Prompt Improvement with Multishot Examples
    Giving Claude examples is perhaps the best way to improve its performance. This notebook can help you generate realistic inputs which is half the battle in getting ideal input/output pairs.
 
-
-
 % pip install anthropic IPython
-
-
 
 import re
 
@@ -40,8 +36,6 @@ CLIENT = anthropic.Anthropic(api\_key=api\_key)
 MODEL\_NAME = "claude-sonnet-4-6"
 
 Let's start by defining some helper functions that we'll use throughout this notebook.
-
-
 
 # First, we have the `extract\_variables` function,
 
@@ -151,15 +145,13 @@ output += "\n</variables>\n</example>"
 
 return output
 
-##  Prompt Template for Generating the Data
+##  Prompt Template for Generating the Data
 
 The general idea of these prompt templates is to take a user-submitted prompt template with variables, and construct some values for the variables to fill the template.
 
 There are actually two prompt templates below; one is formatted assuming that the user has already provided example variable values, and one does not assume that.
 
 What they have in common is that both templates start by giving Claude context about the situation, and directing Claude to carefully think through the specs of each variable individually as well as the user-provided prompt template as a whole before outputting the test cases.
-
-
 
 # Formatting Prompt Templates for Synthetic Evaluations
 
@@ -271,8 +263,6 @@ synth\_test\_data\_prompt\_template\_without\_example.replace(
 
 Next, another quick helper function for filling in the appropriate prompt template and calling Claude.
 
-
-
 def get\_test\_data(prompt\_template, examples, custom\_planning=None):
 
 """Generate test data using the Claude API."""
@@ -327,8 +317,6 @@ temperature=1,
 
 return message
 
-
-
 # We'll use this function to sample Claude's response to the filled-in template,
 
 # once we have our example values/test case.
@@ -377,8 +365,6 @@ return message
 
 Now we can start to put the pieces together. To start, enter your prompt template here.
 
-
-
 # Replace this with your prompt template!
 
 # Use double-brackets to indicate variables
@@ -411,8 +397,6 @@ for var in variables:
 
 print(f"- {var}")
 
-
-
 ```
 Identified variables:
 - DOCUMENTS
@@ -420,8 +404,6 @@ Identified variables:
 ```
 
 Next, if you have any "golden examples" of inputs and ideal outputs, you can enter those. The code is commented out for now.
-
-
 
 planning\_text = None
 
@@ -439,13 +421,9 @@ USER\_EXAMPLES = []
 
 Next, we can get the test case generation prompt template filled out with this information, and get a test case!
 
-
-
 result = get\_test\_data(prompt\_template, USER\_EXAMPLES, planning\_text)
 
 Now, let's take a look at both the test case and the planning that Claude used to generate it.
-
-
 
 planning\_match = re.search(r"<planning>(.\*?)</planning>", result, re.DOTALL)
 
@@ -474,8 +452,6 @@ print(f"{var}:\n{value}\n")
 print("~~~~~~~~~~~\nPlanning:\n~~~~~~~~~~~")
 
 print(planning\_text)
-
-
 
 ```
 ~~~~~~~~~~~
@@ -536,8 +512,6 @@ From here, there are a few ways we can go. We could generate more test cases, or
 * Have Claude tell itself to make the documents longer and more detailed.
 * Have Claude tell itself to make the customer support query more or less formal.
 
-
-
 planning\_text = planning\_text.replace(
 
 "each with a question and answer format",
@@ -550,15 +524,11 @@ planning\_text = planning\_text.replace(
 
 Let's reset our examples, but use this planning text as a prefill. (This saves a little bit of sampling time.)
 
-
-
 USER\_EXAMPLES = []
 
 result = get\_test\_data(prompt\_template, USER\_EXAMPLES, planning\_text)
 
 Now let's see the new results.
-
-
 
 # Copied and pasted from a cell above.
 
@@ -589,8 +559,6 @@ print(f"{var}:\n{value}\n")
 print("~~~~~~~~~~~\nPlanning:\n~~~~~~~~~~~")
 
 print(planning\_text)
-
-
 
 ```
 ~~~~~~~~~~~
@@ -651,11 +619,7 @@ Great, it did the numbered Q and A!
 
 Let's make another example. This one will use the example we already have, so hopefully it will be interestingly different.
 
-
-
 result = get\_test\_data(prompt\_template, USER\_EXAMPLES, planning\_text)
-
-
 
 # Copied and pasted from a cell above.
 
@@ -686,8 +650,6 @@ print(f"{var}:\n{value}\n")
 print("~~~~~~~~~~~\nPlanning:\n~~~~~~~~~~~")
 
 print(planning\_text)
-
-
 
 ```
 ~~~~~~~~~~~

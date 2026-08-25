@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/environments/update -->
 
----
-title: Update Environment
-url: https://platform.claude.com/docs/en/api/ruby/beta/environments/update
----
-
-## Update Environment
+# Update Environment
 
 `beta.environments.update(environment_id, **kwargs) -> BetaEnvironment`
 
-**post** `/v1/environments/{environment_id}`
+**POST** `/v1/environments/{environment_id}`
 
 Update an existing environment's configuration.
 
-### Parameters
+## Parameters
 
 - `environment_id: String`
 
@@ -32,8 +27,6 @@ Update an existing environment's configuration.
 
       Environment type
 
-      - `:cloud`
-
     - `networking: BetaUnrestrictedNetwork | BetaLimitedNetworkParams`
 
       Network configuration policy. Omit on update to preserve the existing value.
@@ -46,8 +39,6 @@ Update an existing environment's configuration.
 
           Network policy type
 
-          - `:unrestricted`
-
       - `class BetaLimitedNetworkParams`
 
         Limited network request params.
@@ -58,8 +49,6 @@ Update an existing environment's configuration.
         - `type: :limited`
 
           Network policy type
-
-          - `:limited`
 
         - `allow_mcp_servers: bool`
 
@@ -107,8 +96,6 @@ Update an existing environment's configuration.
 
         Package configuration type
 
-        - `:packages`
-
   - `class BetaSelfHostedConfigParams`
 
     Request params for `self_hosted` environment configuration.
@@ -117,11 +104,11 @@ Update an existing environment's configuration.
 
       Environment type
 
-      - `:self_hosted`
-
 - `description: String`
 
   Updated description of the environment. Omit to preserve; null clears to null; an empty string is stored as an empty string.
+
+  maxLength: 1024
 
 - `metadata: Hash[Symbol, String]`
 
@@ -130,6 +117,8 @@ Update an existing environment's configuration.
 - `name: String`
 
   Updated name for the environment
+
+  maxLength: 256, minLength: 1
 
 - `scope: :organization | :account`
 
@@ -215,7 +204,7 @@ Update an existing environment's configuration.
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+## Returns
 
 - `class BetaEnvironment`
 
@@ -249,8 +238,6 @@ Update an existing environment's configuration.
 
             Network policy type
 
-            - `:unrestricted`
-
         - `class BetaLimitedNetwork`
 
           Limited network access.
@@ -270,8 +257,6 @@ Update an existing environment's configuration.
           - `type: :limited`
 
             Network policy type
-
-            - `:limited`
 
       - `packages: BetaPackages`
 
@@ -305,13 +290,9 @@ Update an existing environment's configuration.
 
           Package configuration type
 
-          - `:packages`
-
       - `type: :cloud`
 
         Environment type
-
-        - `:cloud`
 
     - `class BetaSelfHostedConfig`
 
@@ -320,8 +301,6 @@ Update an existing environment's configuration.
       - `type: :self_hosted`
 
         Environment type
-
-        - `:self_hosted`
 
   - `created_at: String`
 
@@ -343,8 +322,6 @@ Update an existing environment's configuration.
 
     The type of object (always 'environment')
 
-    - `:environment`
-
   - `updated_at: String`
 
     RFC 3339 timestamp when environment was last updated
@@ -357,7 +334,7 @@ Update an existing environment's configuration.
 
     - `:account`
 
-### Example
+## Example
 
 ```ruby
 require "anthropic"
@@ -369,7 +346,7 @@ beta_environment = anthropic.beta.environments.update("env_011CZkZ9X2dpNyB7HsEFo
 puts(beta_environment)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

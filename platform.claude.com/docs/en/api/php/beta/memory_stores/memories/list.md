@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memories/list -->
 
----
-title: List memories
-url: https://platform.claude.com/docs/en/api/php/beta/memory_stores/memories/list
----
-
-## List memories
+# List memories
 
 `$client->beta->memoryStores->memories->list(string memoryStoreID, ?int depth, ?int limit, ?string page, ?string pathPrefix, ?ManagedAgentsMemoryView view, ?list<AnthropicBeta> betas): PageCursor<ManagedAgentsMemoryListItem>`
 
-**get** `/v1/memory_stores/{memory_store_id}/memories`
+**GET** `/v1/memory_stores/{memory_store_id}/memories`
 
 List memories
 
-### Parameters
+## Parameters
 
 - `memoryStoreID: string`
 
@@ -41,7 +36,7 @@ List memories
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `ManagedAgentsMemoryListItem`
 
@@ -93,7 +88,7 @@ List memories
 
     - `Type type`
 
-### Example
+## Example
 
 ```php
 <?php
@@ -115,7 +110,7 @@ $page = $client->beta->memoryStores->memories->list(
 var_dump($page);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

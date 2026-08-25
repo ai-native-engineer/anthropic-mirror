@@ -1,12 +1,10 @@
 <!-- source: https://platform.claude.com/cookbook/managed-agents-slack-data-bot -->
 
-#  Build a Slack data analyst bot with Claude Managed Agents
+#  Build a Slack data analyst bot with Claude Managed Agents
 
-##  Introduction
+##  Introduction
 
 You'll wrap the agent from [`data_analyst_agent.ipynb`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/data_analyst_agent.ipynb) in a Slack bot built with [Bolt for Python(opens in new tab)](https://docs.slack.dev/tools/bolt-python/), Slack's official framework for building apps. Mention the bot with a question and a CSV attachment to get a narrative report posted back to the thread. Follow-up messages continue the same session.
-
-
 
 user: @databot what's driving Q1 revenue? [sales.csv]
 
@@ -28,14 +26,14 @@ bot streams the agent's progress back to the thread
 
 bot posts the finished report to the thread
 
-###  What you'll learn
+###  What you'll learn
 
 * Kick off an agent run from a Slack mention
 * Show the agent's progress as thread updates
 * Post the finished report back to the thread
 * Keep the conversation going with follow-up replies
 
-###  Prerequisites
+###  Prerequisites
 
 1. Run the install cell below.
 2. Create a [Slack app(opens in new tab)](https://api.slack.com/apps): choose **Create New App → From a manifest**, paste [`slack_app_manifest.yaml`(opens in new tab)](https://github.com/anthropics/claude-cookbooks/blob/main/managed_agents/example_data/slack_data_bot/slack_app_manifest.yaml), and install it to your workspace. The manifest enables Socket Mode (Slack delivers events over a WebSocket, so you don't need a public URL) and the required scopes. Then grab two tokens:
@@ -48,13 +46,9 @@ bot posts the finished report to the thread
 
 The setup cell below prompts for your Slack tokens and saves them to `.env` so you don't re-enter them on restart (or add them to `.env` beforehand to skip the prompt). `.env` is already in `.gitignore` – never commit it to version control. If you don't have a Slack workspace handy you can still read through the code – each section explains what it does – but you'll need one to run the bot.
 
-
-
 %%capture
 
 %pip install -q "anthropic>=0.91.0" python-dotenv slack\_bolt requests markdown-to-mrkdwn
-
-
 
 import io
 
@@ -122,13 +116,11 @@ thread\_sessions: dict[str, str] = {}
 
 mrkdwn = SlackMarkdownConverter()
 
-##  1. Start a session when the bot is mentioned
+##  1. Start a session when the bot is mentioned
 
 Bolt passes an `ack` callback into every handler; calling it tells Slack the event was received. Slack retries anything not acknowledged [within three seconds(opens in new tab)](https://docs.slack.dev/apis/events-api/#responding), so `on_mention` calls `ack()` immediately and hands the slow work (file upload, session creation, streaming) to `start_analysis` on a background thread.
 
 Each mention creates a session you can open in the [Console(opens in new tab)](https://platform.claude.com/) under **Sessions** to watch the full trace.
-
-
 
 @app.event("app\_mention")
 
@@ -238,13 +230,11 @@ channel=channel, thread\_ts=thread\_ts, text=f"Analysis failed: {type(e).\_\_nam
 
 )
 
-##  2. Relay progress and results to the thread
+##  2. Relay progress and results to the thread
 
 The `relay_stream` function defined below is the bridge between the two APIs: it reads from the Anthropic session event stream and posts to Slack. It loops until the agent goes idle, then posts the final summary and uploads any files the agent wrote.
 
 `files.list(scope_id=...)` returns every file in the session – both the CSV we uploaded and anything the agent wrote. We filter to `downloadable == True` so only agent-generated outputs (the report, charts) get posted back to Slack, not the user's own input.
-
-
 
 def relay\_stream(session\_id: str, channel: str, thread\_ts: str) -> None:
 
@@ -328,11 +318,9 @@ channel=channel, thread\_ts=thread\_ts, filename=f.filename, content=content
 
 )
 
-##  3. Handle follow-ups in the same session
+##  3. Handle follow-ups in the same session
 
 A reply in the thread becomes another turn in the existing session – you don't need to `@mention` the bot again. The container filesystem and conversation history persist across turns.
-
-
 
 def continue\_session(session\_id: str, channel: str, thread\_ts: str, text: str) -> None:
 
@@ -384,7 +372,7 @@ args=(thread\_sessions[thread\_ts], event["channel"], thread\_ts, event["text"])
 
 ).start()
 
-##  4. Run the bot
+##  4. Run the bot
 
 The cell below connects to Slack and starts listening. It blocks while the bot runs – stop it with the ■ interrupt button when you're done.
 
@@ -394,11 +382,9 @@ In any channel the bot is in, mention it with a CSV attached. It posts progress,
 
 Reply in-thread to go deeper on the same data.
 
-
-
 SocketModeHandler(app, os.environ["SLACK\_APP\_TOKEN"]).start()
 
-##  Next steps
+##  Next steps
 
 You've wrapped the analyst agent in a Slack bot: mentions start a session, the event stream relays progress to the thread, outputs get uploaded, and replies continue the same conversation.
 

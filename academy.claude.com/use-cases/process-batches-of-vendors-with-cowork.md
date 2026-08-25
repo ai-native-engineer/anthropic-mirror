@@ -46,7 +46,7 @@ To get started:
 
 * Download [Claude Desktop(opens in new tab)](https://claude.com/download) and start a Cowork session
 * Select ***Work in a folder*** in the chat bar and choose the folder with your vendor tracker, contract templates, and vendor details
-* [Install Claude in Chrome(opens in new tab)](https://claude.com/chrome) and add it as a connector, then log into your procurement portal
+* [Install Claude in Chrome(opens in new tab)](https://claude.com/chrome) and turn on the Claude in Chrome connector (Settings > Connectors), then log into your procurement portal
 
 ## 3. What Claude creates
 
@@ -100,9 +100,9 @@ Open in Cowork
 
 Updating the vendor tracker and generating the contract don't depend on each other — so you can ask Claude to spin up subagents and run them in parallel.
 
-### Add Claude for Chrome as a connector before starting
+### Turn on the Claude in Chrome connector before starting
 
-Install Claude in Chrome and add it as a connector in your Cowork session. Log into your procurement portal before you start — Claude works within your authenticated session.
+Install Claude in Chrome and enable it under Settings > Connectors, then select it from the Connectors menu in your Cowork session. Log into your procurement portal before you start — Claude works within your authenticated session.
 
 ### The progress panel shows what Claude is working on
 

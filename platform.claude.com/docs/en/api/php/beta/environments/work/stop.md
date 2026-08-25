@@ -1,21 +1,16 @@
 <!-- source: https://platform.claude.com/docs/en/api/php/beta/environments/work/stop -->
 
----
-title: Stop Work
-url: https://platform.claude.com/docs/en/api/php/beta/environments/work/stop
----
-
-## Stop Work
+# Stop Work
 
 `$client->beta->environments->work->stop(string workID, string environmentID, ?bool force, ?list<AnthropicBeta> betas): SelfHostedWork`
 
-**post** `/v1/environments/{environment_id}/work/{work_id}/stop`
+**POST** `/v1/environments/{environment_id}/work/{work_id}/stop`
 
 Note: these endpoints are called automatically by the pre-built environment worker provided in the SDKs and CLI, for orchestrating sessions with self-hosted sandbox environments. They are included here as a reference; you do not need to invoke them directly.
 
 Stop a work item, initiating graceful or forced shutdown.
 
-### Parameters
+## Parameters
 
 - `environmentID: string`
 
@@ -25,11 +20,13 @@ Stop a work item, initiating graceful or forced shutdown.
 
   If true, immediately stop work without graceful shutdown
 
+  default: false
+
 - `betas?:optional list<AnthropicBeta>`
 
   Optional header to specify the beta version(s) you want to use.
 
-### Returns
+## Returns
 
 - `SelfHostedWork`
 
@@ -85,7 +82,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
     The type of object (always 'work')
 
-### Example
+## Example
 
 ```php
 <?php
@@ -104,7 +101,7 @@ $betaSelfHostedWork = $client->beta->environments->work->stop(
 var_dump($betaSelfHostedWork);
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

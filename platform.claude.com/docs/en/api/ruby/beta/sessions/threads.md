@@ -1,17 +1,12 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/sessions/threads -->
 
----
-title: Threads
-url: https://platform.claude.com/docs/en/api/ruby/beta/sessions/threads
----
-
 # Threads
 
 ## List Session Threads
 
 `beta.sessions.threads.list(session_id, **kwargs) -> PageCursor<BetaManagedAgentsSessionThread>`
 
-**get** `/v1/sessions/{session_id}/threads`
+**GET** `/v1/sessions/{session_id}/threads`
 
 List Session Threads
 
@@ -22,6 +17,8 @@ List Session Threads
 - `limit: Integer`
 
   Maximum results per page. Defaults to 1000.
+
+  format: int32
 
 - `page: String`
 
@@ -131,8 +128,6 @@ List Session Threads
 
         - `type: :url`
 
-          - `:url`
-
         - `url: String`
 
       - `model: BetaManagedAgentsModelConfig`
@@ -215,15 +210,11 @@ List Session Threads
 
             - `type: :low`
 
-              - `:low`
-
           - `class BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: :medium`
-
-              - `:medium`
 
           - `class BetaManagedAgentsEffortHigh`
 
@@ -231,23 +222,17 @@ List Session Threads
 
             - `type: :high`
 
-              - `:high`
-
           - `class BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: :xhigh`
 
-              - `:xhigh`
-
           - `class BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: :max`
-
-              - `:max`
 
         - `inference_geo: String`
 
@@ -273,8 +258,6 @@ List Session Threads
 
           - `type: :anthropic`
 
-            - `:anthropic`
-
           - `version: String`
 
         - `class BetaManagedAgentsCustomSkill`
@@ -284,8 +267,6 @@ List Session Threads
           - `skill_id: String`
 
           - `type: :custom`
-
-            - `:custom`
 
           - `version: String`
 
@@ -305,8 +286,6 @@ List Session Threads
 
               - `name: :bash`
 
-                - `:bash`
-
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
@@ -317,19 +296,13 @@ List Session Threads
 
                   - `type: :always_allow`
 
-                    - `:always_allow`
-
                 - `class BetaManagedAgentsAlwaysAskPolicy`
 
                   Tool calls require user confirmation before execution.
 
                   - `type: :always_ask`
 
-                    - `:always_ask`
-
               - `type: :bash`
-
-                - `:bash`
 
             - `class BetaManagedAgentsEditToolConfig`
 
@@ -338,8 +311,6 @@ List Session Threads
               - `enabled: bool`
 
               - `name: :edit`
-
-                - `:edit`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -355,8 +326,6 @@ List Session Threads
 
               - `type: :edit`
 
-                - `:edit`
-
             - `class BetaManagedAgentsReadToolConfig`
 
               Configuration for the read tool.
@@ -364,8 +333,6 @@ List Session Threads
               - `enabled: bool`
 
               - `name: :read`
-
-                - `:read`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -381,8 +348,6 @@ List Session Threads
 
               - `type: :read`
 
-                - `:read`
-
             - `class BetaManagedAgentsWriteToolConfig`
 
               Configuration for the write tool.
@@ -390,8 +355,6 @@ List Session Threads
               - `enabled: bool`
 
               - `name: :write`
-
-                - `:write`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -407,8 +370,6 @@ List Session Threads
 
               - `type: :write`
 
-                - `:write`
-
             - `class BetaManagedAgentsGlobToolConfig`
 
               Configuration for the glob tool.
@@ -416,8 +377,6 @@ List Session Threads
               - `enabled: bool`
 
               - `name: :glob`
-
-                - `:glob`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -433,8 +392,6 @@ List Session Threads
 
               - `type: :glob`
 
-                - `:glob`
-
             - `class BetaManagedAgentsGrepToolConfig`
 
               Configuration for the grep tool.
@@ -442,8 +399,6 @@ List Session Threads
               - `enabled: bool`
 
               - `name: :grep`
-
-                - `:grep`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -459,8 +414,6 @@ List Session Threads
 
               - `type: :grep`
 
-                - `:grep`
-
             - `class BetaManagedAgentsWebFetchToolConfig`
 
               Configuration for the web_fetch tool.
@@ -468,8 +421,6 @@ List Session Threads
               - `enabled: bool`
 
               - `name: :web_fetch`
-
-                - `:web_fetch`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -485,13 +436,13 @@ List Session Threads
 
               - `type: :web_fetch`
 
-                - `:web_fetch`
-
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
 
               - `max_content_tokens: Integer`
+
+                format: int32
 
             - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -500,8 +451,6 @@ List Session Threads
               - `enabled: bool`
 
               - `name: :web_search`
-
-                - `:web_search`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -517,8 +466,6 @@ List Session Threads
 
               - `type: :web_search`
 
-                - `:web_search`
-
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
@@ -531,11 +478,11 @@ List Session Threads
 
                   Location precision. Only "approximate" is supported.
 
-                  - `:approximate`
-
                 - `city: String`
 
                   City name.
+
+                  minLength: 1, maxLength: 255
 
                 - `country: String`
 
@@ -545,9 +492,13 @@ List Session Threads
 
                   Region or state name.
 
+                  minLength: 1, maxLength: 255
+
                 - `timezone: String`
 
                   IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                  minLength: 1, maxLength: 255
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -568,8 +519,6 @@ List Session Threads
                 Tool calls require user confirmation before execution.
 
           - `type: :agent_toolset_20260401`
-
-            - `:agent_toolset_20260401`
 
         - `class BetaManagedAgentsMCPToolset`
 
@@ -613,8 +562,6 @@ List Session Threads
 
           - `type: :mcp_toolset`
 
-            - `:mcp_toolset`
-
         - `class BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
@@ -627,8 +574,6 @@ List Session Threads
 
             - `type: :object`
 
-              - `:object`
-
             - `properties: Hash[Symbol, untyped]`
 
             - `required: Array[String]`
@@ -637,13 +582,11 @@ List Session Threads
 
           - `type: :custom`
 
-            - `:custom`
-
       - `type: :agent`
 
-        - `:agent`
-
       - `version: Integer`
+
+        format: int32
 
     - `class BetaManagedAgentsAdvisor`
 
@@ -655,15 +598,17 @@ List Session Threads
 
       - `type: :advisor`
 
-        - `:advisor`
-
   - `archived_at: Time`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `parent_thread_id: String`
 
@@ -681,13 +626,19 @@ List Session Threads
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
 
+      format: double
+
     - `duration_seconds: Float`
 
       Elapsed time since thread creation in seconds. For archived threads, frozen at the final update.
 
+      format: double
+
     - `startup_seconds: Float`
 
       Time in seconds for the thread to begin running. Zero for child threads, which start immediately.
+
+      format: double
 
   - `status: BetaManagedAgentsSessionThreadStatus`
 
@@ -703,11 +654,11 @@ List Session Threads
 
   - `type: :session_thread`
 
-    - `:session_thread`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
@@ -717,6 +668,8 @@ List Session Threads
 
       Cumulative time in seconds this thread spent in running status. Equal to `stats.active_seconds`; surfaced here so a thread's usage carries every quantity its cost is priced on.
 
+      format: double
+
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -725,17 +678,25 @@ List Session Threads
 
         Tokens used to create 1-hour ephemeral cache entries.
 
+        format: int32
+
       - `ephemeral_5m_input_tokens: Integer`
 
         Tokens used to create 5-minute ephemeral cache entries.
+
+        format: int32
 
     - `cache_read_input_tokens: Integer`
 
       Total tokens read from prompt cache.
 
+      format: int32
+
     - `input_tokens: Integer`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `list_cost: BetaMonetaryAmount`
 
@@ -749,11 +710,11 @@ List Session Threads
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `:USD`
-
     - `output_tokens: Integer`
 
       Total output tokens generated across all turns.
+
+      format: int32
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
@@ -763,9 +724,13 @@ List Session Threads
 
         Number of server-executed web fetch requests.
 
+        format: int32
+
       - `web_search_requests: Integer`
 
         Number of server-executed web search requests.
+
+        format: int32
 
 ### Example
 
@@ -779,7 +744,7 @@ page = anthropic.beta.sessions.threads.list("sesn_011CZkZAtmR3yMPDzynEDxu7")
 puts(page)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -877,7 +842,7 @@ puts(page)
 
 `beta.sessions.threads.retrieve(thread_id, **kwargs) -> BetaManagedAgentsSessionThread`
 
-**get** `/v1/sessions/{session_id}/threads/{thread_id}`
+**GET** `/v1/sessions/{session_id}/threads/{thread_id}`
 
 Get Session Thread
 
@@ -991,8 +956,6 @@ Get Session Thread
 
         - `type: :url`
 
-          - `:url`
-
         - `url: String`
 
       - `model: BetaManagedAgentsModelConfig`
@@ -1075,15 +1038,11 @@ Get Session Thread
 
             - `type: :low`
 
-              - `:low`
-
           - `class BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: :medium`
-
-              - `:medium`
 
           - `class BetaManagedAgentsEffortHigh`
 
@@ -1091,23 +1050,17 @@ Get Session Thread
 
             - `type: :high`
 
-              - `:high`
-
           - `class BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: :xhigh`
 
-              - `:xhigh`
-
           - `class BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: :max`
-
-              - `:max`
 
         - `inference_geo: String`
 
@@ -1133,8 +1086,6 @@ Get Session Thread
 
           - `type: :anthropic`
 
-            - `:anthropic`
-
           - `version: String`
 
         - `class BetaManagedAgentsCustomSkill`
@@ -1144,8 +1095,6 @@ Get Session Thread
           - `skill_id: String`
 
           - `type: :custom`
-
-            - `:custom`
 
           - `version: String`
 
@@ -1165,8 +1114,6 @@ Get Session Thread
 
               - `name: :bash`
 
-                - `:bash`
-
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
@@ -1177,19 +1124,13 @@ Get Session Thread
 
                   - `type: :always_allow`
 
-                    - `:always_allow`
-
                 - `class BetaManagedAgentsAlwaysAskPolicy`
 
                   Tool calls require user confirmation before execution.
 
                   - `type: :always_ask`
 
-                    - `:always_ask`
-
               - `type: :bash`
-
-                - `:bash`
 
             - `class BetaManagedAgentsEditToolConfig`
 
@@ -1198,8 +1139,6 @@ Get Session Thread
               - `enabled: bool`
 
               - `name: :edit`
-
-                - `:edit`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1215,8 +1154,6 @@ Get Session Thread
 
               - `type: :edit`
 
-                - `:edit`
-
             - `class BetaManagedAgentsReadToolConfig`
 
               Configuration for the read tool.
@@ -1224,8 +1161,6 @@ Get Session Thread
               - `enabled: bool`
 
               - `name: :read`
-
-                - `:read`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1241,8 +1176,6 @@ Get Session Thread
 
               - `type: :read`
 
-                - `:read`
-
             - `class BetaManagedAgentsWriteToolConfig`
 
               Configuration for the write tool.
@@ -1250,8 +1183,6 @@ Get Session Thread
               - `enabled: bool`
 
               - `name: :write`
-
-                - `:write`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1267,8 +1198,6 @@ Get Session Thread
 
               - `type: :write`
 
-                - `:write`
-
             - `class BetaManagedAgentsGlobToolConfig`
 
               Configuration for the glob tool.
@@ -1276,8 +1205,6 @@ Get Session Thread
               - `enabled: bool`
 
               - `name: :glob`
-
-                - `:glob`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1293,8 +1220,6 @@ Get Session Thread
 
               - `type: :glob`
 
-                - `:glob`
-
             - `class BetaManagedAgentsGrepToolConfig`
 
               Configuration for the grep tool.
@@ -1302,8 +1227,6 @@ Get Session Thread
               - `enabled: bool`
 
               - `name: :grep`
-
-                - `:grep`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1319,8 +1242,6 @@ Get Session Thread
 
               - `type: :grep`
 
-                - `:grep`
-
             - `class BetaManagedAgentsWebFetchToolConfig`
 
               Configuration for the web_fetch tool.
@@ -1328,8 +1249,6 @@ Get Session Thread
               - `enabled: bool`
 
               - `name: :web_fetch`
-
-                - `:web_fetch`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1345,13 +1264,13 @@ Get Session Thread
 
               - `type: :web_fetch`
 
-                - `:web_fetch`
-
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
 
               - `max_content_tokens: Integer`
+
+                format: int32
 
             - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -1360,8 +1279,6 @@ Get Session Thread
               - `enabled: bool`
 
               - `name: :web_search`
-
-                - `:web_search`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -1377,8 +1294,6 @@ Get Session Thread
 
               - `type: :web_search`
 
-                - `:web_search`
-
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
@@ -1391,11 +1306,11 @@ Get Session Thread
 
                   Location precision. Only "approximate" is supported.
 
-                  - `:approximate`
-
                 - `city: String`
 
                   City name.
+
+                  minLength: 1, maxLength: 255
 
                 - `country: String`
 
@@ -1405,9 +1320,13 @@ Get Session Thread
 
                   Region or state name.
 
+                  minLength: 1, maxLength: 255
+
                 - `timezone: String`
 
                   IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                  minLength: 1, maxLength: 255
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -1428,8 +1347,6 @@ Get Session Thread
                 Tool calls require user confirmation before execution.
 
           - `type: :agent_toolset_20260401`
-
-            - `:agent_toolset_20260401`
 
         - `class BetaManagedAgentsMCPToolset`
 
@@ -1473,8 +1390,6 @@ Get Session Thread
 
           - `type: :mcp_toolset`
 
-            - `:mcp_toolset`
-
         - `class BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
@@ -1487,8 +1402,6 @@ Get Session Thread
 
             - `type: :object`
 
-              - `:object`
-
             - `properties: Hash[Symbol, untyped]`
 
             - `required: Array[String]`
@@ -1497,13 +1410,11 @@ Get Session Thread
 
           - `type: :custom`
 
-            - `:custom`
-
       - `type: :agent`
 
-        - `:agent`
-
       - `version: Integer`
+
+        format: int32
 
     - `class BetaManagedAgentsAdvisor`
 
@@ -1515,15 +1426,17 @@ Get Session Thread
 
       - `type: :advisor`
 
-        - `:advisor`
-
   - `archived_at: Time`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `parent_thread_id: String`
 
@@ -1541,13 +1454,19 @@ Get Session Thread
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
 
+      format: double
+
     - `duration_seconds: Float`
 
       Elapsed time since thread creation in seconds. For archived threads, frozen at the final update.
 
+      format: double
+
     - `startup_seconds: Float`
 
       Time in seconds for the thread to begin running. Zero for child threads, which start immediately.
+
+      format: double
 
   - `status: BetaManagedAgentsSessionThreadStatus`
 
@@ -1563,11 +1482,11 @@ Get Session Thread
 
   - `type: :session_thread`
 
-    - `:session_thread`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
@@ -1577,6 +1496,8 @@ Get Session Thread
 
       Cumulative time in seconds this thread spent in running status. Equal to `stats.active_seconds`; surfaced here so a thread's usage carries every quantity its cost is priced on.
 
+      format: double
+
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -1585,17 +1506,25 @@ Get Session Thread
 
         Tokens used to create 1-hour ephemeral cache entries.
 
+        format: int32
+
       - `ephemeral_5m_input_tokens: Integer`
 
         Tokens used to create 5-minute ephemeral cache entries.
+
+        format: int32
 
     - `cache_read_input_tokens: Integer`
 
       Total tokens read from prompt cache.
 
+      format: int32
+
     - `input_tokens: Integer`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `list_cost: BetaMonetaryAmount`
 
@@ -1609,11 +1538,11 @@ Get Session Thread
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `:USD`
-
     - `output_tokens: Integer`
 
       Total output tokens generated across all turns.
+
+      format: int32
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
@@ -1623,9 +1552,13 @@ Get Session Thread
 
         Number of server-executed web fetch requests.
 
+        format: int32
+
       - `web_search_requests: Integer`
 
         Number of server-executed web search requests.
+
+        format: int32
 
 ### Example
 
@@ -1642,7 +1575,7 @@ beta_managed_agents_session_thread = anthropic.beta.sessions.threads.retrieve(
 puts(beta_managed_agents_session_thread)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -1735,7 +1668,7 @@ puts(beta_managed_agents_session_thread)
 
 `beta.sessions.threads.archive(thread_id, **kwargs) -> BetaManagedAgentsSessionThread`
 
-**post** `/v1/sessions/{session_id}/threads/{thread_id}/archive`
+**POST** `/v1/sessions/{session_id}/threads/{thread_id}/archive`
 
 Archive Session Thread
 
@@ -1849,8 +1782,6 @@ Archive Session Thread
 
         - `type: :url`
 
-          - `:url`
-
         - `url: String`
 
       - `model: BetaManagedAgentsModelConfig`
@@ -1933,15 +1864,11 @@ Archive Session Thread
 
             - `type: :low`
 
-              - `:low`
-
           - `class BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: :medium`
-
-              - `:medium`
 
           - `class BetaManagedAgentsEffortHigh`
 
@@ -1949,23 +1876,17 @@ Archive Session Thread
 
             - `type: :high`
 
-              - `:high`
-
           - `class BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: :xhigh`
 
-              - `:xhigh`
-
           - `class BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: :max`
-
-              - `:max`
 
         - `inference_geo: String`
 
@@ -1991,8 +1912,6 @@ Archive Session Thread
 
           - `type: :anthropic`
 
-            - `:anthropic`
-
           - `version: String`
 
         - `class BetaManagedAgentsCustomSkill`
@@ -2002,8 +1921,6 @@ Archive Session Thread
           - `skill_id: String`
 
           - `type: :custom`
-
-            - `:custom`
 
           - `version: String`
 
@@ -2023,8 +1940,6 @@ Archive Session Thread
 
               - `name: :bash`
 
-                - `:bash`
-
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
@@ -2035,19 +1950,13 @@ Archive Session Thread
 
                   - `type: :always_allow`
 
-                    - `:always_allow`
-
                 - `class BetaManagedAgentsAlwaysAskPolicy`
 
                   Tool calls require user confirmation before execution.
 
                   - `type: :always_ask`
 
-                    - `:always_ask`
-
               - `type: :bash`
-
-                - `:bash`
 
             - `class BetaManagedAgentsEditToolConfig`
 
@@ -2056,8 +1965,6 @@ Archive Session Thread
               - `enabled: bool`
 
               - `name: :edit`
-
-                - `:edit`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2073,8 +1980,6 @@ Archive Session Thread
 
               - `type: :edit`
 
-                - `:edit`
-
             - `class BetaManagedAgentsReadToolConfig`
 
               Configuration for the read tool.
@@ -2082,8 +1987,6 @@ Archive Session Thread
               - `enabled: bool`
 
               - `name: :read`
-
-                - `:read`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2099,8 +2002,6 @@ Archive Session Thread
 
               - `type: :read`
 
-                - `:read`
-
             - `class BetaManagedAgentsWriteToolConfig`
 
               Configuration for the write tool.
@@ -2108,8 +2009,6 @@ Archive Session Thread
               - `enabled: bool`
 
               - `name: :write`
-
-                - `:write`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2125,8 +2024,6 @@ Archive Session Thread
 
               - `type: :write`
 
-                - `:write`
-
             - `class BetaManagedAgentsGlobToolConfig`
 
               Configuration for the glob tool.
@@ -2134,8 +2031,6 @@ Archive Session Thread
               - `enabled: bool`
 
               - `name: :glob`
-
-                - `:glob`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2151,8 +2046,6 @@ Archive Session Thread
 
               - `type: :glob`
 
-                - `:glob`
-
             - `class BetaManagedAgentsGrepToolConfig`
 
               Configuration for the grep tool.
@@ -2160,8 +2053,6 @@ Archive Session Thread
               - `enabled: bool`
 
               - `name: :grep`
-
-                - `:grep`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2177,8 +2068,6 @@ Archive Session Thread
 
               - `type: :grep`
 
-                - `:grep`
-
             - `class BetaManagedAgentsWebFetchToolConfig`
 
               Configuration for the web_fetch tool.
@@ -2186,8 +2075,6 @@ Archive Session Thread
               - `enabled: bool`
 
               - `name: :web_fetch`
-
-                - `:web_fetch`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2203,13 +2090,13 @@ Archive Session Thread
 
               - `type: :web_fetch`
 
-                - `:web_fetch`
-
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
 
               - `max_content_tokens: Integer`
+
+                format: int32
 
             - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -2218,8 +2105,6 @@ Archive Session Thread
               - `enabled: bool`
 
               - `name: :web_search`
-
-                - `:web_search`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2235,8 +2120,6 @@ Archive Session Thread
 
               - `type: :web_search`
 
-                - `:web_search`
-
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
@@ -2249,11 +2132,11 @@ Archive Session Thread
 
                   Location precision. Only "approximate" is supported.
 
-                  - `:approximate`
-
                 - `city: String`
 
                   City name.
+
+                  minLength: 1, maxLength: 255
 
                 - `country: String`
 
@@ -2263,9 +2146,13 @@ Archive Session Thread
 
                   Region or state name.
 
+                  minLength: 1, maxLength: 255
+
                 - `timezone: String`
 
                   IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                  minLength: 1, maxLength: 255
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -2286,8 +2173,6 @@ Archive Session Thread
                 Tool calls require user confirmation before execution.
 
           - `type: :agent_toolset_20260401`
-
-            - `:agent_toolset_20260401`
 
         - `class BetaManagedAgentsMCPToolset`
 
@@ -2331,8 +2216,6 @@ Archive Session Thread
 
           - `type: :mcp_toolset`
 
-            - `:mcp_toolset`
-
         - `class BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
@@ -2345,8 +2228,6 @@ Archive Session Thread
 
             - `type: :object`
 
-              - `:object`
-
             - `properties: Hash[Symbol, untyped]`
 
             - `required: Array[String]`
@@ -2355,13 +2236,11 @@ Archive Session Thread
 
           - `type: :custom`
 
-            - `:custom`
-
       - `type: :agent`
 
-        - `:agent`
-
       - `version: Integer`
+
+        format: int32
 
     - `class BetaManagedAgentsAdvisor`
 
@@ -2373,15 +2252,17 @@ Archive Session Thread
 
       - `type: :advisor`
 
-        - `:advisor`
-
   - `archived_at: Time`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `parent_thread_id: String`
 
@@ -2399,13 +2280,19 @@ Archive Session Thread
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
 
+      format: double
+
     - `duration_seconds: Float`
 
       Elapsed time since thread creation in seconds. For archived threads, frozen at the final update.
 
+      format: double
+
     - `startup_seconds: Float`
 
       Time in seconds for the thread to begin running. Zero for child threads, which start immediately.
+
+      format: double
 
   - `status: BetaManagedAgentsSessionThreadStatus`
 
@@ -2421,11 +2308,11 @@ Archive Session Thread
 
   - `type: :session_thread`
 
-    - `:session_thread`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
@@ -2435,6 +2322,8 @@ Archive Session Thread
 
       Cumulative time in seconds this thread spent in running status. Equal to `stats.active_seconds`; surfaced here so a thread's usage carries every quantity its cost is priced on.
 
+      format: double
+
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -2443,17 +2332,25 @@ Archive Session Thread
 
         Tokens used to create 1-hour ephemeral cache entries.
 
+        format: int32
+
       - `ephemeral_5m_input_tokens: Integer`
 
         Tokens used to create 5-minute ephemeral cache entries.
+
+        format: int32
 
     - `cache_read_input_tokens: Integer`
 
       Total tokens read from prompt cache.
 
+      format: int32
+
     - `input_tokens: Integer`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `list_cost: BetaMonetaryAmount`
 
@@ -2467,11 +2364,11 @@ Archive Session Thread
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `:USD`
-
     - `output_tokens: Integer`
 
       Total output tokens generated across all turns.
+
+      format: int32
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
@@ -2481,9 +2378,13 @@ Archive Session Thread
 
         Number of server-executed web fetch requests.
 
+        format: int32
+
       - `web_search_requests: Integer`
 
         Number of server-executed web search requests.
+
+        format: int32
 
 ### Example
 
@@ -2500,7 +2401,7 @@ beta_managed_agents_session_thread = anthropic.beta.sessions.threads.archive(
 puts(beta_managed_agents_session_thread)
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -2589,7 +2490,7 @@ puts(beta_managed_agents_session_thread)
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Beta Managed Agents Session Thread
 
@@ -2618,8 +2519,6 @@ puts(beta_managed_agents_session_thread)
         - `name: String`
 
         - `type: :url`
-
-          - `:url`
 
         - `url: String`
 
@@ -2703,15 +2602,11 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :low`
 
-              - `:low`
-
           - `class BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: :medium`
-
-              - `:medium`
 
           - `class BetaManagedAgentsEffortHigh`
 
@@ -2719,23 +2614,17 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :high`
 
-              - `:high`
-
           - `class BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: :xhigh`
 
-              - `:xhigh`
-
           - `class BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: :max`
-
-              - `:max`
 
         - `inference_geo: String`
 
@@ -2761,8 +2650,6 @@ puts(beta_managed_agents_session_thread)
 
           - `type: :anthropic`
 
-            - `:anthropic`
-
           - `version: String`
 
         - `class BetaManagedAgentsCustomSkill`
@@ -2772,8 +2659,6 @@ puts(beta_managed_agents_session_thread)
           - `skill_id: String`
 
           - `type: :custom`
-
-            - `:custom`
 
           - `version: String`
 
@@ -2793,8 +2678,6 @@ puts(beta_managed_agents_session_thread)
 
               - `name: :bash`
 
-                - `:bash`
-
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                 Permission policy for tool execution.
@@ -2805,19 +2688,13 @@ puts(beta_managed_agents_session_thread)
 
                   - `type: :always_allow`
 
-                    - `:always_allow`
-
                 - `class BetaManagedAgentsAlwaysAskPolicy`
 
                   Tool calls require user confirmation before execution.
 
                   - `type: :always_ask`
 
-                    - `:always_ask`
-
               - `type: :bash`
-
-                - `:bash`
 
             - `class BetaManagedAgentsEditToolConfig`
 
@@ -2826,8 +2703,6 @@ puts(beta_managed_agents_session_thread)
               - `enabled: bool`
 
               - `name: :edit`
-
-                - `:edit`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2843,8 +2718,6 @@ puts(beta_managed_agents_session_thread)
 
               - `type: :edit`
 
-                - `:edit`
-
             - `class BetaManagedAgentsReadToolConfig`
 
               Configuration for the read tool.
@@ -2852,8 +2725,6 @@ puts(beta_managed_agents_session_thread)
               - `enabled: bool`
 
               - `name: :read`
-
-                - `:read`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2869,8 +2740,6 @@ puts(beta_managed_agents_session_thread)
 
               - `type: :read`
 
-                - `:read`
-
             - `class BetaManagedAgentsWriteToolConfig`
 
               Configuration for the write tool.
@@ -2878,8 +2747,6 @@ puts(beta_managed_agents_session_thread)
               - `enabled: bool`
 
               - `name: :write`
-
-                - `:write`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2895,8 +2762,6 @@ puts(beta_managed_agents_session_thread)
 
               - `type: :write`
 
-                - `:write`
-
             - `class BetaManagedAgentsGlobToolConfig`
 
               Configuration for the glob tool.
@@ -2904,8 +2769,6 @@ puts(beta_managed_agents_session_thread)
               - `enabled: bool`
 
               - `name: :glob`
-
-                - `:glob`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2921,8 +2784,6 @@ puts(beta_managed_agents_session_thread)
 
               - `type: :glob`
 
-                - `:glob`
-
             - `class BetaManagedAgentsGrepToolConfig`
 
               Configuration for the grep tool.
@@ -2930,8 +2791,6 @@ puts(beta_managed_agents_session_thread)
               - `enabled: bool`
 
               - `name: :grep`
-
-                - `:grep`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2947,8 +2806,6 @@ puts(beta_managed_agents_session_thread)
 
               - `type: :grep`
 
-                - `:grep`
-
             - `class BetaManagedAgentsWebFetchToolConfig`
 
               Configuration for the web_fetch tool.
@@ -2956,8 +2813,6 @@ puts(beta_managed_agents_session_thread)
               - `enabled: bool`
 
               - `name: :web_fetch`
-
-                - `:web_fetch`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -2973,13 +2828,13 @@ puts(beta_managed_agents_session_thread)
 
               - `type: :web_fetch`
 
-                - `:web_fetch`
-
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
 
               - `max_content_tokens: Integer`
+
+                format: int32
 
             - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -2988,8 +2843,6 @@ puts(beta_managed_agents_session_thread)
               - `enabled: bool`
 
               - `name: :web_search`
-
-                - `:web_search`
 
               - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -3005,8 +2858,6 @@ puts(beta_managed_agents_session_thread)
 
               - `type: :web_search`
 
-                - `:web_search`
-
               - `allowed_domains: Array[String]`
 
               - `blocked_domains: Array[String]`
@@ -3019,11 +2870,11 @@ puts(beta_managed_agents_session_thread)
 
                   Location precision. Only "approximate" is supported.
 
-                  - `:approximate`
-
                 - `city: String`
 
                   City name.
+
+                  minLength: 1, maxLength: 255
 
                 - `country: String`
 
@@ -3033,9 +2884,13 @@ puts(beta_managed_agents_session_thread)
 
                   Region or state name.
 
+                  minLength: 1, maxLength: 255
+
                 - `timezone: String`
 
                   IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                  minLength: 1, maxLength: 255
 
           - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -3056,8 +2911,6 @@ puts(beta_managed_agents_session_thread)
                 Tool calls require user confirmation before execution.
 
           - `type: :agent_toolset_20260401`
-
-            - `:agent_toolset_20260401`
 
         - `class BetaManagedAgentsMCPToolset`
 
@@ -3101,8 +2954,6 @@ puts(beta_managed_agents_session_thread)
 
           - `type: :mcp_toolset`
 
-            - `:mcp_toolset`
-
         - `class BetaManagedAgentsCustomTool`
 
           A custom tool as returned in API responses.
@@ -3115,8 +2966,6 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :object`
 
-              - `:object`
-
             - `properties: Hash[Symbol, untyped]`
 
             - `required: Array[String]`
@@ -3125,13 +2974,11 @@ puts(beta_managed_agents_session_thread)
 
           - `type: :custom`
 
-            - `:custom`
-
       - `type: :agent`
 
-        - `:agent`
-
       - `version: Integer`
+
+        format: int32
 
     - `class BetaManagedAgentsAdvisor`
 
@@ -3143,15 +2990,17 @@ puts(beta_managed_agents_session_thread)
 
       - `type: :advisor`
 
-        - `:advisor`
-
   - `archived_at: Time`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `parent_thread_id: String`
 
@@ -3169,13 +3018,19 @@ puts(beta_managed_agents_session_thread)
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
 
+      format: double
+
     - `duration_seconds: Float`
 
       Elapsed time since thread creation in seconds. For archived threads, frozen at the final update.
 
+      format: double
+
     - `startup_seconds: Float`
 
       Time in seconds for the thread to begin running. Zero for child threads, which start immediately.
+
+      format: double
 
   - `status: BetaManagedAgentsSessionThreadStatus`
 
@@ -3191,11 +3046,11 @@ puts(beta_managed_agents_session_thread)
 
   - `type: :session_thread`
 
-    - `:session_thread`
-
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
@@ -3205,6 +3060,8 @@ puts(beta_managed_agents_session_thread)
 
       Cumulative time in seconds this thread spent in running status. Equal to `stats.active_seconds`; surfaced here so a thread's usage carries every quantity its cost is priced on.
 
+      format: double
+
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
@@ -3213,17 +3070,25 @@ puts(beta_managed_agents_session_thread)
 
         Tokens used to create 1-hour ephemeral cache entries.
 
+        format: int32
+
       - `ephemeral_5m_input_tokens: Integer`
 
         Tokens used to create 5-minute ephemeral cache entries.
+
+        format: int32
 
     - `cache_read_input_tokens: Integer`
 
       Total tokens read from prompt cache.
 
+      format: int32
+
     - `input_tokens: Integer`
 
       Total input tokens consumed across all turns.
+
+      format: int32
 
     - `list_cost: BetaMonetaryAmount`
 
@@ -3237,11 +3102,11 @@ puts(beta_managed_agents_session_thread)
 
         Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-        - `:USD`
-
     - `output_tokens: Integer`
 
       Total output tokens generated across all turns.
+
+      format: int32
 
     - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
@@ -3251,9 +3116,13 @@ puts(beta_managed_agents_session_thread)
 
         Number of server-executed web fetch requests.
 
+        format: int32
+
       - `web_search_requests: Integer`
 
         Number of server-executed web search requests.
+
+        format: int32
 
 ### Beta Managed Agents Session Thread Stats
 
@@ -3265,13 +3134,19 @@ puts(beta_managed_agents_session_thread)
 
     Cumulative time in seconds the thread spent actively running. Excludes idle time.
 
+    format: double
+
   - `duration_seconds: Float`
 
     Elapsed time since thread creation in seconds. For archived threads, frozen at the final update.
 
+    format: double
+
   - `startup_seconds: Float`
 
     Time in seconds for the thread to begin running. Zero for child threads, which start immediately.
+
+    format: double
 
 ### Beta Managed Agents Session Thread Status
 
@@ -3297,6 +3172,8 @@ puts(beta_managed_agents_session_thread)
 
     Cumulative time in seconds this thread spent in running status. Equal to `stats.active_seconds`; surfaced here so a thread's usage carries every quantity its cost is priced on.
 
+    format: double
+
   - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
     Prompt-cache creation token usage broken down by cache lifetime.
@@ -3305,17 +3182,25 @@ puts(beta_managed_agents_session_thread)
 
       Tokens used to create 1-hour ephemeral cache entries.
 
+      format: int32
+
     - `ephemeral_5m_input_tokens: Integer`
 
       Tokens used to create 5-minute ephemeral cache entries.
+
+      format: int32
 
   - `cache_read_input_tokens: Integer`
 
     Total tokens read from prompt cache.
 
+    format: int32
+
   - `input_tokens: Integer`
 
     Total input tokens consumed across all turns.
+
+    format: int32
 
   - `list_cost: BetaMonetaryAmount`
 
@@ -3329,11 +3214,11 @@ puts(beta_managed_agents_session_thread)
 
       Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-      - `:USD`
-
   - `output_tokens: Integer`
 
     Total output tokens generated across all turns.
+
+    format: int32
 
   - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
@@ -3343,9 +3228,13 @@ puts(beta_managed_agents_session_thread)
 
       Number of server-executed web fetch requests.
 
+      format: int32
+
     - `web_search_requests: Integer`
 
       Number of server-executed web search requests.
+
+      format: int32
 
 ### Beta Managed Agents Stream Session Thread Events
 
@@ -3373,9 +3262,9 @@ puts(beta_managed_agents_session_thread)
 
           The text content.
 
-        - `type: :text`
+          minLength: 1
 
-          - `:text`
+        - `type: :text`
 
       - `class BetaManagedAgentsImageBlock`
 
@@ -3393,13 +3282,15 @@ puts(beta_managed_agents_session_thread)
 
               Base64-encoded image data.
 
+              minLength: 1
+
             - `media_type: String`
 
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-            - `type: :base64`
+              minLength: 1
 
-              - `:base64`
+            - `type: :base64`
 
           - `class BetaManagedAgentsURLImageSource`
 
@@ -3407,11 +3298,11 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :url`
 
-              - `:url`
-
             - `url: String`
 
               URL of the image to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileImageSource`
 
@@ -3421,13 +3312,11 @@ puts(beta_managed_agents_session_thread)
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: :file`
 
-              - `:file`
-
         - `type: :image`
-
-          - `:image`
 
       - `class BetaManagedAgentsDocumentBlock`
 
@@ -3445,13 +3334,15 @@ puts(beta_managed_agents_session_thread)
 
               Base64-encoded document data.
 
+              minLength: 1
+
             - `media_type: String`
 
               MIME type of the document (e.g., "application/pdf").
 
-            - `type: :base64`
+              minLength: 1
 
-              - `:base64`
+            - `type: :base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource`
 
@@ -3461,15 +3352,13 @@ puts(beta_managed_agents_session_thread)
 
               The plain text content.
 
+              minLength: 1
+
             - `media_type: :"text/plain"`
 
               MIME type of the text content. Must be "text/plain".
 
-              - `:"text/plain"`
-
             - `type: :text`
-
-              - `:text`
 
           - `class BetaManagedAgentsURLDocumentSource`
 
@@ -3477,11 +3366,11 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :url`
 
-              - `:url`
-
             - `url: String`
 
               URL of the document to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileDocumentSource`
 
@@ -3491,13 +3380,11 @@ puts(beta_managed_agents_session_thread)
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: :file`
 
-              - `:file`
-
         - `type: :document`
-
-          - `:document`
 
         - `context: String`
 
@@ -3513,15 +3400,13 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :redacted`
 
-          - `:redacted`
-
     - `type: :"user.message"`
-
-      - `:"user.message"`
 
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsUserInterruptEvent`
 
@@ -3533,11 +3418,11 @@ puts(beta_managed_agents_session_thread)
 
     - `type: :"user.interrupt"`
 
-      - `:"user.interrupt"`
-
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -3565,15 +3450,17 @@ puts(beta_managed_agents_session_thread)
 
     - `type: :"user.tool_confirmation"`
 
-      - `:"user.tool_confirmation"`
-
     - `deny_message: String`
 
       Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
 
+      maxLength: 10000
+
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -3592,8 +3479,6 @@ puts(beta_managed_agents_session_thread)
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.custom_tool_result"`
-
-      - `:"user.custom_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -3631,21 +3516,23 @@ puts(beta_managed_agents_session_thread)
 
             The text content.
 
-          - `type: :text`
+            minLength: 1
 
-            - `:text`
+          - `type: :text`
 
         - `source: String`
 
           The URL source of the search result.
 
+          minLength: 1
+
         - `title: String`
 
           The title of the search result.
 
-        - `type: :search_result`
+          minLength: 1
 
-          - `:search_result`
+        - `type: :search_result`
 
     - `is_error: bool`
 
@@ -3654,6 +3541,8 @@ puts(beta_managed_agents_session_thread)
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -3679,9 +3568,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.custom_tool_use"`
+      format: date-time
 
-      - `:"agent.custom_tool_use"`
+    - `type: :"agent.custom_tool_use"`
 
     - `session_thread_id: String`
 
@@ -3711,9 +3600,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.message"`
+      format: date-time
 
-      - `:"agent.message"`
+    - `type: :"agent.message"`
 
   - `class BetaManagedAgentsAgentThinkingEvent`
 
@@ -3727,9 +3616,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thinking"`
+      format: date-time
 
-      - `:"agent.thinking"`
+    - `type: :"agent.thinking"`
 
   - `class BetaManagedAgentsAgentMCPToolUseEvent`
 
@@ -3755,9 +3644,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.mcp_tool_use"`
+      format: date-time
 
-      - `:"agent.mcp_tool_use"`
+    - `type: :"agent.mcp_tool_use"`
 
     - `evaluated_permission: :allow | :ask | :deny`
 
@@ -3789,9 +3678,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.mcp_tool_result"`
+      format: date-time
 
-      - `:"agent.mcp_tool_result"`
+    - `type: :"agent.mcp_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -3837,9 +3726,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.tool_use"`
+      format: date-time
 
-      - `:"agent.tool_use"`
+    - `type: :"agent.tool_use"`
 
     - `evaluated_permission: :allow | :ask | :deny`
 
@@ -3867,13 +3756,13 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `tool_use_id: String`
 
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `type: :"agent.tool_result"`
-
-      - `:"agent.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -3935,9 +3824,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thread_message_received"`
+      format: date-time
 
-      - `:"agent.thread_message_received"`
+    - `type: :"agent.thread_message_received"`
 
     - `from_agent_name: String`
 
@@ -3975,13 +3864,13 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `to_session_thread_id: String`
 
       Public `sthr_` ID of the thread the message was sent to.
 
     - `type: :"agent.thread_message_sent"`
-
-      - `:"agent.thread_message_sent"`
 
     - `to_agent_name: String`
 
@@ -3999,9 +3888,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thread_context_compacted"`
+      format: date-time
 
-      - `:"agent.thread_context_compacted"`
+    - `type: :"agent.thread_context_compacted"`
 
   - `class BetaManagedAgentsSessionErrorEvent`
 
@@ -4033,15 +3922,11 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :retrying`
 
-              - `:retrying`
-
           - `class BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `type: :exhausted`
-
-              - `:exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal`
 
@@ -4049,11 +3934,7 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :terminal`
 
-              - `:terminal`
-
         - `type: :unknown_error`
-
-          - `:unknown_error`
 
       - `class BetaManagedAgentsModelOverloadedError`
 
@@ -4081,8 +3962,6 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :model_overloaded_error`
 
-          - `:model_overloaded_error`
-
       - `class BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
@@ -4109,8 +3988,6 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :model_rate_limited_error`
 
-          - `:model_rate_limited_error`
-
       - `class BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
@@ -4136,8 +4013,6 @@ puts(beta_managed_agents_session_thread)
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :model_request_failed_error`
-
-          - `:model_request_failed_error`
 
       - `class BetaManagedAgentsMCPConnectionFailedError`
 
@@ -4169,8 +4044,6 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :mcp_connection_failed_error`
 
-          - `:mcp_connection_failed_error`
-
       - `class BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
@@ -4201,8 +4074,6 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :mcp_authentication_failed_error`
 
-          - `:mcp_authentication_failed_error`
-
       - `class BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
@@ -4228,8 +4099,6 @@ puts(beta_managed_agents_session_thread)
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :billing_error`
-
-          - `:billing_error`
 
       - `class BetaManagedAgentsCredentialHostUnreachableError`
 
@@ -4261,8 +4130,6 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :credential_host_unreachable_error`
 
-          - `:credential_host_unreachable_error`
-
         - `vault_id: String`
 
           ID of the vault containing the affected credential.
@@ -4271,9 +4138,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.error"`
+      format: date-time
 
-      - `:"session.error"`
+    - `type: :"session.error"`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent`
 
@@ -4287,9 +4154,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_rescheduled"`
+      format: date-time
 
-      - `:"session.status_rescheduled"`
+    - `type: :"session.status_rescheduled"`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent`
 
@@ -4303,9 +4170,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_running"`
+      format: date-time
 
-      - `:"session.status_running"`
+    - `type: :"session.status_running"`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent`
 
@@ -4319,6 +4186,8 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
 
       The agent completed its turn naturally and is ready for the next user message.
@@ -4328,8 +4197,6 @@ puts(beta_managed_agents_session_thread)
         The agent completed its turn naturally and is ready for the next user message.
 
         - `type: :end_turn`
-
-          - `:end_turn`
 
       - `class BetaManagedAgentsSessionRequiresAction`
 
@@ -4341,15 +4208,11 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :requires_action`
 
-          - `:requires_action`
-
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
-
-          - `:retries_exhausted`
 
       - `class BetaManagedAgentsSessionBudgetReached`
 
@@ -4357,11 +4220,7 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :budget_reached`
 
-          - `:budget_reached`
-
     - `type: :"session.status_idle"`
-
-      - `:"session.status_idle"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -4375,9 +4234,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_terminated"`
+      format: date-time
 
-      - `:"session.status_terminated"`
+    - `type: :"session.status_terminated"`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
@@ -4395,13 +4254,13 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public `sthr_` ID of the newly created thread.
 
     - `type: :"session.thread_created"`
-
-      - `:"session.thread_created"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
@@ -4415,6 +4274,8 @@ puts(beta_managed_agents_session_thread)
 
       0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
 
+      format: int32
+
     - `outcome_id: String`
 
       The `outc_` ID of the outcome being evaluated.
@@ -4423,9 +4284,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.outcome_evaluation_start"`
+      format: date-time
 
-      - `:"span.outcome_evaluation_start"`
+    - `type: :"span.outcome_evaluation_start"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
@@ -4443,6 +4304,8 @@ puts(beta_managed_agents_session_thread)
 
       0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
 
+      format: int32
+
     - `outcome_evaluation_start_id: String`
 
       The id of the corresponding `span.outcome_evaluation_start` event.
@@ -4455,13 +4318,13 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `result: String`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `type: :"span.outcome_evaluation_end"`
-
-      - `:"span.outcome_evaluation_end"`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
@@ -4471,17 +4334,25 @@ puts(beta_managed_agents_session_thread)
 
         Tokens used to create prompt cache in this request.
 
+        format: int32
+
       - `cache_read_input_tokens: Integer`
 
         Tokens read from prompt cache in this request.
+
+        format: int32
 
       - `input_tokens: Integer`
 
         Input tokens consumed by this request.
 
+        format: int32
+
       - `output_tokens: Integer`
 
         Output tokens generated by this request.
+
+        format: int32
 
       - `speed: :standard | :fast`
 
@@ -4503,9 +4374,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.model_request_start"`
+      format: date-time
 
-      - `:"span.model_request_start"`
+    - `type: :"span.model_request_start"`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent`
 
@@ -4531,9 +4402,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.model_request_end"`
+      format: date-time
 
-      - `:"span.model_request_end"`
+    - `type: :"span.model_request_end"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
@@ -4547,6 +4418,8 @@ puts(beta_managed_agents_session_thread)
 
       0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
 
+      format: int32
+
     - `outcome_id: String`
 
       The `outc_` ID of the outcome being evaluated.
@@ -4555,9 +4428,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.outcome_evaluation_ongoing"`
+      format: date-time
 
-      - `:"span.outcome_evaluation_ongoing"`
+    - `type: :"span.outcome_evaluation_ongoing"`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent`
 
@@ -4575,6 +4448,8 @@ puts(beta_managed_agents_session_thread)
 
       Evaluate-then-revise cycles before giving up. Default 3, max 20.
 
+      format: int32
+
     - `outcome_id: String`
 
       Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
@@ -4582,6 +4457,8 @@ puts(beta_managed_agents_session_thread)
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
@@ -4597,8 +4474,6 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :file`
 
-          - `:file`
-
       - `class BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
@@ -4609,11 +4484,7 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :text`
 
-          - `:text`
-
     - `type: :"user.define_outcome"`
-
-      - `:"user.define_outcome"`
 
   - `class BetaManagedAgentsSessionDeletedEvent`
 
@@ -4627,9 +4498,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.deleted"`
+      format: date-time
 
-      - `:"session.deleted"`
+    - `type: :"session.deleted"`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent`
 
@@ -4647,13 +4518,13 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that started running.
 
     - `type: :"session.thread_status_running"`
-
-      - `:"session.thread_status_running"`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent`
 
@@ -4670,6 +4541,8 @@ puts(beta_managed_agents_session_thread)
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -4697,8 +4570,6 @@ puts(beta_managed_agents_session_thread)
 
     - `type: :"session.thread_status_idle"`
 
-      - `:"session.thread_status_idle"`
-
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -4715,13 +4586,13 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that terminated.
 
     - `type: :"session.thread_status_terminated"`
-
-      - `:"session.thread_status_terminated"`
 
   - `class BetaManagedAgentsUserToolResultEvent`
 
@@ -4736,8 +4607,6 @@ puts(beta_managed_agents_session_thread)
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.tool_result"`
-
-      - `:"user.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -4767,6 +4636,8 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
@@ -4787,13 +4658,13 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that is retrying.
 
     - `type: :"session.thread_status_rescheduled"`
-
-      - `:"session.thread_status_rescheduled"`
 
   - `class BetaManagedAgentsSessionUpdatedEvent`
 
@@ -4807,9 +4678,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.updated"`
+      format: date-time
 
-      - `:"session.updated"`
+    - `type: :"session.updated"`
 
     - `agent: BetaManagedAgentsSessionAgent`
 
@@ -4824,8 +4695,6 @@ puts(beta_managed_agents_session_thread)
         - `name: String`
 
         - `type: :url`
-
-          - `:url`
 
         - `url: String`
 
@@ -4909,15 +4778,11 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :low`
 
-              - `:low`
-
           - `class BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: :medium`
-
-              - `:medium`
 
           - `class BetaManagedAgentsEffortHigh`
 
@@ -4925,23 +4790,17 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :high`
 
-              - `:high`
-
           - `class BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: :xhigh`
 
-              - `:xhigh`
-
           - `class BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: :max`
-
-              - `:max`
 
         - `inference_geo: String`
 
@@ -4995,8 +4854,6 @@ puts(beta_managed_agents_session_thread)
 
                 - `type: :anthropic`
 
-                  - `:anthropic`
-
                 - `version: String`
 
               - `class BetaManagedAgentsCustomSkill`
@@ -5006,8 +4863,6 @@ puts(beta_managed_agents_session_thread)
                 - `skill_id: String`
 
                 - `type: :custom`
-
-                  - `:custom`
 
                 - `version: String`
 
@@ -5027,8 +4882,6 @@ puts(beta_managed_agents_session_thread)
 
                     - `name: :bash`
 
-                      - `:bash`
-
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                       Permission policy for tool execution.
@@ -5039,19 +4892,13 @@ puts(beta_managed_agents_session_thread)
 
                         - `type: :always_allow`
 
-                          - `:always_allow`
-
                       - `class BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `type: :always_ask`
 
-                          - `:always_ask`
-
                     - `type: :bash`
-
-                      - `:bash`
 
                   - `class BetaManagedAgentsEditToolConfig`
 
@@ -5060,8 +4907,6 @@ puts(beta_managed_agents_session_thread)
                     - `enabled: bool`
 
                     - `name: :edit`
-
-                      - `:edit`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5077,8 +4922,6 @@ puts(beta_managed_agents_session_thread)
 
                     - `type: :edit`
 
-                      - `:edit`
-
                   - `class BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
@@ -5086,8 +4929,6 @@ puts(beta_managed_agents_session_thread)
                     - `enabled: bool`
 
                     - `name: :read`
-
-                      - `:read`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5103,8 +4944,6 @@ puts(beta_managed_agents_session_thread)
 
                     - `type: :read`
 
-                      - `:read`
-
                   - `class BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
@@ -5112,8 +4951,6 @@ puts(beta_managed_agents_session_thread)
                     - `enabled: bool`
 
                     - `name: :write`
-
-                      - `:write`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5129,8 +4966,6 @@ puts(beta_managed_agents_session_thread)
 
                     - `type: :write`
 
-                      - `:write`
-
                   - `class BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
@@ -5138,8 +4973,6 @@ puts(beta_managed_agents_session_thread)
                     - `enabled: bool`
 
                     - `name: :glob`
-
-                      - `:glob`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5155,8 +4988,6 @@ puts(beta_managed_agents_session_thread)
 
                     - `type: :glob`
 
-                      - `:glob`
-
                   - `class BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
@@ -5164,8 +4995,6 @@ puts(beta_managed_agents_session_thread)
                     - `enabled: bool`
 
                     - `name: :grep`
-
-                      - `:grep`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5181,8 +5010,6 @@ puts(beta_managed_agents_session_thread)
 
                     - `type: :grep`
 
-                      - `:grep`
-
                   - `class BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
@@ -5190,8 +5017,6 @@ puts(beta_managed_agents_session_thread)
                     - `enabled: bool`
 
                     - `name: :web_fetch`
-
-                      - `:web_fetch`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5207,13 +5032,13 @@ puts(beta_managed_agents_session_thread)
 
                     - `type: :web_fetch`
 
-                      - `:web_fetch`
-
                     - `allowed_domains: Array[String]`
 
                     - `blocked_domains: Array[String]`
 
                     - `max_content_tokens: Integer`
+
+                      format: int32
 
                   - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -5222,8 +5047,6 @@ puts(beta_managed_agents_session_thread)
                     - `enabled: bool`
 
                     - `name: :web_search`
-
-                      - `:web_search`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -5239,8 +5062,6 @@ puts(beta_managed_agents_session_thread)
 
                     - `type: :web_search`
 
-                      - `:web_search`
-
                     - `allowed_domains: Array[String]`
 
                     - `blocked_domains: Array[String]`
@@ -5253,11 +5074,11 @@ puts(beta_managed_agents_session_thread)
 
                         Location precision. Only "approximate" is supported.
 
-                        - `:approximate`
-
                       - `city: String`
 
                         City name.
+
+                        minLength: 1, maxLength: 255
 
                       - `country: String`
 
@@ -5267,9 +5088,13 @@ puts(beta_managed_agents_session_thread)
 
                         Region or state name.
 
+                        minLength: 1, maxLength: 255
+
                       - `timezone: String`
 
                         IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                        minLength: 1, maxLength: 255
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -5290,8 +5115,6 @@ puts(beta_managed_agents_session_thread)
                       Tool calls require user confirmation before execution.
 
                 - `type: :agent_toolset_20260401`
-
-                  - `:agent_toolset_20260401`
 
               - `class BetaManagedAgentsMCPToolset`
 
@@ -5335,8 +5158,6 @@ puts(beta_managed_agents_session_thread)
 
                 - `type: :mcp_toolset`
 
-                  - `:mcp_toolset`
-
               - `class BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
@@ -5349,8 +5170,6 @@ puts(beta_managed_agents_session_thread)
 
                   - `type: :object`
 
-                    - `:object`
-
                   - `properties: Hash[Symbol, untyped]`
 
                   - `required: Array[String]`
@@ -5359,13 +5178,11 @@ puts(beta_managed_agents_session_thread)
 
                 - `type: :custom`
 
-                  - `:custom`
-
             - `type: :agent`
 
-              - `:agent`
-
             - `version: Integer`
+
+              format: int32
 
           - `class BetaManagedAgentsAdvisor`
 
@@ -5377,11 +5194,7 @@ puts(beta_managed_agents_session_thread)
 
             - `type: :advisor`
 
-              - `:advisor`
-
         - `type: :coordinator`
-
-          - `:coordinator`
 
       - `name: String`
 
@@ -5409,9 +5222,9 @@ puts(beta_managed_agents_session_thread)
 
       - `type: :agent`
 
-        - `:agent`
-
       - `version: Integer`
+
+        format: int32
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
@@ -5429,11 +5242,7 @@ puts(beta_managed_agents_session_thread)
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-          - `:USD`
-
       - `type: :limit`
-
-        - `:limit`
 
     - `metadata: Hash[Symbol, String]`
 
@@ -5459,8 +5268,6 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :"agent.message"`
 
-          - `:"agent.message"`
-
       - `class BetaManagedAgentsAgentThinkingPreview`
 
         - `id: String`
@@ -5469,11 +5276,7 @@ puts(beta_managed_agents_session_thread)
 
         - `type: :"agent.thinking"`
 
-          - `:"agent.thinking"`
-
     - `type: :event_start`
-
-      - `:event_start`
 
   - `class BetaManagedAgentsDeltaEvent`
 
@@ -5489,19 +5292,17 @@ puts(beta_managed_agents_session_thread)
 
       - `type: :content_delta`
 
-        - `:content_delta`
-
       - `index: Integer`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+        format: uint32
 
     - `event_id: String`
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
     - `type: :event_delta`
-
-      - `:event_delta`
 
   - `class BetaManagedAgentsSystemMessageEvent`
 
@@ -5519,17 +5320,17 @@ puts(beta_managed_agents_session_thread)
 
         The text content.
 
+        minLength: 1
+
       - `type: :text`
 
-        - `:text`
-
     - `type: :"system.message"`
-
-      - `:"system.message"`
 
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsSessionUsageEvent`
 
@@ -5543,9 +5344,9 @@ puts(beta_managed_agents_session_thread)
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.usage"`
+      format: date-time
 
-      - `:"session.usage"`
+    - `type: :"session.usage"`
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
@@ -5555,6 +5356,8 @@ puts(beta_managed_agents_session_thread)
 
         Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
 
+        format: double
+
       - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
         Prompt-cache creation token usage broken down by cache lifetime.
@@ -5563,17 +5366,25 @@ puts(beta_managed_agents_session_thread)
 
           Tokens used to create 1-hour ephemeral cache entries.
 
+          format: int32
+
         - `ephemeral_5m_input_tokens: Integer`
 
           Tokens used to create 5-minute ephemeral cache entries.
+
+          format: int32
 
       - `cache_read_input_tokens: Integer`
 
         Total tokens read from prompt cache.
 
+        format: int32
+
       - `input_tokens: Integer`
 
         Total input tokens consumed across all turns.
+
+        format: int32
 
       - `list_cost: BetaMonetaryAmount`
 
@@ -5583,6 +5394,8 @@ puts(beta_managed_agents_session_thread)
 
         Total output tokens generated across all turns.
 
+        format: int32
+
       - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
         Cumulative count of server-executed tool invocations, broken down by tool.
@@ -5591,25 +5404,29 @@ puts(beta_managed_agents_session_thread)
 
           Number of server-executed web fetch requests.
 
+          format: int32
+
         - `web_search_requests: Integer`
 
           Number of server-executed web search requests.
+
+          format: int32
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-# Events
+## Threads › Events
 
-## List Session Thread Events
+### List Session Thread Events
 
 `beta.sessions.threads.events.list(thread_id, **kwargs) -> PageCursor<BetaManagedAgentsSessionEvent>`
 
-**get** `/v1/sessions/{session_id}/threads/{thread_id}/events`
+**GET** `/v1/sessions/{session_id}/threads/{thread_id}/events`
 
 List Session Thread Events
 
-### Parameters
+#### Parameters
 
 - `session_id: String`
 
@@ -5618,6 +5435,8 @@ List Session Thread Events
 - `limit: Integer`
 
   Query parameter for limit
+
+  format: int32
 
 - `page: String`
 
@@ -5699,7 +5518,7 @@ List Session Thread Events
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 32 more`
 
@@ -5725,9 +5544,9 @@ List Session Thread Events
 
           The text content.
 
-        - `type: :text`
+          minLength: 1
 
-          - `:text`
+        - `type: :text`
 
       - `class BetaManagedAgentsImageBlock`
 
@@ -5745,13 +5564,15 @@ List Session Thread Events
 
               Base64-encoded image data.
 
+              minLength: 1
+
             - `media_type: String`
 
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-            - `type: :base64`
+              minLength: 1
 
-              - `:base64`
+            - `type: :base64`
 
           - `class BetaManagedAgentsURLImageSource`
 
@@ -5759,11 +5580,11 @@ List Session Thread Events
 
             - `type: :url`
 
-              - `:url`
-
             - `url: String`
 
               URL of the image to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileImageSource`
 
@@ -5773,13 +5594,11 @@ List Session Thread Events
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: :file`
 
-              - `:file`
-
         - `type: :image`
-
-          - `:image`
 
       - `class BetaManagedAgentsDocumentBlock`
 
@@ -5797,13 +5616,15 @@ List Session Thread Events
 
               Base64-encoded document data.
 
+              minLength: 1
+
             - `media_type: String`
 
               MIME type of the document (e.g., "application/pdf").
 
-            - `type: :base64`
+              minLength: 1
 
-              - `:base64`
+            - `type: :base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource`
 
@@ -5813,15 +5634,13 @@ List Session Thread Events
 
               The plain text content.
 
+              minLength: 1
+
             - `media_type: :"text/plain"`
 
               MIME type of the text content. Must be "text/plain".
 
-              - `:"text/plain"`
-
             - `type: :text`
-
-              - `:text`
 
           - `class BetaManagedAgentsURLDocumentSource`
 
@@ -5829,11 +5648,11 @@ List Session Thread Events
 
             - `type: :url`
 
-              - `:url`
-
             - `url: String`
 
               URL of the document to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileDocumentSource`
 
@@ -5843,13 +5662,11 @@ List Session Thread Events
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: :file`
 
-              - `:file`
-
         - `type: :document`
-
-          - `:document`
 
         - `context: String`
 
@@ -5865,15 +5682,13 @@ List Session Thread Events
 
         - `type: :redacted`
 
-          - `:redacted`
-
     - `type: :"user.message"`
-
-      - `:"user.message"`
 
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsUserInterruptEvent`
 
@@ -5885,11 +5700,11 @@ List Session Thread Events
 
     - `type: :"user.interrupt"`
 
-      - `:"user.interrupt"`
-
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -5917,15 +5732,17 @@ List Session Thread Events
 
     - `type: :"user.tool_confirmation"`
 
-      - `:"user.tool_confirmation"`
-
     - `deny_message: String`
 
       Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
 
+      maxLength: 10000
+
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -5944,8 +5761,6 @@ List Session Thread Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.custom_tool_result"`
-
-      - `:"user.custom_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -5983,21 +5798,23 @@ List Session Thread Events
 
             The text content.
 
-          - `type: :text`
+            minLength: 1
 
-            - `:text`
+          - `type: :text`
 
         - `source: String`
 
           The URL source of the search result.
 
+          minLength: 1
+
         - `title: String`
 
           The title of the search result.
 
-        - `type: :search_result`
+          minLength: 1
 
-          - `:search_result`
+        - `type: :search_result`
 
     - `is_error: bool`
 
@@ -6006,6 +5823,8 @@ List Session Thread Events
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -6031,9 +5850,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.custom_tool_use"`
+      format: date-time
 
-      - `:"agent.custom_tool_use"`
+    - `type: :"agent.custom_tool_use"`
 
     - `session_thread_id: String`
 
@@ -6063,9 +5882,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.message"`
+      format: date-time
 
-      - `:"agent.message"`
+    - `type: :"agent.message"`
 
   - `class BetaManagedAgentsAgentThinkingEvent`
 
@@ -6079,9 +5898,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thinking"`
+      format: date-time
 
-      - `:"agent.thinking"`
+    - `type: :"agent.thinking"`
 
   - `class BetaManagedAgentsAgentMCPToolUseEvent`
 
@@ -6107,9 +5926,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.mcp_tool_use"`
+      format: date-time
 
-      - `:"agent.mcp_tool_use"`
+    - `type: :"agent.mcp_tool_use"`
 
     - `evaluated_permission: :allow | :ask | :deny`
 
@@ -6141,9 +5960,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.mcp_tool_result"`
+      format: date-time
 
-      - `:"agent.mcp_tool_result"`
+    - `type: :"agent.mcp_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -6189,9 +6008,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.tool_use"`
+      format: date-time
 
-      - `:"agent.tool_use"`
+    - `type: :"agent.tool_use"`
 
     - `evaluated_permission: :allow | :ask | :deny`
 
@@ -6219,13 +6038,13 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `tool_use_id: String`
 
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `type: :"agent.tool_result"`
-
-      - `:"agent.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -6287,9 +6106,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thread_message_received"`
+      format: date-time
 
-      - `:"agent.thread_message_received"`
+    - `type: :"agent.thread_message_received"`
 
     - `from_agent_name: String`
 
@@ -6327,13 +6146,13 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `to_session_thread_id: String`
 
       Public `sthr_` ID of the thread the message was sent to.
 
     - `type: :"agent.thread_message_sent"`
-
-      - `:"agent.thread_message_sent"`
 
     - `to_agent_name: String`
 
@@ -6351,9 +6170,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thread_context_compacted"`
+      format: date-time
 
-      - `:"agent.thread_context_compacted"`
+    - `type: :"agent.thread_context_compacted"`
 
   - `class BetaManagedAgentsSessionErrorEvent`
 
@@ -6385,15 +6204,11 @@ List Session Thread Events
 
             - `type: :retrying`
 
-              - `:retrying`
-
           - `class BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `type: :exhausted`
-
-              - `:exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal`
 
@@ -6401,11 +6216,7 @@ List Session Thread Events
 
             - `type: :terminal`
 
-              - `:terminal`
-
         - `type: :unknown_error`
-
-          - `:unknown_error`
 
       - `class BetaManagedAgentsModelOverloadedError`
 
@@ -6433,8 +6244,6 @@ List Session Thread Events
 
         - `type: :model_overloaded_error`
 
-          - `:model_overloaded_error`
-
       - `class BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
@@ -6461,8 +6270,6 @@ List Session Thread Events
 
         - `type: :model_rate_limited_error`
 
-          - `:model_rate_limited_error`
-
       - `class BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
@@ -6488,8 +6295,6 @@ List Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :model_request_failed_error`
-
-          - `:model_request_failed_error`
 
       - `class BetaManagedAgentsMCPConnectionFailedError`
 
@@ -6521,8 +6326,6 @@ List Session Thread Events
 
         - `type: :mcp_connection_failed_error`
 
-          - `:mcp_connection_failed_error`
-
       - `class BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
@@ -6553,8 +6356,6 @@ List Session Thread Events
 
         - `type: :mcp_authentication_failed_error`
 
-          - `:mcp_authentication_failed_error`
-
       - `class BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
@@ -6580,8 +6381,6 @@ List Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :billing_error`
-
-          - `:billing_error`
 
       - `class BetaManagedAgentsCredentialHostUnreachableError`
 
@@ -6613,8 +6412,6 @@ List Session Thread Events
 
         - `type: :credential_host_unreachable_error`
 
-          - `:credential_host_unreachable_error`
-
         - `vault_id: String`
 
           ID of the vault containing the affected credential.
@@ -6623,9 +6420,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.error"`
+      format: date-time
 
-      - `:"session.error"`
+    - `type: :"session.error"`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent`
 
@@ -6639,9 +6436,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_rescheduled"`
+      format: date-time
 
-      - `:"session.status_rescheduled"`
+    - `type: :"session.status_rescheduled"`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent`
 
@@ -6655,9 +6452,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_running"`
+      format: date-time
 
-      - `:"session.status_running"`
+    - `type: :"session.status_running"`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent`
 
@@ -6671,6 +6468,8 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
 
       The agent completed its turn naturally and is ready for the next user message.
@@ -6680,8 +6479,6 @@ List Session Thread Events
         The agent completed its turn naturally and is ready for the next user message.
 
         - `type: :end_turn`
-
-          - `:end_turn`
 
       - `class BetaManagedAgentsSessionRequiresAction`
 
@@ -6693,15 +6490,11 @@ List Session Thread Events
 
         - `type: :requires_action`
 
-          - `:requires_action`
-
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
-
-          - `:retries_exhausted`
 
       - `class BetaManagedAgentsSessionBudgetReached`
 
@@ -6709,11 +6502,7 @@ List Session Thread Events
 
         - `type: :budget_reached`
 
-          - `:budget_reached`
-
     - `type: :"session.status_idle"`
-
-      - `:"session.status_idle"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -6727,9 +6516,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_terminated"`
+      format: date-time
 
-      - `:"session.status_terminated"`
+    - `type: :"session.status_terminated"`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
@@ -6747,13 +6536,13 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public `sthr_` ID of the newly created thread.
 
     - `type: :"session.thread_created"`
-
-      - `:"session.thread_created"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
@@ -6767,6 +6556,8 @@ List Session Thread Events
 
       0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
 
+      format: int32
+
     - `outcome_id: String`
 
       The `outc_` ID of the outcome being evaluated.
@@ -6775,9 +6566,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.outcome_evaluation_start"`
+      format: date-time
 
-      - `:"span.outcome_evaluation_start"`
+    - `type: :"span.outcome_evaluation_start"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
@@ -6795,6 +6586,8 @@ List Session Thread Events
 
       0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
 
+      format: int32
+
     - `outcome_evaluation_start_id: String`
 
       The id of the corresponding `span.outcome_evaluation_start` event.
@@ -6807,13 +6600,13 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `result: String`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `type: :"span.outcome_evaluation_end"`
-
-      - `:"span.outcome_evaluation_end"`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
@@ -6823,17 +6616,25 @@ List Session Thread Events
 
         Tokens used to create prompt cache in this request.
 
+        format: int32
+
       - `cache_read_input_tokens: Integer`
 
         Tokens read from prompt cache in this request.
+
+        format: int32
 
       - `input_tokens: Integer`
 
         Input tokens consumed by this request.
 
+        format: int32
+
       - `output_tokens: Integer`
 
         Output tokens generated by this request.
+
+        format: int32
 
       - `speed: :standard | :fast`
 
@@ -6855,9 +6656,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.model_request_start"`
+      format: date-time
 
-      - `:"span.model_request_start"`
+    - `type: :"span.model_request_start"`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent`
 
@@ -6883,9 +6684,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.model_request_end"`
+      format: date-time
 
-      - `:"span.model_request_end"`
+    - `type: :"span.model_request_end"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
@@ -6899,6 +6700,8 @@ List Session Thread Events
 
       0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
 
+      format: int32
+
     - `outcome_id: String`
 
       The `outc_` ID of the outcome being evaluated.
@@ -6907,9 +6710,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.outcome_evaluation_ongoing"`
+      format: date-time
 
-      - `:"span.outcome_evaluation_ongoing"`
+    - `type: :"span.outcome_evaluation_ongoing"`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent`
 
@@ -6927,6 +6730,8 @@ List Session Thread Events
 
       Evaluate-then-revise cycles before giving up. Default 3, max 20.
 
+      format: int32
+
     - `outcome_id: String`
 
       Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
@@ -6934,6 +6739,8 @@ List Session Thread Events
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
@@ -6949,8 +6756,6 @@ List Session Thread Events
 
         - `type: :file`
 
-          - `:file`
-
       - `class BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
@@ -6961,11 +6766,7 @@ List Session Thread Events
 
         - `type: :text`
 
-          - `:text`
-
     - `type: :"user.define_outcome"`
-
-      - `:"user.define_outcome"`
 
   - `class BetaManagedAgentsSessionDeletedEvent`
 
@@ -6979,9 +6780,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.deleted"`
+      format: date-time
 
-      - `:"session.deleted"`
+    - `type: :"session.deleted"`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent`
 
@@ -6999,13 +6800,13 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that started running.
 
     - `type: :"session.thread_status_running"`
-
-      - `:"session.thread_status_running"`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent`
 
@@ -7022,6 +6823,8 @@ List Session Thread Events
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -7049,8 +6852,6 @@ List Session Thread Events
 
     - `type: :"session.thread_status_idle"`
 
-      - `:"session.thread_status_idle"`
-
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -7067,13 +6868,13 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that terminated.
 
     - `type: :"session.thread_status_terminated"`
-
-      - `:"session.thread_status_terminated"`
 
   - `class BetaManagedAgentsUserToolResultEvent`
 
@@ -7088,8 +6889,6 @@ List Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.tool_result"`
-
-      - `:"user.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -7119,6 +6918,8 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
@@ -7139,13 +6940,13 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that is retrying.
 
     - `type: :"session.thread_status_rescheduled"`
-
-      - `:"session.thread_status_rescheduled"`
 
   - `class BetaManagedAgentsSessionUpdatedEvent`
 
@@ -7159,9 +6960,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.updated"`
+      format: date-time
 
-      - `:"session.updated"`
+    - `type: :"session.updated"`
 
     - `agent: BetaManagedAgentsSessionAgent`
 
@@ -7176,8 +6977,6 @@ List Session Thread Events
         - `name: String`
 
         - `type: :url`
-
-          - `:url`
 
         - `url: String`
 
@@ -7261,15 +7060,11 @@ List Session Thread Events
 
             - `type: :low`
 
-              - `:low`
-
           - `class BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: :medium`
-
-              - `:medium`
 
           - `class BetaManagedAgentsEffortHigh`
 
@@ -7277,23 +7072,17 @@ List Session Thread Events
 
             - `type: :high`
 
-              - `:high`
-
           - `class BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: :xhigh`
 
-              - `:xhigh`
-
           - `class BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: :max`
-
-              - `:max`
 
         - `inference_geo: String`
 
@@ -7347,8 +7136,6 @@ List Session Thread Events
 
                 - `type: :anthropic`
 
-                  - `:anthropic`
-
                 - `version: String`
 
               - `class BetaManagedAgentsCustomSkill`
@@ -7358,8 +7145,6 @@ List Session Thread Events
                 - `skill_id: String`
 
                 - `type: :custom`
-
-                  - `:custom`
 
                 - `version: String`
 
@@ -7379,8 +7164,6 @@ List Session Thread Events
 
                     - `name: :bash`
 
-                      - `:bash`
-
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                       Permission policy for tool execution.
@@ -7391,19 +7174,13 @@ List Session Thread Events
 
                         - `type: :always_allow`
 
-                          - `:always_allow`
-
                       - `class BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `type: :always_ask`
 
-                          - `:always_ask`
-
                     - `type: :bash`
-
-                      - `:bash`
 
                   - `class BetaManagedAgentsEditToolConfig`
 
@@ -7412,8 +7189,6 @@ List Session Thread Events
                     - `enabled: bool`
 
                     - `name: :edit`
-
-                      - `:edit`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -7429,8 +7204,6 @@ List Session Thread Events
 
                     - `type: :edit`
 
-                      - `:edit`
-
                   - `class BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
@@ -7438,8 +7211,6 @@ List Session Thread Events
                     - `enabled: bool`
 
                     - `name: :read`
-
-                      - `:read`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -7455,8 +7226,6 @@ List Session Thread Events
 
                     - `type: :read`
 
-                      - `:read`
-
                   - `class BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
@@ -7464,8 +7233,6 @@ List Session Thread Events
                     - `enabled: bool`
 
                     - `name: :write`
-
-                      - `:write`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -7481,8 +7248,6 @@ List Session Thread Events
 
                     - `type: :write`
 
-                      - `:write`
-
                   - `class BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
@@ -7490,8 +7255,6 @@ List Session Thread Events
                     - `enabled: bool`
 
                     - `name: :glob`
-
-                      - `:glob`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -7507,8 +7270,6 @@ List Session Thread Events
 
                     - `type: :glob`
 
-                      - `:glob`
-
                   - `class BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
@@ -7516,8 +7277,6 @@ List Session Thread Events
                     - `enabled: bool`
 
                     - `name: :grep`
-
-                      - `:grep`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -7533,8 +7292,6 @@ List Session Thread Events
 
                     - `type: :grep`
 
-                      - `:grep`
-
                   - `class BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
@@ -7542,8 +7299,6 @@ List Session Thread Events
                     - `enabled: bool`
 
                     - `name: :web_fetch`
-
-                      - `:web_fetch`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -7559,13 +7314,13 @@ List Session Thread Events
 
                     - `type: :web_fetch`
 
-                      - `:web_fetch`
-
                     - `allowed_domains: Array[String]`
 
                     - `blocked_domains: Array[String]`
 
                     - `max_content_tokens: Integer`
+
+                      format: int32
 
                   - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -7574,8 +7329,6 @@ List Session Thread Events
                     - `enabled: bool`
 
                     - `name: :web_search`
-
-                      - `:web_search`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -7591,8 +7344,6 @@ List Session Thread Events
 
                     - `type: :web_search`
 
-                      - `:web_search`
-
                     - `allowed_domains: Array[String]`
 
                     - `blocked_domains: Array[String]`
@@ -7605,11 +7356,11 @@ List Session Thread Events
 
                         Location precision. Only "approximate" is supported.
 
-                        - `:approximate`
-
                       - `city: String`
 
                         City name.
+
+                        minLength: 1, maxLength: 255
 
                       - `country: String`
 
@@ -7619,9 +7370,13 @@ List Session Thread Events
 
                         Region or state name.
 
+                        minLength: 1, maxLength: 255
+
                       - `timezone: String`
 
                         IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                        minLength: 1, maxLength: 255
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -7642,8 +7397,6 @@ List Session Thread Events
                       Tool calls require user confirmation before execution.
 
                 - `type: :agent_toolset_20260401`
-
-                  - `:agent_toolset_20260401`
 
               - `class BetaManagedAgentsMCPToolset`
 
@@ -7687,8 +7440,6 @@ List Session Thread Events
 
                 - `type: :mcp_toolset`
 
-                  - `:mcp_toolset`
-
               - `class BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
@@ -7701,8 +7452,6 @@ List Session Thread Events
 
                   - `type: :object`
 
-                    - `:object`
-
                   - `properties: Hash[Symbol, untyped]`
 
                   - `required: Array[String]`
@@ -7711,13 +7460,11 @@ List Session Thread Events
 
                 - `type: :custom`
 
-                  - `:custom`
-
             - `type: :agent`
 
-              - `:agent`
-
             - `version: Integer`
+
+              format: int32
 
           - `class BetaManagedAgentsAdvisor`
 
@@ -7729,11 +7476,7 @@ List Session Thread Events
 
             - `type: :advisor`
 
-              - `:advisor`
-
         - `type: :coordinator`
-
-          - `:coordinator`
 
       - `name: String`
 
@@ -7761,9 +7504,9 @@ List Session Thread Events
 
       - `type: :agent`
 
-        - `:agent`
-
       - `version: Integer`
+
+        format: int32
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
@@ -7781,11 +7524,7 @@ List Session Thread Events
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-          - `:USD`
-
       - `type: :limit`
-
-        - `:limit`
 
     - `metadata: Hash[Symbol, String]`
 
@@ -7811,17 +7550,17 @@ List Session Thread Events
 
         The text content.
 
+        minLength: 1
+
       - `type: :text`
 
-        - `:text`
-
     - `type: :"system.message"`
-
-      - `:"system.message"`
 
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsSessionUsageEvent`
 
@@ -7835,9 +7574,9 @@ List Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.usage"`
+      format: date-time
 
-      - `:"session.usage"`
+    - `type: :"session.usage"`
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
@@ -7847,6 +7586,8 @@ List Session Thread Events
 
         Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
 
+        format: double
+
       - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
         Prompt-cache creation token usage broken down by cache lifetime.
@@ -7855,17 +7596,25 @@ List Session Thread Events
 
           Tokens used to create 1-hour ephemeral cache entries.
 
+          format: int32
+
         - `ephemeral_5m_input_tokens: Integer`
 
           Tokens used to create 5-minute ephemeral cache entries.
+
+          format: int32
 
       - `cache_read_input_tokens: Integer`
 
         Total tokens read from prompt cache.
 
+        format: int32
+
       - `input_tokens: Integer`
 
         Total input tokens consumed across all turns.
+
+        format: int32
 
       - `list_cost: BetaMonetaryAmount`
 
@@ -7875,6 +7624,8 @@ List Session Thread Events
 
         Total output tokens generated across all turns.
 
+        format: int32
+
       - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
         Cumulative count of server-executed tool invocations, broken down by tool.
@@ -7883,15 +7634,19 @@ List Session Thread Events
 
           Number of server-executed web fetch requests.
 
+          format: int32
+
         - `web_search_requests: Integer`
 
           Number of server-executed web search requests.
+
+          format: int32
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-### Example
+#### Example
 
 ```ruby
 require "anthropic"
@@ -7906,7 +7661,7 @@ page = anthropic.beta.sessions.threads.events.list(
 puts(page)
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {
@@ -7927,15 +7682,15 @@ puts(page)
 }
 ```
 
-## Stream Session Thread Events
+### Stream Session Thread Events
 
 `beta.sessions.threads.events.stream(thread_id, **kwargs) -> BetaManagedAgentsStreamSessionThreadEvents`
 
-**get** `/v1/sessions/{session_id}/threads/{thread_id}/stream`
+**GET** `/v1/sessions/{session_id}/threads/{thread_id}/stream`
 
 Stream Session Thread Events
 
-### Parameters
+#### Parameters
 
 - `session_id: String`
 
@@ -8025,7 +7780,7 @@ Stream Session Thread Events
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+#### Returns
 
 - `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
 
@@ -8051,9 +7806,9 @@ Stream Session Thread Events
 
           The text content.
 
-        - `type: :text`
+          minLength: 1
 
-          - `:text`
+        - `type: :text`
 
       - `class BetaManagedAgentsImageBlock`
 
@@ -8071,13 +7826,15 @@ Stream Session Thread Events
 
               Base64-encoded image data.
 
+              minLength: 1
+
             - `media_type: String`
 
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
-            - `type: :base64`
+              minLength: 1
 
-              - `:base64`
+            - `type: :base64`
 
           - `class BetaManagedAgentsURLImageSource`
 
@@ -8085,11 +7842,11 @@ Stream Session Thread Events
 
             - `type: :url`
 
-              - `:url`
-
             - `url: String`
 
               URL of the image to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileImageSource`
 
@@ -8099,13 +7856,11 @@ Stream Session Thread Events
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: :file`
 
-              - `:file`
-
         - `type: :image`
-
-          - `:image`
 
       - `class BetaManagedAgentsDocumentBlock`
 
@@ -8123,13 +7878,15 @@ Stream Session Thread Events
 
               Base64-encoded document data.
 
+              minLength: 1
+
             - `media_type: String`
 
               MIME type of the document (e.g., "application/pdf").
 
-            - `type: :base64`
+              minLength: 1
 
-              - `:base64`
+            - `type: :base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource`
 
@@ -8139,15 +7896,13 @@ Stream Session Thread Events
 
               The plain text content.
 
+              minLength: 1
+
             - `media_type: :"text/plain"`
 
               MIME type of the text content. Must be "text/plain".
 
-              - `:"text/plain"`
-
             - `type: :text`
-
-              - `:text`
 
           - `class BetaManagedAgentsURLDocumentSource`
 
@@ -8155,11 +7910,11 @@ Stream Session Thread Events
 
             - `type: :url`
 
-              - `:url`
-
             - `url: String`
 
               URL of the document to fetch.
+
+              minLength: 1
 
           - `class BetaManagedAgentsFileDocumentSource`
 
@@ -8169,13 +7924,11 @@ Stream Session Thread Events
 
               ID of a previously uploaded file.
 
+              minLength: 1
+
             - `type: :file`
 
-              - `:file`
-
         - `type: :document`
-
-          - `:document`
 
         - `context: String`
 
@@ -8191,15 +7944,13 @@ Stream Session Thread Events
 
         - `type: :redacted`
 
-          - `:redacted`
-
     - `type: :"user.message"`
-
-      - `:"user.message"`
 
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsUserInterruptEvent`
 
@@ -8211,11 +7962,11 @@ Stream Session Thread Events
 
     - `type: :"user.interrupt"`
 
-      - `:"user.interrupt"`
-
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -8243,15 +7994,17 @@ Stream Session Thread Events
 
     - `type: :"user.tool_confirmation"`
 
-      - `:"user.tool_confirmation"`
-
     - `deny_message: String`
 
       Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
 
+      maxLength: 10000
+
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -8270,8 +8023,6 @@ Stream Session Thread Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.custom_tool_result"`
-
-      - `:"user.custom_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -8309,21 +8060,23 @@ Stream Session Thread Events
 
             The text content.
 
-          - `type: :text`
+            minLength: 1
 
-            - `:text`
+          - `type: :text`
 
         - `source: String`
 
           The URL source of the search result.
 
+          minLength: 1
+
         - `title: String`
 
           The title of the search result.
 
-        - `type: :search_result`
+          minLength: 1
 
-          - `:search_result`
+        - `type: :search_result`
 
     - `is_error: bool`
 
@@ -8332,6 +8085,8 @@ Stream Session Thread Events
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -8357,9 +8112,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.custom_tool_use"`
+      format: date-time
 
-      - `:"agent.custom_tool_use"`
+    - `type: :"agent.custom_tool_use"`
 
     - `session_thread_id: String`
 
@@ -8389,9 +8144,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.message"`
+      format: date-time
 
-      - `:"agent.message"`
+    - `type: :"agent.message"`
 
   - `class BetaManagedAgentsAgentThinkingEvent`
 
@@ -8405,9 +8160,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thinking"`
+      format: date-time
 
-      - `:"agent.thinking"`
+    - `type: :"agent.thinking"`
 
   - `class BetaManagedAgentsAgentMCPToolUseEvent`
 
@@ -8433,9 +8188,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.mcp_tool_use"`
+      format: date-time
 
-      - `:"agent.mcp_tool_use"`
+    - `type: :"agent.mcp_tool_use"`
 
     - `evaluated_permission: :allow | :ask | :deny`
 
@@ -8467,9 +8222,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.mcp_tool_result"`
+      format: date-time
 
-      - `:"agent.mcp_tool_result"`
+    - `type: :"agent.mcp_tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -8515,9 +8270,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.tool_use"`
+      format: date-time
 
-      - `:"agent.tool_use"`
+    - `type: :"agent.tool_use"`
 
     - `evaluated_permission: :allow | :ask | :deny`
 
@@ -8545,13 +8300,13 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `tool_use_id: String`
 
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `type: :"agent.tool_result"`
-
-      - `:"agent.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -8613,9 +8368,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thread_message_received"`
+      format: date-time
 
-      - `:"agent.thread_message_received"`
+    - `type: :"agent.thread_message_received"`
 
     - `from_agent_name: String`
 
@@ -8653,13 +8408,13 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `to_session_thread_id: String`
 
       Public `sthr_` ID of the thread the message was sent to.
 
     - `type: :"agent.thread_message_sent"`
-
-      - `:"agent.thread_message_sent"`
 
     - `to_agent_name: String`
 
@@ -8677,9 +8432,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"agent.thread_context_compacted"`
+      format: date-time
 
-      - `:"agent.thread_context_compacted"`
+    - `type: :"agent.thread_context_compacted"`
 
   - `class BetaManagedAgentsSessionErrorEvent`
 
@@ -8711,15 +8466,11 @@ Stream Session Thread Events
 
             - `type: :retrying`
 
-              - `:retrying`
-
           - `class BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
             - `type: :exhausted`
-
-              - `:exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal`
 
@@ -8727,11 +8478,7 @@ Stream Session Thread Events
 
             - `type: :terminal`
 
-              - `:terminal`
-
         - `type: :unknown_error`
-
-          - `:unknown_error`
 
       - `class BetaManagedAgentsModelOverloadedError`
 
@@ -8759,8 +8506,6 @@ Stream Session Thread Events
 
         - `type: :model_overloaded_error`
 
-          - `:model_overloaded_error`
-
       - `class BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
@@ -8787,8 +8532,6 @@ Stream Session Thread Events
 
         - `type: :model_rate_limited_error`
 
-          - `:model_rate_limited_error`
-
       - `class BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
@@ -8814,8 +8557,6 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :model_request_failed_error`
-
-          - `:model_request_failed_error`
 
       - `class BetaManagedAgentsMCPConnectionFailedError`
 
@@ -8847,8 +8588,6 @@ Stream Session Thread Events
 
         - `type: :mcp_connection_failed_error`
 
-          - `:mcp_connection_failed_error`
-
       - `class BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
@@ -8879,8 +8618,6 @@ Stream Session Thread Events
 
         - `type: :mcp_authentication_failed_error`
 
-          - `:mcp_authentication_failed_error`
-
       - `class BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
@@ -8906,8 +8643,6 @@ Stream Session Thread Events
             The session encountered a terminal error and will transition to `terminated` state.
 
         - `type: :billing_error`
-
-          - `:billing_error`
 
       - `class BetaManagedAgentsCredentialHostUnreachableError`
 
@@ -8939,8 +8674,6 @@ Stream Session Thread Events
 
         - `type: :credential_host_unreachable_error`
 
-          - `:credential_host_unreachable_error`
-
         - `vault_id: String`
 
           ID of the vault containing the affected credential.
@@ -8949,9 +8682,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.error"`
+      format: date-time
 
-      - `:"session.error"`
+    - `type: :"session.error"`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent`
 
@@ -8965,9 +8698,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_rescheduled"`
+      format: date-time
 
-      - `:"session.status_rescheduled"`
+    - `type: :"session.status_rescheduled"`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent`
 
@@ -8981,9 +8714,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_running"`
+      format: date-time
 
-      - `:"session.status_running"`
+    - `type: :"session.status_running"`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent`
 
@@ -8997,6 +8730,8 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted | BetaManagedAgentsSessionBudgetReached`
 
       The agent completed its turn naturally and is ready for the next user message.
@@ -9006,8 +8741,6 @@ Stream Session Thread Events
         The agent completed its turn naturally and is ready for the next user message.
 
         - `type: :end_turn`
-
-          - `:end_turn`
 
       - `class BetaManagedAgentsSessionRequiresAction`
 
@@ -9019,15 +8752,11 @@ Stream Session Thread Events
 
         - `type: :requires_action`
 
-          - `:requires_action`
-
       - `class BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
 
         - `type: :retries_exhausted`
-
-          - `:retries_exhausted`
 
       - `class BetaManagedAgentsSessionBudgetReached`
 
@@ -9035,11 +8764,7 @@ Stream Session Thread Events
 
         - `type: :budget_reached`
 
-          - `:budget_reached`
-
     - `type: :"session.status_idle"`
-
-      - `:"session.status_idle"`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent`
 
@@ -9053,9 +8778,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.status_terminated"`
+      format: date-time
 
-      - `:"session.status_terminated"`
+    - `type: :"session.status_terminated"`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent`
 
@@ -9073,13 +8798,13 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public `sthr_` ID of the newly created thread.
 
     - `type: :"session.thread_created"`
-
-      - `:"session.thread_created"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
@@ -9093,6 +8818,8 @@ Stream Session Thread Events
 
       0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
 
+      format: int32
+
     - `outcome_id: String`
 
       The `outc_` ID of the outcome being evaluated.
@@ -9101,9 +8828,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.outcome_evaluation_start"`
+      format: date-time
 
-      - `:"span.outcome_evaluation_start"`
+    - `type: :"span.outcome_evaluation_start"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
@@ -9121,6 +8848,8 @@ Stream Session Thread Events
 
       0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
 
+      format: int32
+
     - `outcome_evaluation_start_id: String`
 
       The id of the corresponding `span.outcome_evaluation_start` event.
@@ -9133,13 +8862,13 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `result: String`
 
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `type: :"span.outcome_evaluation_end"`
-
-      - `:"span.outcome_evaluation_end"`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
@@ -9149,17 +8878,25 @@ Stream Session Thread Events
 
         Tokens used to create prompt cache in this request.
 
+        format: int32
+
       - `cache_read_input_tokens: Integer`
 
         Tokens read from prompt cache in this request.
+
+        format: int32
 
       - `input_tokens: Integer`
 
         Input tokens consumed by this request.
 
+        format: int32
+
       - `output_tokens: Integer`
 
         Output tokens generated by this request.
+
+        format: int32
 
       - `speed: :standard | :fast`
 
@@ -9181,9 +8918,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.model_request_start"`
+      format: date-time
 
-      - `:"span.model_request_start"`
+    - `type: :"span.model_request_start"`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent`
 
@@ -9209,9 +8946,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.model_request_end"`
+      format: date-time
 
-      - `:"span.model_request_end"`
+    - `type: :"span.model_request_end"`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
@@ -9225,6 +8962,8 @@ Stream Session Thread Events
 
       0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
 
+      format: int32
+
     - `outcome_id: String`
 
       The `outc_` ID of the outcome being evaluated.
@@ -9233,9 +8972,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"span.outcome_evaluation_ongoing"`
+      format: date-time
 
-      - `:"span.outcome_evaluation_ongoing"`
+    - `type: :"span.outcome_evaluation_ongoing"`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent`
 
@@ -9253,6 +8992,8 @@ Stream Session Thread Events
 
       Evaluate-then-revise cycles before giving up. Default 3, max 20.
 
+      format: int32
+
     - `outcome_id: String`
 
       Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
@@ -9260,6 +9001,8 @@ Stream Session Thread Events
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
@@ -9275,8 +9018,6 @@ Stream Session Thread Events
 
         - `type: :file`
 
-          - `:file`
-
       - `class BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
@@ -9287,11 +9028,7 @@ Stream Session Thread Events
 
         - `type: :text`
 
-          - `:text`
-
     - `type: :"user.define_outcome"`
-
-      - `:"user.define_outcome"`
 
   - `class BetaManagedAgentsSessionDeletedEvent`
 
@@ -9305,9 +9042,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.deleted"`
+      format: date-time
 
-      - `:"session.deleted"`
+    - `type: :"session.deleted"`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent`
 
@@ -9325,13 +9062,13 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that started running.
 
     - `type: :"session.thread_status_running"`
-
-      - `:"session.thread_status_running"`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent`
 
@@ -9348,6 +9085,8 @@ Stream Session Thread Events
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
     - `session_thread_id: String`
 
@@ -9375,8 +9114,6 @@ Stream Session Thread Events
 
     - `type: :"session.thread_status_idle"`
 
-      - `:"session.thread_status_idle"`
-
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
@@ -9393,13 +9130,13 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that terminated.
 
     - `type: :"session.thread_status_terminated"`
-
-      - `:"session.thread_status_terminated"`
 
   - `class BetaManagedAgentsUserToolResultEvent`
 
@@ -9414,8 +9151,6 @@ Stream Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: :"user.tool_result"`
-
-      - `:"user.tool_result"`
 
     - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
 
@@ -9445,6 +9180,8 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
@@ -9465,13 +9202,13 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
+      format: date-time
+
     - `session_thread_id: String`
 
       Public sthr_ ID of the thread that is retrying.
 
     - `type: :"session.thread_status_rescheduled"`
-
-      - `:"session.thread_status_rescheduled"`
 
   - `class BetaManagedAgentsSessionUpdatedEvent`
 
@@ -9485,9 +9222,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.updated"`
+      format: date-time
 
-      - `:"session.updated"`
+    - `type: :"session.updated"`
 
     - `agent: BetaManagedAgentsSessionAgent`
 
@@ -9502,8 +9239,6 @@ Stream Session Thread Events
         - `name: String`
 
         - `type: :url`
-
-          - `:url`
 
         - `url: String`
 
@@ -9587,15 +9322,11 @@ Stream Session Thread Events
 
             - `type: :low`
 
-              - `:low`
-
           - `class BetaManagedAgentsEffortMedium`
 
             Medium effort. Balances latency and reasoning depth.
 
             - `type: :medium`
-
-              - `:medium`
 
           - `class BetaManagedAgentsEffortHigh`
 
@@ -9603,23 +9334,17 @@ Stream Session Thread Events
 
             - `type: :high`
 
-              - `:high`
-
           - `class BetaManagedAgentsEffortXhigh`
 
             Extra-high effort. Not all models accept this level.
 
             - `type: :xhigh`
 
-              - `:xhigh`
-
           - `class BetaManagedAgentsEffortMax`
 
             Maximum effort. Favors reasoning depth over latency.
 
             - `type: :max`
-
-              - `:max`
 
         - `inference_geo: String`
 
@@ -9673,8 +9398,6 @@ Stream Session Thread Events
 
                 - `type: :anthropic`
 
-                  - `:anthropic`
-
                 - `version: String`
 
               - `class BetaManagedAgentsCustomSkill`
@@ -9684,8 +9407,6 @@ Stream Session Thread Events
                 - `skill_id: String`
 
                 - `type: :custom`
-
-                  - `:custom`
 
                 - `version: String`
 
@@ -9705,8 +9426,6 @@ Stream Session Thread Events
 
                     - `name: :bash`
 
-                      - `:bash`
-
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
                       Permission policy for tool execution.
@@ -9717,19 +9436,13 @@ Stream Session Thread Events
 
                         - `type: :always_allow`
 
-                          - `:always_allow`
-
                       - `class BetaManagedAgentsAlwaysAskPolicy`
 
                         Tool calls require user confirmation before execution.
 
                         - `type: :always_ask`
 
-                          - `:always_ask`
-
                     - `type: :bash`
-
-                      - `:bash`
 
                   - `class BetaManagedAgentsEditToolConfig`
 
@@ -9738,8 +9451,6 @@ Stream Session Thread Events
                     - `enabled: bool`
 
                     - `name: :edit`
-
-                      - `:edit`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9755,8 +9466,6 @@ Stream Session Thread Events
 
                     - `type: :edit`
 
-                      - `:edit`
-
                   - `class BetaManagedAgentsReadToolConfig`
 
                     Configuration for the read tool.
@@ -9764,8 +9473,6 @@ Stream Session Thread Events
                     - `enabled: bool`
 
                     - `name: :read`
-
-                      - `:read`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9781,8 +9488,6 @@ Stream Session Thread Events
 
                     - `type: :read`
 
-                      - `:read`
-
                   - `class BetaManagedAgentsWriteToolConfig`
 
                     Configuration for the write tool.
@@ -9790,8 +9495,6 @@ Stream Session Thread Events
                     - `enabled: bool`
 
                     - `name: :write`
-
-                      - `:write`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9807,8 +9510,6 @@ Stream Session Thread Events
 
                     - `type: :write`
 
-                      - `:write`
-
                   - `class BetaManagedAgentsGlobToolConfig`
 
                     Configuration for the glob tool.
@@ -9816,8 +9517,6 @@ Stream Session Thread Events
                     - `enabled: bool`
 
                     - `name: :glob`
-
-                      - `:glob`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9833,8 +9532,6 @@ Stream Session Thread Events
 
                     - `type: :glob`
 
-                      - `:glob`
-
                   - `class BetaManagedAgentsGrepToolConfig`
 
                     Configuration for the grep tool.
@@ -9842,8 +9539,6 @@ Stream Session Thread Events
                     - `enabled: bool`
 
                     - `name: :grep`
-
-                      - `:grep`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9859,8 +9554,6 @@ Stream Session Thread Events
 
                     - `type: :grep`
 
-                      - `:grep`
-
                   - `class BetaManagedAgentsWebFetchToolConfig`
 
                     Configuration for the web_fetch tool.
@@ -9868,8 +9561,6 @@ Stream Session Thread Events
                     - `enabled: bool`
 
                     - `name: :web_fetch`
-
-                      - `:web_fetch`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9885,13 +9576,13 @@ Stream Session Thread Events
 
                     - `type: :web_fetch`
 
-                      - `:web_fetch`
-
                     - `allowed_domains: Array[String]`
 
                     - `blocked_domains: Array[String]`
 
                     - `max_content_tokens: Integer`
+
+                      format: int32
 
                   - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -9900,8 +9591,6 @@ Stream Session Thread Events
                     - `enabled: bool`
 
                     - `name: :web_search`
-
-                      - `:web_search`
 
                     - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -9917,8 +9606,6 @@ Stream Session Thread Events
 
                     - `type: :web_search`
 
-                      - `:web_search`
-
                     - `allowed_domains: Array[String]`
 
                     - `blocked_domains: Array[String]`
@@ -9931,11 +9618,11 @@ Stream Session Thread Events
 
                         Location precision. Only "approximate" is supported.
 
-                        - `:approximate`
-
                       - `city: String`
 
                         City name.
+
+                        minLength: 1, maxLength: 255
 
                       - `country: String`
 
@@ -9945,9 +9632,13 @@ Stream Session Thread Events
 
                         Region or state name.
 
+                        minLength: 1, maxLength: 255
+
                       - `timezone: String`
 
                         IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                        minLength: 1, maxLength: 255
 
                 - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -9968,8 +9659,6 @@ Stream Session Thread Events
                       Tool calls require user confirmation before execution.
 
                 - `type: :agent_toolset_20260401`
-
-                  - `:agent_toolset_20260401`
 
               - `class BetaManagedAgentsMCPToolset`
 
@@ -10013,8 +9702,6 @@ Stream Session Thread Events
 
                 - `type: :mcp_toolset`
 
-                  - `:mcp_toolset`
-
               - `class BetaManagedAgentsCustomTool`
 
                 A custom tool as returned in API responses.
@@ -10027,8 +9714,6 @@ Stream Session Thread Events
 
                   - `type: :object`
 
-                    - `:object`
-
                   - `properties: Hash[Symbol, untyped]`
 
                   - `required: Array[String]`
@@ -10037,13 +9722,11 @@ Stream Session Thread Events
 
                 - `type: :custom`
 
-                  - `:custom`
-
             - `type: :agent`
 
-              - `:agent`
-
             - `version: Integer`
+
+              format: int32
 
           - `class BetaManagedAgentsAdvisor`
 
@@ -10055,11 +9738,7 @@ Stream Session Thread Events
 
             - `type: :advisor`
 
-              - `:advisor`
-
         - `type: :coordinator`
-
-          - `:coordinator`
 
       - `name: String`
 
@@ -10087,9 +9766,9 @@ Stream Session Thread Events
 
       - `type: :agent`
 
-        - `:agent`
-
       - `version: Integer`
+
+        format: int32
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
@@ -10107,11 +9786,7 @@ Stream Session Thread Events
 
           Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
 
-          - `:USD`
-
       - `type: :limit`
-
-        - `:limit`
 
     - `metadata: Hash[Symbol, String]`
 
@@ -10137,8 +9812,6 @@ Stream Session Thread Events
 
         - `type: :"agent.message"`
 
-          - `:"agent.message"`
-
       - `class BetaManagedAgentsAgentThinkingPreview`
 
         - `id: String`
@@ -10147,11 +9820,7 @@ Stream Session Thread Events
 
         - `type: :"agent.thinking"`
 
-          - `:"agent.thinking"`
-
     - `type: :event_start`
-
-      - `:event_start`
 
   - `class BetaManagedAgentsDeltaEvent`
 
@@ -10167,19 +9836,17 @@ Stream Session Thread Events
 
       - `type: :content_delta`
 
-        - `:content_delta`
-
       - `index: Integer`
 
         Which entry in the previewed event's content array this fragment lands in. Insert content as that entry when the index is new; append to the existing entry otherwise.
+
+        format: uint32
 
     - `event_id: String`
 
       The id of the event being previewed. Matches event.id on the corresponding event_start and the buffered event that reconciles the preview.
 
     - `type: :event_delta`
-
-      - `:event_delta`
 
   - `class BetaManagedAgentsSystemMessageEvent`
 
@@ -10197,17 +9864,17 @@ Stream Session Thread Events
 
         The text content.
 
+        minLength: 1
+
       - `type: :text`
 
-        - `:text`
-
     - `type: :"system.message"`
-
-      - `:"system.message"`
 
     - `processed_at: Time`
 
       A timestamp in RFC 3339 format
+
+      format: date-time
 
   - `class BetaManagedAgentsSessionUsageEvent`
 
@@ -10221,9 +9888,9 @@ Stream Session Thread Events
 
       A timestamp in RFC 3339 format
 
-    - `type: :"session.usage"`
+      format: date-time
 
-      - `:"session.usage"`
+    - `type: :"session.usage"`
 
     - `usage: BetaManagedAgentsSessionUsageSnapshot`
 
@@ -10233,6 +9900,8 @@ Stream Session Thread Events
 
         Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
 
+        format: double
+
       - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
         Prompt-cache creation token usage broken down by cache lifetime.
@@ -10241,17 +9910,25 @@ Stream Session Thread Events
 
           Tokens used to create 1-hour ephemeral cache entries.
 
+          format: int32
+
         - `ephemeral_5m_input_tokens: Integer`
 
           Tokens used to create 5-minute ephemeral cache entries.
+
+          format: int32
 
       - `cache_read_input_tokens: Integer`
 
         Total tokens read from prompt cache.
 
+        format: int32
+
       - `input_tokens: Integer`
 
         Total input tokens consumed across all turns.
+
+        format: int32
 
       - `list_cost: BetaMonetaryAmount`
 
@@ -10261,6 +9938,8 @@ Stream Session Thread Events
 
         Total output tokens generated across all turns.
 
+        format: int32
+
       - `server_tool_use: BetaManagedAgentsServerToolUsage`
 
         Cumulative count of server-executed tool invocations, broken down by tool.
@@ -10269,15 +9948,23 @@ Stream Session Thread Events
 
           Number of server-executed web fetch requests.
 
+          format: int32
+
         - `web_search_requests: Integer`
 
           Number of server-executed web search requests.
+
+          format: int32
 
     - `budget: BetaManagedAgentsBudgetLimit`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-### Example
+- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
+
+  Server-sent event in a single thread's stream.
+
+#### Example
 
 ```ruby
 require "anthropic"
@@ -10292,7 +9979,7 @@ beta_managed_agents_stream_session_thread_events = anthropic.beta.sessions.threa
 puts(beta_managed_agents_stream_session_thread_events)
 ```
 
-#### Response
+##### Response (200)
 
 ```json
 {

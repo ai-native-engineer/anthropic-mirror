@@ -1,13 +1,35 @@
 <!-- source: https://platform.claude.com/docs/en/api/go/beta/webhooks -->
 
----
-title: Webhooks
-url: https://platform.claude.com/docs/en/api/go/beta/webhooks
----
-
 # Webhooks
 
-## Domain Types
+## Unwrap
+
+`client.Beta.Webhooks.Unwrap(ctx) error`
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+	client := anthropic.NewClient(
+		option.WithAPIKey("my-anthropic-api-key"),
+	)
+	err := client.Beta.Webhooks.Unwrap(context.TODO())
+	if err != nil {
+		panic(err.Error())
+	}
+}
+```
+
+## Domain types
 
 ### Beta Webhook Agent Archived Event Data
 
@@ -20,8 +42,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type AgentArchived`
-
-    - `const AgentArchivedAgentArchived AgentArchived = "agent.archived"`
 
   - `WorkspaceID string`
 
@@ -37,8 +57,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type AgentCreated`
 
-    - `const AgentCreatedAgentCreated AgentCreated = "agent.created"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Agent Deleted Event Data
@@ -52,8 +70,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type AgentDeleted`
-
-    - `const AgentDeletedAgentDeleted AgentDeleted = "agent.deleted"`
 
   - `WorkspaceID string`
 
@@ -69,8 +85,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type AgentUpdated`
 
-    - `const AgentUpdatedAgentUpdated AgentUpdated = "agent.updated"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Deployment Archived Event Data
@@ -84,8 +98,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type DeploymentArchived`
-
-    - `const DeploymentArchivedDeploymentArchived DeploymentArchived = "deployment.archived"`
 
   - `WorkspaceID string`
 
@@ -101,8 +113,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type DeploymentCreated`
 
-    - `const DeploymentCreatedDeploymentCreated DeploymentCreated = "deployment.created"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Deployment Deleted Event Data
@@ -116,8 +126,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type DeploymentDeleted`
-
-    - `const DeploymentDeletedDeploymentDeleted DeploymentDeleted = "deployment.deleted"`
 
   - `WorkspaceID string`
 
@@ -133,8 +141,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type DeploymentPaused`
 
-    - `const DeploymentPausedDeploymentPaused DeploymentPaused = "deployment.paused"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Deployment Run Failed Event Data
@@ -148,8 +154,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type DeploymentRunFailed`
-
-    - `const DeploymentRunFailedDeploymentRunFailed DeploymentRunFailed = "deployment_run.failed"`
 
   - `WorkspaceID string`
 
@@ -165,8 +169,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type DeploymentRunStarted`
 
-    - `const DeploymentRunStartedDeploymentRunStarted DeploymentRunStarted = "deployment_run.started"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Deployment Run Succeeded Event Data
@@ -180,8 +182,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type DeploymentRunSucceeded`
-
-    - `const DeploymentRunSucceededDeploymentRunSucceeded DeploymentRunSucceeded = "deployment_run.succeeded"`
 
   - `WorkspaceID string`
 
@@ -197,8 +197,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type DeploymentUnpaused`
 
-    - `const DeploymentUnpausedDeploymentUnpaused DeploymentUnpaused = "deployment.unpaused"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Deployment Updated Event Data
@@ -212,8 +210,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type DeploymentUpdated`
-
-    - `const DeploymentUpdatedDeploymentUpdated DeploymentUpdated = "deployment.updated"`
 
   - `WorkspaceID string`
 
@@ -229,8 +225,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type EnvironmentArchived`
 
-    - `const EnvironmentArchivedEnvironmentArchived EnvironmentArchived = "environment.archived"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Environment Created Event Data
@@ -244,8 +238,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type EnvironmentCreated`
-
-    - `const EnvironmentCreatedEnvironmentCreated EnvironmentCreated = "environment.created"`
 
   - `WorkspaceID string`
 
@@ -261,8 +253,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type EnvironmentDeleted`
 
-    - `const EnvironmentDeletedEnvironmentDeleted EnvironmentDeleted = "environment.deleted"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Environment Updated Event Data
@@ -276,8 +266,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type EnvironmentUpdated`
-
-    - `const EnvironmentUpdatedEnvironmentUpdated EnvironmentUpdated = "environment.updated"`
 
   - `WorkspaceID string`
 
@@ -293,6 +281,8 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     RFC 3339 timestamp when the event occurred.
 
+    format: date-time
+
   - `Data BetaWebhookEventDataUnion`
 
     - `type BetaWebhookSessionCreatedEventData struct{…}`
@@ -304,8 +294,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionCreated`
-
-        - `const SessionCreatedSessionCreated SessionCreated = "session.created"`
 
       - `WorkspaceID string`
 
@@ -319,8 +307,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionPending`
 
-        - `const SessionPendingSessionPending SessionPending = "session.pending"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionRunningEventData struct{…}`
@@ -332,8 +318,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionRunning`
-
-        - `const SessionRunningSessionRunning SessionRunning = "session.running"`
 
       - `WorkspaceID string`
 
@@ -347,8 +331,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionIdled`
 
-        - `const SessionIdledSessionIdled SessionIdled = "session.idled"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionRequiresActionEventData struct{…}`
@@ -360,8 +342,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionRequiresAction`
-
-        - `const SessionRequiresActionSessionRequiresAction SessionRequiresAction = "session.requires_action"`
 
       - `WorkspaceID string`
 
@@ -375,8 +355,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionArchived`
 
-        - `const SessionArchivedSessionArchived SessionArchived = "session.archived"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionDeletedEventData struct{…}`
@@ -388,8 +366,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionDeleted`
-
-        - `const SessionDeletedSessionDeleted SessionDeleted = "session.deleted"`
 
       - `WorkspaceID string`
 
@@ -403,8 +379,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionStatusRescheduled`
 
-        - `const SessionStatusRescheduledSessionStatusRescheduled SessionStatusRescheduled = "session.status_rescheduled"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionStatusRunStartedEventData struct{…}`
@@ -416,8 +390,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionStatusRunStarted`
-
-        - `const SessionStatusRunStartedSessionStatusRunStarted SessionStatusRunStarted = "session.status_run_started"`
 
       - `WorkspaceID string`
 
@@ -431,8 +403,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionStatusIdled`
 
-        - `const SessionStatusIdledSessionStatusIdled SessionStatusIdled = "session.status_idled"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionStatusTerminatedEventData struct{…}`
@@ -444,8 +414,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionStatusTerminated`
-
-        - `const SessionStatusTerminatedSessionStatusTerminated SessionStatusTerminated = "session.status_terminated"`
 
       - `WorkspaceID string`
 
@@ -463,8 +431,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionThreadCreated`
 
-        - `const SessionThreadCreatedSessionThreadCreated SessionThreadCreated = "session.thread_created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionThreadIdledEventData struct{…}`
@@ -480,8 +446,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
         ID of the session thread this event refers to.
 
       - `Type SessionThreadIdled`
-
-        - `const SessionThreadIdledSessionThreadIdled SessionThreadIdled = "session.thread_idled"`
 
       - `WorkspaceID string`
 
@@ -499,8 +463,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionThreadTerminated`
 
-        - `const SessionThreadTerminatedSessionThreadTerminated SessionThreadTerminated = "session.thread_terminated"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionOutcomeEvaluationEndedEventData struct{…}`
@@ -512,8 +474,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionOutcomeEvaluationEnded`
-
-        - `const SessionOutcomeEvaluationEndedSessionOutcomeEvaluationEnded SessionOutcomeEvaluationEnded = "session.outcome_evaluation_ended"`
 
       - `WorkspaceID string`
 
@@ -527,8 +487,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type VaultCreated`
 
-        - `const VaultCreatedVaultCreated VaultCreated = "vault.created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookVaultArchivedEventData struct{…}`
@@ -540,8 +498,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type VaultArchived`
-
-        - `const VaultArchivedVaultArchived VaultArchived = "vault.archived"`
 
       - `WorkspaceID string`
 
@@ -555,8 +511,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type VaultDeleted`
 
-        - `const VaultDeletedVaultDeleted VaultDeleted = "vault.deleted"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookVaultCredentialCreatedEventData struct{…}`
@@ -568,8 +522,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type VaultCredentialCreated`
-
-        - `const VaultCredentialCreatedVaultCredentialCreated VaultCredentialCreated = "vault_credential.created"`
 
       - `VaultID string`
 
@@ -587,8 +539,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type VaultCredentialArchived`
 
-        - `const VaultCredentialArchivedVaultCredentialArchived VaultCredentialArchived = "vault_credential.archived"`
-
       - `VaultID string`
 
         ID of the vault that owns this credential.
@@ -604,8 +554,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type VaultCredentialDeleted`
-
-        - `const VaultCredentialDeletedVaultCredentialDeleted VaultCredentialDeleted = "vault_credential.deleted"`
 
       - `VaultID string`
 
@@ -623,8 +571,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type VaultCredentialRefreshFailed`
 
-        - `const VaultCredentialRefreshFailedVaultCredentialRefreshFailed VaultCredentialRefreshFailed = "vault_credential.refresh_failed"`
-
       - `VaultID string`
 
         ID of the vault that owns this credential.
@@ -641,8 +587,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionUpdated`
 
-        - `const SessionUpdatedSessionUpdated SessionUpdated = "session.updated"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookAgentCreatedEventData struct{…}`
@@ -654,8 +598,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type AgentCreated`
-
-        - `const AgentCreatedAgentCreated AgentCreated = "agent.created"`
 
       - `WorkspaceID string`
 
@@ -669,8 +611,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type AgentArchived`
 
-        - `const AgentArchivedAgentArchived AgentArchived = "agent.archived"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookAgentDeletedEventData struct{…}`
@@ -682,8 +622,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type AgentDeleted`
-
-        - `const AgentDeletedAgentDeleted AgentDeleted = "agent.deleted"`
 
       - `WorkspaceID string`
 
@@ -697,8 +635,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentPaused`
 
-        - `const DeploymentPausedDeploymentPaused DeploymentPaused = "deployment.paused"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookDeploymentRunFailedEventData struct{…}`
@@ -710,8 +646,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type DeploymentRunFailed`
-
-        - `const DeploymentRunFailedDeploymentRunFailed DeploymentRunFailed = "deployment_run.failed"`
 
       - `WorkspaceID string`
 
@@ -725,8 +659,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentCreated`
 
-        - `const DeploymentCreatedDeploymentCreated DeploymentCreated = "deployment.created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookDeploymentUpdatedEventData struct{…}`
@@ -738,8 +670,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type DeploymentUpdated`
-
-        - `const DeploymentUpdatedDeploymentUpdated DeploymentUpdated = "deployment.updated"`
 
       - `WorkspaceID string`
 
@@ -753,8 +683,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentUnpaused`
 
-        - `const DeploymentUnpausedDeploymentUnpaused DeploymentUnpaused = "deployment.unpaused"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookAgentUpdatedEventData struct{…}`
@@ -766,8 +694,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type AgentUpdated`
-
-        - `const AgentUpdatedAgentUpdated AgentUpdated = "agent.updated"`
 
       - `WorkspaceID string`
 
@@ -781,8 +707,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentArchived`
 
-        - `const DeploymentArchivedDeploymentArchived DeploymentArchived = "deployment.archived"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookDeploymentRunStartedEventData struct{…}`
@@ -794,8 +718,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type DeploymentRunStarted`
-
-        - `const DeploymentRunStartedDeploymentRunStarted DeploymentRunStarted = "deployment_run.started"`
 
       - `WorkspaceID string`
 
@@ -809,8 +731,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentDeleted`
 
-        - `const DeploymentDeletedDeploymentDeleted DeploymentDeleted = "deployment.deleted"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookDeploymentRunSucceededEventData struct{…}`
@@ -822,8 +742,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type DeploymentRunSucceeded`
-
-        - `const DeploymentRunSucceededDeploymentRunSucceeded DeploymentRunSucceeded = "deployment_run.succeeded"`
 
       - `WorkspaceID string`
 
@@ -837,8 +755,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type EnvironmentCreated`
 
-        - `const EnvironmentCreatedEnvironmentCreated EnvironmentCreated = "environment.created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookEnvironmentUpdatedEventData struct{…}`
@@ -850,8 +766,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type EnvironmentUpdated`
-
-        - `const EnvironmentUpdatedEnvironmentUpdated EnvironmentUpdated = "environment.updated"`
 
       - `WorkspaceID string`
 
@@ -865,8 +779,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type EnvironmentArchived`
 
-        - `const EnvironmentArchivedEnvironmentArchived EnvironmentArchived = "environment.archived"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookEnvironmentDeletedEventData struct{…}`
@@ -878,8 +790,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type EnvironmentDeleted`
-
-        - `const EnvironmentDeletedEnvironmentDeleted EnvironmentDeleted = "environment.deleted"`
 
       - `WorkspaceID string`
 
@@ -893,8 +803,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type MemoryStoreCreated`
 
-        - `const MemoryStoreCreatedMemoryStoreCreated MemoryStoreCreated = "memory_store.created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookMemoryStoreArchivedEventData struct{…}`
@@ -906,8 +814,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type MemoryStoreArchived`
-
-        - `const MemoryStoreArchivedMemoryStoreArchived MemoryStoreArchived = "memory_store.archived"`
 
       - `WorkspaceID string`
 
@@ -921,8 +827,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type MemoryStoreDeleted`
 
-        - `const MemoryStoreDeletedMemoryStoreDeleted MemoryStoreDeleted = "memory_store.deleted"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionBudgetReachedEventData struct{…}`
@@ -935,15 +839,11 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionBudgetReached`
 
-        - `const SessionBudgetReachedSessionBudgetReached SessionBudgetReached = "session.budget_reached"`
-
       - `WorkspaceID string`
 
   - `Type Event`
 
     Object type. Always `event` for webhook payloads.
-
-    - `const EventEvent Event = "event"`
 
 ### Beta Webhook Event Data
 
@@ -959,8 +859,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionCreated`
 
-      - `const SessionCreatedSessionCreated SessionCreated = "session.created"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionPendingEventData struct{…}`
@@ -972,8 +870,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type SessionPending`
-
-      - `const SessionPendingSessionPending SessionPending = "session.pending"`
 
     - `WorkspaceID string`
 
@@ -987,8 +883,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionRunning`
 
-      - `const SessionRunningSessionRunning SessionRunning = "session.running"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionIdledEventData struct{…}`
@@ -1000,8 +894,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type SessionIdled`
-
-      - `const SessionIdledSessionIdled SessionIdled = "session.idled"`
 
     - `WorkspaceID string`
 
@@ -1015,8 +907,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionRequiresAction`
 
-      - `const SessionRequiresActionSessionRequiresAction SessionRequiresAction = "session.requires_action"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionArchivedEventData struct{…}`
@@ -1028,8 +918,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type SessionArchived`
-
-      - `const SessionArchivedSessionArchived SessionArchived = "session.archived"`
 
     - `WorkspaceID string`
 
@@ -1043,8 +931,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionDeleted`
 
-      - `const SessionDeletedSessionDeleted SessionDeleted = "session.deleted"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionStatusRescheduledEventData struct{…}`
@@ -1056,8 +942,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type SessionStatusRescheduled`
-
-      - `const SessionStatusRescheduledSessionStatusRescheduled SessionStatusRescheduled = "session.status_rescheduled"`
 
     - `WorkspaceID string`
 
@@ -1071,8 +955,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionStatusRunStarted`
 
-      - `const SessionStatusRunStartedSessionStatusRunStarted SessionStatusRunStarted = "session.status_run_started"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionStatusIdledEventData struct{…}`
@@ -1085,8 +967,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionStatusIdled`
 
-      - `const SessionStatusIdledSessionStatusIdled SessionStatusIdled = "session.status_idled"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionStatusTerminatedEventData struct{…}`
@@ -1098,8 +978,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type SessionStatusTerminated`
-
-      - `const SessionStatusTerminatedSessionStatusTerminated SessionStatusTerminated = "session.status_terminated"`
 
     - `WorkspaceID string`
 
@@ -1117,8 +995,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionThreadCreated`
 
-      - `const SessionThreadCreatedSessionThreadCreated SessionThreadCreated = "session.thread_created"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionThreadIdledEventData struct{…}`
@@ -1134,8 +1010,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       ID of the session thread this event refers to.
 
     - `Type SessionThreadIdled`
-
-      - `const SessionThreadIdledSessionThreadIdled SessionThreadIdled = "session.thread_idled"`
 
     - `WorkspaceID string`
 
@@ -1153,8 +1027,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionThreadTerminated`
 
-      - `const SessionThreadTerminatedSessionThreadTerminated SessionThreadTerminated = "session.thread_terminated"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionOutcomeEvaluationEndedEventData struct{…}`
@@ -1166,8 +1038,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type SessionOutcomeEvaluationEnded`
-
-      - `const SessionOutcomeEvaluationEndedSessionOutcomeEvaluationEnded SessionOutcomeEvaluationEnded = "session.outcome_evaluation_ended"`
 
     - `WorkspaceID string`
 
@@ -1181,8 +1051,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type VaultCreated`
 
-      - `const VaultCreatedVaultCreated VaultCreated = "vault.created"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookVaultArchivedEventData struct{…}`
@@ -1194,8 +1062,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type VaultArchived`
-
-      - `const VaultArchivedVaultArchived VaultArchived = "vault.archived"`
 
     - `WorkspaceID string`
 
@@ -1209,8 +1075,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type VaultDeleted`
 
-      - `const VaultDeletedVaultDeleted VaultDeleted = "vault.deleted"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookVaultCredentialCreatedEventData struct{…}`
@@ -1222,8 +1086,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type VaultCredentialCreated`
-
-      - `const VaultCredentialCreatedVaultCredentialCreated VaultCredentialCreated = "vault_credential.created"`
 
     - `VaultID string`
 
@@ -1241,8 +1103,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type VaultCredentialArchived`
 
-      - `const VaultCredentialArchivedVaultCredentialArchived VaultCredentialArchived = "vault_credential.archived"`
-
     - `VaultID string`
 
       ID of the vault that owns this credential.
@@ -1258,8 +1118,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type VaultCredentialDeleted`
-
-      - `const VaultCredentialDeletedVaultCredentialDeleted VaultCredentialDeleted = "vault_credential.deleted"`
 
     - `VaultID string`
 
@@ -1277,8 +1135,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type VaultCredentialRefreshFailed`
 
-      - `const VaultCredentialRefreshFailedVaultCredentialRefreshFailed VaultCredentialRefreshFailed = "vault_credential.refresh_failed"`
-
     - `VaultID string`
 
       ID of the vault that owns this credential.
@@ -1295,8 +1151,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type SessionUpdated`
 
-      - `const SessionUpdatedSessionUpdated SessionUpdated = "session.updated"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookAgentCreatedEventData struct{…}`
@@ -1308,8 +1162,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type AgentCreated`
-
-      - `const AgentCreatedAgentCreated AgentCreated = "agent.created"`
 
     - `WorkspaceID string`
 
@@ -1323,8 +1175,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type AgentArchived`
 
-      - `const AgentArchivedAgentArchived AgentArchived = "agent.archived"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookAgentDeletedEventData struct{…}`
@@ -1336,8 +1186,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type AgentDeleted`
-
-      - `const AgentDeletedAgentDeleted AgentDeleted = "agent.deleted"`
 
     - `WorkspaceID string`
 
@@ -1351,8 +1199,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type DeploymentPaused`
 
-      - `const DeploymentPausedDeploymentPaused DeploymentPaused = "deployment.paused"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookDeploymentRunFailedEventData struct{…}`
@@ -1364,8 +1210,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type DeploymentRunFailed`
-
-      - `const DeploymentRunFailedDeploymentRunFailed DeploymentRunFailed = "deployment_run.failed"`
 
     - `WorkspaceID string`
 
@@ -1379,8 +1223,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type DeploymentCreated`
 
-      - `const DeploymentCreatedDeploymentCreated DeploymentCreated = "deployment.created"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookDeploymentUpdatedEventData struct{…}`
@@ -1392,8 +1234,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type DeploymentUpdated`
-
-      - `const DeploymentUpdatedDeploymentUpdated DeploymentUpdated = "deployment.updated"`
 
     - `WorkspaceID string`
 
@@ -1407,8 +1247,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type DeploymentUnpaused`
 
-      - `const DeploymentUnpausedDeploymentUnpaused DeploymentUnpaused = "deployment.unpaused"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookAgentUpdatedEventData struct{…}`
@@ -1420,8 +1258,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type AgentUpdated`
-
-      - `const AgentUpdatedAgentUpdated AgentUpdated = "agent.updated"`
 
     - `WorkspaceID string`
 
@@ -1435,8 +1271,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type DeploymentArchived`
 
-      - `const DeploymentArchivedDeploymentArchived DeploymentArchived = "deployment.archived"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookDeploymentRunStartedEventData struct{…}`
@@ -1448,8 +1282,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type DeploymentRunStarted`
-
-      - `const DeploymentRunStartedDeploymentRunStarted DeploymentRunStarted = "deployment_run.started"`
 
     - `WorkspaceID string`
 
@@ -1463,8 +1295,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type DeploymentDeleted`
 
-      - `const DeploymentDeletedDeploymentDeleted DeploymentDeleted = "deployment.deleted"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookDeploymentRunSucceededEventData struct{…}`
@@ -1476,8 +1306,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type DeploymentRunSucceeded`
-
-      - `const DeploymentRunSucceededDeploymentRunSucceeded DeploymentRunSucceeded = "deployment_run.succeeded"`
 
     - `WorkspaceID string`
 
@@ -1491,8 +1319,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type EnvironmentCreated`
 
-      - `const EnvironmentCreatedEnvironmentCreated EnvironmentCreated = "environment.created"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookEnvironmentUpdatedEventData struct{…}`
@@ -1504,8 +1330,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type EnvironmentUpdated`
-
-      - `const EnvironmentUpdatedEnvironmentUpdated EnvironmentUpdated = "environment.updated"`
 
     - `WorkspaceID string`
 
@@ -1519,8 +1343,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type EnvironmentArchived`
 
-      - `const EnvironmentArchivedEnvironmentArchived EnvironmentArchived = "environment.archived"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookEnvironmentDeletedEventData struct{…}`
@@ -1532,8 +1354,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type EnvironmentDeleted`
-
-      - `const EnvironmentDeletedEnvironmentDeleted EnvironmentDeleted = "environment.deleted"`
 
     - `WorkspaceID string`
 
@@ -1547,8 +1367,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type MemoryStoreCreated`
 
-      - `const MemoryStoreCreatedMemoryStoreCreated MemoryStoreCreated = "memory_store.created"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookMemoryStoreArchivedEventData struct{…}`
@@ -1560,8 +1378,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type MemoryStoreArchived`
-
-      - `const MemoryStoreArchivedMemoryStoreArchived MemoryStoreArchived = "memory_store.archived"`
 
     - `WorkspaceID string`
 
@@ -1575,8 +1391,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     - `Type MemoryStoreDeleted`
 
-      - `const MemoryStoreDeletedMemoryStoreDeleted MemoryStoreDeleted = "memory_store.deleted"`
-
     - `WorkspaceID string`
 
   - `type BetaWebhookSessionBudgetReachedEventData struct{…}`
@@ -1588,8 +1402,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     - `OrganizationID string`
 
     - `Type SessionBudgetReached`
-
-      - `const SessionBudgetReachedSessionBudgetReached SessionBudgetReached = "session.budget_reached"`
 
     - `WorkspaceID string`
 
@@ -1605,8 +1417,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type MemoryStoreArchived`
 
-    - `const MemoryStoreArchivedMemoryStoreArchived MemoryStoreArchived = "memory_store.archived"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Memory Store Created Event Data
@@ -1620,8 +1430,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type MemoryStoreCreated`
-
-    - `const MemoryStoreCreatedMemoryStoreCreated MemoryStoreCreated = "memory_store.created"`
 
   - `WorkspaceID string`
 
@@ -1637,8 +1445,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type MemoryStoreDeleted`
 
-    - `const MemoryStoreDeletedMemoryStoreDeleted MemoryStoreDeleted = "memory_store.deleted"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Archived Event Data
@@ -1652,8 +1458,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type SessionArchived`
-
-    - `const SessionArchivedSessionArchived SessionArchived = "session.archived"`
 
   - `WorkspaceID string`
 
@@ -1669,8 +1473,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type SessionBudgetReached`
 
-    - `const SessionBudgetReachedSessionBudgetReached SessionBudgetReached = "session.budget_reached"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Created Event Data
@@ -1684,8 +1486,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type SessionCreated`
-
-    - `const SessionCreatedSessionCreated SessionCreated = "session.created"`
 
   - `WorkspaceID string`
 
@@ -1701,8 +1501,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type SessionDeleted`
 
-    - `const SessionDeletedSessionDeleted SessionDeleted = "session.deleted"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Idled Event Data
@@ -1716,8 +1514,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type SessionIdled`
-
-    - `const SessionIdledSessionIdled SessionIdled = "session.idled"`
 
   - `WorkspaceID string`
 
@@ -1733,8 +1529,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type SessionOutcomeEvaluationEnded`
 
-    - `const SessionOutcomeEvaluationEndedSessionOutcomeEvaluationEnded SessionOutcomeEvaluationEnded = "session.outcome_evaluation_ended"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Pending Event Data
@@ -1748,8 +1542,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type SessionPending`
-
-    - `const SessionPendingSessionPending SessionPending = "session.pending"`
 
   - `WorkspaceID string`
 
@@ -1765,8 +1557,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type SessionRequiresAction`
 
-    - `const SessionRequiresActionSessionRequiresAction SessionRequiresAction = "session.requires_action"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Running Event Data
@@ -1780,8 +1570,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type SessionRunning`
-
-    - `const SessionRunningSessionRunning SessionRunning = "session.running"`
 
   - `WorkspaceID string`
 
@@ -1797,8 +1585,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type SessionStatusIdled`
 
-    - `const SessionStatusIdledSessionStatusIdled SessionStatusIdled = "session.status_idled"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Status Rescheduled Event Data
@@ -1812,8 +1598,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type SessionStatusRescheduled`
-
-    - `const SessionStatusRescheduledSessionStatusRescheduled SessionStatusRescheduled = "session.status_rescheduled"`
 
   - `WorkspaceID string`
 
@@ -1829,8 +1613,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type SessionStatusRunStarted`
 
-    - `const SessionStatusRunStartedSessionStatusRunStarted SessionStatusRunStarted = "session.status_run_started"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Status Terminated Event Data
@@ -1844,8 +1626,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type SessionStatusTerminated`
-
-    - `const SessionStatusTerminatedSessionStatusTerminated SessionStatusTerminated = "session.status_terminated"`
 
   - `WorkspaceID string`
 
@@ -1865,8 +1645,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type SessionThreadCreated`
 
-    - `const SessionThreadCreatedSessionThreadCreated SessionThreadCreated = "session.thread_created"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Thread Idled Event Data
@@ -1884,8 +1662,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
     ID of the session thread this event refers to.
 
   - `Type SessionThreadIdled`
-
-    - `const SessionThreadIdledSessionThreadIdled SessionThreadIdled = "session.thread_idled"`
 
   - `WorkspaceID string`
 
@@ -1905,8 +1681,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type SessionThreadTerminated`
 
-    - `const SessionThreadTerminatedSessionThreadTerminated SessionThreadTerminated = "session.thread_terminated"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Session Updated Event Data
@@ -1920,8 +1694,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type SessionUpdated`
-
-    - `const SessionUpdatedSessionUpdated SessionUpdated = "session.updated"`
 
   - `WorkspaceID string`
 
@@ -1937,8 +1709,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type VaultArchived`
 
-    - `const VaultArchivedVaultArchived VaultArchived = "vault.archived"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Vault Created Event Data
@@ -1953,8 +1723,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type VaultCreated`
 
-    - `const VaultCreatedVaultCreated VaultCreated = "vault.created"`
-
   - `WorkspaceID string`
 
 ### Beta Webhook Vault Credential Archived Event Data
@@ -1968,8 +1736,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type VaultCredentialArchived`
-
-    - `const VaultCredentialArchivedVaultCredentialArchived VaultCredentialArchived = "vault_credential.archived"`
 
   - `VaultID string`
 
@@ -1989,8 +1755,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type VaultCredentialCreated`
 
-    - `const VaultCredentialCreatedVaultCredentialCreated VaultCredentialCreated = "vault_credential.created"`
-
   - `VaultID string`
 
     ID of the vault that owns this credential.
@@ -2008,8 +1772,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
   - `OrganizationID string`
 
   - `Type VaultCredentialDeleted`
-
-    - `const VaultCredentialDeletedVaultCredentialDeleted VaultCredentialDeleted = "vault_credential.deleted"`
 
   - `VaultID string`
 
@@ -2029,8 +1791,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type VaultCredentialRefreshFailed`
 
-    - `const VaultCredentialRefreshFailedVaultCredentialRefreshFailed VaultCredentialRefreshFailed = "vault_credential.refresh_failed"`
-
   - `VaultID string`
 
     ID of the vault that owns this credential.
@@ -2049,8 +1809,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
   - `Type VaultDeleted`
 
-    - `const VaultDeletedVaultDeleted VaultDeleted = "vault.deleted"`
-
   - `WorkspaceID string`
 
 ### Unwrap Webhook Event
@@ -2065,6 +1823,8 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
     RFC 3339 timestamp when the event occurred.
 
+    format: date-time
+
   - `Data BetaWebhookEventDataUnion`
 
     - `type BetaWebhookSessionCreatedEventData struct{…}`
@@ -2076,8 +1836,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionCreated`
-
-        - `const SessionCreatedSessionCreated SessionCreated = "session.created"`
 
       - `WorkspaceID string`
 
@@ -2091,8 +1849,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionPending`
 
-        - `const SessionPendingSessionPending SessionPending = "session.pending"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionRunningEventData struct{…}`
@@ -2104,8 +1860,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionRunning`
-
-        - `const SessionRunningSessionRunning SessionRunning = "session.running"`
 
       - `WorkspaceID string`
 
@@ -2119,8 +1873,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionIdled`
 
-        - `const SessionIdledSessionIdled SessionIdled = "session.idled"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionRequiresActionEventData struct{…}`
@@ -2132,8 +1884,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionRequiresAction`
-
-        - `const SessionRequiresActionSessionRequiresAction SessionRequiresAction = "session.requires_action"`
 
       - `WorkspaceID string`
 
@@ -2147,8 +1897,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionArchived`
 
-        - `const SessionArchivedSessionArchived SessionArchived = "session.archived"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionDeletedEventData struct{…}`
@@ -2160,8 +1908,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionDeleted`
-
-        - `const SessionDeletedSessionDeleted SessionDeleted = "session.deleted"`
 
       - `WorkspaceID string`
 
@@ -2175,8 +1921,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionStatusRescheduled`
 
-        - `const SessionStatusRescheduledSessionStatusRescheduled SessionStatusRescheduled = "session.status_rescheduled"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionStatusRunStartedEventData struct{…}`
@@ -2188,8 +1932,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionStatusRunStarted`
-
-        - `const SessionStatusRunStartedSessionStatusRunStarted SessionStatusRunStarted = "session.status_run_started"`
 
       - `WorkspaceID string`
 
@@ -2203,8 +1945,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionStatusIdled`
 
-        - `const SessionStatusIdledSessionStatusIdled SessionStatusIdled = "session.status_idled"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionStatusTerminatedEventData struct{…}`
@@ -2216,8 +1956,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionStatusTerminated`
-
-        - `const SessionStatusTerminatedSessionStatusTerminated SessionStatusTerminated = "session.status_terminated"`
 
       - `WorkspaceID string`
 
@@ -2235,8 +1973,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionThreadCreated`
 
-        - `const SessionThreadCreatedSessionThreadCreated SessionThreadCreated = "session.thread_created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionThreadIdledEventData struct{…}`
@@ -2252,8 +1988,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
         ID of the session thread this event refers to.
 
       - `Type SessionThreadIdled`
-
-        - `const SessionThreadIdledSessionThreadIdled SessionThreadIdled = "session.thread_idled"`
 
       - `WorkspaceID string`
 
@@ -2271,8 +2005,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionThreadTerminated`
 
-        - `const SessionThreadTerminatedSessionThreadTerminated SessionThreadTerminated = "session.thread_terminated"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionOutcomeEvaluationEndedEventData struct{…}`
@@ -2284,8 +2016,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type SessionOutcomeEvaluationEnded`
-
-        - `const SessionOutcomeEvaluationEndedSessionOutcomeEvaluationEnded SessionOutcomeEvaluationEnded = "session.outcome_evaluation_ended"`
 
       - `WorkspaceID string`
 
@@ -2299,8 +2029,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type VaultCreated`
 
-        - `const VaultCreatedVaultCreated VaultCreated = "vault.created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookVaultArchivedEventData struct{…}`
@@ -2312,8 +2040,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type VaultArchived`
-
-        - `const VaultArchivedVaultArchived VaultArchived = "vault.archived"`
 
       - `WorkspaceID string`
 
@@ -2327,8 +2053,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type VaultDeleted`
 
-        - `const VaultDeletedVaultDeleted VaultDeleted = "vault.deleted"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookVaultCredentialCreatedEventData struct{…}`
@@ -2340,8 +2064,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type VaultCredentialCreated`
-
-        - `const VaultCredentialCreatedVaultCredentialCreated VaultCredentialCreated = "vault_credential.created"`
 
       - `VaultID string`
 
@@ -2359,8 +2081,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type VaultCredentialArchived`
 
-        - `const VaultCredentialArchivedVaultCredentialArchived VaultCredentialArchived = "vault_credential.archived"`
-
       - `VaultID string`
 
         ID of the vault that owns this credential.
@@ -2376,8 +2096,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type VaultCredentialDeleted`
-
-        - `const VaultCredentialDeletedVaultCredentialDeleted VaultCredentialDeleted = "vault_credential.deleted"`
 
       - `VaultID string`
 
@@ -2395,8 +2113,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type VaultCredentialRefreshFailed`
 
-        - `const VaultCredentialRefreshFailedVaultCredentialRefreshFailed VaultCredentialRefreshFailed = "vault_credential.refresh_failed"`
-
       - `VaultID string`
 
         ID of the vault that owns this credential.
@@ -2413,8 +2129,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionUpdated`
 
-        - `const SessionUpdatedSessionUpdated SessionUpdated = "session.updated"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookAgentCreatedEventData struct{…}`
@@ -2426,8 +2140,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type AgentCreated`
-
-        - `const AgentCreatedAgentCreated AgentCreated = "agent.created"`
 
       - `WorkspaceID string`
 
@@ -2441,8 +2153,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type AgentArchived`
 
-        - `const AgentArchivedAgentArchived AgentArchived = "agent.archived"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookAgentDeletedEventData struct{…}`
@@ -2454,8 +2164,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type AgentDeleted`
-
-        - `const AgentDeletedAgentDeleted AgentDeleted = "agent.deleted"`
 
       - `WorkspaceID string`
 
@@ -2469,8 +2177,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentPaused`
 
-        - `const DeploymentPausedDeploymentPaused DeploymentPaused = "deployment.paused"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookDeploymentRunFailedEventData struct{…}`
@@ -2482,8 +2188,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type DeploymentRunFailed`
-
-        - `const DeploymentRunFailedDeploymentRunFailed DeploymentRunFailed = "deployment_run.failed"`
 
       - `WorkspaceID string`
 
@@ -2497,8 +2201,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentCreated`
 
-        - `const DeploymentCreatedDeploymentCreated DeploymentCreated = "deployment.created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookDeploymentUpdatedEventData struct{…}`
@@ -2510,8 +2212,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type DeploymentUpdated`
-
-        - `const DeploymentUpdatedDeploymentUpdated DeploymentUpdated = "deployment.updated"`
 
       - `WorkspaceID string`
 
@@ -2525,8 +2225,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentUnpaused`
 
-        - `const DeploymentUnpausedDeploymentUnpaused DeploymentUnpaused = "deployment.unpaused"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookAgentUpdatedEventData struct{…}`
@@ -2538,8 +2236,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type AgentUpdated`
-
-        - `const AgentUpdatedAgentUpdated AgentUpdated = "agent.updated"`
 
       - `WorkspaceID string`
 
@@ -2553,8 +2249,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentArchived`
 
-        - `const DeploymentArchivedDeploymentArchived DeploymentArchived = "deployment.archived"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookDeploymentRunStartedEventData struct{…}`
@@ -2566,8 +2260,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type DeploymentRunStarted`
-
-        - `const DeploymentRunStartedDeploymentRunStarted DeploymentRunStarted = "deployment_run.started"`
 
       - `WorkspaceID string`
 
@@ -2581,8 +2273,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type DeploymentDeleted`
 
-        - `const DeploymentDeletedDeploymentDeleted DeploymentDeleted = "deployment.deleted"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookDeploymentRunSucceededEventData struct{…}`
@@ -2594,8 +2284,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type DeploymentRunSucceeded`
-
-        - `const DeploymentRunSucceededDeploymentRunSucceeded DeploymentRunSucceeded = "deployment_run.succeeded"`
 
       - `WorkspaceID string`
 
@@ -2609,8 +2297,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type EnvironmentCreated`
 
-        - `const EnvironmentCreatedEnvironmentCreated EnvironmentCreated = "environment.created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookEnvironmentUpdatedEventData struct{…}`
@@ -2622,8 +2308,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type EnvironmentUpdated`
-
-        - `const EnvironmentUpdatedEnvironmentUpdated EnvironmentUpdated = "environment.updated"`
 
       - `WorkspaceID string`
 
@@ -2637,8 +2321,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type EnvironmentArchived`
 
-        - `const EnvironmentArchivedEnvironmentArchived EnvironmentArchived = "environment.archived"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookEnvironmentDeletedEventData struct{…}`
@@ -2650,8 +2332,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type EnvironmentDeleted`
-
-        - `const EnvironmentDeletedEnvironmentDeleted EnvironmentDeleted = "environment.deleted"`
 
       - `WorkspaceID string`
 
@@ -2665,8 +2345,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type MemoryStoreCreated`
 
-        - `const MemoryStoreCreatedMemoryStoreCreated MemoryStoreCreated = "memory_store.created"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookMemoryStoreArchivedEventData struct{…}`
@@ -2678,8 +2356,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
       - `OrganizationID string`
 
       - `Type MemoryStoreArchived`
-
-        - `const MemoryStoreArchivedMemoryStoreArchived MemoryStoreArchived = "memory_store.archived"`
 
       - `WorkspaceID string`
 
@@ -2693,8 +2369,6 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type MemoryStoreDeleted`
 
-        - `const MemoryStoreDeletedMemoryStoreDeleted MemoryStoreDeleted = "memory_store.deleted"`
-
       - `WorkspaceID string`
 
     - `type BetaWebhookSessionBudgetReachedEventData struct{…}`
@@ -2707,12 +2381,8 @@ url: https://platform.claude.com/docs/en/api/go/beta/webhooks
 
       - `Type SessionBudgetReached`
 
-        - `const SessionBudgetReachedSessionBudgetReached SessionBudgetReached = "session.budget_reached"`
-
       - `WorkspaceID string`
 
   - `Type Event`
 
     Object type. Always `event` for webhook payloads.
-
-    - `const EventEvent Event = "event"`

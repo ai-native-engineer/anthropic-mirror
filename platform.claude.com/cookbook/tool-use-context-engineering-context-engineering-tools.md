@@ -1,8 +1,8 @@
 <!-- source: https://platform.claude.com/cookbook/tool-use-context-engineering-context-engineering-tools -->
 
-#  Context Engineering for AI Agents: Memory vs. Compaction vs. Tool Clearing
+#  Context Engineering for AI Agents: Memory vs. Compaction vs. Tool Clearing
 
-##  Introduction
+##  Introduction
 
 A common challenge when building long-horizon agents is managing context. Tool results, the model's own reasoning, and user messages all accumulate, and eventually you either hit the token limit or start paying for context that isn't helping anymore. Studies on needle-in-a-haystack style benchmarking have uncovered the concept of [context rot(opens in new tab)](https://research.trychroma.com/context-rot): as the number of tokens in the context window increases, the model's ability to accurately recall information from that context decreases. So, even before the hard context limit is reached, the agent may be getting less out of each token.
 
@@ -18,7 +18,7 @@ This cookbook focuses on three: **compaction**, **tool-result clearing**, and **
 
 The examples center on a **long-running research agent**: one that reads a corpus of documents, takes notes, and builds on its findings across multiple sessions. It's a useful test case because it naturally hits all three problems: bulky document reads (clearing), long analytical conversations (compaction), and knowledge that needs to survive between sessions (memory).
 
-###  What you'll learn
+###  What you'll learn
 
 * How to **cap in-session token growth** with `clear_tool_uses` when an agent's context is dominated by large, re-fetchable tool results like file reads and API responses
 * How to **keep long conversations going** with server-side compaction, including how to serialize the `compaction` block back and probe what survives the summary
@@ -26,7 +26,7 @@ The examples center on a **long-running research agent**: one that reads a corpu
 * How to **implement each primitive most effectively**, replacing the default compaction prompt to preserve what your agent needs, guiding what the agent writes to `/memories`, and testing clearing configs against your own workload's tool-use pattern
 * How to **diagnose which part of the context problem your workload actually has**, and pick the primitive that targets it, with a framework for mapping workload characteristics to the right tool
 
-###  Prerequisites
+###  Prerequisites
 
 To run this notebook, you will need:
 
@@ -36,21 +36,15 @@ To run this notebook, you will need:
 
 > **Running from the cookbooks repo?** Ensure your working directory is `tool_use/context_engineering` before running the notebook.
 
-##  Step 0: Environment Setup
+##  Step 0: Environment Setup
 
 Create a `.env` file in this directory with your Anthropic API key:
 
-
-
 ANTHROPIC\_API\_KEY=your-key-here
-
-
 
 %%capture
 
 %pip install anthropic python-dotenv matplotlib
-
-
 
 import json
 
@@ -88,13 +82,9 @@ MODEL = "claude-sonnet-4-6"
 
 print(f"anthropic SDK {anthropic.\_\_version\_\_}, model {MODEL}")
 
-
-
 ```
 anthropic SDK 0.84.0, model claude-sonnet-4-6
 ```
-
-
 
 # Force-reload the corpus module in case this kernel has a stale cached version
 
@@ -156,8 +146,6 @@ f"Corpus is only {\_total\_tokens:,} tokens; expected >250K. "
 
 )
 
-
-
 ```
 CORPUS is a dict of 8 synthetic documents held in Python memory.
 When the agent calls read_file, the content is served from this dict and
@@ -175,21 +163,21 @@ lands directly in the agent's context window — no disk I/O involved.
   Total corpus: ~328,955 tokens
 ```
 
-##  The Problem: A Long-Running Research Agent
+##  The Problem: A Long-Running Research Agent
 
 The agent in this cookbook plays the role of a biology researcher writing a comparative review of model organisms for aging and longevity research. The task is realistic enough to matter: it involves reading through a corpus of review documents (one per organism), extracting comparable facts (lifespan, genetic tractability, translational relevance), taking structured notes, and synthesizing findings across everything read.
 
 This kind of work is where context management starts to bite. Each document is around 40K tokens (narrative plus extensive appendix tables of intervention data), and the task asks the agent to read them in two batches: four high-throughput organisms (C. elegans, Drosophila, yeast, killifish) first, then four low-throughput organisms (mouse, zebrafish, naked mole-rat, rhesus). The two-batch structure is an experimental design choice for this cookbook: it produces a context trajectory that climbs past the compaction trigger on the first batch and past the 200K reference line on the second, so each primitive's effect on the trajectory is visible in the same run. Without context management, the agent's context grows to hundreds of thousands of tokens mid-task. And since the work spans sessions, even a completed run starts the next session with no memory of what was learned.
 
-###  The research task
+###  The research task
 
 The agent's concrete assignment: compare the model organisms in `/research/` on three dimensions (lifespan and experimental throughput, genetic tractability, and translational relevance to human aging), reading the eight review documents in two batches and taking notes as it goes, then writing a comparative synthesis.
 
-##  How the Three APIs Map to the Problem
+##  How the Three APIs Map to the Problem
 
 Each API targets a different kind of context growth. Understanding which kind you're facing is the first step to picking the right tool.
 
-###  Conceptually
+###  Conceptually
 
 **Compaction** is the practice of taking a conversation nearing the context window limit, summarizing its contents, and reinitiating with that summary. It aims to distill the context window in a high-fidelity manner so the agent can continue with minimal performance degradation. The art of compaction lies in what to keep versus what to discard: overly aggressive compaction can lose subtle but critical context whose importance only becomes apparent later. The summary preserves architectural decisions, unresolved questions, and key facts while discarding redundant content; it's lossy by design, but handles all context growth, not just tool results. Compaction is a *whole-transcript* operation: user messages, assistant messages, tool calls, tool results, even prior compaction blocks are all flattened into the summary.
 
@@ -199,7 +187,7 @@ Each API targets a different kind of context growth. Understanding which kind yo
 
 Beyond enabling these primitives, it's also important to understand how to implement them most effectively: the default behavior gets you started, but the quality of a compaction summary and the usefulness of what lands in memory both depend on guidance you provide. Each primitive's section below includes a subsection on effective implementation.
 
-###  Tactically
+###  Tactically
 
 | API | Identifier | Beta header | Triggered by | Configurable knobs |
 | --- | --- | --- | --- | --- |
@@ -207,7 +195,7 @@ Beyond enabling these primitives, it's also important to understand how to imple
 | Tool clearing | `clear_tool_uses_20250919` | `context-management-2025-06-27` | Token threshold (server-side) | `trigger` (default 100K), `keep` (default 3 tool uses), `clear_at_least`, `exclude_tools`, `clear_tool_inputs` |
 | Memory tool | `memory_20250818` | none (standalone) | The model (it's a tool call) | Client implements: `view`, `create`, `str_replace`, `insert`, `delete`, `rename` |
 
-###  Mapped to the research agent
+###  Mapped to the research agent
 
 For the research agent specifically, the three problems line up cleanly:
 
@@ -217,11 +205,9 @@ For the research agent specifically, the three problems line up cleanly:
 
 A rough mental model for prioritizing: compaction compresses the whole window when it grows too large, clearing drops stale re-fetchable data inside the window, and memory moves information out of the window so it survives across sessions. Each layer adds config to tune and interactions to understand, so it's worth starting with the one that matches the bottleneck you're actually observing.
 
-##  The Research Agent
+##  The Research Agent
 
 Before exploring each primitive, we set up the agent itself: tool schemas, tool execution, and an agent loop that can be run with or without any context-management configuration. Everything is inline so you can see the full loop.
-
-
 
 # ── Tool schemas ─────────────────────────────────────────────────────────
 
@@ -333,8 +319,6 @@ Work systematically: search and read review documents, take notes on key facts (
 
 Be concise in your reasoning text; the goal is notes, not essays."""
 
-
-
 # ── Tool execution ───────────────────────────────────────────────────────
 
 def execute\_research\_tool(name: str, tool\_input: dict, notes: list[str]) -> str:
@@ -396,8 +380,6 @@ notes.append(finding)
 return f"Finding #{len(notes)} recorded (session-local)."
 
 return f"Error: unknown tool '{name}'"
-
-
 
 # ── Session result container ─────────────────────────────────────────────
 
@@ -1121,15 +1103,13 @@ plt.tight\_layout()
 
 plt.show()
 
-###  Baseline: no context management
+###  Baseline: no context management
 
 First we run the agent with no context-management configuration. With the large corpus (each document is ~40K tokens with its appendix tables), context accumulates fast. We'll look at the same run under two lenses: what happens on a 1M-token window, and what would happen on a 200K window.
 
-####  Part 1: On a 1M-token window
+####  Part 1: On a 1M-token window
 
 Claude Sonnet 4.6 and Claude Opus 4.6 both provide a [1M-token context window(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/context-windows). For this task, the baseline's total input stays under that limit: the agent reads the full corpus and synthesizes without hitting a hard wall. The trajectory below shows the run climbing to hundreds of thousands of tokens, with the dotted line projecting continued growth at the same rate.
-
-
 
 baseline = run\_research\_session(RESEARCH\_TASK, label="baseline", max\_turns=12)
 
@@ -1165,8 +1145,6 @@ print(
 
 )
 
-
-
 ```
 ┌─ [baseline]
 │  turn  1  ctx=  1,058
@@ -1193,8 +1171,6 @@ The run stayed within the 1M window. The dotted line projects where continued gr
 ```
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/tool-use-context-engineering-context-engineering-tools/tool-use-context-engineering-context-engineering-tools_cell12_out1_400138b0.png)
-
-
 
 # ── What's actually sitting in the context window at the end of the run ──
 
@@ -1298,8 +1274,6 @@ doc\_name = first\_path.split("/")[-1]
 
 print(f"\nFirst document read: {doc\_name} at turn {first\_turn}.")
 
-
-
 ```
 ========================================================================
 WHAT THE MODEL IS ATTENDING TO at the end of the baseline run
@@ -1318,13 +1292,11 @@ First document read: celegans_review.md at turn 1.
 
 The breakdown above makes the scale concrete. The model is carrying hundreds of thousands of tokens of file contents on every turn, most of it documents the agent already processed and took notes on. The first document read is still in the window, but by the end of the run it's sitting behind hundreds of thousands of tokens of other tool results plus all the agent's reasoning and notes. It hasn't been removed; it's competing with everything else for attention. This is where context rot shows up: recall of details from that depth degrades as the window fills, even though the content is technically present. And prefill latency scales with context length, so every turn pays to process the full pile.
 
-####  Part 2: On a 200K-token window
+####  Part 2: On a 200K-token window
 
 Earlier models cap at 200K tokens. On those models, the same baseline run hits a hard wall: the API rejects the next request once context exceeds the limit, and the task stops mid-run.
 
 The cell below finds the turn where the baseline first crossed 200K and shows what the run looks like from a 200K model's perspective: same trajectory up to that point, then a hard stop.
-
-
 
 # No new agent run here. We reuse the Part-1 baseline's token\_trajectory
 
@@ -1466,8 +1438,6 @@ print(
 
 )
 
-
-
 ```
 ⚠ Baseline HIT THE CONTEXT WINDOW LIMIT.
   Completed 3 turns before the API rejected the next request.
@@ -1486,17 +1456,15 @@ The primitives below each address this by keeping the working set small enough t
 
 ---
 
-##  Compaction
+##  Compaction
 
 [Compaction(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/compaction) is a useful strategy for managing context in long-running conversations: it takes a conversation nearing the context window limit, summarizes its contents, and reinitiates with that summary. This addresses the agent's own reasoning text, user back-and-forth, and decisions made over the course of a session. The specific sequence of actions and exact wording from earlier turns won't be preserved, but the goals, decisions, and major discoveries the agent made are summarized — what the summary retains depends on your compaction prompt, which we cover below.
 
 At its core, compaction distills the contents of a context window in a high-fidelity manner, enabling the agent to continue with minimal performance degradation. The trade-off is in choosing what the summary must retain versus what it can safely drop: overly aggressive compaction can lose subtle but critical context whose importance only becomes apparent later. The summary preserves key decisions and facts but may drop specific numbers or exact phrasing. It costs inference (the summarizer model runs), but handles all context growth, not just tool results.
 
-###  How it works under the hood
+###  How it works under the hood
 
 Here's a minimal sample implementation of compaction. Our first-party API provides a robust, tested version (automatic triggering at a token threshold, a typed content block that slots natively into the conversation, correct tool-use pairing), but the ~25-line version below makes the mechanism concrete: render the conversation to text, ask the model to summarize it, replace the old messages with that summary.
-
-
 
 def demo\_compact(client, messages: list[dict], model: str) -> list[dict]:
 
@@ -1571,8 +1539,6 @@ f"<transcript>\n{transcript}\n</transcript>"
 summary = resp.content[0].text
 
 return [{"role": "user", "content": f"[conversation summary]\n{summary}"}]
-
-
 
 # Demonstrate on a longer synthetic conversation so the summary is meaningfully shorter
 
@@ -1674,8 +1640,6 @@ if len(compacted[0]["content"]) > 800:
 
 print("...")
 
-
-
 ```
 Conversation size: ~741 → ~449 tokens (39% reduction)
 
@@ -1700,15 +1664,13 @@ Summary produced:
 
 The sample above demonstrates the mechanism: the model produces a condensed version of the conversation that the agent can continue from.
 
-###  Using the API
+###  Using the API
 
 Our API provides this natively as the `compact_20260112` context edit. It triggers automatically at a token threshold (minimum 50K), returns a typed `compaction` content block that slots into the conversation natively, and handles tool-use pairing across the summary boundary. When compaction fires, you serialize the compaction block back (`{"type": "compaction", "content": block.content}`) and the API drops everything before it on the next request.
 
 **API Documentation:** [Compaction — platform.claude.com(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/compaction)
 
 Here's the research agent running with compaction configured. We set the trigger at 180K so the first batch of reads (~165K) stays under it: the compaction trajectory tracks the baseline through that batch, then diverges when the second batch pushes context past the trigger. Watch for `⊟ COMPACTION` lines in the output and the drop on the plot where the summary replaces the earlier conversation.
-
-
 
 COMPACTION\_TRIGGER = 180\_000 # above batch-1's ~165K so the rise is visible before compaction fires
 
@@ -1802,8 +1764,6 @@ f"every turn paid to process the full pile."
 
 )
 
-
-
 ```
 ┌─ [compaction]
 │  turn  1  ctx=  1,129
@@ -1834,8 +1794,6 @@ Compaction:  completed turn 7, peak 169,164 tokens, 1 compaction event(s)
 ```
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/tool-use-context-engineering-context-engineering-tools/tool-use-context-engineering-context-engineering-tools_cell21_out1_3343b5ee.png)
-
-
 
 # What compaction costs: check the summary text directly for a MIX of
 
@@ -1955,8 +1913,6 @@ for line in excerpt.splitlines():
 
 print(f" {line}")
 
-
-
 ```
 ======================================================================
 WHAT COMPACTION COSTS: what the summary preserved vs. dropped
@@ -1995,7 +1951,7 @@ Excerpt from the summary (first ~600 chars):
   - All four files read: `celegans_revi…
 ```
 
-###  Analysis
+###  Analysis
 
 The baseline keeps climbing until it either hits a context-window limit (a hard stop on smaller windows) or accumulates enough tokens that context rot meaningfully degrades recall. Compaction addresses both: when context crosses the trigger, the older conversation is replaced by a model-generated summary and context drops sharply. The agent continues with a lean window instead of an ever-growing one.
 
@@ -2003,7 +1959,7 @@ The probe above checks the summary text directly for a *mix* of details. The pat
 
 What compaction gets you is a general-purpose way to keep the window lean: it handles dialogue and tool results together, the important content survives in summarized form, and the agent keeps working under conditions where it would otherwise be cut off or swamped. What it doesn't get you is verbatim fidelity on specifics, or cross-session persistence. If your context bloat is mostly re-fetchable tool output, clearing is cheaper and lossless (the agent can just call the tool again). If it's dialogue and reasoning that can't be re-fetched, compaction is the right fit.
 
-###  Implementing compaction effectively
+###  Implementing compaction effectively
 
 The `instructions` parameter lets you replace the default summarization prompt entirely. The [compaction docs(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/compaction#custom-summarization-instructions) give the default prompt verbatim:
 
@@ -2012,8 +1968,6 @@ The `instructions` parameter lets you replace the default summarization prompt e
 This helps give you a place to start. However, custom `instructions` don't supplement this prompt — they completely replace it. So if you provide your own, you're responsible for the full framing. The docs' example for a coding context is `"Focus on preserving code snippets, variable names, and technical decisions."`
 
 For this cookbook's research agent, you might write something that names the specific details the probe above showed are at risk of being lost:
-
-
 
 context\_management={
 
@@ -2041,17 +1995,15 @@ context\_management={
 
 ---
 
-##  Tool-Result Clearing
+##  Tool-Result Clearing
 
 When an agent calls tools, each result gets appended to the conversation as a `tool_result` block ([context editing docs(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/context-editing)). Those blocks count toward the input-token budget on every subsequent turn, even after the agent has processed the content and moved on. For tools that are re-callable (file reads, API queries, search), carrying the verbatim result forward is often unnecessary; the agent can just call the tool again if it needs to.
 
 Clearing replaces old `tool_result` blocks with a short placeholder string. The `tool_use` block that preceded it stays, so the model retains a record that it made the call (and with what input), but the bulky response body is gone. This is the cheapest of the three primitives: no inference cost, just a mechanical edit to the message list.
 
-###  How it works under the hood
+###  How it works under the hood
 
 To make the mechanism concrete, here's a minimal sample implementation of tool-result clearing. Our first-party API provides a robust, tested version of this (automatic triggering, correct block-pairing invariants, tool exclusions, and more), but seeing the ~15-line version makes the core operation tangible: walk the message list, find `tool_result` blocks, replace the content of all but the most recent few with a placeholder.
-
-
 
 def demo\_clear\_tool\_results(messages: list[dict], keep: int = 3) -> int:
 
@@ -2080,8 +2032,6 @@ for mi, bi in to\_clear:
 messages[mi]["content"][bi]["content"] = "[cleared to save context]"
 
 return len(to\_clear)
-
-
 
 # Demonstrate on a small message list using the actual research corpus
 
@@ -2169,8 +2119,6 @@ preview = body[:80].replace("\n", " ")
 
 print(f" [tool\_result] {preview!r}... (~{count\_tokens(body):,} tokens retained)")
 
-
-
 ```
 Cleared 2 of 3 tool results (keep=1 leaves the most recent)
 Message-list size: ~128,740 → ~43,060 tokens (67% reduction)
@@ -2189,7 +2137,7 @@ What each tool_result looks like now:
 
 The sample above shows the mechanism. What's missing from it: token counting and automatic triggering, correct `tool_use`/`tool_result` pairing invariants, tool-specific exclusions, and awareness on the model side that clearing happened.
 
-###  Using the API
+###  Using the API
 
 Our API provides this natively as the `clear_tool_uses_20250919` context edit. It handles token counting and triggering server-side, preserves block pairing, and lets you exempt specific tools from clearing (useful when the memory tool is also active, as we'll see later). When clearing fires, the response includes `context_management.applied_edits` with details on how many tool uses were cleared and how many tokens were freed.
 
@@ -2198,8 +2146,6 @@ Our API provides this natively as the `clear_tool_uses_20250919` context edit. I
 **API Documentation:** [Context editing — platform.claude.com(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/context-editing)
 
 Here's the research agent running with clearing enabled. The baseline's context climbed with every file read; clearing keeps this run bounded by dropping old tool results whenever context climbs past the trigger. Watch for `✂ CLEARING` lines in the output; dashed vertical lines on the plot mark each firing.
-
-
 
 CLEARING\_KEEP = 4 # How many most-recent tool results survive each clearing
 
@@ -2293,8 +2239,6 @@ f"clearing={clearing\_run.tool\_counts.get('read\_file', 0)}"
 
 )
 
-
-
 ```
 ┌─ [clearing]
 │  turn  1  ctx=  1,058
@@ -2333,8 +2277,6 @@ File reads: baseline=8, clearing=8
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/tool-use-context-engineering-context-engineering-tools/tool-use-context-engineering-context-engineering-tools_cell29_out1_4bb78413.png)
 
-
-
 # What's lost: which file reads are no longer in the clearing run's context?
 
 print("=" \* 60)
@@ -2356,8 +2298,6 @@ print(
 "visible in context."
 
 )
-
-
 
 ```
 ============================================================
@@ -2381,7 +2321,7 @@ Reads still in context (within the keep=4 window or after the last clearing): 1
 The cleared reads above are gone from the conversation. If the agent needs that content again, it must call read_file again; the information is re-fetchable, but the original read is no longer visible in context.
 ```
 
-###  Analysis
+###  Analysis
 
 The baseline keeps climbing; the clearing run stays bounded. Once context is past the trigger (30K here) and there are more than `keep` tool uses on record, clearing fires server-side: tool results older than the most recent `keep` are replaced with placeholders and context drops back down. The dashed lines on the plot mark each firing. That bounded window means the run doesn't hit a hard limit on smaller models, and it doesn't accumulate into the range where context rot degrades recall.
 
@@ -2389,7 +2329,7 @@ The second cell above shows what this costs. Every file read except the most rec
 
 What clearing gets you is a bounded window at no inference cost, avoiding both the hard-limit cutoff and the recall degradation that comes with a large accumulated context. What it doesn't get you is any help with content that isn't a tool result (the agent's own reasoning, user messages) or any persistence across sessions.
 
-###  Implementing clearing effectively
+###  Implementing clearing effectively
 
 Unlike compaction and memory, clearing has no prompt to tune, and the knobs are all numeric (`trigger`, `keep`, `clear_at_least`) or list-based (`exclude_tools`). One trade-off to understand: clearing invalidates cached prompt prefixes. To account for this, clear enough tokens to make the cache invalidation worthwhile; the `clear_at_least` parameter ensures a minimum number of tokens is cleared each time. You'll incur cache write costs each time clearing fires, but subsequent requests can reuse the newly cached prefix.
 
@@ -2397,7 +2337,7 @@ The right values for `trigger` and `keep` depend on how your agent uses tool res
 
 ---
 
-##  Memory Tool
+##  Memory Tool
 
 The [memory tool(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool) enables Claude to store and retrieve information across conversations through a memory file directory. Claude can create, read, update, and delete files that persist between sessions, allowing it to build knowledge over time without keeping everything in the context window.
 
@@ -2405,11 +2345,9 @@ This is the key primitive for just-in-time context retrieval: rather than loadin
 
 The memory tool operates client-side: Claude makes tool calls to perform memory operations, and your application executes those operations locally. This gives you complete control over where and how the data is stored. The API provides the tool protocol and auto-injects a system prompt establishing the memory-checking behavior; you implement the storage backend.
 
-###  How it works under the hood
+###  How it works under the hood
 
 Here's a minimal sample implementation: a key-value store you write to after a session and read from before the next one. Our first-party API provides the robust version (the model decides what and when to save as part of its reasoning, full file operations, auto-injected protocol prompt), but this ~10-line version makes the core pattern concrete.
-
-
 
 class SimpleMemoryStore:
 
@@ -2455,8 +2393,6 @@ preamble = "\n".join(f"- {k}: {store.load(k)}" for k in store.keys())
 
 print(f"Session-2 opening prompt would include:\n\nPrior research notes:\n{preamble}")
 
-
-
 ```
 Session-2 opening prompt would include:
 
@@ -2467,15 +2403,13 @@ Prior research notes:
 
 The sample above shows the pattern, but it puts you in charge of deciding what to save and when to load it. That's exactly the work the model is better positioned to do: it knows, mid-reasoning, what facts matter and when it needs to recall them.
 
-###  Using the API
+###  Using the API
 
 Our API provides this natively as the `memory_20250818` tool. The model decides what and when to save as part of its tool-use loop, an auto-injected system prompt establishes the protocol ("always view your memory directory before doing anything else"), and the tool offers full file operations rather than key-value. This is a client-side tool: the API provides the protocol, you implement the file backend.
 
 **API Documentation:** [Memory tool — platform.claude.com(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool)
 
 Here's a complete handler implementing all six commands.
-
-
 
 class MemoryToolHandler:
 
@@ -2649,7 +2583,7 @@ return f"Renamed {old\_path} → {new\_path}"
 
 > Security note: the `_resolve` method guards against path traversal (`../../etc/passwd`). In production you'd also want to cap file sizes and total directory size. See the [Memory Cookbook(opens in new tab)](https://platform.claude.com/cookbook/tool-use-memory-cookbook) for deeper memory patterns.
 
-###  Demonstrating the benefit
+###  Demonstrating the benefit
 
 To see the effect concretely, we run the agent across three sessions:
 
@@ -2658,8 +2592,6 @@ To see the effect concretely, we run the agent across three sessions:
 3. **Session 2 (with memory)** runs the same follow-up task but with access to Session 1's saved files. It reads those first and builds on them instead of re-researching.
 
 The comparison between the two Session 2 runs is where the memory benefit becomes visible.
-
-
 
 # Session 1: initial research pass, memory tool enabled
 
@@ -2707,8 +2639,6 @@ if len(content.split("\n")) > 10:
 
 print(" ...")
 
-
-
 ```
 ┌─ [memory/s1]
 │  turn  1  ctx=  1,941
@@ -2754,8 +2684,6 @@ What Session 1 wrote to /memories:
   ...
 ```
 
-
-
 # Session 2 WITHOUT memory: follow-up task with empty /memories
 
 # This shows what happens when the agent has no prior knowledge to draw on.
@@ -2789,8 +2717,6 @@ max\_turns=12,
 label="memory/s2-without",
 
 )
-
-
 
 ```
 ┌─ [memory/s2-without]
@@ -2827,8 +2753,6 @@ label="memory/s2-without",
 │  turn  9  ctx=333,977  (final answer)
 └─ completed: 9 turns, peak ctx 333,977, final ctx 333,977, 0 context event(s)
 ```
-
-
 
 # Session 2 WITH memory: same follow-up task, but with access to Session 1's files
 
@@ -2885,8 +2809,6 @@ if isinstance(result, str) and len(result) > 20:
 preview = result[:350].replace("\n", "\n ")
 
 print(f" └ {preview}{'...' if len(result) > 350 else ''}")
-
-
 
 ```
 ┌─ [memory/s2-with]
@@ -2953,8 +2875,6 @@ What Session 2 (with memory) read from /memories:
 
 [memory str_replace] /memories/aging_model_organisms_comparison.md
 ```
-
-
 
 # Compare: the bar chart shows final context and file reads side by side.
 
@@ -3042,8 +2962,6 @@ print(
 
 )
 
-
-
 ```
 Session 2 comparison:
   Without memory: 8 file reads, 2 memory ops, peak ctx 333,977
@@ -3056,7 +2974,7 @@ This comparison shows memory working well because Session 1's notes were compreh
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/tool-use-context-engineering-context-engineering-tools/tool-use-context-engineering-context-engineering-tools_cell41_out0_41fe17b5.png)
 
-###  Analysis
+###  Analysis
 
 The comparison makes the benefit concrete. Session 2 without memory has nothing to draw on; `/memories` is empty, so it has to go back to the source documents to rediscover the same facts. Session 2 with memory opens by reading `/memories` (the auto-injected protocol makes this a default first move), finds Session 1's saved findings, and can build a synthesis from those instead of re-reading every source document.
 
@@ -3064,7 +2982,7 @@ This is just-in-time retrieval in practice: rather than loading all prior knowle
 
 What memory gets you is cross-session persistence with lossless fidelity on whatever the agent chose to save. What it doesn't get you is any help with in-session context growth (Session 1's peak context is still high) and it adds tool-call overhead for every read and write. Memory solves the cross-session problem; clearing and compaction solve the in-session one.
 
-###  Implementing memory effectively
+###  Implementing memory effectively
 
 The `memory_20250818` tool auto-injects a system prompt establishing a check-memory-first protocol and an assume-interruption mindset ("ALWAYS VIEW YOUR MEMORY DIRECTORY BEFORE DOING ANYTHING ELSE... Your context window might be reset at any moment"). This handles the basic mechanics. Beyond that, the [memory tool docs(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool#prompting-guidance) describe several ways to shape what the model saves:
 
@@ -3078,7 +2996,7 @@ The `memory_20250818` tool auto-injects a system prompt establishing a check-mem
 
 ---
 
-##  Summary: What Each Primitive Does
+##  Summary: What Each Primitive Does
 
 | Primitive | Operates on | What's traded away | Solves |
 | --- | --- | --- | --- |
@@ -3087,8 +3005,6 @@ The `memory_20250818` tool auto-injects a system prompt establishing a check-mem
 | **Memory** | External storage, across windows | Tool-call overhead; only as good as what the agent chose to save | Cross-session persistence |
 
 The chart below puts the three solo runs side by side, plus the baseline. Note that memory's Session 2 is a different task (follow-up synthesis) so the absolute numbers aren't directly comparable to the others; what matters for memory is the S2-with vs. S2-without comparison shown above.
-
-
 
 # Side-by-side view of each primitive's solo run
 
@@ -3132,8 +3048,6 @@ ev\_parts.append(f"{n\_compact} compaction")
 
 print(f" {name:<18} {status:<18} {', '.join(ev\_parts) if ev\_parts else 'none'}")
 
-
-
 ```
 Run                  Status             Context events
 ------------------------------------------------------------
@@ -3149,7 +3063,7 @@ The three primitives address different slices of the context problem, which is w
 
 ---
 
-##  Using Them Together
+##  Using Them Together
 
 The three primitives target different parts of the context problem, so they can be layered. [Claude Code(opens in new tab)](https://code.claude.com/docs/en/memory) is a real-world example that employs compaction alongside [two complementary memory systems(opens in new tab)](https://code.claude.com/docs/en/memory#claudemd-vs-auto-memory): `CLAUDE.md` files hold user-defined instructions and rules (coding standards, project architecture, workflows) that the developer writes and checks into source control; auto memory holds learnings and patterns Claude writes itself (build commands, debugging insights, preferences discovered from corrections). Both are useful forms of memory for Claude Code.
 
@@ -3160,8 +3074,6 @@ The Claude Code design shows that memory can take different shapes for the same 
 Below we run the research agent with all three primitives active at once and trace what each one does over the course of the session.
 
 > **Note on the config**: both triggers are set above the first batch's size (~167K) so the trajectory tracks the baseline through batch 1. When batch 2 pushes context to ~330K, clearing fires first (keep=6 drops the earliest reads, leaving ~210K) and compaction fires on what clearing left. Memory is active throughout. This tuning is for demonstration, so that all three primitives activate in one run. A production config depends on your agent's specific context-growth pattern.
-
-
 
 # Both triggers sit above batch-1's ~167K so the rise is visible. At
 
@@ -3237,8 +3149,6 @@ label="all-three",
 
 )
 
-
-
 ```
 ┌─ [all-three]
 │  turn  1  ctx=  2,106
@@ -3284,8 +3194,6 @@ label="all-three",
 │  turn 13  ctx= 13,749  (final answer)
 └─ completed: 13 turns, peak ctx 169,938, final ctx 13,749, 10 context event(s)
 ```
-
-
 
 # Build a timeline showing when each primitive activated over the session
 
@@ -3435,8 +3343,6 @@ f"in {len(combo\_run.token\_trajectory)} turns"
 
 )
 
-
-
 ```
 ======================================================================
 SESSION TIMELINE: all three primitives active
@@ -3497,8 +3403,6 @@ Final context: 13,749 tokens
 Session completed in 13 turns
 ```
 
-
-
 plot\_trajectories(
 
 {"baseline": baseline, "all three active": combo\_run},
@@ -3511,7 +3415,7 @@ triggers={"clearing": COMBO\_CLEARING\_TRIGGER, "compaction": COMBO\_COMPACTION\
 
 ![Output image](https://platform.claude.com/cookbook/images/notebooks/tool-use-context-engineering-context-engineering-tools/tool-use-context-engineering-context-engineering-tools_cell50_out0_36d0ca92.png)
 
-###  What the timeline shows
+###  What the timeline shows
 
 With all three primitives active, each one activated for its own reason during the session. The trajectory tracked the baseline through batch 1: both triggers sit above the first batch's size, so neither edit fired until batch 2 pushed context past ~330K. At that point clearing dropped the earliest reads and compaction summarized what remained, letting the agent continue. Memory was active throughout, with the agent checking `/memories` at the start and saving its comparative notes for future sessions. The timeline above shows all three cooperating across one session.
 
@@ -3519,7 +3423,7 @@ Getting the primitives to split the work usefully takes some tuning; plan to exp
 
 The point isn't that running all three produces the "best" numbers; it's that they each handle a different part of the problem when that problem actually arises. The useful question isn't "should I use all three?" but "which of the three problems does my workload actually have?"
 
-###  When you might NOT want a primitive
+###  When you might NOT want a primitive
 
 Not every workload needs every tool. A few cases where you'd deliberately leave one out:
 
@@ -3529,9 +3433,9 @@ Not every workload needs every tool. A few cases where you'd deliberately leave 
 
 ---
 
-##  Takeaways and Next Steps
+##  Takeaways and Next Steps
 
-###  Lessons from the experiments
+###  Lessons from the experiments
 
 Running the research agent under these different configurations surfaces a few practical lessons:
 
@@ -3543,7 +3447,7 @@ Running the research agent under these different configurations surfaces a few p
 
 **On larger context windows.** With Sonnet 4.6 and Opus 4.6 providing 1M-token context, that headroom is useful: more verbatim detail can stay around, and lossy operations can be spaced out. But as the baseline's context breakdown showed, the working set on a 1M model fills with stale tool results just as fast as on a 200K model; the difference is where the hard limit sits, not how quickly context accumulates. Context rot and prefill latency scale with how much is in the window, not with the window's limit, so keeping the working set lean is still worth doing even when the hard wall is far away.
 
-###  Thinking about your workload
+###  Thinking about your workload
 
 This table sketches workload characteristics and which primitive is worth trying first. Treat these as hypotheses to test on your own agent, not as answers. Every workload has quirks a table can't capture.
 
@@ -3557,7 +3461,7 @@ This table sketches workload characteristics and which primitive is worth trying
 | Every session should start fresh | Skip memory | Cross-session state you don't want |
 | Sessions stay well under the window | Skip compaction | Lossiness you don't need |
 
-###  What this cookbook didn't cover
+###  What this cookbook didn't cover
 
 **Tuning beyond the basics.** The "Implementing effectively" sections above give you a starting point for each primitive. The next step is experimentation: different use cases will get different value out of the same primitive depending on parameters and prompts. A coding agent and a research agent might both use compaction, but the `instructions` string that works for one won't work for the other; the same is true of clearing thresholds and what you guide the model to write to `/memories`.
 
@@ -3565,11 +3469,11 @@ Setting up a test harness helps here. For a simple example, the agent loop in th
 
 **Adjacent features.** [Programmatic tool calling (PTC)(opens in new tab)](https://www.anthropic.com/engineering/advanced-tool-use) prevents large results from entering context at all by running tools inside a model-authored program, which is a different approach to the tool-bloat problem. [Tool search(opens in new tab)](https://www.anthropic.com/engineering/advanced-tool-use) trims tool-definition bloat when you have many tools.
 
-###  Related reading
+###  Related reading
 
 The [Memory Cookbook(opens in new tab)](https://platform.claude.com/cookbook/tool-use-memory-cookbook) goes deeper on memory patterns with a code-review agent, and the [Compaction Cookbook(opens in new tab)](https://platform.claude.com/cookbook/tool-use-automatic-context-compaction) covers compaction in isolation. For a detailed case study of context management techniques in a multi-session software agent, see [Effective harnesses for long-running agents(opens in new tab)](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents).
 
-##  Conclusion
+##  Conclusion
 
 This notebook walked through three context-management primitives for long-running agents: compaction to compress conversational history, tool-result clearing to drop re-fetchable tool output, and the memory tool to persist knowledge across sessions. Each addresses a different slice of the context problem.
 

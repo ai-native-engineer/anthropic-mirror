@@ -133,3 +133,5 @@ Anthropic은 본 방침에 규정되어 있는 목적 및 기준에 따라 합�
 [privacy@anthropic.com](mailto:privacy@anthropic.com) 으로 당사에 이메일을 보내주시거나 [dpo@anthropic.com](mailto:dpo@anthropic.com) 으로 당사 정보보호책임자에게 연락을 하실 수 있습니다.
 
 대다수 국가 법률에 따라 귀하는 귀하의 거주지 또는 근무지에 소재한 감독 당국에 이의를 제기할 권리를 갖는다는 점에 유의하시기 바랍니다. EU 감독 당국의 전체 연락처는 [여기에서](https://edpb.europa.eu/about-edpb/about-edpb/members_en) 확인할 수 있습니다. 귀하가 영국에서 거주 또는 근무하는 경우, 귀하는 영국의 정보위원회사무국([UK Information Commissioner’s Office](https://ico.org.uk/make-a-complaint/))에 이의를 제기할 권리를 갖고 귀하가 브라질에 거주하는 경우 브라질 정보보호당국([Brazilian Data Protection Authority (ANPD)](https://www.gov.br/anpd/pt-br/canais_atendimento/cidadao-titular-de-dados/denuncia-peticao-de-titular))에 이의를 제기할 권리를 갖습니다. 귀하가 호주에 거주하는 경우, 귀하는 [호주](https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us) [정보위원회(Office of the Australian Information Commissioner)](https://www.oaic.gov.au/privacy/privacy-complaints/lodge-a-privacy-complaint-with-us)에 이의를 제기할 권리를 갖습니다.
+
+Non-User Privacy Policy \ Anthropic

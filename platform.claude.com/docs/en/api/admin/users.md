@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/users -->
 
----
-title: Users
-url: https://platform.claude.com/docs/en/api/admin/users
----
-
 # Users
 
 ## Get User
 
-**get** `/v1/organizations/users/{user_id}`
+**GET** `/v1/organizations/users/{user_id}`
 
 For Claude Enterprise organizations, this endpoint's availability is in beta.
 
-### Path Parameters
+### Path parameters
 
 - `user_id: string`
 
@@ -21,7 +16,7 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
 ### Returns
 
-- `User object { id, added_at, email, 3 more }`
+- `User object`
 
   - `id: string`
 
@@ -30,6 +25,8 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
   - `added_at: string`
 
     RFC 3339 datetime string indicating when the User joined the Organization.
+
+    format: date-time
 
   - `email: string`
 
@@ -67,17 +64,17 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
     For Users, this is always `"user"`.
 
-    - `"user"`
+    default: user
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -92,11 +89,11 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
 
 ## List Users
 
-**get** `/v1/organizations/users`
+**GET** `/v1/organizations/users`
 
 For Claude Enterprise organizations, this endpoint's availability is in beta.
 
-### Query Parameters
+### Query parameters
 
 - `after_id: optional string`
 
@@ -110,11 +107,15 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
   Filter by user email.
 
+  format: email
+
 - `limit: optional number`
 
   Number of items to return per page.
 
   Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20, maximum: 1000, minimum: 1
 
 - `roles: optional array of string`
 
@@ -134,6 +135,8 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
     RFC 3339 datetime string indicating when the User joined the Organization.
 
+    format: date-time
+
   - `email: string`
 
     Email of the User.
@@ -170,7 +173,7 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
     For Users, this is always `"user"`.
 
-    - `"user"`
+    default: user
 
 - `first_id: string or null`
 
@@ -186,13 +189,13 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/users \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -214,17 +217,17 @@ curl https://api.anthropic.com/v1/organizations/users \
 
 ## Update User
 
-**post** `/v1/organizations/users/{user_id}`
+**POST** `/v1/organizations/users/{user_id}`
 
 For Claude Enterprise organizations, this endpoint's availability is in beta.
 
-### Path Parameters
+### Path parameters
 
 - `user_id: string`
 
   ID of the User.
 
-### Body Parameters
+### Body parameters
 
 - `role: "billing" or "claude_code_user" or "developer" or 2 more`
 
@@ -244,7 +247,7 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
 ### Returns
 
-- `User object { id, added_at, email, 3 more }`
+- `User object`
 
   - `id: string`
 
@@ -253,6 +256,8 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
   - `added_at: string`
 
     RFC 3339 datetime string indicating when the User joined the Organization.
+
+    format: date-time
 
   - `email: string`
 
@@ -290,11 +295,11 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
     For Users, this is always `"user"`.
 
-    - `"user"`
+    default: user
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
@@ -304,7 +309,7 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
         }'
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -319,11 +324,11 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
 
 ## Remove User
 
-**delete** `/v1/organizations/users/{user_id}`
+**DELETE** `/v1/organizations/users/{user_id}`
 
 For Claude Enterprise organizations, this endpoint's availability is in beta.
 
-### Path Parameters
+### Path parameters
 
 - `user_id: string`
 
@@ -341,18 +346,18 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
   For Users, this is always `"user_deleted"`.
 
-  - `"user_deleted"`
+  default: user_deleted
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -X DELETE \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -361,11 +366,11 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### User
 
-- `User object { id, added_at, email, 3 more }`
+- `User object`
 
   - `id: string`
 
@@ -374,6 +379,8 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
   - `added_at: string`
 
     RFC 3339 datetime string indicating when the User joined the Organization.
+
+    format: date-time
 
   - `email: string`
 
@@ -411,11 +418,11 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
 
     For Users, this is always `"user"`.
 
-    - `"user"`
+    default: user
 
 ### User Delete Response
 
-- `UserDeleteResponse object { id, type }`
+- `UserDeleteResponse object`
 
   - `id: string`
 
@@ -427,4 +434,4 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
 
     For Users, this is always `"user_deleted"`.
 
-    - `"user_deleted"`
+    default: user_deleted
