@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-lfte5epc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ljg8b3c8.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Marketing plugin ships with `/competitor-compare` as a starting point, already structured to read a competitor's public materials against your positioning and write the win/lose/draw breakdown. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Marketing8 skills to draft content, plan campaigns, hold brand voice, and report
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -66,7 +66,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Paste the competitor's URL and drag your positioning doc into the chat, then start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the competitor's pricing page PDF, their datasheet, your positioning doc, last quarter's comparison deck) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the deck and the Excel matrix back to it. If you track this competitor every quarter, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so the sources and instructions stay attached.
 
@@ -82,15 +82,15 @@ comparison-q1.pptxJan 30, 20262.3 MB
 
 In Cowork’s chat bar:Competitive / Acme
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Here's the competitor's site, pricing page, and recent announcements, plus our positioning doc. Build a structured comparison: where we win, where they win, and where it's a draw. Output a PowerPoint deck for sales and an Excel workbook with the feature-by-feature matrix.
 
 Competitive / AcmeOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Use their public materials.** Pricing pages and datasheets are what prospects see — comparing against those keeps the deck defensible in front of a customer.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Add your last deck as the template.** Drop last quarter's comparison into the folder and Cowork matches the slide structure and tone.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ Competitive / AcmeOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 Competitors ship and reprice without telling you. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill re-reads their public pages, refreshes the matrix, and flags what changed since last time.
 
@@ -146,7 +146,7 @@ Runs `/competitor-compare` against the sources in this folder, refreshes the Exc
 
 Every **first Monday of the month**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/competitor-compare` now carries your positioning, your deck template, and your matrix columns. Share it so PMM, sales enablement, and the field answer the same competitor question the same way.
 
@@ -154,7 +154,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/competitor-compare` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your positioning and templates baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

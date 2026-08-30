@@ -10,6 +10,8 @@
 
 If your organization already used the earlier Claude in Slack, including [Claude Code in Slack](https://code.claude.com/docs/en/slack), Claude Tag replaces it. Your existing Slack app and `@Claude` handle stay, and no data migrates. What changes is who Claude acts as and who sets it up.
 
+On the Team plan, a single [**Enable Claude Tag** switch](https://claude.com/docs/claude-tag/admins/workspaces#turn-claude-tag-on-or-off-on-the-team-plan) replaces the **Claude Tag version** controls described on this page, and there is nothing to migrate; the switch appears only while no scope routes to the earlier app.
+
 ##  Switch your workspace to Claude Tag
 
 1
@@ -22,7 +24,7 @@ Open [`claude.ai/admin-settings/claude-tag`](https://claude.ai/admin-settings/cl
 
 Check for channels still on Legacy
 
-In the **Claude Tag’s access** section, look at the **Claude Tag version** on each scope. Pairing defaults every scope to New, so this is usually empty; set any showing **Legacy** to **New**.
+Under **Claude Tag’s access** → **Slack**, open each scope’s **Advanced** section. Pairing defaults every scope’s **Claude Tag version** to **New**, so this is usually quick. Set any showing **Legacy** to **New**.
 
 3
 
@@ -40,7 +42,7 @@ Send them [Get started](https://claude.com/docs/claude-tag/users/getting-started
 
 ###  If `@Claude` doesn’t respond at all
 
-On Enterprise Grid, an earlier install can lose its connection and stop responding in every workspace. See [Claude is silent everywhere on Enterprise Grid](https://claude.com/docs/claude-tag/admins/troubleshooting#claude-is-silent-everywhere-on-enterprise-grid) for the reinstall that refreshes it without uninstalling, then send `@Claude connect` again in a channel of that workspace and continue with step 1 above.
+On Enterprise Grid, an earlier install can lose its connection and stop responding in every workspace. See [Claude is silent everywhere on Enterprise Grid](https://claude.com/docs/claude-tag/admins/troubleshooting#claude-is-silent-everywhere-on-enterprise-grid) for the reinstall that refreshes it without uninstalling, then send `@Claude connect` again in a channel of that workspace and [pair the workspace](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace) with the new code.
 
 The earlier Claude in Slack app, shown as **Legacy** in admin settings, is being deprecated; check with your account team for the cutover date. After that date, channels still set to Legacy stop responding until the scope’s Claude Tag version is set to New.
 

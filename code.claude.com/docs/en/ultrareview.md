@@ -26,7 +26,9 @@ Start a review from any git repository:
 /code-review ultra
 ```
 
-Without arguments, ultrareview reviews the diff between your current branch and the default branch, including uncommitted and staged changes. For a branch review, Claude Code bundles the repository state and uploads it to a remote sandbox; when you [review a pull request](#review-a-pull-request), Claude Code uploads nothing from your machine.
+Without arguments, ultrareview reviews the diff between your current branch and the default branch, including uncommitted and staged changes. For uncommitted changes to files named like credentials or keys, such as `.env` and `*.tfvars` files, Claude Code follows the rules for [uploading a local repository to a cloud session](/docs/en/claude-code-on-the-web#send-local-repositories-without-github).
+
+For a branch review, Claude Code bundles the repository state and uploads it to a remote sandbox; when you [review a pull request](#review-a-pull-request), Claude Code uploads nothing from your machine.
 
 Before launching, Claude Code shows a confirmation dialog with the review scope, your remaining free runs, and the estimated cost; for a branch review, the scope includes the file and line count. After you confirm, the review continues in the background while you keep using your session.
 
@@ -53,6 +55,10 @@ To review a GitHub pull request instead of a local branch, pass the PR number:
 The command also accepts `#1234`, `PR 1234`, and pasted PR URLs; a pasted URL must point to the repository in your current directory.
 
 In PR mode, the remote sandbox clones the pull request directly from the host rather than bundling your local working tree. PR mode works with repositories on `github.com` and on [GitHub Enterprise Server](/docs/en/github-enterprise-server) instances that an Owner has connected to Claude Code.
+
+For repositories on `github.com`, the sandbox clones with the GitHub account connected to your Claude account, so the account must be able to read the PR's repository. Claude Code checks this before creating the cloud session, unless you've set [`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`](/docs/en/env-vars#variables), and refuses the launch when [no account is connected](/docs/en/errors#no-github-account-is-connected-to-your-claude-account) or [the account can't see the repository](/docs/en/errors#your-connected-github-account-cant-see-the-repository); the refusal names the fix. Before v2.1.248, Claude Code didn't check this before launch.
+
+Run [`/web-setup`](/docs/en/web-quickstart#connect-from-your-terminal) to connect your GitHub CLI login to your Claude account.
 
 ### Post findings to the pull request
 

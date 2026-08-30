@@ -17,5 +17,3 @@ Anthropic's trajectory is driven by our talent-dense technical team, our focus o
 We selected Fluidstack as our partner for its ability to move with exceptional agility, enabling rapid delivery of gigawatts of power. “Fluidstack was built for this moment,” said Gary Wu, co-founder and CEO of Fluidstack. "We're proud to partner with frontier AI leaders like Anthropic to accelerate and deploy the infrastructure necessary to realize their vision."
 
 The scale of this investment is necessary to meet the growing demand for Claude from hundreds of thousands of businesses while keeping our research at the frontier. We’ll continue to prioritize cost-effective, capital-efficient approaches to achieving this scale as our growth continues.
-
-Anthropic invests $50 billion in American AI infrastructure \ Anthropic

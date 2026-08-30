@@ -14,8 +14,6 @@ Claude Cowork is available on paid plans (Pro, Max, Team, Enterprise). Availabil
 
 On web and mobile, Claude Cowork sessions run in Anthropic's cloud.
 
----
-
 ## Where Cowork runs
 
 During the beta, Cowork sessions can run in two places:
@@ -45,6 +43,15 @@ For Team and Enterprise plans, there's a separate organization-wide toggle in **
 * **Team plans:** on by default. An owner can turn it off any time from the "Run Cowork in the cloud" toggle.
 * **Enterprise plans:** off by default. An owner turns on "Run Cowork in the cloud," then grants the Cowork in the cloud capability to a group with custom roles. See **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
 
+### Enable or disable the built-in browser
+
+Claude can use the web in Cowork in two ways: a browser built into the Claude Desktop app, or your users' own Chrome browser through the Claude in Chrome extension. You can enable one, both, or neither.
+
+* **Built-in browser:** Controlled from **[Organization settings > Cowork](https://claude.ai/admin-settings/cowork)**. On Team plans, it's on by default as it rolls out this week. Team owners can turn it off anytime. On Enterprise plans, it's off by default at launch and turns on by default starting September 10, 2026, unless you've turned it off. When it's off, users can't open the built-in browser and Claude can't use it.
+* **Claude in Chrome:** Controlled from **[Organization settings > Claude in Chrome](https://claude.ai/admin-settings/browser-extension)**, and users' browsers still need the extension deployed or installed. See **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128)**.
+
+Both run the same safety layers: a blocklist for high-risk sites and safety checks on every action. The built-in browser needs the Claude Desktop app open and online; Claude in Chrome needs the extension installed in the user's browser. Learn more in **[Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400)**.
+
 ### Auto mode availability
 
 The organization setting **Allow “Automatically approve” mode** in **[Organization settings > Cowork](https://claude.ai/admin-settings/cowork)** (under Permissions) controls whether members can use "Automatically approve" mode in Cowork. This setting is on by default, so the mode is available to your members unless you turn it off.
@@ -72,15 +79,11 @@ Plugins are included with Cowork and controlled by the same admin toggle—there
 
 For details on what members can do with plugins, see **[Use plugins in Cowork](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork)**.
 
----
-
 ## Projects
 
 Projects in Cowork let users organize tasks into dedicated workspaces with their own files, links, instructions, and memory. Projects are available to all Cowork users. There are no separate admin controls for projects, so owners cannot restrict project creation at the organization level at this time.
 
 Projects are available wherever members use Cowork. Projects tied to a local folder support Cowork sessions on desktop only. For local sessions, project data is stored on the user's computer; for sessions in the cloud, projects are saved with the member's Claude account. For full details, see **[Organize your tasks with projects in Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-cowork).**
-
----
 
 ## Manage plugins for your organization
 
@@ -93,13 +96,9 @@ Owners can create plugin marketplaces to distribute curated plugins across their
 
 On Enterprise plans, admins can also override these preferences for specific groups—for example, auto-installing a plugin for one team while hiding it from everyone else. For details, see **[Manage Cowork plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)**.
 
----
-
 ## Company branding
 
 Cowork now surfaces your organization's branding, including a redesigned home screen tailored to your team. Team and Enterprise owners can configure branding within **Organization settings**.
-
----
 
 ## Compliance and monitoring
 
@@ -111,7 +110,7 @@ Cowork via Claude, Claude Desktop, and Claude Mobile is captured in the Complian
 
 ### Local conversation storage
 
-For local sessions, Cowork stores conversation history locally on users' computers. This data is not subject to Anthropic's standard **[data retention policies](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)** and cannot be centrally managed or exported by admins. Claude Enterprise admins can retrieve this session content in beta through the Compliance API; deletion endpoints for local sessions aren't available yet.
+For local sessions, Cowork stores conversation history locally on users' computers. This data is not subject to Anthropic's standard **[data retention policies](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)** and cannot be centrally managed or exported by admins. Claude Enterprise admins can retrieve this session content through the Compliance API; deletion endpoints for local sessions aren't available yet.
 ​
 For sessions in the cloud, your sessions and files are saved to your Claude account.
 
@@ -120,8 +119,6 @@ For sessions in the cloud, your sessions and files are saved to your Claude acco
 The Cowork toggle is organization-wide—either all members have access or none do. On Enterprise plans, admins who need per-team control can use **[groups and custom roles](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)** to selectively enable Cowork or grant the "Run Cowork in the cloud" capability to specific users or teams. Team plans don't have access to these controls, so Cowork remains all-or-nothing.
 
 Within Cowork, admins have more granular control over plugins. You can set per-plugin installation preferences to control which plugins are auto-installed, available for self-service, or hidden from your organization's catalog. On Enterprise plans, these preferences can also be customized per group. See **[Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)** for details.
-
----
 
 ## Security considerations
 
@@ -148,6 +145,6 @@ Network settings are applied when a new Cowork session is created. If you change
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
-* [Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)
 * [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)
+* [Set up browser use in Claude Cowork for Team and Enterprise plans](https://support.claude.com/en/articles/16635803-set-up-browser-use-in-claude-cowork-for-team-and-enterprise-plans)

@@ -16,13 +16,13 @@ When working with the Anthropic API and Claude, there's a crucial concept you ne
 
 This means if you want to have a multi-turn conversation where Claude remembers context from earlier messages, you need to handle the conversation state yourself.
 
-## The Problem with Stateless Conversations
+## The Problem with Stateless Conversations[](#the-problem-with-stateless-conversations)
 
 Let's say you ask Claude "What is quantum computing?" and get a good response. Then you follow up with "Write another sentence" - Claude has no idea what you're referring to. It will write a sentence about something completely random because it has no memory of the quantum computing discussion.
 
 ![](https://academy.claude.com/assets/media/299a47c5bc9dcb0ccb20b610b6721258dfc93a496c339edba7059d05902c1724.png)
 
-## How Multi-Turn Conversations Work
+## How Multi-Turn Conversations Work[](#how-multi-turn-conversations-work)
 
 To maintain conversation context, you need to do two things:
 
@@ -40,7 +40,7 @@ Here's the flow that actually works:
 
 ![](https://academy.claude.com/assets/media/54d53af2c82f05b8dbdc5ba81ac55ee66452d42e40c45fa70fbfa076d20f1b5b.png)
 
-## Building Helper Functions
+## Building Helper Functions[](#building-helper-functions)
 
 To make conversation management easier, you can create three helper functions:
 
@@ -64,7 +64,7 @@ def chat(messages):
     return message.content[0].text
 ```
 
-## Putting It All Together
+## Putting It All Together[](#putting-it-all-together)
 
 Here's how you use these functions to maintain a conversation:
 

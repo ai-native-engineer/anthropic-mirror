@@ -14,7 +14,7 @@ Watch
 
 Claude for Teachers can help you be more effective in your classroom. Give it instructional materials — de-identified diagnostics, exit tickets, your own notes — and it can plan differentiated lessons for each group of your students. It can also coach your teaching from each day's lesson, on a schedule you set.
 
-## Every Day at Four
+## Every Day at Four[](#every-day-at-four)
 
 See how an elementary school teacher uses Claude for Teachers to analyze your teaching and coach you on it. One spoken brief sets the routine: every school day at four, Claude reads the day's lesson from your TeachFX recording, tells you what worked and what to adjust, and drafts tomorrow's plan with supports for English language learners built in — all while you drive home.
 

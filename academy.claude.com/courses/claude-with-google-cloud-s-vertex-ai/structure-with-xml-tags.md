@@ -12,7 +12,7 @@ Lesson 197 min
 
 When you're building prompts that include a lot of content, Claude can sometimes struggle to understand which pieces of text belong together or what different sections are supposed to represent. XML tags provide a simple way to add structure and clarity to your prompts, especially when you're interpolating large amounts of data.
 
-## Why Structure Matters
+## Why Structure Matters[](#why-structure-matters)
 
 Consider a prompt where you need to analyze 20 pages of sales records. Without clear boundaries, Claude might have trouble distinguishing between your instructions and the actual data you want analyzed.
 
@@ -20,7 +20,7 @@ Consider a prompt where you need to analyze 20 pages of sales records. Without c
 
 The example above shows how unclear boundaries can make it difficult for Claude to parse your intent. By wrapping different content sections in XML tags, you create clear delimiters that help Claude understand the structure of your prompt.
 
-## Using XML Tags for Clarity
+## Using XML Tags for Clarity[](#using-xml-tags-for-clarity)
 
 XML tags act as containers that separate distinct portions of your prompt. You can create custom tag names that describe the content they contain:
 
@@ -28,7 +28,7 @@ XML tags act as containers that separate distinct portions of your prompt. You c
 
 In this case, wrapping the sales data in `<sales_records>` tags makes it immediately clear what that content represents. The tag name itself provides context about the data type.
 
-## A Practical Example
+## A Practical Example[](#a-practical-example)
 
 Here's a more dramatic example that shows why structure matters. On the left, you have a debugging request with mixed code and documentation:
 
@@ -53,7 +53,7 @@ csv_source = DataSource.from_csv("data.csv")
 
 Now Claude can easily identify what needs debugging versus what serves as reference material.
 
-## Applying Structure to Your Prompts
+## Applying Structure to Your Prompts[](#applying-structure-to-your-prompts)
 
 Even when your interpolated content isn't massive, XML tags can still improve clarity. For example, when generating meal plans, you might group athlete information together:
 
@@ -68,7 +68,7 @@ Even when your interpolated content isn't massive, XML tags can still improve cl
 
 This makes it explicit that these values represent external input about the athlete, rather than part of your instructions.
 
-## Key Benefits
+## Key Benefits[](#key-benefits)
 
 * Most useful when including large amounts of context or data
 * Help serve as clear delimiters for Claude to parse different content types

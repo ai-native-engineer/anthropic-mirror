@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Explain how Claude Code matches incoming requests to available skills
 * Describe the skill priority hierarchy (Enterprise, Personal, Project, Plugins)
 
-## Creating your first skill
+## Creating your first skill[](#creating-your-first-skill)
 
 Creating your first skill · 4 min
+
+SummaryTranscript
 
 This video walks through building a skill from scratch — a personal PR
 description skill that works across all your projects. You'll see exactly
@@ -27,7 +29,7 @@ how to structure the SKILL.md file, test it, and understand how Claude Code
 discovers and matches skills to your requests. The video also covers the
 priority hierarchy that determines which skill wins when names conflict.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * A skill is a **directory containing a `SKILL.md` file** with metadata (name, description) in frontmatter and instructions below
 * Claude loads **only skill names and descriptions at startup**, then matches incoming requests against those descriptions using semantic matching
@@ -37,7 +39,7 @@ priority hierarchy that determines which skill wins when names conflict.
 
 Let's walk through creating a skill from scratch, then look at how Claude Code actually loads and matches skills behind the scenes.
 
-## Creating a Skill
+## Creating a Skill[](#creating-a-skill)
 
 We'll build a personal skill that teaches Claude how to write PR descriptions in a consistent format. Since it's a personal skill, it lives in your home directory and works across all your projects.
 
@@ -76,7 +78,7 @@ The **name** identifies your skill. The **description** tells Claude when to use
 
 ![](https://academy.claude.com/assets/media/23910a9d33eb5eb92d7e4c7852549dc9df48dfc6eb7338eb1850cf2c49e0ff55.png)
 
-## Testing Your Skill
+## Testing Your Skill[](#testing-your-skill)
 
 Claude Code loads skills at startup, so restart your session after creating one. You can verify it's available by checking the available skills list.
 
@@ -84,7 +86,7 @@ Claude Code loads skills at startup, so restart your session after creating one.
 
 You should see your skill listed. To test it, make some changes on a branch and say something like "write a PR description for my changes." Claude will indicate it's using the PR description skill, check your diff, and write a description following your template — same format every time.
 
-## How Skill Matching Works
+## How Skill Matching Works[](#how-skill-matching-works)
 
 When Claude Code starts, it scans four locations for skills but only loads the **name and description** — not the full content. This is an important detail.
 
@@ -94,7 +96,7 @@ Once a match is found, Claude asks you to confirm loading the skill. This confir
 
 ![](https://academy.claude.com/assets/media/96c5355edb53bd0b8a74489bea21a53ba1738adb785e1be23192b19e9cf92553.png)
 
-## Skill Priority
+## Skill Priority[](#skill-priority)
 
 If you clone a repository that has a skill with the same name as one of your personal skills, which one wins? There's a clear priority order:
 
@@ -107,16 +109,16 @@ This lets organizations enforce standards through enterprise skills while still 
 
 To avoid conflicts, use descriptive names. Instead of just "review," use something like "frontend-review" or "backend-review."
 
-## Updating and Removing Skills
+## Updating and Removing Skills[](#updating-and-removing-skills)
 
 To update a skill, edit its `SKILL.md` file. To remove one, delete its directory. Restart Claude Code after any changes for them to take effect.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What's one task in your daily workflow that you could turn into a skill right now? What would the description look like?
 * How might the priority hierarchy affect your team's skill management strategy? Would you rely more on personal or project-level skills?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, you'll learn about advanced configuration options including metadata fields, tool restrictions with `allowed-tools`, and how to structure larger skills using progressive disclosure and multi-file organization.
 

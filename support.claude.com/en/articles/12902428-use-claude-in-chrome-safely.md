@@ -26,8 +26,6 @@ To see a page and decide what to do next, Claude takes screenshots of the tabs i
 
 Claude in Chrome isn't available to organizations covered by HIPAA, and we recommend against using it on pages that contain regulated data.
 
----
-
 ## Our safety measures
 
 We've implemented multiple layers of protection:
@@ -53,9 +51,7 @@ For your safety, Claude cannot access sensitive, high-risk sites such as:
 
 Claude asks for permission before accessing financial sites.
 
-It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#2f5a5c4a5d5c4e494a5b566f4e415b475d405f464c014c4042).
-
----
+It’s unlikely that we’ve captured all sites in these categories, so please report any omissions to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#91e4e2f4e3e2f0f7f4e5e8d1f0ffe5f9e3fee1f8f2bff2fefc).
 
 ## Protecting yourself from malicious attackers
 
@@ -99,8 +95,6 @@ We strongly advise against using Claude in Chrome to manage or take actions on s
 
 Claude in Chrome isn’t available for HIPAA orgs, and we recommend against using Claude in Chrome on pages with regulated data generally. As a best practice, don't open the extension while viewing sensitive info, and consider using a separate browser profile.
 
----
-
 ## Your responsibility
 
 You remain responsible for all browser actions taken by Claude performed on your behalf. This includes:
@@ -111,8 +105,6 @@ You remain responsible for all browser actions taken by Claude performed on your
 * Respecting third-party website terms of service, including any restrictions on automated access
 
 For more information about using AI agents safely, please review our **[Acceptable Use Policy for Agents](https://support.claude.com/en/articles/12005017-using-agents-according-to-our-usage-policy)**.
-
----
 
 ## For Team and Enterprise users
 
@@ -125,8 +117,8 @@ These controls add an extra layer of protection beyond Claude's default safeguar
 
 For admin documentation, see **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-for-chrome-admin-controls)**.
 
-* [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)
 * [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)
 * [Claude in Chrome permissions guide](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
+* [Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400-use-the-built-in-browser-in-claude-cowork)

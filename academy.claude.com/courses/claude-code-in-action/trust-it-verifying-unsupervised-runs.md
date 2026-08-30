@@ -25,13 +25,13 @@ happened, so you have to reconstruct it after the fact.
 
 Here's a way to picture it. The less you watched, the more you verify.
 
-## Keep unattended runs in auto mode
+## Keep unattended runs in auto mode[](#keep-unattended-runs-in-auto-mode)
 
 When a run goes unattended at work, keep it in auto mode rather than bypass permissions. In auto mode, the classifier still reviews each action for danger. That's a safety net worth keeping.
 
 But be clear about what that net does and doesn't do. The classifier never judges whether the code is actually correct. It only flags dangerous actions. So your verification bar stays exactly where it was. Set that bar based on how unsupervised the run was.
 
-## Start with the diff, not the summary
+## Start with the diff, not the summary[](#start-with-the-diff-not-the-summary)
 
 Don't start with Claude's summary of what it did. Start with the diff itself.
 
@@ -42,7 +42,7 @@ The trap is a tidy summary that reads perfectly fine, while the actual diff touc
 
 So read what changed. Read the files that were part of the plan first, then look for anything outside it. A clean write-up is not proof of clean code.
 
-## Turn tests into a gate, not a promise
+## Turn tests into a gate, not a promise[](#turn-tests-into-a-gate-not-a-promise)
 
 The real gate on an unsupervised run is whether the tests passed, and whether Claude actually ran them or only claimed that it did. Don't leave that to trust. Wire it as a hook so Claude can't skip it.
 
@@ -53,13 +53,13 @@ A couple of hooks do the job:
 
 The key detail is the exit code. A hook that exits with `exit 2` feeds the failure straight back to Claude. Claude reads that failure and fixes it without you asking. Best of all, the check fires on every run, whether or not you remember to ask for it.
 
-## Get a cold second opinion
+## Get a cold second opinion[](#get-a-cold-second-opinion)
 
 The sub-agent code review you'd run before a pull request works here too. Point it at an unsupervised run.
 
 Open a fresh session or sub-agent and have it review the changed code with no memory of how the code was built. Because it has no stake in the approach, it catches the things the original run talked itself past. A second reviewer with fresh eyes finds what the author rationalized away.
 
-## Putting it together
+## Putting it together[](#putting-it-together)
 
 Make the check as serious as the run was unsupervised:
 

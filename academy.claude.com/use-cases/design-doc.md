@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-pbyyssck.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oj6tpm7w.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Engineering plugin ships with `/system-design` as a starting point, already structured to fill an RFC template and look up prior art across your wiki. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ EngineeringStreamline engineering workflows — standups, code review, architect
 
 Show all 10 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (your RFC template, the one-pager or notes you've already written, related past RFCs, the service's architecture diagram) into one folder and point Cowork at it. Cowork reads from there and writes the draft, the alternatives table, and the diagram back to it. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from your RFCs folder so your template, your review checklist, and your team's writing conventions stay attached.
 
@@ -82,15 +82,15 @@ current-pipeline-diagram.pngMar 11, 2026142 KB
 
 In Cowork’s chat bar:RFCs / 0087-streaming-events
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Write a design doc for moving our event pipeline from batch to streaming. Look up prior art and architecture constraints, then draft the proposal in our RFC template: problem, goals and non-goals, two or three approaches with trade-offs, the recommendation, and open questions. I'll fill in the parts only I know.
 
 RFCs / 0087-streaming-eventsOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Give it your template to follow.** Output follows your sections and headings, so reviewers see the structure they expect.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ RFCsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it from any one-pager
+### Run it from any one-pager[](#run-it-from-any-one-pager)
 
 Design docs start as a paragraph in a Slack thread or a notes file. Type `/schedule` or open **Scheduled** in the Cowork sidebar, and the customized skill watches your RFCs/inbox folder and turns any new one-pager into a structured first draft.
 
@@ -146,7 +146,7 @@ Weekdays at 9am, picks up new one-pagers from RFCs/inbox, runs `/system-design` 
 
 Every **weekday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/system-design` now carries your template, your prior-art sources, and your reviewers' standing questions. Share it so every tech lead's RFC arrives in the same shape, and architecture review spends time on the decision instead of the formatting.
 
@@ -154,7 +154,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/system-design` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your template and review checklist baked in, so they don't repeat Steps 1-3.
 
-## What changes for design review
+## What changes for design review[](#what-changes-for-design-review)
 
 You have a complete RFC draft in your template, with prior art and trade-offs filled in from your own sources — ready to edit and review instead of write from a blank page.
 

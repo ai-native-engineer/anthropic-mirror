@@ -16,7 +16,7 @@ For a service that doesn’t have a preset Connect button, use **Custom tool** o
 
 ###  What you need from the service
 
-* A service-account credential (an API key, token, or OAuth client) — not your personal login
+* A service-account credential (an API key, token, or OAuth client), not your personal login
 * The API host (for example `api.example.com`)
 * How the API authenticates (which header or flow it expects)
 
@@ -29,7 +29,7 @@ See [Create a dedicated account per service](https://claude.com/docs/claude-tag/
 | **Name** | A label for this connection (for example “Internal billing API”) |
 | **Credential type** | Pick the type that matches how the API authenticates; see [Credential types](#credential-types) |
 | **Allowed websites** | The API’s host (for example `api.example.com`). A wildcard is allowed as the leftmost label. You can’t enter `*` alone here; a credential is always limited to specific hosts (see [Allow all hosts](https://claude.com/docs/claude-tag/admins/add-connections#allow-all-hosts)). The credential is sent only to hosts you list here. |
-| **Path prefixes** (optional) | Restrict the credential to specific URL paths under the host. Shown only for the OAuth 2.0 authorization code type. |
+| **Path prefixes** (optional) | Restrict the credential to specific URL paths under the host. Shown only for the MCP Connector type, and only when the provider you pick doesn’t fix its own hosts and paths. |
 | **Custom headers** | Any extra headers the API requires beyond the credential. Shown only for the Bearer credential type. |
 
 After saving, where the credential has an allow rule, you can narrow it by HTTP method and path from its **Edit connection** dialog; see [Restrict by path or method](https://claude.com/docs/claude-tag/admins/add-connections#restrict-by-path-or-method).
@@ -46,9 +46,9 @@ After saving, where the credential has an allow rule, you can narrow it by HTTP 
 | **GCP IAP (with Service Account Key)** | Google Cloud services behind Identity-Aware Proxy |
 | **OAuth 2.0 JWT bearer** | APIs that accept a JWT signed with your private key in exchange for an access token (DocuSign, for example) |
 | **OAuth 2.0 client credentials** | Machine-to-machine OAuth with a client ID and secret |
-| **OAuth 2.0 authorization code (3-legged)** | OAuth with a user-consent step; the connection stores the resulting refresh token |
-| **GitHub App** | GitHub repositories; covered separately at [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github) |
+| **MCP Connector** | OAuth sign-in. Sign in once as an admin; the agent acts as that account. |
 
+For GitHub repositories, use the GitHub connection at [Configure GitHub access](https://claude.com/docs/claude-tag/admins/configure-github) rather than a credential from this table.
 If you’re unsure which type, check the service’s API authentication docs for which header or flow it expects.
 
 ###  AWS SigV4
@@ -88,6 +88,7 @@ Saving also fails when a PEM-encoded key isn’t an RSA key or has a passphrase.
 
 ##  Add a custom MCP server
 
+The server must be a remote endpoint that Claude can reach at a URL over the internet. An MCP server that runs on a person’s machine over stdio, including one packaged as a [desktop extension](https://claude.com/docs/connectors/custom/desktop-extensions), can’t be connected, because [sessions](https://claude.com/docs/claude-tag/concepts/glossary#session) run in a cloud sandbox that Anthropic hosts, not on anyone’s machine. Host the server as a remote endpoint first, then follow the steps below.
 To give Claude an MCP server (one you run, or a vendor’s hosted MCP endpoint), the pattern is a plugin plus a credential:
 
 1

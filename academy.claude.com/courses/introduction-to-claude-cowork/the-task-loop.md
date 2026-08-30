@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Respond to Cowork's clarifying questions in a way that produces better output
 * Course-correct when Claude heads in the wrong direction
 
-## Watch one go end-to-end
+## Watch one go end-to-end[](#watch-one-go-end-to-end)
 
 Hand Claude Cowork your first task
 
@@ -29,13 +29,13 @@ rhythm — it's less like prompting a chatbot and more like briefing a smart
 colleague who's about to disappear into a task and come back with something
 done.
 
-### Key takeaways
+### Key takeaways[](#key-takeaways)
 
 * **Claude asks before it commits.** Most non-trivial tasks start with a clarifying question or two. The questions are how Claude closes context gaps before the work starts, not friction in the way.
 * **You can steer mid-task.** If Claude is heading in the wrong direction, jump in. You don't have to wait for it to finish and start over.
 * **The finished deliverable is the artifact, not the chat.** Claude makes changes to the files on your computer. Your job at the end is to review it the way you'd review a colleague's work.
 
-## Delegate your first task
+## Delegate your first task[](#delegate-your-first-task)
 
 You picked a task in previous lessons. Now is when it leaves your plate. Open Cowork, point it at the folder where the context for the task lives, turn on any connectors that hold relevant context for the task, and write your prompt.
 
@@ -49,7 +49,7 @@ Build an example Cowork prompt in the interactive below.
 
 If you're used to prompting a chatbot, this will feel like more upfront work — it is. The trade is that more of the back-and-forth happens upfront, before Claude starts, instead of across five rounds of "actually, can you also..."
 
-## Answer the clarifying questions
+## Answer the clarifying questions[](#answer-the-clarifying-questions)
 
 Claude asks questions to clarify any ambiguities about your objectives before it gets into the work. In Chat, you collaborate as you go — context shows up turn by turn. In Cowork, you delegate and it returns with a completed artifact. Anything that might trip it up — any gaps in its understanding — comes up through the questions before it dives in.
 
@@ -57,13 +57,13 @@ Most are easy: Claude presents a couple of options and you click the one that fi
 
 Below are some examples of the questions you might receive from Cowork after submitting the prompt you built above.
 
-## Steer mid-task
+## Steer mid-task[](#steer-mid-task)
 
 Watch Cowork's plan and progress as it works. If it's going off-track — wrong source, wrong format, wrong tone — interrupt. You can also stop the run if it's substantially off, refine the prompt, and start again with what you've learned. Most people's instinct from Chat is to wait until the response is done and then regenerate. Resist that. Cowork is built for course corrections, and the cost of a redirect is low.
 
 Steer the example task below and see how Claude responds.
 
-## Review the finished deliverable
+## Review the finished deliverable[](#review-the-finished-deliverable)
 
 When Claude is done, you can preview the file in the app. The file is also in your folder, so you can open it up and see it there.
 
@@ -77,11 +77,11 @@ If the draft is mostly right, tell Claude what to change rather than starting ov
 
 If the draft is wrong in a load-bearing way, the prompt was missing the load-bearing piece of context. Point Claude to the new context and ask it to make adjustments.
 
-## Try it now
+## Try it now[](#try-it-now)
 
 Take the task you identified in Lesson 3 — or pick one now. Hand it to Cowork using the process you just walked through — name the deliverable, the inputs, and any nuance; answer the clarifying questions specifically; steer if it drifts; review the result with your discernment on. The first run is the one that teaches you the most.
 
-## What’s next
+## What’s next[](#whats-next)
 
 You've now done it once. In Module 2, you'll start making Cowork *yours* — keeping the context that worked, the workflows you want repeated, and the expertise your team relies on, so you don't re-supply it every time you start a task.
 

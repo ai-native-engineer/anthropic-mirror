@@ -12,7 +12,7 @@ Lesson 202 min
 
 Tools allow Claude to access information from the outside world, extending its capabilities beyond what it learned during training. By default, Claude only knows information from its training data and can't access current events, real-time data, or external systems. Tool use solves this limitation by creating a structured way for Claude to request and receive fresh information.
 
-## The Problem Without Tools
+## The Problem Without Tools[](#the-problem-without-tools)
 
 When users ask Claude for current information, it hits a wall. For example, if someone asks "What's the weather in San Francisco, California?" Claude has to respond with something like "I'm sorry, but I don't have access to up-to-date weather information."
 
@@ -20,7 +20,7 @@ When users ask Claude for current information, it hits a wall. For example, if s
 
 This creates a frustrating user experience when people need real-time data that Claude could theoretically help with if it just had access to current information.
 
-## How Tool Use Works
+## How Tool Use Works[](#how-tool-use-works)
 
 Tool use follows a specific back-and-forth pattern between your application and Claude. Here's the complete flow:
 
@@ -31,7 +31,7 @@ Tool use follows a specific back-and-forth pattern between your application and 
 3. **Data Retrieval:** Your server runs code to fetch the requested information from external APIs or databases
 4. **Final Response:** You send the retrieved data back to Claude, which then generates a complete response using both the original question and the fresh data
 
-## Weather Example in Practice
+## Weather Example in Practice[](#weather-example-in-practice)
 
 Let's see how this works with the weather question. The process becomes much more specific:
 
@@ -39,7 +39,7 @@ Let's see how this works with the weather question. The process becomes much mor
 
 When a user asks about current weather, you include instructions in your prompt about how to retrieve weather data. Claude recognizes it needs current information and requests weather data for the specific location. Your server then calls a weather API to get real-time conditions and sends that data back to Claude. Finally, Claude combines the fresh weather data with the user's question to provide an accurate, current response.
 
-## Key Benefits
+## Key Benefits[](#key-benefits)
 
 * **Real-time Information:** Access current data that wasn't available during Claude's training
 * **External System Integration:** Connect Claude to databases, APIs, and other services

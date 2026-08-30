@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-fzzs6i6o.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-my91enox.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Sales plugin ships with `/call-prep` and other deal-cycle skills as a starting point, already structured to read the opp, the transcripts, and the plan and write a sheet you can scan a minute before the call. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ SalesProspect, craft outreach, and build deal strategy faster. Prep for calls, m
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -64,7 +64,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the mutual action plan, your own notes, the proposal) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the prep sheet back to it. If you prep calls regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your account context, instructions, and memory stay attached.
 
@@ -78,15 +78,15 @@ proposal-v2.pdfApr 8, 2026410 KB
 
 In Cowork’s chat bar:Accounts / Northwind / calls
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 I'm meeting Northwind tomorrow. From the Salesforce record, the last three Gong transcripts, and the mutual action plan, write the prep sheet: where the deal is, what they care about, the two or three asks I should make on this call, and the likely objections with our response.
 
 Accounts / Northwind / callsOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -104,7 +104,7 @@ Source
 
 **Include the documents you maintain.** The mutual action plan and your own notes sit in the working folder, so deal status is read from the document you actually maintain, not just the CRM stage field.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -114,7 +114,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -124,9 +124,9 @@ AccountsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it before every external call
+### Run it before every external call[](#run-it-before-every-external-call)
 
 Prep should be waiting before the meeting reminder fires. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill builds a sheet for every external call on your calendar each morning.
 
@@ -142,7 +142,7 @@ Runs `/call-prep` for each external meeting on today's calendar and writes the s
 
 Every **weekday at 7:30 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/call-prep` now carries your discovery framework, your objection playbook, and your sheet format. Share it so every rep walks into calls with the same prep, and managers can read any sheet the same way.
 
@@ -150,7 +150,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/call-prep` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your framework and playbook baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

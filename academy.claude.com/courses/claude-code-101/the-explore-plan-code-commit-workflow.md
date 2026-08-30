@@ -12,12 +12,14 @@ Lesson 58 min
 
 The explore → plan → code → commit workflow
 
+SummaryTranscript
+
 If you take one thing away from this course, let it be this workflow:
 **Explore, Plan, Code, and Commit**. Without it, most people jump straight
 to asking Claude to write code — which means more course-correcting later
 on.
 
-## Explore and Plan
+## Explore and Plan[](#explore-and-plan)
 
 The fastest way to handle these first two steps is with **Plan Mode**. In plan mode, Claude can't edit files — it just reads files to gather information about how it will tackle the implementation.
 
@@ -35,9 +37,9 @@ Claude will read relevant files, run some web searches, and give you a plan of a
 
 This is the best place to course-correct because it's before any code is written. You can also run the explore subagent without being in plan mode if you just want a general summary of your codebase without intending to make changes afterward.
 
-## Code
+## Code[](#code)
 
-Once the plan looks good, select "approve" to accept it and let Claude work through the list items. You can choose whether Claude auto-accepts file edits or asks you each time.
+Once the plan looks good, select "approve" to accept it and let Claude work through the list items. Your permission mode determines how Claude proceeds: it can ask you at each step, auto-accept file edits, or run in auto mode with a background safety check screening each action.
 
 Claude will do its best to troubleshoot before considering the plan "finished," but at times you'll need to step in. This is the benefit of working with Plan Mode — after execution, you also have the context of how you got to the results, which helps guide Claude's next decisions.
 
@@ -51,7 +53,7 @@ A few tips to make the coding phase smoother:
 
 **Quick tip:** If you find Claude keeps running into the same issues, ask it to save the solution to its CLAUDE.md file.
 
-## Commit
+## Commit[](#commit)
 
 Once you've tested the changes yourself and are happy with the results, it's time to push your code. Before you commit, run a **subagent code reviewer** to look at your work. A subagent gets a fresh pair of eyes on the codebase — it doesn't carry the bias the main agent might have from the session.
 
@@ -59,7 +61,7 @@ Once you've tested the changes yourself and are happy with the results, it's tim
 
 Then get Claude to generate a commit message in your style. Rinse and repeat.
 
-## Recap
+## Recap[](#recap)
 
 To be effective with Claude Code, follow the Explore, Plan, Code, and Commit workflow:
 

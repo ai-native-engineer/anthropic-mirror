@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![One-page meeting prep summary doc Claude creates: The Case for Simplifying Onboarding, with executive summary and current-state metrics](https://academy.claude.com/assets/v1/turn-transit-time-into-research-time-ilpgqnne.png)[Open artifact](https://claude.ai/public/artifacts/21643ab5-f49d-48d3-ba03-5a75676b6c22)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Good ideas don't wait for your desk. They surface during commutes, between meetings, and on walks. But by the time you're back at your computer, you've either forgotten the thread or lost the momentum to dig in.
 
@@ -32,25 +32,19 @@ Can you please look through the doc, do some competitor research on their onboar
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude saves conversations across devices, so you can start on your phone and pick up on your laptop without losing context.
 
-### Required context
+### Required context[](#required-context)
 
 Enable [web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search): Claude can research best practices, find frameworks, and gather external information while you're still in brainstorm mode. By the time you're at your desk, the research is done.
 
-### Optional context
-
-Enable Extended Thinking: For complex planning tasks, Extended Thinking helps Claude develop more thorough structures and anticipate gaps in your thinking.
-
 [
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude delivers a research-backed meeting prep while you're still in transit. By the time you reach your desk, you have organized findings, relevant stats, competitor analysis, and suggested talking points ready to refine and present.
 
@@ -131,11 +125,11 @@ Clovant checklists treat everyone the same. Adaptive onboarding treats users bas
 
 Need me to dig deeper into any of these areas or put together slides?
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Continue on desktop with full context
+### Continue on desktop with full context[](#continue-on-desktop-with-full-context)
 
 Pick up exactly where you left off. Claude remembers the context and is ready to produce polished output now that you have full editing capabilities.
 
@@ -143,7 +137,7 @@ I'm at my desk now. That research is exactly what I needed. Can you create a one
 
 Open in Claude
 
-### Dig deeper on a specific finding
+### Dig deeper on a specific finding[](#dig-deeper-on-a-specific-finding)
 
 Ask Claude to expand on the most relevant piece of research. If one insight stood out, Claude can search for more examples, case studies, or data points to strengthen that specific angle.
 
@@ -151,7 +145,7 @@ The adaptive onboarding trend is interesting. Can you find more examples of comp
 
 Open in Claude
 
-### Pressure-test the argument
+### Pressure-test the argument[](#pressure-test-the-argument)
 
 Strengthen your argument by understanding what the research says on the other side. Knowing the best case against your position helps you address it proactively rather than getting caught off guard.
 
@@ -159,25 +153,25 @@ What does the research say about when longer onboarding actually works better? A
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Voice input doesn't need to be polished
+### Voice input doesn't need to be polished[](#voice-input-doesnt-need-to-be-polished)
 
 Talk the way you think. Claude parses intent from rough, stream-of-consciousness input. Save the editing for desktop.
 
-### Upload reference docs from mobile
+### Upload reference docs from mobile[](#upload-reference-docs-from-mobile)
 
 You can attach files on mobile just like desktop. Give Claude your planning docs, prior research, or notes so it has full context for the research task.
 
-### Be explicit about your timeline
+### Be explicit about your timeline[](#be-explicit-about-your-timeline)
 
 Telling Claude "I have a meeting in two hours" helps it calibrate what to prioritize and how much depth to provide.
 
-### Desktop unlocks file creation
+### Desktop unlocks file creation[](#desktop-unlocks-file-creation)
 
 Mobile is ideal for capture and research. When you need polished outputs like slide decks, documents, or spreadsheets, continue on desktop where Claude can create downloadable files.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Next time an idea hits while you're away from your desk, open Claude on your phone and start talking. Capture the thought, let Claude research in the background, then pick up the same conversation when you're ready to build.
 

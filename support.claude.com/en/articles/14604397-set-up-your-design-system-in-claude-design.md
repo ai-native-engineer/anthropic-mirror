@@ -15,8 +15,6 @@ This guide is for the designer or brand owner who will set up the design system.
   + A slide deck or document that reflects your visual identity
   + Brand guideline assets (logos, color palettes, typography specs)
 
----
-
 ## Step 1: Create or switch to your organization
 
 To set up your organization’s design system:
@@ -58,9 +56,7 @@ To validate your design system, create a test project and see if the output matc
 
 Once you’re satisfied with the design system quality, make sure the “Published” toggle is switched on. After publishing, any projects created from the Claude Design homescreen while in your organization will use your design system instead of the default.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1787622300&signature=7c6cb67f5711effc26220eed3ffe71d1cf958ee222e06a8998847cfb5d5a08e3&req=diIvEcx8moFfXvMW1HO4zWNHF%2FWNDDkUIQKNMXlu0T8aiox2fj%2F4LCh0DW%2Bb%0AqN292f9B6FSl3sd4W3E%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1787622300&signature=7c6cb67f5711effc26220eed3ffe71d1cf958ee222e06a8998847cfb5d5a08e3&req=diIvEcx8moFfXvMW1HO4zWNHF%2FWNDDkUIQKNMXlu0T8aiox2fj%2F4LCh0DW%2Bb%0AqN292f9B6FSl3sd4W3E%3D%0A)
-
----
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1788033600&signature=fb7d04dd6cb3b50a7b95f8fe4e79d0e32fe53744568602c058fea1f5ac901fc1&req=diIvEcx8moFfXvMW1HO4zWNHF%2FqLDTgRIQKNMXlu0T9Oin5PYzRP8mLTHfeM%0AnYUl%2BhDUngHI9tG4yeI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1788033600&signature=fb7d04dd6cb3b50a7b95f8fe4e79d0e32fe53744568602c058fea1f5ac901fc1&req=diIvEcx8moFfXvMW1HO4zWNHF%2FqLDTgRIQKNMXlu0T9Oin5PYzRP8mLTHfeM%0AnYUl%2BhDUngHI9tG4yeI%3D%0A)
 
 ## Tips for best results
 

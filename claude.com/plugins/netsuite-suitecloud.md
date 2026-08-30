@@ -2,13 +2,13 @@
 
 # netsuite-suitecloud
 
-NetSuite agent skills from Oracle — authoring guidance for SuiteCloud Development Framework (SDF) objects and UIF sin...
+Develop NetSuite SuiteCloud solutions with SuiteScript, SDF, and best practices: SuiteScript records and upgrades, SDF objects, roles and permissions, UIF single-page apps, OWASP secure coding, project documentation, and the SAFE Guide.
 
 * Install in
 
   [Claude Code](#)
 
-  [Oracle NetSuite](#)
+  [Oracle NetSuite](https://www.netsuite.com)
 * Installs
 
   1102
@@ -17,7 +17,7 @@ NetSuite agent skills from Oracle — authoring guidance for SuiteCloud Developm
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-NetSuite agent skills from Oracle — authoring guidance for SuiteCloud Development Framework (SDF) objects and UIF single-page-app components, plus runtime guidance for the NetSuite AI Service Connector.
+This plug-in is compatible with Claude. It includes skills that support key areas of SuiteCloud development, such as SuiteScript, SDF, UIF SPAs, security, permissions, documentation, modernization, and SAFE Guide best practices. It helps SuiteCloud developers and SuiteApp teams create accurate, secure, and maintainable code and project artifacts.
 
 ## Related plugins
 

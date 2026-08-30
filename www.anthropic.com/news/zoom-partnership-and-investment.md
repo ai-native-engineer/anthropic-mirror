@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/news/zoom-partnership-and-investment -->
 
-# Zoom Partnership and Investment in Anthropic
+# Zoom partnership and investment in Anthropic
 
 May 16, 2023
 

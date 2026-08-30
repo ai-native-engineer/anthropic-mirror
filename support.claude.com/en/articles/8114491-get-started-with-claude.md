@@ -33,9 +33,7 @@ You use **prompts** to communicate with Claude. The best approach is to speak to
 
 Type your prompt into the chat interface and click the submit button to start a conversation with Claude. You can click the "+" button in the lower left or type "/" to view additional options and commands:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1787622300&signature=c30e84b504d4c5b8901b48100caf44df43b4a411b9310245904acdf16818a40e&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SjMtoWC9crMELaMZPxPuuRTU4xjqGs8oDn4%0AYRURWPqNL5VH7JLtKB8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1787622300&signature=c30e84b504d4c5b8901b48100caf44df43b4a411b9310245904acdf16818a40e&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SjMtoWC9crMELaMZPxPuuRTU4xjqGs8oDn4%0AYRURWPqNL5VH7JLtKB8%3D%0A)
-
----
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1788034500&signature=a5b080040bb14b702496a4f80a2dbb58c0b566d4f6dded24d391ea16feab9a0a&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SfKt4OE9crMELaMZPzTZDK%2F7B9lYXQYRrTm%0AxuFEu4FHNus0AwQhZzs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1788034500&signature=a5b080040bb14b702496a4f80a2dbb58c0b566d4f6dded24d391ea16feab9a0a&req=dSkmEMt%2BlYRYUfMW1HO4zV2J7SfKt4OE9crMELaMZPzTZDK%2F7B9lYXQYRrTm%0AxuFEu4FHNus0AwQhZzs%3D%0A)
 
 ## Understanding Claude's capabilities
 
@@ -65,16 +63,12 @@ We also have several paid subscriptions that offer additional usage. For more in
 
 No, it's not possible to import conversation history from another AI provider into Claude at this time. However, Free, Pro, and Max users can use the memory import feature to transfer memory from other AI providers into Claude. For more information, see **[Import and export your memory from Claude](https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude)**.
 
----
-
 ## Tips for getting started
 
 1. **Start simple**: Begin with straightforward questions to get familiar with how Claude responds.
 2. **Be specific**: The more specific your request, the better Claude can assist you.
 3. **Iterate**: Don't hesitate to refine your prompts or ask follow-up questions.
 4. **Explore**: Try different types of tasks - from having Claude answer basic questions to using it as a collaboration partner for more involved projects.
-
----
 
 ## Next steps
 

@@ -27,13 +27,13 @@ Claude Cowork gives you an [agentic way(opens in new tab)](https://claude.com/pr
 | Your role | Present for every turn | Describe it once, check back |
 | The output | Text you'll read or copy | A finished file or an action taken |
 
-## How a Claude Cowork task runs
+## How a Claude Cowork task runs[](#how-a-claude-cowork-task-runs)
 
 Cowork runs on the same agentic engine as [Claude Code(opens in new tab)](https://claude.com/product/claude-code) — the loop that lets Claude plan, work across tools, and check its own output — applied to your files and apps instead of a codebase. A Cowork task can follow these steps:
 
 In Cowork, you can **delegate, but stay in control**. Claude's actions show up in the sidebar, you can interrupt and redirect at any point, and it asks for your approval before anything consequential — sending an email, posting a message, changing a file outside your working folder.
 
-## What only Cowork can do
+## What only Cowork can do[](#what-only-cowork-can-do)
 
 * **Access your local folders** — Cowork reads and writes files where they are on your computer, with no upload or download step. Give it a folder and the output is saved next to the inputs.
 * **Navigate your logged-in browser** — with [Claude in Chrome(opens in new tab)](https://claude.com/chrome) connected, Cowork opens pages as you: vendor portals, internal dashboards, forms behind a login.
@@ -41,7 +41,7 @@ In Cowork, you can **delegate, but stay in control**. Claude's actions show up i
 * **Delegate parallel work** — when a task has independent parts (research five companies, check every contract in a folder), Cowork runs them at the same time instead of one after another.
 * **Run tasks on a schedule** — Cowork tasks can [run on a schedule(opens in new tab)](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork) you set, so recurring work happens without you starting it.
 
-## Get started
+## Get started[](#get-started)
 
 Select **Cowork** in the mode picker on the home page. If you haven't tried Claude Cowork before, install a [plugin(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-claude) for your role or pick an ambitious task that spans many steps, files, or sources to get started.
 

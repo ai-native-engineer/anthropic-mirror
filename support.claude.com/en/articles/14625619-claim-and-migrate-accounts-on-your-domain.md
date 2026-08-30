@@ -6,8 +6,6 @@ Domain claiming is supported on Claude Enterprise plans only.
 
 Team plans can verify a domain and block new personal accounts from being created, but admins can't claim or migrate existing accounts. People on a Team plan can still migrate their own personal accounts voluntarily—see **[Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400)**.
 
----
-
 ## Prerequisites
 
 Before you can enable domain claiming, your organization must have all of the following in place:
@@ -18,8 +16,6 @@ Before you can enable domain claiming, your organization must have all of the fo
 4. Enable JIT provisioning or SCIM. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
 
 These prerequisites exist to prevent people from being locked out of Claude during the migration process. If SSO is enforced and provisioning is active, everyone on your domain will have a path to sign in after their accounts are migrated.
-
----
 
 ## How domain claiming works
 
@@ -79,8 +75,6 @@ Domain claiming integrates with your existing SSO and provisioning setup:
 
 **Important:** To prevent lockouts, make sure all affected users are in your IdP before the migration deadline. Anyone not in the IdP won’t be able to sign in to the Enterprise workspace, and their personal account will be deactivated at the 30-day deadline. Your IT team will need to add them to the IdP.
 
----
-
 ## Frequently asked questions
 
 ### What happens if my organization doesn’t have enough seats available for migrated users?
@@ -89,8 +83,8 @@ If you purchased your Enterprise plan directly through Anthropic, you'll see an 
 
 If you purchased your Enterprise plan through the AWS Marketplace, migrated users will see a message asking them to contact their admin when they try to log in after the migration.
 
-* [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
 * [Switching to a different Identity Provider (IdP)](https://support.claude.com/en/articles/13443687-switching-to-a-different-identity-provider-idp)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)
 * [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)
+* [Set up Claude for Teachers for your school or district](https://support.claude.com/en/articles/16559896-set-up-claude-for-teachers-for-your-school-or-district)

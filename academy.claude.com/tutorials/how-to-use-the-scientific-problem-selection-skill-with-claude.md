@@ -14,15 +14,15 @@ How to use the Scientific Problem Selection Skill with Claude
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-dg2mkjs5.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-tbneonl4.png)
 
-## **What is the Scientific Problem Selection skill?**
+## **What is the Scientific Problem Selection skill?**[](#what-is-the-scientific-problem-selection-skill)
 
 A systematic workflow based on Fischbach et al., 2024 that guides scientists from initial ideation through project execution, helping them choose high-impact problems by generating ideas through structured "intuition pumps," rigorously assessing risk via assumption analysis, selecting appropriate success metrics, strategically fixing parameters, and navigating decision trees when projects inevitably encounter adversity.
 
-## **Who should use the Scientific Problem Selection skill?**
+## **Who should use the Scientific Problem Selection skill?**[](#who-should-use-the-scientific-problem-selection-skill)
 
 This skill is designed for scientists and engineers at any career stage and in any domain of research who are looking to carefully deliberate on the selection and refinement of a scientific problem. The skill is designed to collaborate with scientists as they identify new problems, assess the likelihood of success versus potential impact of research directions, and strategically pivot when projects hit roadblocks—without relying solely on intuition or ad hoc mentorship. The skill can be used as an end-to-end collaborator or for any single step of the process.
 
-## **How to access the skill in Claude.ai**
+## **How to access the skill in Claude.ai**[](#how-to-access-the-skill-in-claudeai)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -42,7 +42,7 @@ Learn about [provisioning and managing skills for your organization(opens in new
 3. Click “Upload skill”
 4. Upload the skill zip file
 
-## **How to access the skills in Claude Code**
+## **How to access the skills in Claude Code**[](#how-to-access-the-skills-in-claude-code)
 
 Command
 

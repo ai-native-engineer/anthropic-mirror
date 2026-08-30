@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Analyze patterns in user feedback result](https://academy.claude.com/assets/v1/analyze-patterns-in-user-feedback-lqu4yzye.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude can read through all your customer feedback to aggregate and analyze your data in one place. Let Claude do the exhaustive reading and sorting so you can spend time focusing on improving user experience.
 
@@ -35,11 +35,11 @@ Create a data workbook (Excel) organizing all the feedback by theme with filters
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Connect tools where your support and feedback lives using connectors so Claude can access and analyze your data.
 
-### Required context
+### Required context[](#required-context)
 
 In [Settings > Connectors(opens in new tab)](https://claude.ai/customize/connectors), find and enable your [Intercom(opens in new tab)](https://claude.ai/directory/intercom) connector.
 
@@ -61,15 +61,7 @@ Customer feedback dataXLSX
 
 User transcriptsPDF
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for deeper pattern recognition across hundreds of feedback points.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude connects dots between your feedback sources and organizes everything into data workbooks that make qualitative feedback actionable.
 
@@ -84,11 +76,11 @@ I've analyzed 347 feedback points across your support tickets, NPS responses, an
 
 **View your data workbook**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Improve the file output
+### Improve the file output[](#improve-the-file-output)
 
 Claude responds to design language and quality cues by applying sophisticated formatting, typography, and visual elements. Review first outputs, then request elevated quality with specific design direction.
 
@@ -96,7 +88,7 @@ Add visual polish to these files. For the document, refine with premium typograp
 
 Open in Claude
 
-### Compare segments
+### Compare segments[](#compare-segments)
 
 Break analysis down by meaningful groups to see how patterns differ. Claude identifies which issues matter most to specific segments, helping you prioritize high-value users or unique needs.
 
@@ -104,7 +96,7 @@ Take the top three pain points and show me how they differ between enterprise an
 
 Open in Claude
 
-### Create a repeatable workflow
+### Create a repeatable workflow[](#create-a-repeatable-workflow)
 
 Turn workflows you’ve refined into reusable [skills(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills) that bundle your instructions, templates, and preferences. Skills eliminate repetitive explanations and ensure consistent outputs for tasks you do regularly.
 
@@ -112,21 +104,21 @@ Help me create a skill for analyzing user feedback. I want to capture where I pu
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Work with messy data
+### Work with messy data[](#work-with-messy-data)
 
 Don't spend time formatting feedback into perfect columns before uploading. Claude handles messy data, like mixed formats, incomplete fields, typos, even handwritten notes you've transcribed. Focus your energy on collecting comprehensive feedback, not cleaning it.
 
-### Watch for echo chamber effects
+### Watch for echo chamber effects[](#watch-for-echo-chamber-effects)
 
 Claude will tell you what's in the data, but you need to interpret whether the sample represents your actual user base. Power users may leave more feedback than typical users. Enterprise customers have dedicated account managers to channel complaints. Promoters write thoughtful NPS comments while detractors just pick a number. Ask Claude: "What's the breakdown of feedback by user segment? Are we over-indexed on hearing from any particular group?"
 
-### Combine with quantitative data for the full picture
+### Combine with quantitative data for the full picture[](#combine-with-quantitative-data-for-the-full-picture)
 
 Feedback tells you what users say; usage data tells you what they do. The most powerful insights come from connecting both. Upload your feedback analysis to a Claude Project along with usage analytics, then ask: "Users complain about Feature X being slow, but our logs show it averages a fast response time. What's actually happening?"
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Collaborate with Claude to source and analyze user feedback, so you can get to insights and actions quicker.
 

@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Recognize the behavioral fingerprints each stage leaves: sycophancy, verbosity, over-caution, loose confidence calibration
 * Apply this understanding to interpret behaviors you see in your own AI interactions
 
-## How AI gets its character
+## How AI gets its character[](#how-ai-gets-its-character)
 
 How AI Gets Its Character · 5 min
 
@@ -26,15 +26,15 @@ An AI's politeness, helpfulness, and caution aren't emergent magic. They're
 trained in, layer by layer, and each training stage leaves specific,
 predictable fingerprints on how the system interacts with you.
 
-## Pretraining, fine-tuning, and the fingerprints they leave
+## Pretraining, fine-tuning, and the fingerprints they leave[](#pretraining-fine-tuning-and-the-fingerprints-they-leave)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Pretraining** produces a document completer by predicting "what comes next" across vast amounts of data. After this stage, it has no concept of helping you.
 * **Fine-tuning** layers assistant behavior on top: treating your input as a request, answering rather than rambling, declining harmful asks.
 * **Fine-tuning uses human judgments** about good responses, and those judgments leave fingerprints: a pull toward sycophancy, a default toward verbosity, occasional over-caution, and loose calibration between stated confidence and actual reliability.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Fingerprints on Your Own Work
 
@@ -49,12 +49,12 @@ Pick one task from your Lesson 1 list. Something you've actually run through AI 
 
 Now step back. Which fingerprint showed up most clearly on your work? Did naming it in advance change how you read the behavior?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Where in your own work is sycophancy most likely to cost you? (Hint: anywhere you're hoping for honest feedback.)
 * Where is verbosity most likely to cost you? (Hint: anywhere you need concision under time pressure.)
 
-## What's next
+## What's next[](#whats-next)
 
 Now we start on the four properties themselves, beginning with the one that explains more about AI behavior than any other: Next Token Prediction. Where do AI answers actually come from?
 

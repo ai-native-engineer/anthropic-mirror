@@ -21,7 +21,7 @@ your query.
 
 A lot of your context lives outside your codebase — in databases, productivity apps, or public repositories. MCP bridges that gap.
 
-## What Can You Do With It?
+## What Can You Do With It?[](#what-can-you-do-with-it)
 
 First, it's important to understand the concept of "tools" in agentic AI. Tools give agents like Claude Code the ability to perform actions that help them complete tasks more effectively. This is different from typical AI, where you just get a text response back.
 
@@ -31,7 +31,7 @@ For example, if your team uses Linear for project management, you can add a Line
 
 ![Claude Code using the Context7 MCP server to look up the latest shadcn/ui documentation](https://academy.claude.com/assets/media/d6d21d5d4f27b7b129d16d21e8578d2d754778562751293844160576ab26f545.jpg)
 
-## Adding an MCP Server
+## Adding an MCP Server[](#adding-an-mcp-server)
 
 You can add MCP servers with the `claude mcp add` command. There are two main types:
 
@@ -46,7 +46,7 @@ You can manage your servers with `/mcp` inside a Claude Code session to see what
 
 ![The /mcp command showing connected MCP servers and their status](https://academy.claude.com/assets/media/ad513f212c47b68feec4010cd6d1c2b348d5a1ed94ea1da993e0454d3bf08159.jpg)
 
-## Scoping Servers
+## Scoping Servers[](#scoping-servers)
 
 MCP servers can be scoped in three ways:
 
@@ -54,7 +54,7 @@ MCP servers can be scoped in three ways:
 2. **User** — available across all your projects.
 3. **Project** — uses a `.mcp.json` file that you check into version control so anyone on the codebase gets the exact same servers automatically.
 
-## Context Costs
+## Context Costs[](#context-costs)
 
 MCP servers add tool definitions to your context window — even when you're not actively using them. If you have a lot of servers configured, this eats into your available context. Run `/mcp` to see what's connected and disable anything you're not actively using.
 
@@ -66,7 +66,7 @@ You might also benefit from using a **Skill** instead. A Skill has a name and de
 
 If your MCP tools exceed 10% of your context window, Claude Code automatically switches to tool search mode, which discovers the right tools on demand — though this may not work as reliably.
 
-## Recap
+## Recap[](#recap)
 
 MCP connects Claude Code to your external tools and data sources. Add servers with `claude mcp add`. Scope them to your project with `.mcp.json` so your team gets them automatically. And keep an eye on context usage by disabling servers you're not actively using.
 

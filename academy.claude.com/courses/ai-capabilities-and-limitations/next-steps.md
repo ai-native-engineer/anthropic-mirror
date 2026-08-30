@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Connect the Capabilities and Limitations framework to the 4D Framework as two halves of one system
 * Identify one concrete change to make in your AI practice this week
 
-## Applying the 4D framework to get better AI outputs
+## Applying the 4D framework to get better AI outputs[](#applying-the-4d-framework-to-get-better-ai-outputs)
 
 Next Steps · 5 min
 
@@ -26,16 +26,16 @@ Fluent AI use isn't about memorizing every failure mode. It's about holding a
 small, clear model of the machine in your head, so that when something goes
 wrong you can recognize which kind of wrong it is and respond accordingly.
 
-## A small model of the machine
+## A small model of the machine[](#a-small-model-of-the-machine)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **You now hold a working mental model:** four properties as continuums, characteristic failures as property intersections.
 * **This framework and the 4D Framework are two sides of one system.** The properties explain what the 4D competencies are responding to.
 * **Calibrated trust** means locating your task on each continuum and matching your verification and context habits to where it sits.
 * **Models will keep changing.** The shape of these properties stays useful even as the exact boundaries shift.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Your Commitment
 
@@ -43,12 +43,12 @@ Return one last time to your task list from Lesson 1. For each task, jot a quick
 
 Now, pick one task and one change you'll make this week (a verification step, a standing-context setup, a checkpoint, a goal-stated-not-just-format habit). Write it down.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What's the single biggest shift in how you think about AI behavior from Lesson 1 to now?
 * Which of the 4Ds feels most immediately sharpened by what you've learned here?
 
-## What's next
+## What's next[](#whats-next)
 
 If you haven't yet taken the AI Fluency Framework & Foundations course, that's the natural next step. It goes deep on the human competencies this course gave you the machine-side context for. And keep testing edges: the properties stay stable, but where the lines sit will keep moving as models improve.
 

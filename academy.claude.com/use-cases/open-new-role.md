@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-lbgzsezl.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-crjbtqxa.png)
 
-## 1. Set up
+## 1. Set up[](#1-set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Human Resources plugin ships with `/recruiting-pipeline` and other recruiting skills as a starting point, already structured to ask the intake questions in order and write to a spec template. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Human Resources9 skills for recruiting, onboarding, performance reviews, comp an
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -63,7 +63,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 **Want to try this task before setting anything up?** Add your files to a
 working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (your role spec template, the leveling guide, the team charter) into one folder on your machine, then point Cowork at it. Cowork reads from it during the intake and writes the finished spec back to it. If you open roles regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the parent Hiring folder so your templates and instructions stay attached.
 
@@ -77,15 +77,15 @@ growth-team-charter.docxMar 18, 202661 KB
 
 In Cowork’s chat bar:Hiring / Senior-PM-Growth
 
-## 2. The prompt
+## 2. The prompt[](#2-the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 I'm opening a new role on my team. Walk me through the intake: what this person will own, the must-have versus nice-to-have skills, the level and reporting line, and what good looks like at 90 days. Push back where I'm vague. Then write the role spec in our standard format and list what's still open for the recruiter.
 
 Hiring / Senior-PM-GrowthOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -111,7 +111,7 @@ Source
 leveling guide sit in the working folder, so "our standard format" and the
 level definition mean the same thing for every manager who runs this.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -123,7 +123,7 @@ Practice
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about"
 so you know where to look first when you review the draft.
 
-## 3. Make Cowork work for you
+## 3. Make Cowork work for you[](#3-make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -134,9 +134,9 @@ HiringOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## 4. Make it repeatable
+## 4. Make it repeatable[](#4-make-it-repeatable)
 
-### Run it whenever a headcount is approved
+### Run it whenever a headcount is approved[](#run-it-whenever-a-headcount-is-approved)
 
 A new req gets approved, the intake should be waiting for the hiring manager. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill starts the conversation whenever a new role folder appears under Hiring.
 
@@ -155,7 +155,7 @@ intake transcript and finished spec to that role's folder.
 
 Every **Weekdays at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## 5. Share with your teammates
+## 5. Share with your teammates[](#5-share-with-your-teammates)
 
 Your customized `/recruiting-pipeline` now carries your intake questions, your leveling guide, and your spec template. Share it so every hiring manager runs the same intake, and recruiting receives a complete spec before the first call instead of after it.
 
@@ -165,7 +165,7 @@ In Cowork, open **Skills** → `/recruiting-pipeline` → **Share** and pick you
 hiring managers (or your whole workspace, if your admin allows). They get the
 skill with your intake and templates baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

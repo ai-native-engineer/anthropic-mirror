@@ -12,7 +12,7 @@ Lesson 569 min
 
 Resources in MCP allow your server to expose data that can be directly included in prompts, rather than requiring tool calls to access information. This creates a more efficient way to provide context to AI models like Claude.
 
-## Understanding the Resource Flow
+## Understanding the Resource Flow[](#understanding-the-resource-flow)
 
 ![](https://academy.claude.com/assets/media/f2baa6225bba4675d0624954dbe38fc669f17916147b137fb01c305f825c0e83.png)
 
@@ -24,7 +24,7 @@ When a user wants to access resource content, the flow works like this:
 * Server responds with a ReadResourceResult containing the resource data
 * Your code can then put this data directly into prompts
 
-## Implementing Resource Reading
+## Implementing Resource Reading[](#implementing-resource-reading)
 
 To read resources from your MCP client, you'll need to implement a `read_resource` function. First, add the necessary imports:
 
@@ -45,7 +45,7 @@ async def read_resource(self, uri: str) -> Any:
     resource = result.contents[0]
 ```
 
-## Handling Different Resource Types
+## Handling Different Resource Types[](#handling-different-resource-types)
 
 Resources can return different types of content, so you need to check the MIME type and parse accordingly:
 
@@ -64,7 +64,7 @@ This approach handles two main scenarios:
 * JSON resources that need parsing
 * Plain text resources that can be returned as-is
 
-## Testing Resource Access
+## Testing Resource Access[](#testing-resource-access)
 
 ![](https://academy.claude.com/assets/media/f17435118f01fd2933aa7930a388730b916195763575e2034efcbd9175c00195.png)
 
@@ -72,7 +72,7 @@ You can verify your resource implementation works by testing it in your applicat
 
 The key advantage of this approach is efficiency - Claude receives the document content immediately without needing to make additional tool calls to access the information.
 
-## Resource vs Tool Usage
+## Resource vs Tool Usage[](#resource-vs-tool-usage)
 
 Resources are particularly useful when:
 

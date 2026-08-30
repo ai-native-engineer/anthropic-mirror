@@ -18,11 +18,11 @@ The Benchling integration connects Claude to Benchling R&D platform data, enabli
 
 The Benchling integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 When Claude sends a query to Benchling, it can search across the full breadth of a customer’s Benchling environment. This covers experimental results and study data, notebook content such as text and attachments, and structured records like registry items, inventory, and templates. The Benchling integration brings these different data types together to provide a unified answer, saving scientists from having to manually piece information across entries or projects. You can also choose to pull in public literature sources, combining internal and external knowledge in one place. All results follow the same access permissions already set in Benchling, ensuring people only see the data they are meant to.
 
-## **Who should use the Benchling integration**
+## **Who should use the Benchling integration**[](#who-should-use-the-benchling-integration)
 
 * **Bench Scientists & Research Associates** - want to quickly find and summarize the right data, whether from Benchling or external sources, and use it to decide on next steps in their experiments.
 * **Team Leads & Project Managers** - need concise summaries of ongoing work and alignment with external findings to guide project planning.
@@ -30,7 +30,7 @@ When Claude sends a query to Benchling, it can search across the full breadth of
 * **Program Leads** - need automatically generated reports that combine Benchling study results with external context or public data, giving them a clear view of progress and next steps.
 * **R&D Leaders & Executives** - require portfolio-level insights to spot trends across programs and benchmark against public industry data.
 
-## **Who can access the Benchling integration**
+## **Who can access the Benchling integration**[](#who-can-access-the-benchling-integration)
 
 Benchling customers who meet the following criteria:
 
@@ -42,7 +42,7 @@ No additional setup is required beyond connecting Claude to the Benchling connec
 
 More details on accessing the integration can be found in [Benchling’s MCP Server Documentation(opens in new tab)](https://help.benchling.com/hc/en-us/articles/40342713479437-Benchling-MCP).
 
-## **Setting up the Benchling integration**
+## **Setting up the Benchling integration**[](#setting-up-the-benchling-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -64,7 +64,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the Benchling integration can be found in [Benchling’s MCP Server Documentation(opens in new tab)](https://help.benchling.com/hc/en-us/articles/40342713479437-Benchling-MCP).
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Cross-Source Comparison:**
 

@@ -36,14 +36,14 @@ Course roadmap
 
 Claude is more than a chatbot—it's an AI assistant designed to be your thinking partner. In this lesson you'll learn what makes Claude different from other AI tools and see how it can help with a wide variety of work tasks.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Claude is an AI assistant for life and work**: At a high level, Claude is guided by principles that help it avoid toxic or discriminatory outputs, avoid helping humans engage in illegal or unethical activities, and broadly behave as a safe and beneficial AI system. This approach, called Constitutional AI, means Claude is trained to align with human values and operate transparently.
 * **Claude is more than a chatbot**: Claude is capable of a wide variety of conversational and text processing tasks while maintaining a high degree of reliability and predictability, including summarization, search, creative and collaborative writing, Q&A, coding, and more. Think of Claude as a thinking partner who can help you tackle complex problems, and work through challenging situations, not just answer simple questions.
 * **Claude is designed to be steerable and collaborative**: Claude can take direction on personality, tone, and behavior, and customers report that Claude is much less likely to produce harmful outputs, easier to converse with, and more steerable—so you can get your desired output with less effort.
 * **You can access Claude wherever you work**: Claude apps are available to all plan types—Free, Pro, Max, Team, and Enterprise. Your conversations, projects, memory, and preferences sync across all devices when you're signed in. Whether you're at your desk or on the go, Claude is available through web, desktop, and mobile apps.
 
-## Understanding Claude's capabilities
+## Understanding Claude's capabilities[](#understanding-claudes-capabilities)
 
 Claude can help with a wide range of tasks that go far beyond simple question-and-answer interactions to assistant-like partnership that can both automate *and* augment your work.
 
@@ -57,7 +57,7 @@ Here's a few things Claude excels at:
 
 Get inspired on ways to use Claude in your specific function by exploring our [use-case gallery(opens in new tab)](https://academy.claude.com/all?kind=use-case). For a deeper dive into what AI can (and can't) do, see our [AI Capabilities(opens in new tab)](https://academy.claude.com/courses/ai-capabilities-and-limitations) course.
 
-## Ways to access Claude
+## Ways to access Claude[](#ways-to-access-claude)
 
 Claude is the intelligence—the AI assistant you're learning to work with throughout this course. That same intelligence is available across multiple interfaces, each suited to different types of tasks.
 
@@ -69,11 +69,11 @@ Claude is the intelligence—the AI assistant you're learning to work with throu
 
 This course will focus primarily on [Claude.ai(opens in new tab)](https://Claude.ai), but you can also check out [Claude Code in Action(opens in new tab)](https://academy.claude.com/courses/claude-code-in-action) for more information on using Claude in development workflows.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 What tasks in your current work might benefit from having Claude as a thinking partner? Take a look at your calendar (or better yet, ask Claude to) and identify a few tasks you might want to use Claude to support.
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, you'll learn how to navigate the Claude interface, start your first conversation, and understand the basics of how Claude responds to your messages.
 

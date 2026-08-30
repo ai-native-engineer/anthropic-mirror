@@ -12,7 +12,7 @@ Lesson 247 min
 
 When Claude decides to use a tool, it returns a special response structure that requires careful handling. Understanding this response format and implementing proper conversation management is crucial for building robust tool-enabled applications.
 
-## Tool Choice Configuration
+## Tool Choice Configuration[](#tool-choice-configuration)
 
 Before diving into responses, it's worth understanding how to control when Claude uses tools. The `toolChoice` parameter gives you three options:
 
@@ -24,7 +24,7 @@ Before diving into responses, it's worth understanding how to control when Claud
 
 The third option is especially useful for testing when you want to ensure Claude calls a specific function.
 
-## Multi-Part Message Structure
+## Multi-Part Message Structure[](#multi-part-message-structure)
 
 When Claude wants to use a tool, it returns an assistant message with multiple content parts instead of just text:
 
@@ -35,7 +35,7 @@ The response contains two parts:
 * **Text Part** - Human-readable explanation like "I can help you find out the current time. Let me find that information for you"
 * **ToolUse Part** - Structured data telling you which tool to run and with what arguments
 
-## Understanding the ToolUse Part
+## Understanding the ToolUse Part[](#understanding-the-tooluse-part)
 
 The ToolUse part contains three key pieces of information:
 
@@ -45,7 +45,7 @@ The ToolUse part contains three key pieces of information:
 * **name** - The exact tool name from your JSON schema that Claude wants to call
 * **input** - A dictionary of arguments Claude wants to pass to your tool function
 
-## Conversation Flow with Tools
+## Conversation Flow with Tools[](#conversation-flow-with-tools)
 
 Tool usage follows a specific conversation pattern that requires maintaining complete message history:
 
@@ -58,7 +58,7 @@ When you receive a tool use request, you need to:
 3. Send back a ToolResult message along with the complete conversation history
 4. Include the original user message and the assistant's tool use message in your next request
 
-## Updating Helper Functions
+## Updating Helper Functions[](#updating-helper-functions)
 
 To handle multi-part messages properly, you'll need to update your message handling functions. Here's how to make your functions flexible enough to handle both simple text and complex multi-part content:
 
@@ -96,7 +96,7 @@ def chat(messages, system=None, temperature=1.0, stop_sequences=[], tools=None):
     return text, parts
 ```
 
-## Checking the Stop Reason
+## Checking the Stop Reason[](#checking-the-stop-reason)
 
 Claude's response also includes a top-level `stopReason` field. When it equals `"tool_use"`, Claude wants to call a tool rather than just providing a text response — that's your signal to extract the tool information and execute the requested function. The `chat()` helper above doesn't surface this field yet, so for now you can detect tool use by checking the returned parts list for an entry with a `toolUse` key. You'll extend `chat()` to return `stopReason` directly in a later lesson.
 

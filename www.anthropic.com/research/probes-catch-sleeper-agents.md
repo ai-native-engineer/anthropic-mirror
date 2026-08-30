@@ -182,20 +182,20 @@ Monte MacDiarmid led the research, designed and ran the experiments, and wrote m
 8. This includes models that use a hidden chain-of-thought (CoT) to carry out deceptive reasoning over multiple forward passes; for these models, our technique is modified to first sample a scratchpad from the model given the prompt, and then run the classifier on activations from the closing </scratchpad> tag, immediately before the model would provide its actual answer.
 9. See [How to Catch an AI Liar: Lie Detection in Black-Box LLMs by Asking Unrelated Questions](https://arxiv.org/abs/2309.15840) for more ways that questions like this can be used to detect deception under other methods.
 
+### Automated researchers can reliably mitigate alignment failures
+
+We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
+
+[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+
+### Enabling independent research on how people use Claude
+
+Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
+
+[Read more](https://www.anthropic.com/research/enabling-independent-research)
+
 ### How Claude is accelerating protein design and analytical chemistry
 
 In this post, we share two results that show how Claude can help life scientists increase the pace of their research.
 
 [Read more](https://www.anthropic.com/research/Claude-accelerates-protein-design)
-
-### Patterns and problems in emerging multiagent systems
-
-Here, we identify a few examples of behavioral tendencies in current frontier models and show how they can produce unexpected systemic failures, in hopes of starting a conversation about mitigating these risks.
-
-[Read more](https://www.anthropic.com/research/multiagent-systems)
-
-### Reviewing the evidence on worker retraining programs
-
-We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.
-
-[Read more](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)

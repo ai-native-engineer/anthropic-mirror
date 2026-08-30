@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Explain why delegating implementation is safe and delegating judgment is not
 * Write acceptance tests that define done before a single line of code exists
 
-## Delegation & the builder's toolkit
+## Delegation & the builder's toolkit[](#delegation-the-builders-toolkit)
 
 Delegation & the builder's toolkit · 5 min
 
@@ -25,13 +25,13 @@ shape whether what you build will matter. This lesson reframes delegation:
 it’s not “should I use AI here?” but “I have a customer problem — how do I
 break it down, and what role does AI play?”
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Delegation** means decomposing the problem first, then deciding what AI handles at each step.
 * **Write acceptance tests** before code. They give you and AI a shared definition of done.
 * As AI accelerates implementation, your value shifts to **framing problems** and **raising the bar**.
 
-## Exercise
+## Exercise[](#exercise)
 
 ### The Clinic Wait Time Project, Part 1
 
@@ -61,12 +61,12 @@ Write five to seven statements that define “done.” Each must be concrete eno
 **Good:** “A patient with a basic smartphone can find the current wait time in under 30 seconds without creating an account.”
 **Bad:** “The system is easy to use.”
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Where did you spend most of your time across the six capabilities on a past project? Where should you have spent more?
 * If implementation became effectively free tomorrow, where would your value as a builder come from?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we move from delegation to description. You’ve decided what to build and who’s doing what — now you need to communicate that clearly enough that AI can actually execute it.
 

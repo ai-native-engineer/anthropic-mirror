@@ -2,7 +2,7 @@
 
 # List Files
 
-`client.beta.files.list(params?, options?): Page<BetaFileMetadata>`
+`client.beta.files.list(params?, options?): PageCursor<BetaFileMetadata>`
 
 **GET** `/v1/files`
 
@@ -12,13 +12,9 @@ List Files
 
 - `params: FileListParams`
 
-  - `after_id?: string`
+  - `ids?: Array<string> | null`
 
-    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
-
-  - `before_id?: string`
-
-    Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+    Query param: Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
 
   - `limit?: number`
 
@@ -27,6 +23,10 @@ List Files
     Defaults to `20`. Ranges from `1` to `1000`.
 
     maximum: 1000, minimum: 1
+
+  - `page?: string | null`
+
+    Query param: Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
 
   - `scope_id?: string`
 
@@ -38,7 +38,7 @@ List Files
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 38 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -108,6 +108,20 @@ List Files
 
       - `"mid-conversation-tool-changes-2026-07-01"`
 
+      - `"compact-2026-01-12"`
+
+      - `"computer-use-2025-11-24"`
+
+      - `"mcp-tunnels-2026-06-22"`
+
+      - `"structured-outputs-2025-11-13"`
+
+      - `"task-budgets-2026-03-13"`
+
+      - `"thinking-display-updates-2026-08-18"`
+
+      - `"ce-user-management-2026-07-13"`
+
 ## Returns
 
 - `BetaFileMetadata`
@@ -154,6 +168,12 @@ List Files
 
     default: false
 
+  - `expires_at?: string | null`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
+    format: date-time
+
   - `scope?: BetaFileScope | null`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
@@ -194,14 +214,13 @@ for await (const betaFileMetadata of client.beta.files.list()) {
       "size_bytes": 102400,
       "type": "file",
       "downloadable": false,
+      "expires_at": "2025-05-15T18:37:24.100435Z",
       "scope": {
         "id": "id",
         "type": "session"
       }
     }
   ],
-  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-  "has_more": true,
-  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+  "next_page": "next_page"
 }
 ```

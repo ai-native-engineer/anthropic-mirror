@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-drc4nbll.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kor1z3r3.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Design plugin ships with `/design-critique` already structured to walk screens against a rubric and compare across competitors. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ DesignAccelerate design workflows — critique, design system management, UX wri
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (competitor flow screenshots, their help-center PDFs, your own current screens, your heuristic rubric) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the scored teardown back to it. If you do teardowns regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your rubric and memory stay attached.
 
@@ -82,15 +82,15 @@ heuristic-rubric.pdfJan 12, 202664 KB
 
 In Cowork’s chat bar:Competitive / Teardown-Q2
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Run a heuristic audit of these competitors. Score each screen against Nielsen's ten heuristics plus our three custom ones, note where each competitor is stronger or weaker than us, and end with the three patterns worth stealing and the three to avoid.
 
 Competitive / Teardown-Q2Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Your source files are the evidence.** Every score points at a frame in the folder.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ CompetitiveOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 Competitors ship weekly; a static teardown ages fast. Ask Cowork to publish the scorecard as a live artifact and product leadership has one link that stays current — re-run the skill or schedule it to refresh.
 
@@ -138,7 +138,7 @@ Publish that teardown scorecard as a live artifact. Keep a "what changed since l
 
 Competitive / Teardown-Q2Open in Cowork
 
-### Run it after every competitor release
+### Run it after every competitor release[](#run-it-after-every-competitor-release)
 
 A rival ships, the teardown should already be updating. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and set the customized skill to run every Monday, picking up any new screenshots dropped in the folder.
 
@@ -154,7 +154,7 @@ Each Monday at 10am, checks the teardown folder for new screenshots, re-runs `/d
 
 Every **Monday at 10 am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/design-critique` now carries your rubric, your severity scale, and your steal/avoid framing. Share it so every designer and PM scores competitors the same way, and the quarterly review compares like with like.
 
@@ -162,7 +162,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/design-critique` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your rubric baked in, so they don't repeat Steps 1-3.
 
-## What changes for competitive review
+## What changes for competitive review[](#what-changes-for-competitive-review)
 
 Every competitor flow is scored against the same rubric, with evidence for each finding and a short list of what to adopt or avoid — consistent enough to compare and specific enough to act on.
 

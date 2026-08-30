@@ -24,7 +24,7 @@ the less reliably Claude follows any single rule. So the goal isn't to write
 down everything. The goal is to keep the file tight. The leaner the file,
 the more of it Claude actually follows.
 
-## First, ask if CLAUDE.md is even the right tool
+## First, ask if CLAUDE.md is even the right tool[](#first-ask-if-claudemd-is-even-the-right-tool)
 
 Before you write a rule, ask whether it belongs in CLAUDE.md at all. Some rules are guidance, and some rules are hard lines that must never be crossed. Those are two different jobs.
 
@@ -32,7 +32,7 @@ Take a rule like "never push to main." If you put that in CLAUDE.md, you're hopi
 
 The difference matters. A hook is code that runs before Claude takes an action, and it can actually block the action. So even if Claude does try to push to main, the hook stops it. That's real enforcement, not a polite request. Move your hard rules to hooks and let CLAUDE.md handle the softer conventions.
 
-## The four locations
+## The four locations[](#the-four-locations)
 
 CLAUDE.md isn't just one file sitting in your project. There are four places it can live, and Claude loads all of them together at launch. Nothing gets dropped, and they stack.
 
@@ -45,7 +45,7 @@ Here's what each one is for:
 
 That last one, local, is easy to overlook but really handy. Say you're refactoring off in your own branch and you want Claude to hold some architectural decisions in mind while you work. That doesn't belong in the shared project file where it'd affect your whole team. It goes in local, where it's just yours for this repo.
 
-## Split up a big file with imports
+## Split up a big file with imports[](#split-up-a-big-file-with-imports)
 
 When your project file starts getting long, you can break it into pieces using the path-to-file import syntax. Instead of one wall of text, you point to other files:
 
@@ -57,11 +57,11 @@ When your project file starts getting long, you can break it into pieces using t
 
 This is great for organizing. But know exactly what it buys you, because it's easy to get the wrong idea. When Claude launches, it expands those imported files inline, right where you referenced them. So imports help you keep things tidy, but everything still loads up front. They do not reduce the amount of context Claude has to read. Use imports to organize, not to shrink the load.
 
-## Phrasing is what makes rules stick
+## Phrasing is what makes rules stick[](#phrasing-is-what-makes-rules-stick)
 
 Once you've decided a rule belongs in CLAUDE.md, whether Claude actually obeys it comes down to how you phrase it. Most rules fail because they're vague. Here's how to fix that.
 
-### Be specific and checkable
+### Be specific and checkable[](#be-specific-and-checkable)
 
 Don't write "follow best practices." Do you even know exactly what that means? If you can't check whether it was followed, neither can Claude. Compare these two:
 
@@ -70,7 +70,7 @@ Don't write "follow best practices." Do you even know exactly what that means? I
 
 The second one is explicit. You can look at the result and immediately tell if it was done right. That's the bar every rule should clear.
 
-### Name the replacement, don't just ban something
+### Name the replacement, don't just ban something[](#name-the-replacement-dont-just-ban-something)
 
 When you tell Claude not to do something, say what to do instead. Otherwise you've left the door open.
 
@@ -79,17 +79,17 @@ When you tell Claude not to do something, say what to do instead. Otherwise you'
 
 The second version names the replacement, so there's nothing left to misinterpret.
 
-### Emphasis is a budget
+### Emphasis is a budget[](#emphasis-is-a-budget)
 
 Words like "IMPORTANT" and "YOU MUST" do raise a rule's priority. But only relative to everything quieter around it. If every rule shouts, then nothing stands out and the emphasis means nothing. So treat emphasis like a budget. Spend it on the two or three rules that really hurt when they get broken, and let the rest sit at normal volume.
 
-## Keep the file under revision
+## Keep the file under revision[](#keep-the-file-under-revision)
 
 Your CLAUDE.md file is never finished. Treat it like living code that keeps getting edited.
 
 When Claude does the wrong thing, don't just sigh and fix it by hand. Treat it as a bug report against your CLAUDE.md file. You can even tell Claude directly: "add that to the CLAUDE.md file," and it'll write the rule for you. That way the file gets better every time something goes wrong.
 
-## The bottom line
+## The bottom line[](#the-bottom-line)
 
 Treat your CLAUDE.md like production code. If you can't justify a line, delete it. To keep the file lean and followable:
 

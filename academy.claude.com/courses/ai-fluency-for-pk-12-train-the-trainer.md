@@ -28,13 +28,13 @@ This Train the Trainer course prepares pK–12 educators to facilitate AI fluenc
 
 The work builds on *AI Fluency for pK–12 Educators*, adapted into a train-the-trainer format so educators can lead this transition in their own schools and districts, on their own terms.
 
-## Recommended prerequisites
+## Recommended prerequisites[](#recommended-prerequisites)
 
 Before facilitating, we recommend completing *AI Fluency for pK–12 Educators* yourself, so you've built your own fluency with the 4D Framework before guiding others through it. For deeper foundational understanding, participants may also wish to complete *AI Fluency: Framework & Foundations*.
 
 It is also recommended that learners have access to an AI tool for hands-on practice. Examples in this course will use [Claude.ai(opens in new tab)](http://claude.ai), but any AI tool will work.
 
-## About the partners
+## About the partners[](#about-the-partners)
 
 This course was created in partnership between Anthropic and the American Federation of Teachers (AFT), built by educators, for educators. Anthropic is a frontier AI safety company and the maker of Claude. The AFT is a union of professionals in education, healthcare, and public service.
 

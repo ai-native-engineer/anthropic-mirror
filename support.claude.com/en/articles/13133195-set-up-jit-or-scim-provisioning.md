@@ -6,8 +6,6 @@ JIT provisioning is available for Team plans, Enterprise plans, and Console orga
 
 **Before you begin:** This guide assumes you have already completed the steps in **[Set up single sign-on (SSO)](https://support.claude.com/en/articles/13132885-setting-up-single-sign-on-sso)**, including domain verification and SSO configuration with your Identity Provider (IdP), and you have an Admin (Console) or Owner (Claude) role.
 
----
-
 ## Step 1: Choose your provisioning mode
 
 Once SSO is configured, you need to decide how users will be provisioned to your organization. This is controlled via the **User provisioning** section in **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
@@ -37,7 +35,7 @@ Use this table to help decide which provisioning mode is right for your organiza
 
 Both JIT and SCIM can be combined with **Enable group mappings** to control role or seat tier assignment based on IdP group membership. If you select either of these options for your provisioning mode, **Enable group mappings** will appear within the **User provisioning** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1787622300&signature=cd6e918d5421726615795148a5e1e95485e991503e48822c5a6e87546d94b91d&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ6xSD1h1xFMG%2BIEvQSfS9485hhdCjg994NI%2B%0Ad%2F1JFCTCa%2BkIOHoMxEw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1787622300&signature=cd6e918d5421726615795148a5e1e95485e991503e48822c5a6e87546d94b91d&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ6xSD1h1xFMG%2BIEvQSfS9485hhdCjg994NI%2B%0Ad%2F1JFCTCa%2BkIOHoMxEw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1788033600&signature=496dd6e161451b726df2aed0338c5c2047c129086048c70526c9f8ab6276d3c3&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ6NUDllwxFMG%2BIEvQSfLfnrAJxdXYro8WnjK%0AhVH3LehY407YjHQFUJE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1788033600&signature=496dd6e161451b726df2aed0338c5c2047c129086048c70526c9f8ab6276d3c3&req=diMmFM5%2Bm4FWUPMW1HO4zXBDQ6NUDllwxFMG%2BIEvQSfLfnrAJxdXYro8WnjK%0AhVH3LehY407YjHQFUJE%3D%0A)
 
 **Important:** Group mappings set a user’s role type and seat tier only. Users with the Custom role get their permissions from groups in Claude, and those groups sync from your IdP only when your provisioning mode is SCIM directory sync. With JIT, you need to create groups and add users to them manually in **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**. If you map an IdP group to the Custom role under JIT without doing this, those users have no permissions when they log in. Learn more about **[managing groups on Enterprise plans](https://support.claude.com/en/articles/13799932)**.
 
@@ -53,8 +51,6 @@ Both JIT and SCIM can be combined with **Enable group mappings** to control role
 | Console | Admin, Developer, Limited Developer, Billing, Claude Code User, User | — |
 
 For information on purchasing seats or adjusting your plan's seat allocation, see our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**.
-
----
 
 ## Step 2: Set up SCIM directory sync (if using SCIM)
 
@@ -79,8 +75,6 @@ For IdP-specific JIT / SCIM setup instructions, see:
 
 Once your IdP is connected, continue to Step 3.
 
----
-
 ## Step 3: Configure provisioning mode and enable group mappings
 
 1. Find the **User provisioning** section of your settings.
@@ -97,8 +91,6 @@ Once your IdP is connected, continue to Step 3.
 
 **Important**: Saving before users are properly assigned will result in those users being deprovisioned from the organization. Where it's available, the admin console shows a preview of what the sync will change, including how many members will be removed, before it applies. Review it before you confirm, and cancel if the removal count is higher than you expect. Learn more about **[how SCIM sync works](https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations)**.
 
----
-
 ## Step 4: Configure groups in your Identity Provider and map groups to roles and seat types
 
 1. Create groups in your IdP for each role you want to assign. Unless you're on the single-seat Enterprise plan, create groups for each seat type as well.
@@ -108,7 +100,7 @@ Once your IdP is connected, continue to Step 3.
 3. Return to your **Organization and access** or **Identity and access** settings in Claude or Console, and find **User provisioning**.
 4. Toggle **Enable group mappings** on (if it’s not already):
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1787622300&signature=1916a507e3b8b2d07c96f0b6d10303339035744e0a412b4879a64564fadc5d5b&req=diMmFM5%2FmYdcXPMW1HO4zeBEbsLelfhLyb72rapuHpOZjsk4pbXCgYlc%2F4GP%0A8Imj%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1787622300&signature=1916a507e3b8b2d07c96f0b6d10303339035744e0a412b4879a64564fadc5d5b&req=diMmFM5%2FmYdcXPMW1HO4zeBEbsLelfhLyb72rapuHpOZjsk4pbXCgYlc%2F4GP%0A8Imj%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1788033600&signature=66369d6607585ec95153e929dbb70670372e28fd8006b1f868019a3585da58a7&req=diMmFM5%2FmYdcXPMW1HO4zeBEbs3YlPlOyb72rapuHpO2y4m5A0YqiR9%2FHQxb%0Al8SX%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1788033600&signature=66369d6607585ec95153e929dbb70670372e28fd8006b1f868019a3585da58a7&req=diMmFM5%2FmYdcXPMW1HO4zeBEbs3YlPlOyb72rapuHpO2y4m5A0YqiR9%2FHQxb%0Al8SX%0A)
 5. In the **Enable group mappings** section, click “Add” next to each role and select the corresponding group from your IdP in the dropdown.
 
    1. When using group mappings, you *must* assign all users to a role-based group in order to ensure they’re provisioned an account. Assigning users to seat-tier based groups is optional.
@@ -130,8 +122,6 @@ Once your IdP is connected, continue to Step 3.
 * The Primary Owner role cannot be assigned via SCIM group mappings. It can only be transferred manually from **[Organization settings > Members](https://claude.ai/admin-settings/members)**. Set your intended Primary Owner before enabling SCIM.
 * The Primary Owner is not exempt from SSO sign-in enforcement. SSO enforcement is applied by email domain; if the Primary Owner's email is on an enforced domain, they must authenticate through SSO.
 
----
-
 ## Troubleshooting
 
 ### Users assigned correctly and showing in the directory but aren’t being added to the Claude as members?
@@ -148,7 +138,7 @@ Verify you have enough seats purchased and available to add members to your org.
 3. **For JIT:** The user needs to log out and log back in for role changes to take effect.
 4. **For SCIM:** Click "Sync" to prompt an immediate sync, or wait for the automatic sync cycle:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1787622300&signature=dd5c75ab2aae286fb0bd502388fc9738fa842ab89da970d85a77227cece3413e&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1qrG8jB5hujYvMis4cFb96kMyEcKCYoGbS8%0AGkFM%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1787622300&signature=dd5c75ab2aae286fb0bd502388fc9738fa842ab89da970d85a77227cece3413e&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1qrG8jB5hujYvMis4cFb96kMyEcKCYoGbS8%0AGkFM%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1788033600&signature=71294f83ea0dbda79d6e27129e8e6f7965f89b51769e40f8879c10b69b132f75&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1WtGsnE5hujYvMis4dAnL1jcniycIRZFz0z%0Aut2N%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1788033600&signature=71294f83ea0dbda79d6e27129e8e6f7965f89b51769e40f8879c10b69b132f75&req=diMmFM5%2FmoVdWPMW1HO4zZ9La1WtGsnE5hujYvMis4dAnL1jcniycIRZFz0z%0Aut2N%0A)
 
 ### Users mapped to the Custom role can't access anything after logging in
 

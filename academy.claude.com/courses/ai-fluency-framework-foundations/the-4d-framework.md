@@ -14,9 +14,11 @@ In this lessonBy the end, you’ll be able to
 
 * Explain the basic AI Fluency Framework and its core "4Ds": Delegation, Description, Discernment, and Diligence
 
-## The 4D framework
+## The 4D framework[](#the-4d-framework)
 
 The 4D Framework · 5 min
+
+SummaryTranscript
 
 This video introduces the four core competencies of AI Fluency, or the
 "4Ds": Delegation, Description, Discernment, and Diligence.
@@ -28,7 +30,7 @@ This video introduces the four core competencies of AI Fluency, or the
 
 We explore how these competencies work together across different ways of engaging with AI, and why developing these skills prepares you for whatever AI evolution brings next.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * AI Fluency means engaging with AI in ways that are effective, efficient, ethical, and safe
 * There are three primary ways we engage with AI:
@@ -43,7 +45,7 @@ We explore how these competencies work together across different ways of engagin
 * These competencies apply across all three ways of working with AI
 * Developing these competencies prepares you for evolving AI capabilities
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2Exercise 3
 
@@ -78,7 +80,7 @@ You're collaborating with AI to develop character concepts for a story.
 * **Discernment:** How would you decide which AI-suggested elements to keep, modify, or discard?
 * **Diligence:** How would you acknowledge AI's contribution to your creative work?
 
-### Reflection
+### Reflection[](#reflection)
 
 Before moving on, take a moment to consider:
 
@@ -86,7 +88,7 @@ Before moving on, take a moment to consider:
 * Can you recall a recent AI interaction where the framework might have helped?
 * What specific skills from the 4D framework would most enhance your work or personal projects?
 
-## What's next
+## What's next[](#whats-next)
 
 The next lesson, Deep Dive 1: "What is Generative AI?" is a two-part technical lesson that explains the foundational workings of modern AI, how it differs from previous technologies, and its current capabilities and limitations. This knowledge will provide valuable context for the 4Ds and especially strengthen your Delegation competence.
 

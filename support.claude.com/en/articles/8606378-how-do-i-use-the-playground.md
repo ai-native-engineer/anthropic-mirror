@@ -52,8 +52,6 @@ Click the "code" toggle to export your current request as a code snippet. The sn
 
 Code examples in our documentation include an "Open in Playground" option, which loads the example into the playground so you can run and modify it.
 
----
-
 ## How do I export my Workbench data from Console?
 
 1. Go to **[Claude Console](https://platform.claude.com/settings/privacy)**.
@@ -68,8 +66,6 @@ Code examples in our documentation include an "Open in Playground" option, which
 3. Select "Export." Your data is packaged as JSON, and we'll email you a download link when it's ready.
 
 Export your data before **September 1, 2026**. It won't be accessible after this date.
-
----
 
 ## Frequently asked questions
 

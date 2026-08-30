@@ -12,7 +12,7 @@ Claude Design by Anthropic Labs (claude.ai/design) lets you create polished pres
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-bo89k5cy.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-g612q1rb.png)
 
-## Why **use Claude Design for presentations**
+## Why **use Claude Design for presentations**[](#why-use-claude-design-for-presentations)
 
 #### **Speed and Efficiency**
 
@@ -26,7 +26,7 @@ If your organization has set up a design system in Claude Design, your slides au
 
 Claude Design presentations are generated as interactive HTML rendered in the canvas, offering capabilities beyond static slide software. You can iterate, refine, and customize slides in real-time within the conversation, seeing changes instantly.
 
-### **Real-World Applications**
+### **Real-World Applications**[](#real-world-applications)
 
 Teams at Anthropic are using Claude Design presentations for:
 
@@ -36,9 +36,9 @@ Teams at Anthropic are using Claude Design presentations for:
 * Executive readouts and quarterly reviews
 * Board presentations and investor updates
 
-## **Creating a presentation**
+## **Creating a presentation**[](#creating-a-presentation)
 
-### **Getting Started**
+### **Getting Started**[](#getting-started)
 
 To create a presentation, simply describe what you need in your prompt. Be specific about your audience, key messages, and any organizational context that should influence the design.
 
@@ -66,7 +66,7 @@ Create an all-hands presentation covering Q2 OKRs, hiring plans, and culture upd
 
 Copy prompt
 
-### **Customizing your deck**
+### **Customizing your deck**[](#customizing-your-deck)
 
 Once Claude generates your initial presentation, you can edit it to match your exact needs.
 
@@ -92,7 +92,7 @@ A benefit of presenting in HTML (vs. PPT) is that Claude Design can also create 
 
 You can ask Claude to include images, logos, and other visual elements in your slides. If you're using a design system with approved imagery, Claude will pull from those assets automatically.
 
-### **Sharing & collaboration**
+### **Sharing & collaboration**[](#sharing-collaboration)
 
 You can share your presentation with colleagues through the standard Claude sharing mechanism. The options are:
 

@@ -16,11 +16,11 @@ Introduction to Claude for Financial Services connecting professionals to key da
 
 Claude for Financial Services transforms how financial professionals analyze markets, conduct research, and make investment decisions by providing direct access to essential data sources through a unified interface.
 
-## What is Claude for Financial Services?
+## What is Claude for Financial Services?[](#what-is-claude-for-financial-services)
 
 Claude for Financial Services is a comprehensive solution that includes Claude for Enterprise with specialized capabilities for financial analysis. This connects Claude to the data sources and tools you use daily, eliminating the need to juggle multiple browser tabs and improving source verification, to reduce the risk of errors from manual data gathering.
 
-## Financial data provider connectors
+## Financial data provider connectors[](#financial-data-provider-connectors)
 
 Through Model Context Protocol (MCP) connectors, Claude connects directly to leading financial data providers, enabling you to query data using natural language and receive responses with source citations.
 
@@ -28,7 +28,7 @@ Through Model Context Protocol (MCP) connectors, Claude connects directly to lea
 
 **S&P Global:** Enables access to Capital IQ Financials, earnings call transcripts, and more–essentially your entire research workflow.
 
-## Getting started
+## Getting started[](#getting-started)
 
 To access these connectors, you'll need:
 
@@ -37,7 +37,7 @@ To access these connectors, you'll need:
 
 Your dedicated implementation team will help you connect to the data sources most relevant to your workflows and provide training on how to maximize the value of these integrations.
 
-## Common use cases
+## Common use cases[](#common-use-cases)
 
 * **Due diligence and research:** Synthesize data from multiple sources to accelerate deal analysis from weeks to days.
 * **Benchmarking:** Compare performance and valuation metrics across competitors using data from multiple providers.
@@ -45,7 +45,7 @@ Your dedicated implementation team will help you connect to the data sources mos
 * **Portfolio management:** Monitor positions across portfolios and track performance against benchmarks.
 * **Investment memo creation:** Create comprehensive investment materials with data-driven insights and professional formatting.
 
-## Support and training
+## Support and training[](#support-and-training)
 
 Claude for Financial Services includes specialized training and support designed for financial professionals:
 

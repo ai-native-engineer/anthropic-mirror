@@ -16,7 +16,7 @@ Building an MCP server becomes much simpler when you use the official MCP Python
 
 In this example, we're creating an MCP server that manages document operations. The server will have two main tools: one to read document contents and another to update them. All documents exist in memory as a simple dictionary where keys are document IDs and values are the content strings.
 
-## MCP Python SDK Benefits
+## MCP Python SDK Benefits[](#mcp-python-sdk-benefits)
 
 The MCP project provides official SDKs for building servers and clients across multiple programming languages. Using the Python SDK offers several advantages:
 
@@ -29,7 +29,7 @@ The MCP project provides official SDKs for building servers and clients across m
 
 Here's how easy it is to define a tool with the SDK. The `@mcp.tool` decorator, combined with type hints and field descriptions, automatically creates the proper tool schema that Claude can understand and use.
 
-## Setting Up the Server
+## Setting Up the Server[](#setting-up-the-server)
 
 The basic server setup requires just a few lines:
 
@@ -51,7 +51,7 @@ docs = {
 }
 ```
 
-## Implementing the Read Tool
+## Implementing the Read Tool[](#implementing-the-read-tool)
 
 The first tool allows Claude to read document contents by providing a document ID:
 
@@ -78,7 +78,7 @@ The tool definition includes:
 * Typed parameters with field descriptions
 * Error handling for invalid document IDs
 
-## Implementing the Edit Tool
+## Implementing the Edit Tool[](#implementing-the-edit-tool)
 
 The second tool performs simple find-and-replace operations on document content:
 
@@ -102,7 +102,7 @@ def edit_document(
 
 This tool takes three parameters: the document ID, the text to find, and the replacement text. The implementation uses Python's built-in string `replace()` method for simplicity.
 
-## Key Implementation Details
+## Key Implementation Details[](#key-implementation-details)
 
 When defining tools with the MCP SDK, remember these important points:
 

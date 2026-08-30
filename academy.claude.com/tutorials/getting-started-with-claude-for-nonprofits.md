@@ -16,7 +16,7 @@ Learn how to access Claude's nonprofit pricing, connect to fundraising and donor
 
 Claude for nonprofits enhances mission-driven organizations with specialized capabilities, connecting to donor management platforms, foundation research databases, and collaboration tools while maintaining transparency and accountability. Learn more on the [nonprofit solutions page(opens in new tab)](https://claude.com/solutions/nonprofits).
 
-## How to access nonprofit tools and features
+## How to access nonprofit tools and features[](#how-to-access-nonprofit-tools-and-features)
 
 Claude for nonprofits is available on two plans:
 
@@ -27,7 +27,7 @@ Both plans include access to the same models as our standard Team and Enterprise
 
 To get started, verify your nonprofit status through our partner Goodstack by completing [this short form(opens in new tab)](https://validate.poweredbypercent.com/anthropic). The verification process takes 2–3 minutes for Team plans. For Enterprise pricing, [contact our sales team(opens in new tab)](https://claude.com/contact-sales/nonprofits).
 
-## Nonprofit operations and fundraising connectors
+## Nonprofit operations and fundraising connectors[](#nonprofit-operations-and-fundraising-connectors)
 
 Claude connects to three nonprofit-specific connectors through the Model Context Protocol (MCP):
 
@@ -37,11 +37,11 @@ Claude connects to three nonprofit-specific connectors through the Model Context
 
 Additional connectors include Microsoft 365, Gmail, Google Drive, Asana, Slack, and HubSpot. Browse all available connectors in the [connector directory(opens in new tab)](https://claude.com/connectors).
 
-## AI fluency for nonprofits
+## AI fluency for nonprofits[](#ai-fluency-for-nonprofits)
 
 The [AI fluency for nonprofits course(opens in new tab)](https://academy.claude.com/courses/ai-fluency-for-nonprofits) covers responsible AI adoption, practical use examples, and organizational implementation guidance. Includes a shareable completion badge.
 
-## Common nonprofit use cases
+## Common nonprofit use cases[](#common-nonprofit-use-cases)
 
 Explore the [use case library(opens in new tab)](https://academy.claude.com/all?kind=use-case) for inspiration, including:
 
@@ -51,7 +51,7 @@ Explore the [use case library(opens in new tab)](https://academy.claude.com/all?
 * Grant writing and donor communications
 * Research and landscape analysis
 
-## Frequently asked questions
+## Frequently asked questions[](#frequently-asked-questions)
 
 #### Who is eligible?
 
@@ -89,7 +89,7 @@ Individual users can access Claude Pro at $20/month. Explore the [AI fluency for
 
 Visit the [use case library(opens in new tab)](https://academy.claude.com/all?kind=use-case) and [help center(opens in new tab)](https://support.claude.com/en/) for resources and guidance.
 
-## Troubleshooting
+## Troubleshooting[](#troubleshooting)
 
 * **Discount link not working:** Clear your browser cache and try again in an incognito window. If the issue persists, [contact support(opens in new tab)](https://support.claude.com/en/articles/9015913-how-to-get-support).
 * **Team plan option greyed out:** Make sure you're signed in to the correct account and have admin permissions

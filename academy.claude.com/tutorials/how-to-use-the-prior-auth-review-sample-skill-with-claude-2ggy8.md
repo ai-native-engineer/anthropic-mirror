@@ -14,7 +14,7 @@ How to use the Prior Auth Review sample skill with Claude
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mjer1khs.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hn3u7z1d.png)
 
-## **What is the Prior Auth Review sample skill?**
+## **What is the Prior Auth Review sample skill?**[](#what-is-the-prior-auth-review-sample-skill)
 
 The Prior Authorization skill is a sample skill that digests request packet documentation and performs several initial checks to be verified by a human reviewer. These include:
 
@@ -27,11 +27,11 @@ It then extracts clinical data to summarize the argument for medical necessity a
 
 This is a sample skill that gives you a starting point to customize for your own use cases. Be sure to review the [README.md(opens in new tab)](https://github.com/anthropics/healthcare/releases/download/v1.0.0/prior-auth-review-skill-v1.0.0.zip) file before using the skill.
 
-## **Who should use the Prior Auth Review sample skill?**
+## **Who should use the Prior Auth Review sample skill?**[](#who-should-use-the-prior-auth-review-sample-skill)
 
 This skill is designed for payer clinical reviewers who need to significantly reduce the time to initial recommendation without writing code from scratch.
 
-## **How to access the skill in** [**Claude.ai**(opens in new tab)](http://claude.ai)
+## **How to access the skill in** [**Claude.ai**(opens in new tab)](http://claude.ai)[](#how-to-access-the-skill-in-claudeai)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -53,7 +53,7 @@ Learn about [provisioning and managing skills for your organization(opens in new
 4. Click “Upload skill”
 5. Upload the skill zip file
 
-## **How to access the skill in Claude Code**
+## **How to access the skill in Claude Code**[](#how-to-access-the-skill-in-claude-code)
 
 Command
 

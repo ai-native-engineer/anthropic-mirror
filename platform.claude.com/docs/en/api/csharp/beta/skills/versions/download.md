@@ -20,9 +20,9 @@ Download a skill version's content as a zip archive.
 
   - `required string version`
 
-    Path param: Version identifier for the skill.
+    Path param: Identifies the skill version by its version ID.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+    Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -95,6 +95,20 @@ Download a skill version's content as a zip archive.
     - `AgentMemory2026_07_22`
 
     - `MidConversationToolChanges2026_07_01`
+
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
 
 ## Example
 

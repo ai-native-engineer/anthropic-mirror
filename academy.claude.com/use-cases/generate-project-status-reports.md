@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Generate project status reports result](https://academy.claude.com/assets/v1/generate-project-status-reports-izl8gxwu.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Status reporting often means sifting through your various tools and messages to find updates and decisions. Claude simplifies this by querying multiple data sources at once, extracting information from different formats, and creating organized reports. This turns hours of manual work into minutes.
 
@@ -44,11 +44,11 @@ The tracker should make it obvious at a glance where the problems are and who ne
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Enable [connectors(opens in new tab)](https://claude.com/blog/connectors-directory) and [integrations(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) to give Claude direct access to your tools as live data sources, not just pasted snippets.
 
-### Required context
+### Required context[](#required-context)
 
 Once you’ve connected your [Google Drive(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration), [Gmail, Google Calendar(opens in new tab)](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors), and [Slack(opens in new tab)](https://www.claude.com/claude-and-slack) tools, make sure they are toggled on in the chat bar settings.
 
@@ -68,15 +68,7 @@ Gmail
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
-
-Use [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for better results when making Word, Excel, and PowerPoint files.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude searches your connected tools, finds status updates from different sources, reconciles them into a single view, and creates an Excel tracker with visual indicators and context in cell comments.
 
@@ -97,11 +89,11 @@ Key insights from consolidation:
 * Team consensus from standup: data migration is highest risk item
 * I’ve created a spreadsheet file with 25 tasks, visual indicators, and cell comments with context from all sources.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Deep dive blockers
+### Deep dive blockers[](#deep-dive-blockers)
 
 Pull all related conversations about a blocker to understand the full context.
 
@@ -109,7 +101,7 @@ The tracker shows Lisa's been blocked on approval for 4 days. Find every mention
 
 Open in Claude
 
-### Create weekly status report
+### Create weekly status report[](#create-weekly-status-report)
 
 Generate an executive summary from the tracker data.
 
@@ -117,21 +109,21 @@ Using the task tracker data, create a one-page status report for leadership. Inc
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Create a Skill for recurring reports
+### Create a Skill for recurring reports[](#create-a-skill-for-recurring-reports)
 
 Create a custom [skill(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills) for generating status reports to embed all the steps involved in the process. Once created, you can use the skill anywhere in Claude by referencing its name or description. This triggers Claude to run the workflow automatically.
 
-### Specify how to handle missing information
+### Specify how to handle missing information[](#specify-how-to-handle-missing-information)
 
 If Claude can't find certain information—maybe there's no Slack discussion or Drive files haven't been updated—it's better to say "no progress documented" than to have gaps silently smoothed over. In your prompt, you can specify: "If you don't find information for a work stream, note that explicitly rather than omitting it."
 
-### Add visual polish
+### Add visual polish[](#add-visual-polish)
 
 Claude can opt for certain default fonts, colors, and styles. For differentiated outputs, you can request changes: "Choose a color scheme that's unique and aesthetically beautiful—avoid standard blues and grays," or "Select typography that feels modern and confident, not generic corporate." Specificity drives better design.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Work with Claude to consolidate information between your project tools so you can focus on making decisions instead of copy and pasting into documents.
 

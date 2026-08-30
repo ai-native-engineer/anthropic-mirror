@@ -20,13 +20,13 @@ keep, files to write, and work to resume after a network hiccup. At that
 point, you don't want to run the loop on your server. You want to delegate
 it. That's what **managed agents** are.
 
-## What is a managed agent?
+## What is a managed agent?[](#what-is-a-managed-agent)
 
 A managed agent is an agent loop that runs on Anthropic's infrastructure instead of yours. You describe the agent once, you give it an environment to work in, and you start a session. Anthropic runs the loop, and you just stream the events back out as it works.
 
 Managed agents are enabled by default for every API account — no special access needed.
 
-## The four primitives
+## The four primitives[](#the-four-primitives)
 
 There are four primitives, and they come in order:
 
@@ -41,13 +41,13 @@ Here's how the pieces fit together: your app talks to a session, the session dri
 
 Notice the shift here: you're not running a while loop. You're sending events and reading events.
 
-## The smallest possible managed agent
+## The smallest possible managed agent[](#the-smallest-possible-managed-agent)
 
 Let's build the smallest managed agent that does something useful: create a file in the temp drive, count its lines, and report back.
 
 For tools, we'll use the **agent toolset** — Anthropic's bundled file, bash, and web tools. They work fine for this task, so we don't have to define any tools ourselves.
 
-## Step 1: Create the agent
+## Step 1: Create the agent[](#step-1-create-the-agent)
 
 First, we create the agent. Note the agent toolset defined right in the `tools` array — that's the bundled toolset:
 
@@ -70,7 +70,7 @@ agent = client.beta.agents.create(
 
 Remember: the agent is reusable. Create it once and run it across many sessions.
 
-## Step 2: Create the environment
+## Step 2: Create the environment[](#step-2-create-the-environment)
 
 Next, the environment. This spins up the container template — cloud, with unrestricted networking. This is the sandbox where the file actually gets written:
 
@@ -86,7 +86,7 @@ environment = client.beta.environments.create(
 )
 ```
 
-## Step 3: Create the session
+## Step 3: Create the session[](#step-3-create-the-session)
 
 Then we create a session with our agent and environment, plus an optional title. The session is the unit of work:
 
@@ -100,7 +100,7 @@ session = client.beta.sessions.create(
 )
 ```
 
-## Step 4: Open the stream, then send the kickoff
+## Step 4: Open the stream, then send the kickoff[](#step-4-open-the-stream-then-send-the-kickoff)
 
 Now we open the event stream — and notice that we do this **first**. The stream only delivers events that occur after it opens, so always open it before sending the kickoff message. Then we send the user message into the live stream:
 
@@ -128,7 +128,7 @@ with client.beta.sessions.events.stream(session_id=session.id) as stream:
 
 Notice it's `events` — plural. Events are how everything flows in this API.
 
-## Step 5: Consume the stream
+## Step 5: Consume the stream[](#step-5-consume-the-stream)
 
 Finally, we consume the stream. There are three event types that matter for this demo:
 
@@ -155,7 +155,7 @@ Run it, and the output is the agent reasoning out loud — actual text, the tool
 
 ![Terminal output of the managed agent run: agent, environment, and session IDs are created, then the event stream shows the agent writing the file, running its tools, and reporting that the file contains 3 lines](https://academy.claude.com/assets/media/03c04c48b719f7af90281aa7bbc14d5a79606514b28c3d4febbe5d1366f3e16b.png)
 
-## The trade
+## The trade[](#the-trade)
 
 Usually with agents, we have our own loop where we have to control everything. With managed agents, you delegate that loop, the sandbox, and the resumability — and just consume the event stream as it comes in.
 
@@ -163,7 +163,7 @@ In a production app, this is the shape for long-running, file-touching, "go orga
 
 ![A fileshare cleanup web app powered by a managed agent, showing the folder tree being organized alongside a live activity feed of the agent's events as it moves and archives files](https://academy.claude.com/assets/media/95406d68d7a048f36b750fa6fee3665efe4c6bed6b909eb1d6549b584794e5dd.png)
 
-## Recap
+## Recap[](#recap)
 
 * **Managed agents are the agent loop, run for you** — on Anthropic's infrastructure instead of your server.
 * The flow is: **create an agent, create an environment, create a session, send events in, and stream events out**.

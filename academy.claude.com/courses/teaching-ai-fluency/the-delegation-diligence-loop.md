@@ -14,7 +14,7 @@ In this lessonBy the end, you’ll be able to
 
 * Help students leverage the Delegation-Diligence loop for responsible design and decision making
 
-## The Delegation-Diligence loop
+## The Delegation-Diligence loop[](#the-delegation-diligence-loop)
 
 The Delegation-Diligence loop
 
@@ -34,7 +34,7 @@ understand how these competencies work together, they learn to see
 constraints not as limitations but as creative catalysts that clarify and
 strengthen their collaboration choices.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The Delegation-Diligence loop handles big-picture strategic and ethical decision-making about AI use
 * Delegation and Diligence each informs and shapes the other — the loop runs both ways
@@ -42,7 +42,7 @@ strengthen their collaboration choices.
 * Students who master this loop develop clear rationales for their choices and can articulate why their approach aligns with goals and values
 * Accountability and transparency enhance rather than limit creative possibilities with AI
 
-## Exercises
+## Exercises[](#exercises)
 
 This exercise helps you create a concrete lesson plan for teaching the Delegation-Diligence loop.
 
@@ -59,7 +59,7 @@ Continue the conversation from Exercise 1, and let your AI partner know that you
 * Create decision points where students must navigate between strategic choices and ethical considerations
 * Plan how students will document their thinking as they work through the scenario
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore the Description-Discernment loop, which focuses on the moment-to-moment craft of building cognitive environments where humans and AI work together effectively.
 

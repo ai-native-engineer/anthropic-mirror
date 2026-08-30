@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-g1uo6xw3.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hq8pagpq.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Design plugin ships with `/design-handoff` and other research and structuring skills as a starting point, already shaped to the section order most design reviews expect. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ DesignAccelerate design workflows — critique, design system management, UX wri
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (exported Slack threads, meeting notes, the screenshots people kept pasting) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the assembled spec back to it. If you write specs regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your spec template, instructions, and memory stay attached.
 
@@ -82,15 +82,15 @@ current-flow-screens.pngApr 18, 20261.1 MB
 
 In Cowork’s chat bar:Design / Checkout-Redesign
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Assemble everything in this folder into a single design spec. Structure it as problem, goals, constraints, proposed solution, open questions, and out of scope. Quote the source for any decision already made and flag anything contradictory.
 
 Design / Checkout-RedesignOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Put all the context in one place.** Threads, notes, and screenshots all carry equal weight.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ DesignOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 A spec is out of date the moment someone replies in the channel. Ask Cowork to publish it as a live artifact and the cross-functional team has one link that stays current — re-run the skill or schedule it to refresh.
 
@@ -138,7 +138,7 @@ Publish that spec as a live artifact for the squad. Keep a "decisions changed si
 
 Design / Checkout-RedesignOpen in Cowork
 
-### Run it the morning before every review
+### Run it the morning before every review[](#run-it-the-morning-before-every-review)
 
 Review is on the calendar, the spec should already reflect last night's thread. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and set the customized skill to run each morning, re-reading the channel and folder.
 
@@ -154,7 +154,7 @@ Each weekday at 8am, re-reads the project channel and folder, re-runs `/design-h
 
 Every **weekday at 8 am · re-reads #checkout-redesign and the project folder**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/design-handoff` now carries your section order, your decision-log format, and your contradiction flags. Share it so every designer on the team writes specs the same way, and reviewers know exactly where to look no matter who owns the project.
 
@@ -162,7 +162,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/design-handoff` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your template and format baked in, so they don't repeat Steps 1-3.
 
-## What changes for design review
+## What changes for design review[](#what-changes-for-design-review)
 
 You have one review-ready spec with each decision cited to its source and each contradiction flagged — assembled from the actual discussion instead of reconstructed by hand.
 

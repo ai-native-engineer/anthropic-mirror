@@ -48,6 +48,9 @@ Search
 
 DateCategoryTitle
 
+* [Aug 28, 2026Alignment
+
+  Automated researchers can reliably mitigate alignment failures](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
 * [Jul 8, 2026Alignment
 
   An off switch for dual-use knowledge in AI models](https://www.anthropic.com/research/off-switch-dual-use)
@@ -75,13 +78,10 @@ DateCategoryTitle
 * [Jan 9, 2026Alignment
 
   Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks](https://www.anthropic.com/research/next-generation-constitutional-classifiers)
-* [Dec 19, 2025Alignment
-
-  Introducing Bloom: an open source tool for automated behavioral evaluations](https://www.anthropic.com/research/bloom)
 
 [See more](#)
 
-![An off switch for dual-use knowledge in AI models](https://www-cdn.anthropic.com/images/4zrzovbb/website/ba5df68fde631a953fcaca4ec56cd20d285bdd5d-1000x1000.svg)
+![Automated researchers can reliably mitigate alignment failures](https://www-cdn.anthropic.com/images/4zrzovbb/website/ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
 
 Join the Research team
 

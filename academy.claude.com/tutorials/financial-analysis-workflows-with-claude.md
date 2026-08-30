@@ -16,9 +16,9 @@ Learn complete financial analysis workflows using a three-phase approach: retrie
 
 This article demonstrates how to use Claude for complete financial analysis workflows, from data retrieval through final deliverables. Each workflow follows a three-phase approach: retrieving data from integrated sources, analyzing the information to generate insights, and creating professional outputs for decision-making.
 
-## Understanding the Workflow Approach
+## Understanding the Workflow Approach[](#understanding-the-workflow-approach)
 
-### The Three-Phase Process
+### The Three-Phase Process[](#the-three-phase-process)
 
 Effective financial analysis with Claude follows a structured approach that mirrors traditional analytical workflows. The process begins with data retrieval from integrated sources, moves through systematic analysis of that data, and concludes with creation of professional deliverables. This structure ensures completeness while maintaining flexibility for different analytical objectives.
 
@@ -26,7 +26,7 @@ Effective financial analysis with Claude follows a structured approach that mirr
 2. **Analyze:** Process and interpret the retrieved data to identify trends, calculate metrics, and generate insights. This phase transforms raw data into actionable intelligence through calculations, comparisons, and pattern recognition.
 3. **Create:** Generate professional deliverables including investment memos, presentations, financial models, and interactive dashboards. The creation phase packages your analysis into formats suitable for decision-making and communication.
 
-### Setting Up Your Workspace
+### Setting Up Your Workspace[](#setting-up-your-workspace)
 
 Before beginning your workflow, establish a proper workspace to maintain context and organization:
 
@@ -35,13 +35,13 @@ Before beginning your workflow, establish a proper workspace to maintain context
 
 For detailed project setup instructions, see What are projects? The examples that follow assume you have the necessary integrations enabled and have created a project workspace.
 
-## Workflow 1: Single Company Investment Memo
+## Workflow 1: Single Company Investment Memo[](#workflow-1-single-company-investment-memo)
 
-### Scenario Overview
+### Scenario Overview[](#scenario-overview)
 
 This workflow demonstrates creating an investment memo for a potential equity investment using publicly available data. The example uses Microsoft as the target company, but the approach applies to any public company with sufficient data coverage. The final output is a concise investment memo suitable for investment committee review or initial screening documentation.
 
-### Phase 1: Retrieve
+### Phase 1: Retrieve[](#phase-1-retrieve)
 
 Begin by gathering comprehensive financial data from multiple sources. Start with fundamental data:
 
@@ -57,7 +57,7 @@ Open in Claude
 
 Combining data from multiple sources provides both quantitative metrics and competitive context. Daloopa supplies the raw financial data while S&P Global adds competitive positioning through peer comparisons and business relationship mapping.
 
-### Phase 2: Analyze
+### Phase 2: Analyze[](#phase-2-analyze)
 
 With data retrieved, move to analysis that transforms raw numbers into insights:
 
@@ -69,7 +69,7 @@ Claude processes the retrieved data to identify patterns and calculate key ratio
 
 Consider requesting additional analytical perspectives based on initial findings. If the cloud segment shows accelerating growth, you might ask Claude to analyze whether competitors are experiencing similar trends. If margins are expanding, request a comparison to peer margins to determine if this is company-specific or industry-wide.
 
-### Phase 3: Create
+### Phase 3: Create[](#phase-3-create)
 
 Transform your analysis into a professional investment memo:
 
@@ -81,13 +81,13 @@ The resulting memo synthesizes all previous analysis into a structured document.
 
 This workflow produces a professional investment memo suitable for initial screening or committee review, created entirely from publicly available data through Claude's integrations.
 
-## Workflow 2: Competitive Analysis Presentation
+## Workflow 2: Competitive Analysis Presentation[](#workflow-2-competitive-analysis-presentation)
 
-### Scenario Overview
+### Scenario Overview[](#scenario-overview-2)
 
 This workflow creates a presentation comparing companies within a sector to identify the most attractive investment opportunity. The example analyzes SaaS companies, but the methodology applies to any sector where comparable metrics exist. The output is a presentation suitable for investment committee discussions or client meetings.
 
-### Phase 1: Retrieve
+### Phase 1: Retrieve[](#phase-1-retrieve-2)
 
 Start by gathering comparable metrics across your peer group:
 
@@ -103,7 +103,7 @@ Open in Claude
 
 The quarterly data reveals whether growth is accelerating, decelerating, or remaining steady. This helps distinguish between companies with sustainable growth versus those experiencing temporary momentum.
 
-### Phase 2: Analyze
+### Phase 2: Analyze[](#phase-2-analyze-2)
 
 Process the data to identify relative attractiveness:
 
@@ -111,7 +111,7 @@ Rank these companies by revenue growth and margin expansion. Calculate the PEG r
 
 Open in Claude
 
-### Phase 3: Create
+### Phase 3: Create[](#phase-3-create-2)
 
 Transform the comparative analysis into a presentation:
 
@@ -123,13 +123,13 @@ Note
 
 PowerPoint creation currently has limitations with complex formatting and firm-specific templates. You may need to apply final formatting manually.
 
-## Workflow 3: Portfolio Performance Review
+## Workflow 3: Portfolio Performance Review[](#workflow-3-portfolio-performance-review)
 
-### Scenario Overview
+### Scenario Overview[](#scenario-overview-3)
 
 This workflow analyzes an existing portfolio to create performance reporting for quarterly reviews. The example uses a concentrated technology portfolio, but the approach scales to any holdings where data is available. The output is an interactive dashboard suitable for internal review or client reporting.
 
-### Phase 1: Retrieve
+### Phase 1: Retrieve[](#phase-1-retrieve-3)
 
 Gather performance and fundamental data for all holdings:
 
@@ -139,7 +139,7 @@ Open in Claude
 
 This provides data spanning performance metrics, valuation multiples, fundamental growth indicators, and forward-looking analyst sentiment.
 
-### Phase 2: Analyze
+### Phase 2: Analyze[](#phase-2-analyze-3)
 
 Perform portfolio-level and position-level analysis:
 
@@ -149,7 +149,7 @@ Open in Claude
 
 This analysis provides multiple perspectives: weighted returns show overall portfolio performance across different time horizons, benchmark comparison reveals alpha generation, earnings surprise analysis indicates execution quality, and valuation assessment identifies potential rebalancing candidates.
 
-### Phase 3: Create
+### Phase 3: Create[](#phase-3-create-3)
 
 Generate an interactive dashboard for the portfolio review:
 
@@ -159,7 +159,7 @@ Open in Claude
 
 [Artifacts can be shared(opens in new tab)](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts#h_264285dcf3) with other members of your organization. The interactive nature allows stakeholders to explore the data without requiring multiple static reports.
 
-## Next Steps
+## Next Steps[](#next-steps)
 
 * Review integration guides to understand data availability for your specific use cases.
 * See [Prompting Strategies for Financial Analysis(opens in new tab)](https://support.claude.com/en/articles/12220277-prompting-strategies-for-financial-analysis) for techniques to optimize your workflows.

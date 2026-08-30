@@ -14,7 +14,7 @@ Prompt caching is a powerful optimization feature that makes your API requests b
 
 ![](https://academy.claude.com/assets/media/16861ef7863235442cb43b8fa88a8d020f6a14d3c48b1e3cb8843782a7f51169.jpg)
 
-## How Prompt Caching Works
+## How Prompt Caching Works[](#how-prompt-caching-works)
 
 When you enable prompt caching, the first request writes content to a cache with a 5-minute default lifetime, and each time the cached content is used, that window refreshes at no extra cost. If you need a longer window, you can opt into a 1-hour cache duration for an additional cost. Follow-up requests read from this cache instead of processing the same content again. This is particularly valuable when you're sending:
 
@@ -24,7 +24,7 @@ When you enable prompt caching, the first request writes content to a cache with
 
 The key insight is that caching only helps if you're repeatedly sending identical content - but in many applications, this happens extremely frequently.
 
-## Setting Up Tool Schema Caching
+## Setting Up Tool Schema Caching[](#setting-up-tool-schema-caching)
 
 To cache your tool schemas, you need to add a cache control field to the last tool in your list. Here's the proper way to do it without modifying your original tool definitions:
 
@@ -41,7 +41,7 @@ if tools:
 
 This approach creates copies of both the tools list and the last tool schema before adding the cache control field. While you could directly modify `tools[-1]["cache_control"]`, the copying approach prevents issues if you later reorder your tools.
 
-## System Prompt Caching
+## System Prompt Caching[](#system-prompt-caching)
 
 For system prompts, you need to structure them as a text block with cache control:
 
@@ -60,7 +60,7 @@ if system:
 
 This converts your system prompt from a simple string into a structured format that supports caching.
 
-## Understanding Cache Behavior
+## Understanding Cache Behavior[](#understanding-cache-behavior)
 
 When you run requests with caching enabled, you'll see different usage patterns in the response:
 
@@ -70,7 +70,7 @@ When you run requests with caching enabled, you'll see different usage patterns 
 
 The cache is extremely sensitive - changing even a single character in your tools or system prompt invalidates the entire cache for that component.
 
-## Cache Ordering and Breakpoints
+## Cache Ordering and Breakpoints[](#cache-ordering-and-breakpoints)
 
 You can set multiple cache breakpoints in a single request. The order matters:
 
@@ -80,7 +80,7 @@ You can set multiple cache breakpoints in a single request. The order matters:
 
 If you change your system prompt but keep the same tools, you'll see a partial cache read (for tools) and a cache write (for the new system prompt). This granular caching means you only pay for processing the parts that actually changed.
 
-## Practical Considerations
+## Practical Considerations[](#practical-considerations)
 
 Prompt caching is most effective when you have:
 

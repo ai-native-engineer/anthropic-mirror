@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Stress-test your financial plan across scenarios result](https://academy.claude.com/assets/v1/stress-test-your-financial-plan-across-scenarios-jf5kslme.png)[Open artifact](https://claude.ai/public/artifacts/1ca44b81-2605-4516-935f-25e35b24f955)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude Opus 5 synthesizes across your full set of financial documents before building anything. It connects variables that most calculators treat independently — tax brackets, withdrawal sequences, Social Security timing — and reasons through how they cascade over decades.
 
@@ -28,11 +28,11 @@ I’ve uploaded our tax returns, investment statements, Social Security estimate
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 The more complete your uploads, the more connections Claude can find across your tax situation, investment accounts, and benefit estimates.
 
-### Required context
+### Required context[](#required-context)
 
 Upload your financial documents: tax returns, investment account statements, Social Security benefit estimates, and a monthly expense breakdown.
 
@@ -42,11 +42,11 @@ Account StatementPDF
 
 Tax ReturnPDF
 
-### Optional context
+### Optional context[](#optional-context)
 
 Opus 5 always thinks before it answers in Claude, so there is no thinking toggle to set. For complex, interdependent variables, raise the [effort level(opens in new tab)](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings) in the model menu.
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Opus 5 produces a working financial model with probability distributions across a range of modeled scenarios, an interactive scenario explorer, and a clear action plan. Keep in mind, Claude produces outputs based on the documents you provide. You should review any strategies with a qualified financial professional before acting on them. Here’s the kind of analysis you’ll get:
 
@@ -66,11 +66,11 @@ I’ve read through all your documents. Before building anything, I want to flag
 
 ***Important:** This analysis models scenarios based on the inputs you provided and general financial principles. It does not account for your full financial picture, tax situation, or personal circumstances the way a licensed advisor would. Review any strategies with a fee-only financial planner or CPA before making changes to your plan.*
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Stress-test a life change
+### Stress-test a life change[](#stress-test-a-life-change)
 
 Opus 5 stays with the full complexity when you throw a wrench in the plan. Describe a scenario and it re-runs the entire analysis, tracing how one variable ripples through income, taxes, withdrawal sequences, and long-term success rate without simplifying away the interactions.
 
@@ -78,7 +78,7 @@ What if I lose my job at 57 and can only find work at $120K? How does that chang
 
 Open in Claude
 
-### Take the model into Excel
+### Take the model into Excel[](#take-the-model-into-excel)
 
 Opus 5 produces downloadable spreadsheets you can open in [Claude for Excel(opens in new tab)](https://claude.com/claude-for-microsoft-365) to keep adjusting. Change an assumption, test a new scenario, or extend the projections without rebuilding anything from scratch.
 
@@ -86,7 +86,7 @@ I want to play with the inflation assumptions. What happens to the withdrawal se
 
 Open in Claude
 
-### Ask what you’re missing
+### Ask what you’re missing[](#ask-what-youre-missing)
 
 Opus 5 reasons across finance and tax at domain-expert level and will surface things you didn’t think to ask about, like a narrow window for conversions created by a tax bracket transition or a withdrawal order that saves you money over decades. Push it further.
 
@@ -94,25 +94,25 @@ What would a financial planner flag about this plan that I haven’t asked about
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Start with your situation
+### Start with your situation[](#start-with-your-situation)
 
 If you aren't sure about the approach you'd like to take, describe your financial situation and what you want to understand. Opus 5 identifies an analytical approach from your context on its own.
 
-### Upload everything at once
+### Upload everything at once[](#upload-everything-at-once)
 
 Opus 5 synthesizes across your full document set before building anything, finding interactions between your tax returns, investment statements, and Social Security estimates that cascade through each other. The more complete the picture, the stronger the analysis.
 
-### Run longer analyses through Cowork
+### Run longer analyses through Cowork[](#run-longer-analyses-through-cowork)
 
 If your financial documents are already on your computer, Cowork in [Claude Desktop(opens in new tab)](https://claude.com/download) can read them directly from a folder rather than uploading individually. For complex plans with many accounts, tax considerations, and interdependent variables, Cowork handles longer-running analysis without hitting context limits, spinning up sub-agents to model different scenarios in parallel before synthesizing the results.
 
-### Start another task while this one runs
+### Start another task while this one runs[](#start-another-task-while-this-one-runs)
 
 Financial modeling runs across many variables and scenarios. Open a new session from the sidebar for other work. You'll see a grey dot in the sidebar when this one needs attention.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Try Opus 5 with your financial plan and see how changing one input ripples through the entire model.
 

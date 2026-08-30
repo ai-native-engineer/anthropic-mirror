@@ -16,9 +16,11 @@ In this lessonBy the end, you’ll be able to
 * Choose the right Claude Code customization feature for a given use case
 * Design a complementary setup that combines multiple features effectively
 
-## Skills vs. other Claude Code features
+## Skills vs. other Claude Code features[](#skills-vs-other-claude-code-features)
 
 Skills vs. other Claude Code features · 3 min
+
+SummaryTranscript
 
 Claude Code offers several customization options, and choosing the wrong
 one can lead to unnecessary complexity. This video breaks down when to use
@@ -26,7 +28,7 @@ skills versus CLAUDE.md, subagents, hooks, and MCP servers. You'll learn
 the key differences between each option and how they complement each other
 in a typical development setup.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **CLAUDE.md** loads into every conversation and is best for always-on project standards. **Skills** load on demand and are best for task-specific expertise
 * **Subagents** run in isolated execution contexts — use them for delegated work. **Skills** add knowledge to your current conversation
@@ -36,7 +38,7 @@ in a typical development setup.
 
 Claude Code offers several customization options: Skills, CLAUDE.md, subagents, hooks, and MCP servers. They solve different problems, and knowing when to use each prevents you from building the wrong thing. Let's break them down.
 
-## CLAUDE.md vs Skills
+## CLAUDE.md vs Skills[](#claudemd-vs-skills)
 
 CLAUDE.md loads into every conversation, always. If you want Claude to use TypeScript strict mode in your project, put it in your CLAUDE.md file.
 
@@ -56,7 +58,7 @@ Skills load on demand. When Claude matches a request to a skill, that skill's in
 * Knowledge that's only relevant sometimes
 * Detailed procedures that would clutter every conversation
 
-## Skills vs Subagents
+## Skills vs Subagents[](#skills-vs-subagents)
 
 Skills add knowledge to your current conversation. When a skill activates, its instructions join the existing context.
 
@@ -73,7 +75,7 @@ Subagents run in a separate context. They receive a task, work on it independent
 * You want to enhance Claude's knowledge for the current task
 * The expertise applies throughout a conversation
 
-## Skills vs Hooks
+## Skills vs Hooks[](#skills-vs-hooks)
 
 Hooks fire on events. A hook might run a linter every time Claude saves a file, or validate input before certain tool calls. They're event-driven.
 
@@ -90,7 +92,7 @@ Skills are request-driven. They activate based on what you're asking.
 * Knowledge that informs how Claude handles requests
 * Guidelines that affect Claude's reasoning
 
-## Putting It All Together
+## Putting It All Together[](#putting-it-all-together)
 
 A typical setup might include:
 
@@ -104,12 +106,12 @@ Each handles its own specialty. Don't force everything into skills when another 
 
 Use skills when you have knowledge that Claude should apply automatically when the topic is relevant, and combine them with other features for comprehensive customization.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Look at your current CLAUDE.md file. Is there anything in it that would work better as a skill (loaded only when relevant)?
 * Think about your team's development workflow. Which combination of Claude Code features (skills, hooks, subagents, MCP) would address your most common pain points?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, you'll learn how to share skills with your team and organization — from committing them to repositories, to distributing via plugins, to enterprise-wide deployment through managed settings.
 

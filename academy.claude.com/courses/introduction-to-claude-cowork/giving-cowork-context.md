@@ -16,11 +16,11 @@ In this lessonBy the end, you’ll be able to
 * Decide when a piece of work belongs in a project
 * Choose between the three ways to start a project
 
-## Onboard your new collaborator
+## Onboard your new collaborator[](#onboard-your-new-collaborator)
 
 In Chat, memory builds itself — turn it on and Claude learns from your conversations automatically. Cowork works differently. The context that carries from task to task is mostly the context you set up: **global instructions**, which apply to every Cowork session, and **projects**, where Claude builds memory automatically from the conversations you have inside them. Most people start with global instructions and add projects as recurring work surfaces.
 
-## Global instructions: the brief that applies to every session
+## Global instructions: the brief that applies to every session[](#global-instructions-the-brief-that-applies-to-every-session)
 
 Global instructions are a standing brief. You write them once, in Settings, and Claude will reference them during every session — every chat, every scheduled task.
 
@@ -34,7 +34,7 @@ What to put in it: who you are and what you do; the shorthand and acronyms you u
 
 Your global instructions don't need to be complete on day one. As you work with Cowork more, you'll notice corrections you keep giving (*"share the bottom line up front in your responses"* or *"don't use Oxford commas"*) — those are global-instruction candidates.
 
-## Projects: a scoped workspace for a stream of work
+## Projects: a scoped workspace for a stream of work[](#projects-a-scoped-workspace-for-a-stream-of-work)
 
 Global instructions cover *you*. Projects cover *what you're working on*.
 
@@ -55,7 +55,7 @@ Some streams of work that are good for a project:
 * **A recurring deliverable.** The monthly report, the quarterly review, the weekly leadership update. Each new cycle is a new conversation inside the same project that automatically builds on the insights from the last time.
 * **A launch or initiative.** The redesign, the migration, the new program rollout. Briefs, decisions, status updates — the whole thread of the work in one place until it ships.
 
-## Three ways to start a project
+## Three ways to start a project[](#three-ways-to-start-a-project)
 
 There are three ways to create a project, depending on where the materials already live:
 
@@ -65,7 +65,7 @@ There are three ways to create a project, depending on where the materials alrea
 
 To create one, click **Projects** in the Cowork sidebar, then **New project**, and choose whichever option makes the setup easiest for you. You can change the working folder, instructions, and connectors at any time.
 
-## Try it now
+## Try it now[](#try-it-now)
 
 Put both layers in place — global instructions for you, and one project for a stream of work you're in right now.
 
@@ -82,7 +82,7 @@ Put both layers in place — global instructions for you, and one project for a 
    Copy prompt
 2. **Create a project for one stream of work.** Pick something recurring — a customer account, a monthly deliverable, a current initiative. Point it at the folder where the materials already live, or start fresh if there isn't one yet.
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, you'll meet skills — how to teach Claude the processes you and your team rely on, so the way you do specialized work happens automatically.
 

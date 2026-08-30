@@ -18,7 +18,7 @@ The PubMed integration provides access to millions of biomedical research articl
 
 The PubMed integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## What this integration provides
+## What this integration provides[](#what-this-integration-provides)
 
 The PubMed integration connects Claude directly to the PubMed database maintained by the U.S. National Library of Medicine. With over 36 million citations for biomedical literature, PubMed is the premier resource for medical research, scientific studies, and health information.
 
@@ -31,7 +31,7 @@ This integration allows you to:
 * Match citations to PubMed IDs for verification and referencing
 * Convert between ID formats (PMID, PMC ID, DOI)
 
-## Setting up the PubMed integration
+## Setting up the PubMed integration[](#setting-up-the-pubmed-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -55,23 +55,23 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 3. Restart Claude Code
 4. Verify that the server is connected with `/mcp`
 
-## Using the PubMed MCP with the Messages API
+## Using the PubMed MCP with the Messages API[](#using-the-pubmed-mcp-with-the-messages-api)
 
 Developers can connect to the PubMed integration directly through Claude's Messages API using the MCP connector. This allows you to build applications that leverage PubMed search capabilities programmatically.
 
-### Requirements
+### Requirements[](#requirements)
 
 **An Anthropic API key**
 
 The beta header: `anthropic-beta: mcp-client-2025-11-20`
 
-### Setup
+### Setup[](#setup)
 
 1. Add the PubMed MCP server to your API request's `mcp_servers` array
 2. Reference the server in your `tools` array using an `mcp_toolset` entry
 3. Include the required beta header
 
-### Example Request
+### Example Request[](#example-request)
 
 python
 
@@ -90,7 +90,7 @@ response = client.beta.messages.create(
 )
 ```
 
-## Common use cases
+## Common use cases[](#common-use-cases)
 
 **Search for Research Articles**
 
@@ -178,7 +178,7 @@ I would like to have a discussion about the paper associated with this PMID
 
 Open in Claude
 
-## Frequently asked questions
+## Frequently asked questions[](#frequently-asked-questions)
 
 **Is the PubMed integration free to use?**
 
@@ -216,20 +216,20 @@ Yes, the server has rate limits to comply with NCBI guidelines. If you receive a
 
 All data comes from official NCBI sources, but may not reflect the most current/accurate data available from NLM: PubMed (the National Library of Medicine's MEDLINE database), PubMed Central (free full-text archive of biomedical literature), and the NCBI E-utilities API (official programmatic access to NCBI databases).
 
-## Privacy and Data Usage
+## Privacy and Data Usage[](#privacy-and-data-usage)
 
 * The PubMed integration only accesses publicly available research articles
 * No personal health information or patient data is accessible through the integration
 * Your search queries are used only to retrieve relevant articles
 * All data comes from official NCBI sources
 
-## Additional Resources
+## Additional Resources[](#additional-resources)
 
 * PubMed Advanced Search Builder: [https://pubmed.ncbi.nlm.nih.gov/advanced/(opens in new tab)](https://pubmed.ncbi.nlm.nih.gov/advanced/)
 * MeSH Database: [https://www.ncbi.nlm.nih.gov/mesh(opens in new tab)](https://www.ncbi.nlm.nih.gov/mesh)
 * NCBI E-utilities Documentation: [https://www.ncbi.nlm.nih.gov/books/NBK25501/(opens in new tab)](https://www.ncbi.nlm.nih.gov/books/NBK25501/)
 
-## Need More Help?
+## Need More Help?[](#need-more-help)
 
 If you're experiencing issues with the PubMed integration or have questions not covered here, please [contact Claude support(opens in new tab)](https://support.claude.com/en/articles/9015913-how-to-get-support) or visit our help center for additional troubleshooting guides.
 

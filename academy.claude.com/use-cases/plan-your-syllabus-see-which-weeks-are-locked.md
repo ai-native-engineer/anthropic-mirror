@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-d63z6zqx.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ejq94ftq.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 You know every topic in the course. What's harder to see is which weeks are in that order because they *have* to be, and which are there because that's where you or the textbook put them. Working as a list, those look the same.
 
@@ -26,27 +26,27 @@ I'm building a 15-week Intro to Macro syllabus and I keep second-guessing the or
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Attach the working syllabus — topic list with week numbers is enough. If you're teaching from a specific book, say which; the alternative-ordering guidance gets sharper.
 
-### Required context
+### Required context[](#required-context)
 
 The syllabus.
 
 Previous syllabusPDF
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude draws the course as a graph — locked weeks in one color, movable weeks in another. Click any topic and a panel shows what comes before it, what it unlocks, and how the major textbooks handle that same spot in the sequence. You get a second opinion on each ordering choice.
 
 ![Claude's response with a dependency map of a 15-week Intro to Macroeconomics syllabus: weeks laid out by tier with arrows between topics like Supply & demand, GDP & national income, Unemployment, Savings & investment, Aggregate demand, Aggregate supply, and AD-AS equilibrium, each tagged locked or flexible, with an expanded panel for AD-AS equilibrium listing its prerequisites and how Mankiw and Blanchard sequence it](https://academy.claude.com/assets/v1/syllabus-dependency-map-oqub48dw.png)
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Ask Claude to redraw with one thing moved
+### Ask Claude to redraw with one thing moved[](#ask-claude-to-redraw-with-one-thing-moved)
 
 Try a reorder before you commit to it — name the move, Claude redraws, and anything that loses a prerequisite lights up.
 
@@ -54,7 +54,7 @@ Redraw the map with Money & Banking in Week 4 instead of Week 8. Show me what do
 
 Open in Claude
 
-### Ask Claude to write the revised syllabus from the graph
+### Ask Claude to write the revised syllabus from the graph[](#ask-claude-to-write-the-revised-syllabus-from-the-graph)
 
 Claude writes the week-by-week syllabus based on the order you landed on in the graph — with chapter mappings — ready to hand to students.
 
@@ -62,21 +62,21 @@ Write the revised schedule based on the reorder we landed on. Week by week, with
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### How you word your prompt shapes what you get
+### How you word your prompt shapes what you get[](#how-you-word-your-prompt-shapes-what-you-get)
 
 "Which topics depend on which" is the phrasing that gets a graph — you're asking for structure, and a graph shows where the flex is. Works on anything you're sequencing: a training plan, an onboarding path, a reading list where some things build on others.
 
-### Check the visual against your own understanding
+### Check the visual against your own understanding[](#check-the-visual-against-your-own-understanding)
 
 The locked/flexible tags are Claude's reading of the dependencies — based on standard textbook orderings and prerequisite logic. You know your course. If Claude marked a week "flexible" that you know has a hidden dependency (a concept you build on in discussion, a problem set that assumes it), that's worth catching before you reorder. Where you'd tag it differently is where your course-specific knowledge beats the generic read.
 
-### What to do with the visual next
+### What to do with the visual next[](#what-to-do-with-the-visual-next)
 
 Save as Artifact and share the dependency view with students — the map you used to plan is a study map for them. Create skill from visual has Claude remember this format for next semester's course. Or ask for the revised syllabus itself as a document, once the order's settled.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Try it on the syllabus where the middle keeps moving around — attach it, ask which topics depend on which, and see where you have room to rearrange. Web or desktop at claude.ai.
 

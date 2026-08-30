@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-c17k7zsz.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hmn3kocy.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Productivity plugin ships with `/start` and other personal-planning skills as a starting point, already structured to walk a calendar and gather context per event. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Productivity6 skills for inbox sweeps, daily rundowns, meeting prep, and decisio
 
 Show all 4 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Create a `Week-of-<date>` folder and point Cowork at it. The week-ahead doc, each meeting's agenda, and any prep notes you add through the week land there together. If you run this every week, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the parent folder so your agenda format and prep preferences stay attached.
 
@@ -82,15 +82,15 @@ open-items-carryover.mdApr 24, 20262 KB
 
 In Cowork’s chat bar:Planning / Week-of-2026-04-27
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Look at my calendar for next week. For each meeting, pull the context: the last time we met, related Slack threads, attached or mentioned docs, and open items I owe them. Draft a one-paragraph agenda for each and flag the three I most need to prep for. Write it all to a single week-ahead doc for Sunday night.
 
 Planning / Week-of-2026-04-27Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Source
 
@@ -108,7 +108,7 @@ Source
 
 **Send output to a folder you'll reuse.** The Week-of folder is where the briefing, the agendas, and your own notes accumulate through the week, so Friday's retro can read straight from it.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ PlanningOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it every Sunday at 5pm
+### Run it every Sunday at 5pm[](#run-it-every-sunday-at-5pm)
 
 The briefing should be waiting before the week starts. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs every Sunday afternoon and writes to a fresh Week-of folder.
 
@@ -146,7 +146,7 @@ Runs `/start` against Calendar, Slack, Gmail, and Drive and writes the briefing 
 
 Every **Sunday at 5:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/start` now carries your skip list, your prep tiers, and your agenda format. Share it so your directs and your EA produce briefings in the same shape, and anyone covering for you walks into Monday with the same context you would.
 
@@ -154,7 +154,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/start` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your agenda format and prep tiers baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

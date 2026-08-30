@@ -12,13 +12,13 @@ Lesson 3715 min
 
 This walkthrough demonstrates the complete RAG (Retrieval-Augmented Generation) implementation using a practical example. We'll build a vector database from scratch and execute all five steps of the RAG workflow using a sample report document.
 
-## Setting Up the Vector Database
+## Setting Up the Vector Database[](#setting-up-the-vector-database)
 
 The implementation uses a custom `VectorIndex` class that handles storing embeddings and performing similarity searches. This class provides the core functionality we need for our vector database operations.
 
-## The Five-Step RAG Implementation
+## The Five-Step RAG Implementation[](#the-five-step-rag-implementation)
 
-### Step 1: Chunk the Text by Section
+### Step 1: Chunk the Text by Section[](#step-1-chunk-the-text-by-section)
 
 First, we load and chunk our source document using the same section-based chunking approach from earlier:
 
@@ -33,7 +33,7 @@ chunks = chunk_by_section(text)
 
 This breaks our report into logical sections that can be processed independently.
 
-### Step 2: Generate Embeddings for Each Chunk
+### Step 2: Generate Embeddings for Each Chunk[](#step-2-generate-embeddings-for-each-chunk)
 
 Next, we create embeddings for every chunk using a list comprehension:
 
@@ -45,7 +45,7 @@ embeddings = [generate_embedding(chunk) for chunk in chunks]
 
 This step involves multiple API calls, so it takes some time to complete. Each chunk gets converted into a numerical vector representation.
 
-### Step 3: Store Embeddings in the Vector Database
+### Step 3: Store Embeddings in the Vector Database[](#step-3-store-embeddings-in-the-vector-database)
 
 Now we create our vector store and populate it with both embeddings and their associated text:
 
@@ -60,7 +60,7 @@ for embedding, chunk in zip(embeddings, chunks):
 
 The key insight here is that we store both the embedding and the original text. Just getting back a list of numbers isn't useful - we need the actual text content that corresponds to those embeddings. This metadata allows us to retrieve meaningful results later.
 
-### Step 4: Generate User Query Embedding
+### Step 4: Generate User Query Embedding[](#step-4-generate-user-query-embedding)
 
 When a user asks a question, we convert it to the same embedding format:
 
@@ -72,7 +72,7 @@ user_embedding = generate_embedding("What did the software engineering dept do l
 
 This creates a vector representation of the user's question that can be compared against our stored embeddings.
 
-### Step 5: Search and Retrieve Relevant Chunks
+### Step 5: Search and Retrieve Relevant Chunks[](#step-5-search-and-retrieve-relevant-chunks)
 
 Finally, we search our vector store to find the most similar content:
 
@@ -89,13 +89,13 @@ This returns the two most relevant chunks along with their cosine distance score
 
 ![](https://academy.claude.com/assets/media/ab085290667b6210b2b88469b29db119c1e53d58b2e2007f08e3206cdcc43494.png)
 
-## Understanding the Results
+## Understanding the Results[](#understanding-the-results)
 
 The search returns results ranked by relevance. In our example, the software engineering section had the lowest distance (0.71), making it the most relevant match. The methodology section came second with a distance of 0.72.
 
 The distance metric helps you understand how confident the system is about the relevance of each result. Closer distances mean better matches to the user's query.
 
-## Why Store Text with Embeddings
+## Why Store Text with Embeddings[](#why-store-text-with-embeddings)
 
 A crucial design decision is storing the original text alongside each embedding. Without this, you'd only get back arrays of numbers, which aren't useful for generating responses. By including the source text, you can immediately use the retrieved chunks to provide context for your language model.
 

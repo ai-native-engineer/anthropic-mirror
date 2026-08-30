@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-pa0satz7.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ewc5ye4g.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Design plugin ships with `/design-handoff` and other design-system skills as a starting point, already structured to inventory components and cross-reference where they live. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ DesignAccelerate design workflows — critique, design system management, UX wri
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -66,7 +66,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (a Figma export of the design system, screenshots of the surfaces you already know about, the product sitemap) into one folder and point Cowork at it. Cowork reads from it and writes the audit back to it. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from your design-system folder so the component inventory and ownership map stay attached for every audit.
 
@@ -80,15 +80,15 @@ surface-ownership.csvFeb 9, 20268 KB
 
 In Cowork’s chat bar:Design-system / Audits / inline-filter
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Before I propose a new inline-filter pattern for the search results page, find every surface in our product using something similar (chips, segmented controls, dropdown filters, faceted sidebars). For each, show a screenshot or Figma link, note which team owns it and how it performed (engagement or conversion if we have it). Tell me which pattern to reuse and why.
 
 Design-system / Audits / inline-filterOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -106,7 +106,7 @@ Source
 
 **Put your reference list in the folder.** Cowork starts from your component list, then checks the live product for what's drifted.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -116,7 +116,7 @@ Practice
 
 **Add a screenshot of the destination.** Drop a screenshot of where the pattern is going and Cowork weighs fit, not just precedent.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -126,9 +126,9 @@ Design-system / AuditsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it the default first step
+### Make it the default first step[](#make-it-the-default-first-step)
 
 This audit should run before any new pattern enters review. Save it as a skill the whole design org can call with one line, swapping the pattern name each time, so "did we check what already exists" stops being a crit-week surprise.
 
@@ -136,7 +136,7 @@ Save this as /pattern-audit. It should take a pattern name, search Figma, the co
 
 Design-system / AuditsOpen in Cowork
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/pattern-audit` now carries your component inventory, your ownership map, and your performance lookups. Share it so every designer runs the same check before crit, and the design system stops growing five ways to do one thing.
 
@@ -144,7 +144,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/pattern-audit` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your instructions baked in, they don't repeat Steps 1-3.
 
-## What changes for design crit
+## What changes for design crit[](#what-changes-for-design-crit)
 
 You have every existing instance of the pattern inventoried with its owner and performance data, plus a recommendation on which to reuse. The decision is backed by evidence rather than preference.
 

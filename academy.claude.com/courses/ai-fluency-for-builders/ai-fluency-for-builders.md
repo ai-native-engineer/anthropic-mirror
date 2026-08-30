@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Build a reusable brief that gives AI your values, constraints, and context
 * Decide if, when and where to delegate to AI in the builder process
 
-## Introduction to AI Fluency for builders
+## Introduction to AI Fluency for builders[](#introduction-to-ai-fluency-for-builders)
 
 Introduction to AI Fluency for builders · 4 min
 
@@ -42,7 +42,7 @@ Course roadmap
 
    Shipping and next stepsTaking full ownership of what you build with AI, and where to keep building your fluency.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Builders own the full arc** from customer problem to shipped solution.
 * **AI Fluency** means working with AI effectively, efficiently, ethically, and safely.
@@ -50,7 +50,7 @@ Course roadmap
 * **Delegating implementation** is usually safe. Delegating judgment is usually not.
 * **Most AI failures** trace back to description, discernment, or diligence failures made earlier.
 
-## Exercise
+## Exercise[](#exercise)
 
 ### Build your builder brief
 
@@ -73,12 +73,12 @@ Key areas to cover: what you’re building and who it’s for, your role and wha
 
 Review it together and add anything missing. Request a format that’s easy to copy and reuse. This is your builder brief for the course.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * When you completed the sentence “If AI could handle \_\_\_, I could spend more time on \_\_\_” — what did that reveal about where your energy is going versus where it should be?
 * In your builder brief, what constraints or values did you name that most AI interactions have been missing?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we introduce the 4D Framework — four interconnected competencies that will shape every AI collaboration in this course: Delegation, Description, Discernment, and Diligence.
 

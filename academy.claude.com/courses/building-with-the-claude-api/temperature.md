@@ -12,7 +12,7 @@ Lesson 67 min
 
 Temperature is a powerful parameter that controls how predictable or creative Claude's responses will be. Understanding how to use it effectively can dramatically improve your AI applications.
 
-## How Claude Generates Text
+## How Claude Generates Text[](#how-claude-generates-text)
 
 Before diving into temperature, it helps to understand Claude's text generation process. When you send Claude a prompt like "What do you think?", it goes through three key steps:
 
@@ -26,7 +26,7 @@ In this example, Claude might assign a 30% probability to "about", 20% to "would
 
 ![](https://academy.claude.com/assets/media/066db96fb6fbe8c816070295886b62a7f4bfbcec4823836371de30b427e32f8d.png)
 
-## What Temperature Does
+## What Temperature Does[](#what-temperature-does)
 
 Temperature is a decimal value between 0 and 1 that directly influences these selection probabilities. It's like adjusting the "creativity dial" on Claude's responses.
 
@@ -34,7 +34,7 @@ Temperature is a decimal value between 0 and 1 that directly influences these se
 
 At low temperatures (near 0), Claude becomes very deterministic - it almost always picks the highest probability token. At high temperatures (near 1), Claude distributes probability more evenly across options, leading to more varied and creative outputs.
 
-## Interactive Temperature Demo
+## Interactive Temperature Demo[](#interactive-temperature-demo)
 
 You can see temperature in action with Claude's interactive demo. Watch how the probability distribution changes as you adjust the temperature slider:
 
@@ -42,34 +42,34 @@ You can see temperature in action with Claude's interactive demo. Watch how the 
 
 At temperature 0.0, "about" gets 100% probability - completely deterministic. At temperature 1.0, probabilities spread more evenly across all possible tokens, introducing randomness and creativity.
 
-## Choosing the Right Temperature
+## Choosing the Right Temperature[](#choosing-the-right-temperature)
 
 Different tasks call for different temperature ranges:
 
 ![](https://academy.claude.com/assets/media/a7a05b01e4202fe72e12d28d91354ffae30d7343e648ef450cb8015e0418a8c9.png)
 
-### Low Temperature (0.0 - 0.3)
+### Low Temperature (0.0 - 0.3)[](#low-temperature-00---03)
 
 * Factual responses
 * Coding assistance
 * Data extraction
 * Content moderation
 
-### Medium Temperature (0.4 - 0.7)
+### Medium Temperature (0.4 - 0.7)[](#medium-temperature-04---07)
 
 * Summarization
 * Educational content
 * Problem-solving
 * Creative writing with constraints
 
-### High Temperature (0.8 - 1.0)
+### High Temperature (0.8 - 1.0)[](#high-temperature-08---10)
 
 * Brainstorming
 * Creative writing
 * Marketing content
 * Joke generation
 
-## Implementing Temperature in Code
+## Implementing Temperature in Code[](#implementing-temperature-in-code)
 
 Adding temperature support to your chat function is straightforward. Here's how to modify your existing function:
 
@@ -93,7 +93,7 @@ def chat(messages, system=None, temperature=1.0):
 
 The key changes are adding `temperature=1.0` as a parameter and including `"temperature": temperature` in the params dictionary.
 
-## Testing Temperature Effects
+## Testing Temperature Effects[](#testing-temperature-effects)
 
 To see temperature in action, try generating movie ideas with different settings:
 
@@ -109,7 +109,7 @@ answer = chat(messages, temperature=1.0)
 
 At temperature 0.0, you might consistently get responses like "A time-traveling archaeologist must prevent ancient artifacts from being stolen." At temperature 1.0, you'll see much more variety in themes, characters, and plot elements.
 
-## Key Takeaways
+## Key Takeaways[](#key-takeaways)
 
 Remember that temperature doesn't guarantee different outputs - it just changes the probability of getting them. Even at high temperatures, Claude might occasionally produce similar responses. The key is matching your temperature choice to your specific use case:
 

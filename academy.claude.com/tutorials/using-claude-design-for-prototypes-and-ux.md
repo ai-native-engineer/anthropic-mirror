@@ -12,11 +12,11 @@ Claude Design by Anthropic Labs is a powerful tool for product designers and pro
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-k687t63t.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-btcr2j4a.png)
 
-## Using Claude Design for prototypes and UX
+## Using Claude Design for prototypes and UX[](#using-claude-design-for-prototypes-and-ux)
 
 Claude Design by Anthropic Labs is a powerful tool for product designers and product managers who need to move fast from concept to working prototype. This guide covers workflows specific to product work – rapid prototyping, connecting your codebase for production-aware designs, iterating on features with real components, and handing off to engineering through Claude Code.
 
-## Product design workflows
+## Product design workflows[](#product-design-workflows)
 
 #### Rapid feature prototyping
 
@@ -78,11 +78,11 @@ Create a content moderation queue where reviewers can see flagged items, view co
 
 Copy prompt
 
-## Connecting your codebase
+## Connecting your codebase[](#connecting-your-codebase)
 
 For product teams, connecting your codebase to Claude Design is where the tool gets significantly more useful. Instead of generic prototypes, Claude generates designs using your actual components, styling, and architecture.
 
-### Why It matters for product work
+### Why It matters for product work[](#why-it-matters-for-product-work)
 
 **Prototypes use your real components:** When Claude can see your component library, it designs with the buttons, cards, modals, and layouts that already exist in your codebase. No more "this looks great but we don't have that component" during handoff.
 
@@ -90,13 +90,13 @@ For product teams, connecting your codebase to Claude Design is where the tool g
 
 **Faster handoff:** Since the prototype is already built with your real patterns, the gap between "prototype" and "shippable code" shrinks dramatically.
 
-### How to connect a codebase
+### How to connect a codebase[](#how-to-connect-a-codebase)
 
 Claude Design allows you to both import from Github and attach via local directories via the Import button.
 
 Once linked, your codebase becomes part of the project context. You can reference specific components by name in your prompts — "use the ProductCard component" or "follow the same layout pattern as the settings page."
 
-### What Claude understands from your code
+### What Claude understands from your code[](#what-claude-understands-from-your-code)
 
 Claude analyzes your linked codebase to understand:
 
@@ -105,13 +105,13 @@ Claude analyzes your linked codebase to understand:
 * **Framework patterns** — State management, hooks, data flow, and other conventions
 * **File organization** — How you name and structure components and directories
 
-### Performance considerations
+### Performance considerations[](#performance-considerations)
 
 Linking very large repositories can cause lag or browser stability issues. If your codebase is a monorepo or if you’re working on a codebase with more than 100 people actively contributing, we recommend linking the specific package or directory that contains the relevant components rather than the entire repo.
 
 We’ve also noticed that Chrome doesn’t handle attaching huge file trees well. You can avoid this by attaching folders within your repo, such that you do not include the .git folder, node\_modules/ folder, etc., which may contain very large numbers of files.
 
-## Hand off to Claude Code
+## Hand off to Claude Code[](#hand-off-to-claude-code)
 
 When a prototype is ready for implementation, Claude Design can hand off to Claude Code – preserving the design intent, component choices, and architectural decisions so engineers can build on your work instead of reinterpreting it.
 
@@ -125,13 +125,13 @@ You’ll also have an option to hand off to Claude Code Web.
 
 This handoff is especially valuable when your codebase is linked, because Claude Code already understands the components and patterns the prototype was built with. As one design lead put it: "Including design intent in Claude Code handoffs has made the jump from prototype to production seamless."
 
-### Tips for a clean handoff
+### Tips for a clean handoff[](#tips-for-a-clean-handoff)
 
 * **`Name` things clearly in the prototype.** If you've referred to components by specific names during the design conversation, those names carry through to the handoff.
 * **Document decisions in the chat.** When you make a design decision during iteration ("we went with tabs instead of a sidebar because users need to see all sections at once"), that reasoning becomes context for implementation.
 * **Flag edge cases.** Before handing off, ask Claude to show how the design handles empty states, error states, loading states, and different data volumes. This gives engineering a more complete picture.
 
-## Example: End-to-end product design workflow
+## Example: End-to-end product design workflow[](#example-end-to-end-product-design-workflow)
 
 Here's how a product team might use Claude Design from idea to implementation:
 

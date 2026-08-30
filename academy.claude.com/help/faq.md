@@ -67,7 +67,7 @@ Your Skilljar certificates are still yours — Academy doesn’t change, move, o
 
 ### Can I change my name on my course completion badge?
 
-You can set the name on your course completion badge when you claim it. If a course completion badge was already issued with the wrong name, contact support and we’ll correct it — a rename keeps the course completion badge’s public verification link the same, so anywhere you’ve already shared it keeps working.
+Yes. Open the badge from your Academy dashboard and choose “Edit name”. Badges are issued automatically with your Claude account name when you pass the final required quiz — if we couldn’t fill it in, you’ll type it when you claim the badge. You can change the name any time, and a rename keeps the badge’s public verification link the same, so anywhere you’ve already shared it keeps working.
 
 ### I finished every lesson — where’s my course completion badge?
 

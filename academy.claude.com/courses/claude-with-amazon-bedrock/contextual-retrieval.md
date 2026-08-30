@@ -16,7 +16,7 @@ Contextual retrieval is a technique that improves RAG pipeline accuracy by solvi
 
 The basic idea is simple. After chunking your source document, you ask Claude to add context to each chunk before storing it in your retriever database. This pre-processing step helps "situate" each chunk within the larger document.
 
-## How It Works
+## How It Works[](#how-it-works)
 
 For each text chunk, you send both the chunk and the original source document to Claude with a prompt like this:
 
@@ -43,7 +43,7 @@ Claude might generate context like: "This section is from a larger report about 
 
 You then combine this generated context with the original chunk text to create a "contextualized chunk" that gets stored in your vector and BM25 indexes.
 
-## Handling Large Documents
+## Handling Large Documents[](#handling-large-documents)
 
 If your source document is too large to fit in a single prompt, you can provide a reduced set of context instead of the entire document.
 
@@ -56,7 +56,7 @@ For any given chunk you're contextualizing, include:
 
 This approach gives Claude enough information to generate meaningful context without overwhelming the prompt with the entire document.
 
-## Implementation Example
+## Implementation Example[](#implementation-example)
 
 Here's a basic implementation of the contextual retrieval function:
 
@@ -108,7 +108,7 @@ for i, chunk in enumerate(chunks):
     retriever.add_document({"content": contextualized_chunk})
 ```
 
-## Expected Results
+## Expected Results[](#expected-results)
 
 The generated context provides valuable information about document structure and relationships. For example, Claude might describe a chunk as "Section 2 of an Annual Interdisciplinary Research Review, detailing software engineering efforts to resolve stability issues in Project Phoenix. It follows the Methodology section and precedes Financial Analysis, forming part of a comprehensive report that covers ten research domains across the organization."
 

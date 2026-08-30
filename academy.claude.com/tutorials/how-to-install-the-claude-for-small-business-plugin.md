@@ -18,7 +18,7 @@ The Small Business [plugin(opens in new tab)](https://academy.claude.com/tutoria
 
 Running the plugin well is an act of delegation, in two moves: you put the job into plain words so Claude picks the right skill for it, and you stay involved while the work happens, reading what Claude stages before anything goes out. Claude works as a collaborator you direct: it brings the capability, and the intent and the judgment calls stay with you.
 
-## Install and run the plugin
+## Install and run the plugin[](#install-and-run-the-plugin)
 
 You'll need the [Claude desktop app(opens in new tab)](https://claude.com/download) on a Pro, Max, Team, or Enterprise plan.
 
@@ -35,7 +35,7 @@ After installing the plugin, you'll have all of the [skills(opens in new tab)](h
 
 Either way, Claude follows the skill's instructions for that task. To learn more, see [What are skills(opens in new tab)](https://academy.claude.com/tutorials/what-are-skills) and [Use plugins in Claude Cowork(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork).
 
-## What's in the plugin
+## What's in the plugin[](#whats-in-the-plugin)
 
 A [plugin(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork) bundles a set of [skills(opens in new tab)](https://academy.claude.com/tutorials/what-are-skills) and the connectors they read from. Each skill is a set of instructions for a specific task. With the plugin installed, Claude already knows the steps for a range of tasks, so when you prompt for one it only has to be a few words.
 
@@ -81,7 +81,7 @@ Some skills in this plugin run a few of the others in sequence, asking for your 
 
 The tools listed are the defaults. When you customize the plugin, you can point a skill at the tools you actually use — a different payment processor, accounting tool, or CRM — and the skill reads from those instead.
 
-## Customize the plugin for your business
+## Customize the plugin for your business[](#customize-the-plugin-for-your-business)
 
 The skills come with defaults written for a typical small business. There are two ways to make them yours.
 
@@ -97,11 +97,11 @@ As you do tasks with Claude that run these skills and see the output they produc
 
 For the full pattern, see [How to customize plugins in Cowork(opens in new tab)](https://academy.claude.com/tutorials/how-to-customize-plugins-in-cowork).
 
-## Examples to try
+## Examples to try[](#examples-to-try)
 
 Pick something that's on your list this week and describe it the way you'd describe it to someone you trust to handle it. Claude reads your prompt and runs the skill that fits.
 
-### Money and finance
+### Money and finance[](#money-and-finance)
 
 * *What does cash look like for the next 60 days?*
 * *Which invoices are open and which ones should I follow up on?*
@@ -109,20 +109,20 @@ Pick something that's on your list this week and describe it the way you'd descr
 * *What are my margins on the catering side of the business?*
 * *Get my Q2 estimated taxes ready for my accountant.*
 
-### Sales and marketing
+### Sales and marketing[](#sales-and-marketing)
 
 * *Who should I call first today?*
 * *What's selling and what should I push this month?*
 * *June is usually a quieter month — help me plan a promo to fill it.*
 
-### Customers and operations
+### Customers and operations[](#customers-and-operations)
 
 * *A customer wrote about a late shipment. Help me draft a reply.*
 * *What are customers saying lately, and what should I act on?*
 * *Tidy up the CRM and tell me what's worth a fresh look.*
 * *Walk me through this NDA before I sign it.*
 
-### Business intelligence and hiring
+### Business intelligence and hiring[](#business-intelligence-and-hiring)
 
 * *Give me my Monday brief.*
 * *How'd we do this week?*
@@ -131,7 +131,7 @@ Pick something that's on your list this week and describe it the way you'd descr
 
 For a step-by-step walkthrough of four of these — payroll, the month-end close, the Monday brief, and a campaign — see [Using Claude for your small business(opens in new tab)](https://academy.claude.com/tutorials/using-claude-for-your-small-business).
 
-### Practice: run one skill yourself
+### Practice: run one skill yourself[](#practice-run-one-skill-yourself)
 
 Take one job from your week, one where you already know roughly what the answer should look like, and describe it in the Cowork chat bar the way you'd hand it to a person:
 
@@ -148,7 +148,7 @@ Before you approve anything, check the result against something you already know
 
 The habit to keep: describe the job, let Claude pick the skill, and check the result against something you know before you approve it. It works the same for every skill in this plugin.
 
-## Things to note
+## Things to note[](#things-to-note)
 
 * **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
 * **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.
@@ -156,7 +156,7 @@ The habit to keep: describe the job, let Claude pick the skill, and check the re
 * **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
 * **Some features depend on your plan in a connected tool** — generating designs or staging sends may need a higher tier in that tool. When something isn't available, the skill tells you and offers a workaround.
 
-## Learn more
+## Learn more[](#learn-more)
 
 * [Introducing Claude for Small Business(opens in new tab)](https://www.anthropic.com/news/claude-for-small-business) — the launch announcement
 * [Using Claude for your small business(opens in new tab)](https://academy.claude.com/tutorials/using-claude-for-your-small-business) — four workflows the plugin runs end to end

@@ -18,7 +18,7 @@ This connector provides access to the Open Targets Platform for identifying and 
 
 The Open Targets integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 The Open Targets connector provides a purpose-built interface and instruction to access and interpret the data and analyses within the [Open Targets Platform(opens in new tab)](http://platform.opentargets.org).
 
@@ -26,14 +26,14 @@ The Open Targets Platform is a comprehensive tool that supports systematic ident
 
 This tool makes the Open Targets Platform GraphQL API accessible as read-only, and includes all sources listed in the [Open Targets Platform documentation(opens in new tab)](http://platform-docs.opentargets.org).
 
-## **Who should use the Open Targets integration**
+## **Who should use the Open Targets integration**[](#who-should-use-the-open-targets-integration)
 
 * **Target Discovery Scientists:** Identifying novel therapeutic targets
 * **Research Directors/Team or Project Leads/Portfolio Managers:** Strategic decision-making and portfolio management
 * **Academic researchers at all levels:** contrasting their data against existing data, e.g. viewing associations evidence and prioritization analyses for a list of targets they have generated
 * **Bioinformaticians/Data Engineers/Machine Learning Engineers/R&D IT teams:** Integrating Open Targets data with proprietary datasets, building internal data platforms and solutions, training models on biological data
 
-## **Who can access the Open Targets integration**
+## **Who can access the Open Targets integration**[](#who-can-access-the-open-targets-integration)
 
 The Open Targets Platform data available through the connector is available for academic and commercial use. Open Targets Platform is marked with CC0 1.0; this dedicates the data to the public domain, allowing downstream users to consume the data without restriction. For more information, refer to the [Open Targets Platform licensing documentation.(opens in new tab)](https://platform-docs.opentargets.org/licence)
 
@@ -41,7 +41,7 @@ The connector code itself is licensed with Apache 2.0.
 
 More details on accessing the integration can be found in [Open Targets’ MCP Server Documentation(opens in new tab)](https://github.com/opentargets/open-targets-platform-mcp).
 
-## **Setting up the Open Targets integration**
+## **Setting up the Open Targets integration**[](#setting-up-the-open-targets-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -67,7 +67,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the Open Targets integration can be found in [Open Targets’ MCP Server Documentation(opens in new tab)](https://github.com/opentargets/open-targets-platform-mcp).
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Target Discovery Researcher Studying a Disease**
 

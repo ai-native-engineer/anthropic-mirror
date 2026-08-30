@@ -10,7 +10,7 @@ Lesson 9 of 13 · AI Capabilities and LimitationsTry It Out: Working Memory
 
 Lesson 910 min
 
-## Context Degradation
+## Context Degradation[](#context-degradation)
 
 *When more context makes things worse*
 
@@ -20,9 +20,9 @@ Not always. There's a phenomenon that anyone who has crammed for an exam knows i
 
 Before we talk about how this affects AI models, let's see how it affects **you**.
 
-## The Memory Test
+## The Memory Test[](#the-memory-test)
 
-## The U-Shaped Curve
+## The U-Shaped Curve[](#the-u-shaped-curve)
 
 What you just experienced has a name: the **serial position effect**. Psychologists have studied it for over a century. Items at the beginning of a list benefit from **primacy** (they get rehearsed more), and items at the end benefit from **recency** (they're still fresh). The middle gets neither advantage.
 
@@ -30,7 +30,7 @@ The fascinating part: **large language models exhibit the same pattern**. In 202
 
 This isn't a quirk. It's structural. Transformer attention patterns naturally weight the edges of the context window more heavily.
 
-## What This Means for Prompting
+## What This Means for Prompting[](#what-this-means-for-prompting)
 
 If you paste a 20-page document into a prompt and ask a question about something on page 11, the model is more likely to miss it than something on page 1 or page 20. This has real implications for how you structure context.
 
@@ -38,7 +38,7 @@ The practical advice is straightforward: **put your most important instructions 
 
 This is the starting point, not the ceiling. As you get more fluent you'll discover increasingly sophisticated ways to structure context so the model reliably understands what matters — leveraging where in the window information sits, what to include versus cut, and how to keep critical instructions from sliding into the dead zone. The goal is always the same: make it obvious to Claude what you actually need.
 
-## The Bigger Picture
+## The Bigger Picture[](#the-bigger-picture)
 
 Context degradation is the reason that "just give it more context" is not always the answer. Every piece of context you add pushes other pieces further into the middle — the attention dead zone. This is the core tension of **context engineering**: not just what to include, but where to put it and what to leave out.
 

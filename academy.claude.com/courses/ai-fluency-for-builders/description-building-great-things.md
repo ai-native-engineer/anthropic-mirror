@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Spot when a description failure cascades and trace it back to the link that broke
 * Express intent through tests that tell AI exactly what success looks like
 
-## Describing what users need
+## Describing what users need[](#describing-what-users-need)
 
 Describing what users need · 5 min
 
@@ -25,7 +25,7 @@ not sufficient for building great products. This lesson maps the full
 Description Chain: the path from a messy human need to a precise instruction
 AI can act on, with the builder as the translator at every step.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The **Description Chain** connects user voice to requirement to technical spec to AI instruction. Prompt engineering is only one link.
 * **The builder is the translator** at every step. AI cannot hear what the user did not say.
@@ -33,7 +33,7 @@ AI can act on, with the builder as the translator at every step.
 * **Tests are the most precise form of description.** A passing test with an unhappy user means you described the wrong intent.
 * Every step involves **judgment calls** the previous phase did not make for you.
 
-## Exercise
+## Exercise[](#exercise)
 
 ### The Clinic Wait Time Project, Part 2
 
@@ -61,12 +61,12 @@ Find a partner. They play a clinic patient — they’ve got a sick kid and ten 
 
 Did the tests pass? Is the patient satisfied? If those answers don’t match, which link in the chain would you go back to?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Which translation in the Description Chain feels most natural? Which do you tend to rush through?
 * In your Clinic demo, where was the biggest gap between what you intended and what your partner experienced?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we move from description to discernment. You’ve built something and the code runs — now the question is whether it’s actually good.
 

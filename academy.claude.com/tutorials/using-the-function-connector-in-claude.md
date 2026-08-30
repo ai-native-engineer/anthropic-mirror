@@ -18,7 +18,7 @@ The Function integration allows Function members to securely view their lab test
 
 The Function integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 Function members can securely see a summary of their lab results, ask health questions, and access their nutrition plans. Function includes 160+ lab tests per year to monitor 1,000+ diseases, help uncover possible causes of unexplained symptoms, and create a roadmap for feeling your best. Test your heart, hormones, thyroid, liver, kidneys, toxins, nutrients, inflammation, autoimmunity, immunity and more.
 
@@ -28,13 +28,13 @@ With this connector, you can:
 * Understand which health areas may need more attention
 * Get nutrition plans informed by your lab results
 
-## **Who should use the Function integration**
+## **Who should use the Function integration**[](#who-should-use-the-function-integration)
 
 Function members interested in asking health questions in Claude. The Function Health connector is available to Claude Pro and Claude Max users in the United States.
 
 More details on accessing the integration can be found in [Function Health's MCP Server Documentation(opens in new tab)](https://services.functionhealth.com/auth0/acul/claude_connector_docs.html).
 
-## **Setting up the Function integration**
+## **Setting up the Function integration**[](#setting-up-the-function-integration)
 
 **For Individual Claude Users**
 
@@ -47,7 +47,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the Function integration can be found in [Function MCP Server Documentation(opens in new tab)](https://services.functionhealth.com/auth0/acul/claude_connector_docs.html).
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 Get a health summary:
 
@@ -79,7 +79,7 @@ How have my lab results changed since my last Function test?
 
 Open in Claude
 
-## **How does Claude protect my data privacy and safety?**
+## **How does Claude protect my data privacy and safety?**[](#how-does-claude-protect-my-data-privacy-and-safety)
 
 Your health information is personal. That's why we've built Claude to work with integrations like Function with privacy and user empowerment at the core.
 

@@ -2,7 +2,7 @@
 
 # Economics
 
-The Economic Research team studies how AI is reshaping the economy, including work, productivity, and economic opportunity. Through rigorous data collection and analysis, we track AI's real-world economic effects and publish research that helps policymakers, businesses, and the public understand and prepare for the changes ahead.
+The Economics team studies how AI is reshaping the economy, including work, productivity, and economic opportunity. Through rigorous data collection and analysis, we track AI's real-world economic effects and publish research that helps policymakers, businesses, and the public understand and prepare for the changes ahead.
 
 Research teams:[Alignment](https://www.anthropic.com/research/team/alignment)[Economics](https://www.anthropic.com/research/team/economics)[Interpretability](https://www.anthropic.com/research/team/interpretability)[Societal Impacts](https://www.anthropic.com/research/team/societal-impacts)[Frontier Red Team](https://www.anthropic.com/research/team/frontier-red-team)
 
@@ -18,23 +18,23 @@ Economic transitions create both opportunity and disruption. The speed of AI dev
 
 [## Anthropic Economic Index report: Learning curves
 
-Economic ResearchMar 24, 2026
+EconomicsMar 24, 2026
 
 Anthropic's fifth Economic Index report studies Claude usage in February 2026, building on the economic primitives framework introduced in our previous report.](https://www.anthropic.com/research/economic-index-march-2026-report)
 
-[Economic ResearchApr 22, 2026
+[EconomicsApr 22, 2026
 
 #### What 81,000 people told us about the economics of AI
 
-Our recent survey study with 81,000 Claude users provides a way to connect people’s economic concerns with what we’ve quantified in Claude traffic.](https://www.anthropic.com/research/81k-economics)[Economic ResearchMar 5, 2026
+Our recent survey study with 81,000 Claude users provides a way to connect people’s economic concerns with what we’ve quantified in Claude traffic.](https://www.anthropic.com/research/81k-economics)[EconomicsMar 5, 2026
 
 #### Labor market impacts of AI: A new measure and early evidence
 
-In this paper, we present a new framework for understanding AI’s labor market impacts, and test it against early data.](https://www.anthropic.com/research/labor-market-impacts)[Economic ResearchJan 15, 2026
+In this paper, we present a new framework for understanding AI’s labor market impacts, and test it against early data.](https://www.anthropic.com/research/labor-market-impacts)[EconomicsJan 15, 2026
 
 #### Anthropic Economic Index report: Economic primitives
 
-This report introduces new metrics of AI usage to provide a rich portrait of interactions with Claude in November 2025, just prior to the release of Opus 4.5.](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)[Economic ResearchNov 25, 2025
+This report introduces new metrics of AI usage to provide a rich portrait of interactions with Claude in November 2025, just prior to the release of Opus 4.5.](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)[EconomicsNov 25, 2025
 
 #### Estimating AI productivity gains from Claude conversations
 
@@ -46,34 +46,34 @@ Search
 
 DateCategoryTitle
 
-* [Aug 12, 2026Economic Research
+* [Aug 12, 2026Economics
 
   Reviewing the evidence on worker retraining programs](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
-* [Jul 14, 2026Economic Research
+* [Jul 14, 2026Economics
 
   How Canada uses Claude: Findings from the Anthropic Economic Index](https://www.anthropic.com/research/how-canada-uses-claude)
-* [Jun 26, 2026Economic Research
+* [Jun 26, 2026Economics
 
   Anthropic Economic Index report: Cadences](https://www.anthropic.com/research/economic-index-june-2026-report)
-* [Jun 16, 2026Economic Research
+* [Jun 16, 2026Economics
 
   Agentic coding and persistent returns to expertise](https://www.anthropic.com/research/claude-code-expertise)
-* [May 27, 2026Economic Research
+* [May 27, 2026Economics
 
   Coding agents in the social sciences](https://www.anthropic.com/research/coding-agents-social-sciences)
-* [Apr 22, 2026Economic Research
+* [Apr 22, 2026Economics
 
   Announcing the Anthropic Economic Index Survey](https://www.anthropic.com/research/economic-index-survey-announcement)
-* [Apr 22, 2026Economic Research
+* [Apr 22, 2026Economics
 
   What 81,000 people told us about the economics of AI](https://www.anthropic.com/research/81k-economics)
-* [Mar 31, 2026Economic Research
+* [Mar 31, 2026Economics
 
   How Australia Uses Claude: Findings from the Anthropic Economic Index](https://www.anthropic.com/research/how-australia-uses-claude)
-* [Mar 24, 2026Economic Research
+* [Mar 24, 2026Economics
 
   Anthropic Economic Index report: Learning curves](https://www.anthropic.com/research/economic-index-march-2026-report)
-* [Mar 5, 2026Economic Research
+* [Mar 5, 2026Economics
 
   Labor market impacts of AI: A new measure and early evidence](https://www.anthropic.com/research/labor-market-impacts)
 

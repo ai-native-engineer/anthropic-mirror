@@ -32,7 +32,7 @@ This course is the result of a partnership between Anthropic and GivingTuesday, 
 
 The work builds on our AI Fluency: Framework & Foundations course, adapted specifically for the nonprofit context where limited resources, multiple stakeholder accountabilities, and mission-driven work create unique considerations for AI collaboration.
 
-## **Recommended prerequisites**
+## **Recommended prerequisites**[](#recommended-prerequisites)
 
 This course lightly covers the foundational AI Fluency concepts. However, for deeper understanding, participants should complete *AI Fluency: Framework & Foundations* before beginning this nonprofit-focused curriculum.
 

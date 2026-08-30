@@ -4,15 +4,15 @@ Latest news
 
 [Next](#)Next
 
-### Claude Cowork is ready for enterprise
+Built-in browser
 
-Enterprise admins can now manage feature access, control spend, and track Cowork usage across the org
+Claude can now open sites, fill forms, and finish web tasks in a browser built into Cowork.
 
-Learn more
+Read more
 
-[Learn more](https://claude.com/blog/cowork-for-enterprise)Learn more
+[Read more](https://claude.com/blog/cowork-built-in-browser)Read more
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69c5ce5b40c4078ea6468b2f_og-security.jpg)
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a8f549bc5dfe0cc40a048f0_Node-Cursor.svg)
 
 # Claude Cowork
 
@@ -76,6 +76,18 @@ Close your laptop, it keeps going. Schedule a task for any cadence, and it runs 
 
 Big projects are split into chunks that run together. While it drafts, it researches and organizes at the same time. You review polished work.
 
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a8f16a6d44c900b29172541_aacbc99c7782f29da95a30ed84ff0054_260826-Cowork-InAppBrowser-4K-Thumbnail_003.webp)
+
+A built-in browser for Cowork
+
+When a task requires opening a site, reading a page, or filling a form, Claude opens a browser in the Cowork side panel instead of yours while you keep working.
+
+* No installation needed.
+* Separate from your own browser, logins, and tabs.
+* Sign in once for every session, or import cookies to say signed in to your browser (Chrome, Edge, and Firefox on macOS; Firefox on Windows and Linux).
+
+Available in the Cowork desktop app on Pro, Max, and Team plans. Enterprise admins manage it in Organization settings → Cowork.
+
 ## Power through tedious tasks
 
 See more use cases
@@ -132,7 +144,7 @@ Microsoft 365
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69c3e9405a173533acdaf552_f0d9b6e44e75fdd2a15586497528ec53_CleanShot%202026-03-25%20at%2009.54.54%402x.webp)
 
-Reconcile data in spreadsheets
+### Reconcile data in spreadsheets
 
 Hand off recurring close work. Point Claude at the folder of regional exports and budget files, and come back to a working spreadsheet with variances flagged and a note on what didn't reconcile.
 
@@ -242,7 +254,7 @@ Slack
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
-### Analyze every objection you've heard this quarter, in one place
+### Analyze every objection you’ve heard this quarter, in one place
 
 Hand off first-pass contract review. Point Claude at the folder of inbound agreements and your playbook, and come back to a memo per contract with every departure cited to the clause, and the gaps your playbook doesn't cover marked for you.
 
@@ -334,6 +346,16 @@ Learn more
 
 ‍
 
+[**Built-in browser:** Claude can now open sites, fill forms, and finish web tasks in a browser built into Cowork](https://claude.com/blog/cowork-built-in-browser)**Built-in browser:** Claude can now open sites, fill forms, and finish web tasks in a browser built into Cowork
+
+**Built-in browser:** Claude can now open sites, fill forms, and finish web tasks in a browser built into Cowork
+
+Blog
+
+[Blog](https://claude.com/blog/cowork-built-in-browser)Blog
+
+Aug 26, 2026
+
 [**Enterprise deployment:** Manage feature access, control spend, and track Claude Cowork usage across the org](https://claude.com/blog/cowork-for-enterprise)**Enterprise deployment:** Manage feature access, control spend, and track Claude Cowork usage across the org
 
 **Enterprise deployment:** Manage feature access, control spend, and track Claude Cowork usage across the org
@@ -354,7 +376,7 @@ Blog
 
 Feb 24, 2026
 
-## Claude Cowork doesn't just answer, it takes action
+## Claude Cowork doesn’t just answer, it takes action
 
 Marketing
 

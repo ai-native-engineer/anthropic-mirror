@@ -8,38 +8,87 @@ Lesson 7 of 12 · Claude Code 101Code review
 
 # Code review
 
-Lesson 73 min
+Lesson 710 min
 
-Code review
+When you give Claude Code a task to complete in your codebase, Claude will often report back in a succinct way. Underneath the description of what Claude changed, there can be a variety of files that were changed (from small to major changes). Oftentimes, the session that wrote the code changes themselves (and explained them) is not the highest-quality judge of those changes. It's a good practice to give every change a look yourself before you keep it, and then have Claude review it again from a clean context, without this session's history.
 
-SummaryTranscript
+## Review the actual changes[](#review-the-actual-changes)
 
-Claude Code has a few built-in features that make your git workflow faster.
-Let's go through them.
+A diff is the before-and-after of a change: the lines removed and the lines added, file by file. The `/diff` command opens an interactive viewer of your uncommitted changes in that form, and it can also show what each of Claude's turns changed. Use the up and down arrows to move between files and `Enter` to open one.
 
-## Review with a Subagent
+`/diff`
 
-Before you push a PR, ask Claude to use a **subagent** to review your changes. The subagent runs in its own context window with fresh eyes — it doesn't carry the bias of the main agent that just spent the session writing the code.
+Read moreNothing shows up in /diff?
 
-When creating a code-reviewer subagent, restrict it to read-only tools. A reviewer should flag issues, not edit files. Check the subagent configuration into your repo so your whole team uses the same reviewer.
+`/diff` and `/code-review` read git's record of what changed, so your project needs to be in a git repository. Git is the version-control tool most projects already use, and the Commit step in the Explore → Plan → Code → Commit lesson relies on it. This course doesn't teach git itself. If your project isn't in git yet, ask Claude to set it up and make a first commit before your next task. From that point on, every change shows up in both commands. For the change in front of you right now, ask for a review in plain words (below). On a different version control system, `/diff` and `/code-review` won't see your changes, but the rest still applies: read the change in your own tool, ask Claude in plain words to review the files Claude touched, and `/rewind` still works because Claude tracks its own edits.
 
-## The /commit-push-pr Skill
+The most important things that deserve a second look every time are:
 
-The `/commit-push-pr` skill handles the commit, push, and PR creation all in one step. Instead of doing each manually, just run the skill and Claude takes care of it.
+* **Changes you didn't ask for.** A config value that was edited while Claude was in the file or a rewritten helper method that you didn't mention.
+* **Tests that got weaker.** If the project you're working in contains tests, identify any that were skipped, deleted, or loosened until they passed.
+* **New packages and hard-coded values.** A dependency that was added for only one function, a URL or a key written straight into the code.
 
-If you have a Slack MCP server configured with channels listed in your CLAUDE.md, it will automatically post the PR link to your team's channel.
+If the whole change is wrong, run `/rewind` (or press `Esc` twice on an empty prompt), pick the prompt that produced it, and choose **Restore code and conversation**. One limit worth knowing: files changed by shell commands Claude ran, such as a package install, aren't rolled back.
 
-## Session Linking with --from-pr
+The exercise below uses a small signup-form task: Claude's summary on top, the eight files Claude touched underneath.
 
-When Claude creates a PR through `gh pr create`, the session gets linked to that PR automatically. If you need to come back to it later — maybe to address review comments or fix a failing build — run:
+## Ask for a second opinion[](#ask-for-a-second-opinion)
 
-`claude --from-pr <PR_NUMBER>`
+The Explore → Plan → Code → Commit lesson said to have a second reviewer on a change before you commit it. A long session carries everything it has read and decided. That's the context you learned to manage in the previous lesson, and it's exactly the history you don't want in a reviewer. `/code-review` is that second reviewer: it reviews the change in a clean context, with none of your session's history, and reports what it finds. It edits nothing unless you ask it to.
 
-This picks up right where you left off.
+`/code-review`
 
-## Recap
+The review runs in the background, anywhere from seconds to a few minutes, and counts against your usage like any other task, so save it for changes that deserve a second look. The findings arrive in your conversation when it finishes. You can also ask in plain words, and Claude can start the same review from the request. If Claude answers inline instead of starting a review, run the command yourself.
 
-Use a subagent for an unbiased code review before pushing. Use `/commit-push-pr` to handle the full commit-to-PR flow in one step. And use `--from-pr` to resume work on a PR later. These are small features, but they remove a lot of friction from your daily workflow.
+Review the changes you just made. Report problems; don't fix anything yet.
+
+Copy prompt
+
+Read moreWant a lighter or a deeper review?
+
+Add an effort level to the command. `/code-review low` reports only the findings it's most confident about, so you see fewer false alarms. `/code-review high` casts a wider net and may include findings it's less sure of. The level you type is remembered for later reviews until you type a different one.
+
+For the signup-form change, the review came back with four findings:
+
+## Decide what to do with each finding[](#decide-what-to-do-with-each-finding)
+
+Sort each finding into one of three piles:
+
+1. **Fix now.** This is a real problem, it matters, and it must be fixed.
+2. **Ask why.** This is the pile for findings you can't quite verify or that seem off. It's possible for reviewers that are reading code changes cold to also miss things.
+3. **Leave it.** This is a real problem but small or inconsequential. These can often be batched into a group of fixes that you'll cover in one future session.
+
+To ask why, quote the finding back to Claude and ask Claude to check again. For the second finding above, you would type:
+
+You reported that isValidEmail doesn't trim spaces, but line 4 calls trim(). Check again and tell me whether the finding stands.
+
+Copy prompt
+
+Whenever you ask for a fix, it's good to ask for evidence with it:
+
+Fix the first finding: don't skip the empty-email test and restore the original assertion. Then run the tests and show me the output.
+
+Copy prompt
+
+If a fix eventually grows into a large change of its own, run the review again.
+
+## When it pays off to review things more closely[](#when-it-pays-off-to-review-things-more-closely)
+
+A simple, one-line change often needs a quick glance at the diff and nothing else. You should use a human review and a Claude review when a change is bigger than you could hold in your head, when it touches something sensitive or does something destructive, and before you hand the work to a teammate.
+
+Read moreIs this the same as Claude Code Review?
+
+No. [Claude Code Review(opens in new tab)](https://code.claude.com/docs/en/code-review) is a separate product for teams: an admin turns it on for a GitHub repository, and it posts its findings on pull requests. Nothing in this lesson needs it.
+
+## Try it: sort the four findings[](#try-it-sort-the-four-findings)
+
+## Recap[](#recap)
+
+* Read the actual diff of the file changes before you trust the summary alone. Run `/diff` and look for changes you didn't ask for, weaker tests, and new packages or hard-coded values.
+* Get a second opinion from a clean context with `/code-review` (or ask in plain words and let Claude start it). The reviewer reports, and Claude doesn't edit unless you ask.
+* Treat each finding as fix now, ask why, or leave it, and ask for evidence with every fix.
+
+When the reviewer flags the same issue a few times, it might be a good idea to write a rule for Claude to read at the start of every session. That file is `CLAUDE.md`, and it's next.
 
 [Previous lessonContext management](https://academy.claude.com/courses/claude-code-101/context-management)[Next lessonThe CLAUDE.md file](https://academy.claude.com/courses/claude-code-101/the-claude-md-file)
 
@@ -75,7 +124,9 @@ Quiz
 
 * [Completion badge](https://academy.claude.com/courses/claude-code-101/badge)
 
-* [Review with a Subagent](#review-with-a-subagent)
-* [The /commit-push-pr Skill](#the-commit-push-pr-skill)
-* [Session Linking with --from-pr](#session-linking-with---from-pr)
+* [Review the actual changes](#review-the-actual-changes)
+* [Ask for a second opinion](#ask-for-a-second-opinion)
+* [Decide what to do with each finding](#decide-what-to-do-with-each-finding)
+* [When it pays off to review things more closely](#when-it-pays-off-to-review-things-more-closely)
+* [Try it: sort the four findings](#try-it-sort-the-four-findings)
 * [Recap](#recap)

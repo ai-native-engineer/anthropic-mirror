@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Raise your quality bar beyond "it works" by learning failure modes specific to AI-built products
 * Catch AI's predictable technical blind spots before they reach production
 
-## Discernment for code
+## Discernment for code[](#discernment-for-code)
 
 Discernment for code · 5 min
 
@@ -25,24 +25,24 @@ bar. You’ll learn where AI-built products typically fail, the technical
 blind spots that surface in production but not in development, and how to
 build the taste that AI doesn’t have.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Code that runs can still fail.** The default AI output is technically complete but often misses the point.
 * **AI has predictable blind spots** in concurrency, security, and anything that only breaks at scale.
 * **Taste is a builder skill.** AI delivers functional. Making it worth using is on you.
 
-## Exercise
+## Exercise[](#exercise)
 
 ### User testing the Clinic project
 
 Put your build in front of a partner playing a patient or clinic admin — don’t explain, don’t help. Watch where they get confused, what they ignore, and what they wanted that you never built. Write down three things you’d change and which lens each falls under.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Which of the five lenses do you naturally apply, and which do you have to remind yourself to check?
 * When AI produces something that isn’t good enough, what’s your instinct: fix it yourself, or describe it better?
 
-## What's next
+## What's next[](#whats-next)
 
 You’ve stress-tested the Clinic Wait Time Checker through the lenses you tend to skip. Next, you’ll look at the same tool through a different lens: how does it actually feel to use?
 

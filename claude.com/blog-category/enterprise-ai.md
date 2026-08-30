@@ -16,6 +16,38 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
+
+Aug 28, 2026
+
+How Anthropic employees use Claude Tag
+
+Enterprise AI
+
+How Anthropic employees use Claude Tag
+
+August 28, 2026
+
+[How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
+
+[How Anthropic employees use Claude Tag](#)How Anthropic employees use Claude Tag
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22727482c9ba6a02e71_1576ae23eaf481f33bd36ab468171cc69d12361a-1000x1000.svg)
+
+Aug 25, 2026
+
+Bain & Company joins the Claude Partner Network as a Global Premier partner
+
+Enterprise AI
+
+Bain & Company joins the Claude Partner Network as a Global Premier partner
+
+August 25, 2026
+
+[Bain & Company joins the Claude Partner Network as a Global Premier partner](https://claude.com/blog/bain-company-joins-the-claude-partner-network-as-a-global-premier-partner)Bain & Company joins the Claude Partner Network as a Global Premier partner
+
+[Bain & Company joins the Claude Partner Network as a Global Premier partner](#)Bain & Company joins the Claude Partner Network as a Global Premier partner
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Aug 21, 2026
@@ -224,38 +256,6 @@ August 5, 2026
 
 [Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2279047e82efc257633_6c7219042e95bfef1a126ad5ee8b2c7def8b8b0a-1000x1000.svg)
-
-Aug 4, 2026
-
-A guide to cost visibility and control in Claude
-
-Enterprise AI
-
-A guide to cost visibility and control in Claude
-
-August 4, 2026
-
-[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
-
-[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d224f466b800c4a5a016_a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
-
-Jul 24, 2026
-
-How the product designer who built Claude Design uses it to explore ideas before building them
-
-Enterprise AI
-
-How the product designer who built Claude Design uses it to explore ideas before building them
-
-July 24, 2026
-
-[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
-
-[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
-
 [View more](https://claude.com/blog-category/enterprise-ai?1e959936_page=2)
 
 Category
@@ -263,6 +263,38 @@ Category
 Product
 
 Usecase
+
+### How Anthropic employees use Claude Tag
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 28, 2026
+
+[How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
+
+[How Anthropic employees use Claude Tag](#)How Anthropic employees use Claude Tag
+
+### Bain & Company joins the Claude Partner Network as a Global Premier partner
+
+Category
+
+Enterprise AI
+
+Product
+
+Usecase
+
+August 25, 2026
+
+[Bain & Company joins the Claude Partner Network as a Global Premier partner](https://claude.com/blog/bain-company-joins-the-claude-partner-network-as-a-global-premier-partner)Bain & Company joins the Claude Partner Network as a Global Premier partner
+
+[Bain & Company joins the Claude Partner Network as a Global Premier partner](#)Bain & Company joins the Claude Partner Network as a Global Premier partner
 
 ### The AI-Native SDLC playbook
 
@@ -471,38 +503,6 @@ August 5, 2026
 [Inference hooks: inline data loss prevention for Claude Enterprise](https://claude.com/blog/claude-enterprise-inference-hooks)Inference hooks: inline data loss prevention for Claude Enterprise
 
 [Inference hooks: inline data loss prevention for Claude Enterprise](#)Inference hooks: inline data loss prevention for Claude Enterprise
-
-### A guide to cost visibility and control in Claude
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 4, 2026
-
-[A guide to cost visibility and control in Claude](https://claude.com/blog/a-guide-to-cost-visibility-and-control-in-claude)A guide to cost visibility and control in Claude
-
-[A guide to cost visibility and control in Claude](#)A guide to cost visibility and control in Claude
-
-### How the product designer who built Claude Design uses it to explore ideas before building them
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-July 24, 2026
-
-[How the product designer who built Claude Design uses it to explore ideas before building them](https://claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them)How the product designer who built Claude Design uses it to explore ideas before building them
-
-[How the product designer who built Claude Design uses it to explore ideas before building them](#)How the product designer who built Claude Design uses it to explore ideas before building them
 
 [View more](https://claude.com/blog-category/enterprise-ai?2f226f2c_page=2)
 

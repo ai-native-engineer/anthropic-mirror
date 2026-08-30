@@ -93,6 +93,20 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
@@ -3624,7 +3638,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       format: date-time
 
-    - `Optional<List<BetaSkill>> skills`
+    - `Optional<List<BetaContainerSkill>> skills`
 
       Skills loaded in the container
 
@@ -4881,15 +4895,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       minimum: 0
 
-    - `Optional<List<BetaIterationsUsageItems>> iterations`
+    - `Optional<List<Iteration>> iterations`
 
       Per-iteration token usage breakdown.
 
-      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
-      - Calculate the true context window size from the last iteration
+      - Calculate the context window size from the last `message` entry
       - Understand token accumulation across server-side tool use loops
+
+      A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `class BetaMessageIterationUsage:`
 
@@ -5184,15 +5200,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minimum: 0
 
-      - `Optional<List<BetaIterationsUsageItems>> iterations`
+      - `Optional<List<Iteration>> iterations`
 
         Per-iteration token usage breakdown.
 
-        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
-        - Calculate the true context window size from the last iteration
+        - Calculate the context window size from the last `message` entry
         - Understand token accumulation across server-side tool use loops
+
+        A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
         - `class BetaMessageIterationUsage:`
 
@@ -5589,6 +5607,20 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
   - `Optional<String> userProfileId`
 
@@ -13367,7 +13399,7 @@ public final class Main {
 
     format: date-time
 
-  - `Optional<List<BetaSkill>> skills`
+  - `Optional<List<BetaContainerSkill>> skills`
 
     Skills loaded in the container
 
@@ -13426,6 +13458,32 @@ public final class Main {
       Skill version or 'latest' for most recent version
 
       maxLength: 64, minLength: 1
+
+### Beta Container Skill
+
+- `class BetaContainerSkill:`
+
+  A skill that was loaded in a container (response model).
+
+  - `String skillId`
+
+    Skill ID
+
+    maxLength: 64, minLength: 1
+
+  - `Type type`
+
+    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+    - `ANTHROPIC("anthropic")`
+
+    - `CUSTOM("custom")`
+
+  - `String version`
+
+    The resolved version: a skill version ID for custom skills.
+
+    maxLength: 64, minLength: 1
 
 ### Beta Container Upload Block
 
@@ -17143,6 +17201,8 @@ public final class Main {
 
         - `OMITTED("omitted")`
 
+        - `UPDATES("updates")`
+
     - `class BetaThinkingConfigDisabled:`
 
       - `JsonValue type constant`
@@ -17158,6 +17218,8 @@ public final class Main {
         - `SUMMARIZED("summarized")`
 
         - `OMITTED("omitted")`
+
+        - `UPDATES("updates")`
 
 ### Beta Fallback Refusal Trigger
 
@@ -17345,6 +17407,8 @@ public final class Main {
 
           - `OMITTED("omitted")`
 
+          - `UPDATES("updates")`
+
       - `class BetaThinkingConfigDisabled:`
 
         - `JsonValue type constant`
@@ -17360,6 +17424,8 @@ public final class Main {
           - `SUMMARIZED("summarized")`
 
           - `OMITTED("omitted")`
+
+          - `UPDATES("updates")`
 
   - `JsonValue`
 
@@ -18060,7 +18126,7 @@ public final class Main {
 
       format: date-time
 
-    - `Optional<List<BetaSkill>> skills`
+    - `Optional<List<BetaContainerSkill>> skills`
 
       Skills loaded in the container
 
@@ -19317,15 +19383,17 @@ public final class Main {
 
       minimum: 0
 
-    - `Optional<List<BetaIterationsUsageItems>> iterations`
+    - `Optional<List<Iteration>> iterations`
 
       Per-iteration token usage breakdown.
 
-      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
-      - Calculate the true context window size from the last iteration
+      - Calculate the context window size from the last `message` entry
       - Understand token accumulation across server-side tool use loops
+
+      A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `class BetaMessageIterationUsage:`
 
@@ -19646,15 +19714,17 @@ public final class Main {
 
     minimum: 0
 
-  - `Optional<List<BetaIterationsUsageItems>> iterations`
+  - `Optional<List<Iteration>> iterations`
 
     Per-iteration token usage breakdown.
 
-    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
     - Determine which iterations exceeded long context thresholds (>=200k tokens)
-    - Calculate the true context window size from the last iteration
+    - Calculate the context window size from the last `message` entry
     - Understand token accumulation across server-side tool use loops
+
+    A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
     - `class BetaMessageIterationUsage:`
 
@@ -22741,7 +22811,7 @@ public final class Main {
 
         format: date-time
 
-      - `Optional<List<BetaSkill>> skills`
+      - `Optional<List<BetaContainerSkill>> skills`
 
         Skills loaded in the container
 
@@ -22970,15 +23040,17 @@ public final class Main {
 
       minimum: 0
 
-    - `Optional<List<BetaIterationsUsageItems>> iterations`
+    - `Optional<List<Iteration>> iterations`
 
       Per-iteration token usage breakdown.
 
-      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
-      - Calculate the true context window size from the last iteration
+      - Calculate the context window size from the last `message` entry
       - Understand token accumulation across server-side tool use loops
+
+      A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `class BetaMessageIterationUsage:`
 
@@ -23287,7 +23359,7 @@ public final class Main {
 
         format: date-time
 
-      - `Optional<List<BetaSkill>> skills`
+      - `Optional<List<BetaContainerSkill>> skills`
 
         Skills loaded in the container
 
@@ -24544,15 +24616,17 @@ public final class Main {
 
         minimum: 0
 
-      - `Optional<List<BetaIterationsUsageItems>> iterations`
+      - `Optional<List<Iteration>> iterations`
 
         Per-iteration token usage breakdown.
 
-        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
-        - Calculate the true context window size from the last iteration
+        - Calculate the context window size from the last `message` entry
         - Understand token accumulation across server-side tool use loops
+
+        A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
         - `class BetaMessageIterationUsage:`
 
@@ -24819,7 +24893,7 @@ public final class Main {
 
           format: date-time
 
-        - `Optional<List<BetaSkill>> skills`
+        - `Optional<List<BetaContainerSkill>> skills`
 
           Skills loaded in the container
 
@@ -26076,15 +26150,17 @@ public final class Main {
 
           minimum: 0
 
-        - `Optional<List<BetaIterationsUsageItems>> iterations`
+        - `Optional<List<Iteration>> iterations`
 
           Per-iteration token usage breakdown.
 
-          Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+          Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
           - Determine which iterations exceeded long context thresholds (>=200k tokens)
-          - Calculate the true context window size from the last iteration
+          - Calculate the context window size from the last `message` entry
           - Understand token accumulation across server-side tool use loops
+
+          A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
           - `class BetaMessageIterationUsage:`
 
@@ -26373,15 +26449,17 @@ public final class Main {
 
         minimum: 0
 
-      - `Optional<List<BetaIterationsUsageItems>> iterations`
+      - `Optional<List<Iteration>> iterations`
 
         Per-iteration token usage breakdown.
 
-        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
-        - Calculate the true context window size from the last iteration
+        - Calculate the context window size from the last `message` entry
         - Understand token accumulation across server-side tool use loops
+
+        A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
         - `class BetaMessageIterationUsage:`
 
@@ -27634,32 +27712,6 @@ public final class Main {
 
   - `JsonValue type constant`
 
-### Beta Skill
-
-- `class BetaSkill:`
-
-  A skill that was loaded in a container (response model).
-
-  - `String skillId`
-
-    Skill ID
-
-    maxLength: 64, minLength: 1
-
-  - `Type type`
-
-    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-    - `ANTHROPIC("anthropic")`
-
-    - `CUSTOM("custom")`
-
-  - `String version`
-
-    The resolved version: a skill version ID for custom skills.
-
-    maxLength: 64, minLength: 1
-
 ### Beta Skill Params
 
 - `class BetaSkillParams:`
@@ -28588,6 +28640,8 @@ public final class Main {
 
     - `OMITTED("omitted")`
 
+    - `UPDATES("updates")`
+
 ### Beta Thinking Config Disabled
 
 - `class BetaThinkingConfigDisabled:`
@@ -28617,6 +28671,8 @@ public final class Main {
     - `SUMMARIZED("summarized")`
 
     - `OMITTED("omitted")`
+
+    - `UPDATES("updates")`
 
 ### Beta Thinking Config Param
 
@@ -28650,6 +28706,8 @@ public final class Main {
 
       - `OMITTED("omitted")`
 
+      - `UPDATES("updates")`
+
   - `class BetaThinkingConfigDisabled:`
 
     - `JsonValue type constant`
@@ -28665,6 +28723,8 @@ public final class Main {
       - `SUMMARIZED("summarized")`
 
       - `OMITTED("omitted")`
+
+      - `UPDATES("updates")`
 
 ### Beta Thinking Delta
 
@@ -32476,15 +32536,17 @@ public final class Main {
 
     minimum: 0
 
-  - `Optional<List<BetaIterationsUsageItems>> iterations`
+  - `Optional<List<Iteration>> iterations`
 
     Per-iteration token usage breakdown.
 
-    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
     - Determine which iterations exceeded long context thresholds (>=200k tokens)
-    - Calculate the true context window size from the last iteration
+    - Calculate the context window size from the last `message` entry
     - Understand token accumulation across server-side tool use loops
+
+    A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
     - `class BetaMessageIterationUsage:`
 
@@ -34683,6 +34745,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
@@ -35423,369 +35499,3 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
               - `JsonValue type constant`
-
-              - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Optional<Caller> caller`
-
-                Tool invocation directly from the model.
-
-                - `class BetaDirectCaller:`
-
-                  Tool invocation directly from the model.
-
-                - `class BetaServerToolCaller:`
-
-                  Tool invocation generated by a server-side tool.
-
-                - `class BetaServerToolCaller20260120:`
-
-            - `class BetaWebFetchToolResultBlockParam:`
-
-              - `Content content`
-
-                - `class BetaWebFetchToolResultErrorBlockParam:`
-
-                  - `BetaWebFetchToolResultErrorCode errorCode`
-
-                    - `INVALID_TOOL_INPUT("invalid_tool_input")`
-
-                    - `URL_TOO_LONG("url_too_long")`
-
-                    - `URL_NOT_ALLOWED("url_not_allowed")`
-
-                    - `URL_NOT_IN_PRIOR_CONTEXT("url_not_in_prior_context")`
-
-                    - `URL_NOT_ACCESSIBLE("url_not_accessible")`
-
-                    - `UNSUPPORTED_CONTENT_TYPE("unsupported_content_type")`
-
-                    - `TOO_MANY_REQUESTS("too_many_requests")`
-
-                    - `MAX_USES_EXCEEDED("max_uses_exceeded")`
-
-                    - `UNAVAILABLE("unavailable")`
-
-                  - `JsonValue type constant`
-
-                - `class BetaWebFetchBlockParam:`
-
-                  - `BetaRequestDocumentBlock content`
-
-                  - `JsonValue type constant`
-
-                  - `String url`
-
-                    Fetched content URL
-
-                  - `Optional<String> retrievedAt`
-
-                    ISO 8601 timestamp when the content was retrieved
-
-              - `String toolUseId`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type constant`
-
-              - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-                Create a cache control breakpoint at this content block.
-
-              - `Optional<Caller> caller`
-
-                Tool invocation directly from the model.
-
-                - `class BetaDirectCaller:`
-
-                  Tool invocation directly from the model.
-
-                - `class BetaServerToolCaller:`
-
-                  Tool invocation generated by a server-side tool.
-
-                - `class BetaServerToolCaller20260120:`
-
-            - `class BetaAdvisorToolResultBlockParam:`
-
-              - `Content content`
-
-                - `class BetaAdvisorToolResultErrorParam:`
-
-                  - `ErrorCode errorCode`
-
-                    - `MAX_USES_EXCEEDED("max_uses_exceeded")`
-
-                    - `PROMPT_TOO_LONG("prompt_too_long")`
-
-                    - `TOO_MANY_REQUESTS("too_many_requests")`
-
-                    - `OVERLOADED("overloaded")`
-
-                    - `UNAVAILABLE("unavailable")`
-
-                    - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-                    - `MODEL_NOT_FOUND("model_not_found")`
-
-                  - `JsonValue type constant`
-
-                - `class BetaAdvisorResultBlockParam:`
-
-                  - `String text`
-
-                  - `JsonValue type constant`
-
-                  - `Optional<String> stopReason`
-
-                - `class BetaAdvisorRedactedResultBlockParam:`
-
-                  - `String encryptedContent`
-
-                    Opaque blob produced by a prior response; must be round-tripped verbatim.
-
-                  - `JsonValue type constant`
-
-                  - `Optional<String> stopReason`
-
-              - `String toolUseId`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type constant`
-
-              - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-                Create a cache control breakpoint at this content block.
-
-            - `class BetaCodeExecutionToolResultBlockParam:`
-
-              - `BetaCodeExecutionToolResultBlockParamContent content`
-
-                Code execution result with encrypted stdout for PFC + web_search results.
-
-                - `class BetaCodeExecutionToolResultErrorParam:`
-
-                  - `BetaCodeExecutionToolResultErrorCode errorCode`
-
-                    - `INVALID_TOOL_INPUT("invalid_tool_input")`
-
-                    - `UNAVAILABLE("unavailable")`
-
-                    - `TOO_MANY_REQUESTS("too_many_requests")`
-
-                    - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-                  - `JsonValue type constant`
-
-                - `class BetaCodeExecutionResultBlockParam:`
-
-                  - `List<BetaCodeExecutionOutputBlockParam> content`
-
-                    - `String fileId`
-
-                    - `JsonValue type constant`
-
-                  - `long returnCode`
-
-                  - `String stderr`
-
-                  - `String stdout`
-
-                  - `JsonValue type constant`
-
-                - `class BetaEncryptedCodeExecutionResultBlockParam:`
-
-                  Code execution result with encrypted stdout for PFC + web_search results.
-
-                  - `List<BetaCodeExecutionOutputBlockParam> content`
-
-                    - `String fileId`
-
-                    - `JsonValue type constant`
-
-                  - `String encryptedStdout`
-
-                  - `long returnCode`
-
-                  - `String stderr`
-
-                  - `JsonValue type constant`
-
-              - `String toolUseId`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type constant`
-
-              - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-                Create a cache control breakpoint at this content block.
-
-            - `class BetaBashCodeExecutionToolResultBlockParam:`
-
-              - `Content content`
-
-                - `class BetaBashCodeExecutionToolResultErrorParam:`
-
-                  - `ErrorCode errorCode`
-
-                    - `INVALID_TOOL_INPUT("invalid_tool_input")`
-
-                    - `UNAVAILABLE("unavailable")`
-
-                    - `TOO_MANY_REQUESTS("too_many_requests")`
-
-                    - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-                    - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
-
-                  - `JsonValue type constant`
-
-                - `class BetaBashCodeExecutionResultBlockParam:`
-
-                  - `List<BetaBashCodeExecutionOutputBlockParam> content`
-
-                    - `String fileId`
-
-                    - `JsonValue type constant`
-
-                  - `long returnCode`
-
-                  - `String stderr`
-
-                  - `String stdout`
-
-                  - `JsonValue type constant`
-
-              - `String toolUseId`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type constant`
-
-              - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-                Create a cache control breakpoint at this content block.
-
-            - `class BetaTextEditorCodeExecutionToolResultBlockParam:`
-
-              - `Content content`
-
-                - `class BetaTextEditorCodeExecutionToolResultErrorParam:`
-
-                  - `ErrorCode errorCode`
-
-                    - `INVALID_TOOL_INPUT("invalid_tool_input")`
-
-                    - `UNAVAILABLE("unavailable")`
-
-                    - `TOO_MANY_REQUESTS("too_many_requests")`
-
-                    - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-                    - `FILE_NOT_FOUND("file_not_found")`
-
-                  - `JsonValue type constant`
-
-                  - `Optional<String> errorMessage`
-
-                - `class BetaTextEditorCodeExecutionViewResultBlockParam:`
-
-                  - `String content`
-
-                  - `FileType fileType`
-
-                    - `TEXT("text")`
-
-                    - `IMAGE("image")`
-
-                    - `PDF("pdf")`
-
-                  - `JsonValue type constant`
-
-                  - `Optional<Long> numLines`
-
-                  - `Optional<Long> startLine`
-
-                  - `Optional<Long> totalLines`
-
-                - `class BetaTextEditorCodeExecutionCreateResultBlockParam:`
-
-                  - `boolean isFileUpdate`
-
-                  - `JsonValue type constant`
-
-                - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
-
-                  - `JsonValue type constant`
-
-                  - `Optional<List<String>> lines`
-
-                  - `Optional<Long> newLines`
-
-                  - `Optional<Long> newStart`
-
-                  - `Optional<Long> oldLines`
-
-                  - `Optional<Long> oldStart`
-
-              - `String toolUseId`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type constant`
-
-              - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-                Create a cache control breakpoint at this content block.
-
-            - `class BetaToolSearchToolResultBlockParam:`
-
-              - `Content content`
-
-                - `class BetaToolSearchToolResultErrorParam:`
-
-                  - `ErrorCode errorCode`
-
-                    - `INVALID_TOOL_INPUT("invalid_tool_input")`
-
-                    - `UNAVAILABLE("unavailable")`
-
-                    - `TOO_MANY_REQUESTS("too_many_requests")`
-
-                    - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
-
-                  - `JsonValue type constant`
-
-                  - `Optional<String> errorMessage`
-
-                - `class BetaToolSearchToolSearchResultBlockParam:`
-
-                  - `List<BetaToolReferenceBlockParam> toolReferences`
-
-                    - `String toolName`
-
-                      maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
-
-                    - `JsonValue type constant`
-
-                    - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-                      Create a cache control breakpoint at this content block.
-
-                  - `JsonValue type constant`
-
-              - `String toolUseId`
-
-                pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-              - `JsonValue type constant`
-
-              - `Optional<BetaCacheControlEphemeral> cacheControl`
-
-                Create a cache control breakpoint at this content block.
-
-            - `class BetaMcpToolUseBlockParam:`

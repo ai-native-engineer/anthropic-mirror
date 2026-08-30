@@ -12,7 +12,7 @@ Lesson 544 min
 
 Resources in MCP servers allow you to expose data to clients, similar to GET request handlers in a typical HTTP server. They're perfect for scenarios where you need to fetch information rather than perform actions.
 
-## Understanding Resources
+## Understanding Resources[](#understanding-resources)
 
 Think of resources as read-only endpoints that can return any type of data - strings, JSON, binary files, etc. You set a 'mime\_type' to give the client a hint about what kind of data you're returning.
 
@@ -20,7 +20,7 @@ Think of resources as read-only endpoints that can return any type of data - str
 
 Resources work by exposing data through URIs (essentially addresses). When a client needs data, it sends a ReadResourceRequest with the specific URI, and your server responds with the requested information.
 
-## Two Types of Resources
+## Two Types of Resources[](#two-types-of-resources)
 
 There are two main types of resources you can create:
 
@@ -31,7 +31,7 @@ There are two main types of resources you can create:
 
 For templated resources, the Python SDK automatically parses parameters from the URI and passes them as keyword arguments to your function. The parameter name in the URI becomes the argument name in your function.
 
-## Implementing Resources
+## Implementing Resources[](#implementing-resources)
 
 Creating resources is straightforward using the `@mcp.resource()` decorator. Here's how to implement both types:
 
@@ -57,7 +57,7 @@ def fetch_doc(doc_id: str) -> str:
 
 The MCP Python SDK automatically serializes whatever you return. You don't need to manually convert data to JSON strings - just return the appropriate Python data structure.
 
-## Testing Your Resources
+## Testing Your Resources[](#testing-your-resources)
 
 You can test resources using the MCP Inspector tool. Start your server with `uv run mcp dev mcp_server.py` and navigate to the web interface.
 
@@ -65,7 +65,7 @@ You can test resources using the MCP Inspector tool. Start your server with `uv 
 
 The inspector separates direct resources from templated ones. Direct resources appear in the main "Resources" section, while templated resources show up under "Resource Templates". You can click on any resource to test it and see the exact response structure your server returns.
 
-## Practical Use Cases
+## Practical Use Cases[](#practical-use-cases)
 
 Resources are ideal for:
 

@@ -10,6 +10,8 @@ Quiz 1 of 1 · AI Fluency: Framework & FoundationsCourse quiz
 
 Quiz8 min
 
+You've reached the final quiz for AI Fluency: Framework & Foundations. Its 10 questions revisit what AI Fluency means, what each of the four competencies in the 4D Framework covers, and the components within each one, such as Problem Awareness. A score of 80% or higher passes. Once you pass, select **Create your completion badge** to add it to your account, where you can view it and share a verifiable link.
+
 [Previous lessonConclusion](https://academy.claude.com/courses/ai-fluency-framework-foundations/conclusion)[Next lessonAdditional activities](https://academy.claude.com/courses/ai-fluency-framework-foundations/additional-activities)
 
 Quiz 1 of 1 · AI Fluency: Framework & FoundationsCourse quiz

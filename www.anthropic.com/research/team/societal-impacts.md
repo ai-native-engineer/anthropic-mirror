@@ -48,6 +48,9 @@ Search
 
 DateCategoryTitle
 
+* [Aug 26, 2026Societal Impacts
+
+  Enabling independent research on how people use Claude](https://www.anthropic.com/research/enabling-independent-research)
 * [Jul 13, 2026Societal Impacts
 
   Claude’s values across models and languages](https://www.anthropic.com/research/claude-values-models-languages)
@@ -75,13 +78,10 @@ DateCategoryTitle
 * [Apr 21, 2025Societal Impacts
 
   Values in the wild: Discovering and analyzing values in real-world language model interactions](https://www.anthropic.com/research/values-wild)
-* [Apr 8, 2025Announcements
-
-  Anthropic Education Report: How university students use Claude](https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude)
 
 [See more](#)
 
-![Claude’s values across models and languages](https://www-cdn.anthropic.com/images/4zrzovbb/website/a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
+![Enabling independent research on how people use Claude](https://www-cdn.anthropic.com/images/4zrzovbb/website/74256b81ca52aca8cf45a0e4e489d4d4d9d98175-1000x1000.svg)
 
 Join the Research team
 

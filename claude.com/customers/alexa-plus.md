@@ -100,6 +100,30 @@ Video caption
 
 ## Related stories
 
+[How Atlassian builds AI agents teams can trust with Claude and Google Cloud](https://claude.com/customers/atlassian)How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+
+How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+
+Customer story
+
+[Customer story](https://claude.com/customers/atlassian)Customer story
+
+[Rocket Money on building agents that fix their own code](https://claude.com/customers/rocket-money-qa)Rocket Money on building agents that fix their own code
+
+Rocket Money on building agents that fix their own code
+
+Customer story
+
+[Customer story](https://claude.com/customers/rocket-money-qa)Customer story
+
+[How Rocket Money built its personal finance agent with Claude](https://claude.com/customers/rocket-money)How Rocket Money built its personal finance agent with Claude
+
+How Rocket Money built its personal finance agent with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/rocket-money)Customer story
+
 [How Notion ships and scales agents with Claude Managed Agents](https://claude.com/customers/notion-qa)How Notion ships and scales agents with Claude Managed Agents
 
 How Notion ships and scales agents with Claude Managed Agents
@@ -107,27 +131,3 @@ How Notion ships and scales agents with Claude Managed Agents
 Customer story
 
 [Customer story](https://claude.com/customers/notion-qa)Customer story
-
-[Deepgram ships 4–10x more durable code with Claude](https://claude.com/customers/deepgram) Deepgram ships 4–10x more durable code with Claude
-
-Deepgram ships 4–10x more durable code with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/deepgram)Customer story
-
-[Office Hours: Building the case for leaders who ship with DoorDash](https://claude.com/customers/doordash-boris-office-hours) Office Hours: Building the case for leaders who ship with DoorDash
-
-Office Hours: Building the case for leaders who ship with DoorDash
-
-Customer story
-
-[Customer story](https://claude.com/customers/doordash-boris-office-hours)Customer story
-
-[Office Hours: Asynchronous coding and the end of the IDE with Spotify](https://claude.com/customers/spotify-boris-office-hours) Office Hours: Asynchronous coding and the end of the IDE with Spotify
-
-Office Hours: Asynchronous coding and the end of the IDE with Spotify
-
-Customer story
-
-[Customer story](https://claude.com/customers/spotify-boris-office-hours)Customer story

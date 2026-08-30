@@ -2,7 +2,7 @@
 
 # Delete Skill
 
-`$client->beta->skills->delete(string skillID, ?list<AnthropicBeta> betas): SkillDeleteResponse`
+`$client->beta->skills->delete(string skillID, ?list<AnthropicBeta> betas): BetaDeletedSkill`
 
 **DELETE** `/v1/skills/{skill_id}`
 
@@ -22,7 +22,7 @@ Delete Skill
 
 ## Returns
 
-- `SkillDeleteResponse`
+- `BetaDeletedSkill`
 
   - `string id`
 
@@ -30,7 +30,7 @@ Delete Skill
 
     The format and length of IDs may change over time.
 
-  - `string type`
+  - `"skill_deleted" type`
 
     Deleted object type.
 
@@ -45,11 +45,11 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$skill = $client->beta->skills->delete(
+$betaDeletedSkill = $client->beta->skills->delete(
   'skill_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
-var_dump($skill);
+var_dump($betaDeletedSkill);
 ```
 
 ### Response (200)
@@ -57,6 +57,6 @@ var_dump($skill);
 ```json
 {
   "id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type"
+  "type": "skill_deleted"
 }
 ```

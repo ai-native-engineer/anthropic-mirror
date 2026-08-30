@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-d27lxpfj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ia2n89lp.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Finance plugin ships with `/financial-statements` and other planning skills as a starting point, already structured to roll a driver model forward and lay out scenarios. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ FinanceStreamline finance and accounting workflows, from journal entries and rec
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -60,7 +60,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the driver model, last quarter's assumptions memo, the headcount plan) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the extended model, scenario tabs, and memo back to it. If you'll re-forecast every month, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so the model, memory, and scheduled runs stay attached.
 
@@ -74,15 +74,15 @@ assumptions-Q1.docxJan 14, 202628 KB
 
 In Cowork’s chat bar:Planning / FY-forecast
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Pull the latest actuals into the driver model, extend it through the next four quarters, and run base, upside, and downside scenarios. For each scenario list the assumptions you changed and by how much, then write a one-page memo explaining what drives the difference between them in plain English for the leadership review.
 
 Planning / FY-forecastOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -100,7 +100,7 @@ Source
 
 **Keep source files in the working folder.** The driver model and prior memo sit in the working folder (or Sheets, if connected), so the new periods and scenario tabs write back as working formulas next to the original.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -110,7 +110,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -120,9 +120,9 @@ Planning / FY-forecastOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 The re-forecast is due the same day every month. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill rebases on the latest actuals and refreshes all three scenarios automatically.
 
@@ -138,7 +138,7 @@ Runs `/financial-statements` against the latest closed actuals and writes the re
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/financial-statements` now carries your driver tree, your scenario sensitivities, and your memo format. Share it so every FP&A partner runs the same model the same way, and leadership sees one consistent set of scenarios no matter who owns the number.
 
@@ -146,7 +146,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/financial-statements` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your drivers and assumptions baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

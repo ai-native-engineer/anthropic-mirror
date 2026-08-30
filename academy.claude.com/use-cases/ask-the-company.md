@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mjmk2gjq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bpm7r9eg.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Engineering plugin ships with `/documentation` as a starting point, already structured to fan out across connected sources, cite what it finds, and name an owner when it's not sure. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ EngineeringStreamline engineering workflows — standups, code review, architect
 
 Show all 10 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -66,7 +66,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files that anchor the agent (your service catalog export, the team directory, the glossary, the "where to find things" onboarding doc) into one folder and point Cowork at it. These become the routing table the agent consults before searching anywhere else. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so the catalog and ground rules stay attached as the agent evolves.
 
@@ -80,15 +80,15 @@ team-directory.mdApr 1, 20266 KB
 
 In Cowork’s chat bar:Platform / ask-company
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Build an internal "ask anything" agent for engineers. When someone asks "how do I get a staging API key," "what owns the orders table," or "why did deploys slow down last month," find the answer across our systems, cite the source, and tell them who to ask if you're not sure. Get one good answer first, then turn it into a shared skill.
 
 Platform / ask-companyOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -106,7 +106,7 @@ Source
 
 **Put reference docs in the working folder.** Service catalog and team directory tell Cowork where to look and who to point to.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -116,7 +116,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 The plugin's `/documentation` is a generic starting point. Once Step 2 answers your three questions well, tell Cowork to write your version of the skill. Layer in which spaces and repos to search first, the "I'm not sure" threshold, the tone, and the systems that are off-limits. A few minutes of conversation and the skill speaks your stack from then on.
 
@@ -126,13 +126,13 @@ Platform / ask-companyOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 Once the agent answers your test questions well, publish it as a live artifact so anyone in the org has one link to ask. The artifact runs the shared skill behind the scenes; the platform team owns the skill and keeps tuning it.
 
-### Log every question it couldn't answer
+### Log every question it couldn't answer[](#log-every-question-it-couldnt-answer)
 
 The agent gets better when you know where it falls short. Type `/schedule` or open **Scheduled** in the Cowork sidebar, and a weekly run writes the unanswered questions to your folder so the platform team can fill the gaps.
 
@@ -148,7 +148,7 @@ Weekly, lists the questions the agent couldn't answer, groups them by topic, and
 
 Every **Friday at 4:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/documentation` now carries your sources, your routing table, and your confidence rules. Share it workspace-wide so every engineer asks the company the same way, and the answer to "how do I…" stops depending on who's in the channel.
 
@@ -156,7 +156,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/documentation` → **Share** and pick your whole workspace. Everyone gets the same front door to wiki, code, and warehouse, with the platform team keeping it tuned.
 
-## What changes for the org
+## What changes for the org[](#what-changes-for-the-org)
 
 Internal questions get a sourced answer from across your wiki, code, and warehouse, with an owner named when the agent isn't certain. Engineers check one response instead of searching each system.
 

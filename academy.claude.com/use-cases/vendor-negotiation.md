@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-bpm02atf.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-1b7ie80y.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Operations plugin ships with `/vendor-review` already structured to diff two contract versions into a redline table and turn usage and comparables into leverage. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ OperationsOptimize business operations — vendor management, process documentat
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -66,7 +66,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Put the current agreement, the renewal proposal, your usage export, and the comparable quotes in one folder. Cowork diffs the two contracts there and writes the redline table and the brief back next to them. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from your procurement folder so your fallback positions and standard contract terms stay attached for every renewal.
 
@@ -80,15 +80,15 @@ usage-and-comparables.xlsxApr 24, 202638 KB
 
 In Cowork’s chat bar:Procurement / Northwind-renewal-2026
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Compare the current agreement to the renewal proposal and summarize every material change as a redline table (clause, current, proposed, our position). Then write the negotiation brief: our leverage, their likely pushback, three asks ranked by value, and the walk-away line. Keep it to one page I can take into the call.
 
 Procurement / Northwind-renewal-2026Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -106,7 +106,7 @@ Source
 
 **Ground it in your own spend data.** The argument is built from your numbers, not the vendor's slide.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -116,7 +116,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -126,9 +126,9 @@ ProcurementOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it before every renewal
+### Run it before every renewal[](#run-it-before-every-renewal)
 
 The brief should exist before the vendor's AE books the call. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill watches the renewal calendar and drops a brief 60 days out.
 
@@ -144,7 +144,7 @@ Weekly, finds vendors renewing in the next 60 days, runs `/vendor-review` on eac
 
 Every **Mondays at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/vendor-review` now carries your standard fallback positions, your redline format, and what your Legal team will and won't accept. Share it so every category owner walks into renewals with the same prep.
 
@@ -152,7 +152,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/vendor-review` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your positions and redline format baked in, so they don't repeat Steps 1-3.
 
-## What changes for the renewal call
+## What changes for the renewal call[](#what-changes-for-the-renewal-call)
 
 Every material change in the renewal is documented with your position on it, and the negotiating brief is written from your own usage and spend data. You start the conversation prepared rather than reacting to the vendor's terms.
 

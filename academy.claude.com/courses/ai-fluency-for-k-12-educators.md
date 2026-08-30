@@ -32,19 +32,19 @@ This course helps pK–12 educators and staff build practical AI collaboration s
 
 This course builds on Anthropic’s *AI Fluency: Framework & Foundations* course, adapted specifically for the pK–12 educator context where limited resources, multiple stakeholder accountabilities, and mission-driven work create unique considerations for AI collaboration. It also builds on the course Teach For America has produced for its constituents since 2023, as well as their ongoing practice since 2022 working to build AI fluency with and for educators across the United States.
 
-## Recommended prerequisites
+## Recommended prerequisites[](#recommended-prerequisites)
 
 This course lightly covers the foundational AI Fluency concepts. However, for deeper understanding, participants may wish to complete *AI Fluency: Framework & Foundations* and *AI Capabilities and Limitations* before beginning this educator-focused curriculum.
 
 It is also recommended that learners have access to an AI tool for hands-on practice. Examples in this course will use [Claude.ai(opens in new tab)](http://claude.ai), but any AI tool will work.
 
-## About the partners
+## About the partners[](#about-the-partners)
 
 This course was created in partnership between Anthropic and Teach For America. Anthropic is a frontier AI safety company and the maker of Claude. Teach For America is a leadership development organization for those who want to co-create a more just world alongside young people in their communities. Today they are a network of more than 72,000 leaders who started in the classroom and remain in lifelong pursuit of the vision that one day, all children will have the opportunity to attain an excellent education.
 
 ![Teach For America](https://academy.claude.com/assets/media/2cde17cb4146b304f1cd428bb40b1ac74492339482419a6a2b53a9c466346728.png)
 
-## AI diligence statement
+## AI diligence statement[](#ai-diligence-statement)
 
 In the development of this course, we engaged in extensive collaboration with Claude from Anthropic.
 

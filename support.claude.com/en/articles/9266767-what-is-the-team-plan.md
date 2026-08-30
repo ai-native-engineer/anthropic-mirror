@@ -33,8 +33,6 @@ Users with Standard seats on the Team plan can access the following:
   + 200k context window. Room to process long documents, discuss complex topics, and maintain multi-step conversations.
   + Priority access during high-traffic periods, early access to new features, more usage, and more.
 
----
-
 ## Premium seats for Team plans
 
 In addition to all features of Standard seats listed above, Premium seats offer significantly more usage than Standard seats. This makes Premium seats ideal for power users who need extended capacity for demanding workloads.
@@ -42,8 +40,6 @@ In addition to all features of Standard seats listed above, Premium seats offer 
 Organizations can mix and match seat types, assigning Premium seats to power users who need more usage while keeping other team members on Standard seats.
 
 Refer to this article for more information about Premium seats: **[Purchase and manage seats on Team plans](https://support.claude.com/en/articles/12004354)**.
-
----
 
 ## How much does the Team plan cost?
 
@@ -68,8 +64,6 @@ Team plans support up to 150 seats. If your organization is on the Team plan and
 Price and plans are subject to change at Anthropic's discretion.
 
 ##
-
----
 
 ## Do Team plans have any usage limits?
 
@@ -97,6 +91,6 @@ Your Team plan organization can enable usage credits to allow team members on al
 
 * [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
-* [Purchase and manage seats on Team plans](https://support.claude.com/en/articles/12004354-purchase-and-manage-seats-on-team-plans)
 * [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
 * [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)
+* [Claude Team plan for scientists](https://support.claude.com/en/articles/16634237-claude-team-plan-for-scientists)

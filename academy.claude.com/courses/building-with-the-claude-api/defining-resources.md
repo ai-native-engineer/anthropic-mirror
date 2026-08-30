@@ -12,7 +12,7 @@ Lesson 5310 min
 
 Resources in MCP servers allow you to expose data to clients, similar to GET request handlers in a typical HTTP server. They're perfect for scenarios where you need to fetch information rather than perform actions.
 
-## Understanding Resources Through an Example
+## Understanding Resources Through an Example[](#understanding-resources-through-an-example)
 
 Let's say you want to build a document mention feature where users can type `@document_name` to reference files. This requires two operations:
 
@@ -25,13 +25,13 @@ When a user types `@`, you need to show available documents. When they submit a 
 
 ![](https://academy.claude.com/assets/media/a170bf8f94380bcc029a6daead85c463cdc8e23ec71b8b2916d277a6408ced76.jpg)
 
-## How Resources Work
+## How Resources Work[](#how-resources-work)
 
 Resources follow a request-response pattern. Your client sends a `ReadResourceRequest` with a URI, and the MCP server responds with the data. The URI acts like an address for the resource you want to access.
 
 ![](https://academy.claude.com/assets/media/8bfda681993ad051a7e85469a51a31a92a3a9978db28b8ffcedf64bd1af0f8ea.jpg)
 
-## Types of Resources
+## Types of Resources[](#types-of-resources)
 
 There are two types of resources:
 
@@ -42,11 +42,11 @@ There are two types of resources:
 
 For templated resources, the Python SDK automatically parses parameters from the URI and passes them as keyword arguments to your function.
 
-## Implementing Resources
+## Implementing Resources[](#implementing-resources)
 
 Resources are defined using the `@mcp.resource()` decorator. Here's how to create both types:
 
-### Direct Resource (List Documents)
+### Direct Resource (List Documents)[](#direct-resource-list-documents)
 
 python
 
@@ -59,7 +59,7 @@ def list_docs() -> list[str]:
     return list(docs.keys())
 ```
 
-### Templated Resource (Fetch Document)
+### Templated Resource (Fetch Document)[](#templated-resource-fetch-document)
 
 python
 
@@ -74,7 +74,7 @@ def fetch_doc(doc_id: str) -> str:
     return docs[doc_id]
 ```
 
-## MIME Types
+## MIME Types[](#mime-types)
 
 Resources can return any type of data - strings, JSON, binary, etc. The `mime_type` parameter gives clients a hint about what kind of data you're returning:
 
@@ -84,7 +84,7 @@ Resources can return any type of data - strings, JSON, binary, etc. The `mime_ty
 
 The MCP Python SDK automatically serializes your return values. You don't need to manually convert to JSON strings.
 
-## Testing Resources
+## Testing Resources[](#testing-resources)
 
 You can test your resources using the MCP Inspector. Run your server with:
 
@@ -105,7 +105,7 @@ Click on any resource to test it and see the exact response structure your clien
 
 ![](https://academy.claude.com/assets/media/d0d0f67385c33ac2744acab67a33e84d2c464bc3794ce05313c7e903ed281bce.jpg)
 
-## Key Points
+## Key Points[](#key-points)
 
 * Resources expose data, tools perform actions
 * Use direct resources for static data, templated resources for parameterized queries

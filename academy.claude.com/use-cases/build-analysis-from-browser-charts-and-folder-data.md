@@ -16,7 +16,7 @@ Try in CoworkCopy prompt
 
 ![Build analysis from browser charts and folder data result](https://academy.claude.com/assets/v1/build-analysis-from-browser-charts-and-folder-data-knuj60wq.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 In Cowork, Claude reads files from your folders and pulls live data from the web in a single session. Point it at a folder of board decks and a data source like FRED. It extracts the revenue figures directly, no prep needed.
 
@@ -31,13 +31,13 @@ I'm preparing for our board meeting and need to show how our growth compares to 
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 [Claude Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available on all paid plans in the [Claude Desktop(opens in new tab)](https://claude.com/download) app on macOS, Windows, and Linux (beta), with sessions in the cloud in beta on web and mobile. Run locally, it reads your local files and connects to websites through [Claude in Chrome(opens in new tab)](https://claude.com/chrome). For this workflow, it extracts data from your PowerPoint decks and pulls live economic data from sites like FRED, then combines them into a single deliverable.
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you questions, like what to focus on or how to structure the output, then build a plan you can review in the sidebar. This helps it work longer and produce a more finished result.
 
-### Required context
+### Required context[](#required-context)
 
 To get started:
 
@@ -45,7 +45,7 @@ To get started:
 * Select ***Work in a folder*** in the chat bar and choose the folder containing your PowerPoint files, keeping it to just the decks this analysis needs, the same way the prompt keeps the data to Q1 through Q4 2025
 * [Install Claude in Chrome(opens in new tab)](https://claude.com/chrome) and add it as a connector to pull live data from FRED
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Cowork extracts the revenue figures from each deck and produces a comparison chart with supporting analysis. Using the Claude in Chrome connector, Claude opens FRED in a new browser tab and pulls the economic indicators directly from the site, then combines everything into a single deliverable.
 
@@ -74,11 +74,11 @@ Your 19% average growth significantly outpaced the 2.2% GDP growth rate. You're 
 * **Revenue-vs-Economy-Chart.png** — Comparison chart ready for your deck
 * **Economic-Context-Summary.md** — Talking points for the board discussion
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Compare against multiple economic indicators
+### Compare against multiple economic indicators[](#compare-against-multiple-economic-indicators)
 
 Add more context in one pass. Cowork pulls additional indicators from FRED and updates the chart with all of them.
 
@@ -86,7 +86,7 @@ Add more context in one pass. Cowork pulls additional indicators from FRED and u
 
 Open in Cowork
 
-### Extend to prior years
+### Extend to prior years[](#extend-to-prior-years)
 
 Show the longer trend. If you have older board decks, Cowork reads those too and builds a multi-year comparison.
 
@@ -94,7 +94,7 @@ Show the longer trend. If you have older board decks, Cowork reads those too and
 
 Open in Cowork
 
-### Create a board-ready slide
+### Create a board-ready slide[](#create-a-board-ready-slide)
 
 Go straight to the deliverable. Cowork creates a formatted PowerPoint slide with the chart and key takeaways.
 
@@ -102,25 +102,25 @@ Go straight to the deliverable. Cowork creates a formatted PowerPoint slide with
 
 Open in Cowork
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Claude in Chrome reads visual data
+### Claude in Chrome reads visual data[](#claude-in-chrome-reads-visual-data)
 
 When you point Cowork at a chart in your browser, it extracts the underlying numbers, not just what's labeled. This works on dashboards, reports, and data tools that don't offer easy exports.
 
-### Local files plus web data in one workflow
+### Local files plus web data in one workflow[](#local-files-plus-web-data-in-one-workflow)
 
 The combination is the point. Cowork reads your scattered internal documents and pulls live web data in the same session, then merges them into a single output.
 
-### Everything saves to your folder
+### Everything saves to your folder[](#everything-saves-to-your-folder)
 
 Charts, summaries, and slide decks land directly in your working folder. No downloading from chat, no extra steps.
 
-### Check the numbers before they reach the board
+### Check the numbers before they reach the board[](#check-the-numbers-before-they-reach-the-board)
 
 Before the chart goes into your deck, open one of the original board decks and confirm the extracted revenue figures match what's on the slide, and check that the FRED values line up with the quarters you asked for. A quick spot check now beats a correction in the meeting.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Use Cowork to connect internal data with external context — and deliver the full picture.
 

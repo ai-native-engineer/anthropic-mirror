@@ -14,7 +14,7 @@ Watch[Open Claude](https://claude.ai/new)
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-oo54igq8.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dj768tsz.png)
 
-## What are skills?
+## What are skills?[](#what-are-skills)
 
 Think about the last time you created something with Claude that turned out really well. Maybe it was a presentation, an analysis, or a report. What made it work? Claude brought intelligence and capability, but you also played a crucial part—you explained your standards, you described the structure that works for your needs, you provided examples showing what you wanted, and you caught and fixed things that weren't quite right.
 
@@ -22,7 +22,7 @@ Instead of having to repeat this process the next time you complete a similar ta
 
 Creating a skill is an act of description. By the time you've built one, you can name the format a task needs, the tone that fits your voice, and an example of what a good result looks like, and hand all three to Claude in one move.
 
-## Why skills matter for your work
+## Why skills matter for your work[](#why-skills-matter-for-your-work)
 
 You have tasks where you've figured out what works—a way of structuring reports, a framework for analysis, a style for client communication. But every time you start a new conversation with Claude, you're explaining it all over again or fixing the output to match your standards.
 
@@ -34,9 +34,9 @@ What you get out of Claude is mostly decided by what you put in. Your format, yo
 
 **With skills:** After creating a QBR skill, you ask for the same presentation. Just by mentioning a task related to an existing skill’s name or purpose, Claude can recognize it. In this case, Claude will load your QBR skill. In Claude’s thinking you’ll see “Reading QBR skill”. It automatically applies your brand guidelines and preferred structure, generating a deck that matches your standards from the start.
 
-## Where Skills fit into how you work with Claude
+## Where Skills fit into how you work with Claude[](#where-skills-fit-into-how-you-work-with-claude)
 
-### Projects
+### Projects[](#projects)
 
 You might already use Projects for certain work. Projects make sense when context accumulates over time. Think: a product launch with evolving plans, research that builds on previous findings, a campaign that unfolds over weeks. You can upload documents, build conversation history, and everything stays organized in one workspace. But Projects are bounded, and whatever context you upload to a project only exists there.
 
@@ -44,13 +44,13 @@ Skills work everywhere. Create a Skill once, and it's available in any conversat
 
 Use Skills for repeatable procedures you want applied automatically—your brand guidelines, your analysis framework, your report format. Use Projects for work that needs accumulated context—a product launch, a research project, an ongoing campaign. Use both together when your work benefits from persistent context and standardized procedures.
 
-### Custom Instructions
+### Custom Instructions[](#custom-instructions)
 
 You might also use custom instructions. These are preferences about how Claude works with you in general, like "ask clarifying questions before starting" or "keep explanations concise." They apply universally to everything Claude does for you.
 
 Unlike custom instructions, Skills can contain far more detail. They can include extensive instructions, complete reference libraries and detailed frameworks that would otherwise clutter custom instructions.Skills are also specific to certain types of work and activate only when relevant. For example, "When creating financial models, use this validation framework" lives in a skill, as it won’t apply to everything, only financial modeling work.
 
-### Regular prompting
+### Regular prompting[](#regular-prompting)
 
 When you need Claude to do something once, just prompt well. Explain what you want, provide context, refine the output. This works perfectly for one-off tasks or exploratory work.
 
@@ -58,11 +58,11 @@ Skills work differently. They are active everywhere you work with Claude. This m
 
 Skills also unlock higher quality outputs that would be difficult to achieve through prompting alone. They can package together complete reference libraries, validation frameworks, quality standards, and proven methodologies. This built-in expertise produces results that otherwise would require extensive explanation and rounds of prompting.
 
-## Recognizing when a skill will help your work
+## Recognizing when a skill will help your work[](#recognizing-when-a-skill-will-help-your-work)
 
 Skills range from simple formatting rules to complete workflows that pull data from multiple sources, analyze it, and generate reports. Create a skill when you've figured out how you want a task done and want Claude to follow that approach consistently. This applies in different situations:
 
-### You've refined an approach through experience
+### You've refined an approach through experience[](#youve-refined-an-approach-through-experience)
 
 While working with Claude, you've figured out how something should be done, and find yourself explaining it to Claude multiple times. When you want Claude to follow that refined approach automatically rather than you explaining it fresh each time, that's a good skill opportunity.
 
@@ -71,7 +71,7 @@ While working with Claude, you've figured out how something should be done, and 
 * *`Sales call prep skill`*: researches accounts, summarizes recent interactions, and generates talking points for effective calls
 * *`Research synthesis skill`*: evaluates sources, extracts key findings, identifies contradictions, and organizes by theme
 
-### Quality depends on having specific materials
+### Quality depends on having specific materials[](#quality-depends-on-having-specific-materials)
 
 Some work needs specific examples, templates, domain knowledge, or assets to meet your standards. Skills become powerful for packaging everything together so quality is consistent.
 
@@ -79,7 +79,7 @@ Some work needs specific examples, templates, domain knowledge, or assets to mee
 * *`Technical documentation skill`*: references notation guides, terminology standards, and uses diagram templates for documentation consistency
 * *`Legal contract skill`*: checks against standard terms, validates regulatory requirements, applies clause libraries and approval checklists
 
-### Setup normally requires assembling multiple pieces
+### Setup normally requires assembling multiple pieces[](#setup-normally-requires-assembling-multiple-pieces)
 
 Even occasional work might require gathering multiple files or tools, explaining how they work together, coordinating different requirements. Skills eliminate the setup burden—package everything once and have it available whenever that situation arises.
 
@@ -87,7 +87,7 @@ Even occasional work might require gathering multiple files or tools, explaining
 * *`Market analysis skill`:* combines research frameworks, competitive benchmarks, and regulatory context into evaluations
 * *`Board presentation skill`:* pulls financial data, operational metrics, and strategic updates into quarterly reviews
 
-## Ready to create a skill?
+## Ready to create a skill?[](#ready-to-create-a-skill)
 
 Skills are available on Pro, Max, Team, and Enterprise plans. They also need **Code execution and file creation** turned on, since Skills run in Claude’s secure sandboxed computing environment. To get started, navigate to `Settings` > `Capabilities` > `Skills`, check that code execution is enabled, and toggle on some of the pre-built example skills. From there, when you describe a task to Claude that references a skill’s name or description, Claude recognizes it and loads the skill automatically.
 
@@ -95,7 +95,7 @@ Learn how to write your own [custom skills(opens in new tab)](https://support.cl
 
 You also don’t have to be technical to start creating skills. Try [creating skills using Claude(opens in new tab)](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation). Start by identifying a well-suited task and describing it for Claude to turn into a skill. Claude will build and structure it into a properly formatted skill file.
 
-### Practice: turn one task into a skill
+### Practice: turn one task into a skill[](#practice-turn-one-task-into-a-skill)
 
 Pick a task you've explained to Claude more than once. The description you give Claude does most of the work, and three moves carry it:
 
@@ -109,7 +109,7 @@ Create a skill for my weekly team update. The format: three sections, wins, bloc
 
 Open in Claude
 
-### Check that your skill holds up
+### Check that your skill holds up[](#check-that-your-skill-holds-up)
 
 A skill starts saving you time once you've tested it. Open a new conversation and ask for the task the way you normally would, such as "draft this week's team update from these notes". Two checks tell you whether it worked:
 
@@ -118,14 +118,14 @@ A skill starts saving you time once you've tested it. Open a new conversation an
 
 The habit worth keeping goes beyond skills themselves: whenever you hand Claude work that matters, name the format, the tone, and an example of what good looks like. When you catch yourself naming the same three things for the same task twice, that's your cue to package them into a skill.
 
-## Additional Resources
+## Additional Resources[](#additional-resources)
 
-### Getting started
+### Getting started[](#getting-started)
 
 * [Help Center: Using Skills(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills) - Setup and troubleshooting
 * [How to create a skill with Claude(opens in new tab)](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation) - Build your first Skill with Claude's guidance
 
-### Going deeper
+### Going deeper[](#going-deeper)
 
 * [Skill authoring best practices(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) - Learn the principles behind effective Skills
 * [Agent skills overview(opens in new tab)](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) - Understand how Skills work under the hood

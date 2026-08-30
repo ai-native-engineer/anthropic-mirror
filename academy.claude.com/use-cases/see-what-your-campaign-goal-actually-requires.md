@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-gokcztzn.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nqgcnxqq.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Every development director has built a gift pyramid at some point, usually in a spreadsheet the week before a feasibility study. The tiers themselves are simple enough to fill in, but what the spreadsheet tends to hide is the prospect math sitting behind each tier. Closing three gifts at the $100K level means having nine to twelve qualified prospects at that level, and most mid-size organizations have four or five. That gap is the actual feasibility question, and it's the number that doesn't show up until someone forces it to.
 
@@ -24,11 +24,11 @@ We're thinking about a $2M capital campaign. Show me what the gift pyramid needs
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 A goal number is enough to get the shape. Claude uses standard campaign math (roughly a third of the goal from the top one or two gifts, tapering down through five or six tiers, with a 3-to-1 or 4-to-1 prospect-to-gift ratio at each level) to fill in the rest. Asking Claude to "flag where I'm probably thin" is what gets you the prospect gap called out rather than just the gift counts.
 
-### Required context
+### Required context[](#required-context)
 
 Nothing to upload. Type the numbers directly in your prompt.
 
@@ -36,17 +36,17 @@ Nothing to upload. Type the numbers directly in your prompt.
 
 Prospect listXLSX
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude draws a five- or six-tier pyramid with each tier showing three numbers: the gift range, the number of gifts the campaign needs at that level, and the number of qualified prospects that realistically takes. A slider above lets you drag the goal and watch every tier rebuild. Click any tier and a short note compares the prospect requirement against a typical pipeline, which is where the feasibility question actually lives.
 
 ![Claude's response with an interactive gift pyramid for a $2M campaign: a draggable campaign-goal slider, summary cards for total gifts needed (94), qualified prospects (288), and thin tiers (2), then a tier table from $200K lead gifts down to $6K showing gifts, prospects, ratio, and a Thin/Watch/Healthy status per tier, with notes explaining why the $200K and $140K tiers are flagged Thin](https://academy.claude.com/assets/v1/gift-pyramid-la5fpucb.png)
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Click a tier to see the gap
+### Click a tier to see the gap[](#click-a-tier-to-see-the-gap)
 
 Click any tier and Claude compares the prospect requirement against a typical pipeline for an organization your size, naming the gap and the two or three ways campaigns usually close it.
 
@@ -54,7 +54,7 @@ Focus on the $100K to $250K tier. How many qualified prospects do I realisticall
 
 Open in Claude
 
-### Ask Claude to redraw with a constraint
+### Ask Claude to redraw with a constraint[](#ask-claude-to-redraw-with-a-constraint)
 
 The top of the pyramid carries most of the weight, so telling Claude your lead gift is capped changes everything below it.
 
@@ -62,7 +62,7 @@ Redraw this assuming our lead gift tops out at $250K. What does that do to the r
 
 Open in Claude
 
-### Ask Claude to turn the pyramid into a cultivation timeline
+### Ask Claude to turn the pyramid into a cultivation timeline[](#ask-claude-to-turn-the-pyramid-into-a-cultivation-timeline)
 
 A gift pyramid is a snapshot, but the feasibility question is really about time. Claude can stretch each tier across the months it typically takes to cultivate and close.
 
@@ -70,21 +70,21 @@ For each tier, give me a rough cultivation timeline, meaning how long from first
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### How you word your prompt shapes what you get
+### How you word your prompt shapes what you get[](#how-you-word-your-prompt-shapes-what-you-get)
 
 Asking for "qualified prospects I'd realistically need" is what surfaces the 3-to-1 math rather than just the gift counts. A plainer "show me a gift pyramid" tends to produce the tiers without the pipeline reality check, which is the spreadsheet you already know how to build. "Flag where I'm thin" tells Claude to do the comparison for you rather than just stating the requirements.
 
-### Check the visual against your own understanding
+### Check the visual against your own understanding[](#check-the-visual-against-your-own-understanding)
 
 The prospect ratios Claude uses are sector rules of thumb, and your actual close rate might be better or worse. If you've run a campaign before and know your top-tier conversion is closer to 2-to-1, tell Claude and the prospect counts will tighten accordingly. The pyramid is a stress test, not a verdict on whether to launch.
 
-### What to do with the visual next
+### What to do with the visual next[](#what-to-do-with-the-visual-next)
 
 Hover over the pyramid for options to copy it as an image for a board or campaign committee deck. Save as Artifact if you want to bring it into a feasibility conversation live and drag the goal while stakeholders watch the prospect requirements move. You can also ask Claude to write the feasibility memo version, turning each tier's gap into a paragraph you'd hand to a consultant or board chair.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Try it on the campaign number someone floated in a board meeting. Type the goal and let Claude show you what it actually requires at every tier, then click into the ones where you suspect you're thin.
 

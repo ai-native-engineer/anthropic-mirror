@@ -173,3 +173,5 @@ This Agreement is the result of negotiations between and has been reviewed by ea
 ### **11.10 Counterparts**
 
 This Agreement may be executed in any number of counterparts, each of which when so executed and delivered shall be deemed an original, and all of which together shall constitute one and the same agreement. Execution of a facsimile or scanned copy will have the same force and effect as execution of an original, and a facsimile or scanned signature will be deemed an original and valid signature.
+
+Independent Contractor Agreement \ Anthropic

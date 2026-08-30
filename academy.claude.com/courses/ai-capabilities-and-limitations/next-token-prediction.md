@@ -17,7 +17,7 @@ In this lessonBy the end, you’ll be able to
 * Identify specificity (names, dates, citations, statistics) as the zone where fabrication concentrates
 * Recognize product features (citations, uncertainty signaling, constrained generation, generator-verifier pattern) that are mitigations for this limitation
 
-## How AI models use next token prediction
+## How AI models use next token prediction[](#how-ai-models-use-next-token-prediction)
 
 Next Token Prediction · 4 min
 
@@ -27,9 +27,9 @@ Generative AI is closer to a vastly sophisticated autocomplete than to a
 search engine. It writes answers word by word based on what tends to follow
 what. That single property gives you both the fluency and the hallucination.
 
-## Autocomplete at scale
+## Autocomplete at scale[](#autocomplete-at-scale)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Next Token Prediction** refers to the fact that generative AI writes answers word by word based on what tends to follow what.
   + **Capability zone:** tasks that resemble patterns the model has seen many times (summarizing, reformatting, explaining common concepts).
@@ -38,7 +38,7 @@ what. That single property gives you both the fluency and the hallucination.
   + **Product features** like citations, uncertainty signaling, constrained generation, and generator-verifier loops exist specifically to push this limitation further out.
 * **4D connection:** Next Token Prediction is the foundation of Discernment. Knowing the output was generated tells you exactly what kind of scrutiny to apply.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### The Verification Test
 
@@ -54,12 +54,12 @@ Now run three probes:
 
 **Stretch goal:** Re-run Probe 2 in a tool with citations enabled (like Research mode in Claude). Score it again. Does having sources to check change the score?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Would you have caught fabrications in a domain you didn't know well?
 * Look at your task list: which tasks sit mostly in the capability zone, and which push into specificity that needs verification?
 
-## What's next
+## What's next[](#whats-next)
 
 Next Token Prediction explains how the AI generates. Next we look at what it's generating *from*: the Knowledge property. What does the model actually know, where does that knowledge come from, and where are the gaps?
 

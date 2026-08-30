@@ -16,22 +16,24 @@ In this lessonBy the end, you’ll be able to
 * Understand Cowork as Claude working in your environment — on your files, in your apps, with your tools
 * Tell Chat, Cowork, and Code apart, and know which to reach for when
 
-## Introducing Cowork
+## Introducing Cowork[](#introducing-cowork)
 
 Introducing Cowork: Claude Code for the rest of your work
+
+SummaryTranscript
 
 This video introduces Claude Cowork and the type of work it's built to do.
 Notice how Cowork functions: not as a smarter chatbot, but as a different
 way of working with Claude entirely.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Cowork is Claude built for the work, not just the answer.** It meets you where you work — whether it's local on your machine, cloud apps, or your browser.
 * **Cowork is about delegating.** Chat is still where you go to think out loud, draft, or ask. Cowork adds something new: the ability to describe an outcome and have Claude plan, execute, and deliver the whole thing.
 * **Cowork is built for multi-step, longer-running work.** Tasks that span several tools, take a while to complete, and end in a real artifact — Cowork is designed to handle that whole arc end-to-end.
 * **You stay in control.** Claude shows you its plan before it starts, by default asks before it takes actions that matter (sending, deleting, sharing), and lets you steer at any point.
 
-## What Cowork actually is
+## What Cowork actually is[](#what-cowork-actually-is)
 
 Cowork is a mode of Claude inside the desktop app where Claude works on tasks alongside you. You point it at a folder on your computer, connect the apps where your work lives (Gmail, Slack, Google Drive, your calendar), and describe what you want done. Claude makes a plan, works through the steps, uses the tools and files it needs, and saves a real deliverable back to your folder. You can also run Cowork in the cloud (in beta, on eligible plans) to start and check on tasks from the web and the Claude mobile app.
 
@@ -43,7 +45,7 @@ But the differences between the two go even deeper than this. Mechanically, Chat
 
 You can see what makes a great Cowork task below.
 
-## How Cowork works in your environment
+## How Cowork works in your environment[](#how-cowork-works-in-your-environment)
 
 Cowork works in your environment. Not adjacent to it.
 
@@ -52,7 +54,7 @@ Cowork works in your environment. Not adjacent to it.
 * **In your browser** — for web tools that don't have a connector, Claude in Chrome reads and acts on the page itself: dashboards, portals, or anything behind a login.
 * **With your tools** — Claude takes action, not just describes what to do.
 
-## Chat vs. Cowork vs. Code
+## Chat vs. Cowork vs. Code[](#chat-vs-cowork-vs-code)
 
 Now that you know what Cowork is, take a moment to see how it fits alongside the other two ways you work with Claude in the desktop app — Chat and Claude Code.
 
@@ -62,13 +64,13 @@ The interactive below has two parts: a three-way comparison so you can see all t
 
 To recap: **Chat is for thinking with Claude. Cowork is for delegating to Claude. Code is for building software with Claude.** Most knowledge workers will live in Chat and Cowork — and use them for very different things.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Think about a task you did recently where the value was in the doing, not just the thinking. Maybe it spanned multiple tools. Maybe it ended in a deliverable you assembled by hand. Maybe it's something you do every week that you'd love to leverage AI to handle for you.
 
 Hold on to that task — you can come back to it in Lesson 3 when you start identifying your own Cowork use cases, and again in Lesson 4 when you delegate your first real task.
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, you'll get Cowork set up: install the desktop app, point Claude at a working folder, add your first connectors, and learn the permissions model that keeps you in control of what Cowork can do.
 

@@ -12,7 +12,7 @@ Lesson 267 min
 
 After Claude requests a tool call, you need to execute the function and send the results back. This completes the tool use workflow by providing Claude with the information it requested.
 
-## Running the Tool Function
+## Running the Tool Function[](#running-the-tool-function)
 
 When Claude responds with a tool use block, you extract the input parameters and call your function. Here's how to access the tool parameters:
 
@@ -31,7 +31,7 @@ result = get_current_datetime(**input_params)
 
 The double asterisk (`**`) unpacks the dictionary into keyword arguments that your function expects.
 
-## Tool Result Block
+## Tool Result Block[](#tool-result-block)
 
 After running the tool, you send the results back to Claude using a tool result block. This block has several important properties:
 
@@ -41,7 +41,7 @@ After running the tool, you send the results back to Claude using a tool result 
 * **content** - The output from your tool function, converted to a string
 * **is\_error** - Set to true if an error occurred during execution
 
-## Handling Multiple Tool Calls
+## Handling Multiple Tool Calls[](#handling-multiple-tool-calls)
 
 Claude can request multiple tool calls in a single response. For example, if a user asks "What's 10 + 10 and what's 30 + 30?", Claude might send two separate tool use blocks:
 
@@ -53,7 +53,7 @@ Each tool use block gets a unique ID, and you must match these IDs when sending 
 
 This ID system ensures Claude can correctly match each result with its corresponding request, even if the results arrive in a different order.
 
-## Sending the Follow-up Request
+## Sending the Follow-up Request[](#sending-the-follow-up-request)
 
 Your follow-up request to Claude must include the complete conversation history plus the new tool result:
 
@@ -77,7 +77,7 @@ The conversation flow looks like this:
 
 Remember to include the tool schema in your follow-up request, even though Claude probably won't need to call tools again. Claude needs the schema to understand the tool references in the conversation history.
 
-## Complete Workflow
+## Complete Workflow[](#complete-workflow)
 
 Here's the full process:
 

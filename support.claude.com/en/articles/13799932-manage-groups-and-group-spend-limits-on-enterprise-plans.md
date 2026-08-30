@@ -14,8 +14,6 @@ Groups can be created manually or synced automatically from your identity provid
 
 In addition to spend limits, Enterprise admins can use groups to control plugin access in Cowork. Each plugin in your organization's marketplace can have group-level overrides that determine whether it's available, pre-installed, required, or hidden for members of a specific group. For details, see **[Manage Cowork plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)**.
 
----
-
 ## Create a group
 
 1. Navigate to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
@@ -41,8 +39,6 @@ To change settings for several groups at once, select them with the checkboxes i
 
 Click the menu button to the right of any group and select "Delete." Deleting a group doesn't affect the custom roles that were assigned to it and doesn't remove any members from your organization. Deleting a group also removes its access to any projects shared with it. Members lose access to those projects unless they have access another way.
 
----
-
 ## SCIM group sync
 
 If your organization uses SCIM directory sync, groups from your identity provider are automatically synced to Claude. SCIM groups appear with a sync indicator in the groups list.
@@ -52,8 +48,6 @@ SCIM groups support custom role assignments and spend limits the same way as man
 To manually trigger a sync, click “SCIM Sync."
 
 **Note:** Claude supports direct group memberships only. If your identity provider nests groups inside other groups, those relationships are ignored when memberships are pushed via SCIM, and only direct members appear in Claude. Some providers flatten nested memberships before pushing them, which makes members of child groups appear as direct members. Check your provider's SCIM behavior to confirm.
-
----
 
 ## Group visibility
 
@@ -85,8 +79,6 @@ This revokes existing shares only. It doesn't block future sharing, so turn off 
 
 **Note:** Removing a group's access runs in the background. For groups with more than 1000 shared projects, it can take several minutes or longer.
 
----
-
 ## Control member access with custom roles
 
 You can control individual members' feature access entirely through groups and custom roles. When a member's role is set to **Custom**, they have no default capabilities or permissions—their access is determined entirely by the custom roles assigned to their groups. This is different from the User, Admin, or Owner roles, which include built-in permissions.
@@ -117,8 +109,6 @@ The member's effective permissions are now determined by their group memberships
 ### Invite new members
 
 When inviting a new member, Owners, Primary Owners, and custom roles with the **User Management** permission set to "Can manage" can select "Custom” as the role.The new member's access is determined by their group memberships after they join.
-
----
 
 ## Group spend limits
 

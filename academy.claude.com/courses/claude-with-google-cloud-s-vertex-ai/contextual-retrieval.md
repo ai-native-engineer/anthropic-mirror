@@ -12,13 +12,13 @@ Lesson 427 min
 
 Contextual retrieval is a technique that improves RAG pipeline accuracy by solving a fundamental problem: when you split a document into chunks, each chunk loses its connection to the broader document context.
 
-## The Problem with Standard Chunking
+## The Problem with Standard Chunking[](#the-problem-with-standard-chunking)
 
 When you take a source document and break it into chunks for your vector database, each individual piece no longer knows where it came from or how it relates to the rest of the document. This can hurt retrieval accuracy because the chunks lack important contextual information.
 
 ![](https://academy.claude.com/assets/media/e3b6f9ccb54e4c38966ff1e694675a8d2227d273053cbaaffa2810417dd87faa.png)
 
-## How Contextual Retrieval Works
+## How Contextual Retrieval Works[](#how-contextual-retrieval-works)
 
 Contextual retrieval adds a preprocessing step before inserting chunks into your retriever database. Here's the process:
 
@@ -34,7 +34,7 @@ For example, if you have a section about software engineering that mentions a 20
 
 ![](https://academy.claude.com/assets/media/49504d077fb3bf4824aeb3fcf10c76b838304ff4263ded2458a2244cc7603973.png)
 
-## Handling Large Documents
+## Handling Large Documents[](#handling-large-documents)
 
 A common problem is when your source document is too large to fit into Claude's context window. You can still use contextual retrieval by providing a reduced set of context:
 
@@ -47,7 +47,7 @@ Instead of including the entire document, provide:
 
 This approach gives Claude enough information to understand the document structure and immediate context without overwhelming the prompt.
 
-## Implementation Example
+## Implementation Example[](#implementation-example)
 
 Here's a basic function for adding context to chunks:
 
@@ -104,7 +104,7 @@ for i, chunk in enumerate(chunks):
     retriever.add_document({"content": contextualized_chunk})
 ```
 
-## When to Use Contextual Retrieval
+## When to Use Contextual Retrieval[](#when-to-use-contextual-retrieval)
 
 This technique is most valuable when:
 

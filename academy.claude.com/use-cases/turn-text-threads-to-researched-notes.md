@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Turn text threads to researched notes result](https://academy.claude.com/assets/v1/turn-text-threads-to-researched-notes-payiriue.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Using [model context protocol(opens in new tab)](https://claude.com/blog/what-is-model-context-protocol) (MCP), Claude can connect to your everyday tools and apps. When you enable [connectors(opens in new tab)](https://claude.com/partners/mcp), Claude pulls context directly from Messages or Notes and saves organized information back to your apps, eliminating the need for copying, pasting, or switching between tools.
 
@@ -32,11 +32,11 @@ To ensure correct formatting in my notes, using HTML tags to create natural line
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude can connect to Messages to understand the full thread context, search the web for current dessert recipes that match what you're looking for, and save the organized recipe and shopping list directly to your Notes app.
 
-### Required context
+### Required context[](#required-context)
 
 To access system-level connectors, download [Claude for Desktop.(opens in new tab)](https://claude.com/download)
 
@@ -58,7 +58,7 @@ A desktop extension of the Claude app on a Mac — enable it under Desktop exten
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
+### Optional context[](#optional-context)
 
 Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is turned on in the chat bar so Claude can search for recipes and reviews online as a next step.
 
@@ -66,7 +66,7 @@ Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude analyzes your messages for key details within conversation threads, then uses Web Search to find relevant options online. Finally, it stores organized notes in your Notes app, accessible across all your devices.
 
@@ -82,11 +82,11 @@ All your ingredients are organized by where you'll find them in the store—baki
 
 Below the shopping list is the step-by-step recipe with timing notes so you know what to expect. I included tips on getting that swirl pattern right and how to test when they're done. Also added a mini-recipe for the gluten-free version using almond flour.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Send replies and set reminders
+### Send replies and set reminders[](#send-replies-and-set-reminders)
 
 Ask Claude to reply to the host with what you're bringing and to set a reminder to go shopping. Claude can both read and write to your Messages and Reminders app.
 
@@ -94,7 +94,7 @@ Please send Sarah a message back saying I'll bring brownies for 15 people. Let h
 
 Open in Claude
 
-### Adapt to new information
+### Adapt to new information[](#adapt-to-new-information)
 
 Have Claude intelligently adjust the output when details change.
 
@@ -102,7 +102,7 @@ Sarah just texted that it's 25 people now. Update my Notes with 1.5x quantities 
 
 Open in Claude
 
-### Try it out in other platforms
+### Try it out in other platforms[](#try-it-out-in-other-platforms)
 
 Claude can connect to a variety of your communication tools. Apply this workflow wherever you work.
 
@@ -110,21 +110,21 @@ My team's been chatting about a workshop in Slack. Read those messages, research
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Connect to your [iOS(opens in new tab)](https://support.claude.com/en/articles/11869619-using-claude-with-ios-apps) or [Android(opens in new tab)](https://support.claude.com/en/articles/11869629-using-claude-with-android-apps) apps
+### Connect to your [iOS(opens in new tab)](https://support.claude.com/en/articles/11869619-using-claude-with-ios-apps) or [Android(opens in new tab)](https://support.claude.com/en/articles/11869629-using-claude-with-android-apps) apps[](#connect-to-your-ios-or-android-apps)
 
 Claude can now connect with your device's system apps to help you take action directly from your conversations. When you chat with Claude, it can draft messages, emails, or calendar events, find locations, and manage reminders — all seamlessly integrated with your mobile apps. That mobile feature drafts new messages from your phone; reading an existing thread and writing the note, as in this walkthrough, runs through the Claude desktop app's extensions on a Mac.
 
-### Formatting for Notes
+### Formatting for Notes[](#formatting-for-notes)
 
 Keep in mind the Notes app may need different structure than a normal file output. For better formatting when creating content for Apple Notes, ask Claude to use HTML breaks for spacing between lines and sections, abbreviations to keep notes brief, and to prioritize quick reference information, so the content is easily viewable on mobile formats.
 
-### Privacy control stays with you
+### Privacy control stays with you[](#privacy-control-stays-with-you)
 
 Each connection you enable expands what Claude can access and where it can do work, but you stay in control. Claude only reads conversations you allow it to and only saves to apps you've connected when granted permission.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Next time you're juggling requests and scattered information, point Claude to your messages to find and organize small details, saving you time and hassle.
 

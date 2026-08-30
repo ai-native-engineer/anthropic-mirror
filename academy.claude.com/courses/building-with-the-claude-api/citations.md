@@ -12,13 +12,13 @@ Lesson 427 min
 
 When Claude answers questions based on documents you provide, users might assume it's just drawing from its training data. But what if Claude could show exactly where it found specific information? That's where citations come in - a powerful feature that lets Claude reference specific parts of your source documents and show users exactly where each piece of information comes from.
 
-## Why Citations Matter
+## Why Citations Matter[](#why-citations-matter)
 
 Imagine asking Claude about how Earth's atmosphere formed and getting a detailed answer. Without citations, users have no way to verify the information or understand that Claude is actually referencing a specific document you provided. Citations solve this transparency problem by creating a clear trail from Claude's response back to your source material.
 
 ![](https://academy.claude.com/assets/media/acd587075d92213562edeea50e9dccc8a5ed4c4c8474f5e669bec3dc54e9702f.jpg)
 
-## Enabling Citations
+## Enabling Citations[](#enabling-citations)
 
 To enable citations, you need to modify your document message structure. Add two new fields to your document block:
 
@@ -39,7 +39,7 @@ python
 
 The `title` field gives your document a readable name, while `citations: {"enabled": True}` tells Claude to track where it finds information.
 
-## Understanding Citation Structure
+## Understanding Citation Structure[](#understanding-citation-structure)
 
 When citations are enabled, Claude's response becomes more complex. Instead of simple text, you get structured data that includes citation information for each claim.
 
@@ -55,7 +55,7 @@ Each citation contains several key pieces of information:
 
 ![](https://academy.claude.com/assets/media/2b7dd19d40b53383e053c90045559770e559173fb4550acdcd0f8bd388eb60f8.jpg)
 
-## Building User Interfaces with Citations
+## Building User Interfaces with Citations[](#building-user-interfaces-with-citations)
 
 The real power of citations comes from building user interfaces that make this information accessible. You can create interactive elements where users can hover over citation markers to see exactly where information came from.
 
@@ -67,7 +67,7 @@ This creates a transparent experience where users can:
 * Verify the information by checking the original document
 * Understand the context around each cited piece of information
 
-## Citations with Plain Text
+## Citations with Plain Text[](#citations-with-plain-text)
 
 Citations aren't limited to PDF documents. You can also use them with plain text sources. When working with text, modify your document structure like this:
 
@@ -88,7 +88,7 @@ python
 
 With plain text sources, instead of page numbers, you'll get character positions that pinpoint exactly where in the text Claude found each piece of information.
 
-## When to Use Citations
+## When to Use Citations[](#when-to-use-citations)
 
 Citations are particularly valuable when:
 

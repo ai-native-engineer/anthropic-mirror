@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Develop guidelines for responsible AI use in your academic and professional life
 * Build a framework for continued growth in AI Fluency
 
-## Being the human in the loop & developing a personal commitment
+## Being the human in the loop & developing a personal commitment[](#being-the-human-in-the-loop-developing-a-personal-commitment)
 
 Being the human in the loop
+
+SummaryTranscript
 
 This video explores what it means to be "the human in the loop"—the
 decision-maker who steers AI interactions with judgment, creativity, and
@@ -34,7 +36,7 @@ needed skills? Am I being honest about AI's role? The video concludes by
 highlighting that your humanity—your specific talents, experiences, and
 perspectives—remains uniquely valuable and irreplaceable.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Being the "human in the loop" means maintaining decision-making control in all AI interactions
 * A personal commitment to responsible AI use helps navigate ethical complexities
@@ -42,7 +44,7 @@ perspectives—remains uniquely valuable and irreplaceable.
 * Your human insight, judgment, and care remain irreplaceable
 * AI Fluency is a journey of continuous learning and ethical development
 
-## Exercises
+## Exercises[](#exercises)
 
 This comprehensive exercise helps you develop a thoughtful, practical policy for your AI use that you'll actually follow.
 
@@ -71,7 +73,7 @@ In addition, consider the perspectives of others:
 * How would you want employees to use AI if you were an employer?
 * What uses of AI would make you uncomfortable if others did them?
 
-## What's next
+## What's next[](#whats-next)
 
 Congratulations on completing AI Fluency for Students! You now have:
 

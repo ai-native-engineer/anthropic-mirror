@@ -20,11 +20,11 @@ The HealthEx integration relies upon Claude's ability to [use remote connectors(
 
 More details about this integration can also be found in [HealthEx’s Connector Support Guide(opens in new tab)](https://healthex.io/guides/claude).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 HealthEx allows you to connect Claude to your health records, securely pulling data from all your care providers into one place. Ask Claude to summarize your health, understand lab results, help prep for your next doctor's visit, and guide your daily routine. Setup takes minutes: Verify your identity using biometrics and a government ID to ensure only you are getting access to your own health data then connect your healthcare portal logins. Currently free, HealthEx is a Patient-First Privacy platform that follows the HIPAA Privacy Rule and is SOC2 compliant.
 
-## **Who should use the HealthEx integration**
+## **Who should use the HealthEx integration**[](#who-should-use-the-healthex-integration)
 
 The HealthEx connector is for patients, including:
 
@@ -36,7 +36,7 @@ The HealthEx connector is for patients, including:
 * People navigating new diagnoses or confusing medical documentation
 * Any individual looking to better manage their health and take control of their health journey
 
-## **Who can access the HealthEx integration**
+## **Who can access the HealthEx integration**[](#who-can-access-the-healthex-integration)
 
 The HealthEx connector is available to all Claude Max users in the United States at no additional charge. Consumers complete CLEAR-powered identity verification and provide explicit, revocable consent before any clinical records are retrieved. HealthEx uses CLEAR to verify your identity, but doesn't share biometric data or ID information with Claude.
 
@@ -49,7 +49,7 @@ Key requirements across all HealthEx connector users:
 
 More details on accessing the integration can be found in [HealthEx’s Connector Support Guide(opens in new tab)](https://healthex.io/guides/claude).
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 The HealthEx connector helps people understand, organize, and act on their own health through clear, personalized insights grounded in their real medical history.
 
@@ -77,7 +77,7 @@ What types of exercise would be best for me?
 
 Open in Claude
 
-## **Setting up the HealthEx integration in Claude**
+## **Setting up the HealthEx integration in Claude**[](#setting-up-the-healthex-integration-in-claude)
 
 **For Individual Claude Users**
 
@@ -91,7 +91,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the HealthEx integration can be found in [HealthEx’s MCP Server Documentation(opens in new tab)](https://docs.healthex.io/category/healthex-mcp-server).
 
-## **How to securely connect to your HealthEx account**
+## **How to securely connect to your HealthEx account**[](#how-to-securely-connect-to-your-healthex-account)
 
 Setup can take a few minutes. Users will need a phone, a valid US government ID, and logins for health portals.
 
@@ -116,7 +116,7 @@ Setup can take a few minutes. Users will need a phone, a valid US government ID,
 7. Lastly, click Finish and Return to Claude
    1. You are done with your part. We will notify you via email as soon as your records are connected to Claude so you can begin your first conversation.
 
-## **How does Claude protect my data privacy and safety?**
+## **How does Claude protect my data privacy and safety?**[](#how-does-claude-protect-my-data-privacy-and-safety)
 
 Your health information is personal. That's why we've built Claude to work with integrations like HealthEx with privacy and user empowerment at the core.
 

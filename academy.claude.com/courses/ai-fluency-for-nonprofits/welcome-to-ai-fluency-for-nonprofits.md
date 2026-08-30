@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Articulate your values and constraints for more effective AI collaboration
 * Identify your objectives for integrating AI tools and capability in your work
 
-## Welcome to AI Fluency for nonprofits
+## Welcome to AI Fluency for nonprofits[](#welcome-to-ai-fluency-for-nonprofits)
 
 Welcome to AI Fluency for nonprofits · 3 min
 
@@ -30,7 +30,7 @@ Framework (Delegation, Description, Discernment, and Diligence) as the
 foundation of the course and emphasizes that mission-centered thinking
 should guide all nonprofit AI use.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **AI Fluency** is the ability to use AI in ways that are efficient, effective, ethical, and safe. It's a combination of practical skills, knowledge, insights, and values that help you adapt to evolving AI technologies while staying true to your nonprofit's mission
 * The **4D Framework** consists of four interconnected competencies: Delegation, Description, Discernment, and Diligence
@@ -38,7 +38,7 @@ should guide all nonprofit AI use.
 * The **Description-Discernment loop** helps you get more out of your AI interactions through back-and-forth collaboration
 * For nonprofits, every AI efficiency gain should ultimately translate to greater impact for the communities you serve
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Defining your organizational values, mission, and objectives for using AI
 
@@ -90,12 +90,12 @@ Start a conversation with Claude (or any other AI assistant you choose):
 * Review it together and add anything missing and/or make corrections
 * Request a format that's easy to copy and reuse
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did your answers to the self-reflection questions shape your conversation with AI? Did any new priorities or concerns emerge?
 * Looking at your context document, what aspects of your nonprofit work do you think will benefit most from AI collaboration?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll dive deeper into the 4D Framework to establish a foundation for the remainder of this course.
 

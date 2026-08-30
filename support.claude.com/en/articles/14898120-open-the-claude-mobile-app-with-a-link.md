@@ -45,7 +45,7 @@ The same Code routes are also reachable via **<https://claude.ai/code/>...** uni
 | **<https://claude.ai/code/{session-id}>** | Existing session |
 | **<https://claude.ai/code/new?q=Fix%20the%20failing%20test&repo=anthropics%2Fclaude-code&branch=main>** | New-session composer, prefilled with the GitHub repository, branch, and "Fix the failing test." |
 
-* [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
+* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
 * [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)

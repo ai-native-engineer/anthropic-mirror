@@ -10,7 +10,7 @@
 
 Using GitLab instead of GitHub? See [Configure GitLab access](https://claude.com/docs/claude-tag/admins/configure-gitlab). GitLab uses a service-account token rather than an installed app.
 
-Claude Tag gives Claude its own GitHub identity, the Claude GitHub App, so pull requests it opens from a channel are authored by Claude rather than by a person. You only need GitHub access if a team will hand Claude code work: branches, pull requests, review, or CI follow-up.
+Claude Tag gives Claude its own GitHub identity, the Claude GitHub App, so pull requests it opens from a channel or a DM are authored by Claude rather than by a person. You only need GitHub access if a team will hand Claude code work: branches, pull requests, review, or CI follow-up.
 You link GitHub once for your Claude organization, then grant repositories per Access bundle.
 
 If you link your GitHub organization before running [setup](https://claude.com/docs/claude-tag/admins/setup-overview), setup includes a step for granting repository access inline, so you don’t need to return to the Repositories tab afterward.
@@ -29,7 +29,7 @@ Open [`claude.ai/admin-settings/github`](https://claude.ai/admin-settings/github
 
 Connect Claude to GitHub
 
-Click **Connect Claude to GitHub** and complete the GitHub authorization. After authorizing, the page shows two sections: **Connected GitHub accounts** lists organizations already linked, and **Unlinked accounts** lists organizations where the Claude GitHub App is installed but not yet linked.
+Click **Connect Claude to GitHub** (**Connect**, once any account is already linked) and complete the GitHub authorization. After authorizing, the page shows two sections: **Connected GitHub accounts** lists accounts already linked, with a **Type** column of **Organization** or **Personal**, and **Unlinked accounts** lists organizations where the Claude GitHub App is installed but not yet linked. Claude Tag uses **Organization** accounts only; a **Personal** row is someone’s own GitHub account and can’t be used for your repositories.
 
 3
 
@@ -37,8 +37,9 @@ Link or install
 
 If your organization is under **Unlinked accounts**, click **Link** next to it. If it isn’t listed at all, click **Install on another organization** and complete the install on github.com; you’re returned to this page with the organization under **Connected GitHub accounts** as **Connected**.
 
-* A disabled **Link** button means you aren’t an owner of that GitHub organization
+* A disabled **Link** button means you can’t link that account yet; the button’s tooltip names the reason, such as not being an owner of that GitHub organization
 * A **Needs permissions** status means the installation has a pending request; **Review permissions** takes you to github.com to approve it
+* An **Authorize SSO** button in place of **Link** means your GitHub token isn’t authorized for that organization’s SSO; the button opens github.com to authorize it, and you link after returning
 
 ##  Grant repository access
 
@@ -91,7 +92,11 @@ Repository skills apply only in sessions that have the repository. To give a ski
 
 ###  Install project dependencies
 
-Every session runs in an isolated sandbox with a standard set of preinstalled tools. The sandbox is the same for every repository; there is no setup script or custom image to configure. If a project needs something the standard set doesn’t include, such as a specific language runtime or a database client, add the install commands to the repository’s `CLAUDE.md`.
+Every session runs in an isolated sandbox with a standard set of preinstalled tools. There are two places to add what a project needs beyond that set, such as a specific language runtime or a database client:
+
+* **For every session in a channel**, an admin adds the install commands to the setup script of the environment the channel’s sessions run on. See [Configure the environment for a scope](https://claude.com/docs/claude-tag/admins/customize#configure-the-environment-for-a-scope).
+* **For one repository**, add the install commands to the repository’s `CLAUDE.md`.
+
 Claude follows `CLAUDE.md` as guidance when it starts work that needs it, not as an unconditional setup step. Write each install as a precondition of the work it supports, for example “install the SDK before building or running tests”, so Claude runs it when a task touches that code. The sandbox is fresh for every session, so the installs repeat each time Claude works in the repository.
 Prefer the standard package manager and its default registry over a vendor install script or a third-party package source. Package managers such as `apt`, `pip`, `npm`, and `dotnet` reach their default registries from the sandbox; downloads from other hosts can be blocked at the sandbox’s [egress boundary](https://claude.com/docs/claude-tag/concepts/security-and-data#network-egress). An Owner can allow an additional host on the bundle’s Domains tab; see [Allow a host without a credential](https://claude.com/docs/claude-tag/admins/add-connections#allow-a-host-without-a-credential).
 
@@ -112,6 +117,16 @@ Claude can’t:
 * Approve a workflow run that’s waiting on approval, or its pending deployments
 
 A request for either is refused with a `403`; a `repository_dispatch` request returns “repository\_dispatch is not permitted for this session type.” Approving a held run or a pending deployment releases a checkpoint GitHub inserted for a person, so do it from the repository’s **Actions** tab on github.com.
+
+##  Require a second approval on Claude’s pull requests
+
+Claude is the author of the pull requests it opens, from a channel or a DM, so GitHub’s rule against approving your own pull request applies to Claude and not to the person who asked for the change. On a branch that requires one approving review, the person who asked Claude for a change can approve and merge it alone. If you want a second person to look at Claude’s work before it merges, require the second review in GitHub.
+GitHub gives you two ways, both set in a branch protection rule or ruleset on each branch Claude opens pull requests against.
+
+* **Require two approving reviews.** GitHub’s built-in setting. It applies to pull requests from people too.
+* **Require a status check that only Claude’s pull requests must pass.** A check you build and maintain, for example a GitHub Actions workflow that fails on pull requests authored by `claude[bot]` (or by your own app’s `<slug>[bot]` login on [GitHub Enterprise Server](#github-enterprise-server)) until two people have approved, and passes on pull requests people open.
+
+With either, also turn on dismissing stale approvals when new commits are pushed, so an approval doesn’t carry over to a later push. See [About protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches) and [About status checks](https://docs.github.com/en/pull-requests/reference/status-checks) in GitHub’s documentation.
 
 ##  Scheduled work uses the same connection
 

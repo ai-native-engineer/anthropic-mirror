@@ -74,6 +74,7 @@ View all
 SOC 2
 [Anthropic] 2025 Type 2 SOC 2 and CSA STAR L2 Report.pdf
 [Anthropic] 2025 Type 2 SOC 3 Report.pdf
+[Anthropic] 2026 SOC 2 Bridge Letter.pdf
 ISO
 [Anthropic] ISO 27001 Certificate (2025).pdf
 [Anthropic] ISO 42001 Certificate (2025).pdf
@@ -85,6 +86,8 @@ HIPAA
 NIST
 [Anthropic] 2026 NIST 800-171r3 Attestation Letter
 FedRAMP
+Claude Certification Package Overview
+Opens in new tab
 Claude for Government (C4G) PFCS-SS FedRAMP High Authorization Package
 Opens in new tab
 International Compliance
@@ -107,7 +110,7 @@ Claude Cowork Desktop Security Architecture Overview
 Claude Desktop Security Overview (Third-party platforms)
 Claude Code FISMA Best Practices
 
-View 8 more
+View 7 more
 
 Security Advisories
 CVE-2026-22561 - DLL Search Order Hijacking in Claude for Windows installer

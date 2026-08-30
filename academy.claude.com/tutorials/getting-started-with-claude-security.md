@@ -20,30 +20,30 @@ Most engineering teams don’t have the reviewer-hours and skills to identify so
 
 This guide covers everything you need to set up Claude Security, run your first scan, review findings, and operationalize the tool for ongoing use.
 
-## **Prerequisites**
+## **Prerequisites**[](#prerequisites)
 
 Before you can use Claude Security, the following requirements must be in place:
 
 * **Eligible plans:** Your organization must have an active Claude Enterprise account.
 * **Claude Code on the Web**: [Claude Code on the Web(opens in new tab)](https://code.claude.com/docs/en/claude-code-on-the-web) must be enabled for your organization. Users access it at claude.ai/code.
 * **Extra Usage**: Extra usage needs to be enabled in order for consumption billing to work.
-* **GitHub App Installed:** Your administrator must have installed the Anthropic GitHub App and granted it access to the repositories you wish to scan. This is the same GitHub App used for Claude Code on the Web.
+* **GitHub App Installed:** Your administrator must have installed the Anthropic Claude GitHub App and granted it access to the repositories you wish to scan. This is the same Claude GitHub App used for Claude Code on the Web. For GitHub Enterprise Server, the app must be installed on your GHES instance, and that instance must already be connected to Claude Code on the Web.
 * **User Seats:** Each user who will run scans needs a premium seat on your organization’s Claude.ai account.
 
-**Note:** Claude Security currently supports repositories hosted on GitHub.com.
+**Note:** Claude Security currently supports repositories hosted on GitHub.com or GitHub Enterprise Server.
 
-## **Setup**
+## **Setup**[](#setup)
 
 If your organization already uses Claude Code on the Web, most of the setup is already complete. Here is what you need to confirm:
 
 1. **Verify Extra Usage is enabled.** Ensure Extra Usage is enabled in Organization Billing settings. Claude Security uses consumption billing. Costs scale with the size and number of scans you run, so set spend limits that align with your expected usage. After Claude Security is enabled, you can also set a separate spend limit for the feature.
-2. **Verify GitHub App access.** Ensure the Anthropic GitHub App has been installed on your GitHub organization and has been granted access to the repositories you want to scan. Your Claude Code admin can confirm this in your GitHub organization’s settings under Installed GitHub Apps.
+2. **Verify GitHub App access.** Ensure the Claude GitHub App has been installed on your GitHub organization and has been granted access to the repositories you want to scan. Your Claude Code admin can confirm this in your GitHub organization’s settings under Installed GitHub Apps. If your code lives on GitHub Enterprise Server, confirm the app is installed on the GHES instance rather than on GitHub.com, and that the instance is already connected to Claude Code on the Web.
 3. **Confirm user seats.** Each user who will run scans should have an active **premium** seat on your Claude.ai organization. Standard seats do not include Claude Code on the Web. Verify this in your Claude.ai admin console.
 4. Enable the **Claude Security** feature in the admin console: [http://claude.ai/admin-settings/claude-security(opens in new tab)](https://claude.ai/admin-settings/claude-security)
 
 Once these steps are complete, the Security Scan feature will appear in your Claude Code on the Web interface.
 
-## **Running a Scan**
+## **Running a Scan**[](#running-a-scan)
 
 Once Claude Security is enabled, running a scan is straightforward:
 
@@ -53,7 +53,7 @@ Once Claude Security is enabled, running a scan is straightforward:
 4. **Start the scan.** Click to begin the scan. Claude will analyze the codebase for vulnerabilities. Depending on the size of the repository, the scan may take several minutes or hours.
 5. **Review findings.** Once the scan completes, findings are displayed with details including vulnerability type, severity, affected file and line, and a description of the issue. You can also view your scan history at claude.ai/security.
 
-## **Reviewing and Acting on Findings**
+## **Reviewing and Acting on Findings**[](#reviewing-and-acting-on-findings)
 
 After a scan completes, you have several options for each finding:
 
@@ -64,7 +64,7 @@ After a scan completes, you have several options for each finding:
 
 Findings are categorized by severity to help you prioritize your remediation efforts. We recommend starting with the highest-severity items and working through the list.
 
-## **Operationalizing the tool for ongoing use**
+## **Operationalizing the tool for ongoing use**[](#operationalizing-the-tool-for-ongoing-use)
 
 To make ongoing use easier, you can:
 

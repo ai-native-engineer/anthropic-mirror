@@ -21,7 +21,7 @@
 | `Ctrl+D`                                                                                     | Exit Claude Code session                                                                                                                                                                                                                                                   | The first press shows a confirmation hint and a second press within 800ms exits. When the prompt has text, `Ctrl+D` deletes the character after the cursor instead                                                                                                                                                                                                                                                                                                                                                               |
 | `Ctrl+G` or `Ctrl+X Ctrl+E`                                                                  | Open in default text editor                                                                                                                                                                                                                                                | Edit your prompt or custom response in your default text editor. `Ctrl+X Ctrl+E` is the readline-native binding. Turn on **Show last response in external editor** in `/config` to prepend Claude's previous reply as `#`-commented context above your prompt; Claude Code strips the comment block when you save                                                                                                                                                                                                                |
 | `Ctrl+L`                                                                                     | Redraw screen                                                                                                                                                                                                                                                              | Forces a full terminal redraw, keeping input and conversation history. Use this to recover if the display becomes garbled or partially blank                                                                                                                                                                                                                                                                                                                                                                                     |
-| `Ctrl+O`                                                                                     | Toggle transcript viewer                                                                                                                                                                                                                                                   | Shows detailed tool usage and execution, with a timestamp and the model used on each assistant message. Also expands MCP calls, which collapse to a single line like "Called slack 3 times" by default                                                                                                                                                                                                                                                                                                                           |
+| `Ctrl+O`                                                                                     | Toggle transcript viewer                                                                                                                                                                                                                                                   | Shows detailed tool usage and execution, with a timestamp and the model used on each assistant message. Also expands lines that collapse by default, such as MCP calls, shown as a single `Called slack 3 times` line, and [messages from your other sessions](/docs/en/cross-session-messaging#what-a-message-looks-like), shown as a one-line `Message from @<sender>` preview                                                                                                                                                      |
 | `Ctrl+R`                                                                                     | Reverse search command history                                                                                                                                                                                                                                             | Search through previous commands interactively                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `Ctrl+V` or `Cmd+V` (iTerm2) or `Alt+V` (Windows and WSL)                                    | Paste image from clipboard                                                                                                                                                                                                                                                 | Inserts an `[Image #N]` chip at the cursor so you can reference it positionally in your prompt. On WSL, both `Ctrl+V` and `Alt+V` are bound; use `Alt+V` if your terminal intercepts `Ctrl+V`                                                                                                                                                                                                                                                                                                                                    |
 | `Ctrl+B`                                                                                     | Background running tasks                                                                                                                                                                                                                                                   | Backgrounds Bash commands and agents. Tmux users press twice                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -136,17 +136,17 @@ Claude Code keeps your vim mode and cursor position when you toggle the [transcr
 
 ### Mode switching
 
-| Command | Action                                | From mode      |
-| :------ | :------------------------------------ | :------------- |
-| `Esc`   | Enter NORMAL mode                     | INSERT, VISUAL |
-| `i`     | Insert before cursor                  | NORMAL         |
-| `I`     | Insert at beginning of line           | NORMAL         |
-| `a`     | Insert after cursor                   | NORMAL         |
-| `A`     | Insert at end of line                 | NORMAL         |
-| `o`     | Open line below                       | NORMAL         |
-| `O`     | Open line above                       | NORMAL         |
-| `v`     | Start character-wise visual selection | NORMAL         |
-| `V`     | Start line-wise visual selection      | NORMAL         |
+| Command           | Action                                                                                                    | From mode      |
+| :---------------- | :-------------------------------------------------------------------------------------------------------- | :------------- |
+| `Esc` or `Ctrl+[` | Enter NORMAL mode. In terminals that use the Kitty keyboard protocol, `Ctrl+[` requires v2.1.242 or later | INSERT, VISUAL |
+| `i`               | Insert before cursor                                                                                      | NORMAL         |
+| `I`               | Insert at beginning of line                                                                               | NORMAL         |
+| `a`               | Insert after cursor                                                                                       | NORMAL         |
+| `A`               | Insert at end of line                                                                                     | NORMAL         |
+| `o`               | Open line below                                                                                           | NORMAL         |
+| `O`               | Open line above                                                                                           | NORMAL         |
+| `v`               | Start character-wise visual selection                                                                     | NORMAL         |
+| `V`               | Start line-wise visual selection                                                                          | NORMAL         |
 
 ### Remap INSERT-mode key sequences
 
@@ -195,26 +195,27 @@ Claude Code reads this setting from your user settings file, the `--settings` fl
 
 ### Editing (NORMAL mode)
 
-| Command        | Action                                                                                                                    |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------ |
-| `x`            | Delete character                                                                                                          |
-| `dd`           | Delete line                                                                                                               |
-| `D`            | Delete to end of line                                                                                                     |
-| `dw`/`de`/`db` | Delete word/to end/back                                                                                                   |
-| `cc`           | Change line                                                                                                               |
-| `C`            | Change to end of line                                                                                                     |
-| `cw`/`ce`/`cb` | Change word/to end/back                                                                                                   |
-| `s`            | Substitute character: delete the character under the cursor and enter INSERT mode. Requires Claude Code v2.1.211 or later |
-| `S`            | Substitute line: clear the line and enter INSERT mode. Requires Claude Code v2.1.211 or later                             |
-| `yy`/`Y`       | Yank (copy) line                                                                                                          |
-| `yw`/`ye`/`yb` | Yank word/to end/back                                                                                                     |
-| `p`            | Paste after cursor                                                                                                        |
-| `P`            | Paste before cursor                                                                                                       |
-| `>>`           | Indent line                                                                                                               |
-| `<<`           | Dedent line                                                                                                               |
-| `J`            | Join lines                                                                                                                |
-| `u`            | Undo                                                                                                                      |
-| `.`            | Repeat last change                                                                                                        |
+| Command               | Action                                                                                                                    |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------------------ |
+| `x`                   | Delete character                                                                                                          |
+| `dd`                  | Delete line                                                                                                               |
+| `D`                   | Delete to end of line                                                                                                     |
+| `dw`/`de`/`db`        | Delete word/to end/back                                                                                                   |
+| `df{char}`/`dt{char}` | Delete to and including, or up to, the next occurrence of a character                                                     |
+| `cc`                  | Change line                                                                                                               |
+| `C`                   | Change to end of line                                                                                                     |
+| `cw`/`ce`/`cb`        | Change word/to end/back                                                                                                   |
+| `s`                   | Substitute character: delete the character under the cursor and enter INSERT mode. Requires Claude Code v2.1.211 or later |
+| `S`                   | Substitute line: clear the line and enter INSERT mode. Requires Claude Code v2.1.211 or later                             |
+| `yy`/`Y`              | Yank (copy) line                                                                                                          |
+| `yw`/`ye`/`yb`        | Yank word/to end/back                                                                                                     |
+| `p`                   | Paste after cursor                                                                                                        |
+| `P`                   | Paste before cursor                                                                                                       |
+| `>>`                  | Indent line                                                                                                               |
+| `<<`                  | Dedent line                                                                                                               |
+| `J`                   | Join lines                                                                                                                |
+| `u`                   | Undo                                                                                                                      |
+| `.`                   | Repeat last change                                                                                                        |
 
 ### Text objects (NORMAL mode)
 
@@ -341,10 +342,16 @@ Type a message and press `Enter` while Claude is working. Claude Code queues the
 
 When a queued entry reaches Claude depends on what you queued.
 
-* Messages: if you queue a message while Claude is running tool calls, Claude Code passes it to Claude as soon as those tool calls finish, within the same turn. When the turn ends, Claude Code sends the messages that are still queued as the next turn, each as a separate message
+* Messages: if you queue a message while Claude is running tool calls, Claude Code passes it to Claude as soon as those tool calls finish, within the same turn. When the turn ends with messages still queued, Claude Code sends only the oldest as the next turn. The rest stay queued and follow the same rule: Claude Code passes them to Claude when that turn's tool calls finish, or sends the next oldest as the turn after
 * Commands and shell commands: Claude Code holds them until the turn ends, then runs them one at a time
 
 Press `Esc` to interrupt the turn instead. Claude Code keeps what you queued and sends it right away.
+
+Claude Code runs some commands as soon as you send them instead of queueing them, among them `/model`, `/effort`, and `/fast`. Each of the three changes a setting: the model, the effort level, or fast mode. Whether Claude Code applies the new setting to the turn Claude is already working on, or only from your next turn, differs by command:
+
+* [`/model`](/docs/en/model-config#setting-your-model): once you confirm the [cache warning](/docs/en/prompt-caching#switching-models), if Claude Code shows one, Claude Code applies your change to the next request it makes in that turn
+* [`/effort`](/docs/en/model-config#adjust-effort-level): once you confirm the [cache warning](/docs/en/prompt-caching#changing-effort-level), if Claude Code shows one, Claude Code applies your change to the next request it makes in that turn
+* [`/fast`](/docs/en/fast-mode#toggle-fast-mode): Claude Code keeps the fast mode setting that was active when the turn started, so your speed change applies from your next turn. If your current model doesn't support fast mode, turning it on also [switches your model](/docs/en/prompt-caching#turning-on-fast-mode), and Claude Code uses the new model from its next request in that turn
 
 ### Take back what you queued
 
@@ -365,13 +372,7 @@ Claude Code generates each of these next-prompt suggestions with a background re
 
 ### When Claude Code skips suggestions
 
-In interactive mode, Claude Code leaves prompt suggestions off by default and hides the **Prompt suggestions** toggle in `/config` when it doesn't evaluate feature flags. That happens in these cases:
-
-* You use Amazon Bedrock, Claude Platform on AWS, Google Cloud's Agent Platform, or Microsoft Foundry as the model provider, unless a host platform that embeds Claude Code sets [`CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST`](/docs/en/env-vars) to a true value such as `1`
-* You are signed in to a [Claude apps gateway](/docs/en/claude-apps-gateway)
-* You set [`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`, `DISABLE_TELEMETRY`, `DO_NOT_TRACK`, or `DISABLE_GROWTHBOOK`](/docs/en/env-vars#features-that-need-feature-flag-fetching) to a value that turns off feature-flag evaluation
-
-Outside those cases, if you start a session before Claude Code has ever fetched feature flags, such as your first session after installing on a slow network, Claude Code can also leave suggestions off and hide the **Prompt suggestions** toggle for that session. It shows them starting with the next session after a fetch succeeds.
+In interactive mode, Claude Code leaves prompt suggestions off by default and hides the **Prompt suggestions** toggle in `/config` in a [session that doesn't fetch feature flags](/docs/en/env-vars#features-that-need-feature-flag-fetching), such as one on a third-party provider or through a Claude apps gateway, and in a [first session after an install or upgrade](/docs/en/env-vars#first-session-after-an-install-or-upgrade) whose flags haven't arrived yet.
 
 Claude Code also skips individual suggestions in several situations, including:
 
@@ -537,7 +538,7 @@ Once the answer appears, the overlay accepts these keys.
 | `f`                        | Start a [forked subagent](/docs/en/sub-agents#fork-the-current-conversation) that inherits the parent conversation plus this question and answer, so it can continue with full tool access. You stay in the current session and find the fork in the [panel below your prompt](/docs/en/sub-agents#observe-and-steer-running-forks). Available in local sessions only |
 | `x`                        | Clear the list of earlier `/btw` exchanges shown above the current answer                                                                                                                                                                                                                                                                                   |
 
-`/btw` is the inverse of a [subagent](/docs/en/sub-agents): it sees your full conversation but has no tools. Use `/btw` to ask about what Claude already knows from this session; use a subagent to go find out something new.
+`/btw` sees your full conversation but has no tools. A [subagent](/docs/en/sub-agents) has tools and starts from the prompt it receives, or, for a [fork](/docs/en/sub-agents#fork-the-current-conversation), from a copy of this conversation. Use `/btw` to ask about what Claude already knows from this session; use a subagent to go find out something new.
 
 ## Task list
 

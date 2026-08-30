@@ -25,7 +25,7 @@ Concretely, the platform is made up of a few pieces:
 * **Command line interfaces**
 * A **console** where you manage API keys, monitor usage, deploy managed agents, and test prompts
 
-## The three layers of the platform
+## The three layers of the platform[](#the-three-layers-of-the-platform)
 
 A useful way to picture the platform is as three layers stacked on top of each other.
 
@@ -39,7 +39,7 @@ The shorthand: **build with primitives, scale on infrastructure, run with contro
 
 You can see this structure reflected in the Claude Console itself — it's where the infrastructure and control layers live, with sections for building, managing agents, and analytics.
 
-## A real example: drafting help desk replies
+## A real example: drafting help desk replies[](#a-real-example-drafting-help-desk-replies)
 
 Say you manage a basic help desk app, and you've been asked to add a feature: draft a reply based on the contents of a ticket, following your team's tone and guidelines. You want to wire this up to a button in the UI.
 
@@ -80,7 +80,7 @@ Then you retrieve the response and return it to the button to render. Done.
 
 ![The help desk app's reply box populated with a Claude-drafted refund response, with Discard and Send reply buttons and a note to review and edit before sending](https://academy.claude.com/assets/media/0d0ae20981f7f5d29a69c70fc35854a5063c0c58eb8f454ac2571eb77ef6e308.png)
 
-## From "ask Claude a question" to "Claude is part of my product"
+## From "ask Claude a question" to "Claude is part of my product"[](#from-ask-claude-a-question-to-claude-is-part-of-my-product)
 
 Notice what happened in that example: you're not building a chatbot from scratch. You're adding Claude into a product that already exists, and the API is how you wire it in.
 
@@ -88,7 +88,7 @@ That's the core idea. The Claude Platform is your API-level access to Claude's m
 
 And when your product needs agents, the platform doesn't just hand you the model. With **managed agents**, it runs them for you.
 
-## Recap
+## Recap[](#recap)
 
 * The Claude Platform is Anthropic's infrastructure for building with Claude programmatically: a REST API, SDKs, CLIs, and a console for keys, usage, managed agents, and prompt testing.
 * Think of it as three layers: **primitives** (Messages API, tool use, files, web search, code execution, MCP servers, skills), **infrastructure** (managed agents, retries, queues, observability), and **controls** (dashboards, evals).

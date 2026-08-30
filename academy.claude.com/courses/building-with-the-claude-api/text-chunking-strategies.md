@@ -20,7 +20,7 @@ Consider this example: you have a document with sections on medical research and
 
 This is why choosing the right chunking strategy matters so much. Let's explore three main approaches.
 
-## Size-Based Chunking
+## Size-Based Chunking[](#size-based-chunking)
 
 ![](https://academy.claude.com/assets/media/8258b5b1db40164bb6e4ecbce20307774f2ae37b64c3cef1efe1a0de0ff3c8f0.jpg)
 
@@ -61,7 +61,7 @@ def chunk_by_char(text, chunk_size=150, chunk_overlap=20):
     return chunks
 ```
 
-## Structure-Based Chunking
+## Structure-Based Chunking[](#structure-based-chunking)
 
 Structure-based chunking divides text based on the document's natural structure - headers, paragraphs, and sections. This works great when you have well-formatted documents like Markdown files.
 
@@ -79,13 +79,13 @@ def chunk_by_section(document_text):
 
 This approach gives you the cleanest, most meaningful chunks because each one represents a complete section. However, it only works when you have guarantees about your document structure. Many real-world documents are plain text or PDFs without clear structural markers.
 
-## Semantic-Based Chunking
+## Semantic-Based Chunking[](#semantic-based-chunking)
 
 Semantic-based chunking is the most sophisticated approach. You divide text into sentences, then use natural language processing to determine how related consecutive sentences are. You build chunks from groups of related sentences.
 
 This method is computationally expensive but produces the most relevant chunks. It requires understanding the meaning of individual sentences and is more complex to implement than the other strategies.
 
-## Sentence-Based Chunking
+## Sentence-Based Chunking[](#sentence-based-chunking)
 
 A practical middle ground is chunking by sentences. You split the text into individual sentences using regular expressions, then group them into chunks with optional overlap:
 
@@ -111,7 +111,7 @@ def chunk_by_sentence(text, max_sentences_per_chunk=5, overlap_sentences=1):
     return chunks
 ```
 
-## Choosing Your Strategy
+## Choosing Your Strategy[](#choosing-your-strategy)
 
 Your choice depends entirely on your use case and document guarantees:
 

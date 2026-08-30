@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Deploy skills organization-wide using enterprise managed settings
 * Configure custom subagents to use specific skills
 
-## Sharing skills
+## Sharing skills[](#sharing-skills)
 
 Sharing skills · 4 min
+
+SummaryTranscript
 
 Skills become much more valuable when they're shared across a team or
 organization. This video covers the three main distribution methods —
@@ -28,7 +30,7 @@ how to configure custom subagents to use skills. You'll learn which
 approach fits which scenario and how to handle an important gotcha:
 subagents don't inherit skills automatically.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Project skills** in `.claude/skills` are shared automatically through Git — anyone who clones the repo gets them
 * **Plugins** let you distribute skills across repositories via marketplaces for broader community use
@@ -38,7 +40,7 @@ subagents don't inherit skills automatically.
 
 Skills become much more valuable when they're shared. A PR review skill that only you use is helpful, but that same skill shared across your entire team standardizes code review and creates a consistent experience across your organization. Let's look at the different ways you can distribute skills.
 
-## Committing Skills to Your Repository
+## Committing Skills to Your Repository[](#committing-skills-to-your-repository)
 
 The simplest sharing method is committing skills directly to your repository. Place them in `.claude/skills`, and anyone who clones the repo gets those skills automatically — no extra installation needed.
 
@@ -50,7 +52,7 @@ When you push updates, everyone gets them on the next pull. This approach works 
 
 The `.claude` directory contains your agents, hooks, skills, and settings — all version-controlled and shared with the team through normal Git workflows.
 
-## Distributing Skills Through Plugins
+## Distributing Skills Through Plugins[](#distributing-skills-through-plugins)
 
 Plugins are a way to extend Claude Code with custom functionality designed to be shared across teams and projects. In your plugin project, create a `skills` directory that follows a similar file structure to the `.claude` directory — each skill gets its own folder with a `SKILL.md` file inside.
 
@@ -60,7 +62,7 @@ After you distribute your plugin to a marketplace, other users can discover and 
 
 This approach is best when your skills aren't too project-specific and can be useful to community members beyond your immediate team.
 
-## Enterprise Deployment Through Managed Settings
+## Enterprise Deployment Through Managed Settings[](#enterprise-deployment-through-managed-settings)
 
 Administrators can deploy skills organization-wide through managed settings. Enterprise skills take the highest priority — they override personal, project, and plugin skills with the same name.
 
@@ -85,7 +87,7 @@ json
 
 This is the right choice for mandatory standards, security requirements, compliance workflows, and coding practices that *must* be consistent across the organization. The keyword here is "must."
 
-## Skills and Subagents
+## Skills and Subagents[](#skills-and-subagents)
 
 Here's something that surprises people: subagents don't automatically see your skills. When you delegate a task to a subagent, it starts with a fresh, clean context.
 
@@ -122,12 +124,12 @@ This pattern works really well when:
 * Different subagents need different skills (frontend reviewer vs. backend reviewer)
 * You want to enforce standards in delegated work without relying on prompts
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Which sharing method (repository, plugin, enterprise) makes the most sense for the skills you've been thinking about building?
 * Do you have workflows where custom subagents with specific skills would improve consistency in delegated work?
 
-## What's next
+## What's next[](#whats-next)
 
 In the final lesson, you'll learn how to troubleshoot common skill issues — from skills that don't trigger, to priority conflicts, to runtime errors — with a practical checklist you can reference anytime.
 

@@ -12,7 +12,7 @@ Lesson 462 min
 
 Prompt caching is a feature that speeds up Claude's responses and reduces the cost of text generation by reusing computational work from previous requests. To understand how this works, let's first look at what normally happens inside Claude during a typical request.
 
-## How Claude Normally Processes Requests
+## How Claude Normally Processes Requests[](#how-claude-normally-processes-requests)
 
 When you send a message to Claude, a lot happens behind the scenes before you get a response back. Claude doesn't just immediately start generating text - it first does extensive work on your input message.
 
@@ -31,7 +31,7 @@ All of this preprocessing work happens before Claude generates any actual respon
 
 ![](https://academy.claude.com/assets/media/b31f901cebc4f169484a288f9927964c68dde33d8f0b7277990077bab37dd6ed.png)
 
-## The Problem with Throwing Away Work
+## The Problem with Throwing Away Work[](#the-problem-with-throwing-away-work)
 
 This creates an inefficiency when you're having conversations with Claude. Let's say you make a follow-up request that includes the same message from earlier, plus Claude's previous response, plus a new message to continue the conversation.
 
@@ -41,7 +41,7 @@ When Claude sees that original message again, it has to redo all the same comput
 
 ![](https://academy.claude.com/assets/media/23a082b372fe8c501eb13986bda1cda0a544625ead4f5fb4fb645353e10fe28c.png)
 
-## How Prompt Caching Solves This
+## How Prompt Caching Solves This[](#how-prompt-caching-solves-this)
 
 Prompt caching addresses this inefficiency by saving the computational work instead of discarding it. Here's how it works:
 
@@ -53,7 +53,7 @@ When Claude processes your initial request, instead of throwing away all the pre
 
 When you make a follow-up request that includes the same content, Claude can check its cache and reuse the previous work instead of starting from scratch.
 
-## Key Benefits and Limitations
+## Key Benefits and Limitations[](#key-benefits-and-limitations)
 
 ![](https://academy.claude.com/assets/media/c6e44e4688cbd7852e70ea2ee247871eed0bf9a9c0c24cba493f630b87ae5275.png)
 

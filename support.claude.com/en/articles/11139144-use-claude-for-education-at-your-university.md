@@ -2,8 +2,6 @@
 
 This guide helps you use Claude for Education through your university-sponsored account. Find resources and answers to frequently asked questions about getting started, optimizing usage, and troubleshooting issues.
 
----
-
 ## What features are included in my university-sponsored education plan?
 
 Your university-sponsored Claude for Education account includes:
@@ -16,8 +14,6 @@ Your university-sponsored Claude for Education account includes:
 * **File uploads:** Analyze various document types including PDFs, DOCX, CSV, TXT, HTML, and more.
 
 **Note:** Your university may have customized certain features or applied specific policies. Check with your university's IT department for institution-specific guidelines.
-
----
 
 ## What can I use Claude for as a student?
 
@@ -60,8 +56,6 @@ Claude can be a valuable assistant for numerous academic tasks:
 
 **Important:** Follow your university's academic integrity policies when using Claude. While Claude can help you understand material and improve your work, it should not be used to complete assignments that you're expected to do independently.
 
----
-
 ## How do I access Claude on different devices?
 
 You can access Claude through multiple platforms to suit your needs:
@@ -89,8 +83,6 @@ You can access Claude through multiple platforms to suit your needs:
 
 All platforms synchronize your conversations, allowing you to start on one device and continue on another. Mobile apps offer additional features like photo analysis and voice dictation.
 
----
-
 ## How to use Claude
 
 Review the following resources to help you get the most out of your usage with Claude:
@@ -108,8 +100,6 @@ Review the following resources to help you get the most out of your usage with C
 * **[Enable and use web search](https://support.claude.com/en/articles/10684626)**
 * **[How to use Claude in your preferred language](https://support.claude.com/en/articles/10769299)**
 * **[When should I use web search, extended thinking, and Research?](https://support.claude.com/en/articles/11095361)**
-
----
 
 ## Troubleshooting
 
@@ -132,8 +122,6 @@ This appears when your prompt exceeds Claude's available context window. When th
 
 When you log in, you can select between your previous account and the new university-sponsored account. You can't migrate data between accounts, but you can **[export data](https://support.claude.com/en/articles/9450526)** from your existing account and upload the conversation data (JSON format) to your new account.
 
----
-
 ## Privacy
 
 Review these resources and visit the **[Privacy Center](https://privacy.claude.com/en/)** for information about privacy, data retention, and data handling:
@@ -148,4 +136,4 @@ Review these resources and visit the **[Privacy Center](https://privacy.claude.c
 * [Get started with Claude for Education at your university (for Owners/Admins)](https://support.claude.com/en/articles/11139094-get-started-with-claude-for-education-at-your-university-for-owners-admins)
 * [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
-* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Claude Team plan for scientists](https://support.claude.com/en/articles/16634237-claude-team-plan-for-scientists)

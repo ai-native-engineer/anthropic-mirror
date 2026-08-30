@@ -17,7 +17,7 @@ In this lessonBy the end, you’ll be able to
 * Identify reasoning drift, letter-over-spirit, and brittle arithmetic as characteristic steerability failures
 * Recognize system prompts, code execution, visible reasoning, and structured outputs as product features addressing this limitation
 
-## How steerability affects generative AI outputs
+## How steerability affects generative AI outputs[](#how-steerability-affects-generative-ai-outputs)
 
 Steerability · 5 min
 
@@ -28,9 +28,9 @@ continuing a pattern. That makes it remarkably steerable. It also means
 there's always a gap between what you intended and what landed, and most of
 the interesting failures live in that gap.
 
-## How much are you actually in control?
+## How much are you actually in control?[](#how-much-are-you-actually-in-control)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Steerability** means the model follows instructions via Next Token Prediction.
   + **Capability zone:** short, concrete, verifiable instructions. Format specs, length limits, explicit roles.
@@ -40,7 +40,7 @@ the interesting failures live in that gap.
   + **When an instruction is followed literally but uselessly, restate the goal.** Repeating the instruction with more force won't close the gap.
 * **4D connection:** Steerability is what makes Description powerful and what bounds it. Understanding the gap between words and intent changes how you write prompts and where you insert checkpoints.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### The Goal Rewrite
 
@@ -56,12 +56,12 @@ Now run three probes:
 
 Go back to your task list. For any multi-step tasks, note where you'd insert a checkpoint. For any tasks where you've been prompting with format alone, draft the goal statement you'll add next time.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How often have you been stating format but not goal? What changes when you include both?
 * What's one recurring task where you'll add a mid-process checkpoint starting this week?
 
-## What's next
+## What's next[](#whats-next)
 
 You've now met all four properties individually. In the next lesson we look at how they interact, because most real-world failures are two properties meeting.
 

@@ -4,8 +4,6 @@ Claude uses email as the primary identifier to match SSO logins to provisioned s
 
 **Applies to:** Enterprise plans and Console organizations using SCIM provisioning. Team plans don't have SCIM provisioning, so this mismatch scenario doesn't apply—see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)** for what's available on each plan.
 
----
-
 ## Symptoms
 
 People may experience one or more of the following when attempting to access your organization via SSO:
@@ -14,8 +12,6 @@ People may experience one or more of the following when attempting to access you
 * **Landing on a free personal account** — If organization creation is not restricted, the person bypasses your organization entirely.
 * **"Please confirm your email" mismatch** — The SSO callback shows a different email than the one the person entered at login.
 * **Claude Code authentication failure** — The Claude Code CLI shows an email mismatch error during the authentication flow.
-
----
 
 ## How this happens
 
@@ -34,8 +30,6 @@ Ping Identity products allow granular attribute mapping at multiple levels (dire
 Claude requires an exact string match between the SCIM-provisioned email and the SSO-asserted email.
 
 **PingFederate note:** PingFederate's attribute contract system is especially complex—email can pass through multiple layers (LDAP → IdP adapter → adapter contract → SP connector → assertion). A mismatch at any layer will cause the wrong value to reach Claude. Trace the value end-to-end.
-
----
 
 ## Diagnostic steps
 
@@ -62,8 +56,6 @@ Claude requires an exact string match between the SCIM-provisioned email and the
 1. **PingOne:** Go to **Identities → Users → [User]** and compare the Username and Email field values.
 2. **PingFederate with LDAP:** Check the person's LDAP record and compare mail, userPrincipalName, sAMAccountName, and any other attributes being used in your adapter mapping.
 
----
-
 ## Resolution
 
 ### PingOne — Align both mappings to the email attribute
@@ -88,8 +80,6 @@ Claude requires an exact string match between the SCIM-provisioned email and the
 2. **PingFederate:** Trigger a full sync in your outbound provisioning channel. Check your provisioning logs to confirm the updated email values are being sent.
 3. Verify that updated email values appear in provisioning logs before asking people to retry login.
 
----
-
 ## Post-fix cleanup
 
 After correcting the attribute mapping and completing the full sync:
@@ -100,16 +90,12 @@ After correcting the attribute mapping and completing the full sync:
 * **Re-adding affected people:** After ghost accounts are removed, people may need to be re-invited or re-provisioned.
 * **Prevent future occurrences:** Enable "Restrict organization creation" in your organization's Identity and access settings.
 
----
-
 ## Verification
 
 1. Check a sample of provisioned people—confirm their email in the provisioning log matches the email format that SSO sends.
 2. Ask an affected person to clear browser cookies for claude.ai, then log in via SSO.
 3. Confirm people aren't creating free accounts.
 4. If Claude Code was affected, have the person re-run `claude auth login --enterprise` and confirm the email matches their provisioned seat.
-
----
 
 ## Common issues
 
@@ -122,8 +108,6 @@ After correcting the attribute mapping and completing the full sync:
 | Incremental provisioning sync doesn't update existing records | A full re-sync is required after changing attribute mappings. |
 | Attribute contract updated in PingFederate but SCIM connector not updated | Both SP connection and outbound SCIM provisioning channel must be updated independently. |
 | Emails updated in SCIM but person still can't log in | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry. |
-
----
 
 ## **When to contact Support**
 

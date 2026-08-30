@@ -14,7 +14,7 @@ When building AI chatbots for specific use cases, you need a way to control how 
 
 ![](https://academy.claude.com/assets/media/a8883fbe515bc8ea7e369f29e866caa10ed49af599dd529a3143bed87c9cd346.png)
 
-## The Problem with User-Level Instructions
+## The Problem with User-Level Instructions[](#the-problem-with-user-level-instructions)
 
 You might think the solution is to include all your requirements in the user message itself. For example, telling the AI in each conversation to "mention AWS services" and "don't mention competitors." This approach has serious limitations:
 
@@ -25,7 +25,7 @@ You might think the solution is to include all your requirements in the user mes
 
 ![](https://academy.claude.com/assets/media/0d5cb99bb7a6fcab168500308b061b008367df300bbd299edff265dbebf3805e.png)
 
-## System Prompts: A Better Approach
+## System Prompts: A Better Approach[](#system-prompts-a-better-approach)
 
 System prompts solve this problem by giving Claude a role to play. Instead of listing specific do's and don'ts, you tell Claude to act like a particular type of professional. The AI then responds as that person would naturally respond.
 
@@ -38,7 +38,7 @@ System prompts provide several key benefits:
 * Responses stay focused and on-brand automatically
 * You don't need to anticipate every possible scenario
 
-## Implementing System Prompts
+## Implementing System Prompts[](#implementing-system-prompts)
 
 To add a system prompt to your Claude conversation, you pass it as a parameter to the `converse` function:
 
@@ -59,7 +59,7 @@ response = client.converse(
 
 The system prompt gets passed as a list containing a dictionary with a "text" key. This tells Claude what role to adopt before it sees any user messages.
 
-## Building a Flexible Chat Function
+## Building a Flexible Chat Function[](#building-a-flexible-chat-function)
 
 Here's a reusable chat function that handles system prompts elegantly:
 
@@ -79,7 +79,7 @@ def chat(messages, system=None):
 
 This approach lets you optionally include a system prompt. When no system prompt is provided, Claude responds as its default self. When you include one, Claude adopts that specific role.
 
-## System Prompts in Action
+## System Prompts in Action[](#system-prompts-in-action)
 
 The difference is immediately apparent when you test the same question with and without a system prompt. Ask "How do I host a Postgres database?" without a system prompt, and you'll get a comprehensive answer covering multiple cloud providers and self-hosting options.
 
@@ -91,7 +91,7 @@ Even more impressive is how system prompts handle off-topic questions. Ask for a
 
 ![](https://academy.claude.com/assets/media/23098f708f02781a4dd30a7c21b4d0d96413f6a22840b791a63d919a0aa22832.png)
 
-## Important Technical Details
+## Important Technical Details[](#important-technical-details)
 
 When working with system prompts, keep these requirements in mind:
 

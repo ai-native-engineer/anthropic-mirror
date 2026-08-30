@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mliphhy1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hvy17a2s.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Design plugin ships with `/design-system` already structured to diff a screen or PR against a token file and component inventory. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ DesignAccelerate design workflows — critique, design system management, UX wri
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (production screenshots, the PR diffs you're reviewing, your tokens file, the component inventory) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the drift report back to it. If you run design QA regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your system source stays attached.
 
@@ -82,15 +82,15 @@ tokens.jsonApr 20, 202618 KB
 
 In Cowork’s chat bar:Design-QA / Sprint-42
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Review the shipped screens and open PRs in this folder against our design system. For each one, list every place it drifts from our tokens, components, spacing, or interaction patterns, rate the severity, and suggest the system-compliant fix. Skip anything that already matches.
 
 Design-QA / Sprint-42Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Put the reference files in the folder.** Tokens and inventory are read, not remembered.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 The plugin's `/design-system` is a generic starting point. Once Step 2 produces a drift report you'd actually post on a PR, tell Cowork to write your version of the skill. Layer in your severity thresholds, your allowed exceptions, your component-to-code mapping, and the comment tone your engineers respond to. A few minutes of conversation and the skill runs with your standards from then on.
 
@@ -126,9 +126,9 @@ Make what we've done in this task so far into a skill, or edit the /design-syste
 
 Design-QAOpen in Cowork
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 Drift compounds quietly between sprints. Ask Cowork to publish the report as a live artifact and the design-system team has one link that stays current — re-run the skill or schedule it to refresh.
 
@@ -136,7 +136,7 @@ Publish that drift report as a live artifact for the design-system channel. Keep
 
 Design-QA / Sprint-42Open in Cowork
 
-### Run it on every PR that touches UI
+### Run it on every PR that touches UI[](#run-it-on-every-pr-that-touches-ui)
 
 Drift is cheapest to catch before merge. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and set the customized skill to run twice a day, checking open PRs and the latest production screenshots.
 
@@ -152,7 +152,7 @@ At 10am and 4pm, checks open UI PRs and the QA folder, runs `/design-system`, an
 
 Every **weekday at 10 am & 4 pm · checks open UI PRs and Design-QA/Sprint-42**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/design-system` now carries your tokens, your component map, your severity scale, and your exception list. Share it so every squad gets the same review on every PR, and the system team stops being the bottleneck for "is this on-system."
 
@@ -160,7 +160,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/design-system` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your system rules baked in, so they don't repeat Steps 1-3.
 
-## What changes for design QA
+## What changes for design QA[](#what-changes-for-design-qa)
 
 Screens and PRs are checked against your design system, with each deviation rated, explained, and paired with the compliant fix — ready to correct instead of spot-check.
 

@@ -16,9 +16,9 @@ Set up and use Chronograph for portfolio monitoring including tracking exposures
 
 The Chronograph integration provides Claude with access to a portfolio monitoring platform that enables investment analysis and tracking. This article explains how to set up and use Chronograph to access portfolio data and investment insights. The Chronograph integration relies upon Claude’s ability to use remote connectors.
 
-## What This Integration Provides
+## What This Integration Provides[](#what-this-integration-provides)
 
-### Capabilities
+### Capabilities[](#capabilities)
 
 The Chronograph integration enables Claude to access comprehensive portfolio and investment data.
 
@@ -29,7 +29,7 @@ The Chronograph integration enables Claude to access comprehensive portfolio and
 * **Investment Metrics Calculator:** Calculate individual metrics across specific investments, useful for aggregating and tracking performance. The calculator helps enumerate available metric options before running detailed queries.
 * **Help Center Integration:** Access Chronograph’s help documentation directly through Claude. Search for relevant articles or retrieve complete article content to answer platform-specific questions.
 
-## How Claude Uses Chronograph Data
+## How Claude Uses Chronograph Data[](#how-claude-uses-chronograph-data)
 
 Claude applies Chronograph’s portfolio data to support your investment analysis.
 
@@ -39,11 +39,11 @@ Claude applies Chronograph’s portfolio data to support your investment analysi
 * Metric Calculations: Computes custom investment metrics across your holdings to create tailored performance reports matching your analytical needs.
 * Documentation Access: Searches Chronograph’s help center to answer questions about platform features, workflows, and best practices.
 
-## Setting Up Chronograph Integration
+## Setting Up Chronograph Integration[](#setting-up-chronograph-integration)
 
 You will need to contact Chronograph to get access to the MCP server.
 
-### For Organization Owners
+### For Organization Owners[](#for-organization-owners)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors).
 2. Scroll down and click “Add custom connector” at the bottom of the list.
@@ -51,16 +51,16 @@ You will need to contact Chronograph to get access to the MCP server.
 4. Name the integration (e.g., “Chronograph MCP”)
 5. Click “Add”
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 1. Navigate to Settings > Connectors.
 2. Find Chronograph in the list and click Connect.
 3. In the new browser tab that appears, log in to your Chronograph account.
 4. A confirmation will appear to indicate successful authentication, at which point you can close the tab and begin interacting with your Chronograph data via Claude.
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Portfolio Performance Summary
+### Portfolio Performance Summary[](#portfolio-performance-summary)
 
 Example input prompt:
 
@@ -72,7 +72,7 @@ Open in Claude
 
 **Tip:** Specify time periods or commitment types for more focused analysis.
 
-### Exposure Analysis
+### Exposure Analysis[](#exposure-analysis)
 
 Example input prompt:
 
@@ -84,7 +84,7 @@ Open in Claude
 
 **Note:** Use different status filters (Invested, Realized, Unrealized) to analyze different portfolio segments.
 
-### Entity Due Diligence
+### Entity Due Diligence[](#entity-due-diligence)
 
 Example input prompt:
 
@@ -96,7 +96,7 @@ Open in Claude
 
 **Works well with:** Combining entity search with exposure tracking for comprehensive analysis.
 
-### Custom Metric Tracking
+### Custom Metric Tracking[](#custom-metric-tracking)
 
 Example input prompt:
 
@@ -108,7 +108,7 @@ Open in Claude
 
 **Key benefit:** First use the calculator with query: {help: true} to see available options and required parameters.
 
-### Platform Guidance
+### Platform Guidance[](#platform-guidance)
 
 Example input prompt:
 
@@ -120,7 +120,7 @@ Open in Claude
 
 **Tip:** Be specific with search terms to find the most relevant documentation.
 
-## Tips for Using Chronograph
+## Tips for Using Chronograph[](#tips-for-using-chronograph)
 
 * Use specific entity names or identifiers when possible for accurate results
 * For metric calculations, first call the Investment Metrics Calculator with query: {help: true} to see available options

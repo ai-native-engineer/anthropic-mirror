@@ -17,16 +17,16 @@ In this lessonBy the end, you’ll be able to
 * Understand how Research uses Thinking to plan its approach before it gathers information
 * Write effective Research prompts for complex investigations
 
-## Researching with Claude
+## Researching with Claude[](#researching-with-claude)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Research transforms how Claude finds and analyzes information.** Instead of a single search, Claude operates agentically—conducting multiple searches that build on each other while determining exactly what to investigate next. It explores different angles of your question automatically and works through open questions systematically.
 * **Research takes longer than your usual search** — a few minutes or more, depending on the question. That's because it isn't one lookup: Claude can send out many searches at once, sometimes across hundreds of sources, and pull what they find into one answer. That work isn't instant.
 * **Research works with Thinking, so Claude can plan its approach before it searches.** It breaks a complex request into manageable pieces, then gathers what each piece needs.
 * **Citations make verification easy.** Research delivers thorough answers complete with easy-to-check citations, so you can trust Claude's findings and quickly verify sources yourself.
 
-## What is Research?
+## What is Research?[](#what-is-research)
 
 Research is an advanced feature that transforms Claude from a conversational assistant into a systematic investigator. When you enable Research, Claude doesn't just answer your question—it explores it from multiple angles, synthesizing information from across the web and your connected integrations.
 
@@ -34,7 +34,7 @@ Think of it as having a skilled research assistant who gathers information, cros
 
 Research is particularly valuable when you need more than a quick answer. It's designed for situations where a thorough understanding requires pulling together information from multiple sources, comparing different perspectives, and synthesizing findings into actionable insights.
 
-## When to use Research
+## When to use Research[](#when-to-use-research)
 
 Understanding when to use Research versus other Claude capabilities helps you get the best results for your specific needs.
 
@@ -72,7 +72,7 @@ Understanding when to use Research versus other Claude capabilities helps you ge
 * You're onboarding and want to quickly find how your company handles something (like policies, processes, or past decisions)
 * You're asking a question that's specific to your company, not the public web
 
-## How Research works
+## How Research works[](#how-research-works)
 
 When you enable Research, you're activating an agentic, multi-step process that goes far beyond a simple web search. Claude autonomously decides what to search next based on what it has already found, pursuing leads and filling gaps without you needing to direct each step.
 
@@ -81,7 +81,7 @@ When you enable Research, you're activating an agentic, multi-step process that 
 3. **Step 3: Claude synthesizes findings.** After gathering information from multiple sources—including the web and any connected integrations like Gmail, Google Calendar, or Google Drive—Claude compiles everything into a comprehensive, well-organized report.
 4. **Step 4: Claude provides citations.** Every claim in Research reports links back to its source, making it easy to verify information and dig deeper when needed.
 
-## Using Research in practice
+## Using Research in practice[](#using-research-in-practice)
 
 Here's how to enable and use Research:
 
@@ -94,7 +94,7 @@ Important
 
 Web search must be enabled for Research to function. If you haven't already turned on web search, you can do so from the same **+** menu.
 
-### Tips for effective Research prompts
+### Tips for effective Research prompts[](#tips-for-effective-research-prompts)
 
 Since a Research run takes minutes rather than seconds, investing time in crafting your prompt pays off. Here are some strategies:
 
@@ -103,7 +103,7 @@ Since a Research run takes minutes rather than seconds, investing time in crafti
 * **Include relevant constraints.** Budget ranges, timelines, geographic requirements, and other parameters help Claude focus its research on relevant options.
 * **Ask Claude to help refine your prompt.** If you're not sure how to frame your research question, you can even ask Claude to help you write a better Research prompt before enabling the feature.
 
-### Working with connected integrations
+### Working with connected integrations[](#working-with-connected-integrations)
 
 When you have Google Workspace or other integrations connected, Research becomes even more powerful. Claude can pull context from your emails, calendar, and documents alongside web research.
 
@@ -115,7 +115,7 @@ For example, you might ask Claude to:
 
 When using Research with integrations, you can steer Claude by saying things like "Pull relevant context from my Google Drive" or "Include insights from my recent emails on this topic."
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Before moving on, consider:
 
@@ -123,7 +123,7 @@ Before moving on, consider:
 * How might combining Research with your connected integrations (like Google Workspace) change your workflow?
 * What's a complex question you've been putting off because it would take too much research time?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next section we're putting it all together. You'll see how everything you've learned comes together through real-world use cases organized by role, and discover additional ways to interact with Claude beyond the web interface.
 

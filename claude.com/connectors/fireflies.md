@@ -95,7 +95,7 @@ Claude
 
 Claude Code
 
-August 21, 2026
+August 24, 2026
 
 [![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
 

@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Explain the three developments that made modern LLMs possible
 * Identify what current AI does well and where it reliably falls short
 
-## What is generative AI
+## What is generative AI[](#what-is-generative-ai)
 
 What is generative AI · 12 min
 
@@ -24,7 +24,7 @@ This video covers how large language models like Claude are built and
 trained, and what that means for what they can — and can’t — reliably do
 when you put them to work in your business.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Generative AI** creates new content rather than analyzing existing data.
 * **Three developments** made modern LLMs possible: the transformer architecture, vast training data, and massive compute.
@@ -33,7 +33,7 @@ when you put them to work in your business.
 * **Current limits** include knowledge cutoffs, hallucinations, and unreliable complex reasoning.
 * **The best applications** pair your judgment, creativity, and oversight with AI’s speed and scale.
 
-## Exercise
+## Exercise[](#exercise)
 
 ### Testing the edges
 
@@ -62,12 +62,12 @@ Which capability from the video showed up most clearly? Which limitation surface
 
 **Stretch goal:** Run the same topic through a second AI tool. Were the errors and strengths the same?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How does knowing how these systems are trained change the way you’ll work with them?
 * What ethical considerations come to mind given how generative AI works and where it falls short?
 
-## What's next
+## What's next[](#whats-next)
 
 Now that you’ve tested AI’s edges firsthand, in the next lesson we go deep on the first D: Delegation. You’ll frame a real problem, map it across the builder’s toolkit, and make deliberate choices about where AI plays a role — before writing a single line of code.
 

@@ -16,20 +16,20 @@ In this lessonBy the end, you’ll be able to
 * Identify Anthropic's built-in Skills for document creation
 * Enable and manage Skills in your settings
 
-## What are Skills?
+## What are Skills?[](#what-are-skills)
 
 Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Think of them as expertise packages—they teach Claude how to complete specific tasks in a repeatable way.
 
 You've already seen Skills at work if you've used Claude to create Excel spreadsheets, PowerPoint presentations, Word documents, or PDFs. Those file creation capabilities are powered by Skills running behind the scenes. But Skills go far beyond document creation. Custom Skills can codify entire repeatable workflows — a quarterly variance analysis methodology, a brand voice review process, or a compliance checklist — so Claude follows the same rigorous steps every time.
 
-## Types of Skills
+## Types of Skills[](#types-of-skills)
 
 There are two categories of Skills you'll encounter:
 
 * **Anthropic Skills** are created and maintained by Anthropic. These include enhanced document creation capabilities for Excel, Word, PowerPoint, and PDF files. Claude invokes them automatically when relevant, so you don't need to do anything special to use them.
 * **Custom Skills** are ones you or your organization create for specialized workflows and domain-specific tasks. For example, you might create a skill that applies your company's brand guidelines to presentations, structures meeting notes in a specific format, or executes your organization's data analysis workflows.
 
-## Enabling Skills
+## Enabling Skills[](#enabling-skills)
 
 Skills are available on all plans. To use Skills, you'll need to have Code execution and file creation enabled, since Skills require Claude's secure sandboxed computing environment to function.
 
@@ -46,7 +46,7 @@ For **Team plans**, this feature is enabled by default at the organization level
 
 Once enabled, you'll see available Skills listed in your settings, including Anthropic's built-in Skills and any custom Skills you've uploaded.
 
-## Using Skills in practice
+## Using Skills in practice[](#using-skills-in-practice)
 
 The beauty of Skills is that you typically don't need to think about them—Claude handles skill selection automatically based on your request. Here are some examples of prompts that would invoke Skills:
 
@@ -57,9 +57,13 @@ The beauty of Skills is that you typically don't need to think about them—Clau
 
 When Claude uses a Skill, you'll see it mentioned in Claude's chain of thought as it works. The output will be a downloadable file you can save to your computer or directly to Google Drive.
 
-## File execution
+## File execution[](#file-execution)
 
 **Claude works with you on slides, spreadsheets, and contract redlines**
+
+Claude works with you on slides, spreadsheets, and contract redlines
+
+This lesson's video contains no spoken narration (screen demonstration with background audio only).
 
 This same capability means that Claude can work with **your actual files** (within a contained environment) to create updated versions of your files (note: in Chat, Claude creates a new version of the document rather than editing the original in place). Upload slides, spreadsheets, contracts, (or any .xlsx, .pptx, .docx, or .pdf files) and watch as Claude creates slides, performs analyses, and adds suggested edits. When Claude is done, you can download these files or open them in Drive.
 
@@ -67,7 +71,7 @@ Note: To use these capabilities you'll need to give Claude access to external da
 
 ![Claude requesting permission to access external data, with the "Allow limited network access" toggle turned on](https://academy.claude.com/assets/media/f1d96f79e3a8512f7f18cacae7c299717d5a00eac8079c9494fdb12a555aeb76.png)
 
-### Security considerations
+### Security considerations[](#security-considerations)
 
 Because Skills can include executable code, it's important to use them thoughtfully:
 
@@ -76,7 +80,7 @@ Because Skills can include executable code, it's important to use them thoughtfu
 * Custom Skills you upload are private to your individual account
 * If you're installing a custom Skill from an external source, review its contents before use to understand what it does.
 
-## Creating custom skills
+## Creating custom skills[](#creating-custom-skills)
 
 While Anthropic's built-in Skills cover common document creation tasks, the real power of Skills comes from creating your own. Custom Skills let you teach Claude your specific workflows, brand guidelines, and ways of working—so Claude can apply that knowledge automatically whenever it's relevant.
 
@@ -93,7 +97,7 @@ Here's how to create a Skill through conversation:
 
 Your custom Skill will appear in your Skills list alongside Anthropic's built-in Skills. From that point forward, Claude will automatically invoke it whenever you work on relevant tasks—no manual triggering needed. You can improve your skills with iteration — ask Claude to edit a skill and it will update the files for you.
 
-## Skills vs. Projects
+## Skills vs. Projects[](#skills-vs-projects)
 
 You might be wondering—if both skills and projects can be used to give more context to Claude, when should I use each? Think of it this way: **projects store knowledge, skills perform tasks**.
 
@@ -110,7 +114,7 @@ The two features complement each other. A skill can reference knowledge stored i
 | **Example** | Customer hub, research buddy, feedback generator | Process guidelines (like brand or legal), Blog drafting, PDF creation |
 | **Persistence** | Knowledge available across all chats in the project | Instructions applied when the skill is invoked |
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Before moving on, consider:
 
@@ -118,7 +122,7 @@ Before moving on, consider:
 * Are there repetitive workflows in your work that might be good candidates for custom Skills?
 * How might Skills change the way you think about document creation and data analysis?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next set of lessons, you'll start to expand Claude's reach with connectors. These powerful tools make information gathering seamless, and can give Claude the ability to perform actions right inside the tools where your work is happening.
 

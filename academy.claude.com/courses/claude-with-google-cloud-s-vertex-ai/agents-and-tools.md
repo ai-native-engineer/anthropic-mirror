@@ -16,7 +16,7 @@ Agents represent a shift from the structured workflows we've explored earlier. W
 
 This flexibility makes agents attractive for developers. You can build an agent once, ensure it works reasonably well, and then deploy it to handle a wide variety of tasks. However, this approach comes with significant drawbacks around reliability and cost that we'll explore later.
 
-## How Tools Make the Agent
+## How Tools Make the Agent[](#how-tools-make-the-agent)
 
 The real power of agents lies in their ability to combine simple tools in unexpected ways. Consider a basic set of datetime tools we covered earlier in the course:
 
@@ -34,7 +34,7 @@ For "What's the time?", Claude simply calls `get_current_datetime`. For "What da
 
 Claude can even recognize when it needs additional information. When asked "When does my 90-day warranty expire?", it first asks the user when they obtained the warranty, then uses that information with `add_duration_to_datetime` to calculate the expiration date.
 
-## Tools Should Be Abstract
+## Tools Should Be Abstract[](#tools-should-be-abstract)
 
 The key insight for building effective agents is providing reasonably abstract tools rather than hyper-specialized ones. Claude Code demonstrates this principle perfectly.
 
@@ -52,7 +52,7 @@ Claude Code has access to generic, flexible tools:
 
 Notice what Claude Code doesn't have - specialized tools like "Refactor" or "Run Tests" or "Install Dependencies". Instead, it figures out how to accomplish these tasks by combining the basic tools available. To install dependencies, it reads project files to understand the configuration, then uses bash to run the appropriate installation commands.
 
-## Best Practice: Provide Reasonably Abstract Tools
+## Best Practice: Provide Reasonably Abstract Tools[](#best-practice-provide-reasonably-abstract-tools)
 
 When building agents, focus on tools that Claude can combine creatively rather than tools that solve one specific problem. Consider a social media video creation agent:
 

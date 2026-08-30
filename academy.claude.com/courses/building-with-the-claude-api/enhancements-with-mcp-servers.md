@@ -12,7 +12,7 @@ Lesson 607 min
 
 Claude Code has an MCP client built right into it, which means you can connect MCP servers to dramatically expand what Claude can do. This opens up some really powerful possibilities for customizing your development workflow.
 
-## How MCP Extends Claude
+## How MCP Extends Claude[](#how-mcp-extends-claude)
 
 The Model Context Protocol allows Claude Code to connect to external services and tools through MCP servers. Instead of being limited to Claude's built-in capabilities, you can add custom functionality by connecting servers that provide specific tools, resources, or integrations.
 
@@ -20,7 +20,7 @@ The Model Context Protocol allows Claude Code to connect to external services an
 
 Each MCP server can expose different types of functionality to Claude through three main components: Tools (for taking actions), Prompts (for templates), and Resources (for accessing data).
 
-## Setting Up an MCP Server
+## Setting Up an MCP Server[](#setting-up-an-mcp-server)
 
 Adding an MCP server to Claude Code is straightforward. You use the command line to register your server:
 
@@ -40,7 +40,7 @@ claude mcp add documents uv run main.py
 
 Once registered, Claude Code will automatically connect to your server when it starts up.
 
-## Example: Document Processing
+## Example: Document Processing[](#example-document-processing)
 
 A practical example is creating a tool that lets Claude read PDF and Word documents. By building an MCP server with a "document\_path\_to\_markdown" tool, you can ask Claude to convert document contents to markdown format.
 
@@ -50,7 +50,7 @@ When you ask Claude to "Convert the tests/fixtures/mcp\_docs.docx file to markdo
 
 ![](https://academy.claude.com/assets/media/e24f0d96487a127d94ed519aea57e010b3ba629cf9c85e3d305bcc7160e36646.jpg)
 
-## Popular MCP Integrations
+## Popular MCP Integrations[](#popular-mcp-integrations)
 
 The MCP ecosystem includes servers for many common development tools and services:
 
@@ -63,7 +63,7 @@ The MCP ecosystem includes servers for many common development tools and service
 * **firecrawl-mcp-server** - Adds web scraping capabilities to Claude
 * **slack-mcp** - Allows Claude to post messages or reply to specific threads
 
-## Building Your Development Workflow
+## Building Your Development Workflow[](#building-your-development-workflow)
 
 The real power comes from combining multiple MCP servers that match your specific development process. You might set up:
 

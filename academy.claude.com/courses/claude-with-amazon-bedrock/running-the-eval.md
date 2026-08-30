@@ -16,11 +16,11 @@ Now that we have our evaluation dataset ready, it's time to build the core evalu
 
 The evaluation process follows a clear workflow: we take our dataset of test cases, combine each one with our prompt template, send it to Claude for processing, and then evaluate the output using a grader system.
 
-## Building the Core Functions
+## Building the Core Functions[](#building-the-core-functions)
 
 The evaluation pipeline consists of three main functions, each with a specific responsibility. Let's start with the simplest one - the function that handles individual prompt execution.
 
-## The run\_prompt Function
+## The run\_prompt Function[](#the-runprompt-function)
 
 This function takes a test case and merges it with our prompt template:
 
@@ -43,7 +43,7 @@ Please solve the following task:
 
 Right now, we're keeping the prompt extremely simple. We're not including any formatting instructions, which means Claude will likely return more verbose output than we need. We'll refine this later as we iterate on our evaluation process.
 
-## The run\_test\_case Function
+## The run\_test\_case Function[](#the-runtestcase-function)
 
 This function orchestrates running a single test case and grading the result:
 
@@ -66,7 +66,7 @@ def run_test_case(test_case):
 
 For now, we're using a hardcoded score of 10. The grading logic is where we'll spend significant time in upcoming sections, but this placeholder lets us test the overall pipeline structure.
 
-## The run\_eval Function
+## The run\_eval Function[](#the-runeval-function)
 
 This is the main orchestrator that processes the entire dataset:
 
@@ -86,7 +86,7 @@ def run_eval(dataset):
 
 This function loops through every test case in our dataset, processes each one, and collects all the results into a single list.
 
-## Running the Evaluation
+## Running the Evaluation[](#running-the-evaluation)
 
 To execute our evaluation pipeline, we load the dataset and call our main function:
 
@@ -101,7 +101,7 @@ results = run_eval(dataset)
 
 The first time you run this, expect it to take some time - even with Claude Haiku, processing a full dataset can take 30+ seconds. We'll cover optimization techniques later, but for now, patience is key.
 
-## Examining the Results
+## Examining the Results[](#examining-the-results)
 
 Once the evaluation completes, you can inspect the results with formatted JSON output:
 
@@ -117,7 +117,7 @@ The results structure contains an array of objects, where each object represents
 
 ![](https://academy.claude.com/assets/media/540a756ccda5e09456278d435f4a92449606bb5a96b40737918a11a25c3311c4.png)
 
-## What We've Accomplished
+## What We've Accomplished[](#what-weve-accomplished)
 
 At this point, we've successfully implemented the core evaluation pipeline. We can:
 

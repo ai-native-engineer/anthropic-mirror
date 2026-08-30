@@ -12,15 +12,15 @@ Lesson 3815 min
 
 Now that we understand the RAG flow conceptually, let's implement it step by step using a practical example. We'll work through all five stages of the RAG process, from chunking text to finding relevant documents for user queries.
 
-## Setting Up the Vector Database
+## Setting Up the Vector Database[](#setting-up-the-vector-database)
 
 For this implementation, we'll use a custom VectorIndex class that provides the basic functionality we need for storing and searching embeddings. The class handles vector storage, distance calculations (using cosine similarity), and document retrieval.
 
-## The Five-Step RAG Implementation
+## The Five-Step RAG Implementation[](#the-five-step-rag-implementation)
 
 Let's walk through each step of the RAG process:
 
-### Step 1: Chunk the Text by Section
+### Step 1: Chunk the Text by Section[](#step-1-chunk-the-text-by-section)
 
 First, we need to break our source document into manageable chunks. We'll use the same section-based chunking approach from earlier:
 
@@ -32,7 +32,7 @@ chunks = chunk_by_section(text)
 
 This splits our report.md file into logical sections that we can process individually.
 
-### Step 2: Generate Embeddings for Each Chunk
+### Step 2: Generate Embeddings for Each Chunk[](#step-2-generate-embeddings-for-each-chunk)
 
 Next, we convert each text chunk into a numerical embedding that captures its semantic meaning:
 
@@ -44,7 +44,7 @@ embeddings = generate_embedding(chunks)
 
 These embeddings allow us to perform mathematical comparisons between different pieces of text.
 
-### Step 3: Store Embeddings in the Vector Database
+### Step 3: Store Embeddings in the Vector Database[](#step-3-store-embeddings-in-the-vector-database)
 
 Now we create our vector store and populate it with our embeddings and their associated text:
 
@@ -59,7 +59,7 @@ for embedding, chunk in zip(embeddings, chunks):
 
 Notice that we store both the embedding and the original text content. This is crucial because when we retrieve similar embeddings later, we need access to the actual text, not just the numerical vectors. The embedding alone isn't useful to us as developers - we need the human-readable content it represents.
 
-### Step 4: Generate an Embedding for the User Query
+### Step 4: Generate an Embedding for the User Query[](#step-4-generate-an-embedding-for-the-user-query)
 
 When a user asks a question, we need to convert their query into the same embedding space as our stored documents:
 
@@ -69,7 +69,7 @@ python
 user_embedding = generate_embedding("What did the software engineering dept do last year?")
 ```
 
-### Step 5: Search for Relevant Documents
+### Step 5: Search for Relevant Documents[](#step-5-search-for-relevant-documents)
 
 Finally, we search our vector store to find the most relevant chunks:
 
@@ -88,7 +88,7 @@ This returns the two most similar chunks along with their cosine distance scores
 
 The diagram above illustrates how the vector database processes a user query. When we ask a question, it gets converted to an embedding vector, and the database finds the stored vectors that are "closest" to it in the high-dimensional space.
 
-## Understanding the Results
+## Understanding the Results[](#understanding-the-results)
 
 When we run this example with the query about the software engineering department, we get back two relevant sections:
 
@@ -97,13 +97,13 @@ When we run this example with the query about the software engineering departmen
 
 The lower the distance score, the more similar the content is to our query. Both results are relevant to our question about what the software engineering department accomplished.
 
-## Why Store Content with Embeddings
+## Why Store Content with Embeddings[](#why-store-content-with-embeddings)
 
 You might wonder why we store the original text alongside each embedding. The reason is practical: embeddings are just arrays of numbers that have no direct meaning to humans. When our search returns the most similar embeddings, we need the actual text content to understand what was found and to use it in generating responses.
 
 Some implementations store just an ID that points back to the original text, but for simplicity, we're storing the content directly with each vector.
 
-## What's Next
+## What's Next[](#whats-next)
 
 This implementation covers the core RAG workflow, but there are still improvements we can make. In real-world applications, you might encounter scenarios where this basic approach doesn't work as expected, and we'll explore those refinements in upcoming sections.
 

@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Create an AI learning partner that enhances rather than replaces learning
 * Build a living learning journal that tracks your growth over time
 
-## AI as a learning partner
+## AI as a learning partner[](#ai-as-a-learning-partner)
 
 AI as a learning partner
+
+SummaryTranscript
 
 This video explores the crucial difference between using AI to do work for
 you versus using AI to actually learn. It walks through each of the 4Ds in
@@ -33,7 +35,7 @@ work. The video emphasizes that genuine learning with AI takes more effort
 than shortcuts but builds real understanding and skills that will serve you
 in exams, interviews, and your career.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * We should seek to use AI in ways that strengthen our knowledge and critical thinking skills, not weaken them.
 * Effective learning with AI means staying in the driver's seat while AI challenges and supports you
@@ -41,7 +43,7 @@ in exams, interviews, and your career.
 * You must be able to explain and apply everything you submit, even if AI helped
 * The harder path of genuine learning with AI leads to real capability and confidence
 
-## Exercises
+## Exercises[](#exercises)
 
 This exercise helps you create two powerful learning tools: an AI study buddy configured for your needs, and a living learning journal that tracks your growth.
 
@@ -85,13 +87,13 @@ Start a new conversation with Claude (or your preferred AI assistant), or contin
 * Adjust the instructions if needed
 * Save the configuration instructions as a conversation guide for future use
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 After setting up both tools, ask yourself:
 
 * How were these exercises different from other AI interactions you have had in the past?
 
-## What's next
+## What's next[](#whats-next)
 
 Now that you have your AI learning partner and journal set up, the next lesson will show you how to apply these same principles to career development. You'll learn to use AI strategically for job searching, interview prep, and professional growth while maintaining your authentic voice.
 

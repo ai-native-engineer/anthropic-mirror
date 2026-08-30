@@ -21,6 +21,10 @@ Claude is most useful when the work is somewhere the team can see, steer, and bu
 * **Give Claude the destination, not the route.** State the outcome you want and let Claude work out the steps; the [definition of done](#give-every-task-a-definition-of-done) below makes that concrete.
 * **Tolerate the mess.** A first draft posted in the thread is more useful than a polished one in a DM. The thread is the workspace, not the deliverable.
 
+###  Mentioning people who aren’t in the channel
+
+Claude can’t add anyone to a channel, and it doesn’t decide whether a mentioned person is notified. Slack’s prompt to invite or notify someone who isn’t in the channel appears only for messages you type yourself; it never applies to messages Claude posts. Slack delivers Claude’s mention the way it delivers any app-posted message. In a public channel, the person is notified in their Activity view even though they haven’t joined. In a private channel, they aren’t notified and can’t see the message until someone invites them. If you want someone to follow a thread Claude is working in, invite them yourself.
+
 ##  Write tasks that close
 
 The phrasing of a task determines whether it has a verifiable end state, what form the result takes, and how Claude responds while working on it.
@@ -151,14 +155,14 @@ The first three are yours to write. Skills and wider-scope custom instructions a
 
 See [the admin guide to a skills repository](https://claude.com/docs/claude-tag/admins/skills-repo) for what that setup gives you.
 A `CLAUDE.md` carries setup as well as conventions. Sessions run in a sandbox with a standard set of preinstalled tools. If the repository needs more, such as a language runtime or a database client, put the install commands in `CLAUDE.md`, and Claude [runs them when its work needs them](https://claude.com/docs/claude-tag/admins/configure-github#install-project-dependencies).
-A `CLAUDE.md` is guidance; a required status check is a gate. If a pull request must carry a label or pass a check, make that a repository rule rather than a memory note or a skill.
+A `CLAUDE.md` is guidance; a required status check is a gate. If a pull request must carry a label or pass a check, make that a repository rule rather than a memory note or a skill. The same goes for review: to require an approval from someone other than the person who asked Claude for the change, see [Require a second approval on Claude’s pull requests](https://claude.com/docs/claude-tag/admins/configure-github#require-a-second-approval-on-claude%E2%80%99s-pull-requests).
 
 ###  Configure Claude for a channel
 
 The **Configure** link in the footer of any Claude reply in a channel opens a page where you tailor how Claude behaves in that channel. You can also send [`@Claude !configure`](https://claude.com/docs/claude-tag/users/commands#get-the-link-to-configure-a-channel) in the channel, and Claude replies with a link to the same page. The page is on claude.ai, so you need to be signed in to your Claude organization to edit it, and an admin can [restrict editing](https://claude.com/docs/claude-tag/admins/attach-to-scope#restrict-who-can-set-channel-instructions) so the page is read-only for members.
 The **Respond automatically** toggle on that page controls whether Claude replies in the channel without an @-mention. See [Turn automatic replies on or off](https://claude.com/docs/claude-tag/users/when-claude-responds#turn-automatic-replies-on-or-off) for what the setting does and the other places you can change it.
 Use the **Channel instructions** field on that page to write standing guidance Claude reads in every new session in the channel: the channel’s purpose, its conventions, the tone replies should take, and anything Claude should do or avoid there. Channel instructions outrank channel memory and sit alongside any instructions an admin has set for the workspace or organization. Save the field and the change applies to new sessions started in the channel.
-The page also shows **Connections**, the services Claude can reach from this channel. Your organization’s admins set that list, so you can see it on this page but not change it. If an Owner has made you a [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for the channel, you can change it here.
+The page’s **Tools and access** tab shows **Connections**, the services Claude can reach from this channel, along with any allowed domains. You can see those lists but not change them on this page. The same tab’s **Plugins** card lists the channel’s plugins, and you can add plugins there unless an admin has restricted editing to admins. If an Owner has made you a [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) for the channel, the tab also has access bundle and repository cards you can edit.
 
 ##  Keep thread count and review rate matched
 

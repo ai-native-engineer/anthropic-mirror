@@ -18,7 +18,7 @@ The ChEMBL connector gives Claude access to EMBL-EBI's ChEMBL database, a manual
 
 The ChEMBL integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 This integration connects Claude to the most recent version of ChEMBL, Europe's leading open-access drug discovery database maintained by the European Bioinformatics Institute (EMBL-EBI). ChEMBL contains over 2 million bioactive compounds, 15+ million activity measurements, and data from 76,000+ scientific publications, making it an essential resource for computational drug discovery, target identification, and pharmaceutical research.
 
@@ -33,7 +33,7 @@ This connector provides six primary tool calls that access different facets of t
 
 On the provider side, the connector queries ChEMBL's RESTful API and SQL database containing standardized, manually curated data extracted from medicinal chemistry literature, clinical trials databases, and high-throughput screening campaigns. All bioactivity data includes confidence scores, data validity flags, and full provenance tracing back to original publications.
 
-## **Who should use the ChEMBL integration**
+## **Who should use the ChEMBL integration**[](#who-should-use-the-chembl-integration)
 
 * **Medicinal Chemists:** Design and optimize lead compounds by analyzing structure-activity relationships (SAR), checking molecular properties against drug-likeness criteria, and identifying structural analogs with improved potency or selectivity.
 * **Pharmacologists:** Research drug mechanisms of action, identify polypharmacology risks, discover off-target effects, and validate therapeutic targets by examining bioactivity profiles across protein families.
@@ -42,7 +42,7 @@ On the provider side, the connector queries ChEMBL's RESTful API and SQL databas
 * **Academic Researchers:** Investigate drug repurposing opportunities, study evolutionary relationships between drug targets, analyze clinical development success rates, and validate findings against established bioactivity data.
 * **Pharmaceutical Project Teams:** Conduct competitive intelligence on drug pipelines, analyze endpoints for clinical trial design, assess target tractability, and evaluate ADMET liabilities early in development.
 
-## **Setting up the ChEMBL integration**
+## **Setting up the ChEMBL integration**[](#setting-up-the-chembl-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -66,7 +66,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 3. Restart Claude Code
 4. Verify that the server is connected with /mcp
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Target-Based Drug Discovery**
 

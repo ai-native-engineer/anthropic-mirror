@@ -12,7 +12,7 @@ Lesson 388 min
 
 We've built separate implementations for semantic search (using vector embeddings) and lexical search (using BM25). Now it's time to combine them into a unified search pipeline that leverages the strengths of both approaches.
 
-## The Multi-Index Architecture
+## The Multi-Index Architecture[](#the-multi-index-architecture)
 
 Both our VectorIndex and BM25Index classes share nearly identical APIs - they both have `add_document()` and `search()` methods. This consistency makes it straightforward to wrap them together in a new class called Retriever.
 
@@ -20,7 +20,7 @@ Both our VectorIndex and BM25Index classes share nearly identical APIs - they bo
 
 The Retriever acts as a coordinator that forwards user queries to both indexes, collects their results, and merges them using a technique called reciprocal rank fusion.
 
-## Understanding Reciprocal Rank Fusion
+## Understanding Reciprocal Rank Fusion[](#understanding-reciprocal-rank-fusion)
 
 Merging results from different search methods isn't as simple as just concatenating lists. Each method uses different scoring systems, so we need a way to normalize and combine their rankings fairly.
 
@@ -53,7 +53,7 @@ For our example:
 
 The final ranking becomes: Section 2 (0.833), Section 6 (0.75), Section 7 (0.583). This makes intuitive sense - Section 2 performed well in both indexes, so it rises to the top.
 
-## Implementation Details
+## Implementation Details[](#implementation-details)
 
 The Retriever class wraps multiple search indexes and provides a unified interface:
 
@@ -82,7 +82,7 @@ class Retriever:
 
 The key insight is that by maintaining consistent APIs across different search implementations, we can easily combine them without tight coupling.
 
-## Testing the Hybrid Approach
+## Testing the Hybrid Approach[](#testing-the-hybrid-approach)
 
 Remember our earlier problem where searching for "what happened with INC-2023-Q4-011?" returned unexpected results from the vector-only approach? The cybersecurity incident (Section 10) came first, but financial analysis (Section 3) came second instead of the more relevant software engineering section.
 
@@ -94,7 +94,7 @@ With our hybrid retriever, we now get much better results:
 
 This demonstrates how combining semantic and lexical search can overcome the limitations of either approach used alone.
 
-## Extensibility
+## Extensibility[](#extensibility)
 
 ![](https://academy.claude.com/assets/media/2dc7491d64f74713e58baf91cfb83fa2e0abc2bff8a962df866955ce0d2c5d68.jpg)
 

@@ -12,7 +12,7 @@ Lesson 184 min
 
 When you're building prompts that include a lot of content, Claude can sometimes struggle to understand which pieces of text belong together or what different sections are supposed to represent. XML tags provide a simple way to add structure and clarity to your prompts, especially when you're interpolating large amounts of data.
 
-## Why Structure Matters
+## Why Structure Matters[](#why-structure-matters)
 
 Consider a prompt where you need to analyze 20 pages of sales records. Without clear boundaries, Claude might have trouble distinguishing between your instructions and the actual data you want analyzed.
 
@@ -22,7 +22,7 @@ The example above shows how unclear boundaries can make it difficult for Claude 
 
 ![](https://academy.claude.com/assets/media/36d7ff6d8c95678b923927f86e231dcb43dec2d8cffd63e4c7394e2334c25fd5.png)
 
-## Practical Example: Code and Documentation
+## Practical Example: Code and Documentation[](#practical-example-code-and-documentation)
 
 Here's a more dramatic example of why XML tags matter. If you ask Claude to debug code using provided documentation, mixing everything together creates confusion:
 
@@ -30,7 +30,7 @@ Here's a more dramatic example of why XML tags matter. If you ask Claude to debu
 
 The "Not Great" version makes it nearly impossible to tell what's code versus documentation. The "Better" version uses `<my_code>` and `<docs>` tags to create clear boundaries.
 
-## Custom Tag Names
+## Custom Tag Names[](#custom-tag-names)
 
 You don't need to use official XML tags. Create descriptive names that make sense for your content:
 
@@ -40,7 +40,7 @@ You don't need to use official XML tags. Create descriptive names that make sens
 
 The more specific and descriptive your tag names, the better Claude can understand the purpose of each section.
 
-## When to Use XML Tags
+## When to Use XML Tags[](#when-to-use-xml-tags)
 
 XML tags are most useful when:
 
@@ -51,7 +51,7 @@ XML tags are most useful when:
 
 Even for shorter content, XML tags can help serve as delimiters that make your prompt structure more obvious to Claude.
 
-## Real-World Application
+## Real-World Application[](#real-world-application)
 
 In practice, you might structure a prompt like this:
 

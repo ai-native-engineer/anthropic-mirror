@@ -12,7 +12,7 @@ Lesson 132 min
 
 Congratulations on completing Claude 101! You've built a solid foundation for working with Claude effectively. Let's recap what you've learned and point you toward resources for continued growth.
 
-## What you've learned
+## What you've learned[](#what-youve-learned)
 
 **Getting started with Claude**
 
@@ -43,7 +43,7 @@ Congratulations on completing Claude 101! You've built a solid foundation for wo
 * Claude applies across roles—sales, marketing, finance, HR, legal, research, and beyond
 * Beyond claude.ai, you can work with Claude through Claude Code, Slack, Excel, and Chrome
 
-## Additional resources
+## Additional resources[](#additional-resources)
 
 **Learn more about AI and Claude**
 
@@ -59,7 +59,7 @@ Congratulations on completing Claude 101! You've built a solid foundation for wo
 * [Introduction to Claude Cowork(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork) – Free course on how to use Claude's desktop companion for multi-step work
 * [Connector Directory(opens in new tab)](https://claude.com/connectors) – Browse and connect your tools
 
-## A word of encouragement
+## A word of encouragement[](#a-word-of-encouragement)
 
 The most important thing you can do now is just get started! The skills you've learned here will sharpen with practice, and you'll develop intuition for when and how Claude can help.
 

@@ -14,7 +14,7 @@ Lesson 325 min
 
 Claude comes with one built-in tool that you don't need to create from scratch: the text editor tool. This tool gives Claude the ability to work with files and directories just like you would in a standard text editor.
 
-## What the Text Editor Tool Can Do
+## What the Text Editor Tool Can Do[](#what-the-text-editor-tool-can-do)
 
 The text editor tool provides Claude with a comprehensive set of file manipulation capabilities:
 
@@ -29,7 +29,7 @@ The text editor tool provides Claude with a comprehensive set of file manipulati
 
 This dramatically expands Claude's abilities and essentially gives it the power to act as a software engineer right out of the gate.
 
-## Understanding the Implementation Requirements
+## Understanding the Implementation Requirements[](#understanding-the-implementation-requirements)
 
 Here's where things get a bit confusing: while the tool schema is built into Claude, you still need to provide the actual implementation. Think of it this way - Claude knows how to ask for file operations, but you need to write the code that actually performs those operations.
 
@@ -37,7 +37,7 @@ Here's where things get a bit confusing: while the tool schema is built into Cla
 
 When you use custom tools, you typically write both the JSON schema and the function implementation. With the text editor tool, Claude provides the schema knowledge, but you must write functions to handle Claude's requests to create files, read directories, replace text, and so on.
 
-## Schema Versions
+## Schema Versions[](#schema-versions)
 
 You do need to include a small schema stub when using the text editor tool, and the exact schema depends on which Claude model you're using:
 
@@ -61,7 +61,7 @@ def get_text_edit_schema(model):
 
 Claude automatically expands this small schema into a much larger, detailed specification that includes all the parameters and operations available.
 
-## Practical Example
+## Practical Example[](#practical-example)
 
 Let's see the text editor tool in action. When you ask Claude to work with files, it will use the tool to read, modify, and create files as needed.
 
@@ -79,7 +79,7 @@ Claude will:
 2. Replace its contents with a new implementation including the pi calculation function
 3. Create a new test.py file with appropriate unit tests
 
-## Why Use the Text Editor Tool?
+## Why Use the Text Editor Tool?[](#why-use-the-text-editor-tool)
 
 You might wonder why this tool exists when modern code editors already have AI assistants built in. The text editor tool becomes valuable in scenarios where:
 

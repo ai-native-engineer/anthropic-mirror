@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Turn research into presentations result](https://academy.claude.com/assets/v1/turn-research-into-presentations-of5741pr.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Combine your research expertise with Claude's ability to extract themes and restructure content. Together, you'll learn to identify compelling findings, build narrative arcs, and create clarifying visuals while Claude handles the formatting details.
 
@@ -36,11 +36,11 @@ Then create:
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Provide your research materials and connect tools so Claude can create visual presentation elements and structured outlines.
 
-### Required context
+### Required context[](#required-context)
 
 Upload your research paper, any research data files, and your assignment rubric. Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area.
 
@@ -66,15 +66,7 @@ Any data files if separate from the paperFILE
 
 Your completed group paperFILE
 
-### Optional context
-
-Enable [Extended Thinking(opens in new tab)](https://www.anthropic.com/news/visible-extended-thinking) to give Claude more time to think through complex tasks—analyzing your research deeply, identifying narrative threads, prioritizing findings for your audience, and structuring information clearly.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude transforms your research into presentation materials structured for clarity and impact—slides outlined with sections from your research that are ready for editing and speaker notes that distribute content logically across presenters.
 
@@ -100,11 +92,11 @@ After analyzing your research, I've identified several compelling themes and con
 
 **View your speaker notes**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Test your understanding
+### Test your understanding[](#test-your-understanding)
 
 Practice articulating your findings out loud to catch unclear explanations before the actual presentation. Use [voice mode(opens in new tab)](https://support.claude.com/en/articles/11101966-using-voice-mode-on-claude-mobile-apps) on your mobile device to transcribe your presentation out loud and receive feedback.
 
@@ -112,7 +104,7 @@ I'm going to present my main findings as I would during the actual presentation.
 
 Open in Claude
 
-### Refine specific slides
+### Refine specific slides[](#refine-specific-slides)
 
 Iterate on the first output, by requesting alternative approaches for sections that aren't communicating effectively.
 
@@ -120,7 +112,7 @@ Slide 7 feels cluttered and the data visualization isn't clear. Here's what I wa
 
 Open in Claude
 
-### Prepare for Q&A
+### Prepare for Q&A[](#prepare-for-qa)
 
 To ensure you're well-prepared for your presentation, ask Claude to help you anticipate potential questions so you can develop your thinking and practice responses beforehand.
 
@@ -128,25 +120,25 @@ Based on this presentation, what questions might professors ask? What are potent
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Start with what you can't explain
+### Start with what you can't explain[](#start-with-what-you-cant-explain)
 
 When preparing for a presentation, tell Claude which parts of your own research you find hard to explain clearly. Claude can help you articulate complex concepts with clear language and relevant analogies.
 
-### Prevent formatting issues
+### Prevent formatting issues[](#prevent-formatting-issues)
 
 Claude can make formatting errors, so explicitly mention to check for mistakes in your prompt. Ask Claude to verify no text or elements overlap and to use appropriate font sizes to prevent overcrowding on slides.
 
-### Use Claude for the heavy lifting
+### Use Claude for the heavy lifting[](#use-claude-for-the-heavy-lifting)
 
 Let Claude quickly outline important sections and save you time that may have been spent copying and pasting content. After the first pass, use Claude to iterate on larger structural changes while tweaking colors and smaller details yourself.
 
-### Work iteratively
+### Work iteratively[](#work-iteratively)
 
 If the output isn't quite right, be specific in your request to Claude about what to change. Claude can regenerate sections, adjust color schemes, or restructure content based on your feedback.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Work with Claude to understand how to best structure your research so you can present with genuine understanding and clarity.
 

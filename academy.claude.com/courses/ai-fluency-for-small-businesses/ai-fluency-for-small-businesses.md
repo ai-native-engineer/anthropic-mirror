@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Articulate your values, goals, and constraints for more effective AI collaboration
 * Identify your objectives for integrating AI tools and capabilities into your business operations
 
-## Welcome to AI Fluency for small business owners
+## Welcome to AI Fluency for small business owners[](#welcome-to-ai-fluency-for-small-business-owners)
 
 AI Fluency for small businesses · 4 min
 
@@ -44,7 +44,7 @@ Course roadmap
 
    Next stepsWhere to keep building your fluency—blueprints, resources, and your completion badge.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **AI Fluency** is the ability to use AI in ways that are efficient, effective, ethical, and safe.
 * The **4D Framework** — Delegation, Description, Discernment, Diligence — is the foundation of AI Fluency.
@@ -52,7 +52,7 @@ Course roadmap
 * The **Description-Discernment loop** drives higher-quality outputs through back-and-forth collaboration.
 * **Every efficiency gain** should translate to better customer service and more time for high-value work.
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2
 
@@ -70,13 +70,13 @@ Getting started is simple and free:
 
 New to Claude? No worries! We'll provide clear guidance with each exercise to help you get started.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Did the AI conversation surface anything new about your business?
 * Which parts of your operations stand to benefit most from AI collaboration?
 * What values or standards should guide how you use AI in your business?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, you'll learn the 4D Framework — the four competencies at the heart of effective AI collaboration.
 

@@ -12,7 +12,7 @@ Lesson 645 min
 
 Routing workflows solve a common problem in AI applications: different types of user requests need different handling approaches. Instead of using a one-size-fits-all prompt, you can categorize incoming requests and route them to specialized processing pipelines.
 
-## The Problem with Generic Prompts
+## The Problem with Generic Prompts[](#the-problem-with-generic-prompts)
 
 Consider a social media marketing tool that generates video scripts from user topics. A user might enter "programming" or "surfing" as their topic, but these should produce very different types of content:
 
@@ -20,7 +20,7 @@ Consider a social media marketing tool that generates video scripts from user to
 
 Programming topics call for educational content with clear explanations and definitions. Surfing topics work better with entertainment-focused scripts that emphasize excitement and visual appeal. A single generic prompt can't handle both effectively.
 
-## Setting Up Content Categories
+## Setting Up Content Categories[](#setting-up-content-categories)
 
 The first step is defining the different types of content your application might need to generate. You might categorize requests into genres like:
 
@@ -35,7 +35,7 @@ The first step is defining the different types of content your application might
 
 Each category gets its own specialized prompt template. For example, the educational prompt might ask Claude to "develop a clear, engaging script that transforms complex information into digestible insights using relatable examples and thought-provoking questions."
 
-## How Routing Works in Practice
+## How Routing Works in Practice[](#how-routing-works-in-practice)
 
 The routing process happens in two steps:
 
@@ -64,7 +64,7 @@ Claude responds with "Educational", so you then use the educational prompt templ
 
 ![](https://academy.claude.com/assets/media/d59a1066f0963fcd4a835cf9e8336aa30399554712455e1b8d9f006b99490f8f.jpg)
 
-## Routing Workflow Architecture
+## Routing Workflow Architecture[](#routing-workflow-architecture)
 
 A routing workflow follows this pattern:
 
@@ -77,7 +77,7 @@ A routing workflow follows this pattern:
 
 The key insight is that user input only goes to one specialized pipeline, not all of them. This allows each pipeline to be highly optimized for its specific use case.
 
-## When to Use Routing
+## When to Use Routing[](#when-to-use-routing)
 
 Routing workflows work well when:
 

@@ -12,7 +12,7 @@ Lesson 1120 min
 
 Building a custom prompt evaluation workflow starts with creating a solid prompt and then generating test data to see how well it performs. Let's walk through setting up an evaluation system for a prompt that helps users write AWS-specific code.
 
-## Setting Up the Goal
+## Setting Up the Goal[](#setting-up-the-goal)
 
 Our prompt needs to assist users in writing three specific types of output for AWS use cases:
 
@@ -35,7 +35,7 @@ Please provide a solution to the following task:
 """
 ```
 
-## Creating an Evaluation Dataset
+## Creating an Evaluation Dataset[](#creating-an-evaluation-dataset)
 
 An evaluation dataset contains inputs that we'll feed into our prompt. For each combination of prompt and input, we'll run the prompt and analyze the results.
 
@@ -45,7 +45,7 @@ Our dataset will be an array of JSON objects, where each object contains a "task
 
 Since we're generating test data, this is a perfect opportunity to use a faster model like Haiku instead of the full Claude model.
 
-## Generating Test Data with Code
+## Generating Test Data with Code[](#generating-test-data-with-code)
 
 Let's create a function that automatically generates our test dataset. First, we'll need our helper functions for working with Claude:
 
@@ -114,7 +114,7 @@ python
     return json.loads(text)
 ```
 
-## Testing the Dataset Generation
+## Testing the Dataset Generation[](#testing-the-dataset-generation)
 
 Let's run our function and see what kind of test cases we get:
 
@@ -127,7 +127,7 @@ print(dataset)
 
 This should return three different test cases covering our target outputs - Python functions, JSON configurations, and regular expressions for AWS-specific tasks.
 
-## Saving the Dataset
+## Saving the Dataset[](#saving-the-dataset)
 
 Once we have our dataset, we'll save it to a file so we can easily load it later during evaluation:
 

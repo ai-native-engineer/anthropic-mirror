@@ -19,7 +19,7 @@ network controls. Then you fire off sessions from your own application, and
 Claude does the work inside an isolated container with full file system
 access, bash execution, and web search.
 
-## The agent loop, hosted for you
+## The agent loop, hosted for you[](#the-agent-loop-hosted-for-you)
 
 Under the hood, this is an **agent loop**: Claude reasons, calls a tool, reads the result, and repeats until the job is done. If you've built agents before, you've probably written this kind of loop yourself. Managed agents takes that same loop and hosts it on Anthropic's infrastructure, so you don't have to run it.
 
@@ -27,7 +27,7 @@ You'll find Managed Agents in its own section of the Claude Console.
 
 The best way to understand what this unlocks is to walk through a few examples.
 
-## Example 1: A Kanban board that does the work
+## Example 1: A Kanban board that does the work[](#example-1-a-kanban-board-that-does-the-work)
 
 Picture a Kanban board sitting on top of managed agents. You drag a ticket into the "in progress" column, and that fires off a **session** automatically. Say the ticket reads "optimize website performance." Here's what happens:
 
@@ -49,7 +49,7 @@ One more thing: you can drag a second ticket over while the first is still runni
 
 ![A Kanban development board with two tickets in the In Progress column, each running its own agent session and streaming tool call events](https://academy.claude.com/assets/media/f2c489c96e8b17d074b04f4c24dfd19f290ec665bdcb5bfae3b3ea253edbf802.png)
 
-## Example 2: A recurring research agent with memory
+## Example 2: A recurring research agent with memory[](#example-2-a-recurring-research-agent-with-memory)
 
 Here's a different shape of agent: one whose job is to track prices and plan changes across every SaaS tool your company pays for, with a report ready before stand-up.
 
@@ -66,7 +66,7 @@ The agent also reads from and writes to a **memory store**. Before it starts, it
 
 ![The memory panel listing last week's findings, including vendor pricing changes and a total monthly spend estimate the agent stored for its next run](https://academy.claude.com/assets/media/86b9b49f11ba4c0946dd95218cd5c7b5daaad4a0fada12b9a8709b258df6bfb3.png)
 
-## Example 3: Incident response with multiple agents
+## Example 3: Incident response with multiple agents[](#example-3-incident-response-with-multiple-agents)
 
 Now imagine an alert fires from your monitoring stack. A **custom tool** on your back end receives the alert payload and sends it into a new session as a tool result. This session uses **multi-agent coordination**:
 
@@ -80,7 +80,7 @@ Before the summary goes to Slack, the **permissions policy** fires. You see the 
 
 Memory ties all of this together. The coordinator checks past incidents in the memory store and flags a pattern: "this looks like the DNS resolution issue from two weeks ago that was caused by a misconfigured TTL." The next time a similar alert fires, the agent starts with that context instead of diagnosing from scratch.
 
-## The building blocks
+## The building blocks[](#the-building-blocks)
 
 Across these examples, managed agents gives developers the tools to deliver a fully managed, stateful agent experience built on:
 
@@ -93,7 +93,7 @@ Across these examples, managed agents gives developers the tools to deliver a fu
 * **Outcomes** — rubrics and graders that define and check what done looks like
 * **Multi-agent coordination** — coordinators delegating to specialists
 
-## Recap
+## Recap[](#recap)
 
 * **Claude Managed Agents** is a suite of APIs for building and deploying agents at scale, hosted on Anthropic's infrastructure.
 * It runs the familiar agent loop — reason, call a tool, read the result, repeat — inside an isolated container with file system access, bash execution, and web search.

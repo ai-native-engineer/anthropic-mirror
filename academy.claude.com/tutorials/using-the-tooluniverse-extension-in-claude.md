@@ -18,13 +18,13 @@ The ToolUniverse MCP gives Claude access to a library of 600+ vetted scientific 
 
 The ToolUniverse integration is available as a desktop extension in the Claude Desktop App ([download here(opens in new tab)](https://claude.ai/download)), and it relies upon Claude's ability to use [local connectors via a desktop extension(opens in new tab)](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop).
 
-## **About the ToolUniverse integration**
+## **About the ToolUniverse integration**[](#about-the-tooluniverse-integration)
 
 ToolUniverse is an ecosystem for building AI scientists and AI agents for science that work with researchers to generate hypotheses, turn them into executable research plans, run scientific tools, and continually update analyses. It targets research at scale to reimagine scientific discovery: AI scientists explore large hypothesis spaces, compare competing hypotheses, and iterate through fast-to-slow cycles of analysis instead of producing one-off summaries.
 
 ToolUniverse standardizes tool use. It lets AI scientists discover and execute tools via local Python functions and remote services served through MCP. This design makes every step inspectable: AI scientists compose end-to-end workflows that connect datasets, models, and analysis pipelines and record inputs and outputs before they choose the next action. In human-AI collaboration, ToolUniverse supports a continuous loop of hypothesis generation, information-seeking tool calls, execution of research objectives, and refinement of internal models as new experimental data arrive and insights are generated.
 
-## **Data sets and services available in this integration**
+## **Data sets and services available in this integration**[](#data-sets-and-services-available-in-this-integration)
 
 **Disclaimer from ToolUniverse:** ToolUniverse provides access to third-party scientific databases and services. All copyrights and intellectual property rights for the data, content, and services listed below belong to their respective original sources and owners. ToolUniverse acts solely as an integration platform and bears no responsibility for the accuracy, completeness, or continued availability of these external resources.
 
@@ -82,7 +82,7 @@ ToolUniverse provides access to a comprehensive ecosystem of scientific resource
 * ChemTools - Chemical informatics utilities
 * Visualization tools - Molecular and data visualization
 
-## **Who should use the ToolUniverse integration**
+## **Who should use the ToolUniverse integration**[](#who-should-use-the-tooluniverse-integration)
 
 **Research Scientists and Academics**
 
@@ -104,13 +104,13 @@ Access to domain-specific tools without custom development, rapid prototyping of
 
 Enhanced regulatory decision-making, improved adverse event analysis, accelerated drug approval processes, and comprehensive safety monitoring.
 
-## **Who can access the ToolUniverse integration**
+## **Who can access the ToolUniverse integration**[](#who-can-access-the-tooluniverse-integration)
 
 ToolUniverse is open source under the Apache License 2.0, allowing free access to all features in ToolUniverse. The source code is available on [GitHub(opens in new tab)](https://github.com/mims-harvard/ToolUniverse).
 
 More details on accessing the integration can be found in [ToolUniverse’s MCP Server Documentation(opens in new tab)](https://github.com/mims-harvard/ToolUniverse).
 
-## **Setting up the ToolUniverse integration**
+## **Setting up the ToolUniverse integration**[](#setting-up-the-tooluniverse-integration)
 
 The ToolUniverse integration is available as a desktop extension in the Claude Desktop App ([download here(opens in new tab)](https://claude.ai/download)). For Organization Owners (Team and Enterprise), setting up the integration involves making the extension available to your organization. For individual users, setting up the integration involves installing the extension from inside the Claude Desktop App.
 
@@ -157,7 +157,7 @@ Learn about [installing desktop extensions from the directory(opens in new tab)]
 
 Technical details of the ToolUniverse integration can be found in [ToolUniverse’s MCP Server Documentation(opens in new tab)](https://github.com/mims-harvard/ToolUniverse).
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Drug Discovery and Therapeutic Development**
 
@@ -236,7 +236,7 @@ Open in Claude
   + Complete statistical analyses and generate interactive visualizations
   + Generate reports with summaries
 
-## **Demos and Documentation**
+## **Demos and Documentation**[](#demos-and-documentation)
 
 **Live Demonstrations**
 

@@ -12,7 +12,7 @@ Lesson 510 min
 
 Now that we have our MCP server working, it's time to build the client side. The client is what allows our application code to communicate with the MCP server and access its functionality.
 
-## Understanding the Client Architecture
+## Understanding the Client Architecture[](#understanding-the-client-architecture)
 
 In most real-world projects, you'll either implement an MCP client or an MCP server - not both. We're building both in this project just so you can see how they work together.
 
@@ -27,7 +27,7 @@ The MCP client consists of two main components:
 
 The client session requires careful resource management - we need to properly clean up connections when we're done. That's why we wrap it in our own class that handles all the cleanup automatically.
 
-## How the Client Fits Into Our Application
+## How the Client Fits Into Our Application[](#how-the-client-fits-into-our-application)
 
 Remember our application flow diagram? The client is what enables our code to interact with the MCP server at two key points:
 
@@ -38,11 +38,11 @@ Our CLI code uses the client to:
 * Get a list of available tools to send to Claude
 * Execute tools when Claude requests them
 
-## Implementing Core Client Functions
+## Implementing Core Client Functions[](#implementing-core-client-functions)
 
 We need to implement two essential functions: `list_tools()` and `call_tool()`.
 
-### List Tools Function
+### List Tools Function[](#list-tools-function)
 
 This function gets all available tools from the MCP server:
 
@@ -56,7 +56,7 @@ async def list_tools(self) -> list[types.Tool]:
 
 It's straightforward - we access our session (the connection to the server), call the built-in `list_tools()` method, and return the tools from the result.
 
-### Call Tool Function
+### Call Tool Function[](#call-tool-function)
 
 This function executes a specific tool on the server:
 
@@ -71,7 +71,7 @@ async def call_tool(
 
 We pass the tool name and input parameters (provided by Claude) to the server and return the result.
 
-## Testing the Client
+## Testing the Client[](#testing-the-client)
 
 The client file includes a simple test harness at the bottom. You can run it directly to verify everything works:
 
@@ -79,7 +79,7 @@ The client file includes a simple test harness at the bottom. You can run it dir
 
 This will connect to your MCP server and print out the available tools. You should see output showing your tool definitions, including descriptions and input schemas.
 
-## Putting It All Together
+## Putting It All Together[](#putting-it-all-together)
 
 Once the client functions are implemented, you can test the complete flow by running your main application:
 

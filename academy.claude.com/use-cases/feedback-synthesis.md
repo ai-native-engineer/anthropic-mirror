@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-calyi96r.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-iv2hjqlx.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Product Management plugin ships with `/synthesize-research` and other discovery skills as a starting point, already structured to cluster raw signal into themes and rank them. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Product ManagementWrite feature specs, plan roadmaps, and synthesize user resear
 
 Show all 8 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -70,7 +70,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the NPS verbatim export, the support ticket CSV, the sales call snippets, the six interview transcripts) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the Voice of Customer brief back to it. If you run this every quarter, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your sources, instructions, and memory stay attached.
 
@@ -88,15 +88,15 @@ interview-02 through 06.docxOptionalApr 20265 files
 
 In Cowork’s chat bar:Product / voc-q2
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Read this folder plus the #product-feedback Slack channel and the open Zendesk tickets tagged feedback. Cluster everything into 5 to 7 themes, count how often each shows up and how severe it is, pull the best verbatim for each, flag which map to a Linear roadmap item versus net-new, and write a one-page Voice of Customer brief for roadmap review.
 
 Product / voc-q2Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -114,7 +114,7 @@ Source
 
 **Compare against your existing plan.** "Map to a Linear roadmap item versus net-new" means the brief arrives already split into validate-what-we-planned and here-is-what-we-missed.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -124,7 +124,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -134,9 +134,9 @@ ProductOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it ahead of every roadmap review
+### Run it ahead of every roadmap review[](#run-it-ahead-of-every-roadmap-review)
 
 Feedback piles up between planning cycles whether or not anyone is reading it. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill produces a fresh brief the Friday before each roadmap review.
 
@@ -152,7 +152,7 @@ Runs `/synthesize-research` against the quarter's VoC folder plus live Slack and
 
 Every **Friday at 4:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/synthesize-research` now carries your severity scale, your standing sources, and your brief format. Share it so every PM on the team clusters feedback the same way, and roadmap review reads one consistent VoC page no matter whose area it covers.
 
@@ -160,7 +160,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/synthesize-research` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your sources and severity scale baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

@@ -12,7 +12,7 @@ Lesson 1215 min
 
 Building a custom prompt evaluation workflow starts with creating a solid prompt and then generating test data to see how well it performs. Let's walk through setting up an evaluation system for a prompt that helps users write AWS-specific code.
 
-## Setting Up the Goal
+## Setting Up the Goal[](#setting-up-the-goal)
 
 Our prompt needs to assist users in writing three specific types of output for AWS use cases:
 
@@ -35,7 +35,7 @@ Please provide a solution to the following task:
 """
 ```
 
-## Creating an Evaluation Dataset
+## Creating an Evaluation Dataset[](#creating-an-evaluation-dataset)
 
 An evaluation dataset contains inputs that we'll feed into our prompt to test its performance. For our case, we need an array of JSON objects where each object has a "task" property describing what we want Claude to accomplish.
 
@@ -48,7 +48,7 @@ You can create datasets in two ways:
 
 For automatic generation, using a faster model like Haiku makes sense since we're generating test data rather than production output.
 
-## Generating Test Data with Code
+## Generating Test Data with Code[](#generating-test-data-with-code)
 
 Let's build a function that asks Claude to generate test cases for us. The function will create a comprehensive prompt that requests specific types of AWS-related tasks.
 
@@ -82,7 +82,7 @@ def generate_dataset():
     """
 ```
 
-## Implementing the Generation Logic
+## Implementing the Generation Logic[](#implementing-the-generation-logic)
 
 To get clean JSON output from Claude, we'll use the pre-filling technique with stop sequences:
 
@@ -98,7 +98,7 @@ return json.loads(text)
 
 This approach ensures Claude starts its response with properly formatted JSON and stops at the closing markdown fence.
 
-## Testing and Saving the Dataset
+## Testing and Saving the Dataset[](#testing-and-saving-the-dataset)
 
 After running the generation function, you should get back realistic test cases like:
 

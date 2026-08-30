@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Develop a program toolkit result](https://academy.claude.com/assets/v1/develop-a-program-toolkit-kqxssobc.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to synthesize program logic and create structured frameworks, combined with your expertise, lets you rapidly develop comprehensive program documentation that typically requires significant coordination and synthesis.
 
@@ -35,23 +35,17 @@ Make this consulting-grade with premium formatting, sophisticated design, and ad
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) helps Claude develop more sophisticated program frameworks by planning structure, considering implementation challenges, and testing logic connections before building the toolkit.
 
-### Required context
-
-Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) in the conversation settings before starting. This gives Claude space to think through your program's theory of change, identify potential evaluation challenges, and design a comprehensive framework that anticipates real world implementation needs. The extra reasoning time produces significantly more thoughtful program logic and strategic recommendations.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
+### Required context[](#required-context)
 
 Provide Claude with information on your Theory of Change Model or share documentation that talks about your inputs, outputs, immediate outcomes, and goals. Consider sharing something in the form of: "If we do X → then Y happens → leading to Z impact".
 
 Program Logic Model and Impact FrameworkPDF
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude generates a multi-sheet Excel workbook that serves as your complete program planning resource. Each sheet functions as a standalone tool while connecting to create an integrated framework.
 
@@ -69,11 +63,11 @@ Sheet 5: Evaluation Framework Comprehensive measurement plan with 12 outcome ind
 
 Sheet 6: Resource Planning Detailed breakdown including staffing and operating budget.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Create implementation timeline
+### Create implementation timeline[](#create-implementation-timeline)
 
 Use this to create an implementation timeline that can be leveraged to get the program off the ground.
 
@@ -81,7 +75,7 @@ Add a new sheet with a detailed implementation timeline. Break down the first ye
 
 Open in Claude
 
-### Create external facing program materials
+### Create external facing program materials[](#create-external-facing-program-materials)
 
 Leverage for multiple use cases including external facing program resources
 
@@ -92,7 +86,7 @@ Using the program design toolkit, create external-facing materials to recruit pa
 
 Open in Claude
 
-### Build data tracking system
+### Build data tracking system[](#build-data-tracking-system)
 
 Ensure you have proper measurement in place to track progress towards outcomes.
 
@@ -100,25 +94,25 @@ Design a participant tracking sheet that connects to the evaluation framework. I
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Open the actual Excel file to see the full sophistication
+### Open the actual Excel file to see the full sophistication[](#open-the-actual-excel-file-to-see-the-full-sophistication)
 
 The preview in chat shows basic structure, but the file contains advanced formulas, conditional formatting with color scales, data validation dropdowns, frozen header rows, and professional typography that don't appear in previews. The real workbook is significantly more polished.
 
-### For tech workforce programs, specific details matter
+### For tech workforce programs, specific details matter[](#for-tech-workforce-programs-specific-details-matter)
 
 Rather than generic "training program," describe the actual model: 20-week virtual instruction + paid corporate internships + industry certifications. Include employer partnership commitments, wraparound services provided, and realistic outcome targets. Specificity produces frameworks grounded in implementation reality rather than abstract concepts.
 
-### Iterate to perfect the design
+### Iterate to perfect the design[](#iterate-to-perfect-the-design)
 
 After reviewing the file, refine specific elements: "Make the logic model more visual with icons," "Tighten the resource budget categories," "Add a theory of change narrative to Sheet 2," or "Create dropdown filters on the evaluation framework." Each round of feedback produces increasingly sophisticated results. Don't accept the first draft as final—push for portfolio-quality outputs.
 
-### Use integrated approaches for consistency
+### Use integrated approaches for consistency[](#use-integrated-approaches-for-consistency)
 
 Most people create program planning documents separately and struggle with consistency. This integrated approach ensures your logic model aligns with your evaluation plan, your resources match your activities, and your SWOT drives strategic decisions. Everything connects. When you update one element, related sections stay coherent because they're in one framework.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Whether you're launching a workforce reentry program, building an apprenticeship pipeline, or designing skills training for career changers, a well-structured planning toolkit transforms abstract ideas into actionable frameworks that guide implementation and demonstrate impact to funders.
 

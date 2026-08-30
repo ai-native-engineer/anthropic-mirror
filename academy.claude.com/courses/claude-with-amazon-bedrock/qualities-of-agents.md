@@ -12,7 +12,7 @@ Lesson 653 min
 
 After exploring Claude Code and Computer Use, we can identify key patterns that reveal what makes agents successful. Both tools demonstrate a systematic approach to problem-solving that relies on focused tool usage, environmental awareness, and iterative execution.
 
-## How Agents Work in Practice
+## How Agents Work in Practice[](#how-agents-work-in-practice)
 
 When Claude was asked to add a test for a specific corner case, it followed a clear pattern of tool usage. The agent made four distinct tool calls: two to read existing files, one to update a file, and one to run tests. This breakdown reveals something important about agent behavior.
 
@@ -24,7 +24,7 @@ Computer Use follows the same approach when testing web applications. Each tool 
 
 ![](https://academy.claude.com/assets/media/f729ca3174769335bba7632b5af7b9b40bcdc9463cab2c57e19c20e8008d841f.png)
 
-## Comparing Agent Approaches
+## Comparing Agent Approaches[](#comparing-agent-approaches)
 
 Both Claude Code and Computer Use share several fundamental characteristics that make them effective:
 
@@ -36,23 +36,23 @@ Both Claude Code and Computer Use share several fundamental characteristics that
 * **High-value, low-risk tasks:** Both tackle complex problems where mistakes are manageable
 * **Low error costs:** Computer Use has very low error costs, while Claude Code has low but not negligible costs
 
-## Key Qualities of Effective Agents
+## Key Qualities of Effective Agents[](#key-qualities-of-effective-agents)
 
 Based on these observations, successful agents share four critical qualities:
 
-### Focused Tool Sets Running in Loops
+### Focused Tool Sets Running in Loops[](#focused-tool-sets-running-in-loops)
 
 Agents work best with a small number of simple, well-defined tools. They keep executing these tools until reaching an iteration limit, encountering an error, or meeting success criteria. This iterative approach allows for course correction and refinement.
 
-### Context is Everything
+### Context is Everything[](#context-is-everything)
 
 Claude has no inherent knowledge of your specific environment. It needs tools to read from and understand the current state of whatever system it's working with. The quality of context gathering directly impacts agent performance.
 
-### High Value Tasks with Low Error Costs
+### High Value Tasks with Low Error Costs[](#high-value-tasks-with-low-error-costs)
 
 Agents excel at complex, knowledge-intensive work where mistakes won't cause major damage. Writing code is a perfect example - it requires significant expertise, but errors can be caught and fixed without catastrophic consequences. Avoid using agents for high-stakes decisions where errors could have serious economic or safety impacts.
 
-### Continuous Evaluation
+### Continuous Evaluation[](#continuous-evaluation)
 
 The only reliable way to build effective agents is through rigorous testing. Create evaluation criteria and continuously test your agent's performance against real scenarios. This feedback loop is essential for identifying weaknesses and improving reliability.
 

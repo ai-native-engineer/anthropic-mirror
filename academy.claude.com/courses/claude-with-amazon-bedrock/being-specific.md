@@ -18,13 +18,13 @@ Think about it this way: if you ask Claude to "write a short story about a chara
 
 But if you add specific guidelines, you can shape the output to match your needs much more closely.
 
-## Two Types of Guidelines
+## Two Types of Guidelines[](#two-types-of-guidelines)
 
 There are two main approaches to being specific in your prompts, and you'll often see both used together in professional applications.
 
 ![](https://academy.claude.com/assets/media/559eb8d6c6972037d53b153f4d4982147cd2500c28b50a44607ba101d31a0afa.png)
 
-### Quality Guidelines
+### Quality Guidelines[](#quality-guidelines)
 
 The first type focuses on listing qualities that your output should have. These guidelines control attributes like:
 
@@ -32,7 +32,7 @@ The first type focuses on listing qualities that your output should have. These 
 * Structural requirements (include a clear action that reveals the character's talent)
 * Content specifications (include at least one supporting character)
 
-### Process Steps
+### Process Steps[](#process-steps)
 
 The second type provides specific steps for the model to follow. This approach makes Claude think through the problem systematically:
 
@@ -43,7 +43,7 @@ The second type provides specific steps for the model to follow. This approach m
 
 Quality guidelines control what the output looks like, while process steps control how Claude arrives at that output.
 
-## Real-World Testing
+## Real-World Testing[](#real-world-testing)
 
 Let's look at how this works in practice. Here's a prompt for generating meal plans that incorporates specific guidelines:
 
@@ -68,7 +68,7 @@ When tested against a baseline prompt without guidelines, this approach improved
 
 Testing the process steps approach (telling Claude to calculate calories first, then figure out macros, then plan timing, etc.) also showed significant improvement, scoring 7.3.
 
-## When to Provide Steps
+## When to Provide Steps[](#when-to-provide-steps)
 
 While quality guidelines work well for most prompts, you should consider adding process steps when you're dealing with:
 

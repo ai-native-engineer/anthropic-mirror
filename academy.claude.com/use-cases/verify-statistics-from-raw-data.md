@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Statistical reproducibility analysis workbook Claude creates to verify a paper's claims](https://academy.claude.com/assets/v1/verify-statistics-from-raw-data-8du7m0z5.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to parse manuscripts while simultaneously running statistical analyses on raw data helps you develop a deeper understanding of how to assess research methods and build critical reading skills you'll use throughout your career.
 
@@ -34,11 +34,11 @@ Make the spreadsheet well-designed and easy to navigate - professional formattin
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Provide the published manuscript and its underlying raw data so Claude can verify every statistical claim and help you understand how thoroughly the analysis supports the conclusions.
 
-### Required context
+### Required context[](#required-context)
 
 Click the (+) button in the chat bar to browse through your files or, alternatively, drag and drop the manuscript and any additional data files you want to analyze into the chat box area.
 
@@ -48,15 +48,7 @@ ManuscriptPDF
 
 Data filesXLSX
 
-### Optional context
-
-For more thorough statistical verification and high quality outputs, enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking).
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude creates a comprehensive audit workbook documenting every statistical check, showing you exactly what to watch for and building your ability to critically evaluate research methods.
 
@@ -108,11 +100,11 @@ I've verified the statistical claims in "Effects of Chronic Sleep Deprivation on
 
 **View your statistical audit workbook**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Go beyond numbers and check the figures
+### Go beyond numbers and check the figures[](#go-beyond-numbers-and-check-the-figures)
 
 Verify that visual representations match the underlying data. Claude compares graphs, charts, and tables to raw data values to catch misrepresentations or errors.
 
@@ -120,7 +112,7 @@ Check that all bar heights, error bars, and data points in Figure 2 match the ac
 
 Open in Claude
 
-### Learn what to watch for next time
+### Learn what to watch for next time[](#learn-what-to-watch-for-next-time)
 
 Claude can explain which red flags are worth investigating when you're reading papers without access to raw data - like methodological inconsistencies, suspiciously round numbers, or statistical choices that don't match study designs.
 
@@ -128,7 +120,7 @@ Based on what we found here, teach me what warning signs I should look for when 
 
 Open in Claude
 
-### Draft reviewer comments
+### Draft reviewer comments[](#draft-reviewer-comments)
 
 Frame statistical or methodological issues constructively so authors understand what needs fixing without getting defensive. Claude can help balance specificity with encouragement.
 
@@ -136,17 +128,17 @@ Turn these statistical problems into helpful reviewer comments that are clear ab
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Start where you already have domain expertise
+### Start where you already have domain expertise[](#start-where-you-already-have-domain-expertise)
 
 You'll quickly grasp the best practices for working with Claude by verifying papers in your field, as your expertise will help you discern what is plausible. When Claude flags an issue, your domain knowledge helps you judge whether it's a real error or a misunderstanding of field-specific practice. Conversely, when Claude says everything checks out, you can assess whether it tested the right assumptions.
 
-### Open the actual Excel file
+### Open the actual Excel file[](#open-the-actual-excel-file)
 
 The preview in chat shows structure, but the real workbook contains working formulas, conditional formatting that highlights issues, dropdown filters for exploring results, and detailed calculation notes. Download and open the file to see how verification works and to learn techniques you can apply when checking other papers.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Upload any paper with its supplementary data files, describe why you're examining it ("I'm considering citing this extensively" or "these results seem surprising and I want to understand them better"), and let Claude help you build the critical analysis skills that strengthen your research.
 

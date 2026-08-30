@@ -31,7 +31,7 @@ This course is the result of a long partnership between Anthropic and professors
 
 The work was supported in part by the Higher Education Authority (Ireland) through the National Forum for the Enhancement of Teaching and Learning.
 
-## Recommended prerequisites
+## Recommended prerequisites[](#recommended-prerequisites)
 
 This course lightly covers the foundational AI Fluency concepts. However, for deeper understanding, participants should complete AI Fluency: Framework & Foundations before beginning this educator-focused curriculum.
 
@@ -43,7 +43,7 @@ About this course
 * [Meet your instructors(opens in new tab)](https://www-cdn.anthropic.com/files/4zrzovbb/website/9b6a92af33b00bf2538bd02273dace9e06220dc2.pdf)
 * [How we used AI in building the course(opens in new tab)](https://www-cdn.anthropic.com/files/4zrzovbb/website/a6b3eb802a87e5516a302a9db3ebb357313f08e9.pdf)
 
-### Completion badge
+### Completion badge[](#completion-badge)
 
 After finishing the course, you will have the opportunity to take a final assessment and earn a completion badge.
 

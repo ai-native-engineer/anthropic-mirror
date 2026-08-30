@@ -34,8 +34,6 @@ For detailed implementation requirements and technical specifications, review th
 
 **Note:** You'll need to request access to view the Implementation Guide. Requests from domains matching existing customer accounts are approved automatically.
 
----
-
 ## Get started
 
 Eligible Enterprise organizations can enable HIPAA-ready configuration directly from organization settings—no sales or legal cycle required. The Business Associate Agreement (BAA) is included in the flow as click-to-accept, so there's no separate document to sign and return. Clicking “Accept and Enable HIPAA” constitutes acceptance of the BAA.
@@ -73,8 +71,6 @@ Once enabled, you'll see a checkmark in the **HIPAA Compliance** section of orga
 The onboarding modal will guide you through next steps for your team.
 
 For help with the BAA, the Implementation Guide, or post-enablement questions, reach out to your Anthropic account team or **[our support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
-
----
 
 ## If you have an existing API BAA
 

@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-csmvr9ol.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-egkt2awn.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Finance plugin ships with `/close-management` and seven other close-week skills as a starting point, already structured to compare records across sources and categorize the gaps. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ FinanceStreamline finance and accounting workflows, from journal entries and rec
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -64,7 +64,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the Workday export, the headcount plan, the payroll register) into one folder and point Cowork at it. Cowork reads from it and writes the reconciliation back to it. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from your headcount folder so the cost-center map and FTE-vs-contractor rules stay attached every month.
 
@@ -80,15 +80,15 @@ cost-center-map.csvJan 5, 20266 KB
 
 In Cowork’s chat bar:FY26-Close / Headcount / March
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Reconcile March headcount across the Workday roster, the FY26 plan, and payroll in the GL. Match by cost center and employee ID, list every difference (unplanned hires, budgeted heads still open, roster entries with no payroll, contractors miscoded as FTE), and write the reconciliation by cost center to the close folder.
 
 FY26-Close / Headcount / MarchOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -106,7 +106,7 @@ Source
 
 **Put reference files in the folder.** Your cost-center crosswalk handles the cases where HRIS and the GL use different codes.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -116,7 +116,7 @@ Practice
 
 **Ask what changed.** Add "compare to last month's recon and highlight new breaks" so you're chasing only what moved.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -126,9 +126,9 @@ FY26-Close / HeadcountOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 Headcount ties on the same day every close. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs against the newest roster and payroll automatically.
 
@@ -144,7 +144,7 @@ Ties Workday roster, the FY26 plan, and the payroll register by cost center and 
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized skill now carries your cost-center map, your break categories, and your loaded-cost assumptions. Share it so HR, FP&A, and Accounting all reconcile from the same definition of a head.
 
@@ -152,7 +152,7 @@ Share the skill
 
 In Cowork, open **Skills** → your saved skill → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your instructions baked in, they don't repeat Steps 1-3.
 
-## What changes for the headcount review
+## What changes for the headcount review[](#what-changes-for-the-headcount-review)
 
 Headcount reconciles across systems with each difference categorized, costed, and assigned an owner — ready to resolve instead of investigate.
 

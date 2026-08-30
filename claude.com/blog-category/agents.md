@@ -16,6 +16,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
+
+Aug 26, 2026
+
+How Warp builds self-improving agents on Claude
+
+Agents
+
+How Warp builds self-improving agents on Claude
+
+August 26, 2026
+
+[How Warp builds self-improving agents on Claude](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude)How Warp builds self-improving agents on Claude
+
+[How Warp builds self-improving agents on Claude](#)How Warp builds self-improving agents on Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
 
 Aug 20, 2026
@@ -240,22 +256,6 @@ April 29, 2026
 
 [Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a7bb714a55b503cd7_cad034e66b44f7f017c0cb931c403a97d1763758-1000x1000.svg)
-
-Apr 29, 2026
-
-Product development in the agentic era
-
-Agents
-
-Product development in the agentic era
-
-April 29, 2026
-
-[Product development in the agentic era](https://claude.com/blog/product-development-in-the-agentic-era)Product development in the agentic era
-
-[Product development in the agentic era](#)Product development in the agentic era
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### How Warp builds self-improving agents on Claude
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+August 26, 2026
+
+[How Warp builds self-improving agents on Claude](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude)How Warp builds self-improving agents on Claude
+
+[How Warp builds self-improving agents on Claude](#)How Warp builds self-improving agents on Claude
 
 ### How monday.com transformed its platform into an agent-first product where humans and agents collaborate
 
@@ -487,22 +503,6 @@ April 29, 2026
 [Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
 [Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-### Product development in the agentic era
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-April 29, 2026
-
-[Product development in the agentic era](https://claude.com/blog/product-development-in-the-agentic-era)Product development in the agentic era
-
-[Product development in the agentic era](#)Product development in the agentic era
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

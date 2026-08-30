@@ -119,8 +119,6 @@ Every organization has a default Workspace that cannot be renamed, archived, or 
 
 **Note:** You can view your default Workspace’s limits from the [Limits settings](https://platform.claude.com/settings/limits).
 
----
-
 ## Creating a separate Console organization
 
 A single email address can create only one Console organization. If you've already created an organization with your email, signing up again routes you back to that organization instead of starting a new one. You can still be invited to other organizations and switch between them on the same email, but you can only create one yourself.

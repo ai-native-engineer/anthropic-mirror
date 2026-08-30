@@ -18,8 +18,6 @@ The Audience (Entity ID), ACS URL, and SCIM credentials referenced below are pro
 
 Start the SSO setup flow there and keep it open alongside the OneLogin Admin portal as you work through the steps below.
 
----
-
 ## Step 1 — Create a new application in OneLogin
 
 1. In the OneLogin Admin portal, go to **Applications → Applications → Add App**.
@@ -58,8 +56,6 @@ In the **Users** tab, assign individual people or use **Rules** to automatically
 
 1. If you enabled SCIM, check the OneLogin provisioning activity log to confirm people were created in Claude.
 2. Have a test user complete SSO login and verify they land in your organization's workspace.
-
----
 
 ## Need help?
 

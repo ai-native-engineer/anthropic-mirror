@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/news/100k-context-windows -->
 
-# Introducing 100K Context Windows
+# Introducing 100K context windows
 
 May 11, 2023
 

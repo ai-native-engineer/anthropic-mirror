@@ -14,7 +14,7 @@ When you have both semantic search (vector embeddings) and lexical search (BM25)
 
 ![](https://academy.claude.com/assets/media/961cd9717345a16435ab45da7572f0b9fa5c4125f4823018c271d8e33c7c9963.png)
 
-## Building a Unified Interface
+## Building a Unified Interface[](#building-a-unified-interface)
 
 Both search implementations share nearly identical APIs - they both have `add_document()` and `search()` methods. This consistency makes it straightforward to wrap them in a single `Retriever` class that coordinates between the two approaches.
 
@@ -29,7 +29,7 @@ The Retriever acts as a coordinator that:
 
 ![](https://academy.claude.com/assets/media/1aae9ddbb1781429d0c3797b675cc9d0fd9d9e1a8fba70b49aa7bc510c29e6ab.png)
 
-## Reciprocal Rank Fusion
+## Reciprocal Rank Fusion[](#reciprocal-rank-fusion)
 
 The challenge lies in merging results from different search methods. Each system returns results with different scoring mechanisms, so you can't simply combine scores directly. Instead, we use a technique called Reciprocal Rank Fusion (RRF).
 
@@ -63,7 +63,7 @@ After sorting by score, the final ranking becomes: Section 2 (first), Section 6 
 
 ![](https://academy.claude.com/assets/media/ed4b193934439db2890a4065c7437248a2aa956b1b47fd68e795b0e1161aae70.png)
 
-## Implementation
+## Implementation[](#implementation)
 
 The Retriever class implementation is straightforward:
 
@@ -92,13 +92,13 @@ class Retriever:
 
 The key insight is that the RRF algorithm creates a unified ranking by considering how well each document performs across all search systems, rather than relying on any single scoring method.
 
-## Testing the Hybrid Approach
+## Testing the Hybrid Approach[](#testing-the-hybrid-approach)
 
 When testing with a query like "what happened with INC-2023-Q4-011?", the hybrid approach delivers significantly better results than either method alone. Instead of getting unexpected results from pure vector search, you now get the most relevant cybersecurity incident report first, followed by related software engineering content.
 
 ![](https://academy.claude.com/assets/media/99e48f9eae840a3bddb1d226d4f9f4b0bfb372749ff212509f7b558d12a31dd6.png)
 
-## Extensibility
+## Extensibility[](#extensibility)
 
 The beauty of this design is its modularity. Since each search index implements the same interface (`add_document()` and `search()`), you can easily add new search methodologies to the system. Whether it's a different embedding model, a specialized domain search, or any other retrieval technique, as long as it follows the established API, it integrates seamlessly into the hybrid pipeline.
 

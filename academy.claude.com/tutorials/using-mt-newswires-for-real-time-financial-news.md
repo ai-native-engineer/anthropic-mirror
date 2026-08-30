@@ -16,9 +16,9 @@ Set up and use MT Newswires for real-time financial news delivering original mul
 
 The MT Newswires integration provides Claude with access to a premium real-time financial news service delivering original, unbiased multi-asset class market intelligence. This article explains how to set up and use MT Newswires to monitor breaking news and stay informed about market-moving events. The MT Newswires integration relies upon Claude’s ability to use remote connectors.
 
-## What This Integration Provides
+## What This Integration Provides[](#what-this-integration-provides)
 
-### Capabilities
+### Capabilities[](#capabilities)
 
 The MT Newswires integration enables Claude to access premium real-time financial news and market intelligence covering multi-asset class markets.
 
@@ -28,7 +28,7 @@ The MT Newswires integration enables Claude to access premium real-time financia
 * **Original Reporting:** Benefit from 28,000+ original stories per month, providing unique insights and analysis not available through aggregated news sources. MT Newswires maintains editorial independence and produces unbiased market intelligence.
 * **Noise-Free Content:** Receive curated, relevant financial news filtered to focus on material market events and company developments, reducing information overload and allowing Claude to surface the most important updates for your needs.
 
-## How Claude Uses MT Newswires Data
+## How Claude Uses MT Newswires Data[](#how-claude-uses-mt-newswires-data)
 
 Claude applies real-time financial news from MT Newswires to support your market analysis and investment research.
 
@@ -37,9 +37,9 @@ Claude applies real-time financial news from MT Newswires to support your market
 * **Research Platform Content:** Access original financial journalism and analysis to supplement investment research, providing additional perspectives on companies, industries, and market trends beyond traditional data sources.
 * **Multi-Asset Intelligence:** Access comprehensive news coverage across asset classes to support diversified investment strategies, from equity research to fixed income analysis and commodity market insights.
 
-## Setting Up MT Newswires Integration
+## Setting Up MT Newswires Integration[](#setting-up-mt-newswires-integration)
 
-### For Organization Owners
+### For Organization Owners[](#for-organization-owners)
 
 You will need to contact MT Newswires to get access to the MCP server.
 
@@ -49,13 +49,13 @@ You will need to contact MT Newswires to get access to the MCP server.
 4. Name the integration (e.g., “MT Newswires MCP”)
 5. Click “Add”
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Real-Time Market News Integration
+### Real-Time Market News Integration[](#real-time-market-news-integration)
 
 Example input prompt:
 
@@ -67,7 +67,7 @@ Open in Claude
 
 **Tip:** Request news for specific time windows (past hour, past day) to focus on the most recent and relevant developments.
 
-### Portfolio Monitoring
+### Portfolio Monitoring[](#portfolio-monitoring)
 
 Example input prompt:
 
@@ -79,7 +79,7 @@ Open in Claude
 
 **Why it matters:** Early awareness of material news allows you to respond quickly to market-moving events and make informed portfolio decisions.
 
-### Sector-Specific News Analysis
+### Sector-Specific News Analysis[](#sector-specific-news-analysis)
 
 Example input prompt:
 
@@ -91,7 +91,7 @@ Open in Claude
 
 **Typical focus:** Major industry developments, regulatory changes, supply chain news, or competitive dynamics that impact the sector broadly.
 
-### Event-Driven Research
+### Event-Driven Research[](#event-driven-research)
 
 Example input prompt:
 
@@ -103,7 +103,7 @@ Open in Claude
 
 **Key benefit:** Rapidly synthesize multiple news sources to get a complete picture of how markets are interpreting major company events.
 
-### Breaking News Alerts
+### Breaking News Alerts[](#breaking-news-alerts)
 
 Example input prompt:
 
@@ -115,7 +115,7 @@ Open in Claude
 
 **Note:** MT Newswires provides curated financial news, helping filter out noise and focus on material market-moving events.
 
-## Tips for Using MT Newswires
+## Tips for Using MT Newswires[](#tips-for-using-mt-newswires)
 
 * Specify time windows for news searches (past hour, day, week) to focus on relevant updates
 * Use specific ticker symbols or company names for targeted news retrieval

@@ -12,7 +12,7 @@ Lesson 97 min
 
 The final step in building our MCP client is implementing prompt functionality. This allows us to list all available prompts from the server and retrieve specific prompts with variables filled in.
 
-## Implementing List Prompts
+## Implementing List Prompts[](#implementing-list-prompts)
 
 The `list_prompts` method is straightforward. It calls the session's list prompts function and returns the prompts:
 
@@ -24,7 +24,7 @@ async def list_prompts(self) -> list[types.Prompt]:
     return result.prompts
 ```
 
-## Getting Individual Prompts
+## Getting Individual Prompts[](#getting-individual-prompts)
 
 The `get_prompt` method is more interesting because it handles variable interpolation. When you request a prompt, you provide arguments that get passed to the prompt function as keyword arguments:
 
@@ -38,7 +38,7 @@ async def get_prompt(self, prompt_name, args: dict[str, str]):
 
 For example, if your server has a `format_document` prompt that expects a `doc_id` parameter, the arguments dictionary would contain `{"doc_id": "plan.md"}`. This value gets interpolated into the prompt template.
 
-## Testing Prompts in Action
+## Testing Prompts in Action[](#testing-prompts-in-action)
 
 Once implemented, you can test prompts through the CLI. When you type a slash (`/`), available prompts appear as commands. Selecting a prompt like "format" will prompt you to choose from available documents.
 
@@ -46,7 +46,7 @@ Once implemented, you can test prompts through the CLI. When you type a slash (`
 
 After selecting a document, the system sends the complete prompt to Claude. The AI receives both the formatting instructions and the document ID, then uses available tools to fetch and process the content.
 
-## How Prompts Work
+## How Prompts Work[](#how-prompts-work)
 
 ![Slide explaining prompts: they define a set of user and assistant messages clients can use and should be high quality, well-tested, and relevant to the MCP's purpose — alongside an MCP server code snippet defining a "format" prompt with the @mcp.prompt decorator](https://academy.claude.com/assets/media/746dff951e80556b72b3de46baca7a2ebc4171e5921b610ccc0bea3343f653c3.png)
 

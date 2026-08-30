@@ -16,6 +16,70 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90479f5433ec75978f1e8a_Object-Apple.svg)
+
+Aug 28, 2026
+
+Claude for Teachers, now available for U.S. K-12 schools and districts
+
+Product announcements
+
+Claude for Teachers, now available for U.S. K-12 schools and districts
+
+August 28, 2026
+
+[Claude for Teachers, now available for U.S. K-12 schools and districts](https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts)Claude for Teachers, now available for U.S. K-12 schools and districts
+
+[Claude for Teachers, now available for U.S. K-12 schools and districts](#)Claude for Teachers, now available for U.S. K-12 schools and districts
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22d0099a66d72e05699_33ddc751e21fb4b116b3f57dd553f0bc55ea09d1-1000x1000.svg)
+
+Aug 26, 2026
+
+Claude in Chrome is generally available
+
+Product announcements
+
+Claude in Chrome is generally available
+
+August 26, 2026
+
+[Claude in Chrome is generally available](https://claude.com/blog/claude-in-chrome-generally-available) Claude in Chrome is generally available
+
+[Claude in Chrome is generally available](#) Claude in Chrome is generally available
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b8840b2f6f9a40fe0_8925ac952fa2cb8eb5e845b2e44f3e71b33fd695-1000x1000.svg)
+
+Aug 26, 2026
+
+Claude gets its own browser in Cowork
+
+Product announcements
+
+Claude gets its own browser in Cowork
+
+August 26, 2026
+
+[Claude gets its own browser in Cowork](https://claude.com/blog/cowork-built-in-browser)Claude gets its own browser in Cowork
+
+[Claude gets its own browser in Cowork](#)Claude gets its own browser in Cowork
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22562f020146c9ec973_f8f4644253bde2f901550431b871b6dcf91e5d9d-1000x1000.svg)
+
+Aug 25, 2026
+
+Claude's memory works everywhere, and you decide what's in it
+
+Product announcements
+
+Claude's memory works everywhere, and you decide what's in it
+
+August 25, 2026
+
+[Claude's memory works everywhere, and you decide what's in it](https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it)Claude's memory works everywhere, and you decide what's in it
+
+[Claude's memory works everywhere, and you decide what's in it](#)Claude's memory works everywhere, and you decide what's in it
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 Aug 21, 2026
@@ -192,70 +256,6 @@ July 23, 2026
 
 [Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22e6fa9211768bbce0b_6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
-
-Jul 7, 2026
-
-Bringing Claude Code and Claude Cowork to government
-
-Product announcements
-
-Bringing Claude Code and Claude Cowork to government
-
-July 7, 2026
-
-[Bringing Claude Code and Claude Cowork to government](https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government)Bringing Claude Code and Claude Cowork to government
-
-[Bringing Claude Code and Claude Cowork to government](#)Bringing Claude Code and Claude Cowork to government
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3f14a08cb97bf1b16d40ef_ObjectClouds.svg)
-
-Jul 7, 2026
-
-Claude Cowork is coming to mobile and web
-
-Product announcements
-
-Claude Cowork is coming to mobile and web
-
-July 7, 2026
-
-[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
-
-[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22349f86cd1968deab7_f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
-
-Jul 2, 2026
-
-Giving admins more visibility and control over Claude spend
-
-Product announcements
-
-Giving admins more visibility and control over Claude spend
-
-July 2, 2026
-
-[Giving admins more visibility and control over Claude spend](https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
-
-[Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a42c9bc20d2072552ef256a_Node-EnterpriseAgents.svg)
-
-Jun 29, 2026
-
-Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
-
-Product announcements
-
-Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
-
-June 29, 2026
-
-[Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](https://claude.com/blog/introducing-the-claude-apps-gateway)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
-
-[Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](#)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -263,6 +263,70 @@ Category
 Product
 
 Usecase
+
+### Claude for Teachers, now available for U.S. K-12 schools and districts
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 28, 2026
+
+[Claude for Teachers, now available for U.S. K-12 schools and districts](https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts)Claude for Teachers, now available for U.S. K-12 schools and districts
+
+[Claude for Teachers, now available for U.S. K-12 schools and districts](#)Claude for Teachers, now available for U.S. K-12 schools and districts
+
+### Claude in Chrome is generally available
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 26, 2026
+
+[Claude in Chrome is generally available](https://claude.com/blog/claude-in-chrome-generally-available) Claude in Chrome is generally available
+
+[Claude in Chrome is generally available](#) Claude in Chrome is generally available
+
+### Claude gets its own browser in Cowork
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 26, 2026
+
+[Claude gets its own browser in Cowork](https://claude.com/blog/cowork-built-in-browser)Claude gets its own browser in Cowork
+
+[Claude gets its own browser in Cowork](#)Claude gets its own browser in Cowork
+
+### Claude's memory works everywhere, and you decide what's in it
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+August 25, 2026
+
+[Claude's memory works everywhere, and you decide what's in it](https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it)Claude's memory works everywhere, and you decide what's in it
+
+[Claude's memory works everywhere, and you decide what's in it](#)Claude's memory works everywhere, and you decide what's in it
 
 ### Bringing the cybersecurity capabilities of Claude Mythos 5 to more defenders
 
@@ -439,70 +503,6 @@ July 23, 2026
 [Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
 
 [Think through hard problems in voice mode](#)Think through hard problems in voice mode
-
-### Bringing Claude Code and Claude Cowork to government
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-July 7, 2026
-
-[Bringing Claude Code and Claude Cowork to government](https://claude.com/blog/bringing-claude-code-and-claude-cowork-to-government)Bringing Claude Code and Claude Cowork to government
-
-[Bringing Claude Code and Claude Cowork to government](#)Bringing Claude Code and Claude Cowork to government
-
-### Claude Cowork is coming to mobile and web
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-July 7, 2026
-
-[Claude Cowork is coming to mobile and web](https://claude.com/blog/cowork-web-mobile)Claude Cowork is coming to mobile and web
-
-[Claude Cowork is coming to mobile and web](#)Claude Cowork is coming to mobile and web
-
-### Giving admins more visibility and control over Claude spend
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-July 2, 2026
-
-[Giving admins more visibility and control over Claude spend](https://claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend)Giving admins more visibility and control over Claude spend
-
-[Giving admins more visibility and control over Claude spend](#)Giving admins more visibility and control over Claude spend
-
-### Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-June 29, 2026
-
-[Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](https://claude.com/blog/introducing-the-claude-apps-gateway)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
-
-[Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud](#)Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud
 
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 

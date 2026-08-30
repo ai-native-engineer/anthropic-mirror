@@ -19,8 +19,6 @@ The Entity ID, Reply URL (ACS URL), and SCIM credentials referenced below are pr
 
 Start the SSO setup flow there and keep it open alongside the Entra Admin Center as you work through the steps below.
 
----
-
 ## Step 1 — Add Claude as an enterprise application in Entra
 
 **Note:** "Enterprise applications" below refers to the section in Microsoft Entra's admin center—it's Microsoft's term for any app you integrate, and is unrelated to your Claude plan type.
@@ -58,8 +56,6 @@ Start the SSO setup flow there and keep it open alongside the Entra Admin Center
 
 1. If you enabled SCIM, trigger a provisioning cycle and confirm people appear in Claude's admin settings.
 2. Have a test user complete SSO login and verify they land in your organization's workspace.
-
----
 
 ## Need help?
 

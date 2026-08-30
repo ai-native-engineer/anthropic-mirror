@@ -18,7 +18,7 @@ The Owkin connector powers Pathology Explorer, an Owkin AI agent that transforms
 
 The Owkin integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 Owkin builds AI agents for biology to accelerate drug discovery, de-risk and accelerate clinical trials. The Owkin connector gives Claude access to Pathology Explorer, an Owkin agent that transforms H&E slides from the TCGA database into granular, queryable insights. Researchers can use it to automatically detect cell types from pathology images, spatially analyze tumor micro-environments, and validate hypotheses through cohort-level survival analysis, accelerating and de-risking drug discovery and development.
 
@@ -86,7 +86,7 @@ The features are available on the following TCGA cohorts:
 * TCGA\_UCEC
 * TCGA\_UCS
 
-## **Who should use the Owkin integration**
+## **Who should use the Owkin integration**[](#who-should-use-the-owkin-integration)
 
 Pharma researchers and healthcare providers (Research Use Only), for example:
 
@@ -96,7 +96,7 @@ Pharma researchers and healthcare providers (Research Use Only), for example:
 * Digital pathology research groups
 * Companion diagnostic development groups
 
-## **Who can access the Owkin integration**
+## **Who can access the Owkin integration**[](#who-can-access-the-owkin-integration)
 
 Prerequisites to access the connector are:
 
@@ -105,7 +105,7 @@ Prerequisites to access the connector are:
 
 More details on accessing the integration can be found in [Owkin’s MCP Server Documentation(opens in new tab)](https://docs.owkin.com/connect-and-integrate/pathology-explorer-mcp-ai-powered-tissue-analysis).
 
-## **Setting up the Owkin integration**
+## **Setting up the Owkin integration**[](#setting-up-the-owkin-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -132,7 +132,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the Owkin integration can be found in [Owkin’s MCP Server Documentation(opens in new tab)](https://docs.owkin.com/connect-and-integrate/pathology-explorer-mcp-ai-powered-tissue-analysis).
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Refine patient stratification.** Identify patient subgroups that generalist models miss through granular profiling of 6 distinct cell types (including understudied populations like neutrophils and eosinophils). Leverage spatial organization analysis to characterize TME structures and phenotypes beyond simple counts.
 

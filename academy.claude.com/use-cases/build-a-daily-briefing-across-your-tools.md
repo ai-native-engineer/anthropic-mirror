@@ -14,7 +14,7 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-k4d623ry.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-llu6mang.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 In Cowork, Claude connects to your messaging, task tools, and dashboards at the same time, reading full conversation histories, surfacing discussions you weren't part of, and tying metrics to the threads behind them.
 
@@ -33,13 +33,13 @@ For urgent items, pull the deeper context: who's involved, what's been discussed
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 [Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude that connects to your tools via [connectors(opens in new tab)](https://claude.com/connectors) and reads from browser tabs via [Claude in Chrome(opens in new tab)](https://claude.com/chrome). It lives in the [Claude Desktop(opens in new tab)](https://claude.com/download) app, and with remote sessions (in beta) your Cowork sessions are on web and mobile too. Add your messaging, tasks, and dashboard sources. Cowork queries them in parallel.
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you questions, like which channels matter most, what timeframe to cover, or how to format the briefing. It then builds a plan you can review in the sidebar. This helps it run more independently and deliver something closer to finished.
 
-### Required context
+### Required context[](#required-context)
 
 To get started:
 
@@ -47,7 +47,7 @@ To get started:
 * Add [connectors(opens in new tab)](https://claude.com/connectors) for Slack, Notion, and any other tools you want in the briefing
 * [Install Claude in Chrome(opens in new tab)](https://claude.com/chrome) and add it as a connector for dashboard access
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Cowork creates a structured briefing organized by priority, with cross-platform context synthesized into single items where relevant. Using the Claude in Chrome connector, Claude opens your dashboard in a new browser tab and reads it directly, pulling metrics and context alongside your Slack and Notion data.
 
@@ -68,11 +68,11 @@ Here's your morning briefing for January 22:
 * "Finalize Q1 vendor agreements" — due Friday, blocked on budget confirmation
 * "Review marketing brief" — due tomorrow
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Go deeper on a dashboard alert
+### Go deeper on a dashboard alert[](#go-deeper-on-a-dashboard-alert)
 
 Get the full context behind a metric. Cowork pulls the related threads, tasks, and history so you understand what's driving the number.
 
@@ -80,7 +80,7 @@ Get the full context behind a metric. Cowork pulls the related threads, tasks, a
 
 Open in Cowork
 
-### Draft a response with full context
+### Draft a response with full context[](#draft-a-response-with-full-context)
 
 Move from briefing to action. Cowork drafts a reply using everything it knows about the topic — the thread history, related tasks, and your current priorities.
 
@@ -88,7 +88,7 @@ Move from briefing to action. Cowork drafts a reply using everything it knows ab
 
 Open in Cowork
 
-### Surface everything on one topic
+### Surface everything on one topic[](#surface-everything-on-one-topic)
 
 Pull together all mentions of a project, person, or issue across sources.
 
@@ -96,21 +96,21 @@ Pull together all mentions of a project, person, or issue across sources.
 
 Open in Cowork
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Watch the progress panel
+### Watch the progress panel[](#watch-the-progress-panel)
 
 Cowork shows which connectors are being queried in real-time. If your briefing is taking longer than expected, you can see which platform is the bottleneck.
 
-### Iterate in the same conversation
+### Iterate in the same conversation[](#iterate-in-the-same-conversation)
 
 Your first briefing request establishes context. Follow-up prompts can refine without re-querying everything.
 
-### Briefings run remotely by default
+### Briefings run remotely by default[](#briefings-run-remotely-by-default)
 
 A scheduled briefing runs on Anthropic's servers (remote sessions, in beta), so it's ready even while your laptop is closed and follows you across desktop, web, and mobile. If you're compiling something sensitive interactively, you can run that session locally and keep those files on your machine.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Connect your platforms to Cowork and start your day knowing where your attention is needed most.
 

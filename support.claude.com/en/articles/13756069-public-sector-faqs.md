@@ -6,7 +6,7 @@
 
 Select your product based on both your technical/functional requirements, and also your compliance/security/deployment environment requirements. Here is a list of options:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1787622300&signature=26f2b38154b7ac24506459154327c052df92f7fa99071c11a5889679d5309d5b&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll4jH98z2WxtU42UVC3pG00Y6ODMok1FUoQf%0AgVioxNXE6jPjmG9%2BjQQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1787622300&signature=26f2b38154b7ac24506459154327c052df92f7fa99071c11a5889679d5309d5b&req=diEuEc5%2FmoBZWPMW1HO4zU94Ll4jH98z2WxtU42UVC3pG00Y6ODMok1FUoQf%0AgVioxNXE6jPjmG9%2BjQQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1788033600&signature=3e346883bffdfd23d9b10a30ca6a0b3c12ba0ee98ecfd3dedd00c98c131a0fb3&req=diEuEc5%2FmoBZWPMW1HO4zU94LlElHt422WxtU42UVC1ynMACaiIdXhhiNNn2%0A34JDj8wvgdWKB4oxpzk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1788033600&signature=3e346883bffdfd23d9b10a30ca6a0b3c12ba0ee98ecfd3dedd00c98c131a0fb3&req=diEuEc5%2FmoBZWPMW1HO4zU94LlElHt422WxtU42UVC1ynMACaiIdXhhiNNn2%0A34JDj8wvgdWKB4oxpzk%3D%0A)
 
 ### What is Claude for Government (C4G)?
 
@@ -35,8 +35,6 @@ For more information, see our **[Claude Code product page](https://claude.com/pr
 ### What models are available in Claude for Government?
 
 Our Claude for Government application is updated with our latest commercial model releases.
-
----
 
 ## 2. FedRAMP, Impact Levels, and compliance
 
@@ -86,8 +84,6 @@ No. At present, our only product offering on AWS Marketplace is Claude Enterpris
 
 Learn more here: **[Claude in Amazon Bedrock: Approved for use in FedRAMP High and DoD IL4/5 workloads](https://www.anthropic.com/news/claude-in-amazon-bedrock-fedramp-high)**
 
----
-
 ## 3. Cloud service providers and deployment
 
 ### How do I deploy Claude in Amazon Bedrock on AWS GovCloud / GCP Vertex in Assured Workloads?
@@ -106,8 +102,6 @@ Learn more here: **[Claude in Amazon Bedrock: Approved for use in FedRAMP High a
 **AWS Bedrock: [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/)**
 
 **Google Cloud Vertex AI:** **[Cost of building and deploying AI models in Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/pricing)**
-
----
 
 ## 4. Pricing and procurement
 

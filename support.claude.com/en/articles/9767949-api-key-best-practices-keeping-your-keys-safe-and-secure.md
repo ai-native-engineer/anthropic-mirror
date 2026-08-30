@@ -113,6 +113,6 @@ API key security is an ongoing process that requires vigilance and regular revie
 
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
 * [Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization)
-* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
+* [Get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

@@ -23,7 +23,7 @@ A private or internal GitHub repository, laid out as a [Claude Code plugin marke
 
 Register the repository as a plugin marketplace
 
-For a github.com repository, the GitHub connector must be enabled for your organization. On the **Plugins** page at [`claude.ai/admin-settings/plugins`](https://claude.ai/admin-settings/plugins), click **Add plugins** and choose **Sync from GitHub**. Select the repository, leave **Sync automatically** on (the default), and click **Create**.
+For a github.com repository, the GitHub connector must be enabled for your organization. On the **Plugins** page at [`claude.ai/admin-settings/plugins`](https://claude.ai/admin-settings/plugins), click **Add plugins** and choose **Sync from GitHub**. Select the repository, leave **Sync automatically** on (the default), and click **Create**.When you click **Create**, and on every sync after that, the whole repository is downloaded as one archive, and the archive can’t be larger than 512 MiB. A repository over that size, such as a large monorepo, is rejected with `Download too large (>536.9MB)` even when the plugins in it are small. Put the plugins in a smaller dedicated repository, or [upload the plugin as a zip file](#upload-a-plugin-as-a-zip-file) instead.
 
 3
 

@@ -16,7 +16,7 @@ Prompt caching in Claude works by storing the computational work done on message
 
 The process follows a two-phase pattern: the initial request writes to the cache, and follow-up requests can read from it. The cache only lives for 5 minutes, so this feature is most useful when you're sending the same content repeatedly within a short timeframe.
 
-## Cache Points
+## Cache Points[](#cache-points)
 
 Prompt caching isn't enabled automatically - you need to manually add cache point message parts to control what gets cached. Cache points tell Claude to cache all the work done for everything before that point in your message.
 
@@ -38,7 +38,7 @@ user_message = {
 
 The key rule is that work done for everything before the cache point will be cached, but anything after the cache point won't be stored in the cache.
 
-## How Cache Points Work
+## How Cache Points Work[](#how-cache-points-work)
 
 ![](https://academy.claude.com/assets/media/c5fbe6101c5953ab6a8e4a24d28b9ef5fe36a7c26c20d295e14efd498652f31f.png)
 
@@ -50,7 +50,7 @@ The cache will only be used if the content before the cache point is completely 
 
 ![](https://academy.claude.com/assets/media/9a7504d0101bbcb1abbb4079bdd4e3fb01563ace29c74714cdb4fa171978d1e4.png)
 
-## Caching Across Messages
+## Caching Across Messages[](#caching-across-messages)
 
 Cache points can span multiple messages and even include assistant messages. This means you can cache entire conversation histories up to a certain point.
 
@@ -58,7 +58,7 @@ Cache points can span multiple messages and even include assistant messages. Thi
 
 For example, you might have a conversation with a user message, assistant response, and another user message, with a cache point at the end. All the processing work for that entire conversation thread gets cached and can be reused.
 
-## Minimum Content Length
+## Minimum Content Length[](#minimum-content-length)
 
 Content must be at least 1024 tokens long to be cached. This is the sum of all messages and parts you're trying to cache before the cache point.
 
@@ -66,7 +66,7 @@ Content must be at least 1024 tokens long to be cached. This is the sum of all m
 
 A simple "Hi there!" message won't meet the 1024 token minimum, so nothing gets cached. But if you repeat "Hi there!" 500 times, that would exceed 1024 tokens and qualify for caching.
 
-## Cache Point Locations
+## Cache Point Locations[](#cache-point-locations)
 
 Cache points aren't restricted to user messages. You can add them to system prompts and tool definitions, which are actually the most common caching opportunities.
 

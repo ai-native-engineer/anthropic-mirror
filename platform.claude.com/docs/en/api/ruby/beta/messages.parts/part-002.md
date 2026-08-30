@@ -3,6 +3,327 @@
 
 <!-- chunk-start -->
 
+                  - `:execution_time_exceeded`
+
+                  - `:file_not_found`
+
+                - `type: :text_editor_code_execution_tool_result_error`
+
+                - `error_message: String`
+
+              - `class BetaTextEditorCodeExecutionViewResultBlockParam`
+
+                - `content: String`
+
+                - `file_type: :text | :image | :pdf`
+
+                  - `:text`
+
+                  - `:image`
+
+                  - `:pdf`
+
+                - `type: :text_editor_code_execution_view_result`
+
+                - `num_lines: Integer`
+
+                - `start_line: Integer`
+
+                - `total_lines: Integer`
+
+              - `class BetaTextEditorCodeExecutionCreateResultBlockParam`
+
+                - `is_file_update: bool`
+
+                - `type: :text_editor_code_execution_create_result`
+
+              - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
+
+                - `type: :text_editor_code_execution_str_replace_result`
+
+                - `lines: Array[String]`
+
+                - `new_lines: Integer`
+
+                - `new_start: Integer`
+
+                - `old_lines: Integer`
+
+                - `old_start: Integer`
+
+            - `tool_use_id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `type: :text_editor_code_execution_tool_result`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaToolSearchToolResultBlockParam`
+
+            - `content: BetaToolSearchToolResultErrorParam | BetaToolSearchToolSearchResultBlockParam`
+
+              - `class BetaToolSearchToolResultErrorParam`
+
+                - `error_code: :invalid_tool_input | :unavailable | :too_many_requests | :execution_time_exceeded`
+
+                  - `:invalid_tool_input`
+
+                  - `:unavailable`
+
+                  - `:too_many_requests`
+
+                  - `:execution_time_exceeded`
+
+                - `type: :tool_search_tool_result_error`
+
+                - `error_message: String`
+
+              - `class BetaToolSearchToolSearchResultBlockParam`
+
+                - `tool_references: Array[BetaToolReferenceBlockParam]`
+
+                  - `tool_name: String`
+
+                    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+                  - `type: :tool_reference`
+
+                  - `cache_control: BetaCacheControlEphemeral`
+
+                    Create a cache control breakpoint at this content block.
+
+                - `type: :tool_search_tool_search_result`
+
+            - `tool_use_id: String`
+
+              pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+            - `type: :tool_search_tool_result`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaMCPToolUseBlockParam`
+
+            - `id: String`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `input: Hash[Symbol, untyped]`
+
+            - `name: String`
+
+            - `server_name: String`
+
+              The name of the MCP server
+
+            - `type: :mcp_tool_use`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaRequestMCPToolResultBlockParam`
+
+            - `tool_use_id: String`
+
+              pattern: ^[a-zA-Z0-9_-]+$
+
+            - `type: :mcp_tool_result`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+            - `content: String | Array[BetaTextBlockParam]`
+
+              - `String = String`
+
+              - `BetaMCPToolResultBlockParamContent = Array[BetaTextBlockParam]`
+
+                - `text: String`
+
+                  minLength: 1
+
+                - `type: :text`
+
+                - `cache_control: BetaCacheControlEphemeral`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `citations: Array[BetaTextCitationParam]`
+
+            - `is_error: bool`
+
+          - `class BetaContainerUploadBlockParam`
+
+            A content block that represents a file to be uploaded to the container
+            Files uploaded via this block will be available in the container's input directory.
+
+            - `file_id: String`
+
+            - `type: :container_upload`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaCompactionBlockParam`
+
+            A compaction block containing summary of previous context.
+
+            Users should round-trip these blocks from responses to subsequent requests
+            to maintain context across compaction boundaries.
+
+            When content is None, the block represents a failed compaction. The server
+            treats these as no-ops. Empty string content is not allowed.
+
+            - `type: :compaction`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+            - `content: String`
+
+              Summary of previously compacted content, or null if compaction failed
+
+            - `encrypted_content: String`
+
+              Opaque metadata from prior compaction, to be round-tripped verbatim
+
+          - `class BetaRequestToolAdditionBlock`
+
+            Mid-conversation directive to surface a declared tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is offered to the model from this point in the
+            conversation onward.
+
+            - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeToolReference`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+                - `name: String`
+
+                  pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+                - `type: :tool_reference`
+
+              - `class BetaToolChangeMCPToolReference`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+                - `name: String`
+
+                - `server_name: String`
+
+                - `type: :mcp_tool_reference`
+
+              - `class BetaToolChangeMCPToolsetReference`
+
+                Reference to every tool in the named MCP server's toolset.
+
+                - `server_name: String`
+
+                - `type: :mcp_toolset_reference`
+
+            - `type: :tool_addition`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaRequestToolRemovalBlock`
+
+            Mid-conversation directive to withdraw a tool.
+
+            `tool` references a tool (or MCP toolset) by name from the request's
+            `tools`; it is no longer offered to the model from this point in the
+            conversation onward.
+
+            - `tool: BetaToolChangeToolReference | BetaToolChangeMCPToolReference | BetaToolChangeMCPToolsetReference`
+
+              Reference to a single tool the caller declared directly in
+              `tools[]`. Does not accept the composed `{server}_{name}` form the
+              server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+              `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeToolReference`
+
+                Reference to a single tool the caller declared directly in
+                `tools[]`. Does not accept the composed `{server}_{name}` form the
+                server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+                `mcp_toolset_reference` for those.
+
+              - `class BetaToolChangeMCPToolReference`
+
+                Reference to a single MCP tool by its server and remote name — the
+                same `server_name`/`name` pair `mcp_tool_use` carries.
+
+              - `class BetaToolChangeMCPToolsetReference`
+
+                Reference to every tool in the named MCP server's toolset.
+
+            - `type: :tool_removal`
+
+            - `cache_control: BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+          - `class BetaFallbackBlockParam`
+
+            A `fallback` block echoed back from a prior response.
+
+            Accepted in `messages[].content` and not rendered into the prompt; not
+            validated against the request's `fallbacks` chain or top-level `model`.
+
+            Echo the assistant turn back verbatim, including this block in its
+            original position. The block marks the boundary between content produced
+            before and after a fallback hop, and the server relies on that boundary
+            to validate the turn: when thinking runs flank the boundary, omitting
+            the block merges them into one span the server cannot validate (the
+            request is rejected), and moving it into the middle of a single run is
+            likewise rejected; between non-thinking blocks the block's placement has
+            no validation effect.
+
+            - `from: BetaFallbackInfoParam`
+
+              Identifies one hop of a fallback transition.
+
+              - `model: Model`
+
+                The model that will complete your prompt.
+
+                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 12 more`
+
+                  The model that will complete your prompt.
+
+                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `:"claude-sonnet-5"`
+
+                    High-performance model for coding and agents
+
+                  - `:"claude-fable-5"`
+
                     Next generation of intelligence for the hardest knowledge work and coding problems
 
                   - `:"claude-mythos-5"`
@@ -379,13 +700,15 @@
 
             - `type: :enabled`
 
-            - `display_: :summarized | :omitted`
+            - `display_: :summarized | :omitted | :updates`
 
               Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
               - `:summarized`
 
               - `:omitted`
+
+              - `:updates`
 
           - `class BetaThinkingConfigDisabled`
 
@@ -395,13 +718,15 @@
 
             - `type: :adaptive`
 
-            - `display_: :summarized | :omitted`
+            - `display_: :summarized | :omitted | :updates`
 
               Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
               - `:summarized`
 
               - `:omitted`
+
+              - `:updates`
 
       - `BetaFallbacksParam = :default`
 
@@ -2502,7 +2827,7 @@
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -2571,6 +2896,20 @@
     - `:"agent-memory-2026-07-22"`
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
+
+    - `:"compact-2026-01-12"`
+
+    - `:"computer-use-2025-11-24"`
+
+    - `:"mcp-tunnels-2026-06-22"`
+
+    - `:"structured-outputs-2025-11-13"`
+
+    - `:"task-budgets-2026-03-13"`
+
+    - `:"thinking-display-updates-2026-08-18"`
+
+    - `:"ce-user-management-2026-07-13"`
 
 - `user_profile_id: String`
 
@@ -2738,7 +3077,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -2807,6 +3146,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"agent-memory-2026-07-22"`
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
+
+    - `:"compact-2026-01-12"`
+
+    - `:"computer-use-2025-11-24"`
+
+    - `:"mcp-tunnels-2026-06-22"`
+
+    - `:"structured-outputs-2025-11-13"`
+
+    - `:"task-budgets-2026-03-13"`
+
+    - `:"thinking-display-updates-2026-08-18"`
+
+    - `:"ce-user-management-2026-07-13"`
 
 #### Returns
 
@@ -2975,7 +3328,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -3044,6 +3397,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"agent-memory-2026-07-22"`
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
+
+    - `:"compact-2026-01-12"`
+
+    - `:"computer-use-2025-11-24"`
+
+    - `:"mcp-tunnels-2026-06-22"`
+
+    - `:"structured-outputs-2025-11-13"`
+
+    - `:"task-budgets-2026-03-13"`
+
+    - `:"thinking-display-updates-2026-08-18"`
+
+    - `:"ce-user-management-2026-07-13"`
 
 #### Returns
 
@@ -3209,7 +3576,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -3278,6 +3645,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"agent-memory-2026-07-22"`
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
+
+    - `:"compact-2026-01-12"`
+
+    - `:"computer-use-2025-11-24"`
+
+    - `:"mcp-tunnels-2026-06-22"`
+
+    - `:"structured-outputs-2025-11-13"`
+
+    - `:"task-budgets-2026-03-13"`
+
+    - `:"thinking-display-updates-2026-08-18"`
+
+    - `:"ce-user-management-2026-07-13"`
 
 #### Returns
 
@@ -3436,7 +3817,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -3505,6 +3886,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"agent-memory-2026-07-22"`
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
+
+    - `:"compact-2026-01-12"`
+
+    - `:"computer-use-2025-11-24"`
+
+    - `:"mcp-tunnels-2026-06-22"`
+
+    - `:"structured-outputs-2025-11-13"`
+
+    - `:"task-budgets-2026-03-13"`
+
+    - `:"thinking-display-updates-2026-08-18"`
+
+    - `:"ce-user-management-2026-07-13"`
 
 #### Returns
 
@@ -3565,7 +3960,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -3635,6 +4030,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
+    - `:"compact-2026-01-12"`
+
+    - `:"computer-use-2025-11-24"`
+
+    - `:"mcp-tunnels-2026-06-22"`
+
+    - `:"structured-outputs-2025-11-13"`
+
+    - `:"task-budgets-2026-03-13"`
+
+    - `:"thinking-display-updates-2026-08-18"`
+
+    - `:"ce-user-management-2026-07-13"`
+
 #### Returns
 
 - `class BetaMessageBatchIndividualResponse`
@@ -3677,7 +4086,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             format: date-time
 
-          - `skills: Array[BetaSkill]`
+          - `skills: Array[BetaContainerSkill]`
 
             Skills loaded in the container
 
@@ -4946,11 +5355,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Per-iteration token usage breakdown.
 
-            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
-            - Calculate the true context window size from the last iteration
+            - Calculate the context window size from the last `message` entry
             - Understand token accumulation across server-side tool use loops
+
+            A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
             - `class BetaMessageIterationUsage`
 

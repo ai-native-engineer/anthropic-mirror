@@ -16,7 +16,7 @@ Model Context Protocol (MCP) is a communication layer that provides Claude with 
 
 When you first encounter MCP, you'll see diagrams showing the basic architecture: an MCP Client (your server) connecting to MCP Servers that contain tools, prompts, and resources. Each MCP server acts as an interface to some outside service.
 
-## Understanding MCP Through a Real Example
+## Understanding MCP Through a Real Example[](#understanding-mcp-through-a-real-example)
 
 Let's say you're building a chat interface where users can ask Claude about their GitHub data. A user might ask "What open pull requests are there across all my repositories?" To answer this, Claude needs tools to access GitHub's API.
 
@@ -24,7 +24,7 @@ Let's say you're building a chat interface where users can ask Claude about thei
 
 Without MCP, you'd need to create all the GitHub integration tools yourself. This means writing schemas and functions for every piece of GitHub functionality you want to support.
 
-## The Tool Function Problem
+## The Tool Function Problem[](#the-tool-function-problem)
 
 GitHub has massive functionality - repositories, pull requests, issues, projects, and much more. To build a complete GitHub chatbot, you'd need to author an incredible number of tools:
 
@@ -32,7 +32,7 @@ GitHub has massive functionality - repositories, pull requests, issues, projects
 
 Each tool requires both a schema definition and a function implementation. This represents a lot of code that you have to write, test, and maintain as a developer.
 
-## How MCP Solves This
+## How MCP Solves This[](#how-mcp-solves-this)
 
 MCP shifts the burden of tool definitions and execution from your server to MCP servers. Instead of you writing all those GitHub tools, they're authored and executed inside a dedicated MCP server.
 
@@ -44,19 +44,19 @@ The MCP server acts as a wrapper around GitHub's functionality, providing pre-bu
 
 MCP servers provide access to data or functionality implemented by outside services. They package up complex integrations into reusable components that any application can connect to.
 
-## Common Questions About MCP
+## Common Questions About MCP[](#common-questions-about-mcp)
 
 ![](https://academy.claude.com/assets/media/8f732f327ed47e73d82dcc2c4056fa8e2b7c923c60a9dab0d1992113af222e5f.jpg)
 
-### Who Authors MCP Servers?
+### Who Authors MCP Servers?[](#who-authors-mcp-servers)
 
 Anyone can create an MCP server implementation. Often, service providers themselves will make their own official MCP implementations. For example, AWS might release an official MCP server with tools for their various services.
 
-### How is MCP Different from Direct API Calls?
+### How is MCP Different from Direct API Calls?[](#how-is-mcp-different-from-direct-api-calls)
 
 MCP servers provide tool schemas and functions already defined for you. If you call an API directly, you're responsible for authoring those tool definitions yourself. MCP saves you that implementation work.
 
-### Isn't MCP Just Tool Use?
+### Isn't MCP Just Tool Use?[](#isnt-mcp-just-tool-use)
 
 This is a common misconception. MCP servers and tool use are complementary but different concepts. MCP is about who does the work of creating and maintaining the tools. With MCP, someone else has already written the tool functions and schemas for you - they're packaged inside the MCP server.
 

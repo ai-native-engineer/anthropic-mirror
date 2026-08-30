@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Research roadmap Word document Claude creates for a literature review](https://academy.claude.com/assets/v1/plan-your-literature-review-etqhk9vh.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Thorough literature reviews require reading hundreds of papers to identify the dozen that matter. Claude accelerates this process by systematically searching databases, evaluating relevance against your specific research questions, and organizing findings so you can focus on synthesis and original analysis rather than mechanical sorting.
 
@@ -34,11 +34,11 @@ Organize everything into a beautifully designed Word document that serves as my 
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Connect Claude to relevant research tools and enable the specific features that make this workflow powerful.
 
-### Required context
+### Required context[](#required-context)
 
 Connect [PubMed(opens in new tab)](https://claude.ai/directory/pubmed) to allow Claude to search the full PubMed database, not just work with papers you already have.
 
@@ -48,15 +48,7 @@ PubMed
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
-
-Turn on [**Extended Thinking**(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can spend more time evaluating research and creating high-quality outputs.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude researches PubMed’s database to find relevant papers and creates a guide to help you through your entire research process—from initial discovery through final synthesis.
 
@@ -72,11 +64,11 @@ The document includes a visual landscape overview showing how papers distribute 
 
 **View your research roadmap**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Validate a claim you develop
+### Validate a claim you develop[](#validate-a-claim-you-develop)
 
 Test whether patterns you notice actually hold across your full dataset. Claude analyzes whether trends are real or coincidental and identifies exceptions or contradictions.
 
@@ -84,7 +76,7 @@ I want to say most recent studies focus on X while older ones focused on Y. Does
 
 Open in Claude
 
-### Understand contradicting sources
+### Understand contradicting sources[](#understand-contradicting-sources)
 
 When you notice sources conflict, Claude can help investigate why and search for additional sources that might help you understand and resolve the discrepancy.
 
@@ -92,7 +84,7 @@ Paper A claims [finding] while Paper B claims the opposite. Analyze why they con
 
 Open in Claude
 
-### Search for missing coverage
+### Search for missing coverage[](#search-for-missing-coverage)
 
 If you spot gaps of knowledge as you read, ask Claude to search for relevant sources to try to fill them and show where new findings might fit into your research.
 
@@ -100,25 +92,25 @@ I'm seeing a gap in my coverage of [specific mechanism/population/intervention].
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Always verify critical citations
+### Always verify critical citations[](#always-verify-critical-citations)
 
 Claude is excellent at tracking evidence, but double-check any quote that's central to your argument against the original paper before submitting your work. Use Claude to help you find the relevant passages quickly, but verify the exact wording yourself.
 
-### Open the actual file, not just the preview
+### Open the actual file, not just the preview[](#open-the-actual-file-not-just-the-preview)
 
 Claude's in-chat previews show basic structure, but the actual Word document contains full formatting, color-coding, and design elements that don't appear in previews. Download and open the file to see the true form and make edits.
 
-### Expand your research infrastructure
+### Expand your research infrastructure[](#expand-your-research-infrastructure)
 
 Connect the Google Drive integration so Claude can search your existing collection, identify papers you've already read, and organize new findings alongside your current library—no manual uploading required. For databases beyond PubMed, check the directory for more connectors.
 
-### Use design language for better outputs
+### Use design language for better outputs[](#use-design-language-for-better-outputs)
 
 The prompt includes design language throughout, with phrases like "beautifully designed”, “professional formatting”, and “premium research tool”. Without design cues, Claude opts for default styling. With specific prompting, Claude can apply unique typography, color, and formatting choices.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Work through your literature review process with Claude, from discovery to synthesis, so you can focus on developing original arguments rather than drowning in search results.
 

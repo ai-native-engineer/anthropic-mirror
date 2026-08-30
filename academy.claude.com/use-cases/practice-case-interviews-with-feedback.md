@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Practice case interviews with feedback result](https://academy.claude.com/assets/v1/practice-case-interviews-with-feedback-jcm7a9ka.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to extract data from case materials, build financial models, and analyze your work allows you to practice cases and receive feedback. Let Claude take care of repetitive data entry and spreadsheet organization, so you can focus on the strategic thinking.
 
@@ -28,25 +28,17 @@ After I finish my analysis and write my recommendation, I'll share it for feedba
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 To receive tailored practice materials, provide Claude with your case materials for context.
 
-### Required context
+### Required context[](#required-context)
 
 Upload your practice study files so that Claude can analyze the case, find relevant data points, and build the tools you need to practice effectively.
 
 Practice case problemPDF
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can spend more time building high quality outputs and reasoning through complex problems.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude builds a complete practice environment: a spreadsheet model with extracted data and analytical frameworks, plus structured guidance on what to analyze and how to approach your recommendation.
 
@@ -84,11 +76,11 @@ Work through your analysis using the Excel model—test scenarios, identify patt
 
 I'll look for: analytical rigor, logical structure, data usage, strategic insight, and practical implementability.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Compare your approach to alternative solutions
+### Compare your approach to alternative solutions[](#compare-your-approach-to-alternative-solutions)
 
 Ask Claude to describe other valid approaches so you can understand new ways to solve the same case. This helps to identify gaps in your methodology and expand your analytical toolkit.
 
@@ -96,7 +88,7 @@ What would a different but equally strong approach look like? Show me an alterna
 
 Open in Claude
 
-### Dive deeper into certain frameworks
+### Dive deeper into certain frameworks[](#dive-deeper-into-certain-frameworks)
 
 Learn specific analytical techniques and how to apply them effectively when being tested or under pressure.
 
@@ -104,7 +96,7 @@ Walk me through how to use a profitability tree for this case. What should I be 
 
 Open in Claude
 
-### Request a review on your work
+### Request a review on your work[](#request-a-review-on-your-work)
 
 Get specific feedback on logical gaps, weak conclusions, or missing analysis before you finalize your recommendation.
 
@@ -112,21 +104,21 @@ Here's my draft recommendation for the restaurant expansion case: [paste your an
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Practice different case types
+### Practice different case types[](#practice-different-case-types)
 
 Use Claude to generate different types: profitability cases, market entry, growth strategy, pricing cases. This variety will enhance your learning by exposing you to different patterns and frameworks.
 
-### Store practice cases in a Project
+### Store practice cases in a Project[](#store-practice-cases-in-a-project)
 
 Create a "Case Practice" [Project(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects) and keep all your work there. You can compare across cases and see your progress over time. With [Memory(opens in new tab)](https://code.claude.com/docs/en/memory) in Projects, Claude can remember and track your level of understanding to give more targeted feedback—like identifying which concepts or frameworks you often struggle with.
 
-### Enable Extended Thinking for detailed reviews
+### Let Claude think longer for detailed reviews[](#let-claude-think-longer-for-detailed-reviews)
 
-When you want thorough feedback on a complex recommendation, turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research) before asking. You get deeper analysis of your logic and more nuanced suggestions.
+When you want thorough feedback on a complex recommendation, adjust Claude's [thinking settings(opens in new tab)](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings) before asking. You get deeper analysis of your logic and more nuanced suggestions.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Whether you're preparing for interviews at top consulting firms or simply building your strategic problem-solving muscles, the best way to improve is to practice with feedback. Upload a case PDF and start.
 

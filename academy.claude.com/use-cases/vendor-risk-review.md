@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-d3gaacpk.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ctfjf1cz.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Operations plugin ships with `/risk-assessment` and other vendor-management skills as a starting point, already structured to read security documentation and score against a framework. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ OperationsOptimize business operations — vendor management, process documentat
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the vendor's SOC 2, their questionnaire responses, the DPA and MSA, your risk framework) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the scored memo and mitigation list back to it. If you run vendor reviews regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your framework, instructions, and memory stay attached.
 
@@ -84,15 +84,15 @@ vendor-risk-framework.pdfJan 9, 2026184 KB
 
 In Cowork’s chat bar:Vendors / Northwind / risk-review
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Score this vendor's SOC 2, security questionnaire, DPA, and MSA against our risk framework. Write the review memo with a clear go or no-go and the required mitigations with owners. Cite the source document and section for every finding.
 
 Vendors / Northwind / risk-reviewOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Source
 
@@ -110,7 +110,7 @@ Prompt
 
 **Citations make it auditable.** "Cite the source document and section" means every finding traces back to a page in the SOC 2 or a clause in the DPA, so security and legal can verify without re-reading the packet.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -120,7 +120,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -130,9 +130,9 @@ VendorsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on every new vendor
+### Run it on every new vendor[](#run-it-on-every-new-vendor)
 
 When a vendor packet arrives, the scored memo should already be drafting. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs whenever a new risk-review folder appears under Vendors.
 
@@ -148,7 +148,7 @@ Runs `/risk-assessment` on every new risk-review folder under Vendors and writes
 
 Every **weekday at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/risk-assessment` now carries your risk tiers, your deal-breaker controls, and your memo format. Share it so procurement, security, and legal score every vendor the same way and the approval chain reads a consistent memo no matter who ran the review.
 
@@ -156,7 +156,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/risk-assessment` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your framework and thresholds baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

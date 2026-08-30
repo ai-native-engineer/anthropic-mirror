@@ -14,13 +14,13 @@ When building applications with Claude, understanding the complete request lifec
 
 ![](https://academy.claude.com/assets/media/2a8244ea430c62fdba1dc04c5a8be19c3521ef69da5867972b57cffa5330668a.png)
 
-## The Five-Step Request Flow
+## The Five-Step Request Flow[](#the-five-step-request-flow)
 
 Every interaction with Claude follows a predictable pattern with five distinct phases: request to server, request to Anthropic API, model processing, response to server, and response to client.
 
 ![](https://academy.claude.com/assets/media/f2be1422feb4399a4ecba83971b60af28f5e24d17216187cc556c028010e81c0.png)
 
-## Why You Need a Server
+## Why You Need a Server[](#why-you-need-a-server)
 
 You should never make requests to the Anthropic API directly from client-side code. Here's why:
 
@@ -30,7 +30,7 @@ You should never make requests to the Anthropic API directly from client-side co
 
 Instead, your web or mobile app sends requests to your own server, which then communicates with the Anthropic API using the securely stored key.
 
-## Making API Requests
+## Making API Requests[](#making-api-requests)
 
 When your server contacts the Anthropic API, you can use either an official SDK or make plain HTTP requests. Anthropic provides SDKs for Python, TypeScript, JavaScript, Go, and Ruby.
 
@@ -43,17 +43,17 @@ Every request must include these essential fields:
 * **Messages** - List containing the user's input text
 * **Max Tokens** - Limit for how many tokens Claude can generate
 
-## Inside Claude's Processing
+## Inside Claude's Processing[](#inside-claudes-processing)
 
 Once Anthropic receives your request, Claude processes it through four main stages: tokenization, embedding, contextualization, and generation.
 
 ![](https://academy.claude.com/assets/media/704feacd29e60dae08515ac27f3e9ddcb3eddb08106d4f7f3b002d15cd0b313f.png)
 
-### Tokenization
+### Tokenization[](#tokenization)
 
 Claude first breaks your input text into smaller chunks called tokens. These can be whole words, parts of words, spaces, or symbols. For simplicity, think of each word as one token.
 
-### Embedding
+### Embedding[](#embedding)
 
 Each token gets converted into an embedding - a long list of numbers that represents all possible meanings of that word. Think of embeddings as numerical definitions that capture semantic relationships.
 
@@ -66,13 +66,13 @@ Words often have multiple meanings. For example, "quantum" could refer to:
 * Something extremely small or subatomic
 * Quantum computing applications
 
-### Contextualization
+### Contextualization[](#contextualization)
 
 Claude refines each embedding based on surrounding words to determine the most likely meaning in context. This process adjusts the numerical representations to highlight the appropriate definition.
 
 ![](https://academy.claude.com/assets/media/e2001111a3cedb337f59a6d1768fef3e42b173f2d6179906efb70a5d30e72ded.png)
 
-### Generation
+### Generation[](#generation)
 
 The contextualized embeddings pass through an output layer that calculates probabilities for each possible next word. Claude doesn't always pick the highest probability word - it uses a mix of probability and controlled randomness to create natural, varied responses.
 
@@ -80,7 +80,7 @@ The contextualized embeddings pass through an output layer that calculates proba
 
 After selecting each word, Claude adds it to the sequence and repeats the entire process for the next word.
 
-## When Claude Stops Generating
+## When Claude Stops Generating[](#when-claude-stops-generating)
 
 After each token, Claude checks several conditions to decide whether to continue:
 
@@ -90,7 +90,7 @@ After each token, Claude checks several conditions to decide whether to continue
 * **Natural ending** - Did it generate an end-of-sequence token?
 * **Stop sequence** - Did it encounter a predefined stop phrase?
 
-## The API Response
+## The API Response[](#the-api-response)
 
 When generation completes, the API sends back a structured response containing:
 
@@ -104,7 +104,7 @@ Your server receives this response and forwards the generated text back to your 
 
 ![](https://academy.claude.com/assets/media/76fd18d820096e675367b412d908db48d94e83ba107b5fea7a7fa2495ea4dd47.png)
 
-## Key Takeaways
+## Key Takeaways[](#key-takeaways)
 
 Understanding this flow helps you:
 

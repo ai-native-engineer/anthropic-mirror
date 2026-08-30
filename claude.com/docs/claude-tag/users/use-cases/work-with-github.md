@@ -11,7 +11,7 @@
 ##  How GitHub prompts work
 
 This page is for engineers and anyone else with questions a repository can answer. Claude works with the GitHub repositories an admin granted for the channel. It reads the code to answer questions, watches pull requests you name, and hands back changes as draft pull requests.
-Each prompt below is a Slack message. Paste it in the channel or thread where the question lives. Claude clones the repository into an isolated workspace Anthropic hosts, posts progress in that thread, and delivers the result there too.
+Each prompt below is a Slack message. Paste it in the channel or thread where the question lives. Claude clones the repository into an isolated workspace, posts progress in that thread, and delivers the result there too.
 Name the repository in the first message. A session starts with no repositories checked out and clones one when the request names it. Anything Claude opens on GitHub is authored by the Claude GitHub App, so it appears in your review queue like any other pull request.
 
 An admin [grants a repository to the channels that need it](https://claude.com/docs/claude-tag/admins/attach-to-scope), and questions about the code work only in those channels. By default anyone in those channels can ask, and an admin can [restrict who can use Claude](https://claude.com/docs/claude-tag/admins/restrict-access#control-who-can-invoke-claude-tag).
@@ -24,7 +24,7 @@ Check that the channel has the connection below. Ask `@Claude what can you acces
 | --- | --- | --- |
 | Code | GitHub | Required. Reads granted repositories and opens draft pull requests |
 
-The same workflows apply to other source control systems. For GitLab, an admin [connects it with an access token](https://claude.com/docs/claude-tag/admins/connections/gitlab) instead of the GitHub App, and Claude clones its repositories the same way.
+The GitHub connection is what lets Claude clone a repository. For GitLab, an admin [connects it with an access token](https://claude.com/docs/claude-tag/admins/connections/gitlab), and Claude reads projects, manages issues, and comments on merge requests through the GitLab API.
 If Claude replies that a repository isn’t configured, the repository wasn’t granted for this channel. An admin can [verify GitHub access](https://claude.com/docs/claude-tag/admins/configure-github#verify-github-access). After the grant changes, start a fresh thread and name the repository in the first message.
 
 ##  Prompts to paste
@@ -94,7 +94,7 @@ Claude can watch a pull request and address CI failures, review comments, and ch
 @Claude watch your PR #562 in acme/data-pipeline. When CI fails, fix it and push. When a review comment arrives, address it and push. Post here after each push saying what changed and why. Done means CI is green and every comment is addressed. I do the approving and merging.
 ```
 
-If you don’t want Claude to approve or merge pull requests, turn on branch protection rules that restrict who can merge. These rules apply to Claude too. Also write “I do the approving and merging” into the task, as the example does. The task wording states your intent, but it’s an instruction Claude can lose track of, not a control. The branch protection rule is what enforces it.
+If you don’t want Claude to merge pull requests, turn on branch protection rules that restrict who can merge. These rules apply to Claude too. Claude can’t approve a pull request it opened, but the person who asked for it can; to require a second approver, see [Require a second approval on Claude’s pull requests](https://claude.com/docs/claude-tag/admins/configure-github#require-a-second-approval-on-claude%E2%80%99s-pull-requests). Also write “I do the approving and merging” into the task, as the example does. The task wording states your intent, but it’s an instruction Claude can lose track of, not a control. The branch protection rule is what enforces it.
 
 Ask for a post after each push so you can follow the pull request from the thread instead of opening GitHub.
 

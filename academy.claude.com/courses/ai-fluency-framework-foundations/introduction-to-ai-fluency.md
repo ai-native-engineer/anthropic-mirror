@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Identify key components of your learning journey ahead
 * Set clear expectations for what you'll gain from this course
 
-## Introduction to AI Fluency
+## Introduction to AI Fluency[](#introduction-to-ai-fluency)
 
 Introduction to AI Fluency · 4 min
+
+SummaryTranscript
 
 Welcome! This video introduces you to this course’s focus: developing
 meaningful collaboration with AI rather than just learning about AI
@@ -34,7 +36,7 @@ AI interaction, confidence in choosing when and how to work with AI
 effectively, practical collaboration skills, and the ability to evaluate and
 disseminate AI-assisted work responsibly.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * This course focuses on human-AI collaboration, not just understanding AI as a technology
 * AI Fluency means engaging with AI systems effectively, efficiently, ethically, and safely
@@ -42,7 +44,7 @@ disseminate AI-assisted work responsibly.
 * The goal is to develop lasting skills that remain relevant as AI technology evolves
 * Effective AI collaboration requires both practical skills and a fundamental shift in how we think about working with AI
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Putting things into practice
 
@@ -58,7 +60,7 @@ Getting started is simple and free:
 
 New to Claude? No worries! We'll provide clear guidance with each exercise to help you get started.
 
-### Reflection
+### Reflection[](#reflection)
 
 Before moving on, take a moment to consider your own experiences with AI:
 
@@ -66,7 +68,7 @@ Before moving on, take a moment to consider your own experiences with AI:
 * What possibilities for AI collaboration excite you most?
 * What do you hope to gain from this course?
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, we'll explore why AI Fluency matters in today's rapidly evolving technological landscape. We’ll introduce three key ways people collaborate with AI (Automation, Augmentation, and Agency) and the core competencies of the AI Fluency Framework: the "4Ds" of Delegation, Description, Discernment, and Diligence.
 

@@ -12,7 +12,7 @@ Lesson 569 min
 
 MCP servers can define prompts - pre-written, high-quality instructions that clients can use instead of writing their own prompts from scratch. Think of prompts as carefully crafted templates that give better results than what users might write on their own.
 
-## Why Use Prompts?
+## Why Use Prompts?[](#why-use-prompts)
 
 Let's say you want Claude to reformat a document into markdown. You could just ask "Convert report.pdf to markdown" and it would work fine. But you'd probably get much better results with a thoroughly tested, detailed prompt that covers edge cases and gives specific formatting instructions.
 
@@ -20,7 +20,7 @@ Let's say you want Claude to reformat a document into markdown. You could just a
 
 The idea is simple: as MCP server developers, we can spend time crafting and testing really good prompts, then make them available to anyone using our server. Users get better results without having to become prompt engineering experts themselves.
 
-## Defining a Prompt
+## Defining a Prompt[](#defining-a-prompt)
 
 Prompts use a similar decorator pattern to tools and resources. Here's the basic structure:
 
@@ -39,7 +39,7 @@ def format_document(
 
 The function returns a list of messages that can be sent directly to Claude. This lets you build complex prompts with multiple user and assistant messages if needed.
 
-## Building the Format Prompt
+## Building the Format Prompt[](#building-the-format-prompt)
 
 For our document server, we'll create a prompt that reformats documents into markdown. The prompt needs to:
 
@@ -72,7 +72,7 @@ Use the 'edit_document' tool to edit the document. After the document has been r
     ]
 ```
 
-## Testing the Prompt
+## Testing the Prompt[](#testing-the-prompt)
 
 Once you've defined your prompt, you can test it using the MCP Inspector. Navigate to the Prompts tab, select your prompt, and provide the required parameters.
 
@@ -80,7 +80,7 @@ Once you've defined your prompt, you can test it using the MCP Inspector. Naviga
 
 The inspector will show you the generated messages that would be sent to Claude. You can verify that parameter interpolation works correctly and that your prompt contains all the necessary instructions.
 
-## Key Benefits
+## Key Benefits[](#key-benefits)
 
 * **Quality Control** - Server authors can test and refine prompts before users see them
 * **Consistency** - Everyone gets the same high-quality prompt instead of improvising

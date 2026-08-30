@@ -39,14 +39,17 @@ Once verified, K-12 educators in the US get access to Claude for Teachers with t
 
 Claude for Teachers includes Claude Code and Cowork, which means Claude can carry work forward on its own. Some examples:
 
-* **Analyze class data to plan instruction.** Hand Claude a folder of data—roster, diagnostics, attendance, your own notes—and it builds a clear picture of where every student is, allowing teachers to better tailor instruction. You control what data is shared; nothing you share is used in model training.
-* **Schedule repeated tasks.** Hand off a task once—like reviewing each day's exit tickets to see what students mastered and adapting tomorrow's plan to match—and it runs every school day at 4pm. Claude works while you drive home.
+* **Analyze class materials to plan instruction.** Hand Claude a folder of your instructional materials—as well as your de-identified diagnostics, exit tickets, and notes—and it builds a clear picture of how your classroom is performing, allowing teachers to better tailor instruction. You control what data is shared. Nothing you share is used in model training.
+* **Schedule repeated tasks.** Hand off a task once—like reviewing each day's de-identified exit tickets to see what students mastered and adapting tomorrow's plan to match—and it runs every school day at 4pm. Claude works while you drive home.
 
 [Learn more from two teachers](https://claude.com/resources/tutorials/claude-for-teachers-in-action), Zac and Karina, explaining how they use Claude for Teachers in their own classrooms.
 
-## Built for educators, safe with student data
+## For educators, built to protect student data
 
-Claude for Teachers is for educators only, consistent with Claude's 18-and-over policy. It comes with its own [teacher terms](https://support.claude.com/en/articles/15926041), built for K-12 privacy. Claude for Teachers data is not used for model training purposes, and student information is protected by our K-12 Data Processing Addendum, written to comply with FERPA.
+Claude for Teachers is for educators only, consistent with Claude's 18-and-over policy. It comes with its own [teacher terms](https://support.claude.com/en/articles/15926041), built for K-12 privacy:
+
+* **We never train our models on your Claude for Teacher conversations.** Training is off for verified teacher accounts.
+* **Student information is protected by our K-12 Data Processing Addendum**, including FERPA-aligned data protections.
 
 We’re also working with the **[American Federation of Teachers](https://www.aft.org/)** to align our terms and privacy practices with gold standards they’re developing:
 
@@ -68,6 +71,9 @@ This includes the launch of new connectors in Anthropic’s directory, an [open-
 
 Once verified, educators can access [Claude for Teachers](https://claude.com/solutions/teachers) entirely free. Sign up by June 30, 2027, for a full year of access.
 
-Claude for Teachers is for individual educators. A dedicated offering for schools and districts is coming soon. In the meantime, districts interested in Claude can continue using [Claude for Nonprofits](https://claude.com/solutions/nonprofits).
+Claude for Teachers is for individual educators. On August 28, 2026 we launched a dedicated offering for schools and districts. Read more about the school and district offering [here](https://claude.com/solutions/teachers).
 
-*Updated July 21, 2026: Added a note to emphasize that whether and how educational data may be used in Claude for Teachers is determined by district and state policies.*
+***Updates:**
+August 28, 2026: An earlier version of this post included examples of analyzing student data. Claude for Teachers is FERPA-configured to process student records, and using identifiable student information requires authorization from the school or district. To make this more clear, we've updated the examples to use de-identified classroom data. Schools and districts that want to authorize Claude for Teachers to handle student records on their behalf can set that up through our school and district offering.*
+
+J*uly 21, 2026: Added a note to emphasize that whether and how educational data may be used in Claude for Teachers is determined by district and state policies.*

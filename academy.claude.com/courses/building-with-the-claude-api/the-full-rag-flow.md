@@ -12,14 +12,14 @@ Lesson 356 min
 
 Now that we've covered the basics of RAG, text chunking, and embeddings, let's walk through the complete RAG pipeline step by step. This example will show you exactly how all these pieces work together to retrieve relevant information and generate responses.
 
-## Step 1: Chunk Your Source Text
+## Step 1: Chunk Your Source Text[](#step-1-chunk-your-source-text)
 
 First, we take our source document and break it into manageable chunks. For this example, we'll use two simple text sections:
 
 * Section 1: Medical Research - "This year saw significant strides in our understanding of XDR-47, a 'bug' we have not seen before."
 * Section 2: Software Engineering - "This division dedicated significant effort to studying various infection vectors in our distributed systems"
 
-## Step 2: Generate Embeddings
+## Step 2: Generate Embeddings[](#step-2-generate-embeddings)
 
 Next, we convert each text chunk into numerical embeddings using an embedding model. To make this easier to understand, let's imagine we have a perfect embedding model that always returns exactly two numbers, and we know what each number represents.
 
@@ -32,7 +32,7 @@ In our imaginary model:
 
 For the medical research section, we might get `[0.97, 0.34]` - very medical-focused but with some software elements due to the word "bug". For the software engineering section, we get `[0.30, 0.97]` - heavily software-focused but with medical undertones from "infection vectors".
 
-## Normalization
+## Normalization[](#normalization)
 
 The embedding API typically performs a normalization step that scales each vector to have a magnitude of 1.0. You don't need to worry about the math here - it's handled automatically. This gives us normalized vectors like `[0.944, 0.331]` and `[0.295, 0.955]`.
 
@@ -42,7 +42,7 @@ We can visualize these embeddings on a unit circle, where each point represents 
 
 ![](https://academy.claude.com/assets/media/960fec87071810a0749f2e3ffe9bf1bb685528f49a0b7afb345a3243abb8c041.jpg)
 
-## Step 3: Store in Vector Database
+## Step 3: Store in Vector Database[](#step-3-store-in-vector-database)
 
 We store these embeddings in a vector database - a specialized database optimized for storing, comparing, and searching through long lists of numbers like our embeddings.
 
@@ -50,7 +50,7 @@ We store these embeddings in a vector database - a specialized database optimize
 
 At this point, we pause. All the work so far has been preprocessing that happens ahead of time. Now we wait for a user to submit a query.
 
-## Step 4: Process User Query
+## Step 4: Process User Query[](#step-4-process-user-query)
 
 When a user asks a question like "I'm curious about the company. In particular, what did the software engineering dept do this year?", we run their query through the same embedding model.
 
@@ -58,7 +58,7 @@ When a user asks a question like "I'm curious about the company. In particular, 
 
 This query gets embedded as something like `[0.1, 0.89]` - low medical score, high software engineering score. After normalization, we get `[0.112, 0.993]`.
 
-## Step 5: Find Similar Embeddings
+## Step 5: Find Similar Embeddings[](#step-5-find-similar-embeddings)
 
 We send the user's query embedding to our vector database and ask it to find the most similar stored embeddings.
 
@@ -66,7 +66,7 @@ We send the user's query embedding to our vector database and ask it to find the
 
 The database returns the software engineering section because it's the closest match to what the user asked about.
 
-## How Similarity Works: Cosine Similarity
+## How Similarity Works: Cosine Similarity[](#how-similarity-works-cosine-similarity)
 
 The vector database uses cosine similarity to determine which embeddings are most similar. This measures the cosine of the angle between two vectors.
 
@@ -81,7 +81,7 @@ Key points about cosine similarity:
 
 In our example, the cosine similarity between the user query and the software engineering chunk is 0.983 - very high similarity. The similarity with the medical research chunk is only 0.398 - much lower.
 
-## Cosine Distance
+## Cosine Distance[](#cosine-distance)
 
 You'll often see "cosine distance" in vector database documentation. This is simply calculated as `(1 - cosine similarity)`. With cosine distance:
 
@@ -90,7 +90,7 @@ You'll often see "cosine distance" in vector database documentation. This is sim
 
 This adjustment makes the numbers easier to interpret in many contexts.
 
-## Step 6: Create the Final Prompt
+## Step 6: Create the Final Prompt[](#step-6-create-the-final-prompt)
 
 Finally, we take the user's question and the most relevant text chunk we found, combine them into a prompt, and send it to Claude for a response.
 

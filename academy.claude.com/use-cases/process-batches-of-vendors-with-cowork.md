@@ -16,7 +16,7 @@ Try in CoworkCopy prompt
 
 ![Process batches of vendors with Cowork result](https://academy.claude.com/assets/v1/process-batches-of-vendors-with-cowork-dcw2eowd.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 In Cowork, Claude works across your local files and browser in a single session. It reads your vendor tracker, contract templates, and vendor documents from a folder, then fills intake forms in your procurement portal through Claude in Chrome.
 
@@ -34,13 +34,13 @@ Organize all the new documents on my desktop.
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 [Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions (in beta) — on web and mobile. Run locally, Claude works directly with your local files, so there's no copying and pasting into the conversation. For browser work like filling portal forms, it uses [Claude in Chrome(opens in new tab)](https://claude.com/chrome).
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you questions about how to handle the batch, then build a plan you can review in the sidebar. This front-loading helps it run end-to-end with fewer interruptions.
 
-### Required context
+### Required context[](#required-context)
 
 To get started:
 
@@ -48,7 +48,7 @@ To get started:
 * Select ***Work in a folder*** in the chat bar and choose the folder with your vendor tracker, contract templates, and vendor details
 * [Install Claude in Chrome(opens in new tab)](https://claude.com/chrome) and turn on the Claude in Chrome connector (Settings > Connectors), then log into your procurement portal
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude works through each step, moving between your local files and your browser to complete the full onboarding. Using the Claude in Chrome connector, Claude opens your procurement portal in a new browser tab and fills out intake forms directly, while reading vendor details and generating contracts from the files in your folder.
 
@@ -74,11 +74,11 @@ I've created the MSA from your template and saved it to your Documents folder.
 
 I'll now continue with the remaining vendors…
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Generate additional documents
+### Generate additional documents[](#generate-additional-documents)
 
 Create more contracts from your templates. NDAs, SOWs, or other vendor documents using the same vendor details.
 
@@ -86,7 +86,7 @@ Create more contracts from your templates. NDAs, SOWs, or other vendor documents
 
 Open in Cowork
 
-### Organize vendor files
+### Organize vendor files[](#organize-vendor-files)
 
 Create a vendor folder with everything in one place. Move or copy all onboarding documents to a dedicated folder.
 
@@ -94,21 +94,21 @@ Create a vendor folder with everything in one place. Move or copy all onboarding
 
 Open in Cowork
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Subagents can handle independent tasks at the same time
+### Subagents can handle independent tasks at the same time[](#subagents-can-handle-independent-tasks-at-the-same-time)
 
 Updating the vendor tracker and generating the contract don't depend on each other — so you can ask Claude to spin up subagents and run them in parallel.
 
-### Turn on the Claude in Chrome connector before starting
+### Turn on the Claude in Chrome connector before starting[](#turn-on-the-claude-in-chrome-connector-before-starting)
 
 Install Claude in Chrome and enable it under Settings > Connectors, then select it from the Connectors menu in your Cowork session. Log into your procurement portal before you start — Claude works within your authenticated session.
 
-### The progress panel shows what Claude is working on
+### The progress panel shows what Claude is working on[](#the-progress-panel-shows-what-claude-is-working-on)
 
 Cowork displays which files Claude is reading and what it's doing at each step. If something looks off, you can steer the work in progress.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Use Cowork to handle vendor onboarding in one session — updating your tracker, generating contracts, and filling portal forms.
 

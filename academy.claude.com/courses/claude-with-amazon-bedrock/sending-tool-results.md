@@ -16,7 +16,7 @@ Now we're at the final step of the tool use workflow. After running our tools an
 
 The process is straightforward: take all the tool result parts we generated, package them into a user message, and send the entire conversation history back to Claude along with the original tool schemas.
 
-## Adding the Assistant Message
+## Adding the Assistant Message[](#adding-the-assistant-message)
 
 First, we need to make sure our conversation history is complete. After Claude's initial response with the tool use request, we need to add that response to our message history using `add_assistant_message()`.
 
@@ -24,7 +24,7 @@ First, we need to make sure our conversation history is complete. After Claude's
 
 This ensures we have the complete conversation flow: user question → assistant tool request → tool results → final assistant response.
 
-## Running Tools and Creating Tool Results
+## Running Tools and Creating Tool Results[](#running-tools-and-creating-tool-results)
 
 The `run_tools()` function processes all the tool use requests from Claude's response and creates properly formatted tool result parts. Each tool result includes:
 
@@ -36,7 +36,7 @@ The `run_tools()` function processes all the tool use requests from Claude's res
 
 The function handles both successful tool executions and errors gracefully, wrapping everything in the correct JSON structure that Claude expects.
 
-## Adding Tool Results to the Conversation
+## Adding Tool Results to the Conversation[](#adding-tool-results-to-the-conversation)
 
 Once we have our tool results, we add them to the conversation using `add_user_message()`:
 
@@ -50,7 +50,7 @@ This creates a user message containing all the tool result parts. The conversati
 
 ![](https://academy.claude.com/assets/media/77b78dbac304525ac9ecebcb1fe7ee948aa41472fdac1cbbdc88157eff0f5b21.png)
 
-## Final Call to Claude
+## Final Call to Claude[](#final-call-to-claude)
 
 The last step is sending everything back to Claude. This requires two important elements:
 
@@ -67,7 +67,7 @@ Including the tool schemas is crucial. Without them, Claude would be confused ab
 
 ![](https://academy.claude.com/assets/media/a4ccdcec50f5f5bf96096ad864fd6d031f4e95644825e10973d4896fd14df91f.png)
 
-## Success
+## Success[](#success)
 
 When everything works correctly, Claude receives the tool results and can provide a complete, informed response. In our example, Claude successfully retrieved the current time and formatted it in a natural response: "The current date and time is 2025-04-03, 12:54:00."
 

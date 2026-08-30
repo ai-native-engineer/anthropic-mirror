@@ -16,7 +16,7 @@ Try in CoworkCopy prompt
 
 ![Draft a credit memo from spreads and statements with Claude for Excel result](https://academy.claude.com/assets/v1/draft-a-credit-memo-from-spreads-and-statements-with-claude-for-excel-n3ph4xl2.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 The deal goes to committee Thursday. You've got three years of statements in the deal folder, a half-built spread in Excel, a covenant package the relationship manager sent over Friday, and a borrower that doesn't quite look like the last one you underwrote.
 
@@ -37,11 +37,11 @@ Show me the exceptions before I touch anything.
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Cowork pulls borrower data through the S&P Global connector and reads your spread from the deal folder — that's where the ratio analysis and policy check happen. Cell edits happen in Claude for Excel with the workbook open, and the conversation carries into Claude for Word so the memo draft picks up where you left off.
 
-### Required context
+### Required context[](#required-context)
 
 Attach the deal folder with the underwriting workbook. Enable the S&P Global connector. Have the Claude for Excel and Claude for Word add-ins installed — that's where the spread updates and memo drafts happen.
 
@@ -61,7 +61,7 @@ Credit memo template
 
 In Cowork’s chat bar:Deal folder
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 A brief you can act on: where the borrower stands against policy, which ratios moved since last review, and the exact cells to look at when you open the spread.
 
@@ -92,11 +92,11 @@ Copy prompt
 
 Once you've signed off on the spread, open the memo template in Claude for Word. The conversation carries from Excel, so the memo draft already knows which ratios flipped and which exceptions need committee narrative.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Compare to last review
+### Compare to last review[](#compare-to-last-review)
 
 In Cowork, ask what's moved since the last credit cycle.
 
@@ -104,7 +104,7 @@ what changed vs. the FY24 review — leverage, coverage, working capital
 
 Open in Cowork
 
-### Pressure-test an assumption against the call
+### Pressure-test an assumption against the call[](#pressure-test-an-assumption-against-the-call)
 
 See if anything in the borrower's own commentary should move a cell.
 
@@ -112,7 +112,7 @@ is my 8% FY26 growth too rich? what did the borrower actually say about the pipe
 
 Open in Cowork
 
-### Build the downside case
+### Build the downside case[](#build-the-downside-case)
 
 In Claude for Excel, once you've signed off on the base.
 
@@ -120,25 +120,25 @@ build me a downside scenario in a new tab — revenue down 10%, gross margin dow
 
 Copy prompt
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Ask Cowork for the Excel-ready brief
+### Ask Cowork for the Excel-ready brief[](#ask-cowork-for-the-excel-ready-brief)
 
 End your Cowork session by asking for a one-paragraph brief with the cell refs and the policy exceptions — that's what you paste into the Claude for Excel sidebar. Tighter than scrolling back through the chat.
 
-### Click the cell reference
+### Click the cell reference[](#click-the-cell-reference)
 
 When Claude flags FCCR!D14 in the Excel sidebar, click it and Excel jumps to that cell. Check the formula and the inputs before you agree to change anything.
 
-### Excel to Word carries the conversation
+### Excel to Word carries the conversation[](#excel-to-word-carries-the-conversation)
 
 When you open the memo template in Claude for Word, it already knows which ratios moved and which exceptions you decided to surface. You're not re-explaining the deal — just say "draft the credit summary and the exceptions section."
 
-### Save it as a skill
+### Save it as a skill[](#save-it-as-a-skill)
 
 Renewal underwriting is the same loop every cycle. Once the Cowork conversation works for one deal, save it as a skill so the next renewal in the portfolio starts one click in.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Try it on your next renewal. Attach the deal folder in Cowork, ask where the borrower stands against policy, and review the exceptions before anything changes.
 

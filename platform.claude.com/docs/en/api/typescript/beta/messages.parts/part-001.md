@@ -1695,13 +1695,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: "enabled"`
 
-            - `display?: "summarized" | "omitted" | null`
+            - `display?: "summarized" | "omitted" | "updates" | null`
 
               Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
               - `"summarized"`
 
               - `"omitted"`
+
+              - `"updates"`
 
           - `BetaThinkingConfigDisabled`
 
@@ -1711,13 +1713,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `type: "adaptive"`
 
-            - `display?: "summarized" | "omitted" | null`
+            - `display?: "summarized" | "omitted" | "updates" | null`
 
               Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
               - `"summarized"`
 
               - `"omitted"`
+
+              - `"updates"`
 
       - `"default"`
 
@@ -3776,7 +3780,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `(string & {})`
 
-      - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
+      - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 38 more`
 
         - `"message-batches-2024-09-24"`
 
@@ -3845,6 +3849,20 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         - `"agent-memory-2026-07-22"`
 
         - `"mid-conversation-tool-changes-2026-07-01"`
+
+        - `"compact-2026-01-12"`
+
+        - `"computer-use-2025-11-24"`
+
+        - `"mcp-tunnels-2026-06-22"`
+
+        - `"structured-outputs-2025-11-13"`
+
+        - `"task-budgets-2026-03-13"`
+
+        - `"thinking-display-updates-2026-08-18"`
+
+        - `"ce-user-management-2026-07-13"`
 
     - `user_profile_id?: string`
 
@@ -3934,7 +3952,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       format: date-time
 
-    - `skills: Array<BetaSkill> | null`
+    - `skills: Array<BetaContainerSkill> | null`
 
       Skills loaded in the container
 
@@ -4911,6 +4929,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The policy category that triggered a refusal.
 
+          - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+          - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+          - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+          - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+          - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
           - `"cyber"`
 
             The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
@@ -5071,6 +5095,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
       The policy category that triggered a refusal.
+
+      - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+      - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+      - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+      - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+      - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `"cyber"`
 
@@ -5323,11 +5353,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Per-iteration token usage breakdown.
 
-      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
-      - Calculate the true context window size from the last iteration
+      - Calculate the context window size from the last `message` entry
       - Understand token accumulation across server-side tool use loops
+
+      A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `BetaMessageIterationUsage`
 
@@ -5638,11 +5670,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Per-iteration token usage breakdown.
 
-        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
-        - Calculate the true context window size from the last iteration
+        - Calculate the context window size from the last `message` entry
         - Understand token accumulation across server-side tool use loops
+
+        A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `output_tokens: number`
 
@@ -7554,13 +7588,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `type: "enabled"`
 
-      - `display?: "summarized" | "omitted" | null`
+      - `display?: "summarized" | "omitted" | "updates" | null`
 
         Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
         - `"summarized"`
 
         - `"omitted"`
+
+        - `"updates"`
 
     - `BetaThinkingConfigDisabled`
 
@@ -7570,13 +7606,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `type: "adaptive"`
 
-      - `display?: "summarized" | "omitted" | null`
+      - `display?: "summarized" | "omitted" | "updates" | null`
 
         Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
         - `"summarized"`
 
         - `"omitted"`
+
+        - `"updates"`
 
   - `tool_choice?: BetaToolChoice`
 
@@ -9523,7 +9561,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 31 more`
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 38 more`
 
       - `"message-batches-2024-09-24"`
 
@@ -9592,6 +9630,20 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       - `"agent-memory-2026-07-22"`
 
       - `"mid-conversation-tool-changes-2026-07-01"`
+
+      - `"compact-2026-01-12"`
+
+      - `"computer-use-2025-11-24"`
+
+      - `"mcp-tunnels-2026-06-22"`
+
+      - `"structured-outputs-2025-11-13"`
+
+      - `"task-budgets-2026-03-13"`
+
+      - `"thinking-display-updates-2026-08-18"`
+
+      - `"ce-user-management-2026-07-13"`
 
   - `user_profile_id?: string`
 
@@ -14156,7 +14208,7 @@ console.log(betaMessageTokensCount.context_management);
 
     format: date-time
 
-  - `skills: Array<BetaSkill> | null`
+  - `skills: Array<BetaContainerSkill> | null`
 
     Skills loaded in the container
 
@@ -14215,6 +14267,32 @@ console.log(betaMessageTokensCount.context_management);
       Skill version or 'latest' for most recent version
 
       maxLength: 64, minLength: 1
+
+### Beta Container Skill
+
+- `BetaContainerSkill`
+
+  A skill that was loaded in a container (response model).
+
+  - `skill_id: string`
+
+    Skill ID
+
+    maxLength: 64, minLength: 1
+
+  - `type: "anthropic" | "custom"`
+
+    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
+
+    - `"anthropic"`
+
+    - `"custom"`
+
+  - `version: string`
+
+    The resolved version: a skill version ID for custom skills.
+
+    maxLength: 64, minLength: 1
 
 ### Beta Container Upload Block
 
@@ -15189,6 +15267,12 @@ console.log(betaMessageTokensCount.context_management);
       - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
         The policy category that triggered a refusal.
+
+        - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+        - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+        - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+        - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+        - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `"cyber"`
 
@@ -17371,6 +17455,12 @@ console.log(betaMessageTokensCount.context_management);
 
       The policy category that triggered a refusal.
 
+      - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+      - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+      - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+      - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+      - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
       - `"cyber"`
 
         The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
@@ -18096,13 +18186,15 @@ console.log(betaMessageTokensCount.context_management);
 
       - `type: "enabled"`
 
-      - `display?: "summarized" | "omitted" | null`
+      - `display?: "summarized" | "omitted" | "updates" | null`
 
         Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
         - `"summarized"`
 
         - `"omitted"`
+
+        - `"updates"`
 
     - `BetaThinkingConfigDisabled`
 
@@ -18112,13 +18204,15 @@ console.log(betaMessageTokensCount.context_management);
 
       - `type: "adaptive"`
 
-      - `display?: "summarized" | "omitted" | null`
+      - `display?: "summarized" | "omitted" | "updates" | null`
 
         Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
         - `"summarized"`
 
         - `"omitted"`
+
+        - `"updates"`
 
 ### Beta Fallback Refusal Trigger
 
@@ -18129,6 +18223,12 @@ console.log(betaMessageTokensCount.context_management);
   - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
     The policy category that triggered a refusal.
+
+    - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+    - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+    - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+    - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+    - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `"cyber"`
 
@@ -18304,13 +18404,15 @@ console.log(betaMessageTokensCount.context_management);
 
         - `type: "enabled"`
 
-        - `display?: "summarized" | "omitted" | null`
+        - `display?: "summarized" | "omitted" | "updates" | null`
 
           Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
           - `"summarized"`
 
           - `"omitted"`
+
+          - `"updates"`
 
       - `BetaThinkingConfigDisabled`
 
@@ -18320,13 +18422,15 @@ console.log(betaMessageTokensCount.context_management);
 
         - `type: "adaptive"`
 
-        - `display?: "summarized" | "omitted" | null`
+        - `display?: "summarized" | "omitted" | "updates" | null`
 
           Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
           - `"summarized"`
 
           - `"omitted"`
+
+          - `"updates"`
 
   - `"default"`
 
@@ -18469,11 +18573,13 @@ console.log(betaMessageTokensCount.context_management);
 
   Per-iteration token usage breakdown.
 
-  Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+  Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
   - Determine which iterations exceeded long context thresholds (>=200k tokens)
-  - Calculate the true context window size from the last iteration
+  - Calculate the context window size from the last `message` entry
   - Understand token accumulation across server-side tool use loops
+
+  A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
   - `BetaMessageIterationUsage`
 
@@ -19336,7 +19442,7 @@ console.log(betaMessageTokensCount.context_management);
 
       format: date-time
 
-    - `skills: Array<BetaSkill> | null`
+    - `skills: Array<BetaContainerSkill> | null`
 
       Skills loaded in the container
 
@@ -20313,6 +20419,12 @@ console.log(betaMessageTokensCount.context_management);
 
           The policy category that triggered a refusal.
 
+          - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+          - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+          - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+          - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+          - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
           - `"cyber"`
 
             The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
@@ -20473,6 +20585,12 @@ console.log(betaMessageTokensCount.context_management);
     - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
       The policy category that triggered a refusal.
+
+      - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+      - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+      - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+      - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+      - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
       - `"cyber"`
 
@@ -20725,11 +20843,13 @@ console.log(betaMessageTokensCount.context_management);
 
       Per-iteration token usage breakdown.
 
-      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
-      - Calculate the true context window size from the last iteration
+      - Calculate the context window size from the last `message` entry
       - Understand token accumulation across server-side tool use loops
+
+      A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `BetaMessageIterationUsage`
 
@@ -21066,11 +21186,13 @@ console.log(betaMessageTokensCount.context_management);
 
     Per-iteration token usage breakdown.
 
-    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
     - Determine which iterations exceeded long context thresholds (>=200k tokens)
-    - Calculate the true context window size from the last iteration
+    - Calculate the context window size from the last `message` entry
     - Understand token accumulation across server-side tool use loops
+
+    A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
     - `BetaMessageIterationUsage`
 
@@ -24223,6 +24345,12 @@ console.log(betaMessageTokensCount.context_management);
 
           The policy category that triggered a refusal.
 
+          - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+          - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+          - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+          - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+          - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
           - `"cyber"`
 
             The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
@@ -24335,7 +24463,7 @@ console.log(betaMessageTokensCount.context_management);
 
         format: date-time
 
-      - `skills: Array<BetaSkill> | null`
+      - `skills: Array<BetaContainerSkill> | null`
 
         Skills loaded in the container
 
@@ -24366,6 +24494,12 @@ console.log(betaMessageTokensCount.context_management);
       - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
         The policy category that triggered a refusal.
+
+        - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+        - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+        - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+        - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+        - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `"cyber"`
 
@@ -24576,11 +24710,13 @@ console.log(betaMessageTokensCount.context_management);
 
       Per-iteration token usage breakdown.
 
-      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
-      - Calculate the true context window size from the last iteration
+      - Calculate the context window size from the last `message` entry
       - Understand token accumulation across server-side tool use loops
+
+      A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `BetaMessageIterationUsage`
 
@@ -24901,7 +25037,7 @@ console.log(betaMessageTokensCount.context_management);
 
         format: date-time
 
-      - `skills: Array<BetaSkill> | null`
+      - `skills: Array<BetaContainerSkill> | null`
 
         Skills loaded in the container
 
@@ -25878,6 +26014,12 @@ console.log(betaMessageTokensCount.context_management);
 
             The policy category that triggered a refusal.
 
+            - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+            - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+            - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+            - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+            - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
             - `"cyber"`
 
               The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
@@ -26038,6 +26180,12 @@ console.log(betaMessageTokensCount.context_management);
       - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
         The policy category that triggered a refusal.
+
+        - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+        - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+        - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+        - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+        - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
         - `"cyber"`
 
@@ -26290,11 +26438,13 @@ console.log(betaMessageTokensCount.context_management);
 
         Per-iteration token usage breakdown.
 
-        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
-        - Calculate the true context window size from the last iteration
+        - Calculate the context window size from the last `message` entry
         - Understand token accumulation across server-side tool use loops
+
+        A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
         - `BetaMessageIterationUsage`
 
@@ -26573,7 +26723,7 @@ console.log(betaMessageTokensCount.context_management);
 
           format: date-time
 
-        - `skills: Array<BetaSkill> | null`
+        - `skills: Array<BetaContainerSkill> | null`
 
           Skills loaded in the container
 
@@ -27550,6 +27700,12 @@ console.log(betaMessageTokensCount.context_management);
 
               The policy category that triggered a refusal.
 
+              - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+              - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+              - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+              - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+              - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
               - `"cyber"`
 
                 The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
@@ -27710,6 +27866,12 @@ console.log(betaMessageTokensCount.context_management);
         - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
           The policy category that triggered a refusal.
+
+          - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+          - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+          - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+          - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+          - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
           - `"cyber"`
 
@@ -27962,11 +28124,13 @@ console.log(betaMessageTokensCount.context_management);
 
           Per-iteration token usage breakdown.
 
-          Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+          Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
           - Determine which iterations exceeded long context thresholds (>=200k tokens)
-          - Calculate the true context window size from the last iteration
+          - Calculate the context window size from the last `message` entry
           - Understand token accumulation across server-side tool use loops
+
+          A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
           - `BetaMessageIterationUsage`
 
@@ -28271,11 +28435,13 @@ console.log(betaMessageTokensCount.context_management);
 
         Per-iteration token usage breakdown.
 
-        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
-        - Calculate the true context window size from the last iteration
+        - Calculate the context window size from the last `message` entry
         - Understand token accumulation across server-side tool use loops
+
+        A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `output_tokens: number`
 
@@ -28489,6 +28655,12 @@ console.log(betaMessageTokensCount.context_management);
   - `category: "cyber" | "bio" | "frontier_llm" | 2 more | null`
 
     The policy category that triggered a refusal.
+
+    - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+    - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+    - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+    - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+    - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
     - `"cyber"`
 
@@ -29535,32 +29707,6 @@ console.log(betaMessageTokensCount.context_management);
 
     default: signature_delta
 
-### Beta Skill
-
-- `BetaSkill`
-
-  A skill that was loaded in a container (response model).
-
-  - `skill_id: string`
-
-    Skill ID
-
-    maxLength: 64, minLength: 1
-
-  - `type: "anthropic" | "custom"`
-
-    Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
-    - `"anthropic"`
-
-    - `"custom"`
-
-  - `version: string`
-
-    The resolved version: a skill version ID for custom skills.
-
-    maxLength: 64, minLength: 1
-
 ### Beta Skill Params
 
 - `BetaSkillParams`
@@ -30525,13 +30671,15 @@ console.log(betaMessageTokensCount.context_management);
 
   - `type: "adaptive"`
 
-  - `display?: "summarized" | "omitted" | null`
+  - `display?: "summarized" | "omitted" | "updates" | null`
 
     Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
     - `"summarized"`
 
     - `"omitted"`
+
+    - `"updates"`
 
 ### Beta Thinking Config Disabled
 
@@ -30555,13 +30703,15 @@ console.log(betaMessageTokensCount.context_management);
 
   - `type: "enabled"`
 
-  - `display?: "summarized" | "omitted" | null`
+  - `display?: "summarized" | "omitted" | "updates" | null`
 
     Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
     - `"summarized"`
 
     - `"omitted"`
+
+    - `"updates"`
 
 ### Beta Thinking Config Param
 
@@ -30587,13 +30737,15 @@ console.log(betaMessageTokensCount.context_management);
 
     - `type: "enabled"`
 
-    - `display?: "summarized" | "omitted" | null`
+    - `display?: "summarized" | "omitted" | "updates" | null`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
       - `"summarized"`
 
       - `"omitted"`
+
+      - `"updates"`
 
   - `BetaThinkingConfigDisabled`
 
@@ -30603,13 +30755,15 @@ console.log(betaMessageTokensCount.context_management);
 
     - `type: "adaptive"`
 
-    - `display?: "summarized" | "omitted" | null`
+    - `display?: "summarized" | "omitted" | "updates" | null`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
       - `"summarized"`
 
       - `"omitted"`
+
+      - `"updates"`
 
 ### Beta Thinking Delta
 
@@ -34453,11 +34607,13 @@ console.log(betaMessageTokensCount.context_management);
 
     Per-iteration token usage breakdown.
 
-    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
     - Determine which iterations exceeded long context thresholds (>=200k tokens)
-    - Calculate the true context window size from the last iteration
+    - Calculate the context window size from the last `message` entry
     - Understand token accumulation across server-side tool use loops
+
+    A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
     - `BetaMessageIterationUsage`
 
@@ -35440,1013 +35596,3 @@ console.log(betaMessageTokensCount.context_management);
     - `"full"`
 
     - `"excluded"`
-
-  - `strict?: boolean`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `use_cache?: boolean`
-
-    Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-### Beta Web Fetch Tool Result Block
-
-- `BetaWebFetchToolResultBlock`
-
-  - `content: BetaWebFetchToolResultErrorBlock | BetaWebFetchBlock`
-
-    - `BetaWebFetchToolResultErrorBlock`
-
-      - `error_code: BetaWebFetchToolResultErrorCode`
-
-        - `"invalid_tool_input"`
-
-        - `"url_too_long"`
-
-        - `"url_not_allowed"`
-
-        - `"url_not_in_prior_context"`
-
-        - `"url_not_accessible"`
-
-        - `"unsupported_content_type"`
-
-        - `"too_many_requests"`
-
-        - `"max_uses_exceeded"`
-
-        - `"unavailable"`
-
-      - `type: "web_fetch_tool_result_error"`
-
-        default: web_fetch_tool_result_error
-
-    - `BetaWebFetchBlock`
-
-      - `content: BetaDocumentBlock`
-
-        - `citations: BetaCitationConfig | null`
-
-          Citation configuration for the document
-
-          - `enabled: boolean`
-
-            default: false
-
-        - `source: BetaBase64PDFSource | BetaPlainTextSource`
-
-          - `BetaBase64PDFSource`
-
-            - `data: string`
-
-              format: byte
-
-            - `media_type: "application/pdf"`
-
-            - `type: "base64"`
-
-          - `BetaPlainTextSource`
-
-            - `data: string`
-
-            - `media_type: "text/plain"`
-
-            - `type: "text"`
-
-        - `title: string | null`
-
-          The title of the document
-
-        - `type: "document"`
-
-          default: document
-
-      - `retrieved_at: string | null`
-
-        ISO 8601 timestamp when the content was retrieved
-
-      - `type: "web_fetch_result"`
-
-        default: web_fetch_result
-
-      - `url: string`
-
-        Fetched content URL
-
-  - `tool_use_id: string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `type: "web_fetch_tool_result"`
-
-    default: web_fetch_tool_result
-
-  - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-    Tool invocation directly from the model.
-
-    - `BetaDirectCaller`
-
-      Tool invocation directly from the model.
-
-      - `type: "direct"`
-
-    - `BetaServerToolCaller`
-
-      Tool invocation generated by a server-side tool.
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: "code_execution_20250825"`
-
-    - `BetaServerToolCaller20260120`
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: "code_execution_20260120"`
-
-### Beta Web Fetch Tool Result Block Param
-
-- `BetaWebFetchToolResultBlockParam`
-
-  - `content: BetaWebFetchToolResultErrorBlockParam | BetaWebFetchBlockParam`
-
-    - `BetaWebFetchToolResultErrorBlockParam`
-
-      - `error_code: BetaWebFetchToolResultErrorCode`
-
-        - `"invalid_tool_input"`
-
-        - `"url_too_long"`
-
-        - `"url_not_allowed"`
-
-        - `"url_not_in_prior_context"`
-
-        - `"url_not_accessible"`
-
-        - `"unsupported_content_type"`
-
-        - `"too_many_requests"`
-
-        - `"max_uses_exceeded"`
-
-        - `"unavailable"`
-
-      - `type: "web_fetch_tool_result_error"`
-
-    - `BetaWebFetchBlockParam`
-
-      - `content: BetaRequestDocumentBlock`
-
-        - `source: BetaBase64PDFSource | BetaPlainTextSource | BetaContentBlockSource | 2 more`
-
-          - `BetaBase64PDFSource`
-
-            - `data: string`
-
-              format: byte
-
-            - `media_type: "application/pdf"`
-
-            - `type: "base64"`
-
-          - `BetaPlainTextSource`
-
-            - `data: string`
-
-            - `media_type: "text/plain"`
-
-            - `type: "text"`
-
-          - `BetaContentBlockSource`
-
-            - `content: string | Array<BetaContentBlockSourceContent>`
-
-              - `string`
-
-              - `Array<BetaContentBlockSourceContent>`
-
-                - `BetaTextBlockParam`
-
-                  - `text: string`
-
-                    minLength: 1
-
-                  - `type: "text"`
-
-                  - `cache_control?: BetaCacheControlEphemeral | null`
-
-                    Create a cache control breakpoint at this content block.
-
-                    - `type: "ephemeral"`
-
-                    - `ttl?: "5m" | "1h"`
-
-                      The time-to-live for the cache control breakpoint.
-
-                      This may be one the following values:
-
-                      - `5m`: 5 minutes
-                      - `1h`: 1 hour
-
-                      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-                      - `"5m"`
-
-                      - `"1h"`
-
-                  - `citations?: Array<BetaTextCitationParam> | null`
-
-                    - `BetaCitationCharLocationParam`
-
-                      - `cited_text: string`
-
-                      - `document_index: number`
-
-                        minimum: 0
-
-                      - `document_title: string | null`
-
-                        maxLength: 500, minLength: 1
-
-                      - `end_char_index: number`
-
-                      - `start_char_index: number`
-
-                        minimum: 0
-
-                      - `type: "char_location"`
-
-                    - `BetaCitationPageLocationParam`
-
-                      - `cited_text: string`
-
-                      - `document_index: number`
-
-                        minimum: 0
-
-                      - `document_title: string | null`
-
-                        maxLength: 500, minLength: 1
-
-                      - `end_page_number: number`
-
-                      - `start_page_number: number`
-
-                        minimum: 1
-
-                      - `type: "page_location"`
-
-                    - `BetaCitationContentBlockLocationParam`
-
-                      - `cited_text: string`
-
-                        The full text of the cited block range, concatenated.
-
-                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                      - `document_index: number`
-
-                        minimum: 0
-
-                      - `document_title: string | null`
-
-                        maxLength: 500, minLength: 1
-
-                      - `end_block_index: number`
-
-                        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                      - `start_block_index: number`
-
-                        0-based index of the first cited block in the source's `content` array.
-
-                        minimum: 0
-
-                      - `type: "content_block_location"`
-
-                    - `BetaCitationWebSearchResultLocationParam`
-
-                      - `cited_text: string`
-
-                      - `encrypted_index: string`
-
-                      - `title: string | null`
-
-                        maxLength: 512, minLength: 1
-
-                      - `type: "web_search_result_location"`
-
-                      - `url: string`
-
-                        minLength: 1
-
-                    - `BetaCitationSearchResultLocationParam`
-
-                      - `cited_text: string`
-
-                        The full text of the cited block range, concatenated.
-
-                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                      - `end_block_index: number`
-
-                        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                      - `search_result_index: number`
-
-                        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                        Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                        minimum: 0
-
-                      - `source: string`
-
-                      - `start_block_index: number`
-
-                        0-based index of the first cited block in the source's `content` array.
-
-                        minimum: 0
-
-                      - `title: string | null`
-
-                      - `type: "search_result_location"`
-
-                - `BetaImageBlockParam`
-
-                  - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
-
-                    - `BetaBase64ImageSource`
-
-                      - `data: string`
-
-                        format: byte
-
-                      - `media_type: "image/jpeg" | "image/png" | "image/gif" | "image/webp"`
-
-                        - `"image/jpeg"`
-
-                        - `"image/png"`
-
-                        - `"image/gif"`
-
-                        - `"image/webp"`
-
-                      - `type: "base64"`
-
-                    - `BetaURLImageSource`
-
-                      - `type: "url"`
-
-                      - `url: string`
-
-                    - `BetaFileImageSource`
-
-                      - `file_id: string`
-
-                      - `type: "file"`
-
-                  - `type: "image"`
-
-                  - `cache_control?: BetaCacheControlEphemeral | null`
-
-                    Create a cache control breakpoint at this content block.
-
-                  - `transformations?: BetaImageTransformationsParam | null`
-
-                    Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
-
-                    - `oversized_image?: "downsize" | "error"`
-
-                      What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
-
-                      - `"downsize"`
-
-                      - `"error"`
-
-            - `type: "content"`
-
-          - `BetaURLPDFSource`
-
-            - `type: "url"`
-
-            - `url: string`
-
-          - `BetaFileDocumentSource`
-
-            - `file_id: string`
-
-            - `type: "file"`
-
-        - `type: "document"`
-
-        - `cache_control?: BetaCacheControlEphemeral | null`
-
-          Create a cache control breakpoint at this content block.
-
-        - `citations?: BetaCitationsConfigParam | null`
-
-          - `enabled?: boolean`
-
-        - `context?: string | null`
-
-          minLength: 1
-
-        - `title?: string | null`
-
-          maxLength: 500, minLength: 1
-
-      - `type: "web_fetch_result"`
-
-      - `url: string`
-
-        Fetched content URL
-
-      - `retrieved_at?: string | null`
-
-        ISO 8601 timestamp when the content was retrieved
-
-  - `tool_use_id: string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `type: "web_fetch_tool_result"`
-
-  - `cache_control?: BetaCacheControlEphemeral | null`
-
-    Create a cache control breakpoint at this content block.
-
-  - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-    Tool invocation directly from the model.
-
-    - `BetaDirectCaller`
-
-      Tool invocation directly from the model.
-
-      - `type: "direct"`
-
-    - `BetaServerToolCaller`
-
-      Tool invocation generated by a server-side tool.
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: "code_execution_20250825"`
-
-    - `BetaServerToolCaller20260120`
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: "code_execution_20260120"`
-
-### Beta Web Fetch Tool Result Error Block
-
-- `BetaWebFetchToolResultErrorBlock`
-
-  - `error_code: BetaWebFetchToolResultErrorCode`
-
-    - `"invalid_tool_input"`
-
-    - `"url_too_long"`
-
-    - `"url_not_allowed"`
-
-    - `"url_not_in_prior_context"`
-
-    - `"url_not_accessible"`
-
-    - `"unsupported_content_type"`
-
-    - `"too_many_requests"`
-
-    - `"max_uses_exceeded"`
-
-    - `"unavailable"`
-
-  - `type: "web_fetch_tool_result_error"`
-
-    default: web_fetch_tool_result_error
-
-### Beta Web Fetch Tool Result Error Block Param
-
-- `BetaWebFetchToolResultErrorBlockParam`
-
-  - `error_code: BetaWebFetchToolResultErrorCode`
-
-    - `"invalid_tool_input"`
-
-    - `"url_too_long"`
-
-    - `"url_not_allowed"`
-
-    - `"url_not_in_prior_context"`
-
-    - `"url_not_accessible"`
-
-    - `"unsupported_content_type"`
-
-    - `"too_many_requests"`
-
-    - `"max_uses_exceeded"`
-
-    - `"unavailable"`
-
-  - `type: "web_fetch_tool_result_error"`
-
-### Beta Web Fetch Tool Result Error Code
-
-- `BetaWebFetchToolResultErrorCode = "invalid_tool_input" | "url_too_long" | "url_not_allowed" | 6 more`
-
-  - `"invalid_tool_input"`
-
-  - `"url_too_long"`
-
-  - `"url_not_allowed"`
-
-  - `"url_not_in_prior_context"`
-
-  - `"url_not_accessible"`
-
-  - `"unsupported_content_type"`
-
-  - `"too_many_requests"`
-
-  - `"max_uses_exceeded"`
-
-  - `"unavailable"`
-
-### Beta Web Search Result Block
-
-- `BetaWebSearchResultBlock`
-
-  - `encrypted_content: string`
-
-  - `page_age: string | null`
-
-  - `title: string`
-
-  - `type: "web_search_result"`
-
-    default: web_search_result
-
-  - `url: string`
-
-### Beta Web Search Result Block Param
-
-- `BetaWebSearchResultBlockParam`
-
-  - `encrypted_content: string`
-
-  - `title: string`
-
-  - `type: "web_search_result"`
-
-  - `url: string`
-
-  - `page_age?: string | null`
-
-### Beta Web Search Tool 20250305
-
-- `BetaWebSearchTool20250305`
-
-  - `name: "web_search"`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `type: "web_search_20250305"`
-
-  - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
-
-  - `allowed_domains?: Array<string> | null`
-
-    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-  - `blocked_domains?: Array<string> | null`
-
-    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-  - `cache_control?: BetaCacheControlEphemeral | null`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: "ephemeral"`
-
-    - `ttl?: "5m" | "1h"`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `defer_loading?: boolean`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `max_uses?: number | null`
-
-    Maximum number of times the tool can be used in the API request.
-
-    exclusiveMinimum: 0
-
-  - `strict?: boolean`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `user_location?: BetaUserLocation | null`
-
-    Parameters for the user's location. Used to provide more relevant search results.
-
-    - `type: "approximate"`
-
-    - `city?: string | null`
-
-      The city of the user.
-
-      maxLength: 255, minLength: 1
-
-    - `country?: string | null`
-
-      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-      maxLength: 2, minLength: 2
-
-    - `region?: string | null`
-
-      The region of the user.
-
-      maxLength: 255, minLength: 1
-
-    - `timezone?: string | null`
-
-      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-      maxLength: 255, minLength: 1
-
-### Beta Web Search Tool 20260209
-
-- `BetaWebSearchTool20260209`
-
-  - `name: "web_search"`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `type: "web_search_20260209"`
-
-  - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
-
-  - `allowed_domains?: Array<string> | null`
-
-    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-  - `blocked_domains?: Array<string> | null`
-
-    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-  - `cache_control?: BetaCacheControlEphemeral | null`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: "ephemeral"`
-
-    - `ttl?: "5m" | "1h"`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `defer_loading?: boolean`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `max_uses?: number | null`
-
-    Maximum number of times the tool can be used in the API request.
-
-    exclusiveMinimum: 0
-
-  - `strict?: boolean`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `user_location?: BetaUserLocation | null`
-
-    Parameters for the user's location. Used to provide more relevant search results.
-
-    - `type: "approximate"`
-
-    - `city?: string | null`
-
-      The city of the user.
-
-      maxLength: 255, minLength: 1
-
-    - `country?: string | null`
-
-      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-      maxLength: 2, minLength: 2
-
-    - `region?: string | null`
-
-      The region of the user.
-
-      maxLength: 255, minLength: 1
-
-    - `timezone?: string | null`
-
-      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-      maxLength: 255, minLength: 1
-
-### Beta Web Search Tool 20260318
-
-- `BetaWebSearchTool20260318`
-
-  - `name: "web_search"`
-
-    Name of the tool.
-
-    This is how the tool will be called by the model and in `tool_use` blocks.
-
-  - `type: "web_search_20260318"`
-
-  - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120" | "code_execution_20260521">`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
-
-  - `allowed_domains?: Array<string> | null`
-
-    If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-  - `blocked_domains?: Array<string> | null`
-
-    If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-  - `cache_control?: BetaCacheControlEphemeral | null`
-
-    Create a cache control breakpoint at this content block.
-
-    - `type: "ephemeral"`
-
-    - `ttl?: "5m" | "1h"`
-
-      The time-to-live for the cache control breakpoint.
-
-      This may be one the following values:
-
-      - `5m`: 5 minutes
-      - `1h`: 1 hour
-
-      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
-
-      - `"5m"`
-
-      - `"1h"`
-
-  - `defer_loading?: boolean`
-
-    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-  - `max_uses?: number | null`
-
-    Maximum number of times the tool can be used in the API request.
-
-    exclusiveMinimum: 0
-
-  - `response_inclusion?: "full" | "excluded"`
-
-    How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-    - `"full"`
-
-    - `"excluded"`
-
-  - `strict?: boolean`
-
-    When true, guarantees schema validation on tool names and inputs
-
-  - `user_location?: BetaUserLocation | null`
-
-    Parameters for the user's location. Used to provide more relevant search results.
-
-    - `type: "approximate"`
-
-    - `city?: string | null`
-
-      The city of the user.
-
-      maxLength: 255, minLength: 1
-
-    - `country?: string | null`
-
-      The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-      maxLength: 2, minLength: 2
-
-    - `region?: string | null`
-
-      The region of the user.
-
-      maxLength: 255, minLength: 1
-
-    - `timezone?: string | null`
-
-      The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-      maxLength: 255, minLength: 1
-
-### Beta Web Search Tool Request Error
-
-- `BetaWebSearchToolRequestError`
-
-  - `error_code: BetaWebSearchToolResultErrorCode`
-
-    - `"invalid_tool_input"`
-
-    - `"unavailable"`
-
-    - `"max_uses_exceeded"`
-
-    - `"too_many_requests"`
-
-    - `"query_too_long"`
-
-    - `"request_too_large"`
-
-  - `type: "web_search_tool_result_error"`
-
-### Beta Web Search Tool Result Block
-
-- `BetaWebSearchToolResultBlock`
-
-  - `content: BetaWebSearchToolResultBlockContent`
-
-    - `BetaWebSearchToolResultError`
-
-      - `error_code: BetaWebSearchToolResultErrorCode`
-
-        - `"invalid_tool_input"`
-
-        - `"unavailable"`
-
-        - `"max_uses_exceeded"`
-
-        - `"too_many_requests"`
-
-        - `"query_too_long"`
-
-        - `"request_too_large"`
-
-      - `type: "web_search_tool_result_error"`
-
-        default: web_search_tool_result_error
-
-    - `Array<BetaWebSearchResultBlock>`
-
-      - `encrypted_content: string`
-
-      - `page_age: string | null`
-
-      - `title: string`
-
-      - `type: "web_search_result"`
-
-        default: web_search_result
-
-      - `url: string`
-
-  - `tool_use_id: string`
-
-    pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-  - `type: "web_search_tool_result"`
-
-    default: web_search_tool_result
-
-  - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
-
-    Tool invocation directly from the model.
-
-    - `BetaDirectCaller`
-
-      Tool invocation directly from the model.
-
-      - `type: "direct"`
-
-    - `BetaServerToolCaller`
-
-      Tool invocation generated by a server-side tool.
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: "code_execution_20250825"`
-
-    - `BetaServerToolCaller20260120`
-
-      - `tool_id: string`
-
-        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
-
-      - `type: "code_execution_20260120"`
-
-### Beta Web Search Tool Result Block Content
-
-- `BetaWebSearchToolResultBlockContent = BetaWebSearchToolResultError | Array<BetaWebSearchResultBlock>`
-
-  - `BetaWebSearchToolResultError`
-
-    - `error_code: BetaWebSearchToolResultErrorCode`
-
-      - `"invalid_tool_input"`
-
-      - `"unavailable"`
-
-      - `"max_uses_exceeded"`
-
-      - `"too_many_requests"`
-
-      - `"query_too_long"`
-
-      - `"request_too_large"`
-
-    - `type: "web_search_tool_result_error"`
-
-      default: web_search_tool_result_error
-
-  - `Array<BetaWebSearchResultBlock>`
-
-    - `encrypted_content: string`
-
-    - `page_age: string | null`
-
-    - `title: string`
-
-    - `type: "web_search_result"`
-
-      default: web_search_result
-
-    - `url: string`
-
-### Beta Web Search Tool Result Block Param
-
-- `BetaWebSearchToolResultBlockParam`

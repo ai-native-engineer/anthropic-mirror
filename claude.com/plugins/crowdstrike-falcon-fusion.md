@@ -2,7 +2,7 @@
 
 # CrowdStrike Falcon Fusion
 
-CrowdStrike Falcon Fusion skills for authoring, deploying, and executing Fusion workflows. Includes live action discovery, YAML authoring with schema validation, workflow import and release, execution monitoring, and Falcon Next-Gen SIEM lookup files.
+CrowdStrike Falcon Fusion skills automate standalone SOAR workflow creation, from action discovery through deployment and execution. Search the live platform action catalog, author validated YAML with correct IDs and schema, import workflows to a CID, release them, trigger execution with payloads, and manage Falcon Next-Gen SIEM lookup files.
 
 * Install in
 
@@ -15,13 +15,13 @@ CrowdStrike Falcon Fusion skills for authoring, deploying, and executing Fusion 
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-Build CrowdStrike Falcon Fusion SOAR workflows directly from Claude Code. Six skills cover the full workflow lifecycle: discover available Fusion actions live from your CID's API, author workflow YAML validated against the Charlotte JSON schema, import and release workflow versions, trigger executions and monitor or debug them, and manage Falcon Next-Gen SIEM lookup files for CQL match() queries. A setup skill walks through Falcon API credential configuration on first run.
+Build Falcon Fusion workflows from a natural language prompt. Describe what you want to automate, and Claude discovers real action IDs from the live API, authors workflow YAML with correct schema and CEL expressions, validates against the Charlotte JSON schema, imports the workflow to your CID, releases it, and triggers execution. Five specialized skills cover the full lifecycle: orchestration, authoring, deployment, execution, and lookup file management.
 
-The plugin ships fifteen grounded use-case patterns the orchestrator matches your request against — enriching a detection's indicators with VirusTotal and tagging the case, gating device containment behind analyst approval on high-severity detections, paging through REST APIs inside a workflow, deduplicating Next-Gen SIEM detections, sending workflow notifications to a chat channel, and invoking a published Charlotte AI agent when a detection fires. Each pattern cites the CrowdStrike Tech Hub article or bundled example workflow it is grounded in.
+The plugin enforces discipline that prevents common failures. Action IDs are 32-character hex values only discoverable via live API search. The plugin never uses placeholders or guessed values. Every action gets a version constraint. YAML is validated locally before import, catching errors that would otherwise surface only at deploy time. A skill router hook detects workflow intent and loads the correct skill before Claude starts working.
 
-**How to use:** Try prompts like "Create a Fusion workflow that enriches new detections with VirusTotal and comments the case", "Import this workflow into my CID and release it", "Run my containment workflow and tail the execution", or "Create a lookup file of known-bad domains for my CQL match() queries".
+**How to use:** Describe the workflow you want to build. For example: "Generate a Falcon Fusion workflow that will trigger from a Falcon Next-Gen SIEM detection. The workflow should hydrate the detection using an event query to get the full details of the detection. If a user, host, domain, url, file indicator, or ip indicator is found, enrich each in parallel using HTTP calls to VirusTotal or DomainTools. Summarize the enrichment across all the threat intelligence providers using an LLM completion action and then send an email formatted in HTML." Claude searches the action catalog for the right platform actions, resolves their IDs and parameters, authors the YAML with correct trigger configuration and CEL expressions, validates it, imports it to your CID, and releases it for execution. The plugin includes 25 production-grade example workflows from CrowdStrike's Content Library as reference implementations.
 
-Requires a CrowdStrike Falcon subscription with API access; a companion plugin, crowdstrike-falcon-foundry, covers Falcon Foundry app development.
+The plugin also handles adjacent concerns: HTTP actions that call external APIs (VirusTotal, Slack, PagerDuty) with credential config references, inline Python scripts that run directly in the workflow engine, schemaless event queries using CQL/FQL, loop and conditional patterns, and Falcon Next-Gen SIEM lookup files for threat hunting enrichment via CQL match() queries.
 
 ## Related plugins
 

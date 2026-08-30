@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-dydenpqj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jd1jgfwn.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Commercial Legal plugin ships with `/review` and other commercial-contracting skills as a starting point, already structured to screen an NDA against your playbook and sort it green, yellow, or red so standard paper splits from the exceptions. It's one of twelve practice-area plugins for legal teams; if your admin manages plugins and it's not available yet, skip this, nothing below requires it.
 
@@ -42,7 +42,7 @@ First run
 
 Commercial Legal comes from Anthropic's **Claude for Legal** source, which a workspace has to enable once under **Browse Anthropic sources**. On a Team or Enterprise plan an admin does that from the organization's plugin settings (it then shows up for everyone); on an individual plan you can do it yourself. If **Add** doesn't take you straight to the plugin, that's usually the missing step. Once it's installed, run `/cold-start-interview` (a two-minute quick start on sensible defaults, or ten-plus minutes with your real documents) so the plugin learns your playbook — the full pass, with your NDA positions in it, is what lets `/review` clear standard paper to green; every other skill reads from that.
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ DocuSignOptional
 
 Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
-### Set the working folder
+### Set the working folder[](#set-the-working-folder)
 
 Put your standard mutual template and your NDA playbook in one folder on your machine, then in Cowork click **+ Add folder** and select it. [Save it as a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your playbook and template are loaded once and every inbound NDA runs against the same project knowledge — Cowork reads from the folder and writes the triage card back to it.
 
@@ -86,15 +86,15 @@ standard-mutual-nda.docxNov 20, 202548 KB
 
 In Cowork’s chat bar:NDAs / Intake
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Triage this NDA against our NDA playbook. For each criterion in the playbook, mark whether this paper meets our standard. If everything passes, mark it cleared and route for signature. If anything is off-standard, list only the exceptions with a one-line reason each so counsel reviews just those.
 
 NDAs / IntakeOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -112,7 +112,7 @@ Source
 
 **Let the working folder supply context.** Your mutual template and NDA playbook sit in the working folder, so "our standard" means your positions on term, law, and carve-outs, not a generic checklist.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -122,7 +122,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -132,9 +132,9 @@ NDAsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on every new NDA
+### Run it on every new NDA[](#run-it-on-every-new-nda)
 
 NDAs arrive throughout the day. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill checks NDAs/Intake each weekday morning and runs /review on any new files before your day starts.
 
@@ -150,7 +150,7 @@ Each weekday morning, runs `/review` on files added to NDAs/Intake since the las
 
 Every **weekday at 9:00 AM — checks NDAs/Intake for new files**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/review` now carries your full playbook checklist, your approved jurisdictions, and your escalation triggers. Share it so every requester and paralegal screens NDAs the same way, and counsel only sees the paper that actually needs them.
 
@@ -158,7 +158,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/review` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your checklist and routing rules baked in, so they don't repeat Steps 1-3; each teammate still runs `/cold-start-interview` the first time, pointed at the same playbook, because the plugin keeps its setup per person.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

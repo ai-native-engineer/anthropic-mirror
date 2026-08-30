@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Explain how the AI Fluency Framework (4Ds) can be applied to your work
 * Define each of the 4Ds — Delegation, Description, Discernment, and Diligence
 
-## Introducing the 4D Framework for AI Fluency
+## Introducing the 4D Framework for AI Fluency[](#introducing-the-4d-framework-for-ai-fluency)
 
 Introducing the 4D Framework for AI Fluency · 7 min
 
@@ -25,7 +25,7 @@ This video introduces the 4D Framework — Delegation, Description,
 Discernment, and Diligence — and explains how each competency applies to
 your daily work.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The **4D Framework** has two loops: the **inner loop** (Description & Discernment) guides your day-to-day AI interactions, while the **outer loop** (Delegation & Diligence) guides broader decisions about when and how to use AI.
 * **Delegation** — decide what AI handles and what stays with you.
@@ -33,7 +33,7 @@ your daily work.
 * **Discernment** — evaluate what AI gives back before acting on it.
 * **Diligence** — take full responsibility for how you use AI and own the final result.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Map your context to the 4Ds
 
@@ -63,12 +63,12 @@ Then take one round with AI on that task. Don't aim for a finished product — j
 
 Look at what you got back. Which competency felt natural? Which caught you off guard? Note one thing you'd do differently on the next pass.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Were you surprised by which competency dominated your mapped questions? What does that tell you?
 * How might the two loops have changed a recent AI interaction you had?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll look at how generative AI works — what it can and can't do — so you can put the 4D Framework into practice with clear-eyed expectations.
 

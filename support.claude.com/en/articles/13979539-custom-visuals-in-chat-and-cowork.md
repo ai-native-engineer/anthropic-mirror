@@ -40,16 +40,12 @@ This is the main practical difference from artifacts: artifacts are persistent a
 
 Custom visuals aren’t photos or illustrations. Claude builds them using HTML—the same building blocks as web pages—so they’re interactive and specific to your question rather than static images.
 
----
-
 ## Limitations
 
 * Custom visuals are available in chats on Claude web and desktop apps only. They don’t render on Claude for iOS or Claude for Android.
 * If you share a chat, the visual renders for the recipient on web and desktop only and they must be logged in to view.
 * Visuals aren't saved automatically. To keep one, use one of the options described above.
 * This feature is in beta. Visual quality and complexity will vary, and Claude may not always choose to generate a visual when you expect one.
-
----
 
 ## Tips
 

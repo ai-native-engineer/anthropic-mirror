@@ -4,8 +4,6 @@ Administrators on Team or Enterprise plans can control Claude Desktop through sy
 
 **Note:** Enterprise policy controls at the user-machine level will override the in-app **[allowlist](https://support.claude.com/en/articles/12592343-enabling-and-using-the-desktop-extension-allowlist)**. If you want to use the allowlist, ensure `isDesktopExtensionEnabled` and `isDesktopExtensionDirectoryEnabled` are not set to "false" so the allowlist can populate the available registry.
 
----
-
 ## macOS enterprise configuration
 
 Deploy configuration settings through your MDM solution using configuration profiles. Claude Desktop reads preferences from the domain `com.anthropic.claudefordesktop`. Use your MDM tool (Jamf Pro, Kandji, Microsoft Intune) to deploy configuration profiles to target machines or user groups. Configuration profiles allow you to manage Claude Desktop settings centrally without user intervention.
@@ -15,8 +13,6 @@ Deploy configuration settings through your MDM solution using configuration prof
 * Built-in MDM profile editors (Jamf Pro, Kandji, Intune)
 * **[ProfileCreator](https://github.com/profileCreator/ProfileCreator/)** - Profile management
 * **[iMazing Profile Editor](https://imazing.com/profile-editor)** - Configuration profiles
-
----
 
 ## Windows enterprise configuration
 
@@ -34,8 +30,6 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isLocalDevMcpEnab
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isClaudeCodeForDesktopEnabled" -Value 1 -Type DWord
 ```
 ```
-
----
 
 ## Enterprise policy options
 

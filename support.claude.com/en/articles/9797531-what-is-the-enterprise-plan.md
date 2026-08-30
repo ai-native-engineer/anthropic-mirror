@@ -11,8 +11,6 @@ Enterprise plans are available two ways:
 
 **Important:** If your organization currently uses **Chat** and **Chat + Claude Code** seats, or **Standard** and **Premium** seats, refer to the sections at the end of this article for information specific to your plan.
 
----
-
 ## What's included in the Enterprise plan?
 
 Enterprise includes everything in the Team plan, plus the following:
@@ -37,8 +35,6 @@ Enterprise includes everything in the Team plan, plus the following:
 
   + Eligible organizations can enable a HIPAA-ready configuration and accept a BAA from organization settings. Learn more about **[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans).**
 
----
-
 ## Pricing
 
 Enterprise uses a single seat type, priced per user per month and billed annually. The seat fee gives each user access to Claude on web, desktop, and mobile, plus Claude Code and Cowork.
@@ -46,8 +42,6 @@ Enterprise uses a single seat type, priced per user per month and billed annuall
 **Usage isn't included in the seat fee.** Every token your team uses—in Chat, Claude Code, or Cowork—is billed at standard API rates on top of your seat cost. For full details on how usage billing works for your plan, see **[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)**
 
 Price and plans are subject to change at Anthropic's discretion.
-
----
 
 ## Do Enterprise plans have any usage limits?
 
@@ -58,8 +52,6 @@ If your organization is on a seat-based plan with Standard and Premium seats, us
 ### How does usage apply across the team?
 
 On usage-based Enterprise plans, there's no token allowance to divide up. Instead, every team member's usage is metered and billed to the organization at API rates. One person's heavy usage doesn't reduce what's available to anyone else, because nothing is allocated in the first place. If you need cost predictability, admins can set spend limits at the organization or user level.
-
----
 
 ## Self-serve vs. sales-assisted Enterprise
 
@@ -80,8 +72,6 @@ Both self-serve and sales-assisted Enterprise plans include the same features an
 †For sales-assisted invoices of $50,000 or more, only bank transfer (ACH or wire) is available. Reach out to your Anthropic Contact to request a card-payment exception.
 
 **When to contact Sales:** If your organization needs invoicing, dedicated customer success management, or to pay with a currency other than USD, reach out to our **[Sales team](https://claude.com/contact-sales)** to set up a sales-assisted Enterprise plan.
-
----
 
 ## How to get the Enterprise plan
 
@@ -111,8 +101,6 @@ Enterprise is also available through the **[AWS Marketplace](https://aws.amazon.
 
 If your organization is currently on a Team plan and you're interested in upgrading to Enterprise, see this article for more information: **[Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)**.
 
----
-
 ## Information for organizations on Chat and Chat + Claude Code seats
 
 **Note:** Organizations currently using usage-based Enterprise plans with Chat and Chat + Claude Code seats will not be able to continue with this billing model past your next contract renewal.
@@ -122,8 +110,6 @@ Some existing usage-based Enterprise organizations currently have two seat types
 Your current seat types and pricing will remain in place until your next contract renewal. At renewal, your plan will automatically transition to the single Enterprise seat model described above—all users will move to the all-inclusive **Enterprise seat** **priced** **per user per month**, which includes Claude Code access.
 
 For details on how seat management works on your current plan, see **[Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans#h_2673e097fb)**.
-
----
 
 ## Information for organizations on seat-based Enterprise plans
 

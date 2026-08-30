@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Apply outcome, process, and reflection-based assessment strategies to evaluate AI Fluency
 * Create rubrics that capture the 4D competencies in your specific teaching context
 
-## How do we assess the 4Ds?
+## How do we assess the 4Ds?[](#how-do-we-assess-the-4ds)
 
 How do we assess the 4Ds?
 
@@ -34,7 +34,7 @@ Diligence, we examine ethical decision-making and accountability. The video
 emphasizes that combining all three assessment approaches provides the most
 complete picture of student AI Fluency development.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Effective AI Fluency assessment combines outcome, process, and reflection approaches for a complete picture
 * Each of the 4Ds requires different types of evidence and assessment strategies
@@ -42,7 +42,7 @@ complete picture of student AI Fluency development.
 * Observable actions and concrete artifacts are more reliable than assumptions about understanding
 * Assessment should be a learning opportunity, not just measurement
 
-## Exercises
+## Exercises[](#exercises)
 
 This exercise helps you create a practical rubric for assessing AI Fluency in your specific course context.
 
@@ -69,7 +69,7 @@ Start a new conversation with Claude or continue the conversation from Lesson 1:
 * Consider what common challenges or misconceptions you expect them to encounter
 * Determine what evidence would convince you that students have developed fluency
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll focus on designing assignments that help students both develop and demonstrate AI Fluency.
 

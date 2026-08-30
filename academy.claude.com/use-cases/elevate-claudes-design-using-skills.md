@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-f7nm7xva.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ah3ykfqz.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude is capable of generating great visual designs when given clear instructions and examples. However, routinely achieving high-quality results often requires detailed prompting and iterative refinements, which can be time-consuming and context-heavy. With Skills, you can package that process once, then activate high quality design thinking quickly in any conversation.
 
@@ -45,21 +45,13 @@ The goal is that when I ask "create a sales dashboard" or "make a presentation d
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
-### Required context
+### Required context[](#required-context)
 
 This workflow leverages Claude's [Skills(opens in new tab)](https://www.anthropic.com/news/skills) system. In [Settings > Capabilities > Skills(opens in new tab)](https://claude.ai/settings/capabilities), make sure code execution and file creation is turned on so Claude has the ability to create and use Skills.
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for deeper strategic thinking about design frameworks and quality standards.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude produces a complete skill structure with a main instruction file and supporting references. The skill is immediately usable once added to your Claude Skills library. Once you refer to ‘design excellence’ in a chat, Claude will automatically apply the skill’s visual thinking to whatever you're creating.
 
@@ -92,11 +84,11 @@ Core principles for balancing impressive expertise with restraint—when to be b
 
 Want me to adjust any of the reference content or add additional techniques to the catalog?
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### See the skill in action
+### See the skill in action[](#see-the-skill-in-action)
 
 Use this skill to evaluate and enhance existing work. Claude can recreate the output by applying the integrated techniques from the skill.
 
@@ -104,7 +96,7 @@ Let's test this skill. Create a quarterly performance dashboard. Use the design 
 
 Open in Claude
 
-### Combine with MCP connections
+### Combine with MCP connections[](#combine-with-mcp-connections)
 
 See how your packaged expertise within Skills combines and works alongside your tools once enabled through [connectors(opens in new tab)](https://claude.com/connectors).
 
@@ -112,7 +104,7 @@ I have Google Drive connected via MCP. How would this design skill work when I a
 
 Open in Claude
 
-### Expand the technique catalog
+### Expand the technique catalog[](#expand-the-technique-catalog)
 
 Deepen the skill's vocabulary in specific areas. Or, incorporate your quality standards and specific examples into the skill instructions or framework. This helps Claude understand your desired output more clearly.
 
@@ -120,21 +112,21 @@ Add techniques for data visualization specifically—chart styling, dashboard la
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Evolve the skill through use and refinement
+### Evolve the skill through use and refinement[](#evolve-the-skill-through-use-and-refinement)
 
 After applying the skill several times, you'll notice patterns: maybe you consistently want bolder color choices, or tighter information density, or specific typography preferences. Use that feedback to update the skill file itself to embed your evolving standards. Add new quality gates that matter to you. Incorporate screenshots of work you love as reference examples. The skill can become more personalized over time.
 
-### Skills use progressive disclosure to stay efficient
+### Skills use progressive disclosure to stay efficient[](#skills-use-progressive-disclosure-to-stay-efficient)
 
 When Claude works on a task, it first scans skill metadata (the description at the top) to see if the skill is relevant. Only if it matches does Claude load the full instructions. Reference files load only when actually needed. This means you can have many skills available without overwhelming Claude's context. Your design skill's 400+ techniques don't load until Claude actually needs to select techniques for a specific weakness.
 
-### Quality standard questions push beyond defaults into intentional choices
+### Quality standard questions push beyond defaults into intentional choices[](#quality-standard-questions-push-beyond-defaults-into-intentional-choices)
 
 The skill forces Claude to evaluate against quality standards and benchmarks. The skill also embeds iteration as a process within the skill, rather than several rounds of prompting. This technique is used to make Claude reject generic choices and opt for more creative and unique design decisions.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Create your design excellence skill and watch every visual output transform from functional to portfolio-worthy. Build the skill once, then activate world-class design thinking in any conversation
 

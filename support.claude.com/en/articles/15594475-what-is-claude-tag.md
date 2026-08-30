@@ -16,15 +16,11 @@ When you tag @Claude in a channel, Claude works through the task while the whole
 
 In direct messages and the assistant panel, Claude has the capabilities you've enabled in your own Claude account, like web search and your connected tools. Channel tagging works differently: Claude acts under your organization's identity, using the tools and access an admin set up for that channel, and the work is billed to your organization rather than to you.
 
----
-
 ## Set up Claude Tag
 
 After the Claude app is installed, a Primary Owner or Owner sets up Claude Tag: provision Claude's identity, connect your organization's tools and repositories, and choose which channels Claude Tag can work in. People on your team don't need to set up anything individually once a channel is ready. For the full walkthrough, see the **[Claude Tag setup guide](https://claude.com/docs/claude-tag/admins/setup-overview)**.
 
 **Important:** Only a Primary Owner or Owner can set up Claude Tag's access and channels. The Admin role can't.
-
----
 
 ## Control who can use Claude Tag
 
@@ -65,8 +61,6 @@ Claude Tag keeps context per channel and per workspace. Admins can view, edit, a
 
 An Audit view in **Organization settings > Claude Tag > Audit** lists every scheduled and one-time task across your organization in addition to all network calls made using Agent Identity. Each action is also traceable in the tool where it happened: posts come from the Claude app in Slack, and commits and pull requests show the Claude GitHub App as the author with a link back to the Slack thread that started them. In any channel, you can ask "@Claude what triggers do you have set up here?" to see and turn off standing work.
 
----
-
 ## Privacy and data
 
 ### Data storage
@@ -88,8 +82,6 @@ Your Slack conversations with Claude remain separate from your Claude history, k
 
 Claude Tag remembers context to do its work, so channel and workspace memory is retained rather than discarded after each task. Memory and activity respect channel boundaries, and admins can review or delete what Claude remembers. Channel work is attributed to your organization's Claude identity, while work done in a direct message runs on your own account.
 
----
-
 ## Frequently asked questions
 
 ### How is Claude Tag different from the Claude in Slack I already use?
@@ -101,7 +93,7 @@ Claude Tag is the next generation of that experience, in the same place. The fam
 Only an organization's Primary Owner or Owner can set up Claude Tag's access and channels. Tagging Claude in a channel is billed to your organization. Direct messages are billed to the person’s own Claude account instead.
 
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
-* [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
+* [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)
 * [Get started with 1Password for Claude](https://support.claude.com/en/articles/15936181-get-started-with-1password-for-claude)

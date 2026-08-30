@@ -12,7 +12,7 @@ Lesson 514 min
 
 When building MCP servers, you need a way to test your functionality without connecting to a full application. The Python MCP SDK includes a built-in browser-based inspector that lets you debug and test your server in real-time.
 
-## Starting the Inspector
+## Starting the Inspector[](#starting-the-inspector)
 
 First, make sure your Python environment is activated (check your project's README for the exact command). Then run the inspector with:
 
@@ -26,11 +26,11 @@ This starts a development server on port 6277 and gives you a local URL to open 
 
 ![](https://academy.claude.com/assets/media/d5c53f9c21554c0e600c169c110b95a83b0a13d9859957eca93b5eff2ad2cb37.jpg)
 
-## Important Note About the Interface
+## Important Note About the Interface[](#important-note-about-the-interface)
 
 The MCP inspector is actively being developed, so the interface you see might look different from current screenshots. However, the core functionality for testing tools, resources, and prompts should remain similar.
 
-## Connecting and Testing Tools
+## Connecting and Testing Tools[](#connecting-and-testing-tools)
 
 Click the "Connect" button on the left side to start your MCP server. Once connected, you'll see a navigation bar with sections for Resources, Prompts, Tools, and other features.
 
@@ -46,7 +46,7 @@ To test your tools:
 
 ![](https://academy.claude.com/assets/media/48c68f10cf289038f2174feb95524d83e867c2473cbe1b4858dd36a108978b64.jpg)
 
-## Testing Document Operations
+## Testing Document Operations[](#testing-document-operations)
 
 For example, to test a document reading tool, you'd enter a document ID (like "deposition.md") and run the tool. The inspector shows the result, including any returned content or success messages.
 
@@ -54,7 +54,7 @@ For example, to test a document reading tool, you'd enter a document ID (like "d
 
 You can chain operations to verify functionality. For instance, after editing a document by replacing text, you can immediately run the read tool again to confirm the changes were applied correctly.
 
-## Development Workflow
+## Development Workflow[](#development-workflow)
 
 The inspector creates an efficient development loop:
 

@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Explain what an eval is and why it matters before you share or rely on a skill
 * Run a lightweight eval through skill-creator
 
-## Why this matters
+## Why this matters[](#why-this-matters)
 
 When you build a skill or bundle them into a plugin, you're essentially building a small product that other people will use. And like anything you'd hand to a colleague — a template, a spreadsheet model, a checklist — it's worth a test drive before it leaves your desk.
 
@@ -23,7 +23,7 @@ When you use a skill you built, you know how to work around any issues or failur
 
 Testing a skill with evals — short for evaluations — is how you catch those stumbles before someone else does. Don't let the word intimidate you. An eval is just a try-out: a realistic request goes in, you look at what comes out, and you tell Claude what to fix. No code, no test scripts — just your judgment about whether the result is good enough to put your name on.
 
-## How the eval system works
+## How the eval system works[](#how-the-eval-system-works)
 
 When you build a skill with skill-creator — Claude's built-in helper for creating skills — it walks you through evals as part of the process. Here's what that actually looks like.
 
@@ -41,7 +41,7 @@ Review each pair and give feedback in plain English, right on the review page. A
 
 Once you submit your feedback, Claude revises the skill for you based on what you said.
 
-## Iterate on the skill
+## Iterate on the skill[](#iterate-on-the-skill)
 
 Your feedback is the fix. Once you submit it, Claude updates the skill — rewriting the instructions, adjusting the examples, tightening what it asks for — and you can run the same prompts again to see if the change stuck.
 
@@ -49,13 +49,13 @@ Change one thing at a time. If the first round showed the skill was too wordy *a
 
 And if the outputs already look great on the first pass? You're done. Evals aren't a hoop to jump through — they're there for when you need confidence, not ceremony.
 
-## Try it now
+## Try it now[](#try-it-now)
 
 Step through a mock eval review below — three prompts, each with a with-skill and a without-skill output side by side.
 
 For each pair: pick the version you'd actually send, and write one line of feedback you'd give Claude. That's the whole loop.
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, you'll move from "this works for me" to "this works for the team" — the patterns and choices that turn personal workflows into shared infrastructure.
 

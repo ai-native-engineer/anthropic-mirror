@@ -12,7 +12,7 @@ Lesson 414 min
 
 Claude can read and analyze PDF files directly, making it a powerful tool for document processing. This capability works similarly to image processing, but with a few key differences in how you structure your code.
 
-## Setting Up PDF Processing
+## Setting Up PDF Processing[](#setting-up-pdf-processing)
 
 To process a PDF file with Claude, you'll use nearly identical code to what you'd use for images. The main differences are in the file type specifications and variable names for clarity.
 
@@ -44,7 +44,7 @@ add_user_message(
 chat(messages)
 ```
 
-## Key Changes from Image Processing
+## Key Changes from Image Processing[](#key-changes-from-image-processing)
 
 When adapting your image processing code for PDFs, you need to update several elements:
 
@@ -53,7 +53,7 @@ When adapting your image processing code for PDFs, you need to update several el
 * Set the type to `"document"` instead of `"image"`
 * Change the media type to `"application/pdf"` instead of `"image/png"`
 
-## What Claude Can Extract from PDFs
+## What Claude Can Extract from PDFs[](#what-claude-can-extract-from-pdfs)
 
 Claude's PDF processing capabilities go beyond simple text extraction. It can analyze and understand:
 

@@ -14,7 +14,7 @@ The following activities are designed for self-directed learning after completin
 
 Choose the ones that resonate with your interests and needs—or use them as inspiration to create your own!
 
-## Build a personal AI fluency plan
+## Build a personal AI fluency plan[](#build-a-personal-ai-fluency-plan)
 
 With the help of an AI assistant, create a structured plan for developing your AI fluency over time:
 
@@ -34,7 +34,7 @@ With the help of an AI assistant, create a structured plan for developing your A
 
 Work with Claude as a thinking partner in this process, sharing your self-assessments and getting feedback on your plan.
 
-## Build a personal prompt & pattern library
+## Build a personal prompt & pattern library[](#build-a-personal-prompt-pattern-library)
 
 Create a personalized collection of effective prompts and patterns for your recurring AI interactions with the help of Claude:
 
@@ -53,11 +53,11 @@ Create a personalized collection of effective prompts and patterns for your recu
 
 You can work with Claude to analyze your past successful interactions and identify patterns that made them effective.
 
-## Game night!
+## Game night![](https://academy.claude.com/courses/ai-fluency-framework-foundations/additional-activities#game-night)
 
 These playful exercises for both you and Claude help you practice precise Description and sharpen your Discernment skills through word puzzles. Since puzzles have specific instructions (unlike open-ended tasks like "draft a thank-you note"), they're excellent for practicing clear communication. And because they're deliberately tricky, they provide great Discernment workouts! You can learn a lot about careful evaluation guidance of AI thinking processes by just playing a few games. Try any or all of the below.
 
-### Swap Riddles
+### Swap Riddles[](#swap-riddles)
 
 Create a riddle (or try this one: "Five-score and more drums I tap to paint a symphony of light. What am I doing?").
 
@@ -71,7 +71,7 @@ Then don’t give it the answer, but rather gently nudge Claude towards the righ
 
 Then switch sides and ask for a riddle in return. Have Claude guide you as you did it.
 
-### Co-operative crosswords
+### Co-operative crosswords[](#co-operative-crosswords)
 
 Work on crossword clues together (cryptic crossword clues can be especially interesting).
 
@@ -79,7 +79,7 @@ The focus is not about how good you or Claude are at doing the crossword. It's a
 
 These steering skills will prove surprisingly useful in a “real” project.
 
-### Word association
+### Word association[](#word-association)
 
 Word association games are very satisfying and informative to play with Claude (or a model of your choice). There are many games freely available online, just have a search!
 
@@ -91,7 +91,7 @@ As you collaborate, practice all three types of Discernment:
 * **Process Discernment**: How does Claude approach solving the puzzle? Does it consider multiple possibilities? Does it focus too narrowly on one interpretation?
 * **Performance Discernment**: How does Claude communicate its thinking? Is it clear? Does it ask good questions? Does it build on your suggestions effectively?
 
-### More game suggestions
+### More game suggestions[](#more-game-suggestions)
 
 Continue developing your Description and Discernment skills through these activities:
 

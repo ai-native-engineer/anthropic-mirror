@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-e6bs284y.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-m8ta2480.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Design plugin ships with `/design-handoff` already structured to read a flow description and a component library and emit a wired, clickable HTML build. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ DesignAccelerate design workflows — critique, design system management, UX wri
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the flow description or spec, the component library export, your tokens, sample content) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the prototype HTML back into a subfolder. If you prototype regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your library and conventions stay attached.
 
@@ -82,15 +82,15 @@ design-system.cssApr 20, 2026142 KB
 
 In Cowork’s chat bar:Prototypes / Invite-Flow
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Build a clickable HTML prototype of the flow in this folder using only components from our design system library. Wire up the navigation, use realistic placeholder data, and write it to prototype/index.html so I can click through in a browser.
 
 Prototypes / Invite-FlowOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Give it the source files directly.** Tokens and CSS ship into the prototype unchanged.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 The plugin's `/design-handoff` is a generic starting point. Once Step 2 produces a build you'd actually put in front of a participant, tell Cowork to write your version of the skill. Layer in your component naming, your data fixtures, your interaction conventions, and the wrapper page your prototypes always sit in. A few minutes of conversation and the skill runs with your standards from then on.
 
@@ -126,9 +126,9 @@ Make what we've done in this task so far into a skill, or edit the /design-hando
 
 PrototypesOpen in Cowork
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 A prototype you have to email around gets stale. Ask Cowork to publish it as a live artifact and every reviewer and test participant has one link that stays current — re-run the skill (or schedule it) to refresh.
 
@@ -136,7 +136,7 @@ Publish that prototype as a live artifact. Add a small "v2, v3" version stamp in
 
 Prototypes / Invite-FlowOpen in Cowork
 
-### Rebuild it on every spec change
+### Rebuild it on every spec change[](#rebuild-it-on-every-spec-change)
 
 The spec moves, the prototype should follow without a request. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and set the customized skill to rebuild each morning from whatever is in the folder.
 
@@ -152,7 +152,7 @@ Each weekday at 7am, checks the project folder for spec or library changes, re-r
 
 Every **weekday at 7 am · checks Prototypes/Invite-Flow for changes**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/design-handoff` now carries your component map, your data fixtures, and your wrapper page. Share it so any designer on the team can go from spec to clickable build the same way, and concept testing stops waiting on someone who knows how to wire frames by hand.
 
@@ -160,7 +160,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/design-handoff` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your library and conventions baked in, so they don't repeat Steps 1-3.
 
-## What changes for early concept testing
+## What changes for early concept testing[](#what-changes-for-early-concept-testing)
 
 A clickable prototype built from your real component library, with working navigation and realistic content — ready to test with users and gather feedback on the flow.
 

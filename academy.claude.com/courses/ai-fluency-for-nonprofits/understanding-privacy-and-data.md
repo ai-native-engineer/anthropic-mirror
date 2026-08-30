@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Articulate privacy concerns and evaluate AI tools based on their data handling policies
 * Practice data hygiene strategies for safely working with sensitive information
 
-## Understanding privacy and data
+## Understanding privacy and data[](#understanding-privacy-and-data)
 
 Understanding privacy and data · 10 min
 
@@ -26,7 +26,7 @@ have about AI: data privacy. You'll learn what actually happens to data you
 share with AI tools, how to evaluate different platforms and plans for their
 privacy protections, and how to prepare sensitive data for safe AI use.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **AI introduces new privacy considerations—particularly around training**: Some AI uses your inputs to train future models, which means patterns from your data could influence future outputs.
 * **Different tools have different rules**: The free AI you use to brainstorm event themes is not the same as a paid account with strict data retention policies. Match your tool to your task—tools with more protection allow for safer sharing of sensitive data.
@@ -43,7 +43,7 @@ privacy settings directly in the Claude app, including opting out of having
 your conversations used for training. Other AI providers should have similar
 resources—if they don't, that may be a red flag.
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2
 
@@ -74,12 +74,12 @@ For your chosen scenario, identify:
 * What tool/plan tier would be appropriate for this level of sensitivity?
 * What verification steps would you take after receiving AI's analysis?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How does thinking about AI privacy compare to how you already think about other software tools (email, cloud storage, CRMs)?
 * What's one change you'll make to how you approach sharing data with AI based on this lesson?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll put these privacy practices into action as we explore data analysis with AI—learning how to spot patterns, generate insights, and strengthen your programs while keeping sensitive information protected.
 

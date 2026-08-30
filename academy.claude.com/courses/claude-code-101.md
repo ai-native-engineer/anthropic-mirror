@@ -6,7 +6,7 @@
 
 An agentic coding tool that lives in your terminal. Learn what Claude Code is, how it works, and the core workflows for getting real work done with it.
 
-12 lessons1 hr1 quizCompletion badge
+12 lessons1.5 hr1 quizCompletion badge
 
 [Start course](https://academy.claude.com/courses/claude-code-101/what-is-claude-code)[Sign in to save progress](https://academy.claude.com/login?returnTo=https%3A%2F%2Facademy.claude.com%2Fcourses%2Fclaude-code-101)
 
@@ -35,11 +35,11 @@ You'll learn how to install Claude Code across multiple environments (terminal, 
 
 The final section is about making Claude Code your own. You'll write a `CLAUDE.md` file so Claude remembers your project's conventions across sessions, build custom subagents and skills for tasks you repeat often, connect external systems through MCP servers, and write hooks that add deterministic guardrails around what Claude is allowed to do. By the end, you'll have a setup tailored to how you actually work — not a generic install.
 
-## Recommended prerequisites
+## Recommended prerequisites[](#recommended-prerequisites)
 
 Basic familiarity with a code editor and the command line. You'll also need a Claude account (Pro, Max, or Enterprise) or an API key. No prior experience with AI tools is assumed.
 
-## Who this is for
+## Who this is for[](#who-this-is-for)
 
 New developers entering software engineering who want AI-assisted workflows from the start, and experienced engineers curious about coding agents but who haven't taken the plunge yet. If you've tried a coding assistant before and found the results underwhelming, this course is designed to show you what changes when you work with an agent rather than against it.
 
@@ -65,7 +65,7 @@ Get Claude Code running wherever you already work — in the terminal, inside VS
 
 3 lessons
 
-This is where Claude Code becomes part of how you ship. Learn the Explore → Plan → Code → Commit rhythm for tackling real tasks, use the context-management commands to keep long sessions fast and focused, and put Claude to work reviewing code — your own and your teammates' — before it lands.
+This is where Claude Code becomes part of how you ship. Learn the Explore → Plan → Code → Commit rhythm for tackling real tasks, use the context-management commands to keep long sessions fast and focused, and review what Claude changed, with your own eyes and a fresh-context reviewer, before you commit it.
 
 ![](https://academy.claude.com/assets/media/5d26eb990a52ded3d7248173c1c31035c1cfa416ad77c236bf290e139ed8ba80.webp)
 

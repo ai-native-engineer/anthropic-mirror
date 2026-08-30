@@ -14,13 +14,13 @@ When building chat applications with Claude, there's a significant user experien
 
 ![](https://academy.claude.com/assets/media/b677fa9ad3691de38586f695074f86d29f7920d7afdf51b0114cc57707bcbbdb.png)
 
-## The Problem with Standard Responses
+## The Problem with Standard Responses[](#the-problem-with-standard-responses)
 
 In a typical chat setup, your server sends a user message to Claude and waits for the complete response before sending anything back to the client. This creates an awkward delay where users have no feedback that anything is happening.
 
 ![](https://academy.claude.com/assets/media/75db72aa31a223044a968e76b43a324eb25c751002be314d3ab94ae137c9ac6c.png)
 
-## How Streaming Works
+## How Streaming Works[](#how-streaming-works)
 
 With streaming enabled, Claude immediately sends back an initial response indicating it has received your request and is starting to generate text. Then you receive a series of events, each containing a small piece of the overall response.
 
@@ -30,7 +30,7 @@ Your server can forward these text chunks to your client application as they arr
 
 ![](https://academy.claude.com/assets/media/383a3ef0267d731d42ae032c4a7946df84a9a0de6d78e5abbdf02db3b606a23f.png)
 
-## Understanding Stream Events
+## Understanding Stream Events[](#understanding-stream-events)
 
 When you enable streaming, Claude sends back several types of events:
 
@@ -45,7 +45,7 @@ When you enable streaming, Claude sends back several types of events:
 
 The `ContentBlockDelta` events contain the actual generated text that you'll want to display to users.
 
-## Basic Streaming Implementation
+## Basic Streaming Implementation[](#basic-streaming-implementation)
 
 To enable streaming, add `stream=True` to your messages.create call:
 
@@ -68,7 +68,7 @@ for event in stream:
 
 ![](https://academy.claude.com/assets/media/f3eb92bf758b0bf8c34fdec38ed54393f1c79ad7f8152fdc3dcfdd1e2bde058d.png)
 
-## Simplified Text Streaming
+## Simplified Text Streaming[](#simplified-text-streaming)
 
 Rather than manually parsing events, you can use the SDK's simplified streaming interface that extracts just the text content:
 
@@ -86,7 +86,7 @@ with client.messages.stream(
 
 This approach automatically filters out everything except the actual text content, which is usually what you need for displaying responses to users.
 
-## Getting the Complete Message
+## Getting the Complete Message[](#getting-the-complete-message)
 
 While streaming individual chunks is great for user experience, you often need the complete message for storage or further processing. After streaming completes, you can get the assembled final message:
 

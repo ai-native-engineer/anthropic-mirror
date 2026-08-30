@@ -9,6 +9,7 @@
 [Skip to main content](#content-area)
 
 Every Claude Tag reply in Slack comes from one Claude model, and you choose which one by asking Claude for it in plain language, the same way you hand it any other task. The footer of each reply names the model that handled it, so you can confirm a switch took effect.
+Model choice is part of Claude Tag, which is available on Team and Enterprise plans. It isn’t available on individual plans (Free, Pro, or Max) or for third-party deployments.
 Which models you can ask for depends on your organization; see [which models you can use](#which-models-you-can-use).
 
 ##  Switch the model in a thread
@@ -30,7 +31,7 @@ To change what new threads in a channel start on, ask for the channel, not just 
 @Claude use Sonnet for this thread, and make it the default model for this channel.
 ```
 
-Claude sets the channel’s default model, which applies to new threads in that channel. Threads already underway keep the model they started with until someone in them asks Claude to switch.
+Claude sets the channel’s default model, which applies to new threads in that channel. Threads already underway keep the model they started with until someone in them asks Claude to switch. If an admin has set the scope’s **Channel member edits** setting to **Block**, Claude declines to set the channel default; ask for the thread alone instead.
 Admins set the same default from claude.ai, per workspace or channel; see [choose the model for a scope](https://claude.com/docs/claude-tag/admins/customize#choose-the-model-for-a-scope).
 
 ##  Choose the model for your direct messages

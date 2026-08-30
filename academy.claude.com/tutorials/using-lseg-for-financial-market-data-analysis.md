@@ -16,9 +16,9 @@ Set up and use LSEG's financial market data integration with Claude for real-tim
 
 The LSEG integration provides Claude with access to LSEG’s comprehensive financial market data ecosystem, spanning across asset classes and domains. This article explains how to set up and use LSEG to retrieve real-time market data, analytics, and perform complex financial calculations. The LSEG integration relies upon Claude’s ability to use remote connectors.
 
-## What This Integration Provides
+## What This Integration Provides[](#what-this-integration-provides)
 
-### Capabilities
+### Capabilities[](#capabilities)
 
 The LSEG integration enables Claude to access institutional-grade market data, analytics, and valuation tools directly into conversational AI workflows.
 
@@ -29,7 +29,7 @@ The LSEG integration enables Claude to access institutional-grade market data, a
 * **Bond Pricing:** Price bonds using ISIN codes to retrieve current market valuations, yield calculations, and spread measures for fixed income analysis.
 * **Comprehensive Asset Class Coverage:** Access data and analytics across equities, fixed income, FX, commodities, and other asset classes through LSEG’s extensive database.
 
-## How Claude Uses LSEG Data
+## How Claude Uses LSEG Data[](#how-claude-uses-lseg-data)
 
 Claude applies LSEG’s market data to support your financial analysis.
 
@@ -40,11 +40,11 @@ Claude applies LSEG’s market data to support your financial analysis.
 * Hedging Strategy Development: Leverages forward curve data to structure currency hedges, evaluate hedge effectiveness, and optimize hedging costs.
 * Market Data Validation: Provides authoritative pricing and reference data to verify quotes, reconcile positions, and ensure data accuracy.
 
-## Setting Up LSEG Integration
+## Setting Up LSEG Integration[](#setting-up-lseg-integration)
 
 Technical details of the LSEG Integration can be found in LSEG’s MCP Server Documentation (available soon on LSEG portal). You will need to contact LSEG to get access to the MCP server.
 
-### For Organization Owners
+### For Organization Owners[](#for-organization-owners)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors).
 2. Scroll down and click “Add custom connector” at the bottom of the list.
@@ -52,13 +52,13 @@ Technical details of the LSEG Integration can be found in LSEG’s MCP Server Do
 4. Name the integration (e.g., “LSEG MCP”)
 5. Click “Add”
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Currency Exchange Rate Analysis
+### Currency Exchange Rate Analysis[](#currency-exchange-rate-analysis)
 
 Example input prompt:
 
@@ -70,7 +70,7 @@ Open in Claude
 
 **Tip:** Compare spot vs. forward rates to understand market expectations for currency movements.
 
-### Interest Rate Curve Comparison
+### Interest Rate Curve Comparison[](#interest-rate-curve-comparison)
 
 Example input prompt:
 
@@ -82,7 +82,7 @@ Open in Claude
 
 **Typical analysis:** Compare curves across different currencies or time periods to identify relative value opportunities.
 
-### Multi-Currency Bond Analysis
+### Multi-Currency Bond Analysis[](#multi-currency-bond-analysis)
 
 Example input prompt:
 
@@ -94,7 +94,7 @@ Open in Claude
 
 **Note:** Ensure proper currency conversion when comparing international bonds.
 
-### FX Forward Curve Construction
+### FX Forward Curve Construction[](#fx-forward-curve-construction)
 
 Example input prompt:
 
@@ -106,7 +106,7 @@ Open in Claude
 
 **Works well with:** Custom valuation dates to assess forward pricing at specific points in time.
 
-### Cross-Asset Correlation Analysis
+### Cross-Asset Correlation Analysis[](#cross-asset-correlation-analysis)
 
 Example input prompt:
 
@@ -118,7 +118,7 @@ Open in Claude
 
 **Key benefit:** LSEG provides consistent data across asset classes for reliable correlation analysis.
 
-### Real-Time Market Data for Trading
+### Real-Time Market Data for Trading[](#real-time-market-data-for-trading)
 
 Example input prompt:
 
@@ -130,7 +130,7 @@ Open in Claude
 
 **Why it matters:** Real-time access ensures your analysis reflects current market conditions.
 
-## Tips for Using LSEG
+## Tips for Using LSEG[](#tips-for-using-lseg)
 
 * Use specific currency pair conventions (USD/EUR, GBP/USD)
 * Specify tenors clearly for forward rates (3M, 6M, 1Y)

@@ -24,8 +24,6 @@ Our system also includes caching that helps you optimize your limits:
 * Similar prompts you use frequently are partially cached.
 * Claude remembers context from earlier in the conversation.
 
----
-
 ## 1. Start by planning your conversations
 
 Before starting a conversation with Claude, consider the following:
@@ -93,8 +91,6 @@ Projects offer significant caching benefits:
 * Use projects for anything you'll reference multiple times.
 * Upload your core working documents to the project knowledge section when starting a project.
 * The more you use the same content, the more benefit you get from caching.
-
----
 
 ## Best practices for specific use cases
 

@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create a process flowchart result](https://academy.claude.com/assets/v1/create-a-process-flowchart-n1sqmq8d.png)[Open artifact](https://claude.ai/public/artifacts/6fd65172-ddef-499e-ad8e-7ed7d3f8d857)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Work with Claude to transform dense process documentation into flowing visual diagrams that show how your system actually works. Through conversation, you'll map out decision points, alternative paths, and volume distributions—turning dense documents into clear visualizations your team can use in real-time.
 
@@ -28,25 +28,17 @@ Create a Sankey flow diagram with organic curved paths. Make it screenshot-worth
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Provide your process document so Claude can identify the structure, decision points, and flow logic that make up your procedure to map it out visually.
 
-### Required context
+### Required context[](#required-context)
 
 Upload a file of your procedure document. Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area.
 
 Procedure documentPDF
 
-### Optional context
-
-Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for Claude to think through more complex processes and produce higher quality outputs.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude analyzes your process documentation and transforms it into an interactive Sankey flow diagram that visualizes implementation pathways and volume distribution across paths. Each implementation phase becomes a clickable card that reveals the detailed documentation behind it.
 
@@ -76,11 +68,11 @@ Click any phase card to see detailed documentation including:
 
 **View your implementation flow visualization**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Export to other formats and platforms
+### Export to other formats and platforms[](#export-to-other-formats-and-platforms)
 
 Using connectors like [Mermaid Chart(opens in new tab)](https://claude.ai/directory/mermaid-chart), Claude converts artifact diagrams to editable formats, generates shareable links, and provides portable code for cross-platform embedding and team collaboration
 
@@ -88,7 +80,7 @@ Can you convert this artifact flowchart to Mermaid.js format using the Mermaid C
 
 Open in Claude
 
-### Add detail to specific sections
+### Add detail to specific sections[](#add-detail-to-specific-sections)
 
 Claude can expand on specific parts of the diagram while keeping other sections at their current level of detail, providing deeper understanding where you need it.
 
@@ -96,7 +88,7 @@ The implementation phase has a lot more steps than shown. Can you expand that se
 
 Open in Claude
 
-### Adjust the visual style
+### Adjust the visual style[](#adjust-the-visual-style)
 
 Claude can reorganize flow direction and apply color coding systems to separate different owners or stages in your diagram.
 
@@ -104,17 +96,17 @@ Can you reorganize this to flow left-to-right instead of top-to-bottom? Also use
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Extract structure from messy documentation
+### Extract structure from messy documentation[](#extract-structure-from-messy-documentation)
 
 Your process document doesn't need perfect formatting. Claude identifies decision points, parallel workflows, and conditional logic from narrative descriptions, bullet lists, scattered emails, or step-by-step instructions. Upload what exists and Claude can map the underlying process structure. You can continue to work with Claude to revise and refine the process as needed.
 
-### Make edits as the process evolves
+### Make edits as the process evolves[](#make-edits-as-the-process-evolves)
 
 Set up a dedicated Project for process mapping. Then, upload your process documents and flowchart standards to Project Knowledge. When procedures change, start a new conversation in that Project and describe the updates—Claude maintains context on existing diagrams and your conventions, so it updates specific sections while preserving consistency. This transforms flowcharts from static snapshots into living documentation that evolves with your organization, rather than starting from scratch each time something changes.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Upload any procedure document and see how quickly text-based processes become clear visual workflows your whole team can follow.
 

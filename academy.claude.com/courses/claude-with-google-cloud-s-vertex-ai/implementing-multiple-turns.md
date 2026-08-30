@@ -12,7 +12,7 @@ Lesson 2815 min
 
 Building a conversation system with tools requires implementing a loop that keeps calling Claude until it stops requesting tool usage. When Claude no longer asks for tools, that signals it has a final response ready for the user.
 
-## Detecting Tool Requests
+## Detecting Tool Requests[](#detecting-tool-requests)
 
 The key to knowing whether Claude wants to use a tool lies in the `stop_reason` field of the response message. When Claude decides it needs to call a tool, this field gets set to `"tool_use"`. This gives us a clean way to check if we need to continue the conversation loop:
 
@@ -23,7 +23,7 @@ if response.stop_reason != "tool_use":
     break  # Claude is done, no more tools needed
 ```
 
-## The Conversation Loop
+## The Conversation Loop[](#the-conversation-loop)
 
 The main conversation function follows a simple pattern:
 
@@ -47,7 +47,7 @@ def run_conversation(messages):
 
 This loop continues until Claude provides a final answer without requesting any tools.
 
-## Handling Multiple Tool Calls
+## Handling Multiple Tool Calls[](#handling-multiple-tool-calls)
 
 Claude can request multiple tools in a single response. The message content contains a list of blocks, and we need to process each tool use block separately:
 
@@ -68,7 +68,7 @@ def run_tools(message):
         # Process each tool request...
 ```
 
-## Tool Result Blocks
+## Tool Result Blocks[](#tool-result-blocks)
 
 For each tool use block, we need to create a corresponding tool result block. These blocks have specific required fields:
 
@@ -87,7 +87,7 @@ tool_result_block = {
 }
 ```
 
-## Error Handling
+## Error Handling[](#error-handling)
 
 Robust tool execution requires handling potential errors. When a tool fails, we still need to return a tool result block, but with error information:
 
@@ -111,7 +111,7 @@ except Exception as e:
     }
 ```
 
-## Scalable Tool Routing
+## Scalable Tool Routing[](#scalable-tool-routing)
 
 To support multiple tools, create a separate routing function instead of hardcoding tool names:
 
@@ -128,7 +128,7 @@ def run_tool(tool_name, tool_input):
 
 This approach makes it easy to add new tools without modifying the core conversation logic.
 
-## Complete Workflow
+## Complete Workflow[](#complete-workflow)
 
 The complete multi-turn conversation works like this:
 

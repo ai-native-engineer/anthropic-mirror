@@ -22,7 +22,7 @@ This demonstrates why chunking strategy matters so much. The goal is to create c
 
 ![](https://academy.claude.com/assets/media/a62744c2b485f4fef2941da5905df33efe4b85939c8cc1d2871d48712c8cdabe.png)
 
-## Three Main Chunking Strategies
+## Three Main Chunking Strategies[](#three-main-chunking-strategies)
 
 ![](https://academy.claude.com/assets/media/6bbe9453171bfc5925e9574162beeba6e2c3d608d06d52bd8c2458edccb71a4a.png)
 
@@ -32,7 +32,7 @@ There are three primary approaches to chunking text, each with distinct advantag
 * **Structure-based:** Split based on document structure (headers, paragraphs, sections)
 * **Semantic-based:** Group related sentences or sections using NLP techniques
 
-## Size-Based Chunking
+## Size-Based Chunking[](#size-based-chunking)
 
 Size-based chunking is the most straightforward approach. You simply divide your document into chunks of approximately equal character or word count. It's easy to implement and works reliably across different document types.
 
@@ -67,7 +67,7 @@ def chunk_by_char(text, chunk_size=150, chunk_overlap=20):
     return chunks
 ```
 
-## Structure-Based Chunking
+## Structure-Based Chunking[](#structure-based-chunking)
 
 Structure-based chunking leverages the natural organization of your documents. If you're working with markdown files, you can split on headers. For other formats, you might split on paragraphs or other structural elements.
 
@@ -85,7 +85,7 @@ def chunk_by_section(document_text):
 
 The major limitation is that many documents don't have consistent structure. Plain text files, PDFs, or user-uploaded documents might not have clear structural markers to split on.
 
-## Semantic-Based Chunking
+## Semantic-Based Chunking[](#semantic-based-chunking)
 
 Semantic-based chunking is the most sophisticated approach. It analyzes the meaning and relationships between sentences to group related content together. This typically involves:
 
@@ -95,7 +95,7 @@ Semantic-based chunking is the most sophisticated approach. It analyzes the mean
 
 While this can produce the highest quality chunks, it's computationally expensive and more complex to implement. For most applications, the simpler approaches work well enough.
 
-## Practical Implementation
+## Practical Implementation[](#practical-implementation)
 
 Here's a sentence-based chunking function that offers a good middle ground:
 
@@ -120,7 +120,7 @@ def chunk_by_sentence(text, max_sentences_per_chunk=5, overlap_sentences=1):
     return chunks
 ```
 
-## Choosing the Right Strategy
+## Choosing the Right Strategy[](#choosing-the-right-strategy)
 
 Your choice of chunking strategy depends entirely on your specific use case:
 

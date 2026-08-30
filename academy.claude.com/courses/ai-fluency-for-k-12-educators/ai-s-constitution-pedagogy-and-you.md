@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Communicate what the usage of LLMs means for you and your work as an educator
 * Revisit and refine the AI values you set earlier in this course
 
-## AI's constitution, pedagogy, and you
+## AI's constitution, pedagogy, and you[](#ais-constitution-pedagogy-and-you)
 
 AI's constitution, pedagogy, and you · 6 min
 
@@ -28,13 +28,13 @@ model to the right task matters, and revisit the AI values you've been
 building throughout this course to create a short, honest document that
 captures your intentions, principles, and the boundaries you want to hold.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Be clear about what you will and won't do with AI.** Stated values help you hold your non-negotiables.
 * **Different models have different personalities** and suit different tasks.
 * **AI is not the pedagogy—you are.** Your values keep you in the driver's seat.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Build your personal AI value document
 
@@ -57,12 +57,12 @@ AI ethics and practice aren't something you "finish." Add one concrete step you'
 
 *Stretch goal:* Share your AI values with a colleague—not for approval, but to compare. Where do your value sets differ, and what does that tell you about how context and role shape values?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * AI is not the pedagogy—you are. Which principle or boundary in your value document will most keep you in the driver's seat?
 * If a new teacher asked how you think about using AI in your work, what's the one sentence from your document you'd share first?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, you'll put everything together in a complete end-to-end 4D workflow on a real task from your own work.
 

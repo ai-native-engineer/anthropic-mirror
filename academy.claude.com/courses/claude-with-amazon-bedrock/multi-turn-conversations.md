@@ -16,7 +16,7 @@ The code we've written so far simulates a very simple exchange with Claude. But 
 
 However, there's something critical you need to understand about the Bedrock API and Claude itself.
 
-## No Message Storage
+## No Message Storage[](#no-message-storage)
 
 Bedrock and Claude do not store any messages. None of the messages you send get stored, and none of the responses you receive are stored either. Each API call is completely independent.
 
@@ -27,7 +27,7 @@ To have a conversation with multiple messages that maintain context, you need to
 * Manually maintain a list of all messages in your code
 * Provide that entire list of messages with each follow-up request
 
-## Why Context Matters
+## Why Context Matters[](#why-context-matters)
 
 Let's see what happens without proper context. If you send just "And 3 more?" as a standalone message, Claude has no idea what you're referring to. It will do its best to respond, but the answer won't make sense because it lacks the context of your previous conversation.
 
@@ -37,7 +37,7 @@ When you send only the follow-up question, Claude sees just that isolated messag
 
 ![](https://academy.claude.com/assets/media/6e2e0f684037ec9034087e687eab7bb834c6932109a56c5e38807b8d7dd74336.png)
 
-## Building Conversation Context
+## Building Conversation Context[](#building-conversation-context)
 
 To maintain context, you need to include the full conversation history in each request. Here's how it works:
 
@@ -45,7 +45,7 @@ To maintain context, you need to include the full conversation history in each r
 
 Your message list should contain all previous exchanges - both user messages and assistant responses. When you send this complete context, Claude can understand that "And 3 more?" refers to adding 3 to the previous result of 2.
 
-## Helper Functions for Message Management
+## Helper Functions for Message Management[](#helper-functions-for-message-management)
 
 To make conversation management easier, you can create helper functions:
 
@@ -78,7 +78,7 @@ def chat(messages):
     return response["output"]["message"]["content"][0]["text"]
 ```
 
-## Implementing Multi-Turn Conversations
+## Implementing Multi-Turn Conversations[](#implementing-multi-turn-conversations)
 
 Here's how to build a conversation step by step:
 
@@ -107,7 +107,7 @@ print(answer)
 
 This approach ensures Claude has the full context and can respond appropriately: "Starting with the result of 1+1 = 2, if we add 3 more to that, we get: 2 + 3 = 5"
 
-## Message Role Alternation
+## Message Role Alternation[](#message-role-alternation)
 
 When building your message list, always ensure that message roles alternate properly:
 

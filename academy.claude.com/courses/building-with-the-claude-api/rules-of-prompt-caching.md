@@ -16,7 +16,7 @@ Prompt caching in Claude works by storing the computational work done on your me
 
 The process is straightforward: your initial request writes processing work to the cache, and follow-up requests can read from that cache instead of reprocessing the same content. By default, the cache lives for 5 minutes, so this feature is only useful if you're repeatedly sending the same content within that timeframe. If you need longer, a 1-hour cache duration is also available at a higher cache-write price.
 
-## Cache Breakpoints
+## Cache Breakpoints[](#cache-breakpoints)
 
 Caching isn't enabled automatically - you need to manually add cache breakpoints to specific blocks in your messages. Here's how it works:
 
@@ -33,7 +33,7 @@ To add a cache breakpoint, you need to use the longhand form for writing text bl
 
 The shorthand form doesn't provide a place to add the cache control field, so you must use the expanded format with the `cache_control` field set to `{"type": "ephemeral"}`.
 
-## How Cache Breakpoints Work
+## How Cache Breakpoints Work[](#how-cache-breakpoints-work)
 
 When you place a cache breakpoint in a message, Claude caches all the processing work up to and including that breakpoint. Content after the breakpoint is processed normally without caching.
 
@@ -43,7 +43,7 @@ For the cache to be useful in follow-up requests, the content must be identical 
 
 ![](https://academy.claude.com/assets/media/bfeefd9e40743a7d88cacfde361f1042185b2699c3f6d66fa75887d9a7ef1aff.jpg)
 
-## Cross-Message Caching
+## Cross-Message Caching[](#cross-message-caching)
 
 Cache breakpoints can span across multiple messages and message types. If you place a breakpoint in a later message, all previous messages (user, assistant, etc.) will be included in the cached content.
 
@@ -51,7 +51,7 @@ Cache breakpoints can span across multiple messages and message types. If you pl
 
 This is particularly useful for conversations where you want to cache the entire context up to a certain point.
 
-## System Prompts and Tools
+## System Prompts and Tools[](#system-prompts-and-tools)
 
 You're not limited to text blocks - cache breakpoints can be added to:
 
@@ -64,7 +64,7 @@ You're not limited to text blocks - cache breakpoints can be added to:
 
 System prompts and tool definitions are excellent candidates for caching since they rarely change between requests. This is often where you'll get the most benefit from prompt caching.
 
-## Cache Ordering
+## Cache Ordering[](#cache-ordering)
 
 Behind the scenes, Claude processes your request components in a specific order: tools first, then system prompt, then messages. Understanding this order helps you place breakpoints effectively.
 
@@ -74,7 +74,7 @@ You can add up to four cache breakpoints total. For example, you might cache you
 
 ![](https://academy.claude.com/assets/media/800aa4c461a1938ee496487f3c291e6d196e6a13251c6b1fac261aa34ce3b8e6.jpg)
 
-## Minimum Content Length
+## Minimum Content Length[](#minimum-content-length)
 
 There's a minimum threshold for caching: content must be at least 1024 tokens long to be cached. This is the sum of all messages and blocks you're trying to cache, not individual blocks.
 

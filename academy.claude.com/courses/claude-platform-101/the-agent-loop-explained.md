@@ -17,7 +17,7 @@ want to automate a workflow, Claude needs to act, look at the result, decide
 what's next, and keep going. That pattern is what people mean when they talk
 about **agentic workflows**.
 
-## What an agent actually is
+## What an agent actually is[](#what-an-agent-actually-is)
 
 An **agent** is an autonomous version of Claude, running both sides of the messaging loop without a human in the middle. An agent receives a task, picks a tool, and executes code in a loop until Claude decides the task is done.
 
@@ -31,7 +31,7 @@ The easiest way to implement an agent loop looks like this:
 
 Think of it as a conversation where the turns alternate: the user kicks things off, the agent calls a tool, the tool returns a result, and the agent keeps going until it has an answer.
 
-## A minimal working example
+## A minimal working example[](#a-minimal-working-example)
 
 To see this loop run end to end without dragging in a database or a UI, we'll wire up a fake tool called `get_weather` and ask Claude what to wear in Austin today. Claude has no way to know the weather on its own, so it has to call the tool, read the result, and then give you an answer.
 
@@ -117,7 +117,7 @@ Three pieces to notice:
 * **`run_tool`** is just a hardcoded lookup. In a real app, this would hit your database, an API, whatever.
 * The **loop** is the agent loop. Each iteration sends the messages to Claude and switches on the response's stop reason. On `end_turn`, Claude is done — print the final text and break. On `tool_use`, find the tool use blocks, run each one, push the assistant's response and your tool results back into `messages`, and loop again so Claude can answer.
 
-## Running it
+## Running it[](#running-it)
 
 When you run the script, you'll see two turns:
 
@@ -128,7 +128,7 @@ When you run the script, you'll see two turns:
 
 Two API calls, one tool execution, one final answer. That's the entire loop. Everything you build with the Claude API is going to be similar to this.
 
-## The same loop in production
+## The same loop in production[](#the-same-loop-in-production)
 
 In a real environment, this same loop powers something like an auto-review endpoint: a compliance agent that reads a structural report, looks up the relevant building codes via a tool, and writes risk findings back to the database one by one as it works.
 
@@ -142,7 +142,7 @@ The shape of the loop is identical to what you just ran. The differences are:
 
 ![The review trace of a running compliance agent: dozens of tool calls searching the building-code library and looking up specific code sections as the loop iterates](https://academy.claude.com/assets/media/df29fa081f1dd13a5f5c6882a4a04a2446fb2ac075227a350dac5002345805be.png)
 
-## Recap
+## Recap[](#recap)
 
 * An agent is **Claude in a loop**: observe, decide, act, repeat.
 * The loop is simple: send messages with tools, run any tool Claude requests, feed the result back, and stop when the stop reason is `end_turn`.

@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Plan your career path result](https://academy.claude.com/assets/v1/plan-your-career-path-iar8vg4f.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude brings deep knowledge of job markets, industry trajectories, and skill trends that aren't obvious from job postings alone. Paired with your resume and goals, this expands your career horizons while developing the strategic thinking skills to navigate future transitions.
 
@@ -36,11 +36,11 @@ After analyzing my resume against these roles, build:
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Equip Claude with your career materials and enable the tools it needs to analyze real-time job markets and provide strategic, personalized recommendations.
 
-### Required context
+### Required context[](#required-context)
 
 Toggle on the Google Drive integration to give Claude access to your resume.
 
@@ -58,11 +58,11 @@ Google Drive
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
+### Optional context[](#optional-context)
 
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to allow Claude extra time to reason through your career planning and produce high quality outputs. Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled so Claude can search the web for current information.
+Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled so Claude can search the web for current information.
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude will analyze your resume against your target jobs and create two planning documents: an action-oriented roadmap and a detailed skills tracking system—both professionally formatted and built for ongoing use.
 
@@ -94,11 +94,11 @@ Both documents are **dense, functional, and interconnected** - the tracker tells
 
 **View your Career Action Tracker**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Prepare for coffee chats
+### Prepare for coffee chats[](#prepare-for-coffee-chats)
 
 Come prepared with informed questions and connect your experience to what matters for that conversation. Ask Claude to help research the role context, company, and industry.
 
@@ -106,7 +106,7 @@ I'm meeting a product manager from the streaming company next week. Research the
 
 Open in Claude
 
-### Draft differentiated application materials
+### Draft differentiated application materials[](#draft-differentiated-application-materials)
 
 Claude can teach you how to adapt your materials for different roles and what makes them effective.
 
@@ -114,7 +114,7 @@ Using my portfolio log, show me how to adapt my resume for PM, design, and resea
 
 Open in Claude
 
-### Update with new goals
+### Update with new goals[](#update-with-new-goals)
 
 Claude can revise your career plan when priorities shift or new opportunities emerge, maintaining the structure while adapting content to changed circumstances.
 
@@ -122,27 +122,27 @@ I just discovered UX writing roles that combine my interests. Can you analyze th
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Understand AI's role in your target career
+### Understand AI's role in your target career[](#understand-ais-role-in-your-target-career)
 
 While exploring your career path, learn how AI is already reshaping that field. The [Anthropic Economic Index(opens in new tab)](https://www.anthropic.com/economic-index#job-explorer) lets you see AI adoption patterns across hundreds of occupations—revealing whether people in your target roles are using AI to augment their work (collaborating with AI as a thinking partner) or automate tasks (delegating routine work entirely).
 
 Understanding this distinction helps you build the right skills: roles heavy on augmentation require strong judgment and creative direction, while automation-focused work demands technical fluency in managing AI systems. Use the job explorer to investigate your target occupations, then ask Claude to help you identify which skills will matter most as AI transforms the field.
 
-### Use styles in your career conversations
+### Use styles in your career conversations[](#use-styles-in-your-career-conversations)
 
 Create a custom [style(opens in new tab)](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features) to shape how Claude engages with your questions. For example, set a style that responds like a career counselor—when you express doubts, Claude asks clarifying questions; when you propose ideas, Claude helps you think through trade-offs. This back-and-forth refines both the plan and your own thinking. Go to "Use style" in the search and tools menu, then "Create & edit styles" to describe the kind of conversational partner you need for career decisions.
 
-### Track your ongoing career work
+### Track your ongoing career work[](#track-your-ongoing-career-work)
 
 Create a [Project(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects) and upload your resume, action tracker, and skills log once to the Project Knowledge. Every conversation in that Project automatically has access to everything—you won't need to re-upload or re-explain context. Claude's [Memory(opens in new tab)](https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context) feature allows it to learn from your conversations within a project, remembering your career priorities, target roles, and preferences to build upon previous discussions.
 
-### Research your target roles and companies
+### Research your target roles and companies[](#research-your-target-roles-and-companies)
 
 Use [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) when you need quick, specific answers to ground your planning—like details on target companies, recent industry events, or potential skill-building programs. For more in-depth analysis, enable [Research(opens in new tab)](https://support.claude.com/en/articles/11088861-using-research-on-claude) in the chat settings. Rather than piecing together information yourself, Research searches across your tools and the web to deliver a thorough report with source citations.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Work with Claude to discover how to navigate your ideal career path and create a plan tailored to your experience and goals.
 

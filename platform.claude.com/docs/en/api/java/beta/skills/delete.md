@@ -2,7 +2,7 @@
 
 # Delete Skill
 
-`SkillDeleteResponse beta().skills().delete(params = SkillDeleteParams.none(), requestOptions = RequestOptions.none())`
+`BetaDeletedSkill beta().skills().delete(params = SkillDeleteParams.none(), requestOptions = RequestOptions.none())`
 
 **DELETE** `/v1/skills/{skill_id}`
 
@@ -90,9 +90,23 @@ Delete Skill
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
 ## Returns
 
-- `class SkillDeleteResponse:`
+- `class BetaDeletedSkill:`
 
   - `String id`
 
@@ -100,7 +114,7 @@ Delete Skill
 
     The format and length of IDs may change over time.
 
-  - `String type`
+  - `JsonValue type constant`
 
     Deleted object type.
 
@@ -113,8 +127,8 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.skills.BetaDeletedSkill;
 import com.anthropic.models.beta.skills.SkillDeleteParams;
-import com.anthropic.models.beta.skills.SkillDeleteResponse;
 
 public final class Main {
     private Main() {}
@@ -122,7 +136,7 @@ public final class Main {
     public static void main(String[] args) {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
-        SkillDeleteResponse skill = client.beta().skills().delete("skill_id");
+        BetaDeletedSkill betaDeletedSkill = client.beta().skills().delete("skill_id");
     }
 }
 ```
@@ -132,6 +146,6 @@ public final class Main {
 ```json
 {
   "id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type"
+  "type": "skill_deleted"
 }
 ```

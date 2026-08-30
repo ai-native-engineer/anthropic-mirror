@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Understand why educator voice belongs at the center of AI decisions
 * Know what's in the kit and how to use it to run your own session
 
-## What you'll learn
+## What you'll learn[](#what-youll-learn)
 
 *Estimated time: ~5 minutes*
 
@@ -26,7 +26,7 @@ This short lesson sets you up to facilitate. By the end you'll be able to:
 * Understand why educator voice belongs at the center of AI decisions
 * Know what's in the kit and how to use it to run your own session
 
-## From learner to trainer
+## From learner to trainer[](#from-learner-to-trainer)
 
 If you've completed [**AI Fluency for pK-12 Educators**(opens in new tab)](https://academy.claude.com/courses/ai-fluency-for-k-12-educators), you already have the foundation: the 4D Framework, the guardrails, and the judgment to use AI well in your own practice. This course turns that foundation outward, giving you a ready-to-run deck, a facilitator guide, and grade-band exercises to walk a room of your colleagues through the same journey, in your voice.
 
@@ -34,7 +34,7 @@ AI is reshaping education right now, and the decisions being made today will sha
 
 *Haven't taken the main course yet? Start there first; this kit assumes you've already built your own fluency.*
 
-## What's next
+## What's next[](#whats-next)
 
 The next lesson, **Train the trainer kit**, lays out everything included and how to use it: a ready-to-run workshop deck, a facilitator guide with slide-by-slide talking points and timing (built into the deck as speaker notes you can toggle on), and a learner workbook to hand to your teachers.
 

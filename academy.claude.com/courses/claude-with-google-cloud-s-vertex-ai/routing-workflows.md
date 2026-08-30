@@ -12,7 +12,7 @@ Lesson 632 min
 
 When building AI applications, you'll often need different approaches for different types of user requests. A routing workflow solves this by categorizing user input first, then directing it to specialized processing pipelines.
 
-## The Problem with One-Size-Fits-All Prompts
+## The Problem with One-Size-Fits-All Prompts[](#the-problem-with-one-size-fits-all-prompts)
 
 Consider a social media marketing tool that generates video scripts from user topics. If someone enters "programming" versus "surfing", you'd want very different outputs:
 
@@ -23,7 +23,7 @@ Consider a social media marketing tool that generates video scripts from user to
 
 Using the same generic prompt for both topics would produce mediocre results that don't match the content's natural style.
 
-## Setting Up Content Categories
+## Setting Up Content Categories[](#setting-up-content-categories)
 
 Start by defining the different types of content your application might need to handle. For video scripts, you might use categories like:
 
@@ -36,7 +36,7 @@ Start by defining the different types of content your application might need to 
 
 ![](https://academy.claude.com/assets/media/1fa6e445c825dbe4d1c4fe65b98843f5e3e5abd26bd023215aad36d6b8e7eeff.png)
 
-## Creating Specialized Prompts
+## Creating Specialized Prompts[](#creating-specialized-prompts)
 
 For each category, write a specific prompt that captures the right tone and approach. Here's what the educational prompt might look like:
 
@@ -46,11 +46,11 @@ Compare that to an entertainment prompt:
 
 `Write a high-energy, culturally-relevant script about [TOPIC] using trendy language and engaging hooks that balance entertainment value with insider insights.`
 
-## The Two-Step Process
+## The Two-Step Process[](#the-two-step-process)
 
 A routing workflow uses two separate calls to Claude:
 
-### Step 1: Categorization
+### Step 1: Categorization[](#step-1-categorization)
 
 Send the user's topic to Claude with a categorization prompt asking it to classify the content type.
 
@@ -58,13 +58,13 @@ Send the user's topic to Claude with a categorization prompt asking it to classi
 
 For example, "Python functions" would likely be categorized as "Educational".
 
-### Step 2: Specialized Processing
+### Step 2: Specialized Processing[](#step-2-specialized-processing)
 
 Based on Claude's categorization, use the appropriate specialized prompt to generate the actual content.
 
 ![](https://academy.claude.com/assets/media/8568c4c90e858a79b13237e9e553b0ff9ea4386de76ee87cf3b286137eb00884.png)
 
-## Routing Workflow Architecture
+## Routing Workflow Architecture[](#routing-workflow-architecture)
 
 The general pattern looks like this:
 
@@ -75,14 +75,14 @@ The general pattern looks like this:
 3. Input gets forwarded to exactly one specialized pipeline
 4. Each pipeline has its own workflow, prompts, or tools
 
-## Key Benefits
+## Key Benefits[](#key-benefits)
 
 * **Better output quality** - Each category gets prompts designed for that specific use case
 * **Specialized tools** - Different categories can use different APIs, databases, or processing steps
 * **Scalable design** - Easy to add new categories without affecting existing ones
 * **Cost efficiency** - Only run the processing that's actually needed
 
-## When to Use Routing
+## When to Use Routing[](#when-to-use-routing)
 
 Routing workflows work best when:
 

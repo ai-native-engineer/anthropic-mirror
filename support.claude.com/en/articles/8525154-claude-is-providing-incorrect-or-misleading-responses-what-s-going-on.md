@@ -8,7 +8,7 @@ Users should not rely on Claude as a singular source of truth and should careful
 
 When working with web search results, users should review Claude's cited sources. Original websites may contain important context or details not included in Claude's synthesis. Additionally, the quality of Claude's responses depends on the underlying sources it references, so checking original content helps you identify any information that might be misinterpreted without the full context.
 
-You can use the thumbs down button to let us know if a particular response was unhelpful, or write to us at [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#dfb9bababbbdbebcb49fbeb1abb7adb0afb6bcf1bcb0b2) with your thoughts or suggestions.
+You can use the thumbs down button to let us know if a particular response was unhelpful, or write to us at [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#8fe9eaeaebedeeece4cfeee1fbe7fde0ffe6eca1ece0e2) with your thoughts or suggestions.
 
 To learn more about how Anthropic’s technology works and our research on developing safer, steerable, and more reliable models, we recommend visiting: <https://www.anthropic.com/research>
 
@@ -16,4 +16,4 @@ To learn more about how Anthropic’s technology works and our research on devel
 * [Claude is producing links that don’t work and falsely claiming that it has sent emails or produced external documents. What’s going on?](https://support.claude.com/en/articles/8241188-claude-is-producing-links-that-don-t-work-and-falsely-claiming-that-it-has-sent-emails-or-produced-external-documents-what-s-going-on)
 * [I’m planning to launch a product using the Claude API. What steps should I take to ensure I’m not violating Anthropic’s Usage Policy?](https://support.claude.com/en/articles/8241216-i-m-planning-to-launch-a-product-using-the-claude-api-what-steps-should-i-take-to-ensure-i-m-not-violating-anthropic-s-usage-policy)
 * [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
-* [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)
+* [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)

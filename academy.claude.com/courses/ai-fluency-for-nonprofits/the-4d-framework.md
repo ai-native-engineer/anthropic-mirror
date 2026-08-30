@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Explain how the AI Fluency Framework (4Ds) can be applied to nonprofit work
 * Define each of the 4Ds—Delegation, Description, Discernment, and Diligence
 
-## The 4D Framework
+## The 4D Framework[](#the-4d-framework)
 
 The 4D Framework · 6 min
 
@@ -28,7 +28,7 @@ use AI, and the Description-Discernment loop for engaging with AI
 effectively day-to-day. Each competency is broken down into three
 sub-components with nonprofit-specific examples.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The Delegation-Diligence loop guides higher-level decisions about when to use AI
   + **Delegation** involves deciding what work should be done by humans versus AI. It includes Problem Awareness (understanding your goals), Platform Awareness (knowing your tools' capabilities and limitations), and Task Delegation (distributing work thoughtfully)
@@ -37,7 +37,7 @@ sub-components with nonprofit-specific examples.
   + **Description** is how you communicate effectively with AI systems. It includes Product Description (defining outputs), Process Description (guiding the approach), and Performance Description (shaping AI behavior during collaboration)
   + **Discernment** means critically evaluating AI's work. It includes Product Discernment (evaluating quality), Process Discernment (evaluating how AI arrived at outputs), and Performance Discernment (evaluating AI behavior)
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2
 
@@ -51,12 +51,12 @@ Why? This exercise reveals which AI competencies you're already thinking about a
    * This pattern reveals where you're currently focusing your attention. Is this where you most need to develop, or are you avoiding a harder competency that would unlock more progress?
    * Based on the competency you identified to prioritize first, what's one specific thing you'll do differently the next time you use AI?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Looking at your mapped questions and concerns, were you surprised by which competency area dominated? What might that tell you about your current relationship with AI?
 * How might the two loops (Delegation-Diligence and Description-Discernment) have changed a recent interaction you had with AI?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll put Description and Discernment into practice as you learn to research and write effectively with AI—skills that apply directly to grant proposals, donor communications, and program materials.
 

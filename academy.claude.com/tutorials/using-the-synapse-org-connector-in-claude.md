@@ -18,18 +18,18 @@ The Synapse.org integration by Sage Bionetworks allows researchers to discover b
 
 The Synapse.org integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## What this integration provides
+## What this integration provides[](#what-this-integration-provides)
 
 Services include search and (meta)data retrieval services. Data access will be governed by the access controls defined for each project. Some data are publicly available, while others require approval from Synapse’s governance team prior to access.
 
-## Who can access the Synapse.org integration
+## Who can access the Synapse.org integration[](#who-can-access-the-synapseorg-integration)
 
 * Individuals who have a registered Synapse account ([register for free(opens in new tab)](https://accounts.synapse.org/register1?appId=synapse.org))
 * Data access may be subject to use restriction from contributors
 
 More details on accessing the integration can be found in [Synapse’s MCP Server Documentation(opens in new tab)](https://github.com/susheel/synapse-mcp?tab=readme-ov-file#synapse-mcp-server).
 
-## Setting up the Synapse.org integration
+## Setting up the Synapse.org integration[](#setting-up-the-synapseorg-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -55,7 +55,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the Synapse.org integration can be found in [Synapse’s MCP Server Documentation(opens in new tab)](https://github.com/susheel/synapse-mcp?tab=readme-ov-file#synapse-mcp-server).
 
-## Common use cases
+## Common use cases[](#common-use-cases)
 
 * Search for reusable scientific data across all of the Synapse.org platform
 

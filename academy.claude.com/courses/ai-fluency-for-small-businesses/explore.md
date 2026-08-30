@@ -12,7 +12,7 @@ Lesson 415 min
 
 **Text Your Friend Markov** — *The 100% interpretable next-token generator*
 
-## Send a Text
+## Send a Text[](#send-a-text)
 
 Long ago, my friends and I would play this game where you'd grab your phone and craft a message to a friend using only the recommended next words. Maybe you did this too.
 
@@ -24,7 +24,7 @@ At the time, we were happy to dismiss it as tech magic. I don't think we realize
 
 Keep reading if you want to build one with me :)
 
-## "Training" Your Model
+## "Training" Your Model[](#training-your-model)
 
 Let's train on a handful of messages. All we need to do is tally the connections between words. Let's do this one message at a time.
 
@@ -32,13 +32,13 @@ This finished map of connections between words is called a **frequency table**. 
 
 The act of picking a next word based on what you have so far is called **sampling**. We use that same term for this process with modern language models like Claude.
 
-## Do Some Sampling
+## Do Some Sampling[](#do-some-sampling)
 
 Using the same matrix based on 5 texts, go ahead and have a more informed play at our game. We'll show you the probabilities.
 
 The highlighted row is your current context. Pick a word from the available choices to continue.
 
-## 100-year-old Tech
+## 100-year-old Tech[](#100-year-old-tech)
 
 *"Is this real tech?" Great question, reader.*
 

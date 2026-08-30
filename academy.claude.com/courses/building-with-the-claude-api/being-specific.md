@@ -18,13 +18,13 @@ Think about it this way: if you ask Claude to "write a short story about a chara
 
 By adding specific guidelines, you give Claude a clearer target to aim for. This dramatically improves both the consistency and quality of the output.
 
-## Two Types of Guidelines
+## Two Types of Guidelines[](#two-types-of-guidelines)
 
 There are two main approaches to being specific in your prompts, and you'll often see them used together in professional applications.
 
 ![](https://academy.claude.com/assets/media/559eb8d6c6972037d53b153f4d4982147cd2500c28b50a44607ba101d31a0afa.png)
 
-### Output Quality Guidelines
+### Output Quality Guidelines[](#output-quality-guidelines)
 
 The first type focuses on listing qualities that your output should have. These guidelines help you control:
 
@@ -35,7 +35,7 @@ The first type focuses on listing qualities that your output should have. These 
 
 For example, you might specify that a story should be under 1,000 words, include a clear action that reveals the character's talent, and feature at least one supporting character.
 
-### Process Steps
+### Process Steps[](#process-steps)
 
 The second type provides specific steps for Claude to follow. This approach is particularly useful when you want Claude to think through a problem systematically or consider multiple perspectives before arriving at a final answer.
 
@@ -46,7 +46,7 @@ Instead of jumping straight to writing, you might ask Claude to:
 3. Outline a pivotal scene that reveals the talent
 4. Brainstorm supporting character types that could increase the impact
 
-## Real-World Impact
+## Real-World Impact[](#real-world-impact)
 
 The difference that specificity makes is dramatic. In testing a meal planning prompt, adding guidelines improved the evaluation score from 3.92 to 7.86 - more than doubling the quality of the output simply by telling Claude exactly what elements to include.
 
@@ -60,15 +60,15 @@ Guidelines:
 6. Keep budget-friendly if mentioned
 ```
 
-## When to Use Each Approach
+## When to Use Each Approach[](#when-to-use-each-approach)
 
 Here's a practical guide for when to use each type of specificity:
 
-### Always Use Output Guidelines
+### Always Use Output Guidelines[](#always-use-output-guidelines)
 
 You should include quality guidelines in almost every prompt you write. They're your safety net for getting consistent, useful results.
 
-### Use Process Steps For Complex Problems
+### Use Process Steps For Complex Problems[](#use-process-steps-for-complex-problems)
 
 Add step-by-step instructions when you're dealing with:
 
@@ -81,7 +81,7 @@ Add step-by-step instructions when you're dealing with:
 
 For instance, if you're asking Claude to analyze why a sales team's performance dropped, you'd want to guide it through examining market metrics, industry changes, individual performance, organizational changes, and customer feedback - rather than letting it focus on just one potential cause.
 
-## Combining Both Approaches
+## Combining Both Approaches[](#combining-both-approaches)
 
 In professional prompting, you'll often see both techniques used together. You might have guidelines that control the format and content of your output, plus steps that ensure Claude thinks through the problem thoroughly before responding.
 

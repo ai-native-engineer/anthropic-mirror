@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Recognize which shape of work a task calls for before you start it
 * Find where each way of working lives in the desktop app today
 
-## Working with Claude on your desktop
+## Working with Claude on your desktop[](#working-with-claude-on-your-desktop)
 
 The Claude desktop app is your home base for working with Claude — from a quick question mid-meeting to a report Claude assembles from six sources while you do something else. The work sorts into three shapes, and knowing which one you're in is the whole skill of this lesson:
 
@@ -28,7 +28,7 @@ The first two are where most knowledge workers spend their day; the third is the
 
 **In the product today.** Turn-by-turn work happens in Chat. Work you hand off runs in Cowork. Building software happens in the Code tab. All three live in the Claude desktop app.
 
-## Working with Claude, turn by turn
+## Working with Claude, turn by turn[](#working-with-claude-turn-by-turn)
 
 This is Claude as a thinking partner: the shape of work where the value is in the exchange itself. You bring a half-formed idea, an unfamiliar dashboard, a paragraph that isn't landing — and you work it out together, one turn at a time.
 
@@ -51,7 +51,7 @@ This is Claude as a thinking partner: the shape of work where the value is in th
 * **Dictation.** Talk through a problem instead of typing. (Mac)
 * **Desktop connectors.** Connect local tools and services so Claude can work with what's on your machine.
 
-## Handing work off to Claude
+## Handing work off to Claude[](#handing-work-off-to-claude)
 
 Working agentically with Claude is a new way of working for many people. Instead of asking a question, you hand Claude the whole piece of work — gather the context, do the analysis, produce the finished thing — and it comes back done. You're delegating, not just chatting.
 
@@ -82,7 +82,7 @@ Handing work off doesn't mean stepping back from it. Before Claude starts, it ma
 
 Cowork is available to Pro, Max, Team, and Enterprise users, with new capabilities added regularly.
 
-## Building software with Claude Code
+## Building software with Claude Code[](#building-software-with-claude-code)
 
 If you write code, the desktop app gives you a full development environment. Claude works directly in your codebase — reading what's there, writing and modifying code, running commands. Visual diffs show what changed, a built-in terminal shows commands as they run, and git tracks every version so you can always roll back. If you're not a developer, the takeaway is just this: it's a separate tab, and this course doesn't need it — [Claude Code in Action(opens in new tab)](https://academy.claude.com/courses/claude-code-in-action) covers it in depth.
 
@@ -99,7 +99,7 @@ You also choose how much Claude does on its own, with settings including:
 
 **In the product today.** This lives in the Code tab of the desktop app, available on Pro, Max, Team, and Enterprise plans. You can run multiple sessions across projects and filter them by environment (Local or Cloud) and status from the sidebar.
 
-## Choosing the right shape for the task
+## Choosing the right shape for the task[](#choosing-the-right-shape-for-the-task)
 
 You won't pick a tab first — you'll notice what kind of work is in front of you, and the tab follows. Here's the whole lesson in one table.
 
@@ -109,12 +109,12 @@ You won't pick a tab first — you'll notice what kind of work is in front of yo
 | Hand off a multi-step task that ends in a finished deliverable, spans your tools, or runs on a schedule | Handing work off | Cowork (folder access, connectors, scheduled tasks, subagents) |
 | Write, test, run, and ship code in a codebase | Building software | The Code tab (Local or Cloud) |
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Think about how you used Claude this week. Which requests were turn-by-turn thinking, and which were really whole tasks you fed in one question at a time because that's the habit?
 * Take the task you'd most like off your plate. Is it multi-step, does it end in a real file, does it span your tools? If yes to any, it's a hand-off — write down the outcome you'd describe to Claude, not the first question you'd ask.
 
-## What's next
+## What's next[](#whats-next)
 
 In the next module, you'll learn how to organize your work and knowledge using projects.
 

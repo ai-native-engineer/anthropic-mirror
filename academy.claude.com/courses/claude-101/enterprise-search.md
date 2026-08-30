@@ -20,13 +20,13 @@ Plan availability
 
 Enterprise Search is available on Team and Enterprise plans, and must be enabled by a workspace admin. If you're on a Free, Pro, or Max plan, you can skip this lesson.
 
-## What is Enterprise Search?
+## What is Enterprise Search?[](#what-is-enterprise-search)
 
 Enterprise Search adds a dedicated "Ask {Your Org Name}" option to your sidebar. This is designed specifically for finding and synthesizing knowledge buried across your company's tools and data sources. Think of Enterprise Search as a pre-built project for your entire organization — your company's knowledge base is already loaded, so you can jump right in to get context-aware responses to your questions.
 
 Unlike regular chats with connectors enabled, Enterprise Search is specifically designed for information gathering, using custom instructions configured by the Anthropic team.
 
-## What can you ask?
+## What can you ask?[](#what-can-you-ask)
 
 Enterprise Search is particularly valuable for questions that span multiple sources or require synthesizing information from across your organization. Here are some common use cases:
 
@@ -62,11 +62,11 @@ Enterprise Search is particularly valuable for questions that span multiple sour
 
 When you ask a question, Claude searches across all your connected tools—such as SharePoint documents, Slack conversations, Gmail threads, and Google Drive files—and synthesizes information into a unified response. Plus, it always cites its sources so you can get the full context.
 
-## Setting up Enterprise Search
+## Setting up Enterprise Search[](#setting-up-enterprise-search)
 
 Enterprise Search requires a **two-step setup process**: first an admin configures it for the organization, then individual users authenticate with their personal accounts.
 
-### For admins (Owners)
+### For admins (Owners)[](#for-admins-owners)
 
 The Enterprise Search project is enabled by default for all Team and Enterprise organizations, but an Owner needs to complete the initial setup before team members can use it:
 
@@ -79,7 +79,7 @@ The Enterprise Search project is enabled by default for all Team and Enterprise 
 
 Once setup is complete, the project becomes available to all members of your organization.
 
-### For users
+### For users[](#for-users)
 
 After an admin has set up Enterprise Search, you'll see the "Ask {Org Name}" project starred in your sidebar. Here's how to get started:
 
@@ -90,11 +90,11 @@ After an admin has set up Enterprise Search, you'll see the "Ask {Org Name}" pro
 
 The more connectors you enable, the more comprehensive your search results will be. You can always add more connectors later by clicking "Connect" in the project's Instructions section.
 
-## That's a lot of data … is this safe?
+## That's a lot of data … is this safe?[](#thats-a-lot-of-data-is-this-safe)
 
 In short, yes. Enterprise Search only shows what you already have permission to access in the original connected tool. Plus, your conversations remain private, and your connected data isn't indexed or stored separately.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Before moving on, consider:
 
@@ -102,7 +102,7 @@ Before moving on, consider:
 * Are there onboarding or training scenarios where Enterprise Search could help new team members get up to speed faster?
 * Which data sources would be most valuable to connect for your specific role?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, you'll learn about Research — Claude's capability for deep, multi-step investigations that go beyond quick lookups to comprehensive analysis.
 

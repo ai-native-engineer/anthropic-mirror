@@ -156,23 +156,23 @@ Learn more
 
 Single sign-on (SSO/SAML) and domain capture
 
+SOC 2, ISO 27001, GDPR, and CCPA compliance
+
 Usage analytics and reporting
 
 SCIM provisioning
 
 Spend controls
 
-Role-based access control (RBAC)
-
 Data retention controls\*
-
-Audit logs and OpenTelemetry monitoring\*
-
-SOC 2, ISO 27001, GDPR, and CCPA compliance
 
 Compliance API
 
 HIPAA-ready offering
+
+Audit logs and OpenTelemetry monitoring\*
+
+Role-based access control (RBAC)
 
 ## Bring Claude to your enterprise two ways
 

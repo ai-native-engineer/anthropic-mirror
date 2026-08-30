@@ -10,8 +10,6 @@ When your operating system opens a `claude://` URL, it hands the URL to Claude. 
 
 All parameter values must be URL-encoded. Prompt text passed in `q` is truncated to roughly 14,000 characters.
 
----
-
 ## Start a new chat
 
 ```
@@ -26,8 +24,6 @@ Opens a new chat in Claude Desktop. If you include `q`, the prompt field is pref
 | **Parameter** | **Required** | **Description** |
 | `q` | No | Text to prefill in the prompt field. |
 
----
-
 ## Open an existing chat or project
 
 ```
@@ -36,8 +32,6 @@ claude://claude.ai/project/{project-id}
 ```
 
 Opens a specific chat or project by its ID. The ID is the UUID you see at the end of the chat or project URL in Claude. If the ID is missing or invalid, Claude opens your recent chats or your projects list instead.
-
----
 
 ## Start a Claude Code session
 
@@ -57,8 +51,6 @@ Opens Claude Code in Claude Desktop with the composer prefilled. Use this for "O
 
 **Note:** Any folder supplied through a link is treated as untrusted. Claude Desktop always shows a confirmation dialog before adopting it as the working directory, even if you've trusted that folder before.
 
----
-
 ## Start a Claude Cowork session
 
 ```
@@ -77,8 +69,6 @@ Opens a new Cowork session with the composer prefilled. Use this for "Open in Cl
 | `file` | No | Absolute path to a file to attach. Repeat the parameter to attach more than one. |
 
 **Note:** Any folder supplied through a link is treated as untrusted. Claude Desktop always shows a confirmation dialog before adopting it as the working directory, even if you've trusted that folder before.
-
----
 
 ## Test a deep link
 

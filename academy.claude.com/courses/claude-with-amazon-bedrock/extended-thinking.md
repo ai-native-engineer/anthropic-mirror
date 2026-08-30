@@ -14,7 +14,7 @@ Extended thinking is Claude's advanced feature that gives the model time to reas
 
 ![](https://academy.claude.com/assets/media/0bd1c482a9cdf3617fbf43e2386eea9cd78fe67c3ad91b25908844201784558c.png)
 
-## How Extended Thinking Works
+## How Extended Thinking Works[](#how-extended-thinking-works)
 
 When you enable extended thinking, Claude's response includes two parts instead of one:
 
@@ -25,7 +25,7 @@ When you enable extended thinking, Claude's response includes two parts instead 
 
 The reasoning content shows you exactly how Claude breaks down your problem, what it considers, and how it arrives at its final answer. This transparency can be incredibly valuable for understanding and debugging complex tasks.
 
-## Trade-offs to Consider
+## Trade-offs to Consider[](#trade-offs-to-consider)
 
 Extended thinking comes with clear benefits and costs:
 
@@ -35,7 +35,7 @@ Extended thinking comes with clear benefits and costs:
 
 The key decision point is simple: use your evaluations. If you've already optimized your prompt but still aren't getting the accuracy you need, that's when extended thinking becomes worth considering.
 
-## The Signature System
+## The Signature System[](#the-signature-system)
 
 One important detail you'll notice immediately is the cryptographic signature attached to reasoning content:
 
@@ -43,7 +43,7 @@ One important detail you'll notice immediately is the cryptographic signature at
 
 This signature ensures you can't modify the thinking text. If you want to include Claude's previous reasoning in a follow-up conversation, the signature verifies the content hasn't been tampered with. This prevents potential safety issues from modified reasoning text.
 
-## Redacted Content
+## Redacted Content[](#redacted-content)
 
 Sometimes Claude's thinking gets flagged by safety systems. When this happens, you'll receive a `redactedContent` field instead of readable thinking text:
 
@@ -51,7 +51,7 @@ Sometimes Claude's thinking gets flagged by safety systems. When this happens, y
 
 The redacted content is encrypted but still functional - you can pass it back to Claude in future conversations without losing context. It's just not readable to you as a developer.
 
-## Implementation
+## Implementation[](#implementation)
 
 On current Claude models, such as Claude Opus 5 and Claude Sonnet 5, thinking runs as **adaptive thinking** and is on by default: Claude decides how much reasoning each request needs, with no token budget to manage. These models omit the reasoning text unless you ask for it, so set `display` to `summarized` to see it:
 
@@ -68,7 +68,7 @@ With adaptive thinking on, simple questions often come back quickly while harder
 
 If you've used extended thinking before, note that the manual configuration is being phased out: `thinking.type: "enabled"` with `budget_tokens` is deprecated on Claude Opus 4.6 and Claude Sonnet 4.6, and Claude Opus 4.7 and later models, including Claude Opus 5 and Claude Sonnet 5, do not support it and reject such requests with a 400 error. Use `thinking.type: "adaptive"` with the `effort` parameter instead.
 
-### Models without adaptive thinking
+### Models without adaptive thinking[](#models-without-adaptive-thinking)
 
 The Claude 4.5 models (Claude Haiku 4.5, Claude Sonnet 4.5, and Claude Opus 4.5) and earlier models do not support adaptive thinking. On those models you enable extended thinking with a manual token budget:
 
@@ -101,13 +101,13 @@ def chat(
 ):
 ```
 
-## Testing Your Implementation
+## Testing Your Implementation[](#testing-your-implementation)
 
 When building applications that handle extended thinking, you'll want to test both normal reasoning content and redacted content scenarios. There's actually a special test string that forces Claude to return redacted content - useful for making sure your code handles both cases properly.
 
 The most important takeaway about extended thinking is that the decision to use it should always be data-driven. Run your evaluations first, optimize your prompts, and only then consider extended thinking if you need that extra boost in accuracy for complex tasks. That discipline rests on a simple habit: decide what good looks like before you reach for more capability. When you know the accuracy your task needs, you can tell whether extended thinking earns its cost instead of guessing.
 
-## Practice: run adaptive thinking yourself
+## Practice: run adaptive thinking yourself[](#practice-run-adaptive-thinking-yourself)
 
 Adaptive thinking is easiest to understand by watching it make decisions. In the code where you have been building the chat function, turn it on:
 
@@ -122,7 +122,7 @@ additional_model_fields["thinking"] = {
 
 Now send two requests through this same configuration. First ask a quick factual question you already know the answer to. Then ask a genuinely hard one, like a multi-step analysis problem from your own work. If you are working on a model that does not support adaptive thinking, enable thinking with the manual `budget_tokens` configuration from the section above and run the same two requests.
 
-### Check what the thinking did
+### Check what the thinking did[](#check-what-the-thinking-did)
 
 Setting the flag only proves the request was accepted. These checks tell you what the thinking did:
 

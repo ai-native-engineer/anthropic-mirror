@@ -12,7 +12,7 @@ Lesson 207 min
 
 Providing examples in your prompts is one of the most effective prompt engineering techniques you'll use. This approach, known as "one-shot" or "multi-shot" prompting, involves giving Claude sample input/output pairs to guide its responses.
 
-## How Examples Work
+## How Examples Work[](#how-examples-work)
 
 Let's look at a sentiment analysis example. Say you want Claude to categorize whether a tweet is positive or negative:
 
@@ -20,7 +20,7 @@ Let's look at a sentiment analysis example. Say you want Claude to categorize wh
 
 The challenge here is sarcasm. A tweet like "Yeah, sure, that was the best movie I've seen since 'Plan 9 from Outer Space'" appears positive on the surface, but it's actually sarcastic and negative (Plan 9 is famously terrible).
 
-## Adding Examples to Your Prompt
+## Adding Examples to Your Prompt[](#adding-examples-to-your-prompt)
 
 To handle this, you can add examples that show Claude how to respond correctly:
 
@@ -32,7 +32,7 @@ The key elements are:
 * XML tags for structure: `<sample_input>` and `<ideal_output>`
 * Concrete examples that demonstrate the desired behavior
 
-## Handling Corner Cases
+## Handling Corner Cases[](#handling-corner-cases)
 
 Multi-shot prompting shines when dealing with edge cases. For the sarcasm problem, you might add:
 
@@ -49,11 +49,11 @@ Negative
 
 This gives Claude a clear pattern to recognize sarcastic content that might otherwise be misclassified.
 
-## Complex Output Formats
+## Complex Output Formats[](#complex-output-formats)
 
 Examples are especially valuable when you need Claude to produce structured output like JSON objects or detailed reports. Instead of just describing the format, you show exactly what good output looks like.
 
-## Finding Good Examples from Evaluations
+## Finding Good Examples from Evaluations[](#finding-good-examples-from-evaluations)
 
 When running prompt evaluations, look for your highest-scoring outputs in the HTML report:
 
@@ -61,7 +61,7 @@ When running prompt evaluations, look for your highest-scoring outputs in the HT
 
 Find examples that scored 10 (or your highest available score) and use those input/output pairs as examples in your prompt. This helps Claude understand what "perfect" looks like for your specific task.
 
-## Adding Context to Examples
+## Adding Context to Examples[](#adding-context-to-examples)
 
 For even better results, explain why an example is ideal. After showing the sample output, add a brief explanation:
 
@@ -72,7 +72,7 @@ This meal plan is well-structured, provides detailed information on food choices
 
 This reinforces the specific qualities that make the output valuable.
 
-## Best Practices
+## Best Practices[](#best-practices)
 
 * **Use XML tags** to clearly structure your examples
 * **Start simple** with one-shot prompting, then add more examples as needed

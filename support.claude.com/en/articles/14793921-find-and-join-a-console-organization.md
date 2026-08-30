@@ -29,8 +29,6 @@ Admins select how join requests are handled:
 * **Approve automatically:** People are added to the organization automatically when they ask to join. They can immediately access the workspaces and resources their role permits.
 * **Require admin approval:** An admin reviews and approves each join request individually. People aren’t added to the organization until an admin approves the request.
 
----
-
 ## How to find and join an organization
 
 When someone signs up for the Console with a business email address that matches a discoverable organization, they’ll see the option to join during the signup flow. They can choose to join or continue with a personal account.
@@ -40,16 +38,12 @@ When someone signs up for the Console with a business email address that matches
 
 If multiple organizations share the same email domain and are all discoverable, the requester sees all of them and can choose which one to join.
 
----
-
 ## Other ways to join an organization
 
 In addition to organization discovery, there are a few other ways to join a Console organization:
 
 * **Email invitation:** An Admin or existing member of the organization may send you an email invitation to join.
 * **Admin invitation:** An Admin can add you directly from **[Organization settings > Members](https://platform.claude.com/settings/members)**.
-
----
 
 ## SSO and organization discovery
 

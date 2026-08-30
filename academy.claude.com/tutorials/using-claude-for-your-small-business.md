@@ -31,7 +31,7 @@ In this guide
 3. [Close the month with fewer errorsReconcile your books against your settlements and hand your accountant a packet that's already done.](#close-the-month-with-fewer-errors)
 4. [Plan payroll with confidenceSee whether payroll is covered, then chase what's owed — with reminders calibrated to how each customer pays.](#plan-payroll-with-confidence)
 
-## Get a pulse on your business
+## Get a pulse on your business[](#get-a-pulse-on-your-business)
 
 Help me build a Monday morning brief every week in Slack. Pull my cash position from QuickBooks, incoming settlements from PayPal, pipeline movement from HubSpot, and what's on my calendar this week. Tell me the three things that need my attention today.
 
@@ -61,7 +61,7 @@ Outcome
 
 A one-page brief saved to your folder, ready every Monday morning if you put it on a schedule.
 
-## Run your next campaign
+## Run your next campaign[](#run-your-next-campaign)
 
 Find my weakest revenue month from last year and plan a promo to address it. Draft the strategy, generate the campaign assets in Canva, segment my list in HubSpot, and stage the send. Show me everything before anything goes out.
 
@@ -103,7 +103,7 @@ Outcome
 
 A campaign plan, the designs, the copy, and a staged send — built across the tools where you'd edit them and waiting for your approval.
 
-## Close the month with fewer errors
+## Close the month with fewer errors[](#close-the-month-with-fewer-errors)
 
 Close out March for me. Reconcile my QuickBooks transactions against PayPal settlements, flag anything that doesn't match, and write the P&L narrative as a document I can send straight to my accountant.
 
@@ -139,7 +139,7 @@ Outcome
 
 The close packet saved to your folder, ready for your accountant to work from. Claude prepares the reconciliation; the call on what to change in your books stays with you and your accountant.
 
-## Plan payroll with confidence
+## Plan payroll with confidence[](#plan-payroll-with-confidence)
 
 Get me ready for payroll on the 15th. Pull my cash position from QuickBooks, my incoming PayPal settlements, and any overdue invoices. Show me whether the next 30 days covers payroll, then draft a reminder for each overdue customer matched to how they've paid before. Show me the drafts before anything sends.
 
@@ -175,7 +175,7 @@ Outcome
 
 A 30-day cash chart, a ranked overdue list with payment history, a reminder for each one ready to send, and a clear read on whether payroll is covered.
 
-## Things to note
+## Things to note[](#things-to-note)
 
 * **You approve before anything sends, posts, or pays** — skills draft, propose, and stage. Nothing goes out until you say so.
 * **The big decisions stay with you** — Claude prepares the work and shows you what it found, but the calls that matter — what to charge, what to sign, what to send your accountant — are yours and your professionals' to make.
@@ -183,7 +183,7 @@ A 30-day cash chart, a ranked overdue list with payment history, a reminder for 
 * **Your existing permissions hold** — Claude reads what your account in each tool can read. It can't see data you don't already have access to.
 * **Anthropic doesn't train Claude on your business data** — the full policy is in the [Trust Center(opens in new tab)](https://trust.anthropic.com).
 
-## Learn more
+## Learn more[](#learn-more)
 
 * [Introducing Claude for Small Business(opens in new tab)](https://www.anthropic.com/news/claude-for-small-business) — the launch announcement
 * [How to install and use the Claude for Small Business plugin(opens in new tab)](https://academy.claude.com/tutorials/how-to-install-the-claude-for-small-business-plugin) — install the plugin, browse what's in it, and run your first task

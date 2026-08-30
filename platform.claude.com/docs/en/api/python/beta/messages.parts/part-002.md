@@ -3,6 +3,885 @@
 
 <!-- chunk-start -->
 
+        - `"claude-opus-4-5-20251101"`
+
+          Powerful intelligence for long-running agents and coding
+
+        - `"claude-sonnet-4-5"`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"`
+
+          High-performance model for agents and coding
+
+      - `str`
+
+    - `name: Literal["advisor"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `type: Literal["advisor_20260301"]`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `caching: Optional[BetaCacheControlEphemeral]`
+
+      Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `max_tokens: Optional[int]`
+
+      Bounds the advisor's total output (thinking + text) per call. When the advisor hits this cap, the returned advisor_result or advisor_redacted_result block carries stop_reason='max_tokens', and a truncation note is appended to the advice text the worker model sees (inside the encrypted blob in redacted mode). When set, the server also emits a remaining-tokens budget block in the advisor's prompt so the advisor self-shapes toward the cap. When omitted, the advisor model's default output cap applies and no budget block is emitted.
+
+      minimum: 1024
+
+    - `max_uses: Optional[int]`
+
+      Maximum number of times the tool can be used in the API request.
+
+      exclusiveMinimum: 0
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolSearchToolBm25_20251119: …`
+
+    - `name: Literal["tool_search_tool_bm25"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `type: Literal["tool_search_tool_bm25_20251119", "tool_search_tool_bm25"]`
+
+      - `"tool_search_tool_bm25_20251119"`
+
+      - `"tool_search_tool_bm25"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaToolSearchToolRegex20251119: …`
+
+    - `name: Literal["tool_search_tool_regex"]`
+
+      Name of the tool.
+
+      This is how the tool will be called by the model and in `tool_use` blocks.
+
+    - `type: Literal["tool_search_tool_regex_20251119", "tool_search_tool_regex"]`
+
+      - `"tool_search_tool_regex_20251119"`
+
+      - `"tool_search_tool_regex"`
+
+    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
+
+      - `"direct"`
+
+      - `"code_execution_20250825"`
+
+      - `"code_execution_20260120"`
+
+      - `"code_execution_20260521"`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `defer_loading: Optional[bool]`
+
+      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+    - `strict: Optional[bool]`
+
+      When true, guarantees schema validation on tool names and inputs
+
+  - `class BetaMCPToolset: …`
+
+    Configuration for a group of tools from an MCP server.
+
+    Allows configuring enabled status and defer_loading for all tools
+    from an MCP server, with optional per-tool overrides.
+
+    - `mcp_server_name: str`
+
+      Name of the MCP server to configure tools for
+
+      maxLength: 255, minLength: 1
+
+    - `type: Literal["mcp_toolset"]`
+
+    - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+      Create a cache control breakpoint at this content block.
+
+    - `configs: Optional[Dict[str, BetaMCPToolConfig]]`
+
+      Configuration overrides for specific tools, keyed by tool name
+
+      - `defer_loading: Optional[bool]`
+
+      - `enabled: Optional[bool]`
+
+    - `default_config: Optional[BetaMCPToolDefaultConfig]`
+
+      Default configuration applied to all tools from this server
+
+      - `defer_loading: Optional[bool]`
+
+      - `enabled: Optional[bool]`
+
+### Beta Tool Use Block
+
+- `class BetaToolUseBlock: …`
+
+  - `id: str`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `input: Dict[str, object]`
+
+  - `name: str`
+
+    minLength: 1
+
+  - `type: Literal["tool_use"]`
+
+    default: tool_use
+
+  - `caller: Optional[Caller]`
+
+    Tool invocation directly from the model.
+
+    - `class BetaDirectCaller: …`
+
+      Tool invocation directly from the model.
+
+      - `type: Literal["direct"]`
+
+    - `class BetaServerToolCaller: …`
+
+      Tool invocation generated by a server-side tool.
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `type: Literal["code_execution_20250825"]`
+
+    - `class BetaServerToolCaller20260120: …`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `type: Literal["code_execution_20260120"]`
+
+  - `toolset_name: Optional[str]`
+
+    For a toolset member tool_use, the toolset family.
+
+    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
+### Beta Tool Use Block Param
+
+- `class BetaToolUseBlockParam: …`
+
+  - `id: str`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `input: Dict[str, object]`
+
+  - `name: str`
+
+    maxLength: 200, minLength: 1
+
+  - `type: Literal["tool_use"]`
+
+  - `cache_control: Optional[BetaCacheControlEphemeral]`
+
+    Create a cache control breakpoint at this content block.
+
+    - `type: Literal["ephemeral"]`
+
+    - `ttl: Optional[Literal["5m", "1h"]]`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `"5m"`
+
+      - `"1h"`
+
+  - `caller: Optional[Caller]`
+
+    Tool invocation directly from the model.
+
+    - `class BetaDirectCaller: …`
+
+      Tool invocation directly from the model.
+
+      - `type: Literal["direct"]`
+
+    - `class BetaServerToolCaller: …`
+
+      Tool invocation generated by a server-side tool.
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `type: Literal["code_execution_20250825"]`
+
+    - `class BetaServerToolCaller20260120: …`
+
+      - `tool_id: str`
+
+        pattern: ^srvtoolu_[a-zA-Z0-9_]+$
+
+      - `type: Literal["code_execution_20260120"]`
+
+  - `toolset_name: Optional[str]`
+
+    For a toolset member tool_use, the toolset family this member belongs to.
+
+    maxLength: 64, minLength: 1, pattern: ^[a-zA-Z0-9_-]+$
+
+### Beta Tool Uses Keep
+
+- `class BetaToolUsesKeep: …`
+
+  - `type: Literal["tool_uses"]`
+
+  - `value: int`
+
+    minimum: 0
+
+### Beta Tool Uses Trigger
+
+- `class BetaToolUsesTrigger: …`
+
+  - `type: Literal["tool_uses"]`
+
+  - `value: int`
+
+    minimum: 1
+
+### Beta URL Image Source
+
+- `class BetaURLImageSource: …`
+
+  - `type: Literal["url"]`
+
+  - `url: str`
+
+### Beta URL PDF Source
+
+- `class BetaURLPDFSource: …`
+
+  - `type: Literal["url"]`
+
+  - `url: str`
+
+### Beta Usage
+
+- `class BetaUsage: …`
+
+  - `cache_creation: Optional[BetaCacheCreation]`
+
+    Breakdown of cached tokens by TTL
+
+    - `ephemeral_1h_input_tokens: int`
+
+      The number of input tokens used to create the 1 hour cache entry.
+
+      default: 0, minimum: 0
+
+    - `ephemeral_5m_input_tokens: int`
+
+      The number of input tokens used to create the 5 minute cache entry.
+
+      default: 0, minimum: 0
+
+  - `cache_creation_input_tokens: Optional[int]`
+
+    The number of input tokens used to create the cache entry.
+
+    minimum: 0
+
+  - `cache_read_input_tokens: Optional[int]`
+
+    The number of input tokens read from the cache.
+
+    minimum: 0
+
+  - `fallback_credit: Optional[BetaFallbackCreditUsage]`
+
+    Outcome of the `fallback_credit_token` presented on this request.
+
+    - `status: Status`
+
+      Whether the fallback-credit reprice was applied to this response's billing.
+
+      A union discriminated on `type`. `redeemed`: the retry is billed as if
+      the conversation had been on the retry model all along — including when the
+      resulting shift is zero because there was nothing to move. `not_applied`:
+      no reprice was applied; the arm's `reason` says why.
+
+      - `class BetaFallbackCreditRedeemed: …`
+
+        The reprice was applied: the retry is billed as if the conversation
+        had been on the retry model all along.
+
+        - `type: Literal["redeemed"]`
+
+          default: redeemed
+
+      - `class BetaFallbackCreditNotApplied: …`
+
+        No reprice was applied; `reason` says why.
+
+        - `reason: Literal["body_mismatch", "continuation_excluded", "continuation_only", 9 more]`
+
+          Why the reprice was not applied.
+
+          A closed enum; additions to the redemption-check vocabulary arrive as
+          deliberate schema updates.
+
+          - `"body_mismatch"`
+
+          - `"continuation_excluded"`
+
+          - `"continuation_only"`
+
+          - `"expired"`
+
+          - `"invalid_target_model"`
+
+          - `"not_enabled"`
+
+          - `"reprice_unavailable"`
+
+          - `"temporarily_unavailable"`
+
+          - `"variant_fields_present"`
+
+          - `"wrong_organization"`
+
+          - `"wrong_platform"`
+
+          - `"wrong_workspace"`
+
+        - `type: Literal["not_applied"]`
+
+          default: not_applied
+
+        - `remove_to_redeem: Optional[List[str]]`
+
+          Request fields to remove before retrying, so the retry can redeem this
+          token.
+
+          Present exactly when `reason` is `variant_fields_present` — never null,
+          never an empty array; absent otherwise. Fields are named only from your own request, and only after
+          the sealed variant hash matched. A served best-effort retry has already
+          been billed at normal price; nothing redeems retroactively, but a corrected
+          re-send inside the token's five-minute window can still redeem.
+
+  - `inference_geo: Optional[str]`
+
+    The geographic region where inference was performed for this request.
+
+  - `input_tokens: int`
+
+    The number of input tokens which were used.
+
+    minimum: 0
+
+  - `iterations: Optional[BetaIterationsUsage]`
+
+    Per-iteration token usage breakdown.
+
+    Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
+
+    - Determine which iterations exceeded long context thresholds (>=200k tokens)
+    - Calculate the context window size from the last `message` entry
+    - Understand token accumulation across server-side tool use loops
+
+    A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
+
+    - `class BetaMessageIterationUsage: …`
+
+      Token usage for a sampling iteration.
+
+      - `cache_creation: Optional[BetaCacheCreation]`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: int`
+
+        The number of input tokens used to create the cache entry.
+
+        default: 0, minimum: 0
+
+      - `cache_read_input_tokens: int`
+
+        The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
+
+      - `input_tokens: int`
+
+        The number of input tokens which were used.
+
+        minimum: 0
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+
+          The model that will complete your prompt.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `claude-sonnet-5` - High-performance model for coding and agents
+          - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
+          - `claude-mythos-5` - Most capable model for cybersecurity and biology research
+          - `claude-opus-5` - Powerful intelligence for long-running agents and coding
+          - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
+          - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
+          - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+          - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
+          - `claude-sonnet-4-6` - Best combination of speed and intelligence
+          - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
+          - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
+          - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
+          - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
+          - `claude-sonnet-4-5` - High-performance model for agents and coding
+          - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-sonnet-5"`
+
+            High-performance model for coding and agents
+
+          - `"claude-fable-5"`
+
+            Next generation of intelligence for the hardest knowledge work and coding problems
+
+          - `"claude-mythos-5"`
+
+            Most capable model for cybersecurity and biology research
+
+          - `"claude-opus-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-8"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-7"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-mythos-preview"`
+
+            New class of intelligence, strongest in coding and cybersecurity
+
+          - `"claude-opus-4-6"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-6"`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-opus-4-5-20251101"`
+
+            Powerful intelligence for long-running agents and coding
+
+          - `"claude-sonnet-4-5"`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"`
+
+            High-performance model for agents and coding
+
+        - `str`
+
+      - `output_tokens: int`
+
+        The number of output tokens which were used.
+
+        minimum: 0
+
+      - `type: Literal["message"]`
+
+        Usage for a sampling iteration
+
+        default: message
+
+    - `class BetaCompactionIterationUsage: …`
+
+      Token usage for a compaction iteration.
+
+      - `cache_creation: Optional[BetaCacheCreation]`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: int`
+
+        The number of input tokens used to create the cache entry.
+
+        default: 0, minimum: 0
+
+      - `cache_read_input_tokens: int`
+
+        The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
+
+      - `input_tokens: int`
+
+        The number of input tokens which were used.
+
+        minimum: 0
+
+      - `output_tokens: int`
+
+        The number of output tokens which were used.
+
+        minimum: 0
+
+      - `type: Literal["compaction"]`
+
+        Usage for a compaction iteration
+
+        default: compaction
+
+    - `class BetaAdvisorMessageIterationUsage: …`
+
+      Token usage for an advisor sub-inference iteration.
+
+      - `cache_creation: Optional[BetaCacheCreation]`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: int`
+
+        The number of input tokens used to create the cache entry.
+
+        default: 0, minimum: 0
+
+      - `cache_read_input_tokens: int`
+
+        The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
+
+      - `input_tokens: int`
+
+        The number of input tokens which were used.
+
+        minimum: 0
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `output_tokens: int`
+
+        The number of output tokens which were used.
+
+        minimum: 0
+
+      - `type: Literal["advisor_message"]`
+
+        Usage for an advisor sub-inference iteration
+
+        default: advisor_message
+
+    - `class BetaFallbackMessageIterationUsage: …`
+
+      Token usage for the fallback-model attempt of a server-side fallback request.
+
+      Produced in place of a `message` entry for whichever hop served the
+      response. A declined hop produces the existing `message` entry. Whether
+      a fallback model served the response is signalled by the presence of this
+      entry in `usage.iterations`.
+
+      - `cache_creation: Optional[BetaCacheCreation]`
+
+        Breakdown of cached tokens by TTL
+
+      - `cache_creation_input_tokens: int`
+
+        The number of input tokens used to create the cache entry.
+
+        default: 0, minimum: 0
+
+      - `cache_read_input_tokens: int`
+
+        The number of input tokens read from the cache.
+
+        default: 0, minimum: 0
+
+      - `input_tokens: int`
+
+        The number of input tokens which were used.
+
+        minimum: 0
+
+      - `model: Model`
+
+        The model that will complete your prompt.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `output_tokens: int`
+
+        The number of output tokens which were used.
+
+        minimum: 0
+
+      - `type: Literal["fallback_message"]`
+
+        Usage for the fallback-model attempt that served the response
+
+        default: fallback_message
+
+  - `output_tokens: int`
+
+    The number of output tokens which were used.
+
+    minimum: 0
+
+  - `output_tokens_details: Optional[BetaOutputTokensDetails]`
+
+    Breakdown of output tokens by category.
+
+    `output_tokens` remains the inclusive, authoritative total used for billing.
+    This object provides a read-only decomposition for observability — for example,
+    how many of the billed output tokens were spent on internal reasoning that may
+    have been summarized before being returned to you.
+
+    - `thinking_tokens: int`
+
+      Number of output tokens the model generated as internal reasoning, including
+      the thinking-block delimiter tokens.
+
+      Reflects the raw reasoning the model produced, not the (possibly shorter)
+      summarized thinking text returned in the response body. Computed by
+      re-tokenizing the raw reasoning text, so it may differ from the model's exact
+      generation count by a small number of tokens. Always ≤ `output_tokens`;
+      `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
+      default: 0, minimum: 0
+
+  - `server_tool_use: Optional[BetaServerToolUsage]`
+
+    The number of server tool requests.
+
+    - `web_fetch_requests: int`
+
+      The number of web fetch tool requests.
+
+      default: 0, minimum: 0
+
+    - `web_search_requests: int`
+
+      The number of web search tool requests.
+
+      default: 0, minimum: 0
+
+  - `service_tier: Optional[Literal["standard", "priority", "batch"]]`
+
+    If the request used the priority, standard, or batch tier.
+
+    - `"standard"`
+
+    - `"priority"`
+
+    - `"batch"`
+
+  - `speed: Optional[Literal["standard", "fast"]]`
+
+    Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+    - `"standard"`
+
+    - `"fast"`
+
+### Beta User Location
+
+- `class BetaUserLocation: …`
+
+  - `type: Literal["approximate"]`
+
+  - `city: Optional[str]`
+
+    The city of the user.
+
+    maxLength: 255, minLength: 1
+
+  - `country: Optional[str]`
+
+    The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
+
+    maxLength: 2, minLength: 2
+
+  - `region: Optional[str]`
+
+    The region of the user.
+
+    maxLength: 255, minLength: 1
+
+  - `timezone: Optional[str]`
+
+    The [IANA timezone](https://nodatime.org/TimeZones) of the user.
+
+    maxLength: 255, minLength: 1
+
+### Beta Web Fetch Block
+
+- `class BetaWebFetchBlock: …`
+
+  - `content: BetaDocumentBlock`
+
+    - `citations: Optional[BetaCitationConfig]`
+
+      Citation configuration for the document
+
+      - `enabled: bool`
+
+        default: false
+
+    - `source: Source`
+
+      - `class BetaBase64PDFSource: …`
+
+        - `data: str`
+
+          format: byte
+
+        - `media_type: Literal["application/pdf"]`
+
+        - `type: Literal["base64"]`
+
+      - `class BetaPlainTextSource: …`
+
+        - `data: str`
+
+        - `media_type: Literal["text/plain"]`
+
+        - `type: Literal["text"]`
+
+    - `title: Optional[str]`
+
+      The title of the document
+
+    - `type: Literal["document"]`
+
+      default: document
+
+  - `retrieved_at: Optional[str]`
+
+    ISO 8601 timestamp when the content was retrieved
+
+  - `type: Literal["web_fetch_result"]`
+
+    default: web_fetch_result
+
+  - `url: str`
+
+    Fetched content URL
+
+### Beta Web Fetch Block Param
+
+- `class BetaWebFetchBlockParam: …`
+
+  - `content: BetaRequestDocumentBlock`
+
+    - `source: Source`
+
+      - `class BetaBase64PDFSource: …`
+
+        - `data: str`
+
+          format: byte
+
+        - `media_type: Literal["application/pdf"]`
+
+        - `type: Literal["base64"]`
+
+      - `class BetaPlainTextSource: …`
+
+        - `data: str`
+
         - `media_type: Literal["text/plain"]`
 
         - `type: Literal["text"]`
@@ -3473,13 +4352,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["enabled"]`
 
-            - `display: Optional[Literal["summarized", "omitted"]]`
+            - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
               Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
               - `"summarized"`
 
               - `"omitted"`
+
+              - `"updates"`
 
           - `class BetaThinkingConfigDisabled: …`
 
@@ -3489,13 +4370,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["adaptive"]`
 
-            - `display: Optional[Literal["summarized", "omitted"]]`
+            - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
               Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
               - `"summarized"`
 
               - `"omitted"`
+
+              - `"updates"`
 
       - `Literal["default"]`
 
@@ -5552,7 +6435,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -5621,6 +6504,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"agent-memory-2026-07-22"`
 
     - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
 
 - `user_profile_id: Optional[str]`
 
@@ -5812,7 +6709,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -5881,6 +6778,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"agent-memory-2026-07-22"`
 
     - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
 
 #### Returns
 
@@ -6066,7 +6977,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -6135,6 +7046,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"agent-memory-2026-07-22"`
 
     - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
 
 #### Returns
 
@@ -6316,7 +7241,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -6385,6 +7310,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"agent-memory-2026-07-22"`
 
     - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
 
 #### Returns
 
@@ -6560,7 +7499,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -6629,6 +7568,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"agent-memory-2026-07-22"`
 
     - `"mid-conversation-tool-changes-2026-07-01"`
+
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
 
 #### Returns
 
@@ -6696,7 +7649,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -6766,6 +7719,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
 #### Returns
 
 - `class BetaMessageBatchIndividualResponse: …`
@@ -6808,7 +7775,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             format: date-time
 
-          - `skills: Optional[List[BetaSkill]]`
+          - `skills: Optional[List[BetaContainerSkill]]`
 
             Skills loaded in the container
 
@@ -7805,6 +8772,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The policy category that triggered a refusal.
 
+                - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+                - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+                - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+                - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+                - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
+
                 - `"cyber"`
 
                   The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
@@ -7965,6 +8938,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `category: Optional[Literal["cyber", "bio", "frontier_llm", 2 more]]`
 
             The policy category that triggered a refusal.
+
+            - `cyber` - The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
+            - `bio` - The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
+            - `frontier_llm` - The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
+            - `reasoning_extraction` - The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
+            - `general_harms` - The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
             - `"cyber"`
 
@@ -8217,11 +9196,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Per-iteration token usage breakdown.
 
-            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
-            - Calculate the true context window size from the last iteration
+            - Calculate the context window size from the last `message` entry
             - Understand token accumulation across server-side tool use loops
+
+            A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
             - `class BetaMessageIterationUsage: …`
 

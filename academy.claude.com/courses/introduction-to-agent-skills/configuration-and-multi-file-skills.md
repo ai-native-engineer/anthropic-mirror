@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Use allowed-tools to restrict what Claude can do when a skill is active
 * Organize complex skills using progressive disclosure and multi-file structures
 
-## Configuration and multi-file skills
+## Configuration and multi-file skills[](#configuration-and-multi-file-skills)
 
 Configuration and multi-file skills · 4 min
+
+SummaryTranscript
 
 This video covers the advanced techniques that make skills more powerful:
 the full set of metadata fields, how to write descriptions that trigger
@@ -28,7 +30,7 @@ organizing larger skills across multiple files using progressive
 disclosure. You'll learn how to keep your skills efficient while still
 supporting complex use cases.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **`name` and `description` are required** — `allowed-tools` and `model` are optional but powerful additions
 * A good description **answers two questions**: What does the skill do? When should Claude use it?
@@ -38,7 +40,7 @@ supporting complex use cases.
 
 A basic skill works with just a name and description, but there are several advanced techniques that can make your skills much more effective in Claude Code. Let's walk through the key fields, best practices for descriptions, tool restrictions, and how to structure larger skills.
 
-## Skill Metadata Fields
+## Skill Metadata Fields[](#skill-metadata-fields)
 
 The agent skills open standard supports several fields in the SKILL.md frontmatter. Two are required, and the rest are optional:
 
@@ -47,7 +49,7 @@ The agent skills open standard supports several fields in the SKILL.md frontmatt
 * **allowed-tools** (optional) — Restricts which tools Claude can use when the skill is active.
 * **model** (optional) — Specifies which Claude model to use for the skill.
 
-## Writing Effective Descriptions
+## Writing Effective Descriptions[](#writing-effective-descriptions)
 
 Be explicit with your instructions. If someone told you "your job is to help with docs," you wouldn't know what to do — and Claude thinks the same way.
 
@@ -58,7 +60,7 @@ A good description answers two questions:
 
 If your skill isn't triggering when you expect it to, try adding more keywords that match how you actually phrase your requests. The description is what Claude uses to decide whether a skill is relevant, so the language matters.
 
-## Restricting Tools with allowed-tools
+## Restricting Tools with allowed-tools[](#restricting-tools-with-allowed-tools)
 
 Sometimes you want a skill that can only read files, not modify them. This is useful for security-sensitive workflows, read-only tasks, or any situation where you want guardrails.
 
@@ -79,7 +81,7 @@ model: sonnet
 
 If you omit `allowed-tools` entirely, the skill doesn't restrict anything. Claude uses its normal permission model.
 
-## Progressive Disclosure
+## Progressive Disclosure[](#progressive-disclosure)
 
 Skills share Claude's context window with your conversation. When Claude activates a skill, it loads the contents of that SKILL.md into context. But sometimes you need references, examples, or utility scripts that the skill depends on.
 
@@ -101,7 +103,7 @@ In this example, Claude reads `architecture-guide.md` only when someone asks abo
 
 A good rule of thumb: **keep SKILL.md under 500 lines**. If you're exceeding that, consider whether the content should be split into separate reference files.
 
-## Using Scripts Efficiently
+## Using Scripts Efficiently[](#using-scripts-efficiently)
 
 Scripts in your skill directory can run without loading their contents into context. The script executes and only the output consumes tokens. The key instruction to include in your SKILL.md is to tell Claude to *run* the script, not *read* it.
 
@@ -111,12 +113,12 @@ This is particularly useful for:
 * Data transformations that need to be consistent
 * Operations that are more reliable as tested code than generated code
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Think about a skill you'd like to build that involves multiple files. How would you structure the SKILL.md versus supporting reference files?
 * Are there workflows in your team where restricting tool access with `allowed-tools` would add an important safety layer?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll compare skills to the other ways you can customize Claude Code — CLAUDE.md, subagents, hooks, and MCP servers — so you can choose the right tool for each situation.
 

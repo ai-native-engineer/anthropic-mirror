@@ -16,7 +16,7 @@ You can build your own custom tools, but some capabilities are common enough
 that Anthropic ships them pre-built. You don't write the code. You don't
 host the sandbox. You just declare the tool, and Anthropic runs it.
 
-## Server tools: declared by you, run by Anthropic
+## Server tools: declared by you, run by Anthropic[](#server-tools-declared-by-you-run-by-anthropic)
 
 Anthropic provides **server tools** that run on their infrastructure. You don't execute these — Anthropic does. That means you don't need an agent loop for these calls. Claude calls the tools on its own, and the result comes back inside the same response.
 
@@ -26,7 +26,7 @@ The main ones are:
 * **Code execution** — writes and runs Python in a sandbox
 * **Web fetch** — retrieves full content from URLs
 
-## Two server tools in one file
+## Two server tools in one file[](#two-server-tools-in-one-file)
 
 Let's check out some of the big ones in one file: two `messages.create` calls, one with web search and one with code execution.
 
@@ -77,7 +77,7 @@ Two things to notice:
 1. **There's no agent loop here.** We don't switch on `stop_reason`. We don't push tool results back. Anthropic runs the tool server-side, and the response already contains the result.
 2. **The response has new block types.** A `server_tool_use` block for the tool call, a code execution tool result block for the output, plus the regular `text` blocks.
 
-## Running it
+## Running it[](#running-it)
 
 For web search, you'll see Claude's tool call printed, then a one-sentence answer about the latest model release with the search citations folded in.
 
@@ -85,7 +85,7 @@ For code execution, you'll see the actual Python Claude wrote, the stdout from t
 
 We didn't have to spin up a search crawler. We didn't run a Python sandbox. We declared two tools and got both for free.
 
-## The other category: client tools
+## The other category: client tools[](#the-other-category-client-tools)
 
 Worth knowing the other category exists. **Client tools** run where your code runs. Anthropic publishes their schemas and trains Claude on them, so you don't have to define the schema yourself. Two examples:
 
@@ -96,7 +96,7 @@ Worth knowing the other category exists. **Client tools** run where your code ru
 
 They have the same shape as a custom tool, but the SDK gives you the schema and a sensible runner.
 
-## Why this matters in production
+## Why this matters in production[](#why-this-matters-in-production)
 
 In a production app, this is the shortest path to features that would otherwise take weeks. Web search can power a fact-check endpoint that verifies every numeric and regulatory claim in a draft against the live web.
 
@@ -104,7 +104,7 @@ In a production app, this is the shortest path to features that would otherwise 
 
 One reminder, though: just because something is validated on the internet doesn't mean it's true. Always double-check Claude's work.
 
-## Recap
+## Recap[](#recap)
 
 * **Server tools** — web search, code execution, web fetch — are declared in your `tools` array. Anthropic runs them.
 * You get the result in the same response, with **no agent loop required**. Look for `server_tool_use` and tool result blocks alongside the regular text blocks.

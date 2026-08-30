@@ -12,13 +12,13 @@ Lesson 342 min
 
 Retrieval Augmented Generation (RAG) is a technique that helps you work with large documents when using Claude. Instead of cramming an entire 800-page financial report into a single prompt, RAG lets you intelligently find and include only the most relevant sections for each question.
 
-## The Problem with Large Documents
+## The Problem with Large Documents[](#the-problem-with-large-documents)
 
 Imagine you have a massive financial document and want to ask Claude specific questions about it, like "What risk factors does this company have?" You face a fundamental challenge: how do you get the right information from the document into Claude so it can answer your question effectively?
 
 ![](https://academy.claude.com/assets/media/aa2d6dcef1136beb3f94eac3d88c0e58c286f71cf7e6ba9c5711a9d75d987d86.png)
 
-## Option 1: Include Everything in the Prompt
+## Option 1: Include Everything in the Prompt[](#option-1-include-everything-in-the-prompt)
 
 The first approach seems straightforward - extract all the text from the document and stuff it directly into your prompt along with the user's question.
 
@@ -30,7 +30,7 @@ This approach has several problems:
 * Claude becomes less effective with very long prompts
 * Larger prompts cost more money and take longer to process
 
-## Option 2: Break Documents into Chunks
+## Option 2: Break Documents into Chunks[](#option-2-break-documents-into-chunks)
 
 The second approach is more sophisticated. You break the document into smaller chunks during a preprocessing step, then find and include only the chunks relevant to each user question.
 
@@ -40,14 +40,14 @@ Here's how it works: when a user asks "What risks does this company face?", you 
 
 ![](https://academy.claude.com/assets/media/b28946e9396a7c6f9015727c34b282669ab472c30081b79cb1639c85df4c40e0.png)
 
-## Benefits of the Chunking Approach
+## Benefits of the Chunking Approach[](#benefits-of-the-chunking-approach)
 
 * Claude can focus on only the most relevant content
 * Scales up to very large documents
 * Works with multiple documents
 * Smaller prompts cost less and run faster
 
-## Challenges with Chunking
+## Challenges with Chunking[](#challenges-with-chunking)
 
 * Requires a preprocessing step to split documents
 * Need a searching mechanism to find "relevant" chunks
@@ -56,7 +56,7 @@ Here's how it works: when a user asks "What risks does this company face?", you 
 
 For example, if you only include the "Risk Factors" section, you might miss important context from the "Strategy Outlook" section that addresses how the company plans to handle those risks.
 
-## This is RAG
+## This is RAG[](#this-is-rag)
 
 Option 2 is Retrieval Augmented Generation. Despite its complexity, RAG offers significant advantages for working with large documents, but it comes with technical challenges that require careful consideration.
 

@@ -20,7 +20,7 @@ writing tests, or checking documentation. They are defined as markdown
 files with YAML frontmatter that tell Claude when to use the subagent and
 how the subagent should behave.
 
-## Creating a Subagent
+## Creating a Subagent[](#creating-a-subagent)
 
 The easiest way to create a subagent is with the `/agents` slash command. This opens the main interface for managing your subagents. From there, select **Create new agent**.
 
@@ -33,7 +33,7 @@ Next, you can choose how to create it. You can write the configuration manually,
 
 ![The /agents create-new-agent flow in Claude Code, with "Generate with Claude (recommended)" and "Manual configuration" as creation methods](https://academy.claude.com/assets/media/a82911f1b12df018d76a39f0b345bbfc036fd606e14b9483bedcaa0728bad8eb.png)
 
-## Customizing Tools
+## Customizing Tools[](#customizing-tools)
 
 During creation, you get the chance to customize which tools the subagent can access. The tool categories include:
 
@@ -47,7 +47,7 @@ During creation, you get the chance to customize which tools the subagent can ac
 
 Think about what your subagent actually needs. A code reviewer probably does not need edit tools -- it should read and analyze code, not change it. However, you might want to keep execution tools enabled so it can more easily identify pending changes.
 
-## Choosing a Model and Color
+## Choosing a Model and Color[](#choosing-a-model-and-color)
 
 After configuring tools, you select which Claude model powers the subagent. Your options are:
 
@@ -60,7 +60,7 @@ Finally, you pick a color. This shows up in the UI so you can quickly tell which
 
 ![The "Choose background color" step of agent creation, showing a list of colors and a preview of the code-quality-reviewer name highlighted in cyan](https://academy.claude.com/assets/media/7683fa4f41735f99fdbe5f735f7d2e274aeef6157cf040b76f2e5e5ce7e36e0d.png)
 
-## The Config File
+## The Config File[](#the-config-file)
 
 Once creation is complete, the subagent config file is saved into your project (typically at `.claude/agents/your-agent-name.md`). Here is what a typical subagent config looks like:
 
@@ -88,13 +88,13 @@ Let's break down each field:
 * **`model`** -- Specifies which Claude model to use: `sonnet`, `opus`, `haiku`, or `inherit`.
 * **`color`** -- The UI color for identifying the subagent.
 
-## System Prompts
+## System Prompts[](#system-prompts)
 
 The body of the markdown file (everything below the YAML frontmatter) is the system prompt. This is where you give the subagent its instructions: what it should focus on, how it should analyze things, and how it should report findings back to the main agent.
 
 A well-written system prompt is the difference between a useful subagent and one that misses the point. Be specific about what the subagent should look for and how it should structure its output.
 
-## Making Claude Use Your Subagent Automatically
+## Making Claude Use Your Subagent Automatically[](#making-claude-use-your-subagent-automatically)
 
 If you want Claude to delegate tasks to the subagent without you explicitly asking, include the word **"proactively"** in the description field. For example:
 
@@ -106,7 +106,7 @@ description: Proactively suggest running this agent after major code changes...
 
 You can also add example conversations to the description to help Claude understand specific scenarios where the subagent should be used. The more concrete your examples, the better Claude gets at knowing when to delegate.
 
-## Testing Your Subagent
+## Testing Your Subagent[](#testing-your-subagent)
 
 After creating your subagent, test it by making some code changes and asking Claude to review them.
 

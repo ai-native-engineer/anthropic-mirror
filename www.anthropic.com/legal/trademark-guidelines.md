@@ -16,5 +16,3 @@ These guidelines apply to your use of any trademarks owned by Anthropic, PBC or 
 **Inquiries/Press Releases**
 
 If you have an existing business relationship with Anthropic and want to use our trademarks in a press release, on your website, or in another context, please email marketing@anthropic.com.
-
-Anthropic Trademark Guidelines \ Anthropic

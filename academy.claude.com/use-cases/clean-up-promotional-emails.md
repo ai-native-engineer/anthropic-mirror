@@ -16,7 +16,7 @@ Get Claude in ChromeCopy prompt
 
 ![Clean up promotional emails result](https://academy.claude.com/assets/v1/clean-up-promotional-emails-cmtrslyu.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Promotional emails accumulate faster than you can unsubscribe. Claude in Chrome can scan through your inbox, identify marketing emails, newsletters, and automated notifications, then present them as a list for you to review before deleting in bulk.
 
@@ -41,15 +41,15 @@ Find emails I likely don't need so I can review and bulk delete.
 
 Copy prompt
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude works within your Gmail session. It can read email content, see sender information, and check whether you've opened messages. It only takes action when you confirm.
 
-### Required context
+### Required context[](#required-context)
 
 Before starting your Claude in Chrome session, make sure you're logged into your Gmail account.
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude uses your session to scan and sort through your inbox. Claude presents what it found, organized for your review.
 
@@ -89,11 +89,11 @@ I left alone:
 
 Ready to delete all 847, or would you like to keep any of these senders?
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Adjust and proceed
+### Adjust and proceed[](#adjust-and-proceed)
 
 Keep certain senders or categories, then confirm the deletion.
 
@@ -101,7 +101,7 @@ Keep Morning Brew and the Figma updates. Delete everything else.
 
 Copy prompt
 
-### Unsubscribe from unwanted messages
+### Unsubscribe from unwanted messages[](#unsubscribe-from-unwanted-messages)
 
 For senders that keep filling your inbox, have Claude unsubscribe instead of just deleting.
 
@@ -109,7 +109,7 @@ For the retailers with more than 15 emails, go through and unsubscribe me instea
 
 Copy prompt
 
-### Flag subscription emails you may have missed
+### Flag subscription emails you may have missed[](#flag-subscription-emails-you-may-have-missed)
 
 While scanning emails, Claude can spot receipts and payment confirmations from services you might have forgotten about.
 
@@ -117,21 +117,21 @@ While you're in there, can you find any recurring payment emails? I want to see 
 
 Copy prompt
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Permissions before taking actions
+### Permissions before taking actions[](#permissions-before-taking-actions)
 
 Before clicking "send," "publish," "post," "submit," or similar action buttons, Claude asks for approval. This includes sending emails, posting to social media, submitting forms, or messaging others on your behalf.
 
-### Save and schedule tasks with shortcut
+### Save and schedule tasks with shortcut[](#save-and-schedule-tasks-with-shortcut)
 
 Once your cleanup prompt works well, click the shortcut button below the prompt to save it as a shortcut. Next time, just type "/" to view the command instead of rewriting the whole prompt. Alternatively, you can schedule the shortcut to run automatically.
 
-### Claude keeps working in the background
+### Claude keeps working in the background[](#claude-keeps-working-in-the-background)
 
 Claude keeps scanning even when you switch to other tabs—as long as Chrome is open. Turn on notifications in extension settings to get alerted when Claude finishes or needs your approval. You'll see a desktop notification when the cleanup list is ready.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 [Claude in Chrome(opens in new tab)](https://claude.com/chrome) is available to all paid plan users. [Install the extension(opens in new tab)](https://claude.com/download), sign in with your Claude account, and try this workflow on your inbox today. Pin the extension to your toolbar for quick access.
 

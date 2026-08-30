@@ -29,17 +29,17 @@ There's a wide gap between chatting with Claude in a browser tab and building Cl
 
 This course teaches developers to build on the Claude Platform from the ground up, whether you've made a few API calls or have only used Claude through a chat window. We start from first principles: what an API request contains, what an agent loop is, how the context window bounds what Claude can see, and how tools and permissions decide what it can do. The techniques later in the course then land as understanding instead of a list of calls to copy.
 
-You'll send your first request and read the response, then choose the right model for a job (Fable, Opus, Sonnet, or Haiku) and weigh the cost-and-latency trade-off on your own examples instead of guessing. From there you'll build the agent loop by hand to see how Claude acts, observes, and decides, then collapse that hand-written loop with the SDK's Tool Runner once you understand what it does for you. You'll give Claude reach through tool use, let it reason through hard problems with extended thinking, and keep spend predictable with workspaces, limits, and the Console Workbench.
+You'll send your first request and read the response, then choose the right model for a job (Fable, Opus, Sonnet, or Haiku) and weigh the cost-and-latency trade-off on your own examples instead of guessing. From there you'll build the agent loop by hand to see how Claude acts, observes, and decides, then collapse that hand-written loop with the SDK's Tool Runner once you understand what it does for you. You'll give Claude reach through tool use, let it reason through hard problems with extended thinking, and keep spend predictable with workspaces, limits, and the Console Playground.
 
 The middle of the course extends an agent beyond your own code: Anthropic's built-in tools (web search, code execution, web fetch) that run on Anthropic's infrastructure, Skills that package a procedure once and reuse it across calls, MCP servers that connect Claude to third-party tools without writing a schema, and the context-management patterns that keep a long-running agent inside the window and affordable past turn ten.
 
 The final section hands work off. You'll learn when to run your own loop and when to let Anthropic run a sandboxed, managed agent for you, then build one end to end, consuming the event stream as Anthropic runs the loop and reports back. A standalone lesson shows you how to build with the API using Claude Code itself, which is also why the rest of the course matters: you need to know what good code looks like to review what an agent writes for you. Every lesson ends with a runnable demo, so you finish each one with working code.
 
-## Recommended prerequisites
+## Recommended prerequisites[](#recommended-prerequisites)
 
 Comfort reading and writing code in at least one language, plus basic command-line familiarity. The demos use the TypeScript SDK (`@anthropic-ai/sdk`) with Node and npm. You don't need to be a TypeScript expert, but you should be able to follow along and run a script. (The platform also offers a Python SDK; the course examples are in TypeScript.) You'll need a Claude Console account and an API key from platform.claude.com, plus a small amount of prepaid credit to run the examples. You don't need prior experience building with LLMs.
 
-## Who this is for
+## Who this is for[](#who-this-is-for)
 
 Developers who've used Claude in a chat window and want to build it into their own applications, whether you're adding AI features to an existing product or prototyping an agent from scratch. If you've sent a handful of API calls but stalled at "how do I make this act on its own" or "how do I connect it to my real systems," this course is the bridge from a single request to a production agent. You don't need prior agent experience; each lesson builds on the one before it.
 

@@ -12,11 +12,11 @@ Lesson 308 min
 
 Earlier in this course, we covered how to get structured output from Claude using message pre-fills and stop sequences. While that approach works well and is easy to set up, we can get more reliable output using tools. This method is more complex to implement, but it provides better consistency when extracting structured data like JSON.
 
-## Why Learn Both Approaches?
+## Why Learn Both Approaches?[](#why-learn-both-approaches)
 
 You might wonder why we didn't just start with tools if they're more reliable. The answer is simple: tools require significantly more setup and complexity. Having both techniques available gives you flexibility - sometimes you'll want the quick prompt-based approach, other times you'll need the reliability that tools provide.
 
-## How Tool-Based Structured Output Works
+## How Tool-Based Structured Output Works[](#how-tool-based-structured-output-works)
 
 The core concept is straightforward: instead of asking Claude to format its response as JSON, you create a tool whose input parameters match the exact structure of data you want to extract. Claude then "calls" this tool with the extracted data as arguments.
 
@@ -34,7 +34,7 @@ Here's the process:
 
 The flow looks like this: your server sends a prompt asking Claude to analyze data and call a specific tool. Claude responds with a tool use message containing the extracted JSON data. At that point, you simply take the data and end the conversation - no follow-up needed.
 
-## Controlling Tool Usage
+## Controlling Tool Usage[](#controlling-tool-usage)
 
 When using tools for structured output, you want to guarantee that Claude uses your extraction tool. The `toolChoice` parameter gives you three options:
 
@@ -46,7 +46,7 @@ When using tools for structured output, you want to guarantee that Claude uses y
 
 For structured output, you'll almost always want the third option to ensure Claude uses your extraction tool.
 
-## Practical Example
+## Practical Example[](#practical-example)
 
 Let's say you want to extract the title, author, and key topics from an article. First, you'd create a tool schema:
 
@@ -101,7 +101,7 @@ result = chat(messages, tools=[article_details_schema], tool_choice="article_det
 
 Claude will respond with a tool use message containing the extracted data in the exact format you specified. The tool call arguments will contain your structured JSON data, ready to use in your application.
 
-## Key Benefits
+## Key Benefits[](#key-benefits)
 
 * More reliable than prompt-based extraction
 * Guaranteed structure matching your schema

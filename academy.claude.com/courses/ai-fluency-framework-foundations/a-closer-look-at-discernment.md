@@ -16,9 +16,11 @@ In this lessonBy the end, you’ll be able to
 * Develop critical thinking skills for your AI interactions
 * Learn to identify and address quality concerns in your AI interactions
 
-## A Closer Look at Discernment
+## A Closer Look at Discernment[](#a-closer-look-at-discernment)
 
 A closer look at Discernment
+
+SummaryTranscript
 
 This video explores Discernment, the AI Fluency competency focused on
 thoughtfully evaluating AI outputs, processes, and behaviors. We explain
@@ -33,7 +35,7 @@ of Discernment:
 
 Together, these skills help ensure that your AI collaboration remains guided by thoughtful human judgment.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Discernment is your ability to thoughtfully evaluate what AI produces, how it produces it, and how it behaves
 * Product Discernment focuses on evaluating the quality of actual outputs (accuracy, appropriateness, coherence, relevance)
@@ -42,7 +44,7 @@ Together, these skills help ensure that your AI collaboration remains guided by 
 * Discernment works hand-in-hand with Description in a continuous feedback loop
 * Even the most advanced AI systems benefit from human judgment and oversight
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Expert Discernment: Evaluating AI Responses in Your Domain
 
@@ -104,7 +106,7 @@ Discuss with Claude (in the same chat):
 
 **For a more playful Discernment workout, you might want to try some of the “Game Night” suggestions in the final lesson ("Additional Activities").**
 
-### Reflection
+### Reflection[](#reflection)
 
 Before moving on, take a moment to consider:
 
@@ -112,7 +114,7 @@ Before moving on, take a moment to consider:
 * How does Discernment complement Description? How do they work together?
 * What signals or patterns might indicate that an AI output requires closer scrutiny?
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, you'll have the opportunity to apply both Description and Discernment skills to your overarching course project. You'll put into practice what you've learned about effectively communicating with AI and critically evaluating its outputs to produce results that leverage the best of both human and AI capabilities.
 

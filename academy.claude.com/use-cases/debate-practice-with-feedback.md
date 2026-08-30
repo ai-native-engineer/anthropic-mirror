@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Debate practice with feedback result](https://academy.claude.com/assets/v1/debate-practice-with-feedback-icpjw36x.png)[Open artifact](https://claude.ai/public/artifacts/be7d1d44-6c98-4a09-af20-38d51d5cd441)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude takes your position and can research opposing viewpoints at depth. It can then turn that research into an interactive practice environment where you test your responses and get immediate feedback.
 
@@ -30,25 +30,17 @@ The artifact's design should be offwhite with grayscale foundation with desatura
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Enable the right capabilities for Claude to build interactive tools.
 
-### Required context
+### Required context[](#required-context)
 
 In Settings under [Capabilities(opens in new tab)](https://claude.ai/settings/capabilities), enable [AI-powered artifacts(opens in new tab)](https://www.anthropic.com/news/build-artifacts).
 
 This lets Claude create interactive web applications that use Claude's reasoning—your debate simulator will generate counterarguments and evaluate your responses in real-time, all within the tool itself.
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for higher-quality file creation.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude researches the strongest intellectual opposition to your position, then creates an interactive practice simulator where you defend your arguments against a challenging opponent. The artifact uses Claude's API to generate intelligent counterarguments in real-time, evaluate your responses, and adapt the difficulty based on your performance.
 
@@ -77,11 +69,11 @@ Analysis Phase:
 
 [**View your interactive debate artifact**(opens in new tab)](https://claude.ai/public/artifacts/be7d1d44-6c98-4a09-af20-38d51d5cd441)
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Analyze your weaknesses
+### Analyze your weaknesses[](#analyze-your-weaknesses)
 
 Get detailed feedback on where your arguments fell short
 
@@ -89,7 +81,7 @@ Review my responses from the practice session. From each weak point you identifi
 
 Open in Claude
 
-### Create response cards for predictable questions
+### Create response cards for predictable questions[](#create-response-cards-for-predictable-questions)
 
 Identify the 5-10 topics or questions you're most likely to get and prepare strong answers. Claude can predict common challenges based on your position, then help you craft concise responses you can practice until they're natural.
 
@@ -97,7 +89,7 @@ Based on my position, what are the 5 questions I'm most likely to get asked? For
 
 Open in Claude
 
-### Handle specific rhetorical tactics
+### Handle specific rhetorical tactics[](#handle-specific-rhetorical-tactics)
 
 Prepare for the ways opponents actually derail arguments—emotional appeals, false equivalencies, moving goalposts. Claude can simulate these tactics and show you how to redirect without appearing defensive or dismissive.
 
@@ -105,21 +97,21 @@ My opponent tends to pivot to emotional stories when data doesn't support their 
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Ask for the research first, then practice
+### Ask for the research first, then practice[](#ask-for-the-research-first-then-practice)
 
 Don't jump straight into the practice tool. Say: "Show me the research brief first, then create the simulator." This gives you time to understand the strongest opposing arguments before you start defending your position.
 
-### Customize the artifact's design
+### Customize the artifact's design[](#customize-the-artifacts-design)
 
 To add unique styling to your debate artifact, tell Claude about your favorite brands, design works, or aesthetic preferences—or paste in code snippets from designs you like. Browse the [artifact gallery(opens in new tab)](https://claude.ai/artifacts) to see what's possible and find inspiration. When you find an artifact you like, click on it and select "View full chat" to see the code used to build it. You can copy and paste this code into Claude and ask to adapt the style for your artifact
 
-### AI-powered artifacts
+### AI-powered artifacts[](#ai-powered-artifacts)
 
 This debate simulator uses Claude within the tools in real-time, so the opposing arguments adapt to your specific position, generating intelligent counterarguments on demand—not pre-written responses. Learn more about [AI-powered artifacts(opens in new tab)](https://claude.ai/artifacts).
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Practice against the strongest opposition before the real debate—Claude researches counterarguments and builds you an interactive tool that shows exactly where your reasoning breaks down.
 

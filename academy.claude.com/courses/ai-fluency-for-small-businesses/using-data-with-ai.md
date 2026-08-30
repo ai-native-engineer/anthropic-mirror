@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Articulate privacy concerns and evaluate AI tools based on their data handling policies
 * Practice data hygiene strategies for safely working with sensitive business information
 
-## The Delegation-Diligence Loop
+## The Delegation-Diligence Loop[](#the-delegation-diligence-loop)
 
 Transparent AI use · 7 min
 
@@ -42,7 +42,7 @@ Hand offThe LoopValidate
 
 Own what comes back.Did AI get this right, and am I owning the result? Verify against what you know, be transparent about AI's role, and stand behind the output.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **AI introduces new privacy considerations** — some tools use your inputs to train future models.
 * **Match the tool to the task** — higher sensitivity data needs stricter privacy settings.
@@ -51,7 +51,7 @@ Own what comes back.Did AI get this right, and am I owning the result? Verify ag
 * **Build validated approaches, not blind trust:** document what works so you can replicate it next time.
 * **AI can help even if you're not data-savvy** — brainstorming, spreadsheet formulas, and plain-language explanations of your numbers.
 
-## Exercises
+## Exercises[](#exercises)
 
 *These three exercises run as a sequence: you'll choose a piece of real business data, prepare it safely for AI, and then evaluate and own what comes back. Together they walk you through one complete Delegation–Diligence loop with your own data.*
 
@@ -72,13 +72,13 @@ Your Delegation move — deciding what data is appropriate to bring to AI and wh
 
    This is your brief. The clearer it is, the easier it will be to evaluate what comes back.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How does AI privacy compare to how you already think about your other business software?
 * What's one change you'll make to how you share business data with AI?
 * Which category of sensitive data feels most important to protect, and what's your plan for it?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll put all four dimensions of the 4D Framework together to automate a full business workflow from start to finish.
 

@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Understand what the 4D Framework covers and how this course is structured
 * Identify your objectives for integrating AI tools and capability in your work
 
-## Welcome to AI Fluency for pK–12 educators
+## Welcome to AI Fluency for pK–12 educators[](#welcome-to-ai-fluency-for-pk12-educators)
 
 Welcome to AI Fluency for educators · 4 min
 
@@ -48,14 +48,14 @@ Course roadmap
 
    Next stepsWhere to go from here to keep building your AI Fluency safely, effectively, and ethically.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **AI Fluency** is the ability to use AI in ways that are efficient, effective, ethical, and safe. It's a combination of practical skills, knowledge, insights, and values.
 * **The 4D Framework** consists of four interconnected competencies: Delegation, Description, Discernment, and Diligence.
 * **The Delegation-Diligence loop** supports thoughtful, responsible choices about when and how to use AI.
 * **The Description-Discernment loop** helps you get more out of your AI interactions through back and forth collaboration.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Get access to a language model
 
@@ -64,12 +64,12 @@ Throughout this course, you'll practice what you're learning by working directly
 1. **Choose a language model.** To create a Claude account, visit [claude.ai(opens in new tab)](https://claude.ai). No paid subscription is required to complete course activities. You can also use another language model if you prefer. A free account should suffice for all activities in this course.
 2. **Log in.** Start a new conversation. Now, you're ready to go!
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What's one thing you're hoping AI can help you do in your teaching practice?
 * What's one concern you're bringing into this course?
 
-## What's next
+## What's next[](#whats-next)
 
 You'll learn the 4D Framework: the foundational interconnected competencies that shape how you work with AI, both in your day-to-day interactions and in the bigger decisions about when and how to use it at all.
 

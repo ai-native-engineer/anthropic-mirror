@@ -10,13 +10,13 @@ Lesson 4 of 4 · AI Fluency for pK-12 Train the TrainerLearner workbook
 
 Lesson 415 min
 
-## The learner workbook
+## The learner workbook[](#the-learner-workbook)
 
 **An asset to pass to your learners.** Unlike the deck and facilitator guide, which are for you, this workbook is for the people you train. It turns the workshop into something they do: a warm-up reflection, the core 4D activities, a delegation matrix, and a commitment to close.
 
 **How to use it.** Try the workbook below yourself first. Then use the buttons at the bottom to download it as an HTML file (a fillable copy you can email or post) or a PDF (a printable version). Each learner's responses stay on their own device.
 
-## What's next
+## What's next[](#whats-next)
 
 That's the full Train the Trainer kit: the deck, the facilitator guide, and the learner workbook. Take them back to your building, adapt them to your room, and lead your colleagues through the 4D Framework, delivered in your voice. Revisit **AI Fluency for pK-12 Educators** any time to keep deepening your own practice.
 

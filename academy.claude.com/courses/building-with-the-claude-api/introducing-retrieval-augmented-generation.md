@@ -12,13 +12,13 @@ Lesson 325 min
 
 Retrieval Augmented Generation (RAG) is a technique that helps you work with large documents that are too big to fit into a single prompt. Instead of cramming everything into one massive prompt, RAG breaks documents into chunks and only includes the most relevant pieces when answering questions.
 
-## The Problem with Large Documents
+## The Problem with Large Documents[](#the-problem-with-large-documents)
 
 Imagine you have an 800-page financial document and want to ask Claude specific questions about it, like "What risk factors does this company have?" You need to get the relevant information from the document to Claude somehow, but there are limits to how much text you can include in a prompt.
 
 ![](https://academy.claude.com/assets/media/9336e1577fd9c397b25891aef6ab72ae5cea185403ce12afb76a0566caf23337.jpg)
 
-## Option 1: Include Everything in the Prompt
+## Option 1: Include Everything in the Prompt[](#option-1-include-everything-in-the-prompt)
 
 The first approach is straightforward - extract all text from the document and stuff it into your prompt along with the user's question. Your prompt might look like this:
 
@@ -43,7 +43,7 @@ This approach has serious limitations:
 * Larger prompts cost more to process
 * Larger prompts take longer to process
 
-## Option 2: Break Documents into Chunks
+## Option 2: Break Documents into Chunks[](#option-2-break-documents-into-chunks)
 
 RAG takes a smarter approach. First, you break the document into smaller chunks during a preprocessing step. Then, when a user asks a question, you find the chunks most relevant to their question and only include those in your prompt.
 
@@ -53,14 +53,14 @@ Here's how it works: if someone asks "What risks does this company face?" you'd 
 
 ![](https://academy.claude.com/assets/media/c853f036f94bee925a22769e20c8725ceac55ea509fb3eb3541e39711327a239.jpg)
 
-## Benefits of RAG
+## Benefits of RAG[](#benefits-of-rag)
 
 * Claude can focus on only the most relevant content
 * Scales up to very large documents
 * Works with multiple documents
 * Smaller prompts cost less and run faster
 
-## Challenges with RAG
+## Challenges with RAG[](#challenges-with-rag)
 
 * Requires a preprocessing step to chunk documents
 * Need a search mechanism to find "relevant" chunks
@@ -69,7 +69,7 @@ Here's how it works: if someone asks "What risks does this company face?" you'd 
 
 For example, you could split documents into equal-sized portions, or you could create chunks based on document structure like headers and sections. Each approach has trade-offs you'll need to evaluate for your specific use case.
 
-## When to Use RAG
+## When to Use RAG[](#when-to-use-rag)
 
 RAG involves many technical decisions and requires more work than simply including everything in a prompt. You'll need to analyze whether the benefits outweigh the complexity for your particular application. It's especially valuable when working with very large documents, multiple documents, or when you need to optimize for cost and performance.
 

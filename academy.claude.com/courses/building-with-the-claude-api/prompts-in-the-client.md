@@ -14,7 +14,7 @@ Prompts in MCP define a set of user and assistant messages that can be used by t
 
 ![](https://academy.claude.com/assets/media/bef88ee945842a861b65523d7ad31701a48b3d65f806646cc12a7d1e567fc11c.jpg)
 
-## Implementing List Prompts
+## Implementing List Prompts[](#implementing-list-prompts)
 
 The first step is implementing the `list_prompts` method in your MCP client. This method retrieves all available prompts from the server:
 
@@ -28,7 +28,7 @@ async def list_prompts(self) -> list[types.Prompt]:
 
 This simple implementation calls the session's `list_prompts` method and returns the prompts array from the result.
 
-## Getting Individual Prompts
+## Getting Individual Prompts[](#getting-individual-prompts)
 
 The `get_prompt` method retrieves a specific prompt with arguments interpolated into it. When you request a prompt, you provide arguments that get passed to the prompt function as keyword arguments:
 
@@ -42,7 +42,7 @@ async def get_prompt(self, prompt_name, args: dict[str, str]):
 
 The method returns the messages from the result, which form a conversation that can be fed directly into Claude.
 
-## How Prompt Arguments Work
+## How Prompt Arguments Work[](#how-prompt-arguments-work)
 
 When you define a prompt function on the server side, it can accept parameters. For example, a document formatting prompt might expect a `doc_id` parameter:
 
@@ -55,7 +55,7 @@ def format_document(doc_id: str):
 
 When the client calls `get_prompt`, the arguments dictionary should contain the expected keys. The MCP server will pass these as keyword arguments to the prompt function, allowing dynamic content to be inserted into the prompt template.
 
-## Testing Prompts in the CLI
+## Testing Prompts in the CLI[](#testing-prompts-in-the-cli)
 
 Once implemented, you can test prompts through the command-line interface. When you type a forward slash, available prompts appear as commands. Selecting a prompt may prompt you to choose from available options (like document IDs), and then the complete prompt gets sent to Claude.
 
@@ -70,7 +70,7 @@ The workflow looks like this:
 
 ![](https://academy.claude.com/assets/media/54a5c301f264fa401686469980f42b8356d2fcd9b063c328129fc597a4915f92.jpg)
 
-## Prompt Best Practices
+## Prompt Best Practices[](#prompt-best-practices)
 
 When creating prompts for your MCP server:
 

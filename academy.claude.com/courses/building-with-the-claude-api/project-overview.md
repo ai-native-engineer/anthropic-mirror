@@ -16,7 +16,7 @@ We're going to build a practical project that teaches Claude how to set reminder
 
 The goal is straightforward: we want to be able to tell Claude "Set a reminder for my doctor's appointment. It's a week from Thursday" and have Claude respond with "OK, I will remind you." But to make this work, we need to address some limitations in how Claude handles time and reminders.
 
-## Why This Is Challenging
+## Why This Is Challenging[](#why-this-is-challenging)
 
 While Claude knows the current date, there are three specific problems we need to solve:
 
@@ -26,7 +26,7 @@ While Claude knows the current date, there are three specific problems we need t
 
 Each of these limitations represents a gap between what Claude can do naturally and what we need for our reminder system. Tools are how we bridge these gaps.
 
-## Tools We Need
+## Tools We Need[](#tools-we-need)
 
 ![](https://academy.claude.com/assets/media/d1042ce4670eec51e35842b37d919f53d8285a0da854a7661546e4e3b3ef62eb.png)
 

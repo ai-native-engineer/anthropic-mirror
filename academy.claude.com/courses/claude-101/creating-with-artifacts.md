@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Share artifacts with colleagues and publish them publicly
 * Troubleshoot common artifact issues
 
-## What are artifacts?
+## What are artifacts?[](#what-are-artifacts)
 
 Artifacts are standalone, interactive outputs that Claude creates in a dedicated window alongside your conversation. Instead of getting a long block of code or text buried in the chat, you see your content rendered and ready to use—whether that's a working website, an interactive chart, or a document you can immediately download.
 
@@ -27,7 +27,7 @@ Claude automatically creates an artifact when content meets certain criteria:
 * It represents complex content that stands on its own without needing the surrounding conversation
 * It's content you'll want to reference or use later
 
-## Common artifact types
+## Common artifact types[](#common-artifact-types)
 
 Claude can create different types of artifacts, each suited to different needs:
 
@@ -40,7 +40,7 @@ Claude can create different types of artifacts, each suited to different needs:
 
 Word documents, Excel spreadsheets, PowerPoint presentations, and PDFs work differently. Claude creates those through a separate file creation capability, not as artifacts, and returns them to you as files you can download.
 
-## Creating your first artifact
+## Creating your first artifact[](#creating-your-first-artifact)
 
 Creating an artifact is as simple as having a conversation. Just describe what you want, and Claude will determine whether to present it as an artifact.
 
@@ -60,7 +60,7 @@ When Claude generates an artifact, it appears in a dedicated window to the right
 * **Download files:** Save the artifact as a file to your computer
 * **View code:** See exactly what Claude generated under the hood
 
-## Sharing and publishing artifacts
+## Sharing and publishing artifacts[](#sharing-and-publishing-artifacts)
 
 Once you've created something useful, you have several options for sharing it.
 
@@ -75,7 +75,7 @@ Once you've created something useful, you have several options for sharing it.
 
 To publish, click the "Share" or "Publish" button in the upper right corner of the artifact. You can unpublish at any time by returning to that artifact and removing public access. Note: When you publish an artifact, it is publicly accessible via its link — anyone can view it, even without a Claude account. Published artifacts are not indexed by search engines, so they won't appear in Google results.
 
-## Tips for getting the most from artifacts
+## Tips for getting the most from artifacts[](#tips-for-getting-the-most-from-artifacts)
 
 **Be specific about what you want.** "Build a budget tracker" is good, but "Build a monthly budget tracker where I can input expenses by category, see a pie chart breakdown, and get a warning when I'm over budget" is better.
 
@@ -85,7 +85,7 @@ To publish, click the "Share" or "Publish" button in the upper right corner of t
 
 **Request artifacts when needed.** If you ask for something substantial and Claude responds in the chat instead of creating an artifact, just say "Please create that as an artifact."
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Before moving on, consider:
 
@@ -93,7 +93,7 @@ Before moving on, consider:
 * Are there processes in your work that would be clearer as a flowchart or diagram?
 * What prototype or tool would help you test an idea quickly?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, you'll learn about Skills — reusable instruction sets that teach Claude specialized workflows.
 

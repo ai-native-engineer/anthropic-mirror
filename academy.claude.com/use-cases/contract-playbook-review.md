@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-hd3p5r1z.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ci2tqnmp.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Commercial Legal plugin ships with `/review` and other commercial-contracting skills as a starting point, already structured to walk an agreement against your playbook, flag the deviations, and draft the redlines. It's one of twelve practice-area plugins for legal teams; if your admin manages plugins and it's not available yet, skip this, nothing below requires it.
 
@@ -42,7 +42,7 @@ First run
 
 Commercial Legal comes from Anthropic's **Claude for Legal** source, which a workspace has to enable once under **Browse Anthropic sources**. On a Team or Enterprise plan an admin does that from the organization's plugin settings (it then shows up for everyone); on an individual plan you can do it yourself. If **Add** doesn't take you straight to the plugin, that's usually the missing step. Once it's installed, run `/cold-start-interview` (a two-minute quick start on sensible defaults, or ten-plus minutes with your real documents) so the plugin learns your playbook; every other skill reads from that.
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -76,7 +76,7 @@ Read the incoming draft and your playbook from the matter workspace; the clause 
 
 Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
-### Set the working folder
+### Set the working folder[](#set-the-working-folder)
 
 Put the incoming MSA and your contract playbook in one folder on your machine, then in Cowork click **+ Add folder** and select it. [Save it as a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your playbook, instructions, and memory stay attached and you don't re-upload them for the next contract — Cowork reads from the folder and writes the clause table and redlined draft back to it.
 
@@ -92,15 +92,15 @@ contract-playbook-2026.pdfJan 6, 2026412 KB
 
 In Cowork’s chat bar:Contracts / Acme-MSA
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Review this MSA clause by clause against our contract playbook. For each clause, mark it green, yellow, or red against our standard, explain why in one or two sentences, and where it's yellow or red draft the redline and the rationale for opposing counsel.
 
 Contracts / Acme-MSAOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -118,7 +118,7 @@ Source
 
 **Write results back to the same folder.** Review and redline write back next to the original.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -128,7 +128,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -138,9 +138,9 @@ ContractsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 A review memo is stale the moment opposing counsel sends v4. Ask Cowork to publish the clause table as a live artifact and the deal team has one link that stays current — re-run the skill or schedule it to refresh.
 
@@ -148,7 +148,7 @@ Publish that clause table as a live artifact for the deal team. Re-run it agains
 
 Contracts / Acme-MSAOpen in Cowork
 
-### Run it on every new contract
+### Run it on every new contract[](#run-it-on-every-new-contract)
 
 Paper arrives, the first-pass review should already be waiting. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and set the customized skill to run every weekday morning, checking the intake folder for new contracts.
 
@@ -164,7 +164,7 @@ Each weekday at 9am, checks Contracts/Intake for new files, runs `/review` on ea
 
 Every **weekday at 9 am — checks Contracts/Intake for new files**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/review` now carries your playbook, your red-flag list, and your fallback positions. Share it so every reviewer on the team scores paper the same way, and the business sees a consistent first pass no matter who picks it up.
 
@@ -172,7 +172,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/review` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your playbook and positions baked in, so they don't repeat Steps 1-3; each teammate still runs `/cold-start-interview` the first time, pointed at the same playbook, because the plugin keeps its setup per person.
 
-## What changes for the contracts queue
+## What changes for the contracts queue[](#what-changes-for-the-contracts-queue)
 
 Each contract is checked against your playbook with a redline and rationale on every clause that departs from your standard. Your review starts at the flagged terms instead of page one.
 

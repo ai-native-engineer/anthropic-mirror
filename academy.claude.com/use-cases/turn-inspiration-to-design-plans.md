@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Turn inspiration into design plans result](https://academy.claude.com/assets/v1/turn-inspiration-to-design-plans-m7f4gwnw.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude can analyze images to identify design styles across your saved inspirations—pinning down the specific aesthetic so you can find matching pieces and communicate your vision to contractors. It can then search across price ranges to show you where to save and where it's worth investing.
 
@@ -37,11 +37,11 @@ Use elegant formatting with premium typography (Garamond headers, Inter body) an
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude can analyze reference images to identify your design inspiration and find pieces that match your style and are worth the investment.
 
-### Required context
+### Required context[](#required-context)
 
 Upload your saved design inspiration images—Pinterest boards, screenshots of interior design you love, or photos of specific elements that catch your eye.
 
@@ -49,7 +49,7 @@ mood board screenshotJPEG
 
 product reference imageJPEG
 
-### Optional context
+### Optional context[](#optional-context)
 
 Claude can [search the web(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) to find retailers that match your design style at different price points.
 
@@ -57,7 +57,7 @@ Claude can [search the web(opens in new tab)](https://support.claude.com/en/arti
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude provides a spreadsheet that consolidates all research from your preferences, including style definitions, furniture options by type, price comparisons, and direct links, enabling you to make informed decisions and edit as needed.
 
@@ -77,11 +77,11 @@ Sheet 4: Investment Strategy & ROI Financial projections with formulas
 
 **View your renovation spreadsheet**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Conduct further research
+### Conduct further research[](#conduct-further-research)
 
 Use [Research(opens in new tab)](https://support.claude.com/en/articles/11088861-using-research-on-claude) to learn more about different products and materials before committing.
 
@@ -89,7 +89,7 @@ Research the quartz countertop brands in my mid-range package. What do contracto
 
 Open in Claude
 
-### Adjust the format
+### Adjust the format[](#adjust-the-format)
 
 Turn your research into a clear plan to share with contractors. Claude can synthesize information from multiple formats—spreadsheets, images, style guides—into a single structured document.
 
@@ -97,7 +97,7 @@ Create a contractor brief document with the style breakdown, selected materials 
 
 Open in Claude
 
-### Implement your ideas
+### Implement your ideas[](#implement-your-ideas)
 
 Use your spreadsheet to map out the actual installation sequence and understand each step.
 
@@ -105,21 +105,21 @@ Walk me through the actual installation sequence for this renovation. What happe
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Open the actual Excel file, not just the preview
+### Open the actual Excel file, not just the preview[](#open-the-actual-excel-file-not-just-the-preview)
 
 The chat preview shows basic table structure, but the actual spreadsheet contains working formulas, formatting, color-coded cells, and typography that may not appear in chat. Download and open the file to see the full sheet with all formatting intact before requesting changes.
 
-### Specify design quality expectations
+### Specify design quality expectations[](#specify-design-quality-expectations)
 
 When you ask Claude to "Create a spreadsheet," it might default to basic formatting. For more interesting spreadsheets, specify certain elements like custom typography, specific color palettes, color-coded priorities, clean section headers, and tight visual hierarchy. Claude can produce this level of quality but needs explicit prompting that design matters alongside functionality.
 
-### Track progress in a [Project(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects)
+### Track progress in a [Project(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects)[](#track-progress-in-a-project)
 
 Keep all your decisions, quotes, and progress organized as the renovation unfolds. Projects remember your complete context—the style guide, material choices, budget decisions—so you can ask questions weeks later without re-explaining everything.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Upload your inspiration images and Claude consolidates research into a spreadsheet where you can identify options, compare choices, and make edits.
 

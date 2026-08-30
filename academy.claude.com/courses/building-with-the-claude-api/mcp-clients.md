@@ -12,7 +12,7 @@ Lesson 482 min
 
 The MCP client serves as the communication bridge between your server and MCP servers. Think of it as your access point to all the tools that an MCP server provides. When you need to use external tools or services, the client handles all the message passing and protocol details for you.
 
-## Transport Agnostic Communication
+## Transport Agnostic Communication[](#transport-agnostic-communication)
 
 One of MCP's key strengths is being transport agnostic - a fancy way of saying the client and server can talk to each other using different communication methods. The most common setup runs both the MCP client and server on the same machine, where they communicate through standard input/output.
 
@@ -26,7 +26,7 @@ But you're not limited to that approach. MCP clients and servers can also connec
 
 ![](https://academy.claude.com/assets/media/4508517b29879b546ebbba8597863458129816ce4aad5c0ee3113f3b30a5a6c3.jpg)
 
-## Message Types
+## Message Types[](#message-types)
 
 Once connected, the client and server exchange specific message types defined in the MCP specification. The main message types you'll work with are:
 
@@ -40,7 +40,7 @@ Once connected, the client and server exchange specific message types defined in
 
 ![](https://academy.claude.com/assets/media/44fde20f099c3312553c496d79ed51d3043af6b987109bbbcee429da51776cad.jpg)
 
-## Complete Flow Example
+## Complete Flow Example[](#complete-flow-example)
 
 Here's how all the pieces work together in a real scenario. Let's say a user asks "What repositories do I have?" - here's the complete communication flow:
 

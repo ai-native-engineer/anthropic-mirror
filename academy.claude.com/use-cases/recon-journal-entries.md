@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-nhxr907i.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ci4exa6p.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Finance plugin ships with `/journal-entry` and seven other close-week skills as a starting point, it already knows how to match across ledgers and structure a JE. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ FinanceStreamline finance and accounting workflows, from journal entries and rec
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -66,7 +66,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (both entity exports, the FX rate sheet, your JE template, last month's recon) into one folder and point Cowork at it. Cowork reads from it and writes the matched workbook and JE draft back to it. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from your intercompany folder so the FX policy, materiality threshold, and JE template stay attached every close.
 
@@ -82,15 +82,15 @@ JE-template.xlsxJan 8, 202614 KB
 
 In Cowork’s chat bar:FY26-Close / Intercompany / March
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Reconcile the March intercompany balances across both subledgers. Normalize FX to USD at the month-end rate, fuzzy-match by amount and reference, and sort the differences into timing, rounding, and true breaks. For every true break, draft the journal entry with Dr/Cr, memo, and support reference, and write the recon workbook to this folder.
 
 FY26-Close / Intercompany / MarchOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Supply the reference data yourself.** Cowork reads the month-end rate from the file you trust, not a number it looked up.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Set the rounding threshold.** Add "treat anything under $25 as rounding" so you're not clearing pennies by hand.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ FY26-Close / IntercompanyOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 Intercompany is due the same day every close. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs against the newest exports automatically.
 
@@ -146,7 +146,7 @@ Runs `/journal-entry` against the newest subledger exports, sorts breaks, and wr
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/journal-entry` now carries your match logic, your FX policy, and your JE template. Share it so every entity controller runs the same recon, same buckets, same memo format.
 
@@ -154,7 +154,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/journal-entry` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your instructions baked in, they don't repeat Steps 1-3.
 
-## What changes for close week
+## What changes for close week[](#what-changes-for-close-week)
 
 Intercompany reconciles across both ledgers with each difference classified and its journal entry drafted — ready to review and post instead of match line by line.
 

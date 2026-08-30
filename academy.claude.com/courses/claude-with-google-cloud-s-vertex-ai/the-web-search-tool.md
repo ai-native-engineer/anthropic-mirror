@@ -14,7 +14,7 @@ Claude includes a built-in web search tool that lets it search the internet for 
 
 ![](https://academy.claude.com/assets/media/f1edc5de25d4a7012a5234100ec3f4c0b7e19dff55beb5188ab2fd847eecba51.png)
 
-## Setting Up the Web Search Tool
+## Setting Up the Web Search Tool[](#setting-up-the-web-search-tool)
 
 To use the web search tool, you create a schema object with these required fields:
 
@@ -30,7 +30,7 @@ web_search_schema = {
 
 The `max_uses` field limits how many searches Claude can perform. Claude might do follow-up searches based on initial results, so this prevents excessive API calls.
 
-## How It Works
+## How It Works[](#how-it-works)
 
 When you include the web search schema in your tools list, Claude will automatically decide when to search based on your question. For example, asking "What's the best exercise for gaining leg muscle?" might trigger a search for current fitness research.
 
@@ -42,7 +42,7 @@ The response contains several types of blocks:
 * **WebSearchResultBlock** - Individual search results with titles and URLs
 * **CitationsWebSearchResultLocation** - Specific text citations supporting Claude's statements
 
-## Restricting Search Domains
+## Restricting Search Domains[](#restricting-search-domains)
 
 You can limit searches to specific domains using the `allowed_domains` field. This is particularly useful when you want authoritative sources:
 
@@ -59,7 +59,7 @@ web_search_schema = {
 
 This ensures Claude only searches trusted domains like government health sites instead of random fitness blogs with potentially unreliable information.
 
-## Rendering Search Results
+## Rendering Search Results[](#rendering-search-results)
 
 The response structure is designed for rich UI rendering. You typically:
 

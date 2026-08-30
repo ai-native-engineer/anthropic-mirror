@@ -22,7 +22,7 @@ usually listens" into "Claude can't skip it."
 
 That's the whole pitch. Now let's look at how it actually works.
 
-## The hook events
+## The hook events[](#the-hook-events)
 
 Claude Code fires around 30 hook events over the course of a session. You don't need to know all of them. There's a small handful you'll reach for again and again, and they line up with points in the agentic loop where you'd want to step in.
 
@@ -39,7 +39,7 @@ The ones worth knowing:
 
 One thing that trips people up: to re-inject context after compaction, don't use PostCompact. Use SessionStart with the `compact` matcher. That's the one that actually gets its output back into the conversation.
 
-## PreToolUse: returning a decision as JSON
+## PreToolUse: returning a decision as JSON[](#pretooluse-returning-a-decision-as-json)
 
 PreToolUse is where the real power is, because it can block a tool call before it runs. The way you talk back to Claude is by printing JSON and exiting zero. The key field is `permissionDecision`, and it takes one of three values:
 
@@ -68,7 +68,7 @@ json
 
 Notice `updatedInput`. Instead of blocking a call, you can rewrite it. That's how you'd redact a secret out of a bash command and still let it run. One catch: `updatedInput` replaces the *whole* input object, so you have to echo back the fields you aren't changing, or you'll lose them.
 
-## Exit codes, for hooks that don't return JSON
+## Exit codes, for hooks that don't return JSON[](#exit-codes-for-hooks-that-dont-return-json)
 
 Not every hook needs to speak JSON. For simpler hooks, exit codes do the job. There are three numbers that matter.
 
@@ -80,7 +80,7 @@ The one that catches people out is exit code 1. It *feels* like an error, but it
 
 A couple more wrinkles. Exit 2 can even block Stop, which is how you tell Claude it's not done. But PostToolUse fires after the tool already ran, so blocking there is too late to stop the call, though it can still feed text back to Claude. And a few events ignore blocking entirely, like Notification and SessionStart. They'll show your standard error and carry on regardless.
 
-## A real guardrail: redact instead of block
+## A real guardrail: redact instead of block[](#a-real-guardrail-redact-instead-of-block)
 
 Let's tie it together with something practical. Say you want a PreToolUse guardrail on the Bash tool. The matcher picks the tool to watch, and an optional `if` clause can narrow it to a specific command.
 
@@ -90,11 +90,11 @@ Here's what that looks like in practice. Claude is asked to run a command that i
 
 The command still ran. The work still got done. But the secret never made it through. That's the difference between blocking and redacting, and it's the kind of thing a hook can enforce every single time.
 
-## Preserving state across a compact
+## Preserving state across a compact[](#preserving-state-across-a-compact)
 
 One more pattern worth setting up. When Claude compacts a long conversation, it drops a lot of detail. A SessionStart hook with the `compact` matcher runs right after compaction. Have it print a short summary of the files you've been working on. That summary goes back into context, so Claude picks up where it left off instead of starting cold.
 
-## Wrapping up
+## Wrapping up[](#wrapping-up)
 
 Hooks turn a rule Claude usually follows into one it always follows. Reach past auto-formatting: guard tools with PreToolUse, gate the turn with Stop, and preserve state across a compact. The setup takes a little effort up front, but it pays back the first time it catches something on a run you weren't even watching.
 

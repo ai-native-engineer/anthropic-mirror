@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-em4laj46.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lnkhp3d2.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Marketing plugin ships with `/performance-report` and other performance-reporting skills as a starting point, already structured to compare spend, reach, and conversion across platforms and write the readout. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ MarketingCreate content, plan campaigns, and analyze performance across marketin
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the platform exports, the campaign brief, last period's recap deck) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the analysis, recap deck, and live artifact link back to it. If you'll report on this campaign every week, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so the data sources, instructions, and scheduled runs stay attached.
 
@@ -84,15 +84,15 @@ recap-deck-wk16.pptxApr 19, 20261.4 MB
 
 In Cowork’s chat bar:Campaigns / Spring-Launch / performance
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Analyze this campaign's ad performance and build the recap deck: what worked, what didn't, and what we change next time. Post a digest to the team Slack with the top three movers, and create a live shared artifact that stays updated from the underlying data.
 
 Campaigns / Spring-Launch / performanceOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -110,7 +110,7 @@ Source
 
 **Put the sources in one place.** Google, Meta, and GA4 exports sit in one working folder, so the analysis joins spend to conversion across platforms without you stitching CSVs.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -120,7 +120,7 @@ Practice
 
 **Ask for options.** Add "draft three versions with different angles" and pick the one that works best.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -130,9 +130,9 @@ Campaigns / Spring-Launch / performanceOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 The performance recap is due the same morning every week. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill pulls fresh data, refreshes the live artifact, rebuilds the deck, and posts the digest automatically.
 
@@ -148,7 +148,7 @@ Runs `/performance-report` against the connected ad platforms, refreshes the liv
 
 Every **Monday at 8am, weekly**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/performance-report` now carries your KPI definitions, your deck template, and your live-artifact layout. Share it so every campaign owner reports the same way, and leadership reads one consistent recap no matter which program it came from.
 
@@ -156,7 +156,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/performance-report` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your KPIs and templates baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

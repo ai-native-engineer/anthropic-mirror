@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-gm0gz0p9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-pbzioede.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude can connect directly to your financial tools, letting you query using natural language and receive analysis with source citations. Instead of opening multiple browser tabs to gather data, copying metrics into spreadsheets, and then formatting a Word document from scratch, you can request the complete workflow in one conversation.
 
@@ -30,11 +30,11 @@ I'm evaluating CloudBridge Technologies (ticker: CLDG) for a potential equity in
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Connect your data platforms so Claude produces memos with current data rather than requiring manual metric gathering from multiple sources.
 
-### Required context
+### Required context[](#required-context)
 
 Use [connectors(opens in new tab)](https://claude.com/blog/integrations) to give Claude access to financial data providers. Browse through the connector library in your [settings(opens in new tab)](https://claude.ai/customize/connectors) to find tools from [trusted financial partners(opens in new tab)](https://claude.com/partners/mcp).
 
@@ -56,7 +56,7 @@ S&P Global
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
+### Optional context[](#optional-context)
 
 In the chat settings, make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is turned on for additional context on the company you are evaluating.
 
@@ -68,7 +68,7 @@ Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-w
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude pulls data from Daloopa and S&P Global, calculates growth rates and margins, compares performance across competitors, and generates a professional Word document ready for investment committee review.
 
@@ -96,11 +96,11 @@ View your memo
 
 The document includes executive summary with BUY recommendation and $165 target (28% upside), business overview analyzing segment performance, financial highlights showing margin expansion and cash generation, competitive benchmarking table, valuation using three methodologies, and risk assessment with mitigating factors. Formatted for IC presentation with professional typography and clear visual hierarchy.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Show source citations for verification
+### Show source citations for verification[](#show-source-citations-for-verification)
 
 Get specific platform references and data points for every claim in the memo. Claude can trace every number and claim back to its source, showing you exactly where each piece of information came from.
 
@@ -108,7 +108,7 @@ Cite the exact source for each metric—I need to see platform name, date pulled
 
 Open in Claude
 
-### Expand on the valuation methodology
+### Expand on the valuation methodology[](#expand-on-the-valuation-methodology)
 
 Add detailed calculations and assumptions to support your price target. Claude shows the underlying math and how your valuation changes under different scenarios.
 
@@ -116,7 +116,7 @@ Show me the DCF math step-by-step: revenue assumptions, margin projections, disc
 
 Open in Claude
 
-### Transform into presentation format
+### Transform into presentation format[](#transform-into-presentation-format)
 
 Convert your written memo into slides for your committee meeting. Claude restructures your content and creates charts to illustrate key findings.
 
@@ -124,25 +124,25 @@ Convert this analysis into a 6-slide PowerPoint: title slide with recommendation
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Use specific and clear instructions
+### Use specific and clear instructions[](#use-specific-and-clear-instructions)
 
 Claude has access to vast amounts of financial data when connected to multiple tools and sources. Without specific references in your prompt, you may receive more data than needed or miss specific, critical metrics. Provide clear direction to ensure Claude returns the information required for your analysis, saving time and improving accuracy.
 
-### Download the actual memo, not just the preview
+### Download the actual memo, not just the preview[](#download-the-actual-memo-not-just-the-preview)
 
 The in-chat preview may not show the final typography, spacing hierarchy, and formatted tables that the document has. Open the file to see—and continue editing—the complete output.
 
-### Match model to task complexity
+### Match model to task complexity[](#match-model-to-task-complexity)
 
 This example uses Claude Sonnet 4.5, the Claude model best suited for a balance of intelligence, speed, and cost for most use cases. If you need faster iteration (like rapid brainstorming or simple formatting), consider switching to Haiku 4.5, the fastest Claude model with near-frontier intelligence. To learn more about various models, visit our [Model Report(opens in new tab)](https://www.anthropic.com/transparency/model-report).
 
-### Unlock specialized capabilities
+### Unlock specialized capabilities[](#unlock-specialized-capabilities)
 
 In addition to the ability to connect to financial data tools, [Claude for Financial Services(opens in new tab)](https://claude.com/solutions/financial-services) adds expanded services. In addition to financial data connections, receive specialized Skills for institutional-grade analysis and frameworks, such as those for financial analysis or valuation. Also receive expert implementation support through tailored onboarding, training, and best practices.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Financial workflows that once required hours of data gathering and manual document formatting now collapse into focused conversations. Test the approach with one company evaluation to calibrate how Claude handles your specific analytical needs.
 

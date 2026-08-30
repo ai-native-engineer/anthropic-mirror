@@ -312,6 +312,28 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
+Building your first workflow with Cowork
+
+Recurring
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/recurring-building-your-first-workflow-with-cowork)
+
+Enterprise Transformation with Claude on AWS: Three Paths to Production
+
+Sep 16, 2026
+
+2026-09-16
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/enterprise-transformation-with-claude-on-aws-three-paths-to-production)
+
+Maximizing Value from Claude Code
+
+Sep 10, 2026
+
+2026-09-10
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-maximizing-value)
+
 Claude in Microsoft Foundry: Tool Integrations in Practice
 
 Sep 3, 2026
@@ -319,6 +341,14 @@ Sep 3, 2026
 2026-09-03
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/claude-in-microsoft-foundry-tool-integrations-in-practice)
+
+Getting Started with Claude Design
+
+Sep 3, 2026
+
+2026-09-03
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/getting-started-with-claude-design)
 
 Rebroadcast: Claude on Google Cloud: Monitoring and Securing Agents at Scale
 
@@ -344,41 +374,9 @@ Aug 20, 2026
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/claude-science-ama-how-to-accelerate-scientific-discovery)
 
-Claude for Business Development Representatives
-
-Aug 13, 2026
-
-2026-08-13
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/claude-for-business-development-representatives)
-
-Claude Code for Data Engineering
-
-Aug 11, 2026
-
-2026-08-11
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-for-data-engineering)
-
-Claude for Marketing Ops and Analytics
-
-Aug 6, 2026
-
-2026-08-06
-
-[Learn more about this webinar](#)
-
-Startup Builds: Getting Started with Loops
-
-Jul 24, 2026
-
-2026-07-24
-
-[Learn more about this webinar](https://anthropic.ondemand.goldcast.io/on-demand/0dc79613-f360-435c-bde3-fa88e32d44ff)
-
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 
-1 / 10
+1 / 11
 
 ## Webinar series
 

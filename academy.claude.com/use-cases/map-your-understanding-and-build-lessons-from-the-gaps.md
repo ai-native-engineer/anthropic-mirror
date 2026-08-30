@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Map your understanding and build lessons from the gaps result](https://academy.claude.com/assets/v1/map-your-understanding-and-build-lessons-from-the-gaps-ercok7ub.png)[Open artifact](https://claude.ai/public/artifacts/1b11b592-ebc3-49c6-b1d3-5410b25d9666)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Opus 4.6 maps what you already understand before trying to explain anything. It asks diagnostic questions, finds the specific point where your reasoning breaks, and builds the explanation from that gap.
 
@@ -28,15 +28,15 @@ Help me understand this. A good explanation is one I could redo with different n
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 The diagnostic works from conversation alone. Files come in only when you want the workbook built from your own numbers.
 
-### Required context
+### Required context[](#required-context)
 
 * No files needed for the diagnostic itself. If you want a personalized workbook, attach a CSV or XLSX export of your data, the way the example prompt attaches a hiring pipeline export that runs from applications through 12-month retention. Opus 4.6 scans across the full dataset and builds the analysis around your actual figures.
 
-### Optional context
+### Optional context[](#optional-context)
 
 * Your screening or pipeline data: CSV or XLSX with candidate records, interview scores, hiring decisions, and outcomes, or any data where you're using a signal to screen or sort a population
 * [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) gives Opus 4.6 space to think step by step before responding. For a task like this, where Claude needs to reason carefully about your knowledge structure to find a hidden misconception, that extra reasoning depth makes the diagnostic more precise. You can see Claude's thinking process as it works through the problem.
@@ -45,7 +45,7 @@ The diagnostic works from conversation alone. Files come in only when you want t
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude asks diagnostic questions first, probing what you know until it identifies the specific misconception. Then it rebuilds from the gap and produces all three artifacts. Opus 4.6 stays persistent through this entire sequence, and its writing keeps pace: the explanation, lesson, workbook, and concept map all maintain a consistent voice calibrated to your actual comprehension level.
 
@@ -81,11 +81,11 @@ A one-page visual connecting base rate reasoning to signal detection theory, the
 
 *[View the concept map]*
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Each follow-up below builds on something the first conversation produced: the signal audit, the workbook, and the concept map.
 
-### Test it against your own data
+### Test it against your own data[](#test-it-against-your-own-data)
 
 The workbook gives you the baseline. Push on the signal you most want to believe. Opus 4.6 scans across large files and datasets before responding, so it handles messy real-world numbers without oversimplifying.
 
@@ -93,7 +93,7 @@ The workbook gives you the baseline. Push on the signal you most want to believe
 
 Open in Claude
 
-### Keep working in your spreadsheet
+### Keep working in your spreadsheet[](#keep-working-in-your-spreadsheet)
 
 Open the workbook in Excel and continue the analysis with [Claude in Excel(opens in new tab)](https://support.claude.com/en/articles/12650343-claude-in-excel). Claude works directly in a sidebar in Excel, where it can read your data, modify formulas, and build on the workbook without leaving your spreadsheet.
 
@@ -101,7 +101,7 @@ Open the workbook in Excel and continue the analysis with [Claude in Excel(opens
 
 Copy prompt
 
-### Build a longer learning sequence
+### Build a longer learning sequence[](#build-a-longer-learning-sequence)
 
 Work through the concept map one piece at a time. Opus 4.6 carries instructions through longer conversations without drifting, so the diagnostic context holds as you move through related topics.
 
@@ -109,21 +109,21 @@ Work through the concept map one piece at a time. Opus 4.6 carries instructions 
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Front-load what you know
+### Front-load what you know[](#front-load-what-you-know)
 
 Opus 4.6 invests in understanding your knowledge structure before trying to change it. The more clearly you describe where your understanding is solid, the faster Claude can locate where it breaks. What you get out mostly reflects what you put in, so spend your effort describing your starting point rather than hunting for the perfect phrasing. “I understand basic probability but I can’t follow base rate arguments” is a sharper starting point than “I don’t understand statistics.” The gap between what clicks and what doesn’t is usually where the misconception lives.
 
-### Say it once
+### Say it once[](#say-it-once)
 
 You don’t need to repeat your requirements or add “and remember to...” reminders. Opus 4.6 follows instructions precisely through the full diagnostic, the artifact construction, and any follow-ups. State what you want upfront and trust that it carries through.
 
-### Check the workbook against your own data
+### Check the workbook against your own data[](#check-the-workbook-against-your-own-data)
 
 Before you change a screening step based on the signal audit, pick one figure from it, like the success rate behind your strongest signal, and recount it from the raw rows in your export. If your hand count matches, you can rely on the rest of the tab. If it doesn't, tell Claude which number is off and it rebuilds the calculation and shows its work.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Describe a concept you're stuck on and what you do understand. Claude builds the explanation from there.
 

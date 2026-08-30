@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Recognize the key characteristics and technological foundations of generative AI
 * Identify major capabilities and limitations of current generative AI
 
-## What is generative AI?
+## What is generative AI?[](#what-is-generative-ai)
 
 AI capabilities and limitations · 12 min
 
@@ -26,7 +26,7 @@ This video covers how large language models like Claude are built and
 trained, and what that means for what they can — and can't — reliably do
 when you put them to work in your business.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Generative AI** creates new content rather than just analyzing existing data.
 * **Three developments** made modern LLMs possible: the transformer architecture, vast training data, and massive compute.
@@ -35,7 +35,7 @@ when you put them to work in your business.
 * **Current limits** include knowledge cutoffs, hallucinations, context window size, and complex multi-step reasoning.
 * **The best applications pair human and AI strengths** — your judgment, creativity, and oversight alongside AI's speed and scale.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Testing the edges
 
@@ -66,12 +66,12 @@ Which capability from the video showed up most clearly in what you saw? Which li
 
 **Stretch goal:** Run the same topic through a second AI tool (a different model or platform). Were the errors and strengths the same?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How does knowing how these systems are trained change the way you'll work with them?
 * What ethical considerations come to mind given how generative AI works and where it falls short?
 
-## What's next
+## What's next[](#whats-next)
 
 Up next is a hands-on activity exploring how language models actually generate text to bring to life what you just learned.
 

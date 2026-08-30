@@ -12,13 +12,13 @@ Lesson 162 min
 
 The first line of your prompt is the most important part of your entire request. This is where you set the stage for everything that follows, and getting it right can dramatically improve your results.
 
-## Being Clear and Direct
+## Being Clear and Direct[](#being-clear-and-direct)
 
 When crafting that crucial first line, you want to focus on two key principles: clarity and directness. This means using simple language that leaves no room for ambiguity about what you want Claude to do.
 
 ![](https://academy.claude.com/assets/media/3aff74318725fd873feca04b57d26c3ab7c16c8ac1c47a6a71d9f1eeacdc4994.png)
 
-## Clear Communication
+## Clear Communication[](#clear-communication)
 
 Being "clear" means:
 
@@ -28,7 +28,7 @@ Being "clear" means:
 
 Instead of writing something vague like "I need to know about those things people put on their roofs that use sun - those solar panel things, I think they're called," be direct and write: "Write three paragraphs about how solar panels work."
 
-## Direct Instructions
+## Direct Instructions[](#direct-instructions)
 
 Being "direct" focuses on how you structure your request:
 
@@ -37,7 +37,7 @@ Being "direct" focuses on how you structure your request:
 
 Rather than asking "I was reading about renewable energy and geothermal energy sounds neat. What countries use it?" try: "Identify three countries that use geothermal energy. Include generation stats for each."
 
-## Putting It Into Practice
+## Putting It Into Practice[](#putting-it-into-practice)
 
 Let's see this technique in action. Starting with a weak prompt that simply asked "What should this person eat?" we can apply our clear and direct approach.
 
@@ -49,7 +49,7 @@ This revision immediately tells Claude:
 * What to create (a meal plan)
 * Key constraints (one day, for an athlete, meeting dietary restrictions)
 
-## Results Matter
+## Results Matter[](#results-matter)
 
 This simple change can have a significant impact on performance. In our example, the evaluation score jumped from 2.32 to 3.92 - a substantial improvement from just restructuring that opening line.
 

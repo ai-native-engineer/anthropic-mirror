@@ -16,9 +16,9 @@ Get Skill Version
 
 - `version: string`
 
-  Version identifier for the skill.
+  Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
 
-  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+  Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
 ## Headers
 
@@ -28,7 +28,7 @@ Get Skill Version
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 31 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 38 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -98,60 +98,67 @@ Get Skill Version
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
 ## Returns
 
-- `id: string`
+- `BetaSkillVersion object`
 
-  Unique identifier for the skill version.
+  - `id: string`
 
-  The format and length of IDs may change over time.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-- `created_at: string`
+  - `created_at: string`
 
-  ISO 8601 timestamp of when the skill version was created.
+    ISO 8601 timestamp of when the skill was created.
 
-- `description: string`
+    format: date-time
 
-  Description of the skill version.
+  - `description: string`
 
-  This is extracted from the SKILL.md file in the skill upload.
+    Description of the skill version.
 
-- `directory: string`
+    This is extracted from the SKILL.md file in the skill upload.
 
-  Directory name of the skill version.
+  - `name: string`
 
-  This is the top-level directory name that was extracted from the uploaded files.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
-- `name: string`
+  - `skill_id: string`
 
-  Human-readable name of the skill version.
+    Unique identifier for the skill.
 
-  This is extracted from the SKILL.md file in the skill upload.
+    The format and length of IDs may change over time.
 
-- `skill_id: string`
+  - `type: "skill_version"`
 
-  Identifier for the skill that this version belongs to.
+    Object type.
 
-- `type: string`
+    For Skill Versions, this is always `"skill_version"`.
 
-  Object type.
-
-  For Skill Versions, this is always `"skill_version"`.
-
-  default: skill_version
-
-- `version: string`
-
-  Version identifier for the skill.
-
-  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+    default: skill_version
 
 ## Example
 
 ```bash
 curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
     -H 'anthropic-version: 2023-06-01' \
-    -H 'anthropic-beta: skills-2025-10-02' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
@@ -159,13 +166,11 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
 
 ```json
 {
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "id": "id",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
+  "description": "description",
+  "name": "name",
   "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
+  "type": "skill_version"
 }
 ```

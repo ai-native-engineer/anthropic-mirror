@@ -6,7 +6,7 @@
 
 **POST** `/v1/organizations/invites`
 
-For Claude Enterprise organizations, this endpoint's availability is in beta.
+Invite a user to join the organization by email.
 
 On plans that draw members from a finite pool of purchased seats, the invite automatically consumes a seat from the lowest tier with availability; there is no seat-tier parameter. When no seat is free the request fails with a 400 error rather than purchasing a seat.
 
@@ -22,7 +22,7 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 
   Role for the invited User.
 
-  The accepted values depend on the organization type. Console and API organizations accept `user`, `developer`, `billing`, and `claude_code_user`; `admin` cannot be assigned through the API. Claude Enterprise organizations (beta) accept `user` and `managed`.
+  The accepted values depend on the organization type. Console and API organizations accept `user`, `developer`, `billing`, and `claude_code_user`; `admin` cannot be assigned through the API. Claude Enterprise organizations accept `user` and `managed`.
 
   - `"billing"`
 
@@ -36,7 +36,7 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 
 - `rbac_group_ids: optional array of string`
 
-  RBAC group IDs to assign to the User when the Invite is accepted. A non-empty array is accepted only for a Claude Enterprise organization with RBAC groups (beta), and requires the key to carry the `write:rbac_groups` scope.
+  RBAC group IDs to assign to the User when the Invite is accepted. A non-empty array is accepted only for a Claude Enterprise organization with RBAC groups, and requires the key to carry the `write:rbac_groups` scope.
 
   maxItems: 100
 
@@ -72,7 +72,7 @@ On plans that draw members from a finite pool of purchased seats, the invite aut
 
   - `rbac_group_ids: array of string`
 
-    RBAC group IDs recorded on the Invite (beta, Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
 
   - `role: "admin" or "billing" or "claude_code_user" or 6 more`
 
@@ -151,7 +151,7 @@ curl https://api.anthropic.com/v1/organizations/invites \
 
 **GET** `/v1/organizations/invites/{invite_id}`
 
-For Claude Enterprise organizations, this endpoint's availability is in beta.
+Retrieve an invite by ID.
 
 ### Path parameters
 
@@ -191,7 +191,7 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
   - `rbac_group_ids: array of string`
 
-    RBAC group IDs recorded on the Invite (beta, Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
 
   - `role: "admin" or "billing" or "claude_code_user" or 6 more`
 
@@ -265,7 +265,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
 
 **GET** `/v1/organizations/invites`
 
-For Claude Enterprise organizations, this endpoint's availability is in beta.
+List the organization's invites.
 
 ### Query parameters
 
@@ -295,7 +295,7 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
   Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
 
-  Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations (beta) accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
+  Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
 
 - `statuses: optional array of "accepted" or "expired" or "pending"`
 
@@ -339,7 +339,7 @@ For Claude Enterprise organizations, this endpoint's availability is in beta.
 
   - `rbac_group_ids: array of string`
 
-    RBAC group IDs recorded on the Invite (beta, Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
 
   - `role: "admin" or "billing" or "claude_code_user" or 6 more`
 
@@ -432,7 +432,7 @@ curl https://api.anthropic.com/v1/organizations/invites \
 
 **DELETE** `/v1/organizations/invites/{invite_id}`
 
-For Claude Enterprise organizations, this endpoint's availability is in beta.
+Delete a pending invite.
 
 ### Path parameters
 
@@ -506,7 +506,7 @@ curl https://api.anthropic.com/v1/organizations/invites/$INVITE_ID \
 
   - `rbac_group_ids: array of string`
 
-    RBAC group IDs recorded on the Invite (beta, Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
 
   - `role: "admin" or "billing" or "claude_code_user" or 6 more`
 

@@ -14,7 +14,7 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-k5oxrrdq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-orgsju4c.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 In Cowork, Claude connects to multiple feedback sources at once (call transcripts in a folder, Slack, your CRM, Linear) and pulls from all of them in parallel to spot patterns across platforms.
 
@@ -33,13 +33,13 @@ Find the main themes and patterns across all sources — what keeps coming up? G
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 [Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions (in beta) — on web and mobile. It connects to your tools via [connectors(opens in new tab)](https://claude.com/connectors) and, run locally, also works with your local files. Give it access to your call transcripts and connect your other feedback sources. Cowork pulls from all of them in parallel.
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you questions about what themes matter most or how to prioritize, then build a plan you can review in the sidebar. This helps it work more independently and surface more useful patterns.
 
-### Required context
+### Required context[](#required-context)
 
 To get started:
 
@@ -47,7 +47,7 @@ To get started:
 * Select ***Work in a folder*** in the chat bar to give Cowork access to your call transcripts
 * Add [connectors(opens in new tab)](https://claude.com/connectors) for Slack, CRM, and Linear
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude synthesizes feedback from all connected sources, identifies themes with counts and attribution, highlights patterns that appear across multiple platforms, and suggests prioritized product ideas.
 
@@ -71,11 +71,11 @@ I analyzed feedback from all four sources. Here's what emerged:
 * Priority 2: Okta SSO integration
 * Priority 3: Report customization
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Pull everything on one theme
+### Pull everything on one theme[](#pull-everything-on-one-theme)
 
 Go deep on what matters most. Get every mention across all sources with full context — who said it, when, and what they were trying to do.
 
@@ -83,7 +83,7 @@ Go deep on what matters most. Get every mention across all sources with full con
 
 Open in Cowork
 
-### Build a roadmap proposal
+### Build a roadmap proposal[](#build-a-roadmap-proposal)
 
 Turn insights into a document for stakeholders. Cowork writes directly to your folder. Have it create a roadmap doc with evidence from the synthesis, ready to share with leadership.
 
@@ -91,7 +91,7 @@ Turn insights into a document for stakeholders. Cowork writes directly to your f
 
 Open in Cowork
 
-### Track what specific customers said
+### Track what specific customers said[](#track-what-specific-customers-said)
 
 Follow up with customers who raised issues. See everything a specific customer mentioned across sources to prepare for a conversation.
 
@@ -99,21 +99,21 @@ Follow up with customers who raised issues. See everything a specific customer m
 
 Open in Cowork
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Try asking Claude to spin up subagents for parallel pulls
+### Try asking Claude to spin up subagents for parallel pulls[](#try-asking-claude-to-spin-up-subagents-for-parallel-pulls)
 
 When pulling from multiple sources, you can ask Claude to spin up subagents to query Slack, Linear, and Salesforce simultaneously.
 
-### Watch the progress panel and steer as Claude works
+### Watch the progress panel and steer as Claude works[](#watch-the-progress-panel-and-steer-as-claude-works)
 
 Cowork shows which sources Claude is querying and what it's finding in real time. If one platform is returning less than expected, you can adjust mid-process.
 
-### Claude works with the files in your local folder
+### Claude works with the files in your local folder[](#claude-works-with-the-files-in-your-local-folder)
 
 When you run Cowork locally, Claude reads your call transcripts and exports right where they live — in the folder you've shared — rather than you uploading them somewhere first. It can only see the folders and sources you give it access to.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Use Cowork to connect your feedback sources and discover patterns you'd miss analyzing each one separately.
 

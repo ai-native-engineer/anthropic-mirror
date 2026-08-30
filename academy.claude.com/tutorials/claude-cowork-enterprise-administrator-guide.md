@@ -14,26 +14,26 @@ Claude Cowork brings Claude’s agentic capabilities to the Claude Desktop app, 
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-epz8s4e9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oerjm7gu.png)
 
-## Introduction
+## Introduction[](#introduction)
 
-### What Is Claude Cowork?
+### What Is Claude Cowork?[](#what-is-claude-cowork)
 
 Claude Cowork brings Claude’s agentic capabilities to Claude.ai and the Claude Desktop app, enabling multi-step knowledge work beyond coding. Rather than responding to individual prompts sequentially, Claude can tackle complex, multi-step tasks and execute them on a user’s behalf. Users delegate work and return to polished deliverables like formatted documents, organized files, synthesized research, and more.
 
 Claude Cowork sits alongside Chat in [Claude.ai(opens in new tab)](http://claude.ai), the API, and Claude Code in the Claude product lineup. What distinguishes it for enterprise is the combination of local file access, connectors to the tools your teams already use (e.g. Slack, Google Workspace, M365), a plugin ecosystem with repeatable workflows that organizations can curate and govern, and scheduled tasks that run on a cadence. It requires the Claude Desktop app on macOS, Windows, or Linux (where support is in beta) and is available on all Claude paid plans.
 
-### Requirements
+### Requirements[](#requirements)
 
 * **Claude Desktop app:** Claude Cowork requires the desktop app for macOS, Windows, or Linux. Linux support (Debian and Ubuntu) is in beta, and the Cowork tab is available there alongside Chat and Code. Claude Cowork is not currently available on mobile.
 * **Claude subscription:** Claude Cowork is available to paid Claude plans (Pro, Max, Team, and Enterprise), with some features still in research preview. Learn more [here(opens in new tab)](https://claude.com/pricing#team-&-enterprise).
 * **Active internet connection:** Required throughout the session.
 * **Connectors:** Claude Cowork is most powerful when you connect it to your favorite apps, services, and data sources via connectors.
 
-## Phase 1: Technical Setup
+## Phase 1: Technical Setup[](#phase-1-technical-setup)
 
 You’re building the delegation infrastructure: identity controls gate who can delegate work to Claude, connectors give Claude the tools to do that work, and observability lets you see what’s happening. Complete these steps to deploy Claude Cowork to your organization.
 
-### Planning & Prerequisites
+### Planning & Prerequisites[](#planning-prerequisites)
 
 *Complete these before touching any admin console. Security review can run in parallel with the other steps.*
 
@@ -69,7 +69,7 @@ Verify your fleet and network can support it — endpoint and network issues are
 
 * Assemble your review packet from the [Anthropic Trust Center(opens in new tab)](https://trust.anthropic.com) and the [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135) article. This can run in parallel with the rest of Phase 1. Note that Audit Logs do not cover Claude Cowork yet. The Compliance API returns Claude Cowork session transcripts, in beta for Claude Enterprise organizations.
 
-### Identity & Access
+### Identity & Access[](#identity-access)
 
 *SSO before RBAC. Do not enforce either until both are fully configured.*
 
@@ -88,7 +88,7 @@ Identity is the foundation everything else depends on. RBAC, connectors, and dep
 * Roles are additive — a user in multiple groups gets the union of permissions. [Spend limits(opens in new tab)](https://support.claude.com/en/articles/13799932) use the opposite rule: the most restrictive limit across a user’s groups wins.
 * Migrate to enforcement last. There is no in-product undo — migrating before roles are configured drops every user to zero permissions.
 
-### Connectors & Hardening
+### Connectors & Hardening[](#connectors-hardening)
 
 *Configure after RBAC is in place so access controls are set before connectors go live.*
 
@@ -107,7 +107,7 @@ Identity is the foundation everything else depends on. RBAC, connectors, and dep
 
 * Harden your deployment by configuring network egress allowlists, mount controls, and desktop extension allowlists. These security controls are configured in the admin console under your organization's Claude Cowork settings.
 
-### Deployment & Launch
+### Deployment & Launch[](#deployment-launch)
 
 *Deploy Claude Cowork after identity, access, and connectors are all confirmed working.*
 
@@ -129,7 +129,7 @@ Before opening Claude Cowork to your pilot group, confirm:
 * Plugin marketplace is seeded with at least the Anthropic plugins relevant to your pilot teams (if applicable)
 * Support channel is live and escalation paths are documented
 
-## Phase 2: Change Management & Launch
+## Phase 2: Change Management & Launch[](#phase-2-change-management-launch)
 
 Claude Cowork introduces a fundamentally different way of working with Claude. In Chat, users collaborate — prompting back and forth to work toward an answer together. In Claude Cowork, users delegate — they describe a task, provide context and tools, define what good looks like, and come back to finished work.
 
@@ -137,7 +137,7 @@ An ideal Claude Cowork task produces a deliverable: a document, a financial mode
 
 **Companion guide:** Each phase below gives you the framework — what to think about and why it matters. For the operational detail of how to scale Claude Cowork workflow across your team, see [Scaling workflows with Claude Cowork at your organization(opens in new tab)](https://academy.claude.com/tutorials/scaling-workflows-with-claude-cowork-at-your-organization).
 
-### Claude Cowork Analytics
+### Claude Cowork Analytics[](#claude-cowork-analytics)
 
 Before defining success metrics, know where your data lives. Claude Cowork usage data is available through two channels: the admin dashboard in claude.ai and the Analytics API. Together, they give you visibility into how your organization is adopting and using Claude Cowork — from high-level active user trends down to which skills and connectors see the most use.
 
@@ -161,7 +161,7 @@ The Analytics API (Enterprise plan only) provides programmatic access to Claude 
 
 For the full endpoint specification, query parameters, and response schemas, see the [Claude Enterprise Admin API reference guide(opens in new tab)](https://support.claude.com/en/articles/15330651-claude-enterprise-admin-api-reference-guide).
 
-### Define Success Metrics
+### Define Success Metrics[](#define-success-metrics)
 
 The metrics that prove your rollout is working answer three questions — and the answers should improve week over week.
 
@@ -187,7 +187,7 @@ Run period user surveys anchored to specific workflows.
 
 If any column is underperforming, look left first. Low value almost always traces back to an engagement or adoption problem upstream.
 
-### Identify & Enable Champions
+### Identify & Enable Champions[](#identify-enable-champions)
 
 Champions are enthusiastic adopters who can help drive peer adoption across their teams. Identify internal champions in each department as part of your pilot group and equip them early so they can support their teams from day one. Look for people already experimenting with AI tools or who volunteered for the pilot.
 
@@ -197,7 +197,7 @@ Champions are enthusiastic adopters who can help drive peer adoption across thei
 * Create a dedicated communication channel for champions to share wins, tips, and common questions,
 * Recognize and reward champion contributions
 
-### Launch Communications
+### Launch Communications[](#launch-communications)
 
 Stage your communications so users know what’s coming, why it matters, and where to go for help. Claude Cowork is accessed from the Claude desktop app and works with your files, tools, and browser — it's a different experience from claude.ai and your messaging should set that expectation.
 
@@ -227,18 +227,18 @@ Every message should reinforce the delegation model: Claude Cowork produces deli
 * Publish monthly usage updates to leadership using the metrics defined above.
 * Run quarterly reviews to assess adoption progress and recalibrate targets.
 
-## Phase 3: Enablement & Training
+## Phase 3: Enablement & Training[](#phase-3-enablement-training)
 
 Without enablement, users may treat Claude Cowork as indistinguishable from Chat. Your enablement program needs to build the muscle for delegation — describing a task, providing context and tools, and coming back to finished work.
 
-### Structured Training Programs
+### Structured Training Programs[](#structured-training-programs)
 
 * **All-Staff 101 sessions:** 30–60 minute workshops where every attendee completes a real delegation-style task before the session ends. The task should produce a deliverable — not just a chat response. Cover the interface and file access in the context of completing that task, not as standalone steps.
 * **Department-level enablement:** Customized sessions with exec sponsors, focused on workflows relevant to each team. Each session should center on a real task from the team’s actual work — not a demo walkthrough. Equip teams with ready-to-customize workflow templates and the skills and plugins relevant to their function.
 * **Office hours:** Weekly or biweekly drop-in sessions where users bring real work and get hands-on help from champions.
 * **LMS integration:** Package training into trackable courses to monitor completion rates across departments and identify teams that need additional support.
 
-### Self-Service Resources
+### Self-Service Resources[](#self-service-resources)
 
 #### For end users
 
@@ -259,7 +259,7 @@ Without enablement, users may treat Claude Cowork as indistinguishable from Chat
 * [Prompt Engineering Guide(opens in new tab)](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) — techniques for getting better results from Claude.
 * [Help Center(opens in new tab)](https://support.claude.com) — comprehensive documentation and FAQs.
 
-### Claude Cowork Features to Cover
+### Claude Cowork Features to Cover[](#claude-cowork-features-to-cover)
 
 These are the key capabilities users should understand.
 
@@ -271,31 +271,31 @@ These are the key capabilities users should understand.
 * [**Projects**(opens in new tab)](https://support.claude.com/en/articles/14116274): Group related tasks into workspaces with their own files, context, and memory.
 * [**Claude in Chrome**(opens in new tab)](https://support.claude.com/en/articles/12012173): Use Claude’s capabilities directly in your browser.
 
-### Internal Support Channels
+### Internal Support Channels[](#internal-support-channels)
 
 * Create a dedicated communications channel for Claude Cowork questions, tips, and troubleshooting. Champions should be active here daily during the first month.
 * Run weekly office hours with champions where users can bring real tasks and get live help.
 * Integrate with your IT helpdesk so Claude Cowork issues route to the right team — separate from general claude.ai support if possible. Ensure admins go live with clear escalation paths so users know exactly where to go if something breaks or to request access or more usage.
 * Stand up monthly user groups for knowledge sharing — teams that have built useful skills or plugins present to the broader org.
 
-## Phase 4: Scaling Adoption
+## Phase 4: Scaling Adoption[](#phase-4-scaling-adoption)
 
 Your pilot validated the approach. Scaling means replicating it — expanding to new teams, demonstrating business impact, and putting governance in place that grows with usage.
 
-### Expanding Across Teams
+### Expanding Across Teams[](#expanding-across-teams)
 
 * Prioritize teams whose work regularly produces deliverables — reports, analyses, decks, formatted documents — and who already work in tools with available connectors in claude.ai.
 * For each new team: identify 2–3 high-value delegation workflows, appoint a local champion, and deliver tailored onboarding using the department-level enablement sessions from Phase 3.
 * Expanding means adding RBAC groups progressively and enabling additional connectors per team’s needs.
 
-### Measuring Impact
+### Measuring Impact[](#measuring-impact)
 
 In Phase 2, you defined metrics across three columns: are people using it?, how deeply?, and is it paying off? At this stage, shift emphasis to the third section. Focus on outcomes that matter to leadership:
 
 * Pair quantitative data with qualitative examples such as short case studies from team leads illustrating real impact.
 * Establish a regular reporting cadence (e.g., quarterly business reviews) to keep stakeholders informed.
 
-### Governance
+### Governance[](#governance)
 
 As usage grows, your governance needs grow with it. Start with the org-level controls you configured in Phase 1, then refine as you observe what teams build. Today, some governance happens in-product and some requires manual processes outside of Claude Cowork. Plan for both
 
@@ -318,7 +318,7 @@ As usage grows, your governance needs grow with it. Start with the org-level con
 * Run quarterly curation reviews to archive stale skills and promote high-value workflows to official plugins. Champions can drive this process.
 * Review data policies and audit cadences at each stage of rollout as the user base expands.
 
-### Capability Governance
+### Capability Governance[](#capability-governance)
 
 #### Go live with the full platform
 
@@ -328,7 +328,7 @@ Claude Cowork’s value comes from capabilities working together — file access
 * **Network egress (web search):** Controls what Claude Cowork can reach when researching or verifying information. Your network and data policies should drive this.
 * **Office agents (Claude across apps):** Lets Claude work across applications. Consider whether your teams’ workflows cross application boundaries.
 
-### Building a Lasting Program
+### Building a Lasting Program[](#building-a-lasting-program)
 
 Scaling Claude Cowork isn’t a launch, it’s an ongoing program. The organizations that see compounding value are the ones that treat adoption as a discipline: continuously surfacing new use cases, curating the best workflows into reusable skills, and connecting what teams learn back into the enablement program.
 

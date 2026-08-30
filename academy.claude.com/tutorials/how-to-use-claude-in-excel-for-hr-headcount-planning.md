@@ -18,7 +18,7 @@ Watch
 
 This tutorial walks through an HR headcount planning model: four tabs, formulas linking everywhere, and errors that need fixing. You'll see how to use plain language to get Claude to map a workbook you've inherited, trace and fix formula errors, run what-if scenarios, and build new calculations that reference data across sheets.
 
-## What you can do
+## What you can do[](#what-you-can-do)
 
 **Understand workbooks you didn't build**
 
@@ -40,11 +40,11 @@ Describe what you want calculated. Claude writes formulas that reference the rig
 
 Ask for a pivot table or chart. Claude builds it from your data and tells you what stands out.
 
-## In this video
+## In this video[](#in-this-video)
 
 Follow along with the video, or copy these prompts to try in your own workbook.
 
-### 0:51 — Get oriented in an inherited model
+### 0:51 — Get oriented in an inherited model[](#051-get-oriented-in-an-inherited-model)
 
 The spreadsheet has four tabs—Assumptions, Headcount, Compensation, Summary—with formulas linking everywhere. Ask Claude to explain how it all connects before you start making changes.
 
@@ -52,11 +52,11 @@ Walk me through this workbook—what's on each tab and how do they connect?
 
 Copy prompt
 
-### 1:18 — Claude maps data flow and finds errors
+### 1:18 — Claude maps data flow and finds errors[](#118-claude-maps-data-flow-and-finds-errors)
 
 Claude reads all four sheets, then returns a visual diagram showing how data flows from Assumptions through to Summary. It also catches #REF! errors you didn't ask about—and maps every cell they affect across three sheets.
 
-### 1:57 — Investigate a broken formula
+### 1:57 — Investigate a broken formula[](#157-investigate-a-broken-formula)
 
 A #REF! error is cascading through the model. Claude traces it to a deleted cell reference, analyzes the pattern in nearby cells, and figures out what the value should be.
 
@@ -64,11 +64,11 @@ There's a #REF! error in cell E15 on the Headcount tab. What's causing it and ca
 
 Copy prompt
 
-### 2:33 — Choose how to fix it
+### 2:33 — Choose how to fix it[](#233-choose-how-to-fix-it)
 
 Claude doesn't just fix the error—it explains the root cause, shows you the options (0, 1, or a custom value), and lets you decide. You stay in control of what changes.
 
-### 3:18 — Run a what-if scenario
+### 3:18 — Run a what-if scenario[](#318-run-a-what-if-scenario)
 
 Change one assumption and see the impact everywhere. Claude updates the model, then returns a before/after comparison by department so you can see which teams are hit hardest.
 
@@ -76,7 +76,7 @@ Update the plan to assume 15% attrition instead of 10%. Show me what changes acr
 
 Copy prompt
 
-### 4:26 — Create a pivot table and chart
+### 4:26 — Create a pivot table and chart[](#426-create-a-pivot-table-and-chart)
 
 Describe the visualization you need. Claude builds a pivot table from your headcount data, adds a stacked bar chart, and surfaces insights—like which job level has the most people and where they're concentrated.
 
@@ -84,7 +84,7 @@ Create a pivot table showing headcount by department and level, then add a stack
 
 Copy prompt
 
-### 5:33 — Build a calculated column with business logic
+### 5:33 — Build a calculated column with business logic[](#533-build-a-calculated-column-with-business-logic)
 
 Ask for a new column and Claude writes actual formulas—not static values. Here, it pulls benefit rates from the Assumptions tab and applies different bonus percentages based on job level (10% for ICs, 15% for managers, 20% for directors).
 
@@ -92,7 +92,7 @@ Add a column that calculates the fully-loaded cost per employee using the rates 
 
 Copy prompt
 
-## What to notice
+## What to notice[](#what-to-notice)
 
 **Claude reads before it answers.**
 
@@ -110,7 +110,7 @@ For deeper understanding, ask Claude to explain its reasoning before making chan
 
 When Claude builds a new calculated column, it writes actual Excel formulas that reference your Assumptions tab and apply conditional logic. If your assumptions change later, the calculations update automatically.
 
-## Get started
+## Get started[](#get-started)
 
 * Install [Claude in Excel(opens in new tab)](https://appsource.microsoft.com/en-us/product/office/WA200009404) from the Microsoft AppSource
 * Open it with **Ctrl+Option+C** (Mac) or **Ctrl+Alt+C** (Windows)

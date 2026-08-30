@@ -18,7 +18,7 @@ Claude can delegate tasks to subagents that break them down and run
 component tasks in parallel, improving your context management. Each
 subagent operates in its own isolated context window.
 
-## How It Works
+## How It Works[](#how-it-works)
 
 Managing context in Claude Code is important. A lot of the context window gets consumed by things like tool calls exploring your codebase or running web searches for research. What Claude discovers during that exploration isn't always relevant to the main feature you're developing.
 
@@ -26,7 +26,7 @@ This is where subagents come in. Claude spawns a subagent to handle a task like 
 
 The result: you get the answer you were looking for, without the entire journey it took to get there cluttering your main context.
 
-## Creating Your Own Subagent
+## Creating Your Own Subagent[](#creating-your-own-subagent)
 
 Subagents are defined in Markdown files with YAML frontmatter. The easiest way to get started is to let Claude generate one for you. Run:
 
@@ -36,14 +36,14 @@ Then select "Create new agent." You'll walk through steps including choosing the
 
 Claude will generate a name, description, and prompt for the subagent. This also tells Claude when to call the subagent based on the prompts you give it.
 
-## Further Customization
+## Further Customization[](#further-customization)
 
 Subagents can be customized further. Here are some highlights:
 
 * **Persistent memory** lets your subagent retain memory across conversations. This is great if you're using it consistently on the same projects.
 * **Preload skills** into subagents by adding the `skills` key and listing skills by name. Note that unlike skills in your main conversation, the entire skill is loaded into context here.
 
-## Recap
+## Recap[](#recap)
 
 Keeping your context window clean is one of the best ways to stay productive with Claude Code. With subagents, you can run an agent in the background to handle the heavy lifting and return just the answer to your main context window.
 

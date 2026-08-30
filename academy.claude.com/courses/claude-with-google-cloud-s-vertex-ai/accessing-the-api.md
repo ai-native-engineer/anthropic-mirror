@@ -14,13 +14,13 @@ When building applications with Claude, understanding the complete request lifec
 
 ![](https://academy.claude.com/assets/media/2a8244ea430c62fdba1dc04c5a8be19c3521ef69da5867972b57cffa5330668a.png)
 
-## The Complete Request Flow
+## The Complete Request Flow[](#the-complete-request-flow)
 
 The journey from user input to AI response involves five distinct steps: Request to Server, Request to Vertex, Model Processing, Response to Server, and Response to Client. Each step plays a crucial role in delivering that "magical" response users expect.
 
 ![](https://academy.claude.com/assets/media/43789ae1571d4b4e2e9dc427f6e91932024bc7ab14ace57c53e085e1255c21bc.png)
 
-## Why You Need a Server
+## Why You Need a Server[](#why-you-need-a-server)
 
 Never make API requests directly from client-side code. Here's why:
 
@@ -30,7 +30,7 @@ Never make API requests directly from client-side code. Here's why:
 
 Always route requests through your own server that you control and secure.
 
-## Making the API Request
+## Making the API Request[](#making-the-api-request)
 
 Your server communicates with Vertex using either Anthropic's SDKs or Google's official Vertex SDKs. Anthropic provides official SDKs for Python, TypeScript, Go, and Ruby.
 
@@ -45,23 +45,23 @@ Every request must include these key fields:
 
 The user's input gets placed inside a "user" message, which then goes into a list of messages sent to the API.
 
-## Inside Claude: Text Generation Process
+## Inside Claude: Text Generation Process[](#inside-claude-text-generation-process)
 
 Once Vertex receives your request, Claude processes it through four stages: Tokenization, Embedding, Contextualization, and Generation.
 
 ![](https://academy.claude.com/assets/media/69ce6a422e611bb0cad6d36aead21b04cc7f0f0c50641c2fecf3e11c441c6a57.png)
 
-### Tokenization
+### Tokenization[](#tokenization)
 
 Claude first breaks down the input text into smaller chunks called tokens. These can be whole words, parts of words, spaces, or symbols. For simplicity, think of each word as one token.
 
-### Embedding
+### Embedding[](#embedding)
 
 Each token gets converted into an embedding - a long list of numbers that represents all possible meanings of that word. Think of embeddings as number-based definitions.
 
 ![](https://academy.claude.com/assets/media/29e3767c2c97dccb20530cfa0094321b1b7db82c564fe49176669852bcc58a8d.png)
 
-### Contextualization
+### Contextualization[](#contextualization)
 
 Since words can have multiple meanings, Claude uses context to determine the right interpretation. The word "quantum" could refer to physics, computing, or just mean "very small" - context from surrounding words clarifies the intended meaning.
 
@@ -71,7 +71,7 @@ During contextualization, each embedding gets adjusted based on its neighbors, h
 
 ![](https://academy.claude.com/assets/media/4039dc65298ec6f64f6a640528c0c913d214c71cf2c9d058835f49756f788fbe.png)
 
-### Generation
+### Generation[](#generation)
 
 The contextualized embeddings pass through an output layer that produces probabilities for each possible next word. Claude doesn't always pick the highest probability word - it uses a mix of probability and randomness to create more natural, varied responses.
 
@@ -79,7 +79,7 @@ The contextualized embeddings pass through an output layer that produces probabi
 
 After selecting a word, Claude adds it to the sequence and repeats the entire process for the next word.
 
-## When Generation Stops
+## When Generation Stops[](#when-generation-stops)
 
 After generating each token, Claude checks several conditions to decide whether to continue:
 
@@ -91,7 +91,7 @@ After generating each token, Claude checks several conditions to decide whether 
 
 The end-of-sequence token is a special signal (not visible text) that Claude uses to indicate it has reached a natural conclusion.
 
-## The Response
+## The Response[](#the-response)
 
 Once generation completes, Vertex sends a response back to your server containing:
 
@@ -105,7 +105,7 @@ Your server then forwards the generated text to your client application, where i
 
 ![](https://academy.claude.com/assets/media/95913acc6c7e9c4e29a0dfb69d9ae9c40a12668250054e8a9c854cd126e8d09d.png)
 
-## The Complete Picture
+## The Complete Picture[](#the-complete-picture)
 
 This entire process - from user input through tokenization, embedding, contextualization, generation, and back to the user - happens in seconds. Understanding this flow helps you build more robust applications and troubleshoot issues when they arise.
 

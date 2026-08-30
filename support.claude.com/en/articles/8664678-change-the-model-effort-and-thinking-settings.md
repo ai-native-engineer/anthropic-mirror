@@ -1,8 +1,6 @@
 <!-- source: https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings -->
 
-The model menu next to the send button controls three settings: which Claude model you're chatting with, how much effort it puts into each response, and whether it uses extended thinking. This article explains how to change each one and when to use them.
-
----
+The model menu next to the send button controls three settings: which Claude model you're chatting with, how much effort it puts into each response, and whether it uses thinking. This article explains how to change each one and when to use them.
 
 ## Change the model
 
@@ -14,8 +12,6 @@ The model menu next to the send button controls three settings: which Claude mod
 If you're on an Enterprise plan and a model or effort level you expect is missing, your administrator may have turned it off for your role.
 
 **Note:** You can change the model, effort level, or thinking setting at any point in a conversation. Changes apply starting with Claude's next response.
-
----
 
 ## Choose an effort level
 
@@ -38,23 +34,21 @@ Each model has a recommended effort level, marked as "Default" in the menu:
 
 Learn more about **[how usage and length limits work](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)**.
 
----
+## Use thinking
 
-## Use extended thinking
-
-Extended thinking lets Claude spend more time breaking down problems, planning solutions, and exploring different approaches before responding.
+Thinking lets Claude spend more time breaking down problems, planning solutions, and exploring different approaches before responding.
 
 Thinking and effort are separate settings, and you can use any combination of the two. The effort level controls how thorough Claude is with every response. The thinking toggle controls whether Claude works through its reasoning in an expandable section before responding.
 
-Extended thinking cannot be turned off in Claude when using Claude Opus 5. On the Claude API, thinking can be turned off at effort levels high and below, but attempting to disable thinking at xhigh or max effort returns an error.
+Thinking cannot be turned off in Claude when using Claude Opus 5. On the Claude API, thinking can be turned off at effort levels high and below, but attempting to disable thinking at xhigh or max effort returns an error.
 
-### Turn extended thinking on or off
+### Turn thinking on or off
 
 For models with effort levels:
 
 1. Click the model name next to the send button.
 2. Mouse over "Effort."
-3. Switch the "Thinking" toggle on or off.
+3. Switch the "Thinking" (or “Extended”) toggle on or off.
 
 For other models:
 
@@ -63,7 +57,7 @@ For other models:
 
 ### View Claude's thought process
 
-When extended thinking is enabled, you'll see:
+When thinking is enabled, you'll see:
 
 * A "Thinking" indicator with a timer showing how long Claude has been processing.
 * An expandable "Thinking" section above Claude's response.
@@ -97,5 +91,5 @@ Whichever settings you choose, be specific about your problem or question. Clear
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
+* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
 * [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)
-* [Why Claude switched models in your conversation with Fable 5](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5)

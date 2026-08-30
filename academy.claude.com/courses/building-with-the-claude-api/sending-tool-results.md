@@ -12,7 +12,7 @@ Lesson 2510 min
 
 After Claude requests a tool call, you need to execute the function and send the results back. This completes the tool use workflow by providing Claude with the information it requested.
 
-## Running the Tool Function
+## Running the Tool Function[](#running-the-tool-function)
 
 When Claude responds with a tool use block, you extract the input parameters and call your function. Here's how to access the tool parameters:
 
@@ -32,7 +32,7 @@ get_current_datetime(**response.content[1].input)
 
 ![](https://academy.claude.com/assets/media/e2516a817e8c2faed5b8b550b6ee5b9ba916b72f3c56bfd3bdd116879ba030f8.png)
 
-## Tool Result Block
+## Tool Result Block[](#tool-result-block)
 
 After running the tool function, you need to send the results back to Claude using a tool result block. This block goes inside a user message and tells Claude what happened when you executed the tool.
 
@@ -44,7 +44,7 @@ The tool result block has several important properties:
 * **content** - Output from running your tool, serialized as a string
 * **is\_error** - True if an error occurred
 
-## Handling Multiple Tool Calls
+## Handling Multiple Tool Calls[](#handling-multiple-tool-calls)
 
 Claude can request multiple tool calls in a single response. For example, if a user asks "What's 10 + 10 and what's 30 + 30?", Claude might respond with two separate ToolUse blocks.
 
@@ -54,7 +54,7 @@ Each tool call gets a unique ID, and you must match these IDs when sending back 
 
 ![](https://academy.claude.com/assets/media/72993e2545b7638dc6d900cd6c75834fabc7535ec4019a99ba40c37ab196b61e.png)
 
-## Building the Follow-up Request
+## Building the Follow-up Request[](#building-the-follow-up-request)
 
 Your follow-up request to Claude must include the complete conversation history plus the new tool result. Here's the structure:
 
@@ -78,7 +78,7 @@ The complete message history now contains:
 * Assistant message with tool use block
 * User message with tool result block
 
-## Making the Final Request
+## Making the Final Request[](#making-the-final-request)
 
 When sending the follow-up request, you must still include the tool schema even though you're not expecting Claude to make another tool call. Claude needs the schema to understand the tool references in your conversation history.
 

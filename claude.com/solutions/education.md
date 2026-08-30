@@ -183,7 +183,7 @@ Connect Claude to the databases and files your research depends on. It holds con
 
 Learn more
 
-[Learn more](https://claude.com/programs/claude-team-plan-for-research-labs)Learn more
+[Learn more](https://claude.com/programs/team-plan-for-scientists)Learn more
 
 ### Claude Science
 

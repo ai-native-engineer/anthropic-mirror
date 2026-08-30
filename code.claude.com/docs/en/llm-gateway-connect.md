@@ -258,9 +258,9 @@ The [Agent SDK](/docs/en/agent-sdk/overview) has no gateway-specific options; it
 
 [Claude Code in Slack](/docs/en/slack) and [Claude Code on the web](/docs/en/claude-code-on-the-web) are Anthropic-hosted products that always use Anthropic's API; they aren't part of a gateway deployment. Gateway variables set in a cloud session's environment configuration are not applied. If your traffic must stay on the gateway, don't enable these surfaces for those users.
 
-[Remote Control](/docs/en/remote-control) and [voice dictation](/docs/en/voice-dictation) both rely on a claude.ai identity: Remote Control to pair a live session with your account, and voice dictation to reach the claude.ai transcription endpoint. They are unavailable while `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, or an `apiKeyHelper` is active. Remote Control is also disabled while `ANTHROPIC_BASE_URL` points at a non-Anthropic host, so signing in with claude.ai isn't enough on its own.
+[Remote Control](/docs/en/remote-control) and [voice dictation](/docs/en/voice-dictation) both rely on a claude.ai identity: Remote Control to pair a live session with your account, and voice dictation to reach the claude.ai transcription endpoint. They are unavailable while `ANTHROPIC_API_KEY`, `ANTHROPIC_AUTH_TOKEN`, or an `apiKeyHelper` is active. Remote Control is also disabled while `ANTHROPIC_BASE_URL` points at a non-Anthropic host, so signing in with claude.ai isn't enough on its own. Before v2.1.196, a non-Anthropic base URL didn't block Remote Control.
 
-To restore either feature, log in with claude.ai and unset the gateway variables that feature checks. The Remote Control section of `claude doctor` names the credential variable to unset.
+To restore either feature, log in with claude.ai and unset the gateway variables that feature checks. The Remote Control section of `claude doctor` names what is currently blocking Remote Control.
 
 * Voice dictation: unset the gateway credential
 * Remote Control: unset the gateway credential and `ANTHROPIC_BASE_URL`
@@ -305,7 +305,7 @@ Enable it if your gateway serves model names that aren't in Claude Code's built-
 
 To enable it, set `CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1` in your shell or in the `env` block of `~/.claude/settings.json`.
 
-Discovered models appear as additional `/model` entries labeled `From gateway`. To confirm discovery ran, start `claude --debug` and look for the `[gatewayDiscovery]` lines in the debug log at `~/.claude/debug/<session-id>.txt`: a success logs how many models were cached, and a `404`, timeout, or redirect is recorded there too. For when discovery runs, what it filters, and the response format gateways serve, see the [model discovery reference](/docs/en/llm-gateway-protocol#model-discovery).
+Discovered models appear as additional `/model` entries labeled `From gateway`. To confirm discovery ran, start `claude --debug` and look for the `[gatewayDiscovery]` lines in the debug log at `~/.claude/debug/<session-id>.txt`: Claude Code logs how many models it cached the first time discovery succeeds and again only when the gateway's list changes, and a `404`, timeout, or redirect is recorded there too. For when discovery runs, what it filters, and the response format gateways serve, see the [model discovery reference](/docs/en/llm-gateway-protocol#model-discovery).
 
 ### Rotate credentials with apiKeyHelper
 
@@ -356,7 +356,9 @@ The helper's value is sent in both the `Authorization` and `x-api-key` headers, 
 
 ### Turn off traffic outside the gateway path
 
-The gateway carries model requests, but Claude Code also sends nonessential background traffic outside the gateway path, to Anthropic and to third-party services such as GitHub: version checks, telemetry, error reports, release notes, and similar requests. On a network that only allows egress to the gateway, these requests fail and can appear as blocked connections in your egress monitoring.
+The gateway carries model requests, but Claude Code also sends nonessential background traffic outside the gateway path, to Anthropic and to third-party services such as GitHub: version checks, telemetry, release notes, and similar requests. On a network that only allows egress to the gateway, these requests fail and can appear as blocked connections in your egress monitoring.
+
+Claude Code attaches a credential to a telemetry or usage-metrics request only when the request goes to the host the credential belongs to. While `ANTHROPIC_BASE_URL` points at the gateway, Claude Code sends its telemetry events to Anthropic without your gateway credential. With a [credential variable](#set-the-credential-variable) or `apiKeyHelper` also active, Claude Code doesn't report usage metrics to the Console [analytics dashboard](/docs/en/analytics#access-analytics-for-api-customers). Before v2.1.246, Claude Code could attach the gateway credential to telemetry and usage-metrics requests bound for Anthropic hosts; model requests always went to the gateway with the credential the gateway expects.
 
 To turn that traffic off, set `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1` alongside the gateway variables, in the same shell exports or settings-file `env` block:
 

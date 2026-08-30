@@ -878,7 +878,7 @@ This is some text inside of a div block.
 
 [### Qodo
 
-Qodo Skills: AI agent capabilities for code quality, testing, security, and compliance across your SDLC.
+Shift-left code review skills that bring Qodo's quality standards and code review capabilities into your development workflow.
 
 11807
 

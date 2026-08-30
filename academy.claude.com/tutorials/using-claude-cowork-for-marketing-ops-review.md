@@ -29,7 +29,7 @@ If you haven’t set up Cowork yet, start with [Get started in three steps(opens
 
 To dive deeper into Claude Cowork, take the full [Intro to Claude Cowork course(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork).
 
-## Step 1: Build the prep skill
+## Step 1: Build the prep skill[](#step-1-build-the-prep-skill)
 
 Set up once
 
@@ -50,7 +50,7 @@ Help me build a skill that prepares my [weekly metrics review]. Walk me through 
 
 Working folderOpen in Cowork
 
-## Step 2: Schedule the prep run
+## Step 2: Schedule the prep run[](#step-2-schedule-the-prep-run)
 
 Set up once
 
@@ -64,7 +64,7 @@ Here’s the prompt to set it up — replace the blanks with your own:
 
 Working folderOpen in Cowork
 
-## Step 3: Run the weekly review
+## Step 3: Run the weekly review[](#step-3-run-the-weekly-review)
 
 Every week
 
@@ -89,7 +89,7 @@ Claude pulls the numbers, but the call is yours: the focus, what the review says
 
 More on the habit: [The 4 Ds of AI Fluency(opens in new tab)](https://academy.claude.com/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators), or [the Framework and Foundations course(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-## Step 4: Save what you learned into the skill
+## Step 4: Save what you learned into the skill[](#step-4-save-what-you-learned-into-the-skill)
 
 Every week
 
@@ -101,7 +101,7 @@ Claude reads back through the work you just did, names what you changed and why,
 
 Because a skill is a plain-text file in a folder, you can share it. Anyone on the team can run the same review and pick up the same improvements.
 
-## Make it yours
+## Make it yours[](#make-it-yours)
 
 This workflow fits any recurring report where the prep is the same every cycle:
 
@@ -119,7 +119,7 @@ This workflow fits any recurring report where the prep is the same every cycle:
 
 When you arrive, the data is there and the candidates are named. The focus call is still yours.
 
-## Learn more
+## Learn more[](#learn-more)
 
 * [Claude Cowork 101(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork). The full Cowork course to go deeper into the product.
 * [Customize Cowork(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork). How to set up connectors, skills, and instructions.

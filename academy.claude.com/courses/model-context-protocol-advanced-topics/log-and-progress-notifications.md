@@ -16,7 +16,7 @@ When Claude calls a tool that takes time to complete - like researching a topic 
 
 With logging and progress notifications enabled, users get real-time feedback showing exactly what's happening behind the scenes. They can see progress bars, status messages, and detailed logs as the operation runs.
 
-## How It Works
+## How It Works[](#how-it-works)
 
 In the Python MCP SDK, logging and progress notifications work through the Context argument that's automatically provided to your tool functions. This context object gives you methods to communicate back to the client during execution.
 
@@ -48,7 +48,7 @@ The key methods you'll use are:
 * `context.info()` - Send log messages to the client
 * `context.report_progress()` - Update progress with current and total values
 
-## Client-Side Implementation
+## Client-Side Implementation[](#client-side-implementation)
 
 On the client side, you need to set up callback functions to handle these notifications. The server emits these messages, but it's up to your client application to decide how to present them to users.
 
@@ -85,7 +85,7 @@ async def run():
 
 You provide the logging callback when creating the client session, and the progress callback when making individual tool calls. This gives you flexibility to handle different types of notifications appropriately.
 
-## Presentation Options
+## Presentation Options[](#presentation-options)
 
 How you present these notifications depends on your application type:
 

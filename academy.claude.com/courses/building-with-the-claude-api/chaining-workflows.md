@@ -12,7 +12,7 @@ Lesson 633 min
 
 Chaining workflows might seem obvious at first, but they're actually one of the most useful patterns you'll encounter when working with Claude. This approach becomes especially valuable when you're dealing with complex tasks or long prompts that Claude struggles to handle consistently.
 
-## What is Workflow Chaining?
+## What is Workflow Chaining?[](#what-is-workflow-chaining)
 
 A chaining workflow breaks down a large, complex task into smaller, sequential subtasks. Instead of asking Claude to do everything at once, you split the work into focused steps that build on each other.
 
@@ -29,7 +29,7 @@ Here's a practical example: imagine you're building a social media marketing too
 
 ![](https://academy.claude.com/assets/media/98a20df2668f4b4b2e0b6be8a9de778904628ecce5094400ea6c0f6211185349.jpg)
 
-## Why Chain Instead of One Big Prompt?
+## Why Chain Instead of One Big Prompt?[](#why-chain-instead-of-one-big-prompt)
 
 You might wonder why not just combine all the Claude tasks into a single prompt. The key benefit is focus - when you give Claude one specific task at a time, it can concentrate on doing that task well rather than juggling multiple requirements simultaneously.
 
@@ -41,7 +41,7 @@ The chaining approach offers several advantages:
 * Optionally do non-LLM processing between each task
 * Keep Claude focused on one aspect of the overall task
 
-## The Long Prompt Problem
+## The Long Prompt Problem[](#the-long-prompt-problem)
 
 Here's where chaining becomes really valuable. You'll often encounter situations where you need Claude to write content with many specific constraints. Let's say you want Claude to write a technical article, and you specify that it should:
 
@@ -56,7 +56,7 @@ Even with all these constraints clearly stated, Claude might still produce conte
 
 ![](https://academy.claude.com/assets/media/33278ff38ada091ae08cd3519410f6fa08ea3f659ffc48f51e7c517a27e3ddbd.jpg)
 
-## The Chaining Solution
+## The Chaining Solution[](#the-chaining-solution)
 
 Instead of fighting with one massive prompt, use a two-step chaining approach:
 
@@ -70,7 +70,7 @@ Instead of fighting with one massive prompt, use a two-step chaining approach:
 
 This approach works because Claude can focus entirely on the revision task rather than trying to balance content creation with constraint adherence.
 
-## When to Use Chaining
+## When to Use Chaining[](#when-to-use-chaining)
 
 Chaining workflows are particularly useful when:
 

@@ -18,7 +18,7 @@ The bioRxiv connector gives Claude access to bioRxiv and medRxiv preprint server
 
 The bioRxiv integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 This connector gives Claude direct access to bioRxiv and medRxiv, the leading preprint servers for biological and health sciences operated by openRxiv. bioRxiv focuses on basic research across more than 25 life science disciplines, while medRxiv specializes in clinical and health research. These platforms enable scientists to share unpublished manuscripts rapidly, with bioRxiv now hosting over 310,000 preprints. The connector provides early access to cutting-edge research months before traditional peer-reviewed publication.
 
@@ -35,7 +35,7 @@ The connector provides nine primary tool calls that access different aspects of 
 
 On the provider side, the connector queries the official bioRxiv/medRxiv RESTful API, accessing metadata stored in their PostgreSQL database. All preprints undergo basic screening for plagiarism and non-scientific content but are NOT peer-reviewed. Preprints receive DOIs for citability and version control tracks revisions over time.
 
-## **Who should use the bioRxiv integration**
+## **Who should use the bioRxiv integration**[](#who-should-use-the-biorxiv-integration)
 
 * **Academic Researchers:** Monitor emerging research in their field before formal publication, identify collaboration opportunities, track competitor labs' preprints, and stay current with fast-moving areas where preprints provide 3-12 month publication lead time.
 * **Grant Reviewers & Funding Officers:** Track research outputs from funded grants using ROR-based funder searches, assess productivity of research programs, and monitor which preprints from funded work achieve peer-reviewed publication.
@@ -45,7 +45,7 @@ On the provider side, the connector queries the official bioRxiv/medRxiv RESTful
 * **Meta-Researchers & Bibliometricians:** Analyze preprint-to-publication rates, study time-to-publication across disciplines, investigate funder impacts on research dissemination, and track platform growth trends in open science.
 * **PhD Students & Postdocs:** Stay current with latest methodologies before publication, find recent work for literature reviews, identify active research groups in their area, and discover which labs are productively publishing in their field.
 
-## **Setting up the bioRxiv integration**
+## **Setting up the bioRxiv integration**[](#setting-up-the-biorxiv-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -69,7 +69,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 3. Restart Claude Code
 4. Verify that the server is connected with /mcp
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Literature Monitoring & Early Research Discovery**
 

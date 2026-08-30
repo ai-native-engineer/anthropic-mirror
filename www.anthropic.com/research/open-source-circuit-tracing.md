@@ -28,20 +28,20 @@ Our CEO Dario Amodei [wrote recently](https://www.darioamodei.com/post/the-urgen
 
 *The open-source-circuit-finding library was developed by [Anthropic Fellows](https://alignment.anthropic.com/2024/anthropic-fellows-program/) Michael Hanna and Mateusz Piotrowski with mentorship from Emmanuel Ameisen and Jack Lindsey. The Neuronpedia integration was implemented by [Decode Research](https://www.decoderesearch.org/) (Neuronpedia lead: Johnny Lin; Science lead/director: Curt Tigges). Our Gemma graphs are based on transcoders trained as part of the [GemmaScope](https://ai.google.dev/gemma/docs/gemma_scope) project. For questions or feedback, please open an issue on GitHub.*
 
+### Automated researchers can reliably mitigate alignment failures
+
+We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
+
+[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+
+### Enabling independent research on how people use Claude
+
+Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
+
+[Read more](https://www.anthropic.com/research/enabling-independent-research)
+
 ### How Claude is accelerating protein design and analytical chemistry
 
 In this post, we share two results that show how Claude can help life scientists increase the pace of their research.
 
 [Read more](https://www.anthropic.com/research/Claude-accelerates-protein-design)
-
-### Patterns and problems in emerging multiagent systems
-
-Here, we identify a few examples of behavioral tendencies in current frontier models and show how they can produce unexpected systemic failures, in hopes of starting a conversation about mitigating these risks.
-
-[Read more](https://www.anthropic.com/research/multiagent-systems)
-
-### Reviewing the evidence on worker retraining programs
-
-We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.
-
-[Read more](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)

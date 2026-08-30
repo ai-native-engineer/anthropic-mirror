@@ -12,7 +12,7 @@ Lesson 407 min
 
 The hybrid retrieval approach we've built works well, but there are still some rough edges. When you search for specific terms or use abbreviations, the results might not be perfectly ordered. For example, asking "What did the eng team do with INC-2023-Q4-011?" might return the cybersecurity section first, even though the software engineering section is more relevant to that specific query.
 
-## LLM-Based Re-ranking
+## LLM-Based Re-ranking[](#llm-based-re-ranking)
 
 Re-ranking adds another post-processing step after merging results from your vector index and BM25 index. The concept is straightforward: take your search results and ask Claude to reorder them based on relevance to the user's question.
 
@@ -26,7 +26,7 @@ Here's how the process works:
 * The re-ranker sends everything to Claude with a specific prompt
 * Claude returns a reordered list of the most relevant documents
 
-## System Prompts
+## System Prompts[](#system-prompts)
 
 The re-ranking prompt is designed to be clear and specific. You provide Claude with the user's question and all the documents that seem relevant, then ask for a simple task: return the most relevant documents in order of decreasing relevance.
 
@@ -50,13 +50,13 @@ Here are documents that may be relevant:
 Return the 3 most relevant docs, in order of decreasing relevance.
 ```
 
-## Efficiency Considerations
+## Efficiency Considerations[](#efficiency-considerations)
 
 Asking Claude to return full text chunks would be inefficient - you'd be waiting for Claude to copy large amounts of text. Instead, assign each text chunk a unique ID ahead of time. Then ask Claude to return just those IDs in the correct order.
 
 This approach is much faster because Claude only needs to return a simple list like `["1p5g", "51n3", "ab83"]` instead of copying entire document sections.
 
-## Implementation
+## Implementation[](#implementation)
 
 The re-ranker function gets called automatically by your retriever after the initial hybrid search. Here's the basic structure:
 
@@ -82,7 +82,7 @@ def reranker_fn(docs, query_text, k):
     return json.loads(result["text"])["document_ids"]
 ```
 
-## Results
+## Results[](#results)
 
 When you test the re-ranker with queries like "What did the eng team do with INC-2023-Q4-011?", you should see more relevant results at the top. Claude understands the context and can identify that a query about the engineering team should prioritize the software engineering section over other sections that merely mention the incident.
 

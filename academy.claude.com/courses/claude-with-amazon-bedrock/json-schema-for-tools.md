@@ -12,7 +12,7 @@ Lesson 235 min
 
 After creating your tool function, the next step is writing a JSON schema to describe it. This schema tells Claude what arguments your function expects and how to use it properly. While the configuration might look intimidating at first, it's actually straightforward once you understand the process.
 
-## Understanding JSON Schema
+## Understanding JSON Schema[](#understanding-json-schema)
 
 JSON Schema isn't something invented just for AI tools - it's been around for years as a standard way to validate data. The schema has two main parts: the name and description at the top (which help Claude understand when to use the tool), and the actual schema that describes the function's arguments.
 
@@ -20,11 +20,11 @@ JSON Schema isn't something invented just for AI tools - it's been around for ye
 
 The top section contains the tool's name and description, which helps Claude understand when to use it. The bottom section is the actual schema that describes your function's arguments in detail.
 
-## Creating a JSON Schema: Step-by-Step
+## Creating a JSON Schema: Step-by-Step[](#creating-a-json-schema-step-by-step)
 
 Here's the simplest way to create a JSON schema for any function:
 
-### Step 1: Write a Dictionary with Sample Data
+### Step 1: Write a Dictionary with Sample Data[](#step-1-write-a-dictionary-with-sample-data)
 
 Take your function and create a dictionary of all keyword arguments with sample data. For example, if you have a function like this:
 
@@ -39,13 +39,13 @@ Create a dictionary with sample values:
 
 ![](https://academy.claude.com/assets/media/45dc10d709dd7a8967367cbec8a349090f3613e3ef8dc7c7633e761e30d2cde7.png)
 
-### Step 2: Convert to JSON
+### Step 2: Convert to JSON[](#step-2-convert-to-json)
 
 Convert your Python dictionary to proper JSON format. The main difference is changing Python's `True` to JSON's `true`.
 
 ![](https://academy.claude.com/assets/media/d177a699af0fe1303683ea4279df2ea3466ded1f78370ae949e062f3ddf260e0.png)
 
-### Step 3: Use an Online Converter
+### Step 3: Use an Online Converter[](#step-3-use-an-online-converter)
 
 Search for "JSON to JSON Schema converter" and use one of the many free online tools. Paste your JSON data and let it generate the schema automatically.
 
@@ -53,13 +53,13 @@ Search for "JSON to JSON Schema converter" and use one of the many free online t
 
 The tool will analyze your sample data and create a proper schema structure. Remove any `$schema` declarations from the output - you don't need them.
 
-### Step 4: Add Descriptions
+### Step 4: Add Descriptions[](#step-4-add-descriptions)
 
 The most important step is adding detailed descriptions to each property. These descriptions help Claude understand exactly what each argument does and how to use it.
 
 ![](https://academy.claude.com/assets/media/1e49419e1af6a7f4e9b0ee35e6e2c01c0b85012d6819463b4f87122c3e915a97.png)
 
-## Writing Good Descriptions
+## Writing Good Descriptions[](#writing-good-descriptions)
 
 When writing descriptions for your tools and properties, follow these best practices:
 
@@ -74,7 +74,7 @@ Here's an example of a well-described tool schema:
 
 Notice how the description clearly explains what the weather tool does, when to use it, what data it returns, and provides specific examples of valid location formats.
 
-## Putting It All Together
+## Putting It All Together[](#putting-it-all-together)
 
 Your final JSON schema should look something like this structure, with the `toolSpec` containing the name, description, and `inputSchema` with the detailed argument specifications:
 

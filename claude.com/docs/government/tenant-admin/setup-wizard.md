@@ -36,6 +36,7 @@ Setting this up is a two-way exchange:
 
 After you save a SAML connection, an **SP metadata URL** appears with the other values; most providers can import it to fill in the values automatically if you need to reconfigure.
 Until single sign-on is connected, only owners who were invited directly by email can sign in. The full field reference for both protocols is on the [Identity and access](https://claude.com/docs/government/tenant-admin/identity-and-access#single-sign-on) page.
+Once single sign-on is connected, people sign in from Claude Desktop or the web portal, and Claude for Government sends them to your provider from there. Starting from the application’s tile in your provider’s app portal, or from a sign-in test in its admin console, is not supported.
 
 ##  Step 4: Provisioning (optional)
 

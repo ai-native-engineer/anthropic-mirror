@@ -14,7 +14,7 @@ Adding multiple tools to your Claude implementation becomes straightforward once
 
 ![](https://academy.claude.com/assets/media/a717f46eec75a1fd38b52f641b998d3b0877e98425f802cf5a5e8b0926b2e604.png)
 
-## The Tools We're Adding
+## The Tools We're Adding[](#the-tools-were-adding)
 
 We need three main capabilities for our reminder system:
 
@@ -24,7 +24,7 @@ We need three main capabilities for our reminder system:
 
 The good news is that most of the implementation work is already done. The `add_duration_to_datetime` function and `set_reminder` function are provided, along with their corresponding schemas.
 
-## Adding Tools to the Conversation
+## Adding Tools to the Conversation[](#adding-tools-to-the-conversation)
 
 First, update the `run_conversation` function to include the new tool schemas in the tools list:
 
@@ -40,7 +40,7 @@ response = chat(messages, tools=[
 
 This tells Claude about all three available tools it can use during the conversation.
 
-## Updating the Tool Router
+## Updating the Tool Router[](#updating-the-tool-router)
 
 Next, modify the `run_tool` function to handle the new tool calls. Add elif cases for each new tool:
 
@@ -58,7 +58,7 @@ def run_tool(tool_name, tool_input):
 
 The pattern is simple: check the tool name, call the corresponding function with the provided input, and return the result.
 
-## Testing Multiple Tool Usage
+## Testing Multiple Tool Usage[](#testing-multiple-tool-usage)
 
 To test the system, try a request that requires multiple tools: "Set a reminder for my doctors appointment. Its 177 days after Jan 1st, 2050."
 
@@ -71,7 +71,7 @@ This request forces Claude to:
 
 Claude handles this by first explaining what it needs to do, then making the appropriate tool calls in sequence. The conversation shows Claude calculating June 27, 2050 as the target date, then setting the reminder for that date.
 
-## Understanding the Message Flow
+## Understanding the Message Flow[](#understanding-the-message-flow)
 
 When you examine the conversation history, you'll see the complete message structure:
 
@@ -84,7 +84,7 @@ When you examine the conversation history, you'll see the complete message struc
 
 This demonstrates how Claude can include multiple blocks in a single message - combining explanatory text with tool usage requests.
 
-## The Simple Pattern for Adding Tools
+## The Simple Pattern for Adding Tools[](#the-simple-pattern-for-adding-tools)
 
 Once you have the core tool infrastructure, adding new tools follows this pattern:
 

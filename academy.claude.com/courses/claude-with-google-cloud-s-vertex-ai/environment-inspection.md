@@ -12,7 +12,7 @@ Lesson 652 min
 
 Claude operates blindly - it needs to be able to observe the environment around it to understand the results of its actions. This concept, called environment inspection, is crucial for building effective AI agents.
 
-## Why Environment Inspection Matters
+## Why Environment Inspection Matters[](#why-environment-inspection-matters)
 
 Think about Claude's perspective when using computer tools. When it clicks a button or types text, the interface changes, but Claude doesn't inherently know how. A button click might navigate to a new page or open a menu. Without being able to "see" what happened, Claude can't determine if its action was successful or plan its next move effectively.
 
@@ -20,7 +20,7 @@ Think about Claude's perspective when using computer tools. When it clicks a but
 
 This is why computer use tools automatically return screenshots after each action. Claude uses these visual snapshots to understand the new state of the environment and gauge its progress toward completing tasks.
 
-## Reading Before Writing
+## Reading Before Writing[](#reading-before-writing)
 
 The same principle applies to file operations. Before Claude can modify code, it needs to understand what currently exists in the file. This might seem obvious, but it's a critical step that many developers overlook when building agents.
 
@@ -28,7 +28,7 @@ The same principle applies to file operations. Before Claude can modify code, it
 
 In this example, Claude first reads the contents of `main.py` to understand the current structure before safely adding new routes. This inspection step prevents errors and ensures the modifications fit properly with existing code.
 
-## Practical Applications
+## Practical Applications[](#practical-applications)
 
 Environment inspection becomes especially valuable in complex workflows. Consider an agent that creates videos and posts them to social media. The agent might need to:
 
@@ -37,7 +37,7 @@ Environment inspection becomes especially valuable in complex workflows. Conside
 * Check that audio and visual elements align correctly
 * Confirm successful posting to social platforms
 
-## System Prompts for Inspection
+## System Prompts for Inspection[](#system-prompts-for-inspection)
 
 You can guide Claude to inspect its environment through system prompts. For a video creation agent, you might include instructions like:
 

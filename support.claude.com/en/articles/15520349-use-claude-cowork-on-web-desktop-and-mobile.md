@@ -4,8 +4,6 @@ Claude Cowork is available on desktop, web, mobile, and in the Claude in Chrome 
 
 Claude Cowork is in beta on web and mobile for Pro, Max, and Team plans, and on Enterprise plans where an admin has enabled it. Cowork is also available in the Claude in Chrome side panel on Max and Team plans, on Pro plans as it rolls out, and on Enterprise plans where an admin has enabled it. See **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls#h_bdb63199e1)** for enablement steps.
 
----
-
 ## Start a Cowork session
 
 On desktop, web, and mobile, chat and Cowork share one home, so you start both from the same place. Find the message box, select "Cowork" in the bottom left corner, then describe your task. To go back to a regular conversation, select "Chat."
@@ -17,8 +15,6 @@ The Chrome side panel works differently. Opening the side panel starts a Cowork 
 * **Desktop:** Open the latest version of the Claude Desktop app. If you don't see the Cowork option in the message box, update the app. Desktop is the full Cowork experience, where Claude can also use your local files and browser.
 * **Chrome:** Click the Claude icon in your Chrome toolbar to open the side panel. The side panel starts a Cowork session, so there's no need to select "Cowork" first.
 
----
-
 ## How Cowork in the cloud works
 
 When using Cowork in the cloud, Claude's work runs on Anthropic's servers instead of your computer, and your sessions and files are saved to your Claude account. This changes what Cowork can do:
@@ -29,8 +25,6 @@ When using Cowork in the cloud, Claude's work runs on Anthropic's servers instea
 * Sessions run in the cloud on every surface.
 
 For details on how cloud and local sessions are isolated and what each can access, see **[Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288)**. For safety guidance, see **[Use Claude Cowork safely](https://support.claude.com/en/articles/13364135)**.
-
----
 
 ## What's available on each surface
 
@@ -53,7 +47,7 @@ Cowork in the cloud is in beta, and some features aren’t available yet. Here's
 
 A few notes on the table:
 
-* \*Local file access, local connectors, browser use, and computer use from web and mobile work through the Claude Desktop app. A cloud session can read and write files in folders you've connected on your computer only while the desktop app is open on that computer. If the app is closed, the session keeps running but can't reach your local files.
+* \*Local file access, local connectors, browser use, and computer use from web and mobile work through the Claude Desktop app. A cloud session can read and write files in folders you've connected on your computer only while the desktop app is open on that computer and the session was started on desktop. If the app is closed, the session keeps running but can't reach your local files.
 * Projects are available on every surface. From a project you can start a chat or a Cowork session, and Claude uses the project's knowledge as context. Projects tied to a local folder support Cowork sessions on desktop only, and Cowork won't change a project's contents, so add anything you want to keep to the project yourself. For more information, see **[Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274)** and **[Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249)**.
 * Live artifacts are available on the desktop app only. For more information, see **[Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249)**.
 * Local connectors and plugins that include local MCP servers work through the desktop app only.
@@ -66,7 +60,7 @@ Some capabilities reach things on your computer, so they need the Claude Desktop
 
 * **Local file access.** Claude reads and writes files in folders you've connected on your computer. A session in the cloud reaches these files only while the desktop app is open, only for folders you've connected, and with the permissions you've already set.
 * **Local connectors.** This includes plugins using those connectors.
-* **Browser use.** Claude works in your browser through Claude in Chrome. In the Chrome side panel, Claude can read the tab you're on without the desktop app. Claude driving your browser as part of a task still needs the desktop app open.
+* **Browser use.** On desktop, Claude uses a browser built into the Claude Desktop app by default (rolling out gradually this week), or your own Chrome browser through Claude in Chrome if that's your preferred browser. When the desktop app is online, the built-in browser is also available in Cowork on web or mobile. A session started on desktop can be steered from web or mobile while the desktop app stays open. In the Chrome side panel, Claude can read the tab you're on without the desktop app. Claude driving a browser as part of a task still needs the desktop app open. Learn more in **[Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400)**.
 * **Computer use.** Claude clicks, types, and navigates your screen directly.
 
 ## Move between surfaces
@@ -85,4 +79,4 @@ When Claude finishes a task or needs your input, you'll get a notification on yo
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
-* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+* [Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400-use-the-built-in-browser-in-claude-cowork)

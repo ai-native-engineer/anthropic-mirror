@@ -12,7 +12,7 @@ Lesson 395 min
 
 When building a RAG pipeline, you'll quickly discover that semantic search alone doesn't always return the best results. Sometimes you need exact term matches that semantic search might miss. The solution is to combine semantic search with lexical search using a technique called BM25.
 
-## The Problem with Semantic Search Alone
+## The Problem with Semantic Search Alone[](#the-problem-with-semantic-search-alone)
 
 Let's say you're searching for a specific incident ID like "INC-2023-Q4-011" in a document. While this exact term appears multiple times in relevant sections, semantic search might return unrelated sections that are semantically similar but don't actually contain the specific term you're looking for.
 
@@ -20,7 +20,7 @@ Let's say you're searching for a specific incident ID like "INC-2023-Q4-011" in 
 
 This happens because semantic search focuses on meaning rather than exact matches. When you need precise term matching, you need a different approach.
 
-## Hybrid Search Strategy
+## Hybrid Search Strategy[](#hybrid-search-strategy)
 
 The solution is to run two searches in parallel and merge the results:
 
@@ -30,7 +30,7 @@ The solution is to run two searches in parallel and merge the results:
 * **Lexical Search** - Uses classic text search for exact term matching
 * **Merge Results** - Combines both result sets for better coverage
 
-## How BM25 Works
+## How BM25 Works[](#how-bm25-works)
 
 BM25 (Best Match 25) is a popular algorithm for lexical search in RAG pipelines. Here's how it processes a search query:
 
@@ -45,7 +45,7 @@ The algorithm follows these key steps:
 
 The key insight is that rare terms like "INC-2023-Q4-011" are much more important for search than common words like "a" or "the".
 
-## Implementing BM25 Search
+## Implementing BM25 Search[](#implementing-bm25-search)
 
 Here's how to set up a BM25 search system:
 
@@ -65,13 +65,13 @@ results = store.search("What happened with INC-2023-Q4-011?", 3)
 
 The BM25 implementation provides the same API as your semantic search system - both have `add_document()` and `search()` methods, making them easy to use together.
 
-## Better Search Results
+## Better Search Results[](#better-search-results)
 
 When you run the same query through BM25 that failed with semantic search alone, you get much better results. Instead of returning irrelevant sections, BM25 prioritizes the sections that actually contain your specific search terms.
 
 The algorithm correctly identifies that "INC-2023-Q4-011" is a rare, important term and ranks documents containing it much higher than documents with only common words from the query.
 
-## Next Steps
+## Next Steps[](#next-steps)
 
 Now that you have both semantic and lexical search systems working independently, the next step is merging their results. This hybrid approach gives you the best of both worlds - the contextual understanding of semantic search combined with the precision of exact term matching from lexical search.
 

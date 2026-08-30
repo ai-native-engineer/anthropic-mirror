@@ -22,8 +22,6 @@ When you use a beta or research preview feature, keep the following in mind:
 * **Performance and reliability may vary.** These features haven't gone through the same level of polish as generally available features.
 * **Not every feature graduates.** Some beta and research preview features become a permanent part of Claude. Others don't, and we sometimes remove features that don't work out.
 
----
-
 ## Current beta and research preview features
 
 This table below lists the beta and research preview features currently available across our products; click on the feature name to learn more.
@@ -42,8 +40,6 @@ This table below lists the beta and research preview features currently availabl
 
 **Note:** Availability varies by plan. Check each linked article to confirm which plans support the feature.
 
----
-
 ## Share feedback
 
 Feedback on beta and research preview features helps inform our decisions. You can share feedback with **[our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
@@ -51,5 +47,5 @@ Feedback on beta and research preview features helps inform our decisions. You c
 * [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 * [When should I use web search, extended thinking, and research?](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research)
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
 * [Use Claude in Xcode](https://support.claude.com/en/articles/12293051-use-claude-in-xcode)
+* [Get started with Claude Science](https://support.claude.com/en/articles/16563838-get-started-with-claude-science)

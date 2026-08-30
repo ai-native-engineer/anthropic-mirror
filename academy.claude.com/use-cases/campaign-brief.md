@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-f1fouzqt.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-iw1rj94h.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Marketing plugin ships with `/campaign-plan` and other campaign-planning skills as a starting point, already structured around objective, audience, message, and metrics. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ MarketingCreate content, plan campaigns, and analyze performance across marketin
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -56,7 +56,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the strategy notes, your brief template, the brand guidelines, last quarter's best brief) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the formatted brief and deck back to it. If you'll spin up campaigns regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the parent Campaigns folder so the template and brand voice stay attached.
 
@@ -70,15 +70,15 @@ brief-template.docxFeb 3, 202618 KB
 
 In Cowork’s chat bar:Campaigns / Spring-Launch
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Turn the strategy notes into a formatted campaign brief: objective, audience, key message, channel plan, timeline, and success metrics. Then build a short deck from the brief to walk the team through at kickoff. Keep the voice consistent with our brand guidelines.
 
 Campaigns / Spring-LaunchOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -96,7 +96,7 @@ Source
 
 **Let the working folder supply context.** Strategy notes, template, and brand guide sit in the working folder, so the brief and deck are written back next to the source and the campaign folder is complete from day one.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -106,7 +106,7 @@ Practice
 
 **Ask for options.** Add "draft three versions with different angles" and pick the one that works best, or mix the best lines.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -116,9 +116,9 @@ CampaignsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on every new campaign
+### Run it on every new campaign[](#run-it-on-every-new-campaign)
 
 Strategy notes get dropped, the brief should already be drafting. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs every weekday morning against any new strategy-notes files in Campaigns.
 
@@ -134,7 +134,7 @@ Checks Campaigns each weekday morning for new strategy-notes files, runs `/campa
 
 Every **weekday at 9 am — Campaigns folder**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/campaign-plan` now carries your template, your brand voice, and your metrics framework. Share it so every campaign owner starts from the same structure, and stakeholders see one consistent brief format no matter who runs the program.
 
@@ -142,7 +142,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/campaign-plan` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your template and voice baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

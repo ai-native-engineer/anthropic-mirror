@@ -76,13 +76,13 @@ Global Premier
 
 Bain & Company is a global consultancy that helps the world’s most ambitious change makers define the future and achieve extraordinary results.
 
-![BCG logo](https://api.eulerapp.com/partner-directory/assets/96d6547f0d366a5563f9031b3c7e64e7)
+![Boston Consulting Group logo](https://api.eulerapp.com/partner-directory/assets/c58892236c6f7400d391bd223e0acdb8)
 
-[BCG](https://partnerhub.claude.com/directory/partner/1784259850508x994627779836033700)
+[Boston Consulting Group](https://partnerhub.claude.com/directory/partner/1784259850508x994627779836033700)
 
 Global Premier
 
-BCG advises customers on strategic applications of AI and helps them deploy Anthropic models including Claude to deliver business results. Use cases span knowledge management, market research, fraud detection, demand forecasting, report generation, and business analysis.
+Boston Consulting Group bridges the gap between ambition and outcomes for the world's leading companies and organizations. We are built for this era of unprecedented change — bringing strategic clarity rooted in over 60 years of deep domain knowledge, combined with applied AI shaped by our practitioners.
 
 ![Capgemini logo](https://api.eulerapp.com/partner-directory/assets/9fc8d604ad82123ba5079f567852238d)
 

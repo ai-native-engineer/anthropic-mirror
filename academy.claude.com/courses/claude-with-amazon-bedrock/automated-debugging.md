@@ -14,13 +14,13 @@ Claude isn't just for writing code in your editor. It can also monitor your prod
 
 ![](https://academy.claude.com/assets/media/4c6982735b6b5df20a3c8450b684655a460696eaa113810180297ea3a9e70fbb.png)
 
-## The Problem: Production-Only Errors
+## The Problem: Production-Only Errors[](#the-problem-production-only-errors)
 
 One of the most frustrating debugging scenarios is when your application works perfectly in development but fails in production. You might test everything locally, deploy with confidence, only to discover that certain features aren't working in the live environment.
 
 Consider a simple chatbot application that works flawlessly during local testing. You can ask questions, generate spreadsheets with fake data, and everything responds as expected. But when you deploy the same code to AWS Amplify and run identical tests, the spreadsheet generation fails silently - the request goes through, but no data appears.
 
-## Traditional Debugging Approach
+## Traditional Debugging Approach[](#traditional-debugging-approach)
 
 Typically, you'd need to:
 
@@ -31,7 +31,7 @@ Typically, you'd need to:
 
 This process can be time-consuming, especially when dealing with cryptic error messages like "The provided model identifier is invalid" buried in extensive log output.
 
-## Automated Error Detection and Fixing
+## Automated Error Detection and Fixing[](#automated-error-detection-and-fixing)
 
 Instead of manual debugging, you can create a GitHub Action that runs automatically every day to monitor your production environment. This workflow delegates the entire debugging process to Claude.
 
@@ -45,7 +45,7 @@ Here's how the automated workflow operates:
 4. **Fix Implementation**: Claude attempts to fix each error by modifying the appropriate code
 5. **Pull Request Creation**: Commits the fixes and automatically opens a pull request for review
 
-## Real-World Example
+## Real-World Example[](#real-world-example)
 
 In the chatbot example, Claude discovered that the production environment was using an invalid model identifier. The error occurred because of a typo in the model ID that was only referenced in production configuration.
 
@@ -53,7 +53,7 @@ Claude identified the issue, found the correct model ID format, and updated the 
 
 ![](https://academy.claude.com/assets/media/85c27a7ce704064c8d83d5d4e291a6f67a9087b8a6bb9b990d80251711bdcd22.png)
 
-## Benefits of Automated Debugging
+## Benefits of Automated Debugging[](#benefits-of-automated-debugging)
 
 * **Proactive Monitoring**: Catches errors before you're even aware they exist
 * **Time Savings**: Eliminates manual log hunting and debugging sessions
@@ -61,7 +61,7 @@ Claude identified the issue, found the correct model ID format, and updated the 
 * **Review Process**: Pull requests allow you to verify fixes before merging
 * **Continuous Improvement**: Runs automatically to catch new issues as they arise
 
-## Implementation Considerations
+## Implementation Considerations[](#implementation-considerations)
 
 When setting up automated debugging workflows:
 

@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create a company newsletter result](https://academy.claude.com/assets/v1/create-a-company-newsletter-okvleal3.png)[Open artifact](https://claude.ai/public/artifacts/5c2b5a3f-69ac-4b56-b54e-9cf60dca5bc7)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude can read across your company channels, identify what matters to you, and package it into a publication-style digest. You get curated company intelligence delivered in a format you'll actually want to read.
 
@@ -32,13 +32,13 @@ Go for a British newspaper aesthetic: no gradients, shadows, rounded corners, or
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 To create your digest, Claude needs access to your workspaces. Claude can read across all your channels to identify which updates are important to include.
 
 For a more complete view, add additional sources where company information that you want to include lives.
 
-### Required context
+### Required context[](#required-context)
 
 In Settings > Connectors, find and enable your [Slack(opens in new tab)](https://www.anthropic.com/news/claude-and-slack) connector and [Google Drive(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) and [Gmail(opens in new tab)](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) integrations.
 
@@ -64,15 +64,7 @@ Slack
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can better analyze your information and create high quality outputs.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude reads across all your channels, filters for important discussions, and organizes updates into topic-based sections. You'll receive a clear summary of events, without needing to piece together information from various messages.
 
@@ -92,11 +84,11 @@ The publication includes:
 
 You can share the artifact link, convert to PDF for printing, or ask me to post a condensed version to Slack.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Expand coverage and depth
+### Expand coverage and depth[](#expand-coverage-and-depth)
 
 Add more pages and mimic a full publication. Tell Claude to include more channels in its search and create corresponding sections for each.
 
@@ -104,7 +96,7 @@ Turn this artifact into a complete online publication with clickable sections an
 
 Open in Claude
 
-### Add visualizations
+### Add visualizations[](#add-visualizations)
 
 Include charts, tables, or other visual elements to make new data and trends immediately visible.
 
@@ -112,21 +104,21 @@ Add Chart.js visualizations: customer sentiment (positive vs issues, 4-week tren
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Use prompting techniques to trigger specific designs
+### Use prompting techniques to trigger specific designs[](#use-prompting-techniques-to-trigger-specific-designs)
 
 The prompt includes phrases like "Print-like typography" or "Institutional publishing elements". These descriptions help inspire Claude to design and format your information in a way that mimics digital publications and online news sites. Without them, Claude may default to more basic formatting.
 
-### Publish and share the artifact
+### Publish and share the artifact[](#publish-and-share-the-artifact)
 
 After Claude creates an artifact, [publish and share it(opens in new tab)](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts) through the URL. Others can open it in the browser, without needing a Claude account. If someone requests changes, you can ask Claude to update the artifact and republish to display the new version.
 
-### Tune preferences over time and create skills
+### Tune preferences over time and create skills[](#tune-preferences-over-time-and-create-skills)
 
 As you discover how you like your content formatted and which channels for sourcing information work best, give Claude feedback and ask to create a [Skill(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills). Learn more about how to [create a custom skill using Claude.(opens in new tab)](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation)
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Connect your company tools and get a readable digest, turning minutes of curated reading instead of hours catching up across channels and platforms.
 

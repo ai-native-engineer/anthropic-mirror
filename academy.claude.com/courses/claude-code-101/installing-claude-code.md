@@ -12,10 +12,12 @@ Lesson 36 min
 
 Installing Claude Code
 
+SummaryTranscript
+
 Claude Code is simple to install whether you want to use it in your
 terminal, on the web, or in your IDE.
 
-## Terminal
+## Terminal[](#terminal)
 
 On **macOS, Linux, or WSL**, use the curl command to install it in one go. If you prefer Homebrew, you can also use `brew install`, but note that this method doesn't support auto-updates.
 
@@ -33,7 +35,7 @@ You'll go through some initial setup steps like choosing your color theme and si
 
 Whatever directory you run `claude` in, it will have access to that directory and all of its subfolders.
 
-## Visual Studio Code
+## Visual Studio Code[](#visual-studio-code)
 
 Open your Extensions panel and search for "Claude Code." Look for the extension by Anthropic with the blue verification check. Hit install.
 
@@ -43,25 +45,25 @@ After installation, you may need to restart VS Code. Once it's running, open the
 
 The VS Code extension provides a very similar experience to the terminal. You can also opt out of the UI and use the terminal experience directly in your settings.
 
-## JetBrains
+## JetBrains[](#jetbrains)
 
 Install the Claude Code plugin from the JetBrains Marketplace. After installation, restart your IDE. When you reopen it, you'll see the Claude logo. Clicking it opens a pane with the terminal experience that works alongside your editor.
 
 ![Claude Code plugin in the JetBrains Marketplace](https://academy.claude.com/assets/media/a7656728ab6cf289ed0d6a523c2f0b230053e7e69908e77675603f69da0eed2d.jpg)
 
-## Desktop
+## Desktop[](#desktop)
 
 After installing and signing into Claude Desktop, you'll see a toggle at the top labeled "Code." The look and feel is similar to the chat side of things, but it lets you work in a specific folder, change permissions, and even work in a cloud environment.
 
 ![Claude Desktop Code view showing recent project folders](https://academy.claude.com/assets/media/dbd3386c65f280868d1a71154b96ee0b1b80d1b44ad5019b7c40be353fc714a1.jpg)
 
-## Web
+## Web[](#web)
 
 On the web, access Claude Code by going to `claude.ai/code`, or by clicking the "Code" label in the sidebar of the chat app. This works similarly to the desktop app, but you're restricted to GitHub repositories.
 
 ![Claude Code on the web at claude.ai/code with repository selection](https://academy.claude.com/assets/media/3c3609161934207b9e3aeeb18e056f878b86d589601ebd7e39bc23d094b081f1.jpg)
 
-## Which One Should I Use?
+## Which One Should I Use?[](#which-one-should-i-use)
 
 If you want to stay on the cutting edge, the **terminal** is your best bet — features ship there first. The IDE integrations offer a nearly identical experience if you prefer Claude Code to feel more intertwined with your code editor.
 

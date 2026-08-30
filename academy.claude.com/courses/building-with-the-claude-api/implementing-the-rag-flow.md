@@ -12,7 +12,7 @@ Lesson 3615 min
 
 Now that we understand the RAG flow conceptually, let's implement it step by step. We'll walk through a complete example that demonstrates how to chunk text, generate embeddings, store them in a vector database, and perform similarity searches.
 
-## The Five-Step RAG Implementation
+## The Five-Step RAG Implementation[](#the-five-step-rag-implementation)
 
 Our implementation follows the same five steps we discussed previously:
 
@@ -26,7 +26,7 @@ Our implementation follows the same five steps we discussed previously:
 
 This diagram shows how we transform user queries into embeddings and search our vector database to find the most relevant content.
 
-## Step 1: Chunking the Text
+## Step 1: Chunking the Text[](#step-1-chunking-the-text)
 
 First, we load our document and split it into manageable sections:
 
@@ -42,7 +42,7 @@ chunks[2]  # Test to see the table of contents
 
 We use the same `chunk_by_section` function from earlier to split our document into logical sections.
 
-## Step 2: Generate Embeddings
+## Step 2: Generate Embeddings[](#step-2-generate-embeddings)
 
 Next, we create embeddings for all our chunks at once:
 
@@ -54,7 +54,7 @@ embeddings = generate_embedding(chunks)
 
 The embedding function has been updated to handle both single strings and lists of strings, making it more efficient for batch processing.
 
-## Step 3: Store in Vector Database
+## Step 3: Store in Vector Database[](#step-3-store-in-vector-database)
 
 Now we create our vector store and populate it with embeddings and their associated text:
 
@@ -69,11 +69,11 @@ for embedding, chunk in zip(embeddings, chunks):
 
 Notice that we store both the embedding and the original text content. This is crucial because when we search later, we need to return the actual text, not just the numerical embedding values.
 
-## Why Store the Original Text?
+## Why Store the Original Text?[](#why-store-the-original-text)
 
 When we query our vector database, getting back just the embedding numbers isn't useful. We need the actual text that was used to generate those embeddings. That's why we include the original chunk text (or at least a reference to it) alongside each embedding in our database.
 
-## Step 4: Process User Queries
+## Step 4: Process User Queries[](#step-4-process-user-queries)
 
 When a user asks a question, we generate an embedding for their query:
 
@@ -83,7 +83,7 @@ python
 user_embedding = generate_embedding("What did the software engineering dept do last year?")
 ```
 
-## Step 5: Find Relevant Content
+## Step 5: Find Relevant Content[](#step-5-find-relevant-content)
 
 Finally, we search our vector store to find the most similar chunks:
 
@@ -102,7 +102,7 @@ This search returns the two most relevant chunks along with their similarity sco
 
 The search results show us which sections of our document are most relevant to the user's question, along with similarity scores.
 
-## Understanding the Results
+## Understanding the Results[](#understanding-the-results)
 
 When we run our example query about the software engineering department, we get back:
 
@@ -111,7 +111,7 @@ When we run our example query about the software engineering department, we get 
 
 Lower distance values indicate higher similarity, so Section 2 is the most relevant to our query.
 
-## What's Next?
+## What's Next?[](#whats-next)
 
 This implementation works well for basic cases, but there are scenarios where it doesn't perform as expected. In the next sections, we'll explore improvements to make our RAG system more robust and accurate.
 

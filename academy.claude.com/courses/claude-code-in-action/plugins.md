@@ -23,7 +23,7 @@ There are two sides to this, and we'll cover both. First, using plugins
 that other people publish. Second, packaging your own once you've built
 something worth sharing.
 
-## What a plugin is
+## What a plugin is[](#what-a-plugin-is)
 
 A plugin is one installable unit. It bundles everything you'd otherwise share by hand: skills, subagents, hooks, and MCP server configs, plus the longer tail of stuff like language server protocol servers, background monitors, themes, and a slice of `settings.json`. One version, one install.
 
@@ -33,7 +33,7 @@ Where the plugin lives decides how you install it. Inside a session, you can ins
 
 Here's what that looks like. Claude Code installs it and tells you to run `/reload-plugins` to apply the change.
 
-## Adding a marketplace for your team
+## Adding a marketplace for your team[](#adding-a-marketplace-for-your-team)
 
 For a team, the better move is to add a private marketplace once. A marketplace is a shared source that plugins resolve through:
 
@@ -43,7 +43,7 @@ Call it whatever you want. Once it's added, every install after that resolves th
 
 You can browse what's available from the Discover tab. It lists the plugins on your marketplaces so you can search and pick.
 
-## Read before you install
+## Read before you install[](#read-before-you-install)
 
 Here's the part that matters most. A plugin runs code on your machine, with your privileges. Its hooks fire on every matching tool call. So if you install a plugin for its skills, you also get its PreToolUse and Stop hooks whether you read them or not.
 
@@ -58,7 +58,7 @@ Two things worth knowing about where plugins come from:
 
 But reviewed isn't the same as trusted. Automated review catches some things, not everything. So the rule stands: install plugins and add marketplaces only from sources you truly trust, and check what a plugin actually does before turning it on.
 
-## Components run alongside yours
+## Components run alongside yours[](#components-run-alongside-yours)
 
 A plugin doesn't overwrite your configuration. Its components run alongside your own. That's mostly good, but it has consequences you should understand.
 
@@ -70,7 +70,7 @@ That agent key is worth a pause. Setting it promotes one of the plugin's subagen
 
 Once a plugin is installed you can see everything it added, manage it, and uninstall it from the plugin panel.
 
-## Packaging your own plugin
+## Packaging your own plugin[](#packaging-your-own-plugin)
 
 Now the other side. Once you've built a `.claude` directory that works, don't make your team copy and paste it between machines. Package it instead.
 
@@ -82,7 +82,7 @@ The good news is you don't have to restructure anything. A plugin uses the same 
 
 The directory structure does most of the work. Claude Code discovers components by convention.
 
-## The manifest
+## The manifest[](#the-manifest)
 
 On top of that, there's an optional manifest. It lives at `.claude-plugin/plugin.json` and holds the name, version, description, and author:
 
@@ -104,7 +104,7 @@ The manifest is optional. Leave it out and Claude Code still discovers your comp
 * **Name is the only required field.** It namespaces your skills as `company-name:skill-name`, which keeps them from colliding with anyone else's.
 * **Version it like any other dependency.** That's what makes updates and version tracking work across your team.
 
-## The takeaway
+## The takeaway[](#the-takeaway)
 
 Two simple rules cover most of this:
 

@@ -6,8 +6,6 @@ Owners and Primary Owners of Team and Enterprise plans can manage organization p
 
 **Requirements:** Cowork and Skills must both be enabled for your organization before you can use plugin marketplaces.
 
----
-
 ## Use Anthropic-built marketplaces
 
 Anthropic provides built-in marketplaces of plugins for different functions, such as legal and finance. A Knowledge Work marketplace is added to your organization by default.
@@ -27,8 +25,6 @@ To remove the Knowledge Work marketplace if it isn't relevant to your teams:
 4. Select "Remove."
 
 Anthropic-built marketplaces show readable names, like "Knowledge Work," instead of the underlying repository slug.
-
----
 
 ## Create your own marketplace
 
@@ -91,7 +87,7 @@ Your personal GitHub token is verified to confirm you have access, then Cowork u
 
 An initial sync runs automatically when you connect a repository. After that, organization owners can opt-in to continued automatic updates per marketplace by going to **[Organization settings > Plugins](https://claude.ai/admin-settings/plugins)**, clicking the menu button in the upper right corner of the marketplace, then toggling "Sync automatically" on:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1787622300&signature=3d9e38a27c1d16838553ca2f8366dbbf5d403fd298a8d48f1cb409fac7617783&req=diEuFct%2BnYFeXPMW1HO4zUYv5tr%2Fw30XRDH%2FtUo5ov5bG4kUhAJSOlLlYm%2F0%0ANI68SSp9OCALAH9soIY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1787622300&signature=3d9e38a27c1d16838553ca2f8366dbbf5d403fd298a8d48f1cb409fac7617783&req=diEuFct%2BnYFeXPMW1HO4zUYv5tr%2Fw30XRDH%2FtUo5ov5bG4kUhAJSOlLlYm%2F0%0ANI68SSp9OCALAH9soIY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1788033600&signature=79fc7702017c49ca5a987328e16d63fef4a33ae00cac9a040ace02338a4c2463&req=diEuFct%2BnYFeXPMW1HO4zUYv5tX5wnwSRDH%2FtUo5ov5eG%2B%2BweRd4owtdPVEk%0Aa0BQy7gpcOSqaycWNJk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1788033600&signature=79fc7702017c49ca5a987328e16d63fef4a33ae00cac9a040ace02338a4c2463&req=diEuFct%2BnYFeXPMW1HO4zUYv5tX5wnwSRDH%2FtUo5ov5eG%2B%2BweRd4owtdPVEk%0Aa0BQy7gpcOSqaycWNJk%3D%0A)
 
 Enabling automatic sync creates a webhook on the connected repository. The person turning the toggle on must have admin-level access to that repository on GitHub. This is checked through their personal GitHub connection, which is separate from the Claude GitHub App installation. Without admin access, the page shows "Cannot access repository. Ensure the repository exists and the Claude GitHub App is installed," even when the App is installed correctly and manual updates work.
 
@@ -117,8 +113,6 @@ During a sync, Cowork compares the latest commit in your repo against the last-s
 | Environments without GitHub access | Manual upload |
 | Testing a plugin before adding it to a synced repo | Manual upload |
 
----
-
 ## Control plugin distribution
 
 Once your marketplace has plugins, you control how they're distributed using installation preferences. For each plugin, you can set one of four options:
@@ -142,8 +136,6 @@ Once your marketplace has plugins, you control how they're distributed using ins
 Members browse available plugins through the **Browse plugins** modal. Auto-installed plugins appear in their installed list automatically. Available plugins show up in the catalog for self-service installation.
 
 Members can't edit organization-managed plugins, which prevents conflicting changes to shared tooling.
-
----
 
 ## Customize plugin access by group
 
@@ -182,8 +174,6 @@ If a group is removed (for example, deleted from your identity provider), the ov
 
 Yes. Group-level overrides persist when you re-sync a GitHub-connected marketplace. They're only removed if the plugin itself is deleted from the marketplace.
 
----
-
 ## Update and remove plugins
 
 ### Manual marketplaces
@@ -198,8 +188,6 @@ Push your changes to the connected repository, then go to **[Organization settin
 
 To remove a plugin, delete it from the repository and trigger a sync.
 
----
-
 ## Limits
 
 |  |  |  |
@@ -211,8 +199,6 @@ To remove a plugin, delete it from the repository and trigger a sync.
 | Max plugin name length | 64 characters | Must use lowercase words separated by hyphens |
 | Sync timeout | 30 minutes | Per sync operation |
 | GitHub repo visibility | Private or internal only | Hosted on github.com or GitHub Enterprise Server. Public repos aren't supported. |
-
----
 
 ## Naming rules
 
@@ -229,8 +215,6 @@ Plugin names must use **lowercase words separated by hyphens** (for example, `de
 Names that impersonate official Anthropic marketplaces are also blocked.
 
 **Note:** Plugin authors can set a `displayName` so a plugin shows a readable name in the catalog instead of its slug. If an author doesn't set one, the plugin shows its slug (for example, `deployment-tools`).
-
----
 
 ## Troubleshooting
 
@@ -274,5 +258,5 @@ If manual updates work but turning on "Sync automatically" shows "Cannot access 
 * [Use the GitHub integration](https://support.claude.com/en/articles/10167454-use-the-github-integration)
 * [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 * [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
-* [Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)
+* [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
 * [Get started with skill and plugin scanning](https://support.claude.com/en/articles/15927065-get-started-with-skill-and-plugin-scanning)

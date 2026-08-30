@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-e7bnk7fu.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gpzn7vel.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Design plugin ships with `/research-synthesis` and other research and spec skills as a starting point, already structured to cluster observations and pull supporting quotes. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Design8 skills for research synthesis, spec drafting, brand enforcement, and pro
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the raw transcripts, your discussion guide, the participant roster) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the themed findings doc back to it. If you run studies regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your guide, taxonomy, and memory stay attached.
 
@@ -82,15 +82,15 @@ discussion-guide.pdfApr 14, 202688 KB
 
 In Cowork’s chat bar:Research / Onboarding-Study-Q2
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Synthesize the interview transcripts into a research findings doc. Cluster the observations into 5-7 themes, name each plainly, support each with 2-3 verbatim quotes attributed to participant ID, and end with the open questions the team still needs to answer.
 
 Research / Onboarding-Study-Q2Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Let the folder supply the context.** Every transcript is read; nothing depends on memory.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ ResearchOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 A findings doc goes stale once the next round of interviews comes in. Ask Cowork to publish the themes as a live artifact and the product team has one link that stays current — re-run the skill or schedule it to refresh.
 
@@ -138,7 +138,7 @@ Publish those themes as a live artifact for the product team. Keep a "what shift
 
 Research / Onboarding-Study-Q2Open in Cowork
 
-### Run it after every interview day
+### Run it after every interview day[](#run-it-after-every-interview-day)
 
 Sessions wrap, the synthesis should already be cooking. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and set the customized skill to run each evening, picking up any new transcripts in the study folder.
 
@@ -154,7 +154,7 @@ Each weekday at 6pm, checks the study folder for new transcripts, re-runs `/rese
 
 Every **weekday at 6 pm · checks Research/Onboarding-Study-Q2 for new transcripts**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/research-synthesis` now carries your taxonomy, your quote format, and your readout structure. Share it so every researcher on the team clusters the same way, and PMs see a consistent findings doc no matter who ran the study.
 
@@ -162,7 +162,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/research-synthesis` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your taxonomy and format baked in, so they don't repeat Steps 1-3.
 
-## What changes for the research team
+## What changes for the research team[](#what-changes-for-the-research-team)
 
 Your interview transcripts are synthesized into a findings document with each theme named, evidenced, and attributed to participants — work you review and share instead of produce from scratch.
 

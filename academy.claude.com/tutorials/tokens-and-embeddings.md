@@ -24,7 +24,7 @@ If you type "Hello Claude" and hit send, what do you imagine arrives at the mode
 
 The word "Hello" and the word "Claude"A list of letters: H, e, l, l, o, , C, l, a, u, d, eA list of numbersA tiny picture of each word
 
-## Three ways to represent text
+## Three ways to represent text[](#three-ways-to-represent-text)
 
 Think about this three-character string: `"Hi!"`. Now think about three different ways we could pass that information to a language model.
 
@@ -42,17 +42,17 @@ While all three approaches have their uses in code, language models do a fourth,
 
 A chunk of text with its numerical ID is called a *token*.
 
-## Tokens
+## Tokens[](#tokens)
 
 The widget below includes several pieces of text that you can **tokenize**. Click through the examples, tokenize each one, and see for yourself: how is a token different from a word?
 
 The splits and ID numbers in these examples come from an illustrative tokenizer, not Claude's. Claude's tokenizer might break words up differently and use different IDs, but the patterns are roughly the same.
 
-## Over or under?
+## Over or under?[](#over-or-under)
 
 Now that you know what tokens look like, see if you can predict how many tokens will be produced by tokenizing the following strings.
 
-## Why subwords?
+## Why subwords?[](#why-subwords)
 
 You might be wondering: why not just one token per character, or one per word?
 
@@ -88,17 +88,17 @@ I'm learning how tokenizers work, and I understand that text becomes tokens with
 
 Open in Claude
 
-## Decoding output
+## Decoding output[](#decoding-output)
 
 So now you know that the text you send to a model becomes a list of token IDs before it's processed. A model's **output** is *also* a list of token IDs. Try decoding this reply.
 
-## From tokens to meaning
+## From tokens to meaning[](#from-tokens-to-meaning)
 
 Tokenization gives every chunk of text a number, but tokens with similar IDs like `9906` and `9907` aren't *related* - they're just neighbors in a list. A model needs a way to know that *cat* and *kitten* are close in meaning, even if their IDs are far apart in the vocabulary. Models do this by assigning each token a *multi-dimensional score*.
 
 Let's start with a 2D scoring system.
 
-## Embeddings
+## Embeddings[](#embeddings)
 
 An LLM embedding works the same way as the scoring you just did. Each word (or really, each token) becomes a point, and similar words (tokens) land near each other. Real embeddings are more complicated in two ways:
 
@@ -121,7 +121,7 @@ I'm learning about embeddings. I understand that a token becomes a point in a sp
 
 Open in Claude
 
-## Recap
+## Recap[](#recap)
 
 So now you know that the text you send to an LLM becomes a series of tokens, and tokens become embeddings.
 

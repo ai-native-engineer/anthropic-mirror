@@ -15,11 +15,11 @@ In this lessonBy the end, you’ll be able to
 * Recall the arc of Cowork 101 and what each module gave you
 * Pick the next moves that keep you using Cowork after the course ends
 
-## What you've covered
+## What you've covered[](#what-youve-covered)
 
 The throughline: Cowork goes beyond chat to allow you to delegate real work. Everything else in the course builds on that.
 
-## Try it now
+## Try it now[](#try-it-now)
 
 Pick **one** of these to do this week.
 
@@ -29,7 +29,7 @@ Pick **one** of these to do this week.
 * **Try Claude in Chrome or M365.** Pick the surface that aligns with where most of your real work happens, install it, and use it on one task.
 * **Share something you built.** Share a use case you found valuable, a workflow that produced great results, or a skill you've built with your team. You could be the unlock they need to get more comfortable working with Claude.
 
-## Go deeper
+## Go deeper[](#go-deeper)
 
 A few learning paths worth knowing about:
 

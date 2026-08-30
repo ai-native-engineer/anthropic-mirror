@@ -14,8 +14,6 @@ Using Cowork on Claude Desktop requires the latest version of the app. Download 
 
 **Note:** Live artifacts are available on the desktop app only. They don't appear in the Artifacts view on web or mobile.
 
----
-
 ## What are live artifacts?
 
 A live artifact is a persistent, interactive HTML page that Claude creates for you in Cowork, shaped around your specific work. It might be a tracker, a dashboard, a comparison tool, or a reference. Every live artifact you create is saved to the Artifacts view in your Cowork sidebar, marked with a "Cowork" label.
@@ -27,8 +25,6 @@ Live artifacts differ from **[artifacts in chat](https://support.claude.com/en/a
 * **They keep their history.** Each update saves a version. You can review how the artifact has evolved and restore an earlier version.
 
 Artifacts you create in chat and in Cowork appear together in the Artifacts view. Live artifacts show a "Cowork" label so you can tell them apart from chat artifacts, and because they're desktop-only, they appear in the Artifacts view on Claude Desktop only.
-
----
 
 ## Create a live artifact
 
@@ -54,15 +50,11 @@ A new session opens with a starting prompt, and Claude asks a few questions abou
 
 **Note:** In the Artifacts view, live artifacts are labeled "Cowork."
 
----
-
 ## Open and refresh an artifact
 
 To reopen an artifact, select "Artifacts" from the Cowork sidebar and click the one you want. Use the "Filter by" dropdown at the top right to narrow the view.
 
 When you open a live artifact, it pulls fresh data from your connected apps. Most of the time you won’t need to refresh manually, as a short cache holds recent data so the artifact loads quickly, and it re-queries your connected apps on its own. If you want to force new data, use the refresh button in the artifact’s header.
-
----
 
 ## Version history
 
@@ -71,8 +63,6 @@ Each time you iterate on a live artifact with Claude, the previous version is sa
 * See how the artifact has changed over time.
 * Compare an earlier version with the current one.
 * Restore an earlier version if an update didn’t work out.
-
----
 
 ## Share a live artifact
 
@@ -92,8 +82,6 @@ How sharing works:
 * **Sharing stays within your organization.** There are no external or public links and no per-person recipient selection. Anyone in your organization who has the link can open the artifact.
 * **Shared artifacts use the viewer's access, not yours.** When someone opens your artifact, it connects to their connectors and data sources. If they don't have access to an underlying data source, that part of the artifact shows an error instead of your data.
 
----
-
 ## Example use cases
 
 * **Persistent team dashboard:** A weekly metrics view that pulls from your connected analytics tools and spreadsheets. Built once, refreshed every time you open it.
@@ -101,15 +89,13 @@ How sharing works:
 * **Competitive intelligence:** A dashboard that tracks what your top competitors are shipping. Built in one session, updated from any future thread.
 * **Morning brief:** A single page with your Slack mentions, today’s calendar, and open pull requests. Open it each morning to see the current state.
 
----
-
 ## Current limitations
 
 * **Local, not remote.** Live artifacts live on your computer. If you switch devices, they don’t come with you.
 * **Live artifacts use your connectors without asking.** Live artifacts can only use the connectors you approved during creation or update. However, artifacts don't ask for permission before using connectors, even if your session mode would normally require approval. Use care when creating live artifacts that use connectors that can make changes to your data.
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
 * [Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork)
-* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

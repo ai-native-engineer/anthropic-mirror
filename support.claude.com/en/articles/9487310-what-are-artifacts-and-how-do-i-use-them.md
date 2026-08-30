@@ -8,8 +8,6 @@ Artifacts allow you to turn ideas into shareable apps, tools, or content—build
 
 Artifacts are available in Claude, Claude Desktop, and Claude Code. This article focuses on Claude and Claude Desktop. To learn how to create, update, and share artifacts in Claude Code, see the **[artifacts documentation on Claude Code Docs](https://code.claude.com/docs/en/artifacts)**.
 
----
-
 ## What are artifacts?
 
 Claude creates an artifact when the content it's sharing meets these criteria:
@@ -28,8 +26,6 @@ Common examples of artifact content include:
 * Diagrams and flowcharts
 * Interactive React components
 
----
-
 ## Enable artifacts
 
 To enable artifacts individually on a Free, Pro, or Max plan:
@@ -45,8 +41,6 @@ To enable artifacts organization-wide on a Team or Enterprise plan:
 3. Navigate to **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
 4. Toggle **Code execution and file creation** on.
 
----
-
 ## Access your artifacts
 
 You can access all your artifacts through the dedicated **[Artifacts](https://claude.ai/artifacts)** section in your Claude sidebar. This space allows you to:
@@ -56,8 +50,6 @@ You can access all your artifacts through the dedicated **[Artifacts](https://cl
 * Manage and organize your artifact collection
 
 **Note:** Artifacts you create in a conversation don't appear in your sidebar automatically. To add an artifact to your **Artifacts** section, open it and click "Publish." Learn more about **[publishing and sharing artifacts](https://support.claude.com/en/articles/9547008)**.
-
----
 
 ## Work with artifacts
 
@@ -96,8 +88,6 @@ If an artifact generates an error, look for the “Try fixing with Claude” but
 
 **Note:** While Claude will attempt to fix the error, success isn't guaranteed. Some errors may require additional troubleshooting.
 
----
-
 ## AI-powered artifacts
 
 You can build artifacts that embed AI capabilities, turning them into AI-powered apps. Users of your artifacts can access Claude's intelligence through a text-based API—answering questions, generating creative content, providing personalized coaching, playing games, solving problems, and adapting responses based on input.
@@ -115,8 +105,6 @@ When you share AI-powered artifacts, others can use them immediately—no API ke
 
 For Team and Enterprise plans, when you share AI-powered artifacts within your organization, team members can use them without incurring additional costs to the creator.
 
----
-
 ## MCP integration
 
 MCP integration for artifacts is available on Pro, Max, Team, and Enterprise plans on Claude web and desktop.
@@ -126,8 +114,6 @@ Artifacts can connect to external services through the Model Context Protocol (M
 When an artifact needs to access an MCP tool, you'll be prompted to approve access on first interaction. Your preferences persist for subsequent uses of that artifact.
 
 **Important:** Each user must authenticate MCP servers independently, even when using shared or published artifacts. Organization admins can enable or disable artifact MCP access at the organization level but cannot manage which specific MCP servers artifacts can use.
-
----
 
 ## Persistent storage
 
@@ -151,8 +137,6 @@ When you interact with an artifact that uses shared storage for the first time, 
 
 **Privacy consideration:** Artifact creators determine which data uses personal versus shared storage when building the artifact. Before entering sensitive information, consider whether the artifact uses shared storage.
 
----
-
 ## Artifacts in Claude Code
 
 Artifacts are available in Claude Code on Team and Enterprise plans.
@@ -163,14 +147,12 @@ By default, artifacts in Claude Code are only visible to the individual who crea
 
 To learn how to create, update, and share artifacts in Claude Code, see the **[artifacts documentation on Claude Code Docs](https://code.claude.com/docs/en/artifacts)**.
 
----
-
 ## Learn more
 
 To share your artifacts publicly, embed them on websites, or discover artifacts created by others, see **[Publish and share artifacts](https://support.claude.com/en/articles/9547008)**.
 
 * [Publish and share artifacts](https://support.claude.com/en/articles/9547008-publish-and-share-artifacts)
-* [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
+* [Share and unshare chats](https://support.claude.com/en/articles/10593882-share-and-unshare-chats)
 * [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
 * [Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

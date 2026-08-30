@@ -130,20 +130,20 @@ Additionally, we thank Miriam Chaum, Ankur Rathi, Santi Ruiz, and David Saunders
 4. Removing these “solopreneurs” still leaves management tied with computer and math occupations for showing the highest productivity benefit.
 5. A major caveat, however, is that this survey went out to people with personal Claude accounts. A more representative picture would also include enterprise users, who may be more likely to say the value accrues to their employers.
 
+### Automated researchers can reliably mitigate alignment failures
+
+We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
+
+[Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+
+### Enabling independent research on how people use Claude
+
+Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
+
+[Read more](https://www.anthropic.com/research/enabling-independent-research)
+
 ### How Claude is accelerating protein design and analytical chemistry
 
 In this post, we share two results that show how Claude can help life scientists increase the pace of their research.
 
 [Read more](https://www.anthropic.com/research/Claude-accelerates-protein-design)
-
-### Patterns and problems in emerging multiagent systems
-
-Here, we identify a few examples of behavioral tendencies in current frontier models and show how they can produce unexpected systemic failures, in hopes of starting a conversation about mitigating these risks.
-
-[Read more](https://www.anthropic.com/research/multiagent-systems)
-
-### Reviewing the evidence on worker retraining programs
-
-We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.
-
-[Read more](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)

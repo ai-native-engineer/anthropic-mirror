@@ -92,7 +92,7 @@ Tutorial·20 min](https://academy.claude.com/tutorials/parametric-memory-and-con
 
 ### AI Fluency, for your world
 
-[For builders9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-builders)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[For pK–12 educators10 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)[For nonprofits9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits)[For small businesses9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses)[For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)
+[For builders9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-builders)[For creative work8 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-creative-work)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[For pK–12 educators10 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)[For nonprofits9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits)[For small businesses9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses)[For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)
 
 ## Teach and facilitate
 

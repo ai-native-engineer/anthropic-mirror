@@ -20,7 +20,7 @@ Since then, we've extended the Index to Claude Code and Claude Cowork, bringing 
 
 This piece walks through what we found and offers a simple curriculum model you can adapt for your organization.
 
-## Each product has a signature move
+## Each product has a signature move[](#each-product-has-a-signature-move)
 
 Each Claude surface rewards a different behavior at the start. We call this the signature move: the gateway behavior that, when present, lifts the other fluency indicators most reliably.
 
@@ -30,13 +30,13 @@ In Claude Code and Claude Cowork, the signature move is **clarifying the goal**.
 
 For anyone building Claude training for their organization, the implication is that onboarding should teach the signature move first. A Chat curriculum that doesn't establish iteration early will struggle to build anything on top of it. A Claude Code or Claude Cowork curriculum that doesn't establish goal clarity will produce users who hand off vague requests and then wonder why the output missed the mark.
 
-## The Description spectrum develops with practice
+## The Description spectrum develops with practice[](#the-description-spectrum-develops-with-practice)
 
 After the signature move, learners advance along what we call the Description spectrum: the range of options available for shaping what Claude gives you. The spectrum is organized by durability, or how long the feature affects your interactions with Claude. At the basic end, shaping happens in the moment and affects one response. You iterate, you add context, you upload a file. At the advanced end, shaping happens in configuration and affects every response that follows without as much effort from you. You set up a Project, you write a CLAUDE.md, you schedule a workflow.
 
 The encouraging finding here is that Description skills appear to grow organically and non-linearly with time and exposure. Users who've been around longer provide examples more often, set interaction style more deliberately, and communicate tone expectations more clearly. People who keep using Claude find their way to these skills on their own, so if your training time is limited, simply exposing people to different types of Description they can practice with Claude should prove fruitful.
 
-## The Discernment spiral has to be taught
+## The Discernment spiral has to be taught[](#the-discernment-spiral-has-to-be-taught)
 
 Discernment, the set of behaviors around evaluating what Claude gives you back, develops very differently. It doesn't grow with tenure. It doesn't transfer from feature familiarity.
 
@@ -46,7 +46,7 @@ Also, as tasks that were formerly done by early career employees are increasingl
 
 If your training time is limited, Discernment is where to concentrate it.
 
-## A simple curriculum model
+## A simple curriculum model[](#a-simple-curriculum-model)
 
 Put simply, the teaching sequence is:
 
@@ -58,7 +58,7 @@ Every product learning experience, whether it's a formal module or a quick team 
 
 The tables below map this model to each product. Use them as a starting point for your own curriculum, adapting the features and checks to match what your team actually uses.
 
-### Chat
+### Chat[](#chat)
 
 Signature move: **iterate**. Refining through follow-up turns.
 
@@ -68,7 +68,7 @@ Signature move: **iterate**. Refining through follow-up turns.
 | Middle | Artifacts, extended thinking, connectors | Pair creation with format specification; position thinking as "when you want Claude to think harder" | Read the thinking. Does the reasoning hold, or did Claude just sound confident? |
 | Lasting | Projects, custom instructions, memory | Show how a well-set-up Project changes every conversation in it | Is your Project feeding Claude the right context, or just more context? |
 
-### Claude Code
+### Claude Code[](#claude-code)
 
 Signature move: **clarify the goal**. Stating what you want before Claude starts running.
 
@@ -78,7 +78,7 @@ Signature move: **clarify the goal**. Stating what you want before Claude starts
 | Middle | Skills, slash commands, MCPs | Shape a repeatable capability | Test the capability on a case it might get wrong |
 | Lasting | CLAUDE.md, hooks, subagents | Shape every session in the repo | Audit your configuration. Is Claude using it the way you expect? |
 
-### Claude Cowork
+### Claude Cowork[](#claude-cowork)
 
 Signature move: **clarify the goal**. Writing a brief that names what you need before Claude executes.
 
@@ -88,7 +88,7 @@ Signature move: **clarify the goal**. Writing a brief that names what you need b
 | Middle | Connectors, plugins, skills | Shape a repeatable fetch-or-produce pattern | Did the connector pull what you actually needed, or just what was easy to find? |
 | Lasting | Scheduled workflows, multi-step automations | Shape work that runs without you | When did you last verify this workflow still produces good work? |
 
-## Where to go from here
+## Where to go from here[](#where-to-go-from-here)
 
 The AI Fluency Index continues to track these patterns monthly, and we'll keep publishing what we learn as the products evolve and the dataset grows. If you're building Claude training for your organization and want to ground it in this research, the [AI Fluency framework and courseware(opens in new tab)](https://academy.claude.com/collections/ai-fluency) are freely available, and you can [sign up for the AI Fluency newsletter(opens in new tab)](https://academy.claude.com/collections/ai-fluency#newsletter) to get notified about new research on AI fluency.
 

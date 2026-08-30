@@ -26,7 +26,7 @@ But we also find that when AI produces artifacts—including apps, code, documen
 
 These initial findings present us with a baseline that we can use to study the development of AI fluency over time.
 
-## Measuring AI fluency
+## Measuring AI fluency[](#measuring-ai-fluency)
 
 To quantify AI fluency, we use the [4D AI Fluency Framework(opens in new tab)](https://academy.claude.com/collections/ai-fluency), developed by Professors Rick Dakan and Joseph Feller in collaboration with Anthropic. This framework helps us define 24 specific behaviors that we take to exemplify safe and effective human-AI collaboration.
 
@@ -38,11 +38,11 @@ For this study, we focused on the 11 directly observable behaviors. We used our 
 
 *Prevalence of each AI fluency behavioral indicator across 9,830 Claude.ai conversations, ranked from most to least common and color-coded by competency.*
 
-## Results
+## Results[](#results)
 
 With our first study, we've found two main patterns in Claude use: a strong relationship between AI fluency and iteration and refinement through longer conversations with Claude, and changes in users' fluency behaviors when coding or building other outputs.
 
-### Fluency is strongly associated with conversations that exhibit iteration and refinement
+### Fluency is strongly associated with conversations that exhibit iteration and refinement[](#fluency-is-strongly-associated-with-conversations-that-exhibit-iteration-and-refinement)
 
 One of the strongest patterns in the data is the relationship between iteration and refinement and every other AI fluency behavior. 85.7% of the conversations in our sample exhibited iteration and refinement: building on previous exchanges to refine the user's work, rather than accepting the first response and moving to a new task. These conversations showed substantially higher rates of other fluency behaviors, as the chart below shows:
 
@@ -52,7 +52,7 @@ One of the strongest patterns in the data is the relationship between iteration 
 
 On average, conversations with iteration and refinement exhibit 2.67 additional fluency behaviors—roughly double the non-iterative rate of 1.33. This is especially pronounced for fluency behaviors related to evaluating Claude's outputs. Conversations with iteration and refinement are 5.6x more likely to involve users questioning Claude's reasoning, and 4x more likely to see them identify missing context.
 
-### When creating outputs, users become more directive but less evaluative
+### When creating outputs, users become more directive but less evaluative[](#when-creating-outputs-users-become-more-directive-but-less-evaluative)
 
 12.3% of conversations in our sample involved artifacts, including code, documents, interactive tools, and other outputs. In these conversations, people collaborated with AI quite differently.
 
@@ -68,7 +68,7 @@ There are several possible explanations for this pattern. It might be that Claud
 
 Whatever the explanation, the pattern is worth paying attention to. As AI models become increasingly capable of producing polished-looking outputs, the ability to critically evaluate those outputs, whether in direct conversation or through other means, will become more valuable rather than less.
 
-## Developing your own AI fluency
+## Developing your own AI fluency[](#developing-your-own-ai-fluency)
 
 As with all skills, AI fluency is a matter of degree—for most of us, it's possible to develop our techniques much further. Based on the patterns in our data, there are three areas where we've found many users could improve their skills:
 
@@ -78,7 +78,7 @@ As with all skills, AI fluency is a matter of degree—for most of us, it's poss
 
 **Setting the terms of the collaboration.** In only 30% of conversations do users tell Claude how they'd like it to interact with them. Try being explicit by adding instructions like, "Push back if my assumptions are wrong," "Walk me through your reasoning before giving me the answer," or, "Tell me what you're uncertain about." Establishing these expectations up front can change the dynamic of the rest of the conversation.
 
-## Limitations
+## Limitations[](#limitations)
 
 This research comes with important caveats:
 
@@ -88,7 +88,7 @@ This research comes with important caveats:
 * **Implicit behaviors:** Users might demonstrate fluency behaviors mentally (such as fact-checking Claude's claims against their own knowledge) without expressing these behaviors in conversation. This seems especially relevant for our data on artifacts—users might be evaluating Claude's outputs through testing and practical use, rather than through conversation-visible behaviors.
 * **Correlational findings:** The relationships we identify are correlational. We don't know whether one behavior *causes* another, or whether they both reflect some common underlying factor, like task complexity or user preferences.
 
-## Looking ahead
+## Looking ahead[](#looking-ahead)
 
 This study offers us a baseline that we can use to assess how AI fluency is changing over time. As AI capabilities evolve and adoption increases, we're aiming to learn whether users are developing more sophisticated behaviors, which skills are emerging naturally with experience, and which will require more intentional development.
 
@@ -98,7 +98,7 @@ In addition, we'd like to explore AI fluency behaviors in Claude Code, a platfor
 
 We expect that the nature of AI fluency will develop and evolve substantially over time. With this and future research, we're aiming to make that development visible, measurable, and actionable.
 
-## Bibtex
+## Bibtex[](#bibtex)
 
 If you'd like to cite this post, you can use the following Bibtex key:
 
@@ -114,11 +114,11 @@ url = {https://www.anthropic.com/news/anthropic-education-report-the-ai-fluency-
 }
 ```
 
-## Acknowledgements
+## Acknowledgements[](#acknowledgements)
 
 Kristen Swanson designed the research, led the analysis, and wrote this report. Zoe Ludwig and Drew Bent contributed to framework alignment, messaging, and review. The 4D Framework for AI Fluency was developed by Rick Dakan and Joe Feller. Zack Lee provided technical support. Hanah Ho helped visualize the data. Keir Bradwell, Rebecca Hiscott, Ryan Donegan and Sarah Pollack provided communications review and guidance.
 
-## Footnotes
+## Footnotes[](#footnotes)
 
 1. When researching how people use AI models, protecting user privacy is paramount. For this project, we used our [privacy-preserving analysis tool(opens in new tab)](https://www.anthropic.com/research/clio), which enables bottom-up discovery of AI usage patterns by distilling user conversations into high-level usage summaries, such as "troubleshoot code" or "explain economic concepts." For this analysis, we ran 11 separate binary classifiers (one per behavioral indicator) using Claude Sonnet 4 for behavioral classification and Claude Haiku 3.5 for language detection. This means a single conversation could indicate multiple AI fluency behavioral indicators. Conversations were filtered to substantive exchanges with multiple back-and-forths using a screener that excluded greetings, single-word exchanges, test messages, and pure chitchat. Manual review of 200 chats that were screened out indicated that chats of this nature did not qualify for any AI Fluency indicators, so we feel confident that the screener did not influence the relative rankings of AI fluency behaviors observed in the study. No personally identifiable information appears in the analysis.
 2. Behavioral indicators were calculated across a one-week sample (January 20–26, 2026) and held stable day-to-day, with most behaviors varying by only 1–5 percentage points. Saturday rates were slightly lower for some behaviors (e.g., iteration and refinement was 81.4% for Saturday compared to a weekday peak of 87.9%), suggesting modest differences in casual versus purposeful use, but no day showed meaningful structural deviation. Rates were also consistent across six languages (English, French, Spanish, Chinese, Japanese, and German), with most behaviors varying by 3 percentage points or fewer across language groups. Together, these findings suggest that the behavioral patterns captured here reflect consistent habits in how people engage with AI, rather than being artifacts of timing, day of week, or linguistic and cultural context.

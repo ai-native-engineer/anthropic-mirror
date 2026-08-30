@@ -16,7 +16,7 @@ Building an MCP server becomes much simpler when you use the official Python SDK
 
 In this example, we're creating an MCP server that manages documents stored in memory. The server will provide two essential tools: one to read document contents and another to update them through find-and-replace operations.
 
-## Setting Up the MCP Server
+## Setting Up the MCP Server[](#setting-up-the-mcp-server)
 
 The Python MCP SDK makes server creation incredibly straightforward. You can initialize a complete MCP server with just one line:
 
@@ -43,13 +43,13 @@ docs = {
 }
 ```
 
-## Tool Definition with Decorators
+## Tool Definition with Decorators[](#tool-definition-with-decorators)
 
 ![](https://academy.claude.com/assets/media/489447300492aceda00605d30f46a8f7042c9a26a20d90e7c1ea7c704ab97b64.jpg)
 
 The SDK transforms tool creation from a verbose process into something clean and readable. Instead of writing lengthy JSON schemas, you use Python decorators and type hints.
 
-## Creating the Document Reader Tool
+## Creating the Document Reader Tool[](#creating-the-document-reader-tool)
 
 The first tool allows Claude to read any document by its ID. Here's the complete implementation:
 
@@ -71,7 +71,7 @@ def read_document(
 
 The `@mcp.tool` decorator automatically generates the JSON schema that Claude needs. The `Field` class from Pydantic provides parameter descriptions that help Claude understand what each argument expects.
 
-## Building the Document Editor Tool
+## Building the Document Editor Tool[](#building-the-document-editor-tool)
 
 The second tool performs simple find-and-replace operations on documents:
 
@@ -95,11 +95,11 @@ def edit_document(
 
 This tool takes three parameters: the document ID, the text to find, and the replacement text. The implementation uses Python's built-in string `replace()` method for simplicity.
 
-## Error Handling
+## Error Handling[](#error-handling)
 
 Both tools include basic error handling to manage cases where Claude requests a document that doesn't exist. When an invalid document ID is provided, the tools raise a `ValueError` with a descriptive message that Claude can understand and potentially act upon.
 
-## Key Benefits of the SDK Approach
+## Key Benefits of the SDK Approach[](#key-benefits-of-the-sdk-approach)
 
 * Automatic JSON schema generation from Python type hints
 * Clean, readable code that's easy to maintain

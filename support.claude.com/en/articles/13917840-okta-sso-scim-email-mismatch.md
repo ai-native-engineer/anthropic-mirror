@@ -4,8 +4,6 @@ Claude uses email as the primary identifier to match SSO logins to provisioned s
 
 **Applies to:** Enterprise plans and Console organizations using SCIM provisioning. Team plans don't have SCIM provisioning, so this mismatch scenario doesn't apply—see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)** for what's available on each plan.
 
----
-
 ## Symptoms
 
 People may experience one or more of the following when attempting to access your organization via SSO:
@@ -15,8 +13,6 @@ People may experience one or more of the following when attempting to access you
 * **"Please confirm your email" mismatch** — The SSO callback shows a different email than the one the person entered at login.
 * **Claude Code authentication failure** — The Claude Code CLI shows an email mismatch error during the authentication flow.
 
----
-
 ## How this happens
 
 Okta user profiles contain multiple fields that represent identity. SCIM provisioning (under **Provisioning → To App**) and SAML/OIDC SSO (under **Sign On**) are configured independently.
@@ -24,15 +20,13 @@ Okta user profiles contain multiple fields that represent identity. SCIM provisi
 |  |  |  |
 | --- | --- | --- |
 | **Okta attribute** | **Typical value** | **Commonly used by** |
-| `user.login` | `testuser1` or [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#9beffee8efeee8fee9aadbfee3faf6ebf7feb5f8f4f6) | Default SCIM userName mapping; sometimes NameID |
-| `user.email` | [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#9febfaecebb1eaecfaedb1f0f1fadffae7fef2eff3fab1fcf0f2) | SAML/OIDC email claim (recommended) |
+| `user.login` | `testuser1` or [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#c3b7a6b0b7b6b0a6b1f283a6bba2aeb3afa6eda0acae) | Default SCIM userName mapping; sometimes NameID |
+| `user.email` | [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#cfbbaabcbbe1babcaabde1a0a1aa8faab7aea2bfa3aae1aca0a2) | SAML/OIDC email claim (recommended) |
 | `appuser.email` | App-level override of user email | Custom app-level attribute mapping |
 
 A common mismatch: SCIM uses `user.login` while SAML sends `user.email`. Claude requires an exact string match.
 
 **Common confusion:** Okta's SCIM attribute mappings and SAML attribute statements live in two different tabs — **Provisioning → To App** for SCIM, and **Sign On** for SSO.
-
----
 
 ## Diagnostic steps
 
@@ -52,8 +46,6 @@ A common mismatch: SCIM uses `user.login` while SAML sends `user.email`. Claude 
 
 1. Go to **Directory → People → [User] → Profile**.
 2. Compare the Login and Email field values. Differences between these fields will produce mapping mismatches.
-
----
 
 ## Resolution
 
@@ -75,8 +67,6 @@ The safest fix is to use `user.email` for both SCIM and SSO, as this field conta
 3. Check Okta System Log (**Reports → System Log**) for provisioning errors.
 4. Verify updated email values appear in provisioning logs before people retry login.
 
----
-
 ## Post-fix cleanup
 
 After correcting the attribute mapping and completing the full sync:
@@ -87,8 +77,6 @@ After correcting the attribute mapping and completing the full sync:
 * **Re-adding affected people:** After ghost account removal, people with the corrected email may need to be re-invited or re-provisioned.
 * **Prevent future occurrences:** Enable "Restrict organization creation" in your organization's Identity and access settings to prevent unprovisioned people from creating free accounts.
 
----
-
 ## Verification
 
 After completing the fix and any cleanup:
@@ -97,8 +85,6 @@ After completing the fix and any cleanup:
 2. Ask an affected person to clear browser cookies for claude.ai, then log in via SSO. They should land directly in your organization's workspace without error.
 3. Confirm people aren't creating free accounts—with organization creation restricted, blocked people see a clear error instead of landing on a personal account.
 4. If Claude Code was affected, have the person re-run `claude auth login --enterprise` and confirm the email matches their provisioned seat.
-
----
 
 ## Common issues
 
@@ -111,8 +97,6 @@ After completing the fix and any cleanup:
 | App-level profile attribute (`appuser.email`) differs from user profile (`user.email`) | Check if app-level attribute mappings override user profile values. |
 | Emails updated but person still can't log in | Look for rogue free orgs or ghost accounts. Clear browser cookies and retry. Contact Support if it persists. |
 | OIDC and SAML apps are separate Okta apps for Claude | Some organizations configure both. Ensure attribute alignment in both apps. |
-
----
 
 ## When to contact Support
 

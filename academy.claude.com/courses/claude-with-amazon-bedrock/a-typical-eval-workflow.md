@@ -14,7 +14,7 @@ A typical prompt evaluation workflow follows a systematic approach to objectivel
 
 ![](https://academy.claude.com/assets/media/c7dc99eee2300e25b5e601d4873fb6fc50dd72ef7781e054a2da3139d7087179.png)
 
-## Step 1: Draft Your Initial Prompt
+## Step 1: Draft Your Initial Prompt[](#step-1-draft-your-initial-prompt)
 
 Start by writing out a basic prompt that you want to improve. For this example, we'll use a simple prompt structure:
 
@@ -32,7 +32,7 @@ Please answer the user's question:
 
 This gives us a baseline to work from. We won't know if it's effective until we evaluate it with some objective methodology.
 
-## Step 2: Create an Evaluation Dataset
+## Step 2: Create an Evaluation Dataset[](#step-2-create-an-evaluation-dataset)
 
 Your evaluation dataset contains sample inputs that you'll feed into your prompt. Since our prompt only has one input (the user's question), we need a collection of different questions to test with.
 
@@ -44,7 +44,7 @@ The dataset contains questions that we will merge with our prompt. You can assem
 * How do I make oatmeal?
 * How far away is the Moon?
 
-## Step 3: Feed Through Claude
+## Step 3: Feed Through Claude[](#step-3-feed-through-claude)
 
 Take each question from your dataset and merge it with your prompt template to create complete prompts. Then send each one to Claude and collect the responses.
 
@@ -52,7 +52,7 @@ Take each question from your dataset and merge it with your prompt template to c
 
 For example, the first question becomes a complete prompt that Claude can respond to. You'll repeat this process for all records in your dataset, getting back responses like "2 + 2 = 4", detailed oatmeal instructions, and information about the Moon's distance.
 
-## Step 4: Feed Through a Grader
+## Step 4: Feed Through a Grader[](#step-4-feed-through-a-grader)
 
 Now comes the crucial step: objectively scoring Claude's responses. Take each question-answer pair and feed them into a grader that will evaluate the quality of Claude's response.
 
@@ -68,7 +68,7 @@ In our example, the responses might score 10, 4, and 9 respectively. Average the
 
 ![](https://academy.claude.com/assets/media/0e9f812d824c4b31dfaa72e4983983fa9c519b253da93fc2501323e178157ee1.png)
 
-## Step 5: Change Prompt and Repeat
+## Step 5: Change Prompt and Repeat[](#step-5-change-prompt-and-repeat)
 
 With your baseline score established, you can now iterate on your prompt. Try adding more specific instructions to guide Claude's responses:
 
@@ -88,7 +88,7 @@ Answer the question with ample detail
 
 Run this improved prompt through the entire evaluation pipeline again. Compare the scores to see which version performs better.
 
-## Prompt Scoring and Iteration
+## Prompt Scoring and Iteration[](#prompt-scoring-and-iteration)
 
 The power of this workflow lies in getting objective measurements for each prompt version. You can compare scores across different iterations and use the version with the best performance, or continue iterating to find even better approaches.
 

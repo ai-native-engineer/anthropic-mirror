@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Grant proposal assembly line result](https://academy.claude.com/assets/v1/grant-proposal-assembly-line-l7pm65pj.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to analyze documents and identify reusable patterns, paired with your grant writing expertise, lets you transform chaotic proposal archives into systematic content libraries that scale. Instead of rewriting similar content for each funder, you assemble proven modules and customize language to match each funder's priorities—shifting your role from drafter to strategist.
 
@@ -63,13 +63,13 @@ Make this a true assembly line where I can produce proposals 60% faster by mixin
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Connect Google Drive to store your modular library and access past proposals. Connect Gmail to draft submission emails and funder correspondence. This creates an integrated system where all grant content lives in one organized, accessible place.
 
 Your assembly line works best when Claude can access your full grant history, pull successful language that's worked before, and organize everything systematically for future reuse.
 
-### Required context
+### Required context[](#required-context)
 
 * **Enable [Google Drive integration(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration):** Enable Google Drive access so Claude can create organized folder structure for your content library, save modular components in easily accessible formats, pull from past proposals when assembling new ones, and store templates and tracking tools.
 * **Enable [Gmail integration(opens in new tab)](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors):** Connect Gmail so Claude can draft proposal submission emails with proper attachments, create funder follow-up sequences, and access funder correspondence for context.
@@ -102,7 +102,7 @@ Program descriptionsDOC
 
 Past successful proposalsDOC
 
-### Optional context
+### Optional context[](#optional-context)
 
 Consider adding additional inputs for a stronger, enhanced library:
 
@@ -118,7 +118,7 @@ Consider adding additional inputs for a stronger, enhanced library:
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude builds a complete grant proposal assembly line system with three integrated components that work together to dramatically reduce writing time.
 
@@ -169,11 +169,11 @@ Metro County youth face compounding barriers: 42% unemployment among 16-19 year 
 
 With Morrison Foundation support, we will scale this proven approach, engage diverse youth populations, and create a replicable model demonstrating that young people aren't just the future—they're essential partners in solving today's challenges.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Expand library with new modules
+### Expand library with new modules[](#expand-library-with-new-modules)
 
 Add new reusable components as programs evolve and successes accumulate.
 
@@ -181,7 +181,7 @@ Create 3 new modules for our content library based on this quarter's outcomes: (
 
 Open in Claude
 
-### Generate batch proposals
+### Generate batch proposals[](#generate-batch-proposals)
 
 Create multiple proposals simultaneously when similar deadlines hit.
 
@@ -189,7 +189,7 @@ Three grants are due next month. Using our content library, create customized pr
 
 Open in Claude
 
-### Optimize based on success patterns
+### Optimize based on success patterns[](#optimize-based-on-success-patterns)
 
 Analyze wins and losses to improve your library.
 
@@ -197,29 +197,29 @@ Review these 5 winning proposals and 3 rejections from last year. Identify which
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Version control prevents content drift.
+### Version control prevents content drift.[](#version-control-prevents-content-drift)
 
 As you customize modules for different funders, successful variations should flow back into your library. After each win, ask Claude: "Extract any improved language from this winning proposal and update the relevant library modules. Mark the version date and which funder responded positively." This ensures your library evolves based on what actually works.
 
-### Batch similar funders for efficiency.
+### Batch similar funders for efficiency.[](#batch-similar-funders-for-efficiency)
 
 When you have multiple education funders, ask Claude to create a comparison matrix first: "Analyze these 4 education funder RFPs and identify common requirements, unique elements, and priority differences." Then generate proposals in batches, making small adjustments rather than full rewrites. This can cut time by another 30%.
 
-### Track module performance metrics.
+### Track module performance metrics.[](#track-module-performance-metrics)
 
 Add tracking codes to each module so you know which content contributes to wins. Ask Claude: "Create a tracking system where each module gets a unique ID. When we win grants, log which modules were used so we can identify our highest-performing content blocks." Over time, you'll know exactly which descriptions and need statements resonate most.
 
-### Set up funder intelligence alerts.
+### Set up funder intelligence alerts.[](#set-up-funder-intelligence-alerts)
 
 Before using the assembly line, gather intelligence: "Search for this funder's recent grants, board members, strategic plan, and stated priorities. How should we adjust our standard modules to align with what they actually fund versus what the RFP says?" This context makes customization more strategic.
 
-### Maintain freshness with quarterly updates.
+### Maintain freshness with quarterly updates.[](#maintain-freshness-with-quarterly-updates)
 
 Reused content can become stale. Set quarterly reviews: "Flag any modules older than 6 months. Update statistics, refresh examples, and add recent outcomes. Mark updated versions with the current date." Fresh statistics and recent success stories keep proposals competitive even when using library content.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Transform grant writing from a time-consuming scramble into an efficient assembly line. Start by building your modular library with existing content, then watch as new proposals come together in hours instead of days. Every successful grant makes your library stronger, creating a compounding advantage that grows with each application cycle.
 

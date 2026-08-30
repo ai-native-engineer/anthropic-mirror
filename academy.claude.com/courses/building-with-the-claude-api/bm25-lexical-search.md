@@ -12,7 +12,7 @@ Lesson 375 min
 
 When building RAG pipelines, you'll quickly discover that semantic search alone doesn't always return the best results. Sometimes you need exact term matches that semantic search might miss. The solution is to combine semantic search with lexical search using a technique called BM25.
 
-## The Problem with Semantic Search Alone
+## The Problem with Semantic Search Alone[](#the-problem-with-semantic-search-alone)
 
 Let's say you're searching for a specific incident ID like "INC-2023-Q4-011" in a document. While semantic search excels at understanding context and meaning, it might return sections that are semantically related but don't actually contain the exact term you're looking for.
 
@@ -20,7 +20,7 @@ Let's say you're searching for a specific incident ID like "INC-2023-Q4-011" in 
 
 In the example above, semantic search returned the cybersecurity section (which does contain the incident ID) but also returned a financial analysis section that doesn't mention the incident at all. This happens because semantic search focuses on conceptual similarity rather than exact term matching.
 
-## Hybrid Search Strategy
+## Hybrid Search Strategy[](#hybrid-search-strategy)
 
 The solution is to run both semantic and lexical searches in parallel, then merge the results. This gives you the best of both worlds:
 
@@ -30,7 +30,7 @@ The solution is to run both semantic and lexical searches in parallel, then merg
 * **Lexical search** finds exact term matches using classic text search
 * **Merged results** combine both approaches for better accuracy
 
-## How BM25 Works
+## How BM25 Works[](#how-bm25-works)
 
 BM25 (Best Match 25) is a popular algorithm for lexical search in RAG systems. Here's how it processes a search query:
 
@@ -48,7 +48,7 @@ Terms that appear less frequently get higher importance scores. The word "a" get
 **Step 4: Find best matches**
 Return documents that contain more instances of the higher-weighted terms.
 
-## Implementing BM25 Search
+## Implementing BM25 Search[](#implementing-bm25-search)
 
 Here's how to set up a basic BM25 search system:
 
@@ -77,7 +77,7 @@ When you run this search, you'll get much better results than semantic search al
 
 Notice how the results now properly prioritize the Software Engineering section and Cybersecurity section - both of which actually contain the incident ID you're searching for.
 
-## Why This Works Better
+## Why This Works Better[](#why-this-works-better)
 
 BM25 excels at finding exact matches because it:
 

@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-g7zgo1aw.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oixpzgjv.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to process large datasets and search scientific literature, combined with your domain expertise, lets you move from raw data to validated hypotheses in a fraction of the time it would take manually.
 
@@ -24,11 +24,11 @@ My colleagues recently published the attached single-cell dataset that describes
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 To help Claude analyze your genomic data effectively, you'll need to [provide your datasets(opens in new tab)](https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude) and optionally [connect to research databases.(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)
 
-### Required context
+### Required context[](#required-context)
 
 Upload CSV or TSV files containing differential expression results, normalized counts, or other quantitative genomics data. Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area.
 
@@ -38,15 +38,7 @@ Claude can then use your genomic data files to perform computational analysis an
 
 Differential expression data filesCSV
 
-### Optional context
-
-Enable [Extended thinking(opens in new tab)](https://www.anthropic.com/news/visible-extended-thinking) for Claude to think through more complex tasks, like creating analysis reports and visualizations.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude examines your datasets, performs pathway enrichment analysis, creates visual representations of gene expression patterns, and identifies key biological processes enriched in each condition.
 
@@ -135,11 +127,11 @@ Adult liver shows moderate enrichment (4-5 log2FC) in mature metabolic functions
 * View full pathway analysis - Complete pathway details
 * View pathway summary table - Summary statistics
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Literature validation
+### Literature validation[](#literature-validation)
 
 Claude can search [PubMed(opens in new tab)](https://claude.ai/directory/pubmed) to distinguish which of your findings are well-documented in literature versus novel discoveries, helping you identify the most promising avenues for further research.
 
@@ -147,25 +139,25 @@ I'd like to focus on the extracellular matrix and its remodeling or function in 
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Connect [PubMed(opens in new tab)](https://claude.ai/directory/pubmed) for real-time literature integration
+### Connect [PubMed(opens in new tab)](https://claude.ai/directory/pubmed) for real-time literature integration[](#connect-pubmed-for-real-time-literature-integration)
 
 When Claude is connected to PubMed, it can access actual papers, extract specific experimental details, and find citations you might miss. This turns literature review from a multi-day task into a conversation. Claude provides reference links to all the articles it mentions, including identifying specific sections that you can deep dive on your own for further review.
 
-### Build your analysis incrementally
+### Build your analysis incrementally[](#build-your-analysis-incrementally)
 
 Start with exploratory data analysis and visualization, review the patterns, then dive deeper into specific pathways. This checkpoint approach lets you steer the analysis toward the most interesting findings rather than trying to do everything at once.
 
-### Ask Claude to show its computational methods
+### Ask Claude to show its computational methods[](#ask-claude-to-show-its-computational-methods)
 
 Request "show me the code" or "explain your analytical approach" to verify Claude is using appropriate statistical methods for your data type. This builds confidence in results and helps you explain your analysis to reviewers.
 
-### Continue working in your files
+### Continue working in your files[](#continue-working-in-your-files)
 
 The files Claude creates are fully editable. Download the heat maps, pathway comparisons, and summary documents to continue working in your preferred tools.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Whether you're exploring differential expression, validating findings against literature, or designing follow-up experiments, Claude can handle the computational heavy lifting while you focus on the creative work of scientific discovery.
 

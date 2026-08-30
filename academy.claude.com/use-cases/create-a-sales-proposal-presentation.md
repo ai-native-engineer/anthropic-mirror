@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create a sales proposal presentation result](https://academy.claude.com/assets/v1/create-a-sales-proposal-presentation-ixxpg950.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude can build complete presentation decks with thoughtful slide layouts, clean data visualizations, and consistent typography. Describe your proposal content and design preferences, and Claude creates a professional deck. Treat that first version as a draft rather than the finished deliverable, and plan to revise it a few times.
 
@@ -32,11 +32,11 @@ I'm putting together a proposal deck for Midwest Regional Health, a healthcare n
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Connect Claude to your files and provide brand assets so the proposal pulls from your actual client materials and reflects your visual identity.
 
-### Required context
+### Required context[](#required-context)
 
 Enable the [Google Drive(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) integration so Claude can search for and pull from your discovery notes, RFPs, competitive analysis, and past proposals. Upload your company logo for color extraction and brand consistency. If you have a past deck with the look you want, share it as a style reference—showing works better than describing.
 
@@ -60,7 +60,7 @@ Discovery call notesDOC
 
 Company logoJPEG
 
-### Optional context
+### Optional context[](#optional-context)
 
 For more complex, multi-step tasks turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) in the chat input bar for Claude to consider sophisticated layouts and narrative structure throughout the slides.
 
@@ -68,7 +68,7 @@ For more complex, multi-step tasks turn on [Extended Thinking(opens in new tab)]
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude searches your connected files, synthesizes the relevant information, and delivers a complete proposal deck with professional layouts and consistent design, ready for refinement based on your feedback.
 
@@ -86,11 +86,11 @@ Here's how I structured the content from your documents:
 
 Let me know what's working and what you'd like adjusted.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Tighten the slide your client reads first
+### Tighten the slide your client reads first[](#tighten-the-slide-your-client-reads-first)
 
 Pricing is where hospital executives slow down, so give that slide its own pass.
 
@@ -98,7 +98,7 @@ The pricing slide is too dense. Split the implementation fee and the annual subs
 
 Open in Claude
 
-### Reframe the story around their goals
+### Reframe the story around their goals[](#reframe-the-story-around-their-goals)
 
 Their RFP already names what they care about, so borrow its language.
 
@@ -106,21 +106,21 @@ Rewrite the executive summary to lead with the three challenges from the discove
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Reference earlier decisions as you iterate
+### Reference earlier decisions as you iterate[](#reference-earlier-decisions-as-you-iterate)
 
 With Opus 4.5, the conversation holds context across many rounds of feedback. You can say "use the same layout approach as the challenges slide" or "go back to the color we used before" without re-explaining. This keeps iterations faster and more consistent.
 
-### Extended Thinking helps when synthesizing multiple sources
+### Extended Thinking helps when synthesizing multiple sources[](#extended-thinking-helps-when-synthesizing-multiple-sources)
 
 When Claude needs to pull from discovery notes, RFPs, and past proposals to build a cohesive narrative, Extended Thinking gives it time to plan how the pieces fit together. The model also reasons through visual hierarchy and slide structure more carefully, so you spend less time fixing layouts and formatting. For decks with data visualizations or complex information, the difference in polish is noticeable.
 
-### Check the numbers before you present
+### Check the numbers before you present[](#check-the-numbers-before-you-present)
 
 Claude pulls figures from several documents at once, so a pricing line or a case study stat can come from an older version of a file. Before the deck goes to the client, verify the pricing slide and any quoted results, like the 34% improvement in appointment adherence, against the source documents in your Drive.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Connect your Drive, point Claude to your client materials, and describe the deck you need. Claude synthesizes the content and handles the design while you shape it through feedback until it's suited to your standards and ready to present.
 

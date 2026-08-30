@@ -15,9 +15,11 @@ In this lessonBy the end, you’ll be able to
 * Define generative AI and how it differs from other AI types
 * Recognize the key characteristics and technological foundations of generative AI
 
-## Generative AI fundamentals
+## Generative AI fundamentals[](#generative-ai-fundamentals)
 
 Generative AI fundamentals
+
+SummaryTranscript
 
 This video introduces the concept of generative AI, focusing on its ability
 to create new content rather than just analyzing what already exists. We

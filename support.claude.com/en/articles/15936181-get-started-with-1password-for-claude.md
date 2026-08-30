@@ -42,7 +42,7 @@ Once the requirements are in place, you can set up 1Password from a few places i
 3. Toggle on **Enable for your team** if it isn't already on.
 4. Toggle on **Password managers**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1787622300&signature=9509c47499032a88d984d3454bd4940a77a21d11f14c673f44ef81938fee2f8e&req=diUjEMh8m4RWX%2FMW1HO4zU5lnmxor8dgGkiu4hEpcPWhy0sxj2blvUiLDt8b%0ASIfV8e%2FLc8n%2Fpa4J16E%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1787622300&signature=9509c47499032a88d984d3454bd4940a77a21d11f14c673f44ef81938fee2f8e&req=diUjEMh8m4RWX%2FMW1HO4zU5lnmxor8dgGkiu4hEpcPWhy0sxj2blvUiLDt8b%0ASIfV8e%2FLc8n%2Fpa4J16E%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1788033600&signature=9d18c3def8f333940001890c6b29b64491bd2f154fd37c77ea514566b539a8bf&req=diUjEMh8m4RWX%2FMW1HO4zU5lnmNursZlGkiu4hEpcPVt5lxAVxIlndH7t6TQ%0AdNI15%2BKa8XgBerkfjbE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2546126596/ba71ca47e2df21cec62c243831f8/5b1c67e1-607d-4c73-8f61-d1ceb081082a?expires=1788033600&signature=9d18c3def8f333940001890c6b29b64491bd2f154fd37c77ea514566b539a8bf&req=diUjEMh8m4RWX%2FMW1HO4zU5lnmNursZlGkiu4hEpcPVt5lxAVxIlndH7t6TQ%0AdNI15%2BKa8XgBerkfjbE%3D%0A)
 
 Once enabled, eligible users will see the discovery options above. Users still need to install and set up the required apps and extensions themselves.
 
@@ -82,6 +82,6 @@ Credentials are injected through a secure channel handled by 1Password, outside 
 
 * [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)
 * [Claude in Chrome troubleshooting](https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting)
-* [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
+* [Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400-use-the-built-in-browser-in-claude-cowork)

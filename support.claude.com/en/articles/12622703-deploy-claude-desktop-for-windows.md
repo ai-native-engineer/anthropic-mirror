@@ -69,8 +69,6 @@ By default, Claude Desktop checks for updates approximately every four hours and
 
 To configure Claude Desktop settings such as auto-updates, extensions, and MCP servers, see **[Enterprise configuration](https://support.claude.com/en/articles/12622667-enterprise-configuration)**.
 
----
-
 ## Troubleshooting
 
 ### MSIX package not working with AppLocker?

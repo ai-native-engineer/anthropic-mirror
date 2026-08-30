@@ -8,6 +8,167 @@
 
 [Skip to main content](#content-area)
 
+v1.40609.0
+
+2026-08-27
+
+**General**
+
+* Fixed Claude sometimes being unable to read or search a page in the built-in browser just after opening it or while it was still loading, and browser screenshots and interactions timing out or stalling on Windows and Linux while the browser pane was closed or another page was selected.
+* Fixed the app failing to launch when one of its settings files had become corrupted, and settings files sometimes being left corrupt after an unexpected shutdown or power loss on Windows.
+* Fixed the Share dialog: “Keep private” now takes effect immediately, and sharing a chat while offline shows an error instead of waiting indefinitely.
+* Fixed typing with an IME (Japanese, Chinese, or Korean): confirming or cancelling a conversion with Enter, Escape, or a digit key no longer sends half-composed text, discards typed drafts, denies tool approvals, rejects plans, or stops Claude’s response in Code sessions, and no longer commits or discards text in the browser pane’s address field.
+* Fixed scheduled tasks that run on this computer occasionally being marked as skipped without running; a run the app fails to pick up is now retried a few minutes later.
+
+**Code**
+
+* Added side-task suggestions in cloud sessions: Claude can suggest follow-up tasks that you start on your machine, in the cloud, or in the same session with one click.
+* Added `/resume`: search the Claude Code sessions started from your terminal on this computer and continue one in the app on the same transcript.
+* Added a view of the session’s MCP servers: type `/mcp` in a local session to see the servers from `.mcp.json`, `~/.claude.json`, plugins, and your claude.ai connectors, with live status and Connect, Reconnect, and Re-authenticate actions.
+* Fixed “Import Claude Code CLI sessions” (Help > Troubleshooting): it again finds Code sessions whose sidebar entries were lost after a reinstall or repair, no longer rewrites a session file that a running Claude Code process is still using, and saves a backup of the original transcript when importing removes its thinking blocks.
+* Fixed inline plan comments being silently lost when left after a plan was approved; the Plan pane now accepts comments in Plan mode or while Claude is asking you to approve the plan, and says when commenting opens otherwise.
+* Fixed SSH sessions losing messages that were waiting to be sent when the remote host became unreachable or the app was quit, updated, or restarted; they are now kept and delivered automatically at the next connection, and Claude Code is restarted on the host when needed.
+* Improved SSH session reconnects: high-latency links no longer drop their own connection, a network change mid-stream is noticed within seconds, an unreachable host is no longer re-dialed every few seconds in the background, and the session shows the specific connection error with a Try again button instead of a generic message or an indefinite “Reconnecting…”.
+
+**Cowork**
+
+* Fixed files dropped onto the composer together with a folder being discarded; they now attach alongside the folder.
+* Fixed shell commands that use plugin or skill file paths failing with “No such file or directory”.
+* Fixed the app running out of memory after many scheduled task runs.
+* Fixed the Cowork readiness check appearing to hang for minutes when a network-redirected profile folder is unreachable, and reporting a computer as unsupported because of an encrypted leftover folder from an uninstalled Claude version.
+* Fixed organization plugins failing to install or update on some Windows Store installs.
+* Fixed a message that starts with a typed, pasted, or app-filled slash command for one of your enabled skills failing with “Unknown skill” in an existing task; it now sends.
+
+**3P**
+
+* Added `relaunchEnforcementHours` (served configuration only): when a served configuration change needs a restart, it sets how many hours (0 to 336) users may keep running on the previous configuration; at the deadline Claude shows a restart dialog and restarts on its own after 2 minutes of inactivity. Unset means 1 hour.
+* Added `sshHostAllowlist` (beta): admins can turn on SSH remote sessions in the Code tab by listing the hosts users may connect to (`["*"]` allows any host). Unset keeps SSH sessions off unless a Claude Code managed-settings file on the device already allows hosts; an explicit `[]` keeps them off even then when the configuration is admin-delivered (device management or trusted remote delivery), while on a self-configured install the device allowlist still applies. Works with a gateway, Claude API key, or Foundry, and with Bedrock and Vertex when they use token-based credentials; file-based credential kinds are refused at session start with a message naming the kind.
+* Added an estimated-cost view to the Usage page chart: when the organization has turned on cost estimates, the chart can switch between tokens and estimated cost per day (per week at 90 days), and days with turns that have no estimate show as gaps rather than $0.
+* Added an in-app warning when the organization’s configuration uses a deprecated field: each user sees a dismissible notice from September 10, 2026 and once more in the 24 hours before the field stops being accepted, with a Details dialog naming each field, its replacement, the cut-off date and what changes then, plus a Copy report button that puts a plain-text summary for administrators on the clipboard. The new `disableConfigDeprecationWarnings` key hides the first showing; the final 24-hour reminder still appears. The warning also appears on standard deployments whose device-management profile uses one of these fields.
+* Added Anthropic’s Cowork and Claude Code plugin marketplaces as prefilled entries in the Setup window’s `allowedPluginMarketplaces` Add menu.
+* (breaking) Deprecated a set of older managed-configuration spellings, each accepted until October 7, 2026, 12:00 PM Pacific Time, with an in-app warning from September 10, 2026: `inferenceGatewayHeaders` (use `inferenceCustomHeaders`), `trustBootstrapLocalExec` (use `trustBootstrapDelivery`), `enduserAttribution` (use `endUserAttribution`), `inferenceGatewayAuthScheme` values `sso` (use `inferenceCredentialKind: "interactive"`) and `auto` (remove the key; `bearer` is the default), `isDxtEnabled` (use `isDesktopExtensionEnabled`) and `isDxtSignatureRequired` (use `isDesktopExtensionSignatureRequired`), header maps written as strings or lists in `inferenceCustomHeaders`, `otlpHeaders`, `otlpResourceAttributes` and `bootstrapHeaders` (use a JSON object), the `orgPluginSettings` record form (use the array form), the `ask-session` tool-permission value in `builtinToolPolicy`, `managedMcpServers[].toolPolicy` and `orgPluginSettings[].tools[].permission` (use `ask`), and in `managedMcpServers` entries the `scopes` list (use `scope`), `transport: "builtin"` (remove it), `authorityHost` (use `azureCloud: "us-gov-high"` for a GCC High tenant), `source` (remove it), `oauth` written as a number or string (use `true` or an `oauth` object), `oauth.scopes` or a list-valued `oauth.scope` (use `oauth.scope` as one space-separated string), and entries other than a built-in server with no `transport` (add `transport: "http"`, `"sse"` or `"stdio"`; a built-in Microsoft 365 or GitHub entry takes no `transport`). After the cut-off a renamed key’s old name falls back to its fail-closed value or default, and an invalid `managedMcpServers` or `orgPluginSettings` entry makes that connector or tool policy unavailable until it is rewritten.
+* Changed `inferenceVertexProjectId` and `inferenceVertexWorkforceUserProject`: a value delivered by a bootstrap URL the user configured themselves (in Settings or a local configuration file) now asks that user to approve it before it takes effect, and declining quits the app. Because the project ID is required, each such Vertex install prompts once after updating. Values delivered through device management, or by a bootstrap URL that device management set or that `trustBootstrapDelivery: true` covers, are unchanged and never prompt. Both keys must now match the Google Cloud project format.
+* Changed `toolSearchEnabled` on gateway deployments to enable tool search alone; other experimental Claude Code betas stay suppressed.
+* Changed how a managed-configuration value the app cannot read is handled: it now engages the restriction it belongs to instead of being ignored. Restriction keys such as `disabledBuiltinTools`, `builtinToolPolicy`, `coworkTabEnabled` and `disableBundledSkills` fall back to their restrictive value, an unreadable `managedMcpServers` keeps Code sessions restricted to managed MCP servers, an unreadable `isDesktopExtensionEnabled` or `isDesktopExtensionSignatureRequired` disables extensions or requires signed extensions, and a tool-permission value the app does not recognize is applied as the most restrictive setting (`ask` for a built-in tool, `blocked` for a plugin-delivered tool) and reported as a configuration error. `allowedPluginMarketplaces`, the built-in GitHub MCP preset and `otlpTracesEnabled` are no longer marked Beta.
+* Changed the Setup window’s configuration exports and the published bootstrap JSON schema to write `orgPluginSettings` in its array form; the app still accepts the older record form until October 7, 2026. Desktop versions before 1.15200.0 read only the record form and do not enforce plugin tool locks given the array, so update the fleet past 1.15200.0 before deploying an exported configuration that uses it.
+* Changed the Vertex AI credential kind for Google sign-in to `inferenceCredentialKind: "interactive"`, matching other providers; `oauth` keeps working until October 7, 2026 (12:00 PM Pacific Time). If you deliver configuration as nested JSON (a self-hosted bootstrap server or a Setup JSON export), keep `oauth` until the whole fleet is on this release or later, because an older desktop drops the Google client ID from a nested `interactive` credential and Vertex sign-in stops working; flat MDM keys, .mobileconfig and .reg files are unaffected. Until October 7, 2026 a Vertex configuration that sets `interactive` together with `inferenceVertexWorkforceAudience` and no `inferenceVertexOAuthClientId` is still read as Workforce Identity; after that it means Google sign-in, so set `workforce` explicitly if that is the intent.
+* Improved Cowork reliability when the workspace is slow to start or has been idle, and made switching back to a recently opened Code tab session faster.
+* Fixed importing sessions from a previous Claude Desktop install: imported Cowork sessions keep their Project and its `~/Claude/Projects/<Name>` folder instead of getting a new empty one, an interrupted import now appears in Import history and its sessions are no longer imported twice on the next run, and the import wizard no longer re-creates a Project you had deleted (an imported Project that duplicates an existing name gets a “(1)” suffix).
+* Fixed the Code tab’s plugin directory and Customize > Plugins not listing plugins from marketplaces configured with `allowedPluginMarketplaces`; an admin-configured marketplace is now managed as the organization’s in both tabs.
+
+v1.37937.3
+
+2026-08-26
+
+**General**
+
+* No user-facing changes.
+
+**Code**
+
+* No user-facing changes.
+
+**Cowork**
+
+* No user-facing changes.
+
+**3P**
+
+* No user-facing changes.
+
+v1.37937.2
+
+2026-08-26
+
+**General**
+
+* No user-facing changes.
+
+**Code**
+
+* No user-facing changes.
+
+**Cowork**
+
+* No user-facing changes.
+
+**3P**
+
+* No user-facing changes.
+
+v1.37937.1
+
+2026-08-25
+
+**General**
+
+* Updated the bundled Claude Code CLI to version 2.1.246.
+
+**Code**
+
+* Fixed remote MCP servers never recovering after a dropped connection; they now reconnect automatically or report as failed.
+* Fixed signing in to some MCP servers, such as Linear, failing with an “Invalid redirect URI” error.
+
+**Cowork**
+
+* No user-facing changes.
+
+**3P**
+
+* Added support for the `inferenceModelPricing` rates and the `inferenceModelPricingMultiplier` discount in the Usage page’s cost estimate; in 1.37937.0 the estimate always used Anthropic list price.
+
+v1.37937.0
+
+2026-08-25
+
+**General**
+
+* Added support for legacy Word .doc files, which now open like .docx, and Excel .xlsx and .xls spreadsheets, which now attach as text where they used to be refused.
+* Removed sharing of chat artifacts for members of organizations whose admin has turned Artifacts off; links already shared keep working.
+* Fixed chat refusing new messages after the weekly Cowork limit was used up.
+* Fixed scheduled tasks set to run on both a day of the month and a weekday (for example “the 1st and every Monday”) only running when the two coincided; they now run on either day, as their schedule description says.
+* Fixed several chat reliability issues: queued messages could disappear or send on their own, a send retried during a service overload could add repeated copies of a message, reopening a chat before the reply arrived could show a false “message wasn’t sent” error, and a single failed response could show two error messages.
+* Fixed the app sometimes signing you out right after an automatic update.
+
+**Code**
+
+* Improved SSH session reliability: fixed connections failing when the configured identity file is a public key (common with 1Password setups), messages sent while the host reconnects are delivered once it is back, a Claude Code upload to the host now rides out a brief network pause, idle sessions no longer show a false “Lost connection” card, reconnecting can ask for a password or one-time code when needed, and a reconnect no longer reports lost output unless it truly could not be recovered.
+* Fixed all saved SSH connections disappearing when one stored connection entry was invalid.
+* Fixed background cleanup of old session worktrees on Windows sometimes also deleting the contents of folders that NTFS junctions inside the worktree pointed to, such as the main checkout’s `node_modules`.
+* Fixed removing a claude.ai import run resetting uncommitted work in a session you had started from that import; the session’s files are now kept on disk.
+* Fixed sessions failing to start for organizations using the `disableSideloadFlags` setting in Claude Code’s `managed-settings.json`; sessions now start without the desktop’s bundled skills and plugins instead.
+* Fixed very high memory use, and a blank or unresponsive window, when opening or reconnecting sessions with very large transcripts or many subagents.
+
+**Cowork**
+
+* Added dictation in the Claude in Chrome side panel; allow the microphone once in the extension’s settings.
+* Fixed “upload failed” errors when staging Google Drive and other cloud-synced files that are not downloaded on your Mac yet; they now download automatically, and clearer messages explain when the sync app needs to be started.
+* Fixed a Rename, Delete, or Move dialog left open in a task’s header staying open when you switched to another task and acting on the task you switched to; it now closes on switch.
+* Fixed only the last file staying attached when several files opened with Claude each needed confirmation.
+* Fixed restored Cowork tabs showing a “Try again” error when the app restarted before sessions finished loading, such as right after an update.
+* Fixed the tasks and files panel staying open as an empty pane after a restart.
+
+**3P**
+
+* Added `mcpToolTimeoutSec`, which sets how long an MCP tool call may run before it times out. Defaults to 180 seconds.
+* Added `organizationInstructions`: organization-wide instructions appended to Claude’s system prompt in Chat, Cowork, and Code sessions (up to 3,000 characters); settable via device management, a local configuration file, or the bootstrap response. They are guidance the model follows, not an enforced control.
+* Added `skipWebFetchPreflight`. When enabled, Code sessions no longer contact api.anthropic.com before fetching a web page, which fixes page fetches failing on networks that block that host. Off by default.
+* Added `userPluginMarketplacesEnabled` and `userPluginUploadsEnabled`, which control whether members can add their own plugin marketplaces and upload their own plugins; when off, the add options are hidden and adds are refused. Unset keys change nothing.
+* Added Code tab features already available in the standard app: the Files panel with Show in Files, emoji autocomplete and inline prompt suggestions in the composer, interactive MCP app widgets in the conversation, and letting Claude read output from the integrated terminal panel.
+* Added cost estimates to the Usage page: `inferenceModelPricingEnabled` shows an estimated cost alongside token counts, priced at Anthropic list price; `inferenceModelPricing` supplies per-model rates and `inferenceModelPricingMultiplier` scales every estimate (a number between 0 and 1). The two rate keys take effect from 1.37937.1; in 1.37937.0 estimates use list price. Off by default.
+* Added suggestions for plugins and skills from your organization’s own library in chat.
+* Added support for plugin marketplace credential helpers that return a username or `authtype=Bearer`, so marketplaces hosted on Bitbucket Data Center or behind GitLab deploy tokens can authenticate.
+* Added the `disableDesktopLocalSessions` setting to Claude Code’s `managed-settings.json`, which turns off Code sessions that run on the device itself so the Code tab offers only remote environments such as SSH; the environment menu shows Local greyed out with a “Disabled by your organization” explanation.
+* Changed `allowedPluginMarketplaces` (beta): a `url` marketplace hosted on the bootstrap server’s own origin can now use `credentialKind: "inferenceCredential"` and is fetched with the same sign-in the app already uses for its bootstrap configuration.
+* Changed `builtinToolPolicy` to accept argument-scoped Claude Code permission rules such as `Bash(curl *)` in addition to bare tool names; `WebSearch` and `WebFetch` entries stay bare tool names, and entries that are not usable rules are rejected with a configuration error.
+* Changed gateway device-code sign-in to show the signed-in account’s email, when the gateway returns one, instead of the computer’s login name.
+* Changed the Code tab’s file pane and git panel to follow the administrator’s `allowedWorkspaceFolders` setting.
+* Fixed Bedrock sessions behind a proxy that strips the response content type silently re-running every request without streaming, which billed each request twice.
+* Fixed Cowork scheduled tasks running on the 200K-context model when the 1M-context row or “Default model” was selected in the task form; the form now labels the 1M row.
+* Fixed the built-in Microsoft 365 connector publishing an invalid schema for updating a calendar event’s end time.
+* Fixed the Microsoft 365 local connector on Windows failing for users with more than one Microsoft work account on the PC. The Reconnect card now opens the Windows account picker and the chosen account is remembered; users of this connector will be asked to reconnect once after this update.
+* Fixed the model picker showing a duplicate, mislabeled 1M-context row when `inferenceModels` lists a model both with and without the `[1m]` suffix.
+
 v1.34493.1
 
 2026-08-21

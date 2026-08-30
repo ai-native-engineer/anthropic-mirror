@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Select and adapt teaching approaches for teaching the AI Fluency Framework to your students
 * Design learning experiences using linear, non-linear, focused, or loop-based approaches
 
-## Welcome & approaches to teaching AI Fluency
+## Welcome & approaches to teaching AI Fluency[](#welcome-approaches-to-teaching-ai-fluency)
 
 Welcome & approaches to teaching AI Fluency
 
@@ -35,7 +35,7 @@ guides them toward better practices. Understanding this dual nature is
 crucial for teaching, as students need to grasp both how AI interactions
 work and how to improve them.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The AI Fluency Framework serves as both a descriptive model and a normative guide for AI interaction
 * Four teaching approaches offer different entry points suited to different student contexts and learning objectives
@@ -43,7 +43,7 @@ work and how to improve them.
 * More experienced students benefit from non-linear or loop-based approaches that reflect real-world complexity, or focused approaches that provide greater depth
 * Your choice of approach should match your students' readiness, available time, and learning goals
 
-## Exercises
+## Exercises[](#exercises)
 
 This exercise helps you establish your teaching context and explore how each approach might work for your students.
 
@@ -80,7 +80,7 @@ Start a conversation with Claude (for convenience, we will refer to Claude in ma
 * Review this summary to ensure it captures all essential elements
 * Save this document and reuse when starting new teaching conversations (such as those in lessons 2 and 3) with your AI partner to quickly establish context
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore the Delegation-Diligence loop, a framework for responsible design and decision-making in AI collaboration.
 

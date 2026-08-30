@@ -14,13 +14,13 @@ Now that we've built our MCP server, let's review the three core server primitiv
 
 ![](https://academy.claude.com/assets/media/bc7ee5fac91b20fa74fcc27bb9255bc41c9fb9c50a15ae60e3bfccc7a1cfad3e.png)
 
-## Tools: Model-Controlled
+## Tools: Model-Controlled[](#tools-model-controlled)
 
 Tools are controlled entirely by Claude. The AI model decides when to call these functions, and the results are used directly by Claude to accomplish tasks.
 
 Tools are perfect for giving Claude additional capabilities it can use autonomously. When you ask Claude to "calculate the square root of 3 using JavaScript," it's Claude that decides to use a JavaScript execution tool to run the calculation.
 
-## Resources: App-Controlled
+## Resources: App-Controlled[](#resources-app-controlled)
 
 Resources are controlled by your application code. Your app decides when to fetch resource data and how to use it - typically for UI elements or to add context to conversations.
 
@@ -31,13 +31,13 @@ In our project, we used resources in two ways:
 
 Think of the "Add from Google Drive" feature in Claude's interface - the application code determines which documents to show and handles injecting their content into the chat context.
 
-## Prompts: User-Controlled
+## Prompts: User-Controlled[](#prompts-user-controlled)
 
 Prompts are triggered by user actions. Users decide when to run these predefined workflows through UI interactions like button clicks, menu selections, or slash commands.
 
 Prompts are ideal for implementing workflows that users can trigger on demand. In Claude's interface, those workflow buttons below the chat input are examples of prompts - predefined, optimized workflows that users can start with a single click.
 
-## Choosing the Right Primitive
+## Choosing the Right Primitive[](#choosing-the-right-primitive)
 
 Here's a quick decision guide:
 

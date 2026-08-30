@@ -50,9 +50,9 @@ The footer under each reply names the model that handled it. You can [choose a d
 
 | If you see | It means | Do this |
 | --- | --- | --- |
-| Typing `@Claude` doesn’t show **Claude** with an **APP** badge in the suggestion list | The Claude app isn’t installed in your workspace | Ask your Slack admin to install the Claude app, and send them [the installation guide](https://claude.com/docs/claude-tag/admins/pair-workspace#install-and-pair) |
+| Typing `@Claude` doesn’t show **Claude** with an **APP** badge in the suggestion list | The Claude app isn’t installed in your workspace | Ask your Slack admin to install the Claude app, and send them [the installation guide](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace) |
 | The mention sends but Claude doesn’t reply | Setup isn’t finished for this channel | Ask your Claude organization admin to enable Claude Tag for this channel, and send them [the setup guide](https://claude.com/docs/claude-tag/admins/setup-overview) with the channel name |
-| Claude replies “I couldn’t find a Claude Code environment for your account” | Your own claude.ai account has no cloud environment yet; this appears in DMs, which run on your account rather than the organization’s | Sign in at [claude.ai/code](https://claude.ai/code) once, then try again |
+| Claude replies “I couldn’t find a Claude Code environment for your account” | Claude couldn’t resolve an environment for this DM; DMs run on your account rather than the organization’s | Mention Claude again. If it keeps happening, see [I get an environment error in a DM](https://claude.com/docs/claude-tag/users/troubleshooting#i-get-an-environment-error-in-a-dm) |
 
 ##  Hand Claude a task
 
@@ -65,7 +65,7 @@ Every interaction has the same shape. You mention `@Claude` with a task, Claude 
 An “is thinking…” line appears at the bottom of the thread when Claude picks the task up, and it replies with results; a multi-step task also gets a checklist it updates as it works. A quiet thread after the “is thinking…” line means Claude is working, not stuck; long tasks can take a minute or more before the first reply.
 Once Claude is in a thread, you don’t need to @-mention it again; it reads every reply in that thread.
 Read Claude’s work before you use it, in proportion to what’s at stake. A summary you can skim; something going to a customer or changing a system gets a careful read. If a result needs checking, ask it to show its work in the same thread.
-The work runs on Anthropic’s servers, so it continues after you close Slack.
+Tasks run in the cloud, so Claude keeps working after you close Slack.
 Replies in the thread reach Claude without re-mentioning. If the thread looks idle, Claude is usually still working; see [how to read its progress](https://claude.com/docs/claude-tag/concepts/how-it-works#track-claude%E2%80%99s-progress).
 
 ##  What Claude can see
@@ -80,7 +80,7 @@ After you’ve handed Claude a task, the first question is what it has to work w
 | Private channels and DMs | Only from inside them. Adding Claude to a private channel lets it work there, but the channel stays unreadable from any other channel or DM. |
 | A link you paste, like a Google Doc or a webpage | Only if your admin allowed that site for this channel. If not, Claude tells you it can’t reach it. For files in your personal Drive or Google account, DM Claude instead; [a DM uses your own connectors](https://claude.com/docs/claude-tag/concepts/agent-identity#direct-message-channels) |
 | A Slack canvas | No |
-| A message you edited after sending | Yes. Each edit sends Claude a note showing the text before and after the edit. An edit never starts a new task on its own, so to be sure a correction is picked up, say it in a new reply. Deleting a message doesn’t notify Claude |
+| A message you edited after sending | Yes. Each edit sends Claude a note showing the text before and after the edit. An edit never starts a new task on its own, so to be sure a correction is picked up, say it in a new reply. Deleting a reply doesn’t notify Claude, and deleting the thread’s first message before anyone replies closes the session; see [Reply in the thread to steer](https://claude.com/docs/claude-tag/concepts/how-it-works#reply-in-the-thread-to-steer) |
 
 The fastest way to find out for your channel is to ask: `@Claude can you read the doc I just linked?` gets you a yes or a “that site isn’t allowed here.”
 

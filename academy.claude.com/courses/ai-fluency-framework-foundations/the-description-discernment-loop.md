@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Engage in productive Description-Discernment feedback loops
 * Create results through human-AI collaboration that exceed what either could achieve alone
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Project execution with description-discernment loops
 
@@ -61,7 +61,7 @@ Now, work through your planned project tasks with Claude. For each task:
 
 Continue this Description-Discernment loop for each task in your project until completion.
 
-### Reflection
+### Reflection[](#reflection)
 
 Before moving on, take a moment to consider:
 
@@ -69,7 +69,7 @@ Before moving on, take a moment to consider:
 * Which required more effort from you: Description or Discernment? Why do you think that was the case?
 * How did your actual project execution compare to your initial plan from Lesson 5? What adjustments did you make along the way?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore the final competency in the AI Fluency Framework: Diligence. While Delegation, Description, and Discernment focus primarily on effectiveness and efficiency, Diligence addresses the ethical and safety aspects of working with AI. You'll learn how to ensure your AI collaborations are responsible, transparent, and accountable.
 

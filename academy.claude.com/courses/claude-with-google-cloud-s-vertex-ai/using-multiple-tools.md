@@ -14,7 +14,7 @@ Adding multiple tools to your Claude implementation becomes straightforward once
 
 ![](https://academy.claude.com/assets/media/a717f46eec75a1fd38b52f641b998d3b0877e98425f802cf5a5e8b0926b2e604.png)
 
-## The Tools We're Adding
+## The Tools We're Adding[](#the-tools-were-adding)
 
 We need three main capabilities for our reminder system:
 
@@ -28,7 +28,7 @@ The good news is that most of the implementation work is already done. The `add_
 
 The `set_reminder` function is a simple placeholder that prints out confirmation details rather than actually setting system reminders.
 
-## Adding Tools to the Conversation
+## Adding Tools to the Conversation[](#adding-tools-to-the-conversation)
 
 The process follows the same pattern we established earlier. First, update the `run_conversation` function to include the new tool schemas:
 
@@ -46,7 +46,7 @@ response = chat(messages, tools=[
 
 This tells Claude about all available tools it can use during the conversation.
 
-## Handling Tool Execution
+## Handling Tool Execution[](#handling-tool-execution)
 
 Next, update the `run_tool` function to handle the new tool calls:
 
@@ -66,7 +66,7 @@ def run_tool(tool_name, tool_input):
 
 The pattern is consistent: check the tool name, call the corresponding function with the provided input, and return the result.
 
-## Testing Multiple Tool Usage
+## Testing Multiple Tool Usage[](#testing-multiple-tool-usage)
 
 Let's test with a complex request that requires multiple tools: "Set a reminder for my doctors appointment. Its 177 days after Jan 1st, 2050."
 
@@ -79,7 +79,7 @@ This request forces Claude to:
 
 Claude handles this by first explaining what it needs to do, then using the `add_duration_to_datetime` tool to calculate June 27, 2050, and finally calling `set_reminder` with the correct date.
 
-## Understanding the Message Flow
+## Understanding the Message Flow[](#understanding-the-message-flow)
 
 Looking at the conversation history reveals how Claude manages multiple tools in a single response. The assistant message contains both a text block explaining the process and a tool use block for the first calculation.
 
@@ -87,7 +87,7 @@ Looking at the conversation history reveals how Claude manages multiple tools in
 
 After receiving the tool result, Claude continues with another message containing both text and another tool use block for setting the reminder. This demonstrates how Claude can chain multiple tool calls together to complete complex tasks.
 
-## Key Takeaways
+## Key Takeaways[](#key-takeaways)
 
 Once you have the basic tool infrastructure set up, adding new tools follows a simple three-step process:
 

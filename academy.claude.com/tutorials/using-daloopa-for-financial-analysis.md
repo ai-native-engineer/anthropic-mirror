@@ -18,9 +18,9 @@ The Daloopa integration provides Claude with access to a financial data extracti
 
 The Daloopa integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## What This Integration Provides
+## What This Integration Provides[](#what-this-integration-provides)
 
-### Capabilities
+### Capabilities[](#capabilities)
 
 The Daloopa integration enables Claude to access comprehensive financial data from public company filings.
 
@@ -31,7 +31,7 @@ The Daloopa integration enables Claude to access comprehensive financial data fr
 * **Flexible Period Selection:** Request data for any combination of quarters or years to enable quarter-over-quarter comparisons, year-over-year analyses, or custom period selections matching your analytical needs.
 * **Granular Metric Access:** Access specific line items like segment revenue breakdowns or working capital components without retrieving entire financial statements.
 
-## How Claude Uses Daloopa Data
+## How Claude Uses Daloopa Data[](#how-claude-uses-daloopa-data)
 
 Claude applies Daloopa's financial data to support your analysis.
 
@@ -42,11 +42,11 @@ Claude applies Daloopa's financial data to support your analysis.
 * **Earnings Analysis Automation:** Following releases, pulls latest results and compares to prior periods, calculating variances and presenting structured analysis of key changes.
 * **Metric Discovery for Unfamiliar Companies:** First explores available metrics for new companies, then retrieves the most relevant KPIs, particularly useful when analyzing unfamiliar sectors with different performance indicators.
 
-## Setting Up Daloopa Integration
+## Setting Up Daloopa Integration[](#setting-up-daloopa-integration)
 
 Technical details of the Daloopa Integration can be found in Daloopa's [MCP Server Documentation(opens in new tab)](https://docs.daloopa.com/docs/daloopa-mcp). You will need to contact Daloopa to get access to the MCP server.
 
-### For Organization Owners
+### For Organization Owners[](#for-organization-owners)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors).
 2. Scroll down and click “Add custom connector" at the bottom of the list.
@@ -54,13 +54,13 @@ Technical details of the Daloopa Integration can be found in Daloopa's [MCP Serv
 4. Name the integration (e.g., "Daloopa MCP")
 5. Click "Add"
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Multi-Company Benchmarking
+### Multi-Company Benchmarking[](#multi-company-benchmarking)
 
 Using Daloopa, compare cash-on-cash returns for CAVA, SHAK, and CMG over the last 8 quarters. Include both the absolute values and quarter-over quarter growth rates to identify which company is improving operational efficiency fastest.
 
@@ -70,7 +70,7 @@ Open in Claude
 
 **Tip:** Specify 3-10 companies with clear metrics for manageable output that fits well in tables or charts.
 
-### Time Series Analysis
+### Time Series Analysis[](#time-series-analysis)
 
 Pull revenue and gross margin trends for MSFT from Q1 2023 to Q1 2025. Show both the quarterly values and calculate the year-over-year growth rates for each quarter.
 
@@ -80,7 +80,7 @@ Open in Claude
 
 **Typical timeframe:** 4-24 quarters provides good trend visibility without overwhelming detail.
 
-## Operational KPI Analysis
+## Operational KPI Analysis[](#operational-kpi-analysis)
 
 Show me non-GAAP gross margins for top analog semiconductor companies. Focus on AMD, NVDA, INTC, AVGO, and QCOM to understand margin profiles in the sector.
 
@@ -90,7 +90,7 @@ Open in Claude
 
 **Note:** Focus on 2-5 specific KPIs at a time for clarity in analysis.
 
-## Quarter-over-Quarter Analysis
+## Quarter-over-Quarter Analysis[](#quarter-over-quarter-analysis)
 
 What changed most materially in Apple's latest quarter versus prior quarter? Focus on revenue, operating margin, and free cash flow changes.
 
@@ -100,7 +100,7 @@ Open in Claude
 
 **Works well with:** Recent 2-4 reporting periods for focused analysis.
 
-## Post-Earnings Analysis
+## Post-Earnings Analysis[](#post-earnings-analysis)
 
 Microsoft just reported earnings yesterday - pull their Q4 2024 results and compare them to both the prior quarter (Q3 2024) and year-ago quarter (Q4 2023). Include revenue by segment, operating margins, and any operational metrics like Azure growth or Office 365 subscribers that are available.
 
@@ -112,7 +112,7 @@ Open in Claude
 
 **Note:** Request specific segments or metrics mentioned in the earnings call for deeper insight into business drivers.
 
-## Discovering Available Metrics
+## Discovering Available Metrics[](#discovering-available-metrics)
 
 I'm analyzing Spotify (SPOT) and need to understand their key business metrics beyond standard financials. Search Daloopa for all available metrics related to subscribers, ARPU, content costs, and any other operational KPIs they report for the last 8 quarters.
 
@@ -124,7 +124,7 @@ Open in Claude
 
 **Tip:** Start broad to discover available metrics, then narrow your request to the most relevant ones for detailed analysis.
 
-## Tips for Using Daloopa
+## Tips for Using Daloopa[](#tips-for-using-daloopa)
 
 * Use specific company tickers (MSFT, AAPL)
 * Define clear time periods (Q1 2024, 2023FY)

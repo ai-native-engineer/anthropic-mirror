@@ -18,7 +18,7 @@ We offer a set of open-source plugins that extend Claude Cowork with specialized
 
 These plugins are available in a [**public GitHub repository**(opens in new tab)](https://github.com/anthropics/financial-services/tree/main?tab=readme-ov-file#claude-for-financial-services-plugins) that you can add as a marketplace in Claude Cowork.
 
-## What's included
+## What's included[](#whats-included)
 
 The repository contains a **core plugin** and several **add-on plugins** that build on it:
 
@@ -30,7 +30,7 @@ The repository contains a **core plugin** and several **add-on plugins** that bu
 
 The repository also includes partner-built plugins from **LSEG** and **S&P Global**, which bring their financial data and analytics directly into Cowork.
 
-## Add the marketplace
+## Add the marketplace[](#add-the-marketplace)
 
 1. Open the Claude Desktop app.
 2. Look for the mode selector at the top of the app that includes "Chat" and “Cowork.”
@@ -42,7 +42,7 @@ The repository also includes partner-built plugins from **LSEG** and **S&P Globa
 8. Enter the repository URL: [**https://github.com/anthropics/financial-services**(opens in new tab)](https://github.com/anthropics/financial-services)
 9. Once added, you'll see the available financial services plugins in your marketplace.
 
-## Install plugins
+## Install plugins[](#install-plugins)
 
 1. From your plugin marketplace, browse the available financial services plugins.
 2. Install the **financial analysis** plugin first—this is the core plugin that provides shared tools and data connectors used by all other plugins.
@@ -50,7 +50,7 @@ The repository also includes partner-built plugins from **LSEG** and **S&P Globa
 
 Once installed, plugins activate automatically. Skills are applied when relevant, or you can invoke them manually during your Claude Cowork session by typing "/" or clicking the "+" button.
 
-## Available Skills
+## Available Skills[](#available-skills)
 
 After installation, you can use Skills like:
 
@@ -62,13 +62,13 @@ After installation, you can use Skills like:
 * /source [criteria] — Source deals based on criteria
 * /client-review [client] — Prep for a client meeting
 
-## MCP connectors
+## MCP connectors[](#mcp-connectors)
 
 The financial analysis core plugin includes connectors for third-party financial data providers such as Daloopa, Morningstar, S&P Global, FactSet, Moody's, MT Newswires, Aiera, LSEG, PitchBook, Chronograph, and Egnyte.
 
 Access to these connectors may require a separate subscription or API key from the respective provider. Contact your data provider for details.
 
-## Customize plugins for your firm
+## Customize plugins for your firm[](#customize-plugins-for-your-firm)
 
 These plugins are designed as starting points. You can customize them to match your firm's workflows by editing the plugin files directly:
 
@@ -77,13 +77,13 @@ These plugins are designed as starting points. You can customize them to match y
 * Adjust workflow instructions to reflect how your team does analysis.
 * Use /ppt-template to teach Claude your firm's branded PowerPoint layouts.
 
-## Good to know
+## Good to know[](#good-to-know)
 
 * Plugins are file-based. A skill can include executable scripts (Python, JavaScript, or Bash) in an optional `scripts/` directory, and you can still customize a plugin without writing code or setting up infrastructure.
 * These plugins work across both Claude Cowork and Claude Code.
 * AI-generated financial analysis should always be reviewed by qualified professionals before being used in decision-making.
 
-## Learn more
+## Learn more[](#learn-more)
 
 See our blog post for more information: [**Cowork and plugins for finance**(opens in new tab)](https://claude.com/blog/cowork-plugins-finance).
 

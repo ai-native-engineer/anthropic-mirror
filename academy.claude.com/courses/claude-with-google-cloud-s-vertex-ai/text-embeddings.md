@@ -14,13 +14,13 @@ After extracting text chunks from a document, the next step in a RAG pipeline is
 
 ![](https://academy.claude.com/assets/media/5bdbb520520b8a663e1eee52844c40be0df9427e8abeacf52a2e33fa6f0e0a0b.png)
 
-## Semantic Search
+## Semantic Search[](#semantic-search)
 
 The most common approach for finding relevant chunks is semantic search. Unlike traditional keyword-based search, semantic search uses text embeddings to understand the actual meaning of both the user's question and each text chunk. This allows the system to find conceptually related content even when the exact words don't match.
 
 ![](https://academy.claude.com/assets/media/952c238e944430644b7ce72e79e11fe8f66e8f20be31104a4297a303da10e432.png)
 
-## What Are Text Embeddings?
+## What Are Text Embeddings?[](#what-are-text-embeddings)
 
 A text embedding is a numerical representation of the meaning contained in some text. Think of it as converting words and sentences into a format that computers can work with mathematically.
 
@@ -33,7 +33,7 @@ Here's how the process works:
 * Each number ranges from -1 to +1
 * These numbers represent different qualities or features of the input text
 
-## Understanding the Numbers
+## Understanding the Numbers[](#understanding-the-numbers)
 
 Each number in an embedding is essentially a "score" for some quality of the input text. However, here's the important caveat: we don't actually know what each specific number represents.
 
@@ -43,13 +43,13 @@ While it's helpful to imagine that one number might represent "how happy the tex
 
 Despite this opacity, embeddings are incredibly powerful because they capture semantic meaning in a way that allows for mathematical comparison between different pieces of text.
 
-## Embeddings on Vertex AI
+## Embeddings on Vertex AI[](#embeddings-on-vertex-ai)
 
 Claude can't generate embeddings directly. Instead, you need to use a specialized embedding model. On Vertex AI, the model we'll use is called `text-embedding-005`.
 
 ![](https://academy.claude.com/assets/media/c353c4d3d6190d0a1c8f12954515f17cd2ef95ae7a0758346164bcf957b4b249.png)
 
-## Implementation
+## Implementation[](#implementation)
 
 To work with embeddings on Vertex AI, you'll need to install the Google GenAI SDK:
 

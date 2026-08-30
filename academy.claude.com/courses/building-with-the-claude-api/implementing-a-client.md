@@ -12,7 +12,7 @@ Lesson 5210 min
 
 Now that we have our MCP server working, it's time to build the client side. The client is what allows our application to communicate with the MCP server and access its functionality.
 
-## Understanding the Client Architecture
+## Understanding the Client Architecture[](#understanding-the-client-architecture)
 
 In most real-world projects, you'll either implement an MCP client OR an MCP server - not both. We're building both in this project just so you can see how they work together.
 
@@ -27,7 +27,7 @@ The MCP client consists of two main components:
 
 The client session requires proper resource cleanup when we're done with it. That's why we wrap it in our custom MCP Client class - to handle all that cleanup automatically.
 
-## How the Client Fits Into Our Application
+## How the Client Fits Into Our Application[](#how-the-client-fits-into-our-application)
 
 Remember our application flow? Our CLI code needs to do two main things with the MCP server:
 
@@ -38,11 +38,11 @@ Remember our application flow? Our CLI code needs to do two main things with the
 
 The MCP client provides these capabilities through simple method calls that our application code can use.
 
-## Implementing the Core Methods
+## Implementing the Core Methods[](#implementing-the-core-methods)
 
 We need to implement two key methods in our client: `list_tools()` and `call_tool()`.
 
-### List Tools Method
+### List Tools Method[](#list-tools-method)
 
 This method gets all available tools from the server:
 
@@ -56,7 +56,7 @@ async def list_tools(self) -> list[types.Tool]:
 
 It's straightforward - we access our session (the connection to the server), call the built-in `list_tools()` function, and return the tools from the result.
 
-### Call Tool Method
+### Call Tool Method[](#call-tool-method)
 
 This method executes a specific tool on the server:
 
@@ -71,7 +71,7 @@ async def call_tool(
 
 We pass the tool name and input parameters (provided by Claude) to the server and return the result.
 
-## Testing the Client
+## Testing the Client[](#testing-the-client)
 
 To test our implementation, we can run the client directly. The file includes a testing harness that connects to our MCP server and calls our methods:
 
@@ -87,7 +87,7 @@ async with MCPClient(
 
 When we run this test, we should see our tool definitions printed out, including the `read_doc_contents` and `edit_document` tools we created earlier.
 
-## Putting It All Together
+## Putting It All Together[](#putting-it-all-together)
 
 Now that our client can list tools and call them, we can test the complete flow. When we run our main application and ask Claude about a document:
 

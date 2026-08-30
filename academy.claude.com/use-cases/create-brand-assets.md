@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create brand assets result](https://academy.claude.com/assets/v1/create-brand-assets-ermvfjeb.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to read images, process design references and write code allows it to quickly generate visual materials that capture your preferred style across formats. Claude can turn ideas, handwritten sketches, or brand documents into custom assets and QR codes—ready to edit or print.
 
@@ -39,21 +39,17 @@ Match my branding guidelines document I've uploaded. Follow the typography, colo
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Your brand guidelines document tells Claude the specific details to maintain visual consistency. This can include your typography choices (fonts, sizes, weights), color palette (hex codes and when to use each color), spacing rules (margins, padding, hierarchy), and aesthetic direction (mood, style, design principles).
 
-### Required context
+### Required context[](#required-context)
 
 Upload your brand or style guidelines so Claude can match your exact visual identity—typography, colors, spacing, and overall aesthetic. In this case, the style guide is uploaded as a PDF.
 
 Style guidePDF
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for higher-quality file creation.
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude generates files that match your branding guidelines—ready to send to the printer or edit yourself.
 
@@ -67,11 +63,11 @@ I'll create your Morning Ritual materials following your branding guidelines.
 
 All materials feature painterly watercolor aesthetics with soft dispersed circles, paper grain texture for tactile feel, and layered typography that creates letterpress-style depth. Warm browns (#5F4738, #8B7355), cream backgrounds (#F9F7F3), terracotta and beige accents. No overlapping elements, proper spacing throughout, print-ready specifications included.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Create a brand document for future work
+### Create a brand document for future work[](#create-a-brand-document-for-future-work)
 
 After your design collaboration, instruct Claude to create a reference document from the insights shared throughout the chat. This transforms your conversation into reusable knowledge you can provide as reference when working with Claude in the future.
 
@@ -79,7 +75,7 @@ Based on our conversation and the materials you just created, write a comprehens
 
 Open in Claude
 
-### Extend your brand to digital
+### Extend your brand to digital[](#extend-your-brand-to-digital)
 
 Ask Claude to digitize your existing print materials and develop new digital content to develop an online presence.
 
@@ -87,21 +83,21 @@ Create an HTML page that matches the aesthetic of these print materials—same w
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Prevent layout issues upfront
+### Prevent layout issues upfront[](#prevent-layout-issues-upfront)
 
 Include audit instructions in your initial prompt: "Make sure no elements overlap, nothing extends past the bleed area, all text stays within safe margins, and the QR code has clear space around it." This prompts Claude to review its work thoroughly on the first attempt, reducing the need for revisions.
 
-### Use reference files to bypass lengthy prompts
+### Use reference files to bypass lengthy prompts[](#use-reference-files-to-bypass-lengthy-prompts)
 
 Upload brand styling documents and screenshots of designs you want to match rather than describing them in words. Tell Claude "match this visual approach" and it quickly interprets the aesthetic—typography style, color relationships, spacing rhythm, overall mood. Visual examples capture subtle qualities that are difficult to articulate in text.
 
-### Create a [Skill(opens in new tab)](https://www.anthropic.com/news/skills) for consistent quality
+### Create a [Skill(opens in new tab)](https://www.anthropic.com/news/skills) for consistent quality[](#create-a-skill-for-consistent-quality)
 
 After refining these materials to your satisfaction, turn the workflow into a reusable Skill. Have a [conversation with Claude(opens in new tab)](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation) about creating a skill that captures your specific branding approach, then upload your style guidelines and reference documents to it. Future design requests automatically apply this expertise without re-explaining.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Bring your ideas to Claude and create brand materials you can edit or send to production.
 

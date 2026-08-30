@@ -183,13 +183,13 @@ Video caption
 
 ## Related stories
 
-[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega-security)Vega's cyber defense platform returns 67% of analysts' time with Claude
+[Vega's cyber defense platform returns 67% of analysts' time with Claude](https://claude.com/customers/vega)Vega's cyber defense platform returns 67% of analysts' time with Claude
 
 Vega's cyber defense platform returns 67% of analysts' time with Claude
 
 Customer story
 
-[Customer story](https://claude.com/customers/vega-security)Customer story
+[Customer story](https://claude.com/customers/vega)Customer story
 
 [Cyera on making Claude Cowork the front door to 40 tools](https://claude.com/customers/cyera-qa)Cyera on making Claude Cowork the front door to 40 tools
 

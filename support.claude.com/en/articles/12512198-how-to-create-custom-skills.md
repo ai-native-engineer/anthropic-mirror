@@ -12,8 +12,6 @@ Skills can be as simple as a few lines of instructions or as complex as multi-fi
 * Define when they should be used
 * Are focused on one workflow rather than trying to do everything
 
----
-
 ## Record a skill
 
 Recording a skill is available on Pro, Max, and Team plans, in Cowork in Claude for Mac. It isn't available in chat, on Windows, or on Free and Enterprise plans.
@@ -59,8 +57,6 @@ Skills you save from a recording appear in **[Customize > Skills](https://claude
 The video and audio from your recording aren't retained. After you send your recording to Claude, Claude reviews the recording to build the skill. What's saved afterward is a set of screenshots from the session, which you can view by expanding the **Recorded demonstration** step in the task.
 
 Because those screenshots live in the Cowork task, deleting the task removes them. See **[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)** for how task deletion and retention work.
-
----
 
 ## Create a skill.md file
 
@@ -150,8 +146,6 @@ For more advanced skills, attach executable code files to skill.md, allowing Cla
 
 **Note:** Claude and Claude Code can install packages from standard repositories (Python PyPI, JavaScript npm) when loading skills. It’s not possible to install additional packages at runtime with API Skills—all dependencies must be pre-installed in the container.
 
----
-
 ## Package your skill
 
 Once your skill folder is complete:
@@ -175,8 +169,6 @@ my-skill.zip
 my-skill.zip
 
 └── (files directly in ZIP root)
-
----
 
 ## Test your skill
 
@@ -204,8 +196,6 @@ When you're iterating on a skill with Claude in chat, you can edit the skill fil
 
 **Note for Team and Enterprise plans:** To make a skill available to all users in your organization, see **[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provisioning-and-managing-skills-for-your-organization)**.
 
----
-
 ## Best practices
 
 **Keep it focused:** Create separate skills for different workflows. Multiple focused skills compose better than one large skill.
@@ -224,16 +214,12 @@ When you're iterating on a skill with Claude in chat, you can edit the skill fil
 
 For a more in-depth guide to skill creation, refer to **[Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)** in our Claude Docs.
 
----
-
 ## Security considerations
 
 * Exercise caution when adding scripts to your skill.md file.
 * Don't hardcode sensitive information (API keys, passwords).
 * Review any skills you download before enabling them.
 * Use appropriate MCP connections for external service access.
-
----
 
 ## Example skills to reference
 

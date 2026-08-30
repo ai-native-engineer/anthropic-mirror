@@ -4,15 +4,11 @@ Skills are folders of instructions, scripts, and resources that Claude loads dyn
 
 Skills are available for users on Free, Pro, Max, Team, and Enterprise plans. This feature requires **[code execution to be enabled](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_1c99382190)**. Skills are also available in beta for Claude Code users and for all API users using the code execution tool.
 
----
-
 ## How do skills work?
 
 Skills improve Claude’s consistency, speed, and performance on many tasks. Skills work through progressive disclosure—Claude determines which skills are relevant and loads the information it needs to complete that task, helping to prevent context window overload.
 
 When you ask Claude to complete a task, it reviews available skills, loads relevant ones, and applies their instructions.
-
----
 
 ## Types of skills
 
@@ -45,8 +41,6 @@ Learn more about provisioning skills in **[Provision and manage skills for your 
 
 The Skills Directory features professionally-built skills from partners like Notion, Figma, Atlassian, and others. These skills are designed to work seamlessly with their respective MCP connectors, enabling powerful integrated workflows.
 
----
-
 ## Key benefits
 
 **Improvement in Claude’s performance of specific tasks**: Skills provide specialized capabilities for tasks like document creation, data analysis, and domain-specific work that requires supplementing Claude's general knowledge.
@@ -57,13 +51,9 @@ The Skills Directory features professionally-built skills from partners like Not
 
 **Centralized management for organizations:** Team and Enterprise plan Owners can provision skills organization-wide, ensuring consistent workflows across teams without requiring individual setup from each user.
 
----
-
 ## Agent Skills open standard
 
 The Agent Skills specification is published as an open standard at **[agentskills.io](https://agentskills.io)**. This means skills you create aren't locked to Claude—the same skill format works across AI platforms and tools that adopt the standard. A reference Python SDK is also available for developers implementing skills support in their own platforms.
-
----
 
 ## Skills compared to other Claude capabilities
 
@@ -78,8 +68,6 @@ MCP connects Claude to external services and data sources. Skills provide proced
 ### Skills vs. custom instructions
 
 **[Custom instructions](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)** apply broadly to all your conversations. Skills are task-specific and only load when relevant, making them better for specialized workflows.
-
----
 
 ## Learn more about skills
 

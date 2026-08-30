@@ -12,7 +12,7 @@ Lesson 257 min
 
 When working with Claude's tool functionality, you'll encounter a new type of response structure that's different from the simple text responses you've seen before. Instead of just getting back a single text block, Claude can now return multi-block messages that contain both text and tool usage information.
 
-## Making Tool-Enabled API Calls
+## Making Tool-Enabled API Calls[](#making-tool-enabled-api-calls)
 
 To enable Claude to use tools, you need to include a `tools` parameter in your API call. Here's how to structure the request:
 
@@ -35,7 +35,7 @@ response = client.messages.create(
 
 The `tools` parameter takes a list of JSON schemas that describe the available functions Claude can call.
 
-## Understanding Multi-Block Messages
+## Understanding Multi-Block Messages[](#understanding-multi-block-messages)
 
 When Claude decides to use a tool, it returns an assistant message with multiple blocks in the content list. This is a significant change from the simple text-only responses you've worked with before.
 
@@ -53,7 +53,7 @@ The ToolUse block includes:
 * Input parameters formatted according to your JSON schema
 * The type designation "tool\_use"
 
-## Handling Message History with Multi-Block Content
+## Handling Message History with Multi-Block Content[](#handling-message-history-with-multi-block-content)
 
 Here's the critical part: Claude doesn't store conversation history, so you must manage it manually. When working with tool responses, you need to preserve the entire content structure, including all blocks.
 
@@ -70,7 +70,7 @@ messages.append({
 
 This preserves both the text block and the tool use block, maintaining the full conversation context for future API calls.
 
-## The Complete Flow
+## The Complete Flow[](#the-complete-flow)
 
 The tool usage process follows this pattern:
 
@@ -84,7 +84,7 @@ The tool usage process follows this pattern:
 
 Each step requires careful handling of the message structure to maintain conversation continuity. The key insight is that tool-enabled conversations involve more complex message formats, but the fundamental principle of maintaining complete message history remains the same.
 
-## Updating Helper Functions
+## Updating Helper Functions[](#updating-helper-functions)
 
 If you've been using helper functions like `add_user_message` and `add_assistant_message`, you'll need to update them to handle multi-block content. The current versions likely only support single text blocks, but now they need to accommodate the more complex content structures that include tool use blocks.
 

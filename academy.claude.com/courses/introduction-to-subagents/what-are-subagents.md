@@ -20,7 +20,7 @@ context window, does its work, and returns a summary to the main thread.
 The intermediate steps -- all the file reads, searches, and tool calls --
 stay isolated and never clutter your main conversation.
 
-## Why Subagents Matter
+## Why Subagents Matter[](#why-subagents-matter)
 
 Every time you chat with Claude Code, you're adding to the main context window. Every tool call, every file read, every search result gets stored there. That space is finite, and once it fills up, Claude starts losing track of earlier parts of the conversation.
 
@@ -33,7 +33,7 @@ The subagent then works on its own. It reads files, runs searches, edits code --
 
 This means your main context stays clean. You get the answer without all the noise of the journey it took to find it. The tradeoff is that you lose visibility into how the subagent reached its conclusions.
 
-## A Practical Example
+## A Practical Example[](#a-practical-example)
 
 Say you're exploring an unfamiliar codebase and you want to know which service handles refunds. Without a subagent, Claude might read 15 files, run several searches, and trace through multiple function calls. All of that fills your context window, even though you only needed one fact.
 
@@ -41,7 +41,7 @@ With a subagent, the experience is much cleaner. You ask the question, the Explo
 
 Your main context window only records the question and the summary -- not the 15 files that were read along the way.
 
-## Built-in Subagents
+## Built-in Subagents[](#built-in-subagents)
 
 Claude Code ships with several built-in subagents you can use right away:
 
@@ -49,11 +49,11 @@ Claude Code ships with several built-in subagents you can use right away:
 * **Explore** -- for fast searching and navigation of codebases
 * **Plan** -- used during plan mode for research and analysis of your codebase before presenting a plan
 
-## Custom Subagents
+## Custom Subagents[](#custom-subagents)
 
 Beyond the built-in options, you can create your own subagents with custom system prompts and tool access. This lets you define specialized agents tailored to your workflow -- a code reviewer, a test writer, a documentation generator, or anything else you need.
 
-## Key Takeaways
+## Key Takeaways[](#key-takeaways)
 
 Subagents give you three main benefits:
 

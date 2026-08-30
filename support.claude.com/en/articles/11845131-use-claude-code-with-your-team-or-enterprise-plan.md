@@ -17,8 +17,6 @@ Combine two powerful AI products in one unified subscription:
 * Use Claude for writing, research, analysis, and collaboration across teams.
 * Use Claude Code for terminal-based coding workflows and development tasks.
 
----
-
 ## Connect Claude Code to your Team or Enterprise plan
 
 ### Step 1: Confirm Claude Code access (Enterprise plans only)
@@ -59,8 +57,6 @@ If you're not seeing the option to authenticate with your preferred account, fol
 Your seat also covers Claude Code in supported IDEs, including VS Code, Cursor and other VS Code forks, and JetBrains IDEs like IntelliJ and PyCharm. Log in with the same Team or Enterprise account you use in the terminal. IDE usage is limited and billed the same way as terminal usage on your plan.
 
 To install and set up the extension for your IDE, see **[Platforms and integrations](https://code.claude.com/docs/en/platforms)** in our Claude Code Docs.
-
----
 
 ## What happens when you hit usage limits
 

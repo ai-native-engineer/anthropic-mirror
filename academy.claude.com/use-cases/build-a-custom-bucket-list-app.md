@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Build a custom bucket list result](https://academy.claude.com/assets/v1/build-a-custom-bucket-list-app-dmmmw0gr.png)[Open artifact](https://claude.ai/public/artifacts/9bb7b6aa-88d1-4a1b-83f6-256750f8acd6)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude can build custom interactive tools tailored to your individual goals. Describe the experience and interface you want and Claude designs a custom app with the features and feel you have in mind.
 
@@ -34,21 +34,13 @@ Populate it with beautiful life experiences to browse. Then, add in some additio
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude can build interactive apps directly in conversation. No uploads or external tools needed. For more sophisticated designs, giving Claude direction about the aesthetic you want produces dramatically better results.
 
-### Required context
+### Required context[](#required-context)
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to give Claude more time to reason through creating its outputs.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude builds a fully interactive application matching your specifications, browsable, clickable, and styled to your design standards.
 
@@ -66,11 +58,11 @@ Click any card to add it to your list. The saved count updates automatically. Tr
 
 Want me to adjust the styling, add more experiences, or change how the categories work?
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Turn dreams into plans
+### Turn dreams into plans[](#turn-dreams-into-plans)
 
 Make the app a launchpad, not just a list. Add a button that generates a ready-to-use prompt for a future Claude conversation, pre-filled with context about the experience you want to pursue.
 
@@ -78,7 +70,7 @@ Add a 'Make this happen' button on each saved card. When I click it, show me a p
 
 Open in Claude
 
-### Receive suggestions for what's next
+### Receive suggestions for what's next[](#receive-suggestions-for-whats-next)
 
 Embed Claude's intelligence directly in your app. Artifacts can call Claude to analyze your choices and generate fresh recommendations on the fly. This isn't static logic—it's Claude thinking inside your tool.
 
@@ -86,7 +78,7 @@ Add a 'Surprise me with something new' button. When I tap it, have the app send 
 
 Open in Claude
 
-### Add animation and personalization
+### Add animation and personalization[](#add-animation-and-personalization)
 
 Motion and small personal touches make the difference between a prototype and something you want to use. Ask for intro animations, hover effects, or a setup screen that tailors the experience to you.
 
@@ -94,21 +86,21 @@ Add a first-time setup that asks my name and birthday. Use my name in the header
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Use pictures as quick references
+### Use pictures as quick references[](#use-pictures-as-quick-references)
 
 Upload a screenshot of an app you love. "Make it feel like this" gives Claude more to work with than describing aesthetics from scratch. You can also screenshot your artifact and circle something specific: "This part. Fix this."
 
-### Your artifact can think
+### Your artifact can think[](#your-artifact-can-think)
 
 Artifacts can call Claude directly—not just display static content. This means your app can analyze what you've saved, generate personalized suggestions, write custom text, or respond to what you're doing. Ask Claude to "embed AI in the app" or "have the app call Claude" when you want your tool to reason, not just display.
 
-### Reuse what works
+### Reuse what works[](#reuse-what-works)
 
 Once you have an aesthetic you like, ask Claude to apply it elsewhere. "Use this same design system for a reading list tracker" or "Make me a gift ideas app with this exact visual style." You've already done the hard work of defining the feel.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Create interactive tools with custom interfaces, tailored to how you like to explore and learn. Describe and refine your ideas with Claude to make tools useful for you.
 

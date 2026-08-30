@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Share what you've learned with colleagues and partners in your business
 * Learn where to collect your completion badge
 
-## Next steps
+## Next steps[](#next-steps)
 
 Next steps · 3 min
 
@@ -25,7 +25,7 @@ SummaryTranscript
 This video brings together everything you've learned and challenges you to
 put it into practice immediately.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Start with one real task this week** — pick something waiting for you and use it as your practice ground.
 * **Apply the full 4D Framework:** Delegation → Description → Discernment → Diligence.
@@ -33,7 +33,7 @@ put it into practice immediately.
 * **Use blueprints to guide your first attempts** — step-by-step guides for common business tasks.
 * **Share with your network:** use your badge to start conversations about AI fluency with your team and partners.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Final assignment
 
@@ -69,7 +69,7 @@ After completing the task, consider:
 * How will you apply this approach to future tasks in your role?
 * What guardrails or best practices would you recommend to colleagues?
 
-### Continue your learning
+### Continue your learning[](#continue-your-learning)
 
 **Blueprints:** Access step-by-step guides for common professional tasks in [the use case library(opens in new tab)](https://academy.claude.com/all?kind=use-case). Many of these guides — covering research, writing, data analysis, and workflow optimization — can be directly adapted to small business applications such as competitor research, marketing copy, sales data analysis, and customer communications.
 
@@ -79,13 +79,13 @@ After completing the task, consider:
 
 **Stay current:** The rules around AI in business are evolving fast. The FTC is actively developing guidance on AI-generated marketing, reviews, and customer communications, and state-level privacy laws continue to shift. Stay informed about policies that may affect how you use AI in customer-facing work, and revisit the principles from this course as the landscape changes.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What's the one task you're committing to tackle with AI this week, and why?
 * How has your understanding of what AI can do for your business changed since you started?
 * Who in your team or network would benefit most from developing their own AI fluency?
 
-## What's next
+## What's next[](#whats-next)
 
 **Congratulations!** You'll be able to earn a completion badge in the next lesson after answering a few quick quiz questions.
 

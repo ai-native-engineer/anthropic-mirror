@@ -14,9 +14,9 @@ In this lessonBy the end, you’ll be able to
 
 * Apply your understanding of Delegation to a practical multi-step project you'll work on throughout the rest of this course
 
-## Project planning and delegation
+## Project planning and delegation[](#project-planning-and-delegation)
 
-### Step 1: Choose your project
+### Step 1: Choose your project[](#step-1-choose-your-project)
 
 Select a medium-sized, multi-step project that you can work on throughout the remainder of this course. Your project should be:
 
@@ -53,14 +53,14 @@ Here are some suggestions to consider:
 * Develop a tutorial or guide for a process you understand well
 * Create a set of study materials for a topic you want to master
 
-### Step 2: Project vision and goals
+### Step 2: Project vision and goals[](#step-2-project-vision-and-goals)
 
 Start a conversation with Claude. Share your project idea and invite Claude to ask you some questions until you feel you have a solid vision for the final result. Work together until you have a clear picture of:
 
 * What success looks like for your project
 * What would make this project particularly valuable or meaningful to you
 
-### Step 3: Task breakdown and delegation analysis
+### Step 3: Task breakdown and delegation analysis[](#step-3-task-breakdown-and-delegation-analysis)
 
 Similar to what you did in the previous lesson, work with Claude to explore your project through the lens of Delegation:
 
@@ -74,7 +74,7 @@ Similar to what you did in the previous lesson, work with Claude to explore your
 3. Create a project plan that includes your major tasks and delegation decisions.
 4. Save your project plan—you'll return to this project later in the course to practice your Description, Discernment, and Diligence skills.
 
-## Reflection
+## Reflection[](#reflection)
 
 Before moving on, take a moment to consider:
 
@@ -82,7 +82,7 @@ Before moving on, take a moment to consider:
 * What do you anticipate will be the most challenging aspect of your delegation plan?
 * What additional information or skills might help you delegate more effectively to AI?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore the second core competency: Description. You'll learn approaches for communicating effectively with AI systems, which will help you implement the plan you've just created. This includes techniques for defining what you want, guiding how the AI approaches the task, and specifying how you want the AI to interact with you throughout the process.
 

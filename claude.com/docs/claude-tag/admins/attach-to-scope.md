@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-This page covers adding access to more workspaces and channels, and how access stacks when several bundles apply to the same place. It assumes you have already [paired a workspace](https://claude.com/docs/claude-tag/admins/pair-workspace) and [created an Access bundle](https://claude.com/docs/claude-tag/admins/add-connections). You must be an Owner in your Claude organization to attach bundles.
+This page covers adding access to more workspaces and channels, and how access stacks when several bundles apply to the same place. It assumes you have already [paired a workspace](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace) and [created an Access bundle](https://claude.com/docs/claude-tag/admins/add-connections). You must be an Owner in your Claude organization to attach bundles.
 A scope is where a bundle applies: **Default Slack access** (the organization-wide root), a workspace, or a single channel. Bundles inherit downward through those scopes, and when credentials overlap, the narrowest scope wins.
 
 ##  How scopes inherit
@@ -35,7 +35,7 @@ At the channel’s top level, outside any thread, Claude works from a single lon
 
 ###  Attach to a workspace
 
-Each paired workspace already has a scope; bind a bundle in the scope’s **Access bundles** section. On the **Access bundles** page in the left navigation, each bundle’s card shows how many places it’s used in. To see which scopes those are, open the bundle’s **Manage** dialog and hover over the usage count in its footer. To add another workspace, [pair it](https://claude.com/docs/claude-tag/admins/pair-workspace) first.
+Each paired workspace already has a scope; bind a bundle in the scope’s **Access bundles** section. On the **Access bundles** page in the left navigation, each bundle’s card shows how many places it’s used in. To see which scopes those are, open the bundle’s **Manage** dialog and hover over the usage count in its footer. To add another workspace, [pair it](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace) first.
 
 ###  Attach to a channel
 
@@ -55,6 +55,14 @@ A bundle attached to a public channel grants its access to anyone who joins that
 ###  Attach a single repository or connector
 
 To grant a single repository or connector without opening a bundle first, use the **Repositories** and **Connectors** sections on the scope’s own panel and select the **+** button (**Add repo** or **Add connector**). When you save the repository or finish connecting, the item is attached to that scope.
+Each connector or repository row in these sections carries an origin line that says which scope or bundle gave the scope that item.
+
+| Origin line | What it means |
+| --- | --- |
+| **Inherited from** *scope* | The row comes from a wider scope. When an admin-made bundle carries it, the line adds **via** and the bundle’s name |
+| **Attached from** *bundle* | The row was added on this scope through that admin-made bundle |
+
+Select the scope name to open that scope, or the bundle name to open the bundle.
 The grant still lives in a bundle. The item is added to the bundle that was created for that scope, or to the scope’s only bundle when that bundle is bound nowhere else, and otherwise a new bundle is created for the scope. If the bundle created for the scope is now bound to other scopes too, the add is refused with a message telling you to manage that bundle’s repositories and connectors in **Access bundles** instead, so adding here never widens another scope’s access.
 
 ##  Precedence when bundles overlap
@@ -106,16 +114,16 @@ By default, anyone in a channel who is also a member of your Claude organization
 | --- | --- |
 | **Inherit** | Follow the parent scope’s setting |
 | **Allow** | Members can edit channel instructions from the Configure link |
-| **Block** | The Configure page is read-only for members, with a note that only admins can change channel instructions |
+| **Block** | The Configure page is read-only for members, with a note that only admins can change channel instructions. Claude also declines to make a model the channel default when anyone asks in a thread |
 
-A chain of scopes that all inherit resolves to **Allow**. Set **Block** at the workspace or Default Slack access scope to lock channel instructions across every channel beneath it. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can still edit instructions in a channel assigned to them when **Block** is set.
+A chain of scopes that all inherit resolves to **Allow**. Set **Block** at the workspace or Default Slack access scope to lock channel instructions across every channel beneath it. A [channel manager](https://claude.com/docs/claude-tag/admins/restrict-access#delegate-channel-setup-to-channel-managers) can still edit instructions and the default model from the Configure page in a channel assigned to them when **Block** is set.
 
 ##  Verify the bundle is live
 
 * The bundle card’s usage count includes the new scope. To see it named, open the bundle’s **Manage** dialog and hover over the count in its footer.
 * A test task in the pilot channel uses the bundle’s connections, and the action appears in the connected service’s audit log under your service account.
 
-Repeat the attach step for any additional scopes that need elevated access, then widen per the [rollout patterns](https://claude.com/docs/claude-tag/admins/setup-overview#after-setup).
+Repeat the attach step for any additional scopes that need elevated access.
 
 ##  Related resources
 

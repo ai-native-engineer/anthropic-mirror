@@ -12,9 +12,9 @@ Where the panel agreed, where they split, what to resolve.
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-off27hqc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-esddo3nx.png)
 
-## 1. Set up
+## 1. Set up[](#1-set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Human Resources plugin ships with `/recruiting-pipeline` and other recruiting skills as a starting point, already structured to compare scorecards against a rubric and surface agreement and splits. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -26,7 +26,7 @@ Human ResourcesStreamline people operations — recruiting, onboarding, performa
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -55,7 +55,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 **Want to try this task before setting anything up?** Add your files to a
 working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the scorecard export or pasted feedback, the role's competency rubric, the interview plan) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the debrief brief back to it. If you run debriefs every week, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the role folder so the rubric and instructions stay attached.
 
@@ -69,15 +69,15 @@ interview-plan.docxFeb 10, 202636 KB
 
 In Cowork’s chat bar:Hiring / Senior-PM-Growth / debrief
 
-## 2. The prompt
+## 2. The prompt[](#2-the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Synthesize the interviewer scorecards into the debrief brief: where the panel converged, where they split, which signals are strong versus anecdotal, which competencies weren't covered, and the three questions to resolve in the debrief. Do not recommend hire or no-hire; that decision belongs to the panel.
 
 Hiring / Senior-PM-Growth / debriefOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -103,7 +103,7 @@ Source
 rubric, and the interview plan sit in the working folder, so convergence and
 gaps are measured against the bar you set for this role.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -115,7 +115,7 @@ Practice
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about"
 so you know where to look first when you review the draft.
 
-## 3. Make Cowork work for you
+## 3. Make Cowork work for you[](#3-make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -126,9 +126,9 @@ HiringOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## 4. Make it repeatable
+## 4. Make it repeatable[](#4-make-it-repeatable)
 
-### Run it when the last scorecard is in
+### Run it when the last scorecard is in[](#run-it-when-the-last-scorecard-is-in)
 
 The brief should be waiting before the debrief starts. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs every weekday morning. Cowork checks the hiring folder for candidates with all scorecards submitted and runs /recruiting-pipeline on each.
 
@@ -148,7 +148,7 @@ folder.
 
 Every **Weekdays at 9am · checks the hiring folder for complete scorecard sets**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## 5. Share with your teammates
+## 5. Share with your teammates[](#5-share-with-your-teammates)
 
 Your customized `/recruiting-pipeline` now carries your rubric, your convergence threshold, and the rule that the decision stays with humans. Share it so every hiring manager and recruiter walks into debrief with the same brief, and the panel spends its time on the open questions instead of re-reading scorecards.
 
@@ -159,7 +159,7 @@ hiring managers and recruiters (or your whole workspace, if your admin
 allows). They get the skill with your rubric and guardrails baked in, so they
 don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

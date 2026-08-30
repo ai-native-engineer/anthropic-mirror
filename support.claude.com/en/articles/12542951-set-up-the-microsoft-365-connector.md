@@ -8,8 +8,6 @@ For end-user instructions on connecting and using Microsoft 365 once setup is co
 
 **Important:** The Microsoft 365 connector requires a Microsoft Entra tenant tied to a Microsoft Business plan. Personal Microsoft accounts (such as @outlook.com or @hotmail.com addresses) can't be used to connect.
 
----
-
 ## Setup overview
 
 Two things need to happen before anyone in your organization can connect Microsoft 365, plus an optional third step if you want to enable write tools:
@@ -121,8 +119,6 @@ Members can also individually turn off specific tools in their own Microsoft 365
 
 To restore a revoked permission, follow the steps to grant admin consent described in **Option 2: Manual setup in Microsoft Entra ID**. This will revert the permissions to the default state.
 
----
-
 ## Enable write tools
 
 Write tools let Claude send email, manage drafts and calendar events, update mailbox settings, and create and update files in OneDrive and SharePoint. Read and search tools work the same whether or not write tools are enabled.
@@ -140,8 +136,6 @@ If your organization was using the connector before write tools launched, they w
 Once enabled, ask Claude to perform a low-risk write action, such as "Draft an email to myself, but don't send it," to confirm write tools are active.
 
 **Note:** Emails Claude sends include an attribution header identifying them as agent-initiated. File and calendar writes aren't currently tagged. Attachments aren’t supported in write tools, so sending, forwarding, and drafting all reject messages with attachments. Write tools are also subject to per-user limits on writes, sends, and recipients.
-
----
 
 ## Permissions reference
 
@@ -225,8 +219,6 @@ The Microsoft 365 connector searches SharePoint across the entire tenant using t
 
 For more detail, see the **[Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-)**.
 
----
-
 ## Troubleshooting
 
 ### A member can't authenticate
@@ -284,8 +276,6 @@ If the policy that blocked the request is a sign-in frequency or location policy
 5. Have an affected member disconnect and reconnect Microsoft 365 in **Customize > Connectors**.
 
 **Note:** Excluding the range lifts the policy for every request that comes from Anthropic's addresses, which means all Microsoft 365 connector activity for all of your members. For a sign-in frequency policy, this also means the connector's background requests are no longer subject to it, so a connection stays signed in until it expires after 90 days of inactivity. If you'd rather keep the periodic reconnects, leave the policy as it is. Members who are asked to reconnect can sign out of Microsoft in their browser, or use a private browsing window, before reconnecting. If you want to check the effect of a change before making it, clone the policy in report-only mode first.
-
----
 
 ## Frequently asked questions
 

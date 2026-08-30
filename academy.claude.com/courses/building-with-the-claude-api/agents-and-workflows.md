@@ -12,7 +12,7 @@ Lesson 612 min
 
 Workflows and agents are strategies for handling user tasks that can't be completed by Claude in a single request. You've actually been creating both throughout this course - when you used tools and let Claude figure out how to complete tasks, that was an agent.
 
-## When to Use Workflows vs Agents
+## When to Use Workflows vs Agents[](#when-to-use-workflows-vs-agents)
 
 ![](https://academy.claude.com/assets/media/6db9874df97b98ce0ce72868d34fec46e48fedd6d60dc3bef2d612cb85df09d0.jpg)
 
@@ -23,7 +23,7 @@ The decision comes down to how well you understand the task:
 
 Workflows are a series of calls to Claude meant to solve a specific problem through a predetermined series of steps. Agents give Claude a goal and a set of tools, expecting Claude to figure out how to complete the goal through the provided tools.
 
-## Example: Image to CAD Workflow
+## Example: Image to CAD Workflow[](#example-image-to-cad-workflow)
 
 ![](https://academy.claude.com/assets/media/475ec94686fa222e4b1688c797ad1bca74ee0adfe97e64b87ae33db48eff75c4.jpg)
 
@@ -40,7 +40,7 @@ Here's how the workflow breaks down:
 3. Create a rendering
 4. Ask Claude to grade the rendering against the original image. If there are issues, fix them
 
-## The Evaluator-Optimizer Pattern
+## The Evaluator-Optimizer Pattern[](#the-evaluator-optimizer-pattern)
 
 ![](https://academy.claude.com/assets/media/6d5990ee32406b753772b80bf2b96404bf53c97163f62cc74afdd9f32d97368f.jpg)
 
@@ -51,7 +51,7 @@ This modeling workflow is an example of an evaluator-optimizer pattern. Here's h
 * **Feedback loop**: If the grader doesn't accept the output, feedback goes back to the producer for improvement
 * **Iteration**: The cycle repeats until the grader accepts the output
 
-## Why Learn Workflow Patterns
+## Why Learn Workflow Patterns[](#why-learn-workflow-patterns)
 
 The goal of identifying different workflows is to give you a set of repeatable recipes for implementing your own features. The Evaluator-Optimizer is one workflow pattern that has worked well for other engineers - consider using it in your own app!
 

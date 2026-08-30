@@ -17,7 +17,3 @@ Tino has served as a Trustee of Anthropic's Long-Term Benefit Trust since Januar
 “Tino has spent his career helping public institutions respond to times of change with thoughtfulness, pragmatism, and deep commitment to the common good,” said Daniela Amodei. “At all levels of government, the law, and academia, Tino has served with sound judgment and civic-mindedness, and we’re looking forward to him putting these principles to work at Anthropic. I can't think of anyone better prepared to partner with governments, civil society, and community groups as they engage with both the risks and opportunities presented by advanced AI.”
 
 Tino arrives at a pivotal moment for Anthropic's work with governments around the world. The questions AI raises for economies, for security, and for communities absorbing rapid change are being debated by leaders everywhere. Ensuring AI’s trajectory is shaped by democratic societies and its benefits reach people broadly is a critical priority. Tino will help steer this work while finding common cause with heads of state and policy leaders on the questions and possibilities AI is raising for communities everywhere.
-
-### Investigating three real-world incidents in our cybersecurity evaluations
-
-[Read more](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)

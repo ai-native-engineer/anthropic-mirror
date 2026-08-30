@@ -12,7 +12,7 @@ Lesson 1315 min
 
 When building prompt evaluation workflows, grading systems provide objective signals about output quality. A grader takes model output and returns some kind of measurable feedback - typically a number between 1 and 10, where 10 represents high quality and 1 represents poor quality.
 
-## Types of Graders
+## Types of Graders[](#types-of-graders)
 
 ![](https://academy.claude.com/assets/media/4ddd6988ba49fadfcd2e95aeb3da98a4d9537d0bf0918d0223eaf0d97ce1bc50.png)
 
@@ -22,7 +22,7 @@ There are three main approaches to grading model outputs:
 * **Model graders** - Use another AI model to assess the quality
 * **Human graders** - Have people manually review and score outputs
 
-### Code Graders
+### Code Graders[](#code-graders)
 
 Code graders let you implement any programmatic check you can imagine. Common uses include:
 
@@ -33,7 +33,7 @@ Code graders let you implement any programmatic check you can imagine. Common us
 
 The only requirement is that your code returns some usable signal - usually a number between 1 and 10.
 
-### Model Graders
+### Model Graders[](#model-graders)
 
 Model graders feed your original output into another API call for evaluation. This approach offers tremendous flexibility for assessing:
 
@@ -43,7 +43,7 @@ Model graders feed your original output into another API call for evaluation. Th
 * Helpfulness
 * Safety
 
-### Human Graders
+### Human Graders[](#human-graders)
 
 Human graders provide the most flexibility but are time-consuming and tedious. They're useful for evaluating:
 
@@ -53,7 +53,7 @@ Human graders provide the most flexibility but are time-consuming and tedious. T
 * Conciseness
 * Relevance
 
-## Defining Evaluation Criteria
+## Defining Evaluation Criteria[](#defining-evaluation-criteria)
 
 ![](https://academy.claude.com/assets/media/73dbc7e22915d1004fcfe651c18a37312bbf0d5ed7e2973048ff77364e1ada21.png)
 
@@ -67,7 +67,7 @@ Before implementing any grader, you need clear evaluation criteria. For a code g
 
 The first two criteria work well with code graders, while task following is better suited for model graders due to their flexibility.
 
-## Implementing a Model Grader
+## Implementing a Model Grader[](#implementing-a-model-grader)
 
 Here's how to build a model grader function:
 

@@ -12,7 +12,7 @@ Lesson 810 min
 
 Beyond crafting better prompts, there are two powerful techniques for controlling Claude's output: prefilled assistant messages and stop sequences. These methods give you precise control over how Claude responds and when it stops generating text.
 
-## Prefilled Assistant Messages
+## Prefilled Assistant Messages[](#prefilled-assistant-messages)
 
 Message prefilling lets you provide the beginning of Claude's response, which strongly influences the direction of its answer. Instead of letting Claude decide how to start its response, you give it a specific opening that steers the conversation.
 
@@ -43,7 +43,7 @@ You can steer Claude in any direction by changing your prefilled text:
 * `"Tea is better because"` - pushes toward tea
 * `"They are the same because"` - creates a neutral response
 
-## Stop Sequences
+## Stop Sequences[](#stop-sequences)
 
 Stop sequences force Claude to end its response immediately when it generates specific text. This is useful when you want to truncate output at a particular point or prevent Claude from continuing past a certain marker.
 

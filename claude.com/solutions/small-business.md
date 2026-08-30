@@ -30,19 +30,19 @@ Take AI fluency course
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f4d8a95983222a158ba2f0_logo_puritycoffee-light-mode.png)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f4d8b442dc2acc3e66b879_logo_puritycoffee-dark-mode.png)
 
-Not only could it problem-solve for me, it also showed me problems I didn't know I had.
+“Not only could it problem-solve for me, it also showed me problems I didn’t know I had.”
 
 Brian Ludviksen, COO, Purity Coffee
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f4dfb2ff39fb1e22853c72_logo_midcentral-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f4dfbf4dccbae0da60f0f0_logo_midcentral-dark.svg)
 
-It's freeing up things that used to be a lot of very tedious clerical work for more value-add tasks.
+“It’s freeing up things that used to be a lot of very tedious clerical work for more value-add tasks.”
 
 Ryan Olson, Technology and Innovation Manager, MidCentral Energy
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f4e098aac98d40e78913e2_logo_simple-modern-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f4e0a4582b4081d0ac8736_logo_simple-modern-dark.svg)
 
-What we used to think were the constraints are just not constraints anymore. It's empowering. Hours of looking at stuff that doesn't matter are gone. I want an entire organization where everybody is using these tools daily.
+“What we used to think were the constraints are just not constraints anymore. It’s empowering. Hours of looking at stuff that doesn’t matter are gone. I want an entire organization where everybody is using these tools daily.”
 
 Mike Beckham, CEO, Simple Modern
 

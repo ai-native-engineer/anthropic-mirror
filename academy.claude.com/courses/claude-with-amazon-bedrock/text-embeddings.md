@@ -12,7 +12,7 @@ Lesson 355 min
 
 After breaking a document into chunks, the next step in a RAG pipeline is finding which chunks are most relevant to a user's question. This is fundamentally a search problem - you need to look through all your text chunks and identify the ones that relate to what the user is asking about.
 
-## Finding Relevant Chunks
+## Finding Relevant Chunks[](#finding-relevant-chunks)
 
 The challenge is determining which chunks are "related" to a user's question. This isn't as simple as keyword matching - you need to understand the meaning and context of both the question and the chunks.
 
@@ -20,7 +20,7 @@ The challenge is determining which chunks are "related" to a user's question. Th
 
 The most common solution is semantic search, which uses text embeddings to understand what each piece of text is actually about, rather than just looking for exact word matches.
 
-## What Are Text Embeddings?
+## What Are Text Embeddings?[](#what-are-text-embeddings)
 
 A text embedding is a numerical representation of the meaning contained in some text. Think of it as converting words and sentences into a format that computers can work with mathematically.
 
@@ -33,7 +33,7 @@ Here's how it works:
 * Each number represents a "score" for some quality of the input text
 * The numbers range from -1 to +1
 
-## Understanding the Numbers
+## Understanding the Numbers[](#understanding-the-numbers)
 
 Each number in an embedding is like a score for some aspect of the text. While we don't know exactly what each position represents, it's helpful to think of them as measuring different qualities.
 
@@ -41,7 +41,7 @@ Each number in an embedding is like a score for some aspect of the text. While w
 
 For example, one number might score "how happy the text is" while another might measure "how much the text talks about oceans." The key point is that we don't actually know what each number represents - the embedding model learns these patterns during training, and they're not human-interpretable.
 
-## Generating Embeddings with Code
+## Generating Embeddings with Code[](#generating-embeddings-with-code)
 
 Creating embeddings is straightforward. Here's the basic process:
 
@@ -76,7 +76,7 @@ When you run this function on a text chunk, you get back a list of 1024 numbers 
 
 Note that you might need to request access to the Titan embedding model in the AWS Bedrock console. If version 2 isn't available, version 1 works just as well for learning purposes.
 
-## Why Embeddings Matter for RAG
+## Why Embeddings Matter for RAG[](#why-embeddings-matter-for-rag)
 
 The power of embeddings becomes clear when you realize that similar texts will have similar embedding values. This means you can mathematically compare a user's question to your document chunks and find the most semantically similar ones - even if they don't share the exact same words.
 

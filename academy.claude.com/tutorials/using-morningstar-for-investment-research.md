@@ -18,9 +18,9 @@ The Morningstar integration provides Claude with access to investment research s
 
 The Morningstar integration relies upon Claude's ability to use [remote connectors(opens in new tab)](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
 
-## What This Integration Provides
+## What This Integration Provides[](#what-this-integration-provides)
 
-### Capabilities
+### Capabilities[](#capabilities)
 
 The Morningstar integration enables Claude to access investment data and research:
 
@@ -29,7 +29,7 @@ The Morningstar integration enables Claude to access investment data and researc
 * **Thematic Investment Research:** Explore editorial content on broader investment themes including investment strategies, sustainable investing, retirement planning, and market trends for top-down approaches and asset allocation.
 * **Multi-Asset Class Coverage:** Analyze equities, mutual funds, ETFs, and bonds through a unified interface with consistent metrics and research approaches across all asset types.
 
-### How Claude Uses Morningstar Data
+### How Claude Uses Morningstar Data[](#how-claude-uses-morningstar-data)
 
 Claude applies Morningstar data to support your analysis:
 
@@ -39,11 +39,11 @@ Claude applies Morningstar data to support your analysis:
 * **Narrative Synthesis:** Merges data points with analyst commentary to create comprehensive security overviews that tell the complete investment story.
 * **Screening and Filtering:** Systematically checks multiple securities against your criteria, such as finding wide-moat healthcare companies trading below fair value.
 
-## Setting Up Morningstar Integration
+## Setting Up Morningstar Integration[](#setting-up-morningstar-integration)
 
 Technical details of the Morningstar Integration can be found in the [Morningstar Integration MCP Server Documentation(opens in new tab)](https://developer.morningstar.com/direct-web-services/documentation/mcp-server/morningstar-mcp-server). If your account does not have access to the MCP server, you will need to contact Morningstar to get access to the MCP server.
 
-### For Organization Owners
+### For Organization Owners[](#for-organization-owners)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors).
 2. Scroll down and click “Add custom connector" at the bottom of the list.
@@ -51,13 +51,13 @@ Technical details of the Morningstar Integration can be found in the [Morningsta
 4. Name the connector (e.g., "Morningstar")
 5. Click "Add"
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Valuation Analysis
+### Valuation Analysis[](#valuation-analysis)
 
 What is Microsoft's fair value estimate and economic moat rating compared to other mega-cap tech stocks? Include Apple, Google, and Amazon, showing their fair value ratios and whether they're trading above or below Morningstar's estimates.
 
@@ -67,7 +67,7 @@ This type of analysis helps identify potentially undervalued securities by compa
 
 **When to use:** Screening for potentially undervalued securities or validating your own valuation models against Morningstar's independent analysis.
 
-### Sector Research
+### Sector Research[](#sector-research)
 
 Provide Morningstar's outlook on renewable energy investments and key valuation metrics for clean energy ETFs. Include their analysis on regulatory tailwinds and which subsectors they view most favorably.
 
@@ -77,7 +77,7 @@ Sector research combines thematic analysis with specific investment opportunitie
 
 **When to use:** Understanding thematic investment opportunities, evaluating sector rotation strategies, or identifying funds that align with specific investment themes.
 
-### Company Analysis
+### Company Analysis[](#company-analysis)
 
 Get Morningstar analysis of Apple including fair value, moat rating, and uncertainty rating. Also provide their view on key risks and competitive positioning versus Android ecosystem players.
 
@@ -87,7 +87,7 @@ Individual company analysis combines Morningstar's quantitative metrics with qua
 
 **When to use:** Conducting deep dives on individual companies before making investment decisions or reviewing existing holdings.
 
-### Portfolio Analysis
+### Portfolio Analysis[](#portfolio-analysis)
 
 Show Morningstar ratings and fair value ratios for my technology holdings: MSFT, AAPL, NVDA, and GOOGL. Identify which are trading at the biggest discount to fair value and have the widest economic moats.
 
@@ -97,7 +97,7 @@ Portfolio analysis involves retrieving Morningstar data for each holding to iden
 
 **Tip:** Claude retrieves data for each holding individually to build the complete analysis. For large portfolios, consider focusing on core positions or those with recent price movements.
 
-### Risk-Focused Security Analysis
+### Risk-Focused Security Analysis[](#risk-focused-security-analysis)
 
 Analyze Tesla from a risk perspective using Morningstar research. Focus on their assessment of execution risk, competition from traditional automakers, and regulatory challenges. Include their uncertainty rating and any concerns about valuation sustainability.
 
@@ -107,7 +107,7 @@ Risk-focused analysis uses Morningstar's research capabilities to understand pot
 
 **When to use:** Evaluating high-volatility stocks, understanding the bear case for a position, or assessing whether potential returns adequately compensate for risks.
 
-### Sustainable Investing Research
+### Sustainable Investing Research[](#sustainable-investing-research)
 
 What is Morningstar's perspective on ESG investing strategies and their performance versus traditional approaches? Include their recommendations for sustainable funds and whether they see ESG as a source of alpha or risk mitigation.
 
@@ -117,7 +117,7 @@ Sustainable investing research taps into Morningstar's thematic content on ESG s
 
 **Why it matters:** Morningstar provides both conceptual frameworks and specific fund recommendations, helping bridge the gap between sustainable investing theory and practical implementation.
 
-## Tips for Using Morningstar
+## Tips for Using Morningstar[](#tips-for-using-morningstar)
 
 * Combine Morningstar's qualitative insights with quantitative data for comprehensive analysis.
 * Use fair value estimates as one input in your investment process, not the sole decision factor.

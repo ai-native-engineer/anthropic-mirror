@@ -4,7 +4,7 @@
 
 ## Create Skill Version
 
-`VersionCreateResponse Beta.Skills.Versions.Create(parameters, cancellationToken = default)`
+`BetaSkillVersion Beta.Skills.Versions.Create(parameters, cancellationToken = default)`
 
 **POST** `/v1/skills/{skill_id}/versions`
 
@@ -98,19 +98,34 @@ Create Skill Version
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 ### Returns
 
-- `class VersionCreateResponse:`
+- `class BetaSkillVersion:`
 
   - `required string ID`
 
-    Unique identifier for the skill version.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    The format and length of IDs may change over time.
+  - `required DateTimeOffset CreatedAt`
 
-  - `required string CreatedAt`
+    ISO 8601 timestamp of when the skill was created.
 
-    ISO 8601 timestamp of when the skill version was created.
+    format: date-time
 
   - `required string Description`
 
@@ -118,33 +133,24 @@ Create Skill Version
 
     This is extracted from the SKILL.md file in the skill upload.
 
-  - `required string Directory`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
   - `required string Name`
 
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
   - `required string SkillID`
 
-    Identifier for the skill that this version belongs to.
+    Unique identifier for the skill.
 
-  - `required string Type`
+    The format and length of IDs may change over time.
+
+  - `JsonElement Type constant`
 
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
-
-  - `required string Version`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 ### Example
 
@@ -158,29 +164,27 @@ VersionCreateParams parameters = new()
     ],
 };
 
-var version = await client.Beta.Skills.Versions.Create(parameters);
+var betaSkillVersion = await client.Beta.Skills.Versions.Create(parameters);
 
-Console.WriteLine(version);
+Console.WriteLine(betaSkillVersion);
 ```
 
 #### Response (200)
 
 ```json
 {
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "id": "id",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
+  "description": "description",
+  "name": "name",
   "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
+  "type": "skill_version"
 }
 ```
 
 ## List Skill Versions
 
-`VersionListPageResponse Beta.Skills.Versions.List(parameters, cancellationToken = default)`
+`VersionListPage Beta.Skills.Versions.List(parameters, cancellationToken = default)`
 
 **GET** `/v1/skills/{skill_id}/versions`
 
@@ -198,9 +202,11 @@ List Skill Versions
 
   - `long? limit`
 
-    Query param: Number of items to return per page.
+    Query param: Number of results to return per page.
 
-    Defaults to `20`. Ranges from `1` to `1000`.
+    Ranges from `1` to `1000`. Defaults to `20`.
+
+    minimum: 1, maximum: 1000
 
   - `string? page`
 
@@ -278,65 +284,59 @@ List Skill Versions
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 ### Returns
 
-- `class VersionListPageResponse:`
+- `class BetaSkillVersion:`
 
-  - `required IReadOnlyList<VersionListResponse> Data`
+  - `required string ID`
 
-    List of skill versions.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    - `required string ID`
+  - `required DateTimeOffset CreatedAt`
 
-      Unique identifier for the skill version.
+    ISO 8601 timestamp of when the skill was created.
 
-      The format and length of IDs may change over time.
+    format: date-time
 
-    - `required string CreatedAt`
+  - `required string Description`
 
-      ISO 8601 timestamp of when the skill version was created.
+    Description of the skill version.
 
-    - `required string Description`
+    This is extracted from the SKILL.md file in the skill upload.
 
-      Description of the skill version.
+  - `required string Name`
 
-      This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
-    - `required string Directory`
+  - `required string SkillID`
 
-      Directory name of the skill version.
+    Unique identifier for the skill.
 
-      This is the top-level directory name that was extracted from the uploaded files.
+    The format and length of IDs may change over time.
 
-    - `required string Name`
+  - `JsonElement Type constant`
 
-      Human-readable name of the skill version.
+    Object type.
 
-      This is extracted from the SKILL.md file in the skill upload.
-
-    - `required string SkillID`
-
-      Identifier for the skill that this version belongs to.
-
-    - `required string Type`
-
-      Object type.
-
-      For Skill Versions, this is always `"skill_version"`.
-
-    - `required string Version`
-
-      Version identifier for the skill.
-
-      Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-  - `required bool HasMore`
-
-    Indicates if there are more results in the requested page direction.
-
-  - `required string? NextPage`
-
-    Token to provide in as `page` in the subsequent request to retrieve the next page of data.
+    For Skill Versions, this is always `"skill_version"`.
 
 ### Example
 
@@ -356,18 +356,15 @@ await foreach (var item in page.Paginate())
 {
   "data": [
     {
-      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "id": "id",
       "created_at": "2024-10-30T23:58:27.427722Z",
-      "description": "A custom skill for doing something useful",
-      "directory": "my-skill",
-      "name": "my-skill",
+      "description": "description",
+      "name": "name",
       "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-      "type": "type",
-      "version": "1759178010641129"
+      "type": "skill_version"
     }
   ],
-  "has_more": true,
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "next_page"
 }
 ```
 
@@ -391,9 +388,9 @@ Download a skill version's content as a zip archive.
 
   - `required string version`
 
-    Path param: Version identifier for the skill.
+    Path param: Identifies the skill version by its version ID.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+    Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -466,6 +463,20 @@ Download a skill version's content as a zip archive.
     - `AgentMemory2026_07_22`
 
     - `MidConversationToolChanges2026_07_01`
+
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
 
 ### Example
 
@@ -483,7 +494,7 @@ Console.WriteLine(response);
 
 ## Get Skill Version
 
-`VersionRetrieveResponse Beta.Skills.Versions.Retrieve(parameters, cancellationToken = default)`
+`BetaSkillVersion Beta.Skills.Versions.Retrieve(parameters, cancellationToken = default)`
 
 **GET** `/v1/skills/{skill_id}/versions/{version}`
 
@@ -501,9 +512,9 @@ Get Skill Version
 
   - `required string version`
 
-    Path param: Version identifier for the skill.
+    Path param: Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+    Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -577,19 +588,34 @@ Get Skill Version
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 ### Returns
 
-- `class VersionRetrieveResponse:`
+- `class BetaSkillVersion:`
 
   - `required string ID`
 
-    Unique identifier for the skill version.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    The format and length of IDs may change over time.
+  - `required DateTimeOffset CreatedAt`
 
-  - `required string CreatedAt`
+    ISO 8601 timestamp of when the skill was created.
 
-    ISO 8601 timestamp of when the skill version was created.
+    format: date-time
 
   - `required string Description`
 
@@ -597,33 +623,24 @@ Get Skill Version
 
     This is extracted from the SKILL.md file in the skill upload.
 
-  - `required string Directory`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
   - `required string Name`
 
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
   - `required string SkillID`
 
-    Identifier for the skill that this version belongs to.
+    Unique identifier for the skill.
 
-  - `required string Type`
+    The format and length of IDs may change over time.
+
+  - `JsonElement Type constant`
 
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
-
-  - `required string Version`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 ### Example
 
@@ -634,29 +651,27 @@ VersionRetrieveParams parameters = new()
     Version = "version",
 };
 
-var version = await client.Beta.Skills.Versions.Retrieve(parameters);
+var betaSkillVersion = await client.Beta.Skills.Versions.Retrieve(parameters);
 
-Console.WriteLine(version);
+Console.WriteLine(betaSkillVersion);
 ```
 
 #### Response (200)
 
 ```json
 {
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "id": "id",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
+  "description": "description",
+  "name": "name",
   "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
+  "type": "skill_version"
 }
 ```
 
 ## Delete Skill Version
 
-`VersionDeleteResponse Beta.Skills.Versions.Delete(parameters, cancellationToken = default)`
+`BetaDeletedSkillVersion Beta.Skills.Versions.Delete(parameters, cancellationToken = default)`
 
 **DELETE** `/v1/skills/{skill_id}/versions/{version}`
 
@@ -674,9 +689,9 @@ Delete Skill Version
 
   - `required string version`
 
-    Path param: Version identifier for the skill.
+    Path param: Identifies the skill version by its version ID.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+    Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
@@ -750,17 +765,30 @@ Delete Skill Version
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 ### Returns
 
-- `class VersionDeleteResponse:`
+- `class BetaDeletedSkillVersion:`
 
   - `required string ID`
 
-    Version identifier for the skill.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-  - `required string Type`
+  - `JsonElement Type constant`
 
     Deleted object type.
 
@@ -775,16 +803,73 @@ VersionDeleteParams parameters = new()
     Version = "version",
 };
 
-var version = await client.Beta.Skills.Versions.Delete(parameters);
+var betaDeletedSkillVersion = await client.Beta.Skills.Versions.Delete(parameters);
 
-Console.WriteLine(version);
+Console.WriteLine(betaDeletedSkillVersion);
 ```
 
 #### Response (200)
 
 ```json
 {
-  "id": "1759178010641129",
-  "type": "type"
+  "id": "id",
+  "type": "skill_version_deleted"
 }
 ```
+
+## Domain types
+
+### Beta Deleted Skill Version
+
+- `class BetaDeletedSkillVersion:`
+
+  - `required string ID`
+
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
+
+  - `JsonElement Type constant`
+
+    Deleted object type.
+
+    For Skill Versions, this is always `"skill_version_deleted"`.
+
+### Beta Skill Version
+
+- `class BetaSkillVersion:`
+
+  - `required string ID`
+
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
+
+  - `required DateTimeOffset CreatedAt`
+
+    ISO 8601 timestamp of when the skill was created.
+
+    format: date-time
+
+  - `required string Description`
+
+    Description of the skill version.
+
+    This is extracted from the SKILL.md file in the skill upload.
+
+  - `required string Name`
+
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
+
+  - `required string SkillID`
+
+    Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `JsonElement Type constant`
+
+    Object type.
+
+    For Skill Versions, this is always `"skill_version"`.

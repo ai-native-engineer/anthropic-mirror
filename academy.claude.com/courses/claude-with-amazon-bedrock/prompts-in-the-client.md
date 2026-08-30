@@ -12,7 +12,7 @@ Lesson 577 min
 
 The final step in building our MCP client is implementing prompt functionality. This allows us to list all available prompts from the server and retrieve specific prompts with variables interpolated into them.
 
-## Implementing List Prompts
+## Implementing List Prompts[](#implementing-list-prompts)
 
 The `list_prompts` method is straightforward. We call the session's list prompts method and return the prompts:
 
@@ -24,7 +24,7 @@ async def list_prompts(self) -> list[types.Prompt]:
     return result.prompts
 ```
 
-## Getting Individual Prompts
+## Getting Individual Prompts[](#getting-individual-prompts)
 
 The `get_prompt` method is more interesting because it handles argument interpolation. When we request a specific prompt, we pass arguments that get injected into the prompt function. For example, if our server has a "format" prompt that expects a `doc_id` parameter, that value gets passed through and interpolated into the actual prompt text.
 
@@ -38,7 +38,7 @@ async def get_prompt(self, prompt_name, args: dict[str, str]):
 
 The method returns messages that form a conversation ready to be fed directly into Claude.
 
-## Testing Prompts in Action
+## Testing Prompts in Action[](#testing-prompts-in-action)
 
 When you run the client and type a forward slash, you'll see available prompts as commands. Selecting a prompt like "format" will prompt you to choose from available documents. The system then:
 
@@ -50,7 +50,7 @@ When you run the client and type a forward slash, you'll see available prompts a
 
 ![](https://academy.claude.com/assets/media/24f98aa7f06205838be82bfe92600a6964090589c0811bd7d5eced9f00b4ef01.png)
 
-## How Prompts Work
+## How Prompts Work[](#how-prompts-work)
 
 Prompts define a set of user and assistant messages that can be used by the client. These prompts should be high quality, well-tested, and relevant to the overall purpose of your MCP server.
 

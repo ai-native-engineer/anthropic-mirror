@@ -16,13 +16,13 @@ In this lessonBy the end, you’ll be able to
 * Recognize the four building blocks a skill can include
 * Build a skill from one of your own recurring processes
 
-## What a skill actually is
+## What a skill actually is[](#what-a-skill-actually-is)
 
 A skill is a reusable playbook — a folder of files and resources — that teaches Claude how to do a specific kind of work the way you'd want it done. When you start a task that matches the skill, Claude loads the playbook and follows it.
 
 Skills are automatically used during the task right when you need them. You don't have to invoke them by name; Claude notices when a task matches a skill you have installed and loads it automatically. You can also be explicit (*"use the board memo drafting skill"*) when you want to.
 
-## What’s inside a skill
+## What’s inside a skill[](#whats-inside-a-skill)
 
 A skill is more than a long instruction. The four kinds of files a skill can include — and how they work together — are how you encode a real process well enough that Claude can run it like your team would:
 
@@ -37,7 +37,7 @@ Below are three examples of skills. Click through each to get a sense for their 
 
 This is what makes skills so useful for codifying how your team works. Cowork is a coworker that can act on your behalf — and skills are how you get it to do the work the way it should be done. The instructions tell it what to do; the assets give it the raw materials; the references show it what good looks like; the scripts let it run the repeatable parts the same way every time.
 
-## Build a skill with Claude
+## Build a skill with Claude[](#build-a-skill-with-claude)
 
 The fastest way to build a skill is with Claude.
 
@@ -53,11 +53,11 @@ Once it's installed, you can find the skill in **Customize**. If you want to mak
 
 Skills work the same way inside any conversation, including conversations inside a project. So a skill you build for variance analysis will show up whenever variance analysis is the task — whether you're working in your default Cowork session or inside a specific finance project.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Think of one process you repeat — a report you run, a format you always use, a checklist you follow. Jot it down. That's your first skill candidate. You don't need to build it now. Come back and build it with Claude when you have time.
 
-## What’s next
+## What’s next[](#whats-next)
 
 Skills package your specific workflows so anyone on your team can run them and get the same quality result. Plugins bundle several skills and connectors into one installable package built around a job. That's the next lesson.
 

@@ -14,7 +14,7 @@ In this lessonBy the end, you’ll be able to
 
 * Help students leverage the Delegation-Diligence loop for responsible design and decision making
 
-## The Description-Discernment loop
+## The Description-Discernment loop[](#the-description-discernment-loop)
 
 The Description-Discernment loop
 
@@ -37,7 +37,7 @@ concludes by showing how the two loops work together, with
 Delegation-Diligence setting strategic direction and Description-Discernment
 filling that container with rich, iterative interaction.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The Description-Discernment loop transforms AI interaction from commands to conversations that use context to build cognitive environments
 * Product, Process, and Performance operate as different lenses for understanding the same collaborative process
@@ -45,7 +45,7 @@ filling that container with rich, iterative interaction.
 * Successful cognitive environments include shared vocabulary, established interaction patterns, and mechanisms for building on previous exchanges
 * The two loops work as nested systems—strategic decisions create the container that tactical interactions fill
 
-## Exercises
+## Exercises[](#exercises)
 
 This exercise helps you create a concrete lesson plan for teaching the Description-Discernment loop.
 
@@ -63,12 +63,12 @@ Continue the conversation from Exercise 2, and let your AI partner know that you
 * Work with the AI to create elements that help students explore how Product, Process, and Performance descriptions evolve through Discernment and iteration
 * Plan how students will document the evolution of their shared context with AI
 
-### Reflection
+### Reflection[](#reflection)
 
 * Which approaches best fit your learning objectives for your students?
 * Which approaches best fit your personal teaching style and preferences?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore how to assess AI Fluency in your students. You'll learn to apply outcome, process, and reflection-based assessment strategies and create rubrics that capture the 4D competencies.
 

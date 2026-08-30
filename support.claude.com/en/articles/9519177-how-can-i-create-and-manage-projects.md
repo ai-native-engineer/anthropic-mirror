@@ -33,8 +33,6 @@ You'll find the project knowledge base on the right side of your project's main 
 
 **Note:** Context is not shared across chats within a project unless the information is added into the project knowledge base.
 
----
-
 ## Share projects
 
 If you are a member of a Team or Enterprise plan organization, you can share projects with other members of your organization.
@@ -60,8 +58,6 @@ If you are a member of a Team or Enterprise plan organization, you can share pro
 
 Projects that others have shared with you will appear in the "Shared with me" tab on your **[Projects page](https://claude.ai/projects)**. You'll also receive an email notification when someone shares a project with you.
 
----
-
 ## Star projects for quick access
 
 Starring a project allows for quick access from your projects and chats list, visible when hovering over the left side of your account. You can star a project from two different areas:
@@ -78,39 +74,33 @@ Starring a project allows for quick access from your projects and chats list, vi
 2. Click on the star icon in the upper right corner.
 3. The project will now appear in your starred items in the left side panel of your account.
 
----
-
 ## How to move chats into projects
 
 You can move a standalone chat into a project by clicking on the dropdown arrow next to the chat name, then “Add to project”:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1787622300&signature=a72dc56dfc345cad62a812759a0ed4d56b575e6c39ab3d07021cfe989677435d&req=dScvEsh3nYNbUfMW1HO4zQABaWZqSKIWBSXNVFXQ%2FVHs8iAsSxapj1Q7qaUY%0A7hKMdq%2BovEJRgAwSv70%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1787622300&signature=a72dc56dfc345cad62a812759a0ed4d56b575e6c39ab3d07021cfe989677435d&req=dScvEsh3nYNbUfMW1HO4zQABaWZqSKIWBSXNVFXQ%2FVHs8iAsSxapj1Q7qaUY%0A7hKMdq%2BovEJRgAwSv70%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1788035400&signature=30f43d7e0a514559dc4ba8612ba0c050e00cc3f167bb450fea8993744fef1261&req=dScvEsh3nYNbUfMW1HO4zQABaWlsSaURBSXNVFXQ%2FVE04QF5HLhCvax2KbCF%0AJAcedcVkaNYzMfBLoqE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190248/0f19c8de18b494a27be252fdfaff/d4e7a5c5-25f5-4623-862b-c593d2dc0b39?expires=1788035400&signature=30f43d7e0a514559dc4ba8612ba0c050e00cc3f167bb450fea8993744fef1261&req=dScvEsh3nYNbUfMW1HO4zQABaWlsSaURBSXNVFXQ%2FVE04QF5HLhCvax2KbCF%0AJAcedcVkaNYzMfBLoqE%3D%0A)
 
 Browse or search for the correct project in the **Move chat** modal that appears, then click on it to move the chat.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1787622300&signature=428416c5b57544fb172bab63bca4086b89f10c07e8cd461de31391dd3ba1caf3&req=dScvEsh3nYhaWPMW1HO4zSMECie2yQsCgYbpTjViBxB1OW81w7nl7SmUT%2B5L%0A%2BULbIdrcygz73iiQncE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1787622300&signature=428416c5b57544fb172bab63bca4086b89f10c07e8cd461de31391dd3ba1caf3&req=dScvEsh3nYhaWPMW1HO4zSMECie2yQsCgYbpTjViBxB1OW81w7nl7SmUT%2B5L%0A%2BULbIdrcygz73iiQncE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1788035400&signature=41fea18f82c22050d9db050f7a18b8098166e67d7e789f992585399868799e70&req=dScvEsh3nYhaWPMW1HO4zSMECiiwyAwFgYbpTjViBxDeTq7phlJv5pHij1We%0A5inZIz9485YqkelYrag%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784190951/34dc256ccd4c0cf74976f31062e6/55365cf2-059d-41b2-ac95-4b00c4389a76?expires=1788035400&signature=41fea18f82c22050d9db050f7a18b8098166e67d7e789f992585399868799e70&req=dScvEsh3nYhaWPMW1HO4zSMECiiwyAwFgYbpTjViBxDeTq7phlJv5pHij1We%0A5inZIz9485YqkelYrag%3D%0A)
 
 You can also remove chats from projects, or move them between projects, using the same dropdown menu within the chat:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1787622300&signature=0e4185bb9bdb53bebb7ac24fbbef8434087970a4338a2f3f91acea04d517da82&req=dScvEsh2mIdXW%2FMW1HO4zb6DuPAqDEcJS2r1%2FGRlqOTVqPStBIvJgjUJHa7z%0AH0gy%2B2dF9L1GEf%2ByEHE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1787622300&signature=0e4185bb9bdb53bebb7ac24fbbef8434087970a4338a2f3f91acea04d517da82&req=dScvEsh2mIdXW%2FMW1HO4zb6DuPAqDEcJS2r1%2FGRlqOTVqPStBIvJgjUJHa7z%0AH0gy%2B2dF9L1GEf%2ByEHE%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1788035400&signature=c1e91386a23460c1221b2727930f0644f75a5f0f08050f63b73610b424126acc&req=dScvEsh2mIdXW%2FMW1HO4zb6DuP8sDUAOS2r1%2FGRlqOTrboGmU2iYi0lXvuxX%0AW%2Bjh2w2LFCNSom%2FIbG8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185682/8625eac15b9fa452f148a6c47250/c53a1bc4-a991-4684-a789-5447ed789d35?expires=1788035400&signature=c1e91386a23460c1221b2727930f0644f75a5f0f08050f63b73610b424126acc&req=dScvEsh2mIdXW%2FMW1HO4zb6DuP8sDUAOS2r1%2FGRlqOTrboGmU2iYi0lXvuxX%0AW%2Bjh2w2LFCNSom%2FIbG8%3D%0A)
 
 You can move chats into projects in bulk from **[Your chat history page](https://claude.ai/recents)**:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185685/bb960063204592db277a4ba62d8d/ebbf5c69-da79-4e56-9d87-f2a97a22fe67?expires=1787622300&signature=5fb0edcd7ffa83748a99c6df144516f1caeadce7e9a946d621686d7642c59aa1&req=dScvEsh2mIdXXPMW1HO4zbParUtP6%2FiguQSB0Ebsw9c04ws4DQqvCnXqfCEq%0AyrzvvDIuwxgGP3UkxsQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185685/bb960063204592db277a4ba62d8d/ebbf5c69-da79-4e56-9d87-f2a97a22fe67?expires=1787622300&signature=5fb0edcd7ffa83748a99c6df144516f1caeadce7e9a946d621686d7642c59aa1&req=dScvEsh2mIdXXPMW1HO4zbParUtP6%2FiguQSB0Ebsw9c04ws4DQqvCnXqfCEq%0AyrzvvDIuwxgGP3UkxsQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185685/bb960063204592db277a4ba62d8d/ebbf5c69-da79-4e56-9d87-f2a97a22fe67?expires=1788035400&signature=8a3e350c1a72a44c48d892f332b7b97611e476ee260417f5b2c5d629541f7e4a&req=dScvEsh2mIdXXPMW1HO4zbParURJ6v%2BnuQSB0Ebsw9fbFNgH7yNYe4YohwoI%0Aw84d4XbsaCFptSKIRHw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1784185685/bb960063204592db277a4ba62d8d/ebbf5c69-da79-4e56-9d87-f2a97a22fe67?expires=1788035400&signature=8a3e350c1a72a44c48d892f332b7b97611e476ee260417f5b2c5d629541f7e4a&req=dScvEsh2mIdXXPMW1HO4zbParURJ6v%2BnuQSB0Ebsw9fbFNgH7yNYe4YohwoI%0Aw84d4XbsaCFptSKIRHw%3D%0A)
 
 Select the chats you want to move, then click the icon next to the number of selected chats to move them into your project.
 
----
-
 ## Move chats to manage Claude’s memory
 
-Memory from chat history is available for users on Pro, Max, Team, and Enterprise plans on the web, Claude Desktop, and Claude Mobile.
+Memory is on by default for Free, Pro, and Max plans on the web, Claude Desktop, and Claude Mobile. On Team and Enterprise plans, memory is available when an owner has enabled it.
 
 For Team and Enterprise plans using Claude’s memory, the ability to move chats into and out of projects allows you to manage what’s included in Claude’s memory. Each project has its own memory, kept separate from your non-project chats. For example, if you accidentally start an unrelated chat in a project and need to remove it from the project-specific memory summary, you can click “Remove from project” so it will be included in Claude’s non-project memory instead.
 
 Refer to our article on chat search and memory for more information: **[What is Claude’s memory?](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context#h_82126ebcc9)**
-
----
 
 ## How to archive projects
 
@@ -149,8 +139,6 @@ There are two ways to make archived project active again:
 1. Navigate to the archived project.
 2. Click on the three dots ("..." button) in the upper right corner.
 3. Confirm that you want to unarchive the project.
-
----
 
 ## Delete projects
 

@@ -12,7 +12,7 @@ Lesson 319 min
 
 When you need structured data from Claude, you have two main approaches: prompt-based techniques using message prefills and stop sequences, or a more robust method using tools. While the prompt-based approach is simpler to set up, tools provide more reliable output at the cost of additional complexity.
 
-## Tools for Structured Data
+## Tools for Structured Data[](#tools-for-structured-data)
 
 The tool-based approach works by creating a JSON schema that defines the exact structure of data you want to extract. Instead of hoping Claude formats its response correctly, you're essentially giving Claude a function to call with specific parameters that match your desired output structure.
 
@@ -27,7 +27,7 @@ Here's how the process works:
 
 For example, if you want to extract a financial balance and key insights from a statement, your schema would define those as an integer and array of strings respectively.
 
-## Controlling Tool Use
+## Controlling Tool Use[](#controlling-tool-use)
 
 A critical part of this technique is ensuring Claude actually calls your tool. You can control this behavior using the `tool_choice` parameter:
 
@@ -39,7 +39,7 @@ A critical part of this technique is ensuring Claude actually calls your tool. Y
 
 For structured data extraction, you'll typically want the third option to guarantee Claude calls your specific schema tool.
 
-## Implementation Example
+## Implementation Example[](#implementation-example)
 
 Let's say you want to extract a title, author, and key insights from an article. First, you'd create a tool schema:
 
@@ -83,7 +83,7 @@ python
 structured_data = response.content[0].input
 ```
 
-## When to Use Each Approach
+## When to Use Each Approach[](#when-to-use-each-approach)
 
 Choose prompt-based structured output when you need something quick and simple. Use tools when you need guaranteed reliability and can handle the extra setup complexity. Both techniques are valuable depending on your specific use case and requirements.
 

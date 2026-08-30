@@ -12,7 +12,7 @@ Lesson 5310 min
 
 Now that we have our MCP server working, it's time to build the client side. The client is what allows our application to communicate with the MCP server and access its functionality.
 
-## Understanding the Client Architecture
+## Understanding the Client Architecture[](#understanding-the-client-architecture)
 
 Before diving into the code, let's clarify an important point about MCP projects. Normally, you'd implement either an MCP client or an MCP server - not both. We're building both in this project just so you can see how they work together.
 
@@ -27,7 +27,7 @@ The MCP client consists of two main components working together:
 
 The client session handles the low-level communication but requires careful resource cleanup when your program shuts down. That's why we wrap it in our own class - to manage that cleanup automatically.
 
-## How the Client Fits Into Our Application
+## How the Client Fits Into Our Application[](#how-the-client-fits-into-our-application)
 
 Remember our application flow diagram? The client plays a crucial role in two key moments:
 
@@ -38,7 +38,7 @@ Our CLI code uses the client to:
 * Get a list of available tools to send to Claude
 * Execute tools when Claude requests them
 
-## Implementing Core Client Functions
+## Implementing Core Client Functions[](#implementing-core-client-functions)
 
 Let's implement the two essential functions: `list_tools` and `call_tool`.
 
@@ -65,7 +65,7 @@ async def call_tool(
 
 That's it! The session handles all the complex communication details for us.
 
-## Testing the Client
+## Testing the Client[](#testing-the-client)
 
 The client file includes a simple test harness at the bottom. You can run it directly to verify everything works:
 
@@ -77,13 +77,13 @@ uv run mcp_client.py
 
 This will connect to your MCP server and print out the available tools. You should see output showing your tool definitions, including names, descriptions, and input schemas.
 
-## Important Schema Differences
+## Important Schema Differences[](#important-schema-differences)
 
 Here's a gotcha you need to know about: MCP tool definitions don't exactly match what Claude expects. The MCP spec has its own format for tool schemas, which is slightly different from what Bedrock requires.
 
 Don't worry - there's already code in the project that handles this conversion automatically. The `to_bedrock_tools` function in `core/bedrock.py` translates MCP tool definitions into the format Claude understands.
 
-## Testing with Claude
+## Testing with Claude[](#testing-with-claude)
 
 Now that both the server and client are working, you can test the complete flow. Try running your main application and asking Claude to read a document:
 

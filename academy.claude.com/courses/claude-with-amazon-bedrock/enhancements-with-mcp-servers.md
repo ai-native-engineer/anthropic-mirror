@@ -12,7 +12,7 @@ Lesson 605 min
 
 Claude Code has an MCP client built right into it, which means you can connect MCP servers to dramatically expand its functionality. This opens up some really powerful possibilities for customizing your development workflow.
 
-## How MCP Integration Works
+## How MCP Integration Works[](#how-mcp-integration-works)
 
 The Model Context Protocol allows Claude Code to connect to external services through MCP servers. Each server can provide tools, prompts, and resources that extend what Claude can do.
 
@@ -22,7 +22,7 @@ In this example, we'll connect Claude Code to a custom MCP server that provides 
 
 ![](https://academy.claude.com/assets/media/0a249b24a1366e1ff3f1dfe3cb525d14f8453cc7f3f8d822304c53bf060ab5f2.png)
 
-## Adding an MCP Server to Claude Code
+## Adding an MCP Server to Claude Code[](#adding-an-mcp-server-to-claude-code)
 
 Setting up an MCP server is straightforward. First, stop any running Claude Code session, then use the MCP add command:
 
@@ -39,7 +39,7 @@ This command takes two arguments:
 
 After adding the server, restart Claude Code and it will automatically connect to your MCP server.
 
-## Testing the Integration
+## Testing the Integration[](#testing-the-integration)
 
 Once connected, Claude can use the tools provided by your MCP server. In our example, we can ask Claude to convert document files to markdown format, and it will automatically use the document conversion tool we created.
 
@@ -47,7 +47,7 @@ Once connected, Claude can use the tools provided by your MCP server. In our exa
 
 The tool successfully converts the document content, showing how MCP servers can add entirely new capabilities to Claude Code.
 
-## Popular MCP Servers for Development
+## Popular MCP Servers for Development[](#popular-mcp-servers-for-development)
 
 There are many existing MCP servers that can enhance your development workflow:
 
@@ -60,7 +60,7 @@ There are many existing MCP servers that can enhance your development workflow:
 * **firecrawl-mcp-server** - Adds web scraping capabilities to Claude
 * **slack-mcp** - Allows Claude to post messages or reply to specific threads
 
-## Building Your Custom Workflow
+## Building Your Custom Workflow[](#building-your-custom-workflow)
 
 The real power comes from combining multiple MCP servers that match your specific development needs. For example, you might set up:
 

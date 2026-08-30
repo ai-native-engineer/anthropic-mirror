@@ -16,9 +16,9 @@ Use Claude's Kensho integration to access S&P Global's financial data for compre
 
 The Kensho LLM-ready API integration provides Claude with access to S&P Global’s financial data, delivering comprehensive market and fundamental data for public companies. This article explains how to set up the Kensho integration and use S&P data for financial analysis, including price history, financial statements, segment data, and business relationships.
 
-## What This Integration Provides
+## What This Integration Provides[](#what-this-integration-provides)
 
-### Capabilities
+### Capabilities[](#capabilities)
 
 The integration with Kensho’s LLM-ready API enables Claude to access multiple dimensions of S&P Global’s financial and market data:
 
@@ -31,7 +31,7 @@ The integration with Kensho’s LLM-ready API enables Claude to access multiple 
 * **Competitor Intelligence:** Retrieve competitor lists from multiple sources including SEC filings, self-identification, and third-party analysis.
 * **Time Period Management:** Determine latest reporting periods and calculate historical quarters for consistent comparisons across companies with different fiscal years.
 
-### How Claude Uses S&P Global Data
+### How Claude Uses S&P Global Data[](#how-claude-uses-sp-global-data)
 
 Claude applies Kensho's capabilities to support comprehensive financial analysis leveraging S&P Global data:
 
@@ -41,11 +41,11 @@ Claude applies Kensho's capabilities to support comprehensive financial analysis
 * **Peer Group Construction:** Retrieves identical metrics across companies for true apples-to-apples comparisons.
 * **Relationship Network Analysis:** Maps business ecosystems to reveal concentration risks and strategic positioning not apparent from financials alone.
 
-## Setting Up the Kensho Integration
+## Setting Up the Kensho Integration[](#setting-up-the-kensho-integration)
 
 Technical details of the Kensho Integration can be found in the [Kensho Integration MCP Server Documentation(opens in new tab)](https://docs.kensho.com/llmreadyapi/mcp). You will need to contact S&P Global to get access to the MCP server.
 
-### For Organization Owners
+### For Organization Owners[](#for-organization-owners)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors).
 2. Scroll down and click “Add custom connector" at the bottom of the list.
@@ -53,13 +53,13 @@ Technical details of the Kensho Integration can be found in the [Kensho Integrat
 4. Name the integration (e.g., "Kensho S&P")
 5. Click "Add"
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Comprehensive Company Profile
+### Comprehensive Company Profile[](#comprehensive-company-profile)
 
 Using the Kensho integration, create a complete profile for Microsoft (MSFT) including current market data, latest financial metrics, business segments, and key competitor data from S&P Global. Include market cap, enterprise value, trailing twelve-month revenue and margins, plus geographic revenue breakdown.
 
@@ -71,7 +71,7 @@ This type of comprehensive profile combines multiple data types into a single an
 
 **Tip:** Request both market data and fundamentals together for a complete overview that includes valuation context alongside operational performance.
 
-### Historical Price Performance Analysis
+### Historical Price Performance Analysis[](#historical-price-performance-analysis)
 
 Pull five years of weekly price data for Tesla (TSLA) and calculate the volatility, maximum drawdown, and performance versus the S&P 500. Include adjusted prices to account for any stock splits and show periods of highest volatility.
 
@@ -83,7 +83,7 @@ Historical price analysis using S&P Global data goes beyond simple price charts.
 
 **Note:** Adjusted prices ensure accurate return calculations across corporate actions like splits and special dividends, which is essential for long-term performance analysis.
 
-### Financial Statement Deep Dive
+### Financial Statement Deep Dive[](#financial-statement-deep-dive)
 
 Retrieve Apple's last 12 quarters of income statements and calculate the trend in gross margins, operating margins, and R&D as percentage of revenue. Show both the quarterly values and the rolling four-quarter averages to smooth seasonality.
 
@@ -95,7 +95,7 @@ Financial statement analysis through Kensho allows examination of margin trends 
 
 **Tip:** LTM calculations help normalize for seasonal businesses, providing clearer trend analysis for companies with significant quarterly variations.
 
-### Competitor Benchmarking
+### Competitor Benchmarking[](#competitor-benchmarking)
 
 Identify Netflix's competitors from their SEC filings and compare key metrics including subscriber growth, content costs, average revenue per user, and free cash flow margins. Focus on direct streaming competitors they specifically mention as competitive threats.
 
@@ -107,7 +107,7 @@ Competitor analysis combines Kensho's relationship mapping with financial metric
 
 **Note:** Different source filters provide varying perspectives on competition—SEC filings show who companies view as threats, while third-party sources may identify less obvious competitive dynamics.
 
-### Segment Performance Tracking
+### Segment Performance Tracking[](#segment-performance-tracking)
 
 Show Amazon's segment breakdown for the last eight quarters, including revenue and operating income by segment. Calculate the growth rates for AWS, North America retail, and International retail, and identify which segments are driving overall margin expansion.
 
@@ -119,7 +119,7 @@ Segment analysis reveals the underlying drivers of consolidated performance. Cla
 
 **Tip:** Segment data reveals trends not visible in consolidated statements, particularly for conglomerates or companies undergoing business model transitions.
 
-### Supply Chain Analysis
+### Supply Chain Analysis[](#supply-chain-analysis)
 
 Map NVIDIA's key business relationships including their primary chip manufacturers, major customers, and strategic technology partners. Focus on relationships mentioned in their latest 10-K filing to understand supply chain dependencies and customer concentration risks.
 
@@ -131,7 +131,7 @@ Business relationship mapping through Kensho provides insights into operational 
 
 **Key benefit:** Reveals dependencies not apparent from financial statements alone, such as single-source supplier risks or customer concentration that could impact revenue stability.
 
-## Tips for Using S&P Global Data
+## Tips for Using S&P Global Data[](#tips-for-using-sp-global-data)
 
 * Use any identifier format (ticker, ISIN, CUSIP) - Claude handles conversion automatically
 * Request specific date ranges to manage data volume and focus analysis

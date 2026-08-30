@@ -15,9 +15,11 @@ In this lessonBy the end, you’ll be able to
 * Understand the content that this course covers
 * Explain why AI Fluency is an essential skill for students
 
-## Welcome to AI Fluency for students
+## Welcome to AI Fluency for students[](#welcome-to-ai-fluency-for-students)
 
 Welcome to AI Fluency for students
+
+SummaryTranscript
 
 This video introduces the concept of AI Fluency—using AI effectively,
 efficiently, ethically, and safely, as well as what you'll learn in our *AI
@@ -29,7 +31,7 @@ learning partner and career planning tool, and finally discussing what it
 means to be "the human in the loop." The goal is to transform AI from a tool
 that does work for you into a partner that helps you do your work better.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * AI Fluency goes beyond prompts and tools to focus on enduring principles
 * The course covers the 4D Framework, learning applications, and career planning

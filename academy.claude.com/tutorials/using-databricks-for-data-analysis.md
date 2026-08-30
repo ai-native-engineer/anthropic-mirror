@@ -16,7 +16,7 @@ Integrate Claude with Databricks to access organizational data through Unity Cat
 
 The Databricks connector provides Claude with access to your organization's internal data through Unity Catalog, enabling analysis of your databases, running custom business logic, and accessing unstructured documents. Databricks provides three separate connectors: one for functions, one for vector search, and one for Genie, each accessing different capabilities within your Databricks workspace.
 
-## Reminder on Databricks Components
+## Reminder on Databricks Components[](#reminder-on-databricks-components)
 
 Before exploring what Claude can do with Databricks, it's important to understand three core components that exist within your Databricks workspace:
 
@@ -24,9 +24,9 @@ Before exploring what Claude can do with Databricks, it's important to understan
 2. **Vector Search**: Semantic search indexes built on your organization's documents and datasets. These allow searching conceptually similar content even when exact keywords don't match.
 3. **Genie**: A natural language interface that translates plain English questions into SQL queries against your data. Genie uses metadata about your tables and columns to understand business terminology and generate appropriate queries.
 
-## What This Connector Provides
+## What This Connector Provides[](#what-this-connector-provides)
 
-### Integration Capabilities
+### Integration Capabilities[](#integration-capabilities)
 
 Through the Databricks integration, Claude can access resources in your workspace:
 
@@ -35,7 +35,7 @@ Through the Databricks integration, Claude can access resources in your workspac
 * **Natural Language Queries**: Through Genie, Claude can translate plain English questions into SQL queries. Instead of writing complex SQL, you can ask questions like "What was our revenue growth last quarter?" and Claude will use Genie to generate and execute the appropriate query.
 * **Governed Access**: All data access through the connector respects your organization's Unity Catalog permissions and policies. Claude can only access data and execute functions that your user account has permission to use.
 
-### How Claude Uses Databricks Data
+### How Claude Uses Databricks Data[](#how-claude-uses-databricks-data)
 
 Claude applies Databricks capabilities in several ways to support comprehensive data analysis:
 
@@ -45,7 +45,7 @@ Claude applies Databricks capabilities in several ways to support comprehensive 
 * **Contextual Query Building**: When you ask questions in plain English, Claude uses Genie to translate them into appropriate SQL queries. This translation considers your table structures, column names, and relationships to generate accurate queries that match your database structure.
 * **Pattern Recognition**: Through vector search, Claude can find patterns and similarities across documents and data. This helps in finding related issues, similar transactions, or comparable situations that might not be obvious through traditional keyword searches.
 
-## Setting up the Databricks Connector
+## Setting up the Databricks Connector[](#setting-up-the-databricks-connector)
 
 The Databricks integration consists of three separate connectors, each requiring separate setup:
 
@@ -55,7 +55,7 @@ The Databricks integration consists of three separate connectors, each requiring
 
 Technical details of the Databricks connectors can be found in Databricks's [MCP Server Documentation(opens in new tab)](https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp). Authentication with Databrick's connectors is handled via [OAuth(opens in new tab)](https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services#connect-claude-connectors-using-oauth) (for [Claude.ai(opens in new tab)](http://claude.ai/) and Claude Desktop) or via a [Databricks Personal Access Token(opens in new tab)](https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services#connect-claude-desktop-using-pat) (for Claude Desktop only).
 
-### Adding the Connector as an Organization Owner
+### Adding the Connector as an Organization Owner[](#adding-the-connector-as-an-organization-owner)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors).
 2. Scroll down and click “Add custom connector" at the bottom of the list.
@@ -63,34 +63,34 @@ Technical details of the Databricks connectors can be found in Databricks's [MCP
 4. Name the integration. Remember that there are three separate Databricks servers, so consider naming each uniquely (e.g., "Databricks UC", "Databricks Genie", "Databricks Search")
 5. Click "Add"
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Available Resources Example
+### Available Resources Example[](#available-resources-example)
 
 To illustrate how these capabilities work together, consider a private equity firm with the following Databricks resources configured:
 
-### Tables in this scenario
+### Tables in this scenario[](#tables-in-this-scenario)
 
 1. **portfolio\_companies:** Company details, acquisition information, current valuations, and debt levels
 2. **financial\_statements:** Period financials including revenue, EBITDA with adjustments, and operational metrics like customer count and churn
 3. **market\_comparables:** Sector comparable companies with valuation multiples and growth rates
 4. **due\_diligence\_docs:** Repository of due diligence reports, analysis documents, and deal memos
 
-### Unity Catalog Functions in this scenario
+### Unity Catalog Functions in this scenario[](#unity-catalog-functions-in-this-scenario)
 
 1. **calculate\_normalized\_ebitda():** Applies standard private equity adjustments to reported EBITDA, removing one-time costs and normalizing owner compensation
 2. **compute\_portfolio\_irr():** Calculates internal rate of return and money-on-invested-capital based on cash flows and holding periods
 3. **estimate\_debt\_capacity():** Models maximum leverage capacity with covenant compliance stress testing under various scenarios
 
-### Vector Search Index in this scenario
+### Vector Search Index in this scenario[](#vector-search-index-in-this-scenario)
 
 1. **due\_diligence\_index:** Semantic search across all due diligence documents, deal memos, and analysis reports
 
-## Portfolio Exit Readiness Analysis
+## Portfolio Exit Readiness Analysis[](#portfolio-exit-readiness-analysis)
 
 Example input prompt:
 
@@ -107,7 +107,7 @@ For this analysis, Claude might use the different UC Functions and Genie in the 
 
 Claude might then report its results in a summary showing exit-ready companies with IRR, MOIC, and valuation ranges based on current market multiples.
 
-## New Deal Valuation
+## New Deal Valuation[](#new-deal-valuation)
 
 Example input prompt:
 
@@ -124,7 +124,7 @@ To complete this request, Claude might follow this workflow:
 
 Ideally, Claude would then respond with a report on the valuation range and a recommended offer price, while citing sources that lead to its recommendation.
 
-## Covenant Breach Risk Assessment
+## Covenant Breach Risk Assessment[](#covenant-breach-risk-assessment)
 
 Example input prompt:
 
@@ -141,7 +141,7 @@ For this task, Claude might use the following resources:
 
 Claude might then respond with a breach risk analysis, organized by company and scenario.
 
-## Tips for Using Databricks
+## Tips for Using Databricks[](#tips-for-using-databricks)
 
 * Be specific about what data you are looking for.
 

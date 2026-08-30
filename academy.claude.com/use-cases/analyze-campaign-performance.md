@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Analyze campaign performance result](https://academy.claude.com/assets/v1/analyze-campaign-performance-eucmwfo0.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Compiling campaign data across multiple channels into a unified view takes hours of work. Claude handles the consolidation and analysis together, processing multiple data sources to spot channel patterns, identify reallocation opportunities, and deliver actionable recommendations.
 
@@ -36,11 +36,11 @@ Context: Our target ROI is 300%+. Enterprise customers have 3x higher LTV than S
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 To make helpful recommendations, give Claude your business context, such as your current and target metrics, as well as industry benchmarks.
 
-### Required context
+### Required context[](#required-context)
 
 Upload any data relating to your campaign performance. Click the (+) button in the chat bar to browse through your files, or alternatively, drag and drop files into the chat box area.
 
@@ -48,15 +48,7 @@ Upload any data relating to your campaign performance. Click the (+) button in t
 
 Campaign dataXLSX
 
-### Optional context
-
-Use [Extended Thinking(opens in new tab)](https://www.anthropic.com/news/visible-extended-thinking) for better results completing complex tasks like analyzing data and creating high quality spreadsheets.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude analyzes your marketing data and turns it into a strategic review that tells you where and how you can improve.
 
@@ -78,11 +70,11 @@ I created an Excel dashboard with executive metrics, campaign rankings using per
 
 **Strategic Recommendations:** Q4 Action Plan
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Update past work
+### Update past work[](#update-past-work)
 
 Ask Claude to reformat previous analyses so all your dashboards are consistent. Claude preserves your data and insights while restructuring everything to match, creating consistency across your work.
 
@@ -90,7 +82,7 @@ I’'m attaching performance reviews from years prior. Reformat these older repo
 
 Open in Claude
 
-### Add visual polish
+### Add visual polish[](#add-visual-polish)
 
 Request visual touches that improve the quality of your outputs.
 
@@ -98,21 +90,21 @@ Enhance the spreadsheet by adding data visualizations ( heat maps to show patter
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Perform competitive benchmarking
+### Perform competitive benchmarking[](#perform-competitive-benchmarking)
 
 Use [Research(opens in new tab)](https://support.claude.com/en/articles/11088861-using-research-on-claude) to find industry benchmarks and compare performance. Research works differently from a simple search—Claude deep dives across all your connected tools and online sources. This process takes a few minutes but delivers a thorough report with citations you can verify. Having multiple integrations connected gives Research more context to work with, allowing Claude to cross-reference internal knowledge with external market data.
 
-### Open the actual Excel file, not just the preview
+### Open the actual Excel file, not just the preview[](#open-the-actual-excel-file-not-just-the-preview)
 
 The chat preview shows basic table structure, but the actual spreadsheet contains working formulas, formatting, color-coded cells, and typography that may not appear in chat. Download and open the file to see the full sheet with all formatting intact before requesting changes.
 
-### Work with messy data
+### Work with messy data[](#work-with-messy-data)
 
 Claude handles messy data so upload data as-is—mixed formats, inconsistent naming, incomplete fields. Focus your energy on collecting comprehensive information from several channels rather than making everything perfectly formatted.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Work with Claude to transform campaign data into strategic recommendations that help you decide where to invest next quarter.
 

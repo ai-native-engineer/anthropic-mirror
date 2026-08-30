@@ -18,7 +18,7 @@ Welcome to the Claude for nonprofits community. This guide provides everything y
 
 The framework below is flexible and self-paced. Move through the phases at whatever speed works for your team.
 
-## Phase 1: Foundation (technical setup and access)
+## Phase 1: Foundation (technical setup and access)[](#phase-1-foundation-technical-setup-and-access)
 
 #### Key resources
 
@@ -39,7 +39,7 @@ The framework below is flexible and self-paced. Move through the phases at whate
 * Establish Slack or Teams channels and office hours with designated ownership
 * Bookmark the [Claude help center(opens in new tab)](https://support.claude.com/en/) for technical support
 
-## Phase 2: Activation (first users and early wins)
+## Phase 2: Activation (first users and early wins)[](#phase-2-activation-first-users-and-early-wins)
 
 #### Key resources
 
@@ -63,7 +63,7 @@ The framework below is flexible and self-paced. Move through the phases at whate
   Open in Claude
 * Send baseline surveys to track progress and use cases
 
-## Phase 3: Acceleration (scaling and integration)
+## Phase 3: Acceleration (scaling and integration)[](#phase-3-acceleration-scaling-and-integration)
 
 #### Key resources
 
@@ -84,7 +84,7 @@ The framework below is flexible and self-paced. Move through the phases at whate
 * Monitor leading indicators: weekly active users %, users with 10+ chats %, project adoption %
 * Share success stories internally on a regular basis
 
-## Phase 4: Expansion (advanced use cases and impact)
+## Phase 4: Expansion (advanced use cases and impact)[](#phase-4-expansion-advanced-use-cases-and-impact)
 
 #### Key resources
 

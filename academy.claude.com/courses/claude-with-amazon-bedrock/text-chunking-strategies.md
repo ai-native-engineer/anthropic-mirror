@@ -22,7 +22,7 @@ This demonstrates why chunking strategy matters so much. The goal is to create c
 
 ![](https://academy.claude.com/assets/media/a62744c2b485f4fef2941da5905df33efe4b85939c8cc1d2871d48712c8cdabe.png)
 
-## Three Main Chunking Strategies
+## Three Main Chunking Strategies[](#three-main-chunking-strategies)
 
 ![](https://academy.claude.com/assets/media/6bbe9453171bfc5925e9574162beeba6e2c3d608d06d52bd8c2458edccb71a4a.png)
 
@@ -32,7 +32,7 @@ There are three primary approaches to dividing text into chunks:
 * **Structure-based:** Split based on document structure (headers, paragraphs, sections)
 * **Semantic-based:** Group related sentences or sections using NLP techniques
 
-## Size-Based Chunking
+## Size-Based Chunking[](#size-based-chunking)
 
 Size-based chunking is the most straightforward approach. You simply divide your document into chunks of roughly equal character or word count. It's easy to implement and works reliably across different document types.
 
@@ -46,7 +46,7 @@ However, this approach has clear downsides:
 
 ![](https://academy.claude.com/assets/media/fecf35c6b77511dff3a0cecc2efdae1dc26d80de1fb3c5803062e8d43c49ca7b.png)
 
-## Adding Overlap
+## Adding Overlap[](#adding-overlap)
 
 To address the context problem, you can implement an overlap strategy. Each chunk includes some characters from neighboring chunks, providing additional context and ensuring important information isn't lost at chunk boundaries.
 
@@ -54,7 +54,7 @@ To address the context problem, you can implement an overlap strategy. Each chun
 
 While this creates some duplication, the trade-off is usually worth it for the improved context each chunk receives.
 
-## Structure-Based Chunking
+## Structure-Based Chunking[](#structure-based-chunking)
 
 When your documents have consistent formatting (like markdown with clear headers), structure-based chunking can produce excellent results. You split on structural elements like headers, creating chunks that align with the document's natural organization.
 
@@ -62,11 +62,11 @@ When your documents have consistent formatting (like markdown with clear headers
 
 This works beautifully for well-formatted documents but requires guarantees about document structure. It won't work reliably with plain text files or inconsistently formatted documents.
 
-## Implementation Examples
+## Implementation Examples[](#implementation-examples)
 
 Here are three practical chunking functions you can implement:
 
-### Character-Based Chunking
+### Character-Based Chunking[](#character-based-chunking)
 
 python
 
@@ -87,7 +87,7 @@ def chunk_by_char(text, chunk_size=150, chunk_overlap=20):
     return chunks
 ```
 
-### Sentence-Based Chunking
+### Sentence-Based Chunking[](#sentence-based-chunking)
 
 python
 
@@ -110,7 +110,7 @@ def chunk_by_sentence(text, max_sentences_per_chunk=5, overlap_sentences=1):
     return chunks
 ```
 
-### Section-Based Chunking
+### Section-Based Chunking[](#section-based-chunking)
 
 python
 
@@ -120,7 +120,7 @@ def chunk_by_section(document_text):
     return re.split(pattern, document_text)
 ```
 
-## Choosing the Right Strategy
+## Choosing the Right Strategy[](#choosing-the-right-strategy)
 
 Your choice of chunking strategy depends entirely on your specific use case:
 

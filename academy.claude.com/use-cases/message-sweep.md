@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-jabaz0im.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nbrkrt31.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Productivity plugin ships with `/start` and other personal-inbox skills as a starting point, already structured to read across apps and sort by urgency. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Productivity6 skills for inbox sweeps, daily rundowns, meeting prep, and decisio
 
 Show all 4 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -64,7 +64,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 This one runs almost entirely through connectors, so the working folder is light. Point Cowork at a notes folder if you want each day's sweep saved as a file you can search later; otherwise the sweep stays in the chat and the drafts stay in Slack and Teams. If you run it daily, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your channel list and reply preferences stay attached.
 
@@ -76,15 +76,15 @@ sweep-2026-04-23.mdApr 23, 20262 KB
 
 In Cowork’s chat bar:Notes / Inbox-Sweeps
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Sweep my unread Slack DMs and mentions, Teams activity feed, and Gmail inbox from the last 24 hours. Group everything by topic, not by app. For each topic, tell me whether it needs a reply from me, needs reading, or is just FYI. Draft a reply for everything in the first bucket and keep each to three sentences or fewer.
 
 Notes / Inbox-SweepsOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -102,7 +102,7 @@ Source
 
 **Let the connected tools supply context.** Slack, Teams, and Gmail are read live through the connectors, so the sweep reflects what's actually sitting unread right now, not a stale export.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -112,7 +112,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -122,9 +122,9 @@ NotesOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it every morning at 8am
+### Run it every morning at 8am[](#run-it-every-morning-at-8am)
 
 The sweep should be waiting before you open Slack. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs every weekday morning against your live connectors.
 
@@ -140,7 +140,7 @@ Runs `/start` across Slack, Teams, and Gmail and DMs you the topic-grouped list 
 
 Every **weekday at 8:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/start` now carries your channel list, your priority senders, and your skip rules. Share it so teammates with the same channels get the same sorted morning, and new joiners inherit the watch-list on day one.
 
@@ -148,7 +148,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/start` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your channel list and skip rules baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

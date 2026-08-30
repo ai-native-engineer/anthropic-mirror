@@ -12,7 +12,7 @@ Lesson 310 min
 
 Now it's time to get hands-on with the Anthropic Python SDK and make your first request to Claude through Vertex AI. We'll walk through three essential steps: installing the SDK, creating a client, and making your first API call.
 
-## Installing the Anthropic Python SDK
+## Installing the Anthropic Python SDK[](#installing-the-anthropic-python-sdk)
 
 First, you'll need to install the Anthropic SDK with Vertex AI support. In your Jupyter notebook, run this magic command:
 
@@ -24,7 +24,7 @@ bash
 
 The `[vertex]` part ensures you get the specific components needed to connect to Google Cloud's Vertex AI platform.
 
-## Creating an API Client
+## Creating an API Client[](#creating-an-api-client)
 
 Next, import and create a client instance specifically designed for Vertex AI:
 
@@ -34,12 +34,12 @@ python
 from anthropic import AnthropicVertex
 
 client = AnthropicVertex(region="global", project_id="your-project-id")
-model = "claude-sonnet-4@20250514"
+model = "claude-sonnet-4-5@20250929"
 ```
 
 You'll need to replace `"your-project-id"` with your actual Google Cloud project ID, which you can find in the Google Cloud Console's project selector. Setting the model as a variable saves you from typing it repeatedly throughout your notebooks.
 
-## Understanding the Create Function
+## Understanding the Create Function[](#understanding-the-create-function)
 
 The core of making requests to Claude is the `create` function, which requires three key parameters:
 
@@ -51,7 +51,7 @@ The core of making requests to Claude is the `create` function, which requires t
 
 Think of `max_tokens` as a budget rather than a goal. If you set it to 1000, Claude will write whatever response it thinks is appropriate, but stop if it would exceed 1000 tokens.
 
-## Understanding Messages
+## Understanding Messages[](#understanding-messages)
 
 Messages represent the back-and-forth conversation between you and Claude, just like in a chat application:
 
@@ -62,7 +62,7 @@ There are two types of messages:
 * **User messages** - Content written by humans that you want to feed into Claude
 * **Assistant messages** - Content that Claude has generated and sent back to you
 
-## Making Your First Request
+## Making Your First Request[](#making-your-first-request)
 
 Here's how to structure a basic request:
 
@@ -83,7 +83,7 @@ message = client.messages.create(
 
 Each message is a dictionary with a `role` (either "user" or "assistant") and `content` (the actual text).
 
-## Extracting the Response
+## Extracting the Response[](#extracting-the-response)
 
 When you run the request, you'll get back a complex response object with lots of metadata. To get just the text that Claude generated, use:
 

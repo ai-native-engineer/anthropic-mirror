@@ -12,7 +12,7 @@ Lesson 4610 min
 
 The Anthropic API offers two powerful features that work exceptionally well together: the Files API and Code Execution. While they might seem separate at first, combining them opens up some really interesting possibilities for delegating complex tasks to Claude.
 
-## Files API
+## Files API[](#files-api)
 
 The Files API provides an alternative way to handle file uploads. Instead of encoding images or PDFs directly in your messages as base64 data, you can upload files ahead of time and reference them later.
 
@@ -28,7 +28,7 @@ Here's how it works:
 
 This approach is particularly useful when you want to reference the same file multiple times or when working with larger files that would be cumbersome to include in every request.
 
-## Code Execution Tool
+## Code Execution Tool[](#code-execution-tool)
 
 Code execution is a server-based tool that doesn't require you to provide an implementation. You simply include a predefined tool schema in your request, and Claude can optionally execute Python code in an isolated Docker container.
 
@@ -41,7 +41,7 @@ Key characteristics of the code execution environment:
 * Claude can execute code multiple times during a single conversation
 * Results are captured and interpreted by Claude for the final response
 
-## Combining Files API and Code Execution
+## Combining Files API and Code Execution[](#combining-files-api-and-code-execution)
 
 The real power comes from using these features together. Since the Docker containers have no network access, the Files API becomes the primary way to get data in and out of the execution environment.
 
@@ -55,7 +55,7 @@ Here's a typical workflow:
 4. Claude writes and executes code to process your file
 5. Claude can generate outputs (like plots) that you can download
 
-## Practical Example
+## Practical Example[](#practical-example)
 
 Let's look at a real example using streaming service data. The CSV file contains user information including subscription tiers, viewing habits, and whether they've churned (canceled their subscription).
 
@@ -93,7 +93,7 @@ chat(
 )
 ```
 
-## Understanding the Response
+## Understanding the Response[](#understanding-the-response)
 
 When Claude uses code execution, the response contains multiple types of blocks:
 
@@ -105,7 +105,7 @@ When Claude uses code execution, the response contains multiple types of blocks:
 
 Claude might execute code multiple times during a single response, iteratively building up its analysis. Each execution cycle includes the code and its results.
 
-## Downloading Generated Files
+## Downloading Generated Files[](#downloading-generated-files)
 
 One of the most powerful features is Claude's ability to generate files (like plots or reports) and make them available for download. When Claude creates a visualization, it gets stored in the container and you can download it using the Files API.
 
@@ -121,7 +121,7 @@ download_file("file_id_from_response")
 
 The result is a comprehensive analysis with professional visualizations that would have taken significant manual coding to produce.
 
-## Beyond Data Analysis
+## Beyond Data Analysis[](#beyond-data-analysis)
 
 While data analysis is a natural fit, the combination of Files API and code execution opens up many possibilities:
 

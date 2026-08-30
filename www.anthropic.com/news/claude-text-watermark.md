@@ -111,7 +111,3 @@ No. A watermark only helps test whether Claude might have produced or processed 
 
 1. Or, you might say, nubilous—which is also a synonym for “obscure.”
 2. Pi is technically predictable, but any run of digits from somewhere in the middle of pi is indistinguishable from a run of rolls of a ten-sided die. Also, set aside the fact that the dice in Monopoly go from 1 to 6 whereas a digit of pi can be from 0 to 9; the analogy isn’t perfect.
-
-### Investigating three real-world incidents in our cybersecurity evaluations
-
-[Read more](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)

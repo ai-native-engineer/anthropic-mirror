@@ -88,6 +88,122 @@ Grid
 
 List
 
+[View story](https://claude.com/customers/atlassian)View story
+
+![Atlassian logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)![Atlassian logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)
+
+How Atlassian builds AI agents teams can trust with Claude and Google Cloud
+
+Atlassian
+
+Large
+
+Google
+
+Australia
+
+August 28, 2026
+
+Claude Platform
+
+Claude Code
+
+Software
+
+Claude Platform
+
+[View story](https://claude.com/customers/spellbook)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90a99c672407237f462884_logo_spellbook-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a91d95f81c53c648dd54bac_logo_spellbook-dark-mode-fixed.svg)
+
+Spellbook runs 530,000 contract reviews a month with Claude
+
+Spellbook
+
+Medium
+
+North America
+
+August 27, 2026
+
+Claude Platform
+
+Claude Code
+
+Legal
+
+Claude Platform
+
+[View story](https://claude.com/customers/evenup)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5e5b97ed26f0736cd8ef5b_evenup_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5e5b9a67ae5f64f19fc17e_evenup_dark.svg)
+
+EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
+
+EvenUp
+
+Startup
+
+North America
+
+August 26, 2026
+
+Claude Platform
+
+Claude Enterprise
+
+Claude Code
+
+Legal
+
+Claude Platform
+
+[View story](https://claude.com/customers/rocket-money-qa)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e170db69adaa238d89c2d_logo_rocketmoney-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e17136685ddacc4602392_logo_customer-dark-mode.svg)
+
+Rocket Money on building agents that fix their own code
+
+Rocket Money Q&A
+
+Large
+
+AWS
+
+North America
+
+August 26, 2026
+
+Claude Platform
+
+Software
+
+Claude Platform
+
+[View story](https://claude.com/customers/rocket-money)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e170db69adaa238d89c2d_logo_rocketmoney-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a8e17136685ddacc4602392_logo_customer-dark-mode.svg)
+
+How Rocket Money built its personal finance agent with Claude
+
+Rocket Money
+
+Large
+
+AWS
+
+North America
+
+August 26, 2026
+
+Claude Platform
+
+Claude Code
+
+Software
+
+Claude Platform
+
 [View story](https://claude.com/customers/league-qa)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50faffe550cd0871c1c9_logo_league-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7e50fdc2966b1ac852794a_logo_league-dark-mode.png)
@@ -174,13 +290,13 @@ Healthcare
 
 Claude Enterprise
 
-[View story](https://claude.com/customers/vega-security)View story
+[View story](https://claude.com/customers/vega)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b3a32e0823cc2246db_logo_vega-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b694804d6ccb090f8f_logo_vega-dark-mode.svg)
 
 Vega's cyber defense platform returns 67% of analysts' time with Claude
 
-Vega Security
+Vega
 
 Startup
 
@@ -296,119 +412,9 @@ Cybersecurity
 
 Claude Cowork
 
-[View story](https://claude.com/customers/cyera)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755437bdd73dced6999628_logo_cyera2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755440205f26561ab3f47c_logo_cyera2-dark-mode.svg)
-
-Cyera scales agentic AI across 1,500 employees with Claude Enterprise
-
-Cyera
-
-Large
-
-AWS
-
-North America
-
-August 7, 2026
-
-Claude Enterprise
-
-Claude Cowork
-
-Cybersecurity
-
-Claude Enterprise
-
-[View story](https://claude.com/customers/wondr-health)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a1ec915407cc422bfa_logo_wondrhealth-light-mode%201.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7554a6949ac0de1b799cd2_logo_wondrhealth-dark-mode.png)
-
-Wondr Health scales trusted health coaching with Claude
-
-Wondr Health
-
-Startup
-
-AWS
-
-North America
-
-August 7, 2026
-
-Claude Platform
-
-Software
-
-Claude Platform
-
-[View story](https://claude.com/customers/mercy-corps-qa)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e04954c57899e16ee740_logo_mercycorps-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e053a5775e0a59000aec_logo_mercycorps-dark-mode.svg)
-
-Mercy Corps on what AI makes possible in humanitarian work
-
-Mercy Corps Q&A
-
-Large
-
-North America
-
-August 4, 2026
-
-Claude Enterprise
-
-Claude for Nonprofits
-
-Beneficial Deployments
-
-Claude Enterprise
-
-[View story](https://claude.com/customers/mercy-corps)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e04954c57899e16ee740_logo_mercycorps-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a70e053a5775e0a59000aec_logo_mercycorps-dark-mode.svg)
-
-Mercy Corps accelerates global humanitarian response to community feedback with Claude
-
-Mercy Corps
-
-Large
-
-North America
-
-August 4, 2026
-
-Claude for Nonprofits
-
-Claude Enterprise
-
-Beneficial Deployments
-
-Claude Enterprise
-
-[View story](https://claude.com/customers/notability)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe769f703495a0fb59604_nb-primary-full-marketing.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ffe76dfd86b6d4e80e72ba_nb-primary-full-marketing-dark.svg)
-
-How Notability built a study tool that improves with every Claude release
-
-Notability
-
-Startup
-
-North America
-
-August 3, 2026
-
-Claude Platform
-
-Software
-
-Claude Platform
-
 [View more](https://claude.com/customers?fcdaa149_page=2)
 
-1 / 18
+1 / 19
 
 Industry
 
@@ -419,6 +425,172 @@ Product
 Location
 
 Partner
+
+[View story](https://claude.com/customers/atlassian)View story
+
+### Atlassian
+
+Industry
+
+Software
+
+Company size
+
+Large
+
+Product
+
+Claude Platform
+
+Claude Code
+
+Claude Platform
+
+Location
+
+Australia
+
+Partner
+
+Google
+
+August 28, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/atlassian)Read customer story
+
+[View story](https://claude.com/customers/spellbook)View story
+
+### Spellbook
+
+Industry
+
+Legal
+
+Company size
+
+Medium
+
+Product
+
+Claude Platform
+
+Claude Code
+
+Claude Platform
+
+Location
+
+North America
+
+Partner
+
+August 27, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/spellbook)Read customer story
+
+[View story](https://claude.com/customers/evenup)View story
+
+### EvenUp
+
+Industry
+
+Legal
+
+Company size
+
+Startup
+
+Product
+
+Claude Platform
+
+Claude Enterprise
+
+Claude Code
+
+Claude Platform
+
+Location
+
+North America
+
+Partner
+
+August 26, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/evenup)Read customer story
+
+[View story](https://claude.com/customers/rocket-money-qa)View story
+
+### Rocket Money Q&A
+
+Industry
+
+Software
+
+Company size
+
+Large
+
+Product
+
+Claude Platform
+
+Claude Platform
+
+Location
+
+North America
+
+Partner
+
+AWS
+
+August 26, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/rocket-money-qa)Read customer story
+
+[View story](https://claude.com/customers/rocket-money)View story
+
+### Rocket Money
+
+Industry
+
+Software
+
+Company size
+
+Large
+
+Product
+
+Claude Platform
+
+Claude Code
+
+Claude Platform
+
+Location
+
+North America
+
+Partner
+
+AWS
+
+August 26, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/rocket-money)Read customer story
 
 [View story](https://claude.com/customers/league-qa)View story
 
@@ -516,9 +688,9 @@ Read customer story
 
 [Read customer story](https://claude.com/customers/league)Read customer story
 
-[View story](https://claude.com/customers/vega-security)View story
+[View story](https://claude.com/customers/vega)View story
 
-### Vega Security
+### Vega
 
 Industry
 
@@ -548,7 +720,7 @@ August 12, 2026
 
 Read customer story
 
-[Read customer story](https://claude.com/customers/vega-security)Read customer story
+[Read customer story](https://claude.com/customers/vega)Read customer story
 
 [View story](https://claude.com/customers/doordash-boris-office-hours)View story
 
@@ -887,170 +1059,6 @@ July 17, 2026
 Read customer story
 
 [Read customer story](https://claude.com/customers/caylent)Read customer story
-
-[View story](https://claude.com/customers/epilepsy-foundation)View story
-
-### Epilepsy Foundation case study
-
-Industry
-
-Beneficial Deployments
-
-Company size
-
-Medium
-
-Product
-
-Claude Platform
-
-Claude Platform
-
-Location
-
-North America
-
-Partner
-
-AWS
-
-July 17, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/epilepsy-foundation)Read customer story
-
-[View story](https://claude.com/customers/epilepsy-foundation-qa)View story
-
-### Epilepsy Foundation Q&A
-
-Industry
-
-Beneficial Deployments
-
-Company size
-
-Medium
-
-Product
-
-Claude Platform
-
-Claude for Nonprofits
-
-Claude Platform
-
-Location
-
-North America
-
-Partner
-
-AWS
-
-July 17, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/epilepsy-foundation-qa)Read customer story
-
-[View story](https://claude.com/customers/eve-legal)View story
-
-### Eve Legal
-
-Industry
-
-Legal
-
-Company size
-
-Startup
-
-Product
-
-Claude Platform
-
-Claude Code
-
-Claude Platform
-
-Location
-
-North America
-
-Partner
-
-July 17, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/eve-legal)Read customer story
-
-[View story](https://claude.com/customers/rainn)View story
-
-### RAINN
-
-Industry
-
-Beneficial Deployments
-
-Company size
-
-Small
-
-Product
-
-Claude for Nonprofits
-
-Claude Code
-
-Claude Enterprise
-
-Claude for Nonprofits
-
-Location
-
-North America
-
-Partner
-
-July 15, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/rainn)Read customer story
-
-[View story](https://claude.com/customers/national-domestic-workers-alliance-qa)View story
-
-### National Domestic Workers Alliance Q&A
-
-Industry
-
-Beneficial Deployments
-
-Company size
-
-Small
-
-Product
-
-Claude for Nonprofits
-
-Claude Platform
-
-Claude for Nonprofits
-
-Location
-
-North America
-
-Partner
-
-July 17, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/national-domestic-workers-alliance-qa)Read customer story
 
 [See more](https://claude.com/customers?38d7aa68_page=2)
 

@@ -23,7 +23,7 @@ Anthropic's managed infrastructure. On the other end you have headless mode
 and the Agent SDK, which run Claude Code from your own code. Let's start
 with the end where you build the least.
 
-## Routines: a saved prompt that runs in the cloud
+## Routines: a saved prompt that runs in the cloud[](#routines-a-saved-prompt-that-runs-in-the-cloud)
 
 A routine is the most direct way to automate a task. There's no script and no server. It bundles three things: a prompt, the repository it works on, and any connectors it needs. Then it runs that bundle in the cloud whenever it's triggered.
 
@@ -39,7 +39,7 @@ Anything that's the same prompt on a recurring trigger is a good fit. A morning 
 
 Here's the mental model for what a routine ties together: a prompt, the repo, connectors, and a schedule.
 
-## Two ways to create one
+## Two ways to create one[](#two-ways-to-create-one)
 
 You can create a routine from the web at `claude.ai/code/routines`. You give it a name, write the instructions describing what Claude should do in each session, pick a repository, and choose a trigger.
 
@@ -49,7 +49,7 @@ You can also create one from inside Claude Code without leaving your terminal. J
 
 Same idea, either entry point. Pick whichever fits your flow.
 
-## Three things to know before you rely on routines
+## Three things to know before you rely on routines[](#three-things-to-know-before-you-rely-on-routines)
 
 Before you lean on routines for anything important, keep these three limits in mind.
 
@@ -57,7 +57,7 @@ Before you lean on routines for anything important, keep these three limits in m
 * **A recurring schedule runs at most hourly.** If you need something more frequent, routines aren't the tool.
 * **Each run starts from a fresh clone of your default branch and can only push to `claude/` prefixed branches** unless you loosen that per repo. This is the guardrail that keeps an autonomous run from rewriting main.
 
-## Headless mode: when you need your own environment
+## Headless mode: when you need your own environment[](#headless-mode-when-you-need-your-own-environment)
 
 Routines are great when the work fits in the cloud. But sometimes the job needs your environment, or logic wrapped around the run. That's when you drop to headless mode.
 
@@ -67,7 +67,7 @@ The core of headless mode is the `-p` flag (short for `--print`). It runs Claude
 
 One thing worth knowing: `-p` skips auto-discovery of hooks, skills, plugins, MCP servers, and the CLAUDE.md file. You get Claude plus the tools you allow explicitly, and nothing the local environment happens to load. The upside is that startup is much faster this way.
 
-## Getting structured output back
+## Getting structured output back[](#getting-structured-output-back)
 
 Because headless mode pipes like any shell tool, you'll often want structured data back instead of prose. You can pair a JSON schema with the JSON output format, and Claude will constrain its output to match your schema.
 
@@ -84,7 +84,7 @@ claude -p "Extract the exported function names from src/core/style.js" \
 
 That gives you a clean array you can hand to whatever comes next.
 
-## Multi-step automation with sessions
+## Multi-step automation with sessions[](#multi-step-automation-with-sessions)
 
 For work that happens across multiple steps, you don't have to cram everything into one command. Capture the session's ID from the JSON output and resume it later:
 
@@ -92,13 +92,13 @@ For work that happens across multiple steps, you don't have to cram everything i
 
 One script kicks off the work. Another resumes it later with full context. This is handy when the first pass produces a plan and a second pass carries it out.
 
-## Deterministic runs for CI
+## Deterministic runs for CI[](#deterministic-runs-for-ci)
 
 When CI needs the same results every single run, there's a mode built for that.
 
 The `--bare` flag gives you deterministic mode. It's the right choice when you're running Claude Code inside a pipeline and you want repeatable, predictable output rather than anything that varies run to run.
 
-## The Agent SDK: Claude Code inside your own app
+## The Agent SDK: Claude Code inside your own app[](#the-agent-sdk-claude-code-inside-your-own-app)
 
 The last step on the spectrum is the Agent SDK. This gets you a library that embeds Claude Code inside your own TypeScript or Python applications.
 
@@ -110,7 +110,7 @@ Both languages expose a `query` function and the same primitives as the CLI. You
 
 Then you iterate over the messages Claude streams back and handle them however your app needs. It's the same engine as the CLI, just callable from inside your product.
 
-## Which one should you reach for?
+## Which one should you reach for?[](#which-one-should-you-reach-for)
 
 Here's the quick decision guide:
 

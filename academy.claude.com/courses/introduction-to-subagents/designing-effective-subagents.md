@@ -20,7 +20,7 @@ wander, run too long, or produce output the main agent can't use. The fixes
 come down to four things: writing good descriptions, defining an output
 format, reporting obstacles, and limiting tool access.
 
-## How Subagent Config Data Gets Used
+## How Subagent Config Data Gets Used[](#how-subagent-config-data-gets-used)
 
 When you send a message to the main context window agent, the name and description of every available subagent are included in the system prompt. This is how the main agent decides which subagent to launch and when. If you want better control over when a subagent gets triggered automatically, the name and description are what you should tweak.
 
@@ -28,7 +28,7 @@ The description also plays a second role. When the main agent launches a subagen
 
 ![A subagent config file's name and description fields, with an arrow showing them flowing into the main agent's prompt input](https://academy.claude.com/assets/media/2fcc14069266c3a5217bd46e7407da1656fac5dc032f8c9074036a43f568031a.png)
 
-## Writing Descriptions That Shape Input Prompts
+## Writing Descriptions That Shape Input Prompts[](#writing-descriptions-that-shape-input-prompts)
 
 Consider a code review subagent. With a generic description, the main agent might write an input prompt like "use get diff to find the current changes." That's vague. The subagent has to figure out which files matter on its own.
 
@@ -38,7 +38,7 @@ This same technique works across different types of subagents. For example, addi
 
 ![The main agent delegating to the code-quality-reviewer subagent with a specific input prompt that lists the modified file and review focus areas](https://academy.claude.com/assets/media/f4fe08b1f4b26e41dfdbea4d9d501308854b86bb58f1132bb45d9ddfa567b3da.png)
 
-## Defining an Output Format
+## Defining an Output Format[](#defining-an-output-format)
 
 The single most important improvement you can make to a subagent is defining an output format in its system prompt. This does two things:
 
@@ -60,7 +60,7 @@ Open in Claude Code
 
 This format gives the subagent a clear checklist to work through. Once every section is filled in, the subagent knows it can stop.
 
-## Reporting Obstacles
+## Reporting Obstacles[](#reporting-obstacles)
 
 When a subagent discovers a workaround during its work -- like solving a dependency issue or finding that a certain command needs particular flags -- those details need to appear in the summary it returns. If they don't, the main thread has to rediscover the same solutions on its own, which wastes time and tokens.
 
@@ -79,7 +79,7 @@ Open in Claude Code
 
 ![The code-quality-reviewer system prompt open in an editor, highlighting the Obstacles Encountered section of the output format](https://academy.claude.com/assets/media/47a3f8e30cbe3a2e61f145839f14c0846d93952730d5253938ba9ee266ac5c0f.png)
 
-## Limiting Tool Access
+## Limiting Tool Access[](#limiting-tool-access)
 
 Not every subagent needs access to every tool. Think about what a subagent actually needs to do, and only give it the tools required for that job. This does two things: it prevents unintended side effects, and it makes each subagent's role clearer when you have several of them.
 
@@ -89,7 +89,7 @@ Here's how to think about tool access for common subagent types:
 * **Code reviewer** -- Needs `Bash` access to run `git diff` and see what changed, but still doesn't need `Edit` or `Write`.
 * **Styling / code modification agent** -- This is where you give `Edit` and `Write` access, because the subagent's job is to actually change your code.
 
-## Putting It All Together
+## Putting It All Together[](#putting-it-all-together)
 
 Effective subagents share four characteristics:
 

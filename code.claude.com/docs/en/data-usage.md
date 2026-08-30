@@ -21,6 +21,8 @@ If you explicitly opt in to methods to provide us with materials to train on, su
 
 If you choose to send us feedback about Claude Code using the `/feedback` command, we may use your feedback to improve our products and services. Transcripts shared via `/feedback`, or via `/bug` and `/share`, which report through the same path, are retained for 5 years.
 
+With [Claude-drafted feedback](/docs/en/tools-reference#sendfeedback-tool-behavior), Claude can also draft a feedback report and queue it on your machine for you to review. Claude Code sends nothing until you choose to send the draft, and a sent draft goes through the same submission path and retention as other `/feedback` reports.
+
 ### Session quality surveys
 
 When you see the "How is Claude doing this session?" prompt in Claude Code, responding to this survey, including selecting "Dismiss", records only your rating. We do not collect or store any conversation transcripts, inputs, outputs, or other session data as part of the rating prompt itself. Unlike thumbs up/down feedback or `/feedback` reports, this session quality survey is a simple product satisfaction metric.
@@ -50,6 +52,8 @@ Anthropic retains Claude Code data based on your account type and preferences.
 * Standard: 30-day retention period
 * [Zero data retention](/docs/en/zero-data-retention): available to qualified accounts for Claude Code on Claude for Enterprise. ZDR is not included in the standard Enterprise plan; it is enabled on a per-organization basis by your account team after confirming eligibility
 * Local caching: Claude Code clients store session transcripts locally in plaintext under `~/.claude/projects/` for 30 days by default to enable session resumption. Adjust the period with `cleanupPeriodDays`. See [application data](/docs/en/claude-directory#application-data) for what's stored and how to clear it.
+
+  Transcripts of sessions started or most recently continued in Claude Desktop or Cowork are [exempt from that limit by default](/docs/en/claude-directory#cleaned-up-automatically).
 
 You can delete individual Claude Code on the web sessions at any time. Deleting a session permanently removes the session's event data. For instructions on how to delete sessions, see [Delete sessions](/docs/en/claude-code-on-the-web#delete-sessions).
 
@@ -108,7 +112,7 @@ Error reporting is on only when all of these apply:
 * you're connecting directly to the Claude API
 * your organization doesn't have a zero data retention or HIPAA agreement
 
-When you run the `/feedback` command, a copy of your conversation history including code is sent to Anthropic. The `/bug` and `/share` commands submit through the same path. Before submitting, you choose how much history to include: the current session only, which is the default, or also other sessions from the same project over the last 24 hours or 7 days. The data is encrypted in transit via TLS and stored in Google Cloud Storage, which encrypts stored data at rest by default. Optionally, a GitHub issue is created in the public repository. To opt out, set the `DISABLE_FEEDBACK_COMMAND` environment variable to `1`.
+When you run the `/feedback` command, a copy of your conversation history including code is sent to Anthropic. The `/bug` and `/share` commands submit through the same path. Before submitting a report from the feedback dialog, you choose how much history to include: the current session only, which is the default, or also other sessions from the same project over the last 24 hours or 7 days. Claude Code submits [Claude-drafted feedback](/docs/en/tools-reference#sendfeedback-tool-behavior) through the same path, including the transcript when you chose to include it on the draft's review screen. The data is encrypted in transit via TLS and stored in Google Cloud Storage, which encrypts stored data at rest by default. Optionally, a GitHub issue is created in the public repository. To opt out, set the `DISABLE_FEEDBACK_COMMAND` environment variable to `1`.
 
 When you use a third-party provider such as Amazon Bedrock or Google Cloud's Agent Platform, or have no Anthropic credentials configured, `/feedback` writes the report to a local archive under `~/.claude/feedback-bundles/` instead of sending it to Anthropic. Known API key and token patterns are redacted before the archive is written. Nothing leaves your machine until you send that file to your Anthropic account representative or attach it to a support request.
 

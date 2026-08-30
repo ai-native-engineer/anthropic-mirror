@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Prepare for sales deals result](https://academy.claude.com/assets/v1/prepare-for-sales-deals-bttnu00w.png)[Open artifact](https://claude.ai/public/artifacts/0ba5807a-ca9f-483e-9981-618ce2be1caf)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Instead of manually searching through your CRM to remember similar deals, Claude analyzes comparable opportunities in seconds and shows you the patterns that matter for your current conversation.
 
@@ -30,11 +30,11 @@ Create an artifact I can scan before my next call to feel the most prepared. Thi
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude needs access to your CRM to find and analyze comparable opportunities so you understand what's worked in similar situations.
 
-### Required context
+### Required context[](#required-context)
 
 In [Settings > Capabilities(opens in new tab)](https://claude.ai/customize/connectors), find and enable your [HubSpot(opens in new tab)](https://mcp.hubspot.com/anthropic) connector so Claude can search opportunities and pull deal data.
 
@@ -44,15 +44,7 @@ HubSpot
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
-
-Turn on Extended Thinking to improve the quality of your analysis.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude searches your CRM for comparable deals, identifies patterns in wins vs. losses, and creates a deal preparation artifact with the key insights and data points that help you go into the conversation prepared.
 
@@ -69,11 +61,11 @@ I found 9 comparable healthcare deals ($45K-$95K, 150-250 employees) closed in t
 
 The brief includes deal-by-deal breakdown, rep names for the wins you can learn from, and specific notes excerpts showing how integration and timeline concerns surfaced.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Pull specific deal details
+### Pull specific deal details[](#pull-specific-deal-details)
 
 Dive deeper into a similar, relevant opportunity.
 
@@ -81,7 +73,7 @@ The Meridian Health deal looks most similar to what I'm working on. Pull the ful
 
 Open in Claude
 
-### Create talking points
+### Create talking points[](#create-talking-points)
 
 Turn your deal intelligence into actual conversation prep
 
@@ -89,7 +81,7 @@ Based on the patterns from similar healthcare deals, create 5-6 talking points I
 
 Open in Claude
 
-### Conduct further research
+### Conduct further research[](#conduct-further-research)
 
 Research your competitor and create head-to-head comparison guidance that shows where you win on what matters to this buyer.
 
@@ -97,21 +89,21 @@ They're evaluating us against [Competitor B]. Search the web to research their c
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Connect other tools for more context
+### Connect other tools for more context[](#connect-other-tools-for-more-context)
 
 Your CRM captures structured data (deal size, stage, close date), but sources like your email or Slack contain more informal thinking and notes. Connect more tools so Claude can find and synthesize structured and unstructured intelligence.
 
-### Create a skill to package this workflow
+### Create a skill to package this workflow[](#create-a-skill-to-package-this-workflow)
 
 Streamline your sales preparation by transforming this workflow into a Skill. Simply instruct Claude to create a skill based on your preferred process, including how you want to pull, analyze and format data. From there, each time you request a sales prep artifact, Claude will automatically conduct the research and analysis using new data.
 
-### Sets the quality bar with design language
+### Sets the quality bar with design language[](#sets-the-quality-bar-with-design-language)
 
 The prompt includes specific markers like "top-tier design" and "industry-leading aesthetic." These cues push Claude toward stronger execution rather than its default output.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Connect Claude to your CRM to pull comparable deals in seconds, understand what worked, and walk into sales conversations with context about matters for this situation.
 

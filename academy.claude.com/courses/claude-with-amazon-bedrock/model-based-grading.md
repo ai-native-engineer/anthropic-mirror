@@ -12,7 +12,7 @@ Lesson 1415 min
 
 When building prompt evaluation workflows, graders provide objective signals about output quality. A grader takes model output and returns some kind of measurable feedback - typically a number between 1-10, where 10 represents high quality and 1 represents poor quality.
 
-## Types of Graders
+## Types of Graders[](#types-of-graders)
 
 ![](https://academy.claude.com/assets/media/c73deec1acccb2e12761043958b295af3ef2396638b72ef8d7225e7fe1930a98.png)
 
@@ -22,7 +22,7 @@ There are three main approaches to grading model outputs:
 * **Model graders** - Use another AI model to assess quality
 * **Human graders** - Have people manually review and score outputs
 
-### Code Graders
+### Code Graders[](#code-graders)
 
 Code graders let you implement any programmatic check you can imagine. Common uses include:
 
@@ -33,7 +33,7 @@ Code graders let you implement any programmatic check you can imagine. Common us
 
 The only requirement is that your code returns some measurable signal when it runs.
 
-### Model Graders
+### Model Graders[](#model-graders)
 
 Model graders make an additional API request to evaluate the original output. This approach offers tremendous flexibility for assessing:
 
@@ -43,7 +43,7 @@ Model graders make an additional API request to evaluate the original output. Th
 * Helpfulness
 * Safety
 
-### Human Graders
+### Human Graders[](#human-graders)
 
 Human graders provide the most flexibility but are time-intensive and tedious. They're useful for evaluating:
 
@@ -53,7 +53,7 @@ Human graders provide the most flexibility but are time-intensive and tedious. T
 * Conciseness
 * Relevance
 
-## Defining Evaluation Criteria
+## Defining Evaluation Criteria[](#defining-evaluation-criteria)
 
 ![](https://academy.claude.com/assets/media/a5a7c1966139c74db22bd467f0b89f86ff24e5dfebdc834f9ba8a28d9e4bcaed.png)
 
@@ -67,7 +67,7 @@ Before implementing any grader, you need clear evaluation criteria. For a code g
 
 The first two criteria work well with code graders, while task following is better suited for model graders due to their flexibility.
 
-## Implementing a Model Grader
+## Implementing a Model Grader[](#implementing-a-model-grader)
 
 Here's how to build a model grader function:
 

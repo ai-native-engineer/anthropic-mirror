@@ -16,7 +16,7 @@ Watch[Open Claude](https://claude.ai/new)
 
 Without access to your actual work, Claude is only ever as good as generic knowledge and simple text outputs — it’s helpful, but lacks detail, and requires copying and pasting, to get to a shippable final product. What if it could do more? Connectors help solve this context problem. In just a few clicks, you can give Claude access to your knowledge in connected tools and desktop files, **plus** the permission to perform actions in those sources on your behalf.
 
-## MCP-powered capabilities, without the complex setup
+## MCP-powered capabilities, without the complex setup[](#mcp-powered-capabilities-without-the-complex-setup)
 
 Connectors let Claude **understand** and **take action** in your connected tools. In the connectors menu you’ll see both 1st party and Model Context Protocol (MCP) integrations, which are a secure way for Claude to connect with your tools and data. This transforms it from a helpful assistant into an informed collaborator who actually understands and can help with your work. You can learn more about custom MCP servers [here(opens in new tab)](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
 
@@ -28,7 +28,7 @@ In short, think of Connectors as giving Claude a key to an otherwise locked door
 
 Not only do connectors make Claude more knowledgeable, they make it more useful, too.
 
-## Using the connectors directory
+## Using the connectors directory[](#using-the-connectors-directory)
 
 The Connectors directory allows you to connect tools to Claude in just a few clicks. To find it, navigate to the “Search and tools” menu in Claude chat, then hit “Add connectors.”
 
@@ -41,7 +41,7 @@ From here, you can connect Claude to your preferred tools, with more being added
 
 ![](https://academy.claude.com/assets/media/e7a37acba3fdb156e795c955e338478be3bc819358b11e409008f477f49113b2.png)
 
-## Setting up your first connection
+## Setting up your first connection[](#setting-up-your-first-connection)
 
 To set up your first connection, pick an app you use often and follow the steps below:
 
@@ -51,7 +51,7 @@ To set up your first connection, pick an app you use often and follow the steps 
 
 For a more interesting test case, try asking it to summarize content or take actions in connected tools on your behalf – like in the examples below.
 
-## Connectors in action
+## Connectors in action[](#connectors-in-action)
 
 Connectors don’t just bring context to Claude, they create a dynamic bridge across all of the tools you use to get work done. Here’s how that might show up in your workflows:
 
@@ -60,7 +60,7 @@ Connectors don’t just bring context to Claude, they create a dynamic bridge ac
 * **Turn meeting notes into action** (Apple Notes + Asana) - Transform scattered thoughts into organized project plans with one command. Claude can read your Apple Notes on desktop, and create Asana tasks with realistic deadlines — even assigning owners based on your discussion.
 * **Create professional content at scale** (Docs + Canva) - Claude can read your blog posts or product docs to quickly build professional visuals based on your written content. Just ask for a Canva design based on a resource you’ve already made:
 
-## Best practices
+## Best practices[](#best-practices)
 
 When used well, Connectors can help Claude see what you see, know what you know, and do the work that actually matters to you. Here’s a few more tips and tricks to improve your results with Connectors:
 

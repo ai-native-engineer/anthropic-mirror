@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-nu0i2d0q.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mxhk1r1q.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Marketing plugin ships with `/draft-content` and other content-production skills as a starting point, already structured to write from a brief and hold a voice guide. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ MarketingCreate content, plan campaigns, and analyze performance across marketin
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -60,7 +60,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the campaign brief, the brand guidelines, two or three best-performing past pieces) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes every asset back to it as separate files. If you'll produce content across multiple campaigns, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the parent Content folder so the brand guide and voice rules stay attached.
 
@@ -74,15 +74,15 @@ top-performing-examples.docxMar 18, 202652 KB
 
 In Cowork’s chat bar:Content / Spring-Launch
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Draft the content set for this campaign: a blog post, landing page copy, a three-email sequence, and ad copy in three lengths. Hold our voice and the approved messaging exactly, and note anywhere the brief was thin so I know what to fill.
 
 Content / Spring-LaunchOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -100,7 +100,7 @@ Source
 
 **Put your references in the working folder.** The brief, guidelines, and best-performing examples sit in the working folder, so every asset is written against your real references and saved back next to them.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -110,7 +110,7 @@ Practice
 
 **Ask for options.** Add "draft three versions with different angles" and pick the one that works best.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -120,9 +120,9 @@ ContentOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on every approved brief
+### Run it on every approved brief[](#run-it-on-every-approved-brief)
 
 The customized skill runs every weekday at 9am, checking the Content folder for new briefs and drafting the full content set for each. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, to set it up.
 
@@ -138,7 +138,7 @@ Every weekday at 9am, checks Content for new briefs and runs `/draft-content` on
 
 Every **weekday at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/draft-content` now carries your voice rules, your CTA library, and your standard asset list. Share it so every writer and campaign owner produces from the same brand baseline, and review becomes about the idea, not the tone.
 
@@ -146,7 +146,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/draft-content` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your brand voice and asset list baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

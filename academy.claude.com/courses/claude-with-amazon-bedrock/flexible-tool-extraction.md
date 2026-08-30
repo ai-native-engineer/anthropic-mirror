@@ -12,7 +12,7 @@ Lesson 319 min
 
 Writing detailed JSON schemas for structured data extraction can be a real pain point when working with AI tools. There's a clever workaround that lets you specify your desired data structure directly in your prompt instead of creating complex schemas.
 
-## The Flexible Schema Approach
+## The Flexible Schema Approach[](#the-flexible-schema-approach)
 
 Instead of writing a detailed schema for every data extraction task, you can create one generic tool called `to_json` that accepts any object structure. The key is setting the input schema to allow additional properties, then specifying your exact requirements in the prompt itself.
 
@@ -20,7 +20,7 @@ Instead of writing a detailed schema for every data extraction task, you can cre
 
 This approach removes a major pain point - constantly writing and managing large JSON schemas. The results won't be quite as good as a dedicated schema, but you'll still get high-quality JSON output with much less setup work.
 
-## How It Works
+## How It Works[](#how-it-works)
 
 The process is straightforward:
 
@@ -29,7 +29,7 @@ The process is straightforward:
 * Tell Claude to call the `to_json` tool with your specified structure
 * Use `tool_choice` to force Claude to use your tool
 
-## Setting Up the Prompt
+## Setting Up the Prompt[](#setting-up-the-prompt)
 
 When writing your prompt, be very explicit about the structure you want. Here's an example of how to structure your request:
 
@@ -48,7 +48,7 @@ When you call to_json, pass in the following structure:
 }}
 ```
 
-## Making the API Call
+## Making the API Call[](#making-the-api-call)
 
 The API call uses the flexible schema and forces tool usage:
 
@@ -58,7 +58,7 @@ python
 flexible_result = chat(messages, tools=[to_json_schema], tool_choice="to_json")
 ```
 
-## Easy Structure Changes
+## Easy Structure Changes[](#easy-structure-changes)
 
 The real advantage becomes clear when you need to modify your data structure. Instead of rewriting an entire schema, you simply update your prompt. Want to add a field for the number of topics? Just add one line:
 
@@ -70,7 +70,7 @@ python
 
 That's it - no schema modifications needed.
 
-## When to Use Each Approach
+## When to Use Each Approach[](#when-to-use-each-approach)
 
 The flexible schema approach works great for:
 

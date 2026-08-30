@@ -14,7 +14,7 @@ How to use the Clinical Trial Protocol Draft Generation sample skill with Claude
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-ke4vf9q6.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-djfyeg4y.png)
 
-## **What is the Clinical Trial Protocol Draft Generation demo skill?**
+## **What is the Clinical Trial Protocol Draft Generation demo skill?**[](#what-is-the-clinical-trial-protocol-draft-generation-demo-skill)
 
 The Clinical Trial Protocol Draft Generation demo skill digests initial documentation about a new medical device or investigational drug, and follows regulatory guidelines to generate an initial phase 2 or 3 trial protocol draft. It does this by:
 
@@ -25,11 +25,11 @@ The Clinical Trial Protocol Draft Generation demo skill digests initial document
 
 This is a sample skill that gives you a starting point to customize for your own use cases. Be sure to review the [README.md(opens in new tab)](https://github.com/anthropics/life-sciences/releases/download/v1.1.1/clinical-trial-protocol-skill-v1.1.1.zip) file before using the skill.
 
-## **Who should use the Clinical Trial Protocol Draft Generation demo skill?**
+## **Who should use the Clinical Trial Protocol Draft Generation demo skill?**[](#who-should-use-the-clinical-trial-protocol-draft-generation-demo-skill)
 
 This skill is designed for regulatory affairs professionals at pharmaceutical and medical device companies who need to draft clinical trial protocols and determine their regulatory pathway without writing code from scratch.
 
-## **How to access the skill in** [**Claude.ai**(opens in new tab)](http://claude.ai)
+## **How to access the skill in** [**Claude.ai**(opens in new tab)](http://claude.ai)[](#how-to-access-the-skill-in-claudeai)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -51,7 +51,7 @@ Learn about [provisioning and managing skills for your organization(opens in new
 4. Click “Upload skill”
 5. Upload the skill zip file
 
-## **How to access the skill in Claude Code**
+## **How to access the skill in Claude Code**[](#how-to-access-the-skill-in-claude-code)
 
 Command
 

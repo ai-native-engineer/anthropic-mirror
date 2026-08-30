@@ -16,7 +16,7 @@ Get Claude in ChromeCopy prompt
 
 ![Pull metrics from analytics dashboards result](https://academy.claude.com/assets/v1/pull-metrics-from-analytics-dashboards-ot36n6cn.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude navigates your analytics dashboards—Amplitude, Mixpanel, or other tools—and extracts the metrics you specify. It reads the same reports you would, pulls the numbers, and compiles them into a summary you can paste into a team update or Slack.
 
@@ -40,15 +40,15 @@ Pull my weekly metrics from both my Amplitude and Mixpanel open tabs.
 
 Copy prompt
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude uses browser use to navigate your analytics tools through your existing browser sessions. If you're logged into Amplitude and Mixpanel, Claude can access the same dashboards and reports you see—no API keys or integrations to configure.
 
-### Required context
+### Required context[](#required-context)
 
 Log into your analytics tools in Chrome before starting. Claude navigates to the dashboards and reports using your sessions.
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude compiles metrics from both tools into a single summary.
 
@@ -91,11 +91,11 @@ Claude compiles metrics from both tools into a single summary.
 
 WAU grew **11.5% over the past month** to 27.1K. New signups are up 14% week-over-week. The new dashboard is seeing solid adoption at 34% of active users. Retention remains steady with 23% of users still active at Day 30.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Dig into a specific metric
+### Dig into a specific metric[](#dig-into-a-specific-metric)
 
 Have Claude investigate before you share the report and get more detail when something looks off.
 
@@ -103,7 +103,7 @@ The onboarding conversion dropped from 78% last week. Can you go into Mixpanel a
 
 Copy prompt
 
-### Share the output in a different channel
+### Share the output in a different channel[](#share-the-output-in-a-different-channel)
 
 Once your summary is ready, have Claude format it and post it directly to your team channel.
 
@@ -111,7 +111,7 @@ This looks good. Can you turn it into a few bullet points and post it to #produc
 
 Copy prompt
 
-### Add another data source
+### Add another data source[](#add-another-data-source)
 
 Pull in another data source without starting over. Claude can look in a new tab and add to your summary.
 
@@ -119,25 +119,25 @@ Can you also pull our revenue metrics from Stripe? I need MRR, new subscriptions
 
 Copy prompt
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Schedule weekly metrics pulls
+### Schedule weekly metrics pulls[](#schedule-weekly-metrics-pulls)
 
 Click the clock icon in the extension panel to schedule this workflow. Set it to run Monday morning and Claude will have your metrics summary ready before your weekly product sync. No more scrambling to pull numbers before the meeting.
 
-### Drag all your analytics tabs into one group
+### Drag all your analytics tabs into one group[](#drag-all-your-analytics-tabs-into-one-group)
 
 For multi-tool metrics, drag Amplitude, Mixpanel, and any other dashboards into Claude's tab group. You'll see a green banner confirming Claude can access all of them. Now Claude reads across every tool simultaneously—no manual switching.
 
-### Save your workflow as a shortcut
+### Save your workflow as a shortcut[](#save-your-workflow-as-a-shortcut)
 
 Once you have a metrics pull that covers what you need, save it as a shortcut by clicking on the shortcut icon below a successful prompt. You can also set a schedule for when you want the workflow to run next. Alternatively, manually trigger the workflow, by typing "/" and selecting the shortcut.
 
-### Grant permission to your analytics platforms
+### Grant permission to your analytics platforms[](#grant-permission-to-your-analytics-platforms)
 
 If Claude asks for permission on every dashboard page, go to Settings → Permissions and enable "Always allow actions on this site" for Amplitude, Mixpanel, and other trusted work tools. Persistent access speeds up multi-page navigation significantly.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Claude in Chrome is available to all paid plan users. Install the extension, log into your analytics tools, and describe the metrics you need. Claude navigates the dashboards and compiles a summary ready to paste into your team update.
 

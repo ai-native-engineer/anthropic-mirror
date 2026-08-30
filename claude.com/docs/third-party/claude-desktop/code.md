@@ -26,7 +26,10 @@ These keys are passed directly to the Claude Code process as environment variabl
 | `autoModeEnabled` | Offers **Auto mode** in the Code session’s permission selector. A separately deployed Claude Code managed-settings file that sets `disableAutoMode` to `"disable"` overrides this and keeps Auto mode hidden; see below. |
 | `disabledBuiltinTools` | Removes the listed tools from Code sessions. Tools your provider does not support, such as WebSearch on Amazon Bedrock, are removed automatically in addition to your list. |
 | `builtinToolPolicy` | Tools set to `"ask"` require approval on each call in Code sessions, enforced via a PreToolUse hook and Claude Code `permissions.ask` rules. |
+| `skipWebFetchPreflight` | Turns off Claude Code’s Web Fetch [domain check](https://claude.com/docs/third-party/claude-desktop/web-tools#web-fetch) against `api.anthropic.com`. A separately deployed Claude Code managed-settings file that sets `skipWebFetchPreflight` takes precedence. |
 | `managedMcpServers` | Makes the same managed MCP servers available in Code sessions. The app handles the connection and authentication; the Code session sees only the resulting tool list. |
+| `mcpToolTimeoutSec` | Applies your per-call MCP tool timeout to Code sessions as well, taking precedence over a user-set `MCP_TOOL_TIMEOUT`. |
+| `organizationInstructions` | Appended to the Code session’s system prompt after Claude Code’s own. `CLAUDE.md` instructions still apply. |
 | `otlpEndpoint`, `otlpProtocol`, `otlpHeaders`, `otlpResourceAttributes` | Routes Claude Code’s OpenTelemetry metrics and logs to your collector. See [Telemetry](https://claude.com/docs/third-party/claude-desktop/telemetry). |
 | `disableEssentialTelemetry`, `disableNonessentialTelemetry` | Disables Claude Code’s crash reporting and usage telemetry to Anthropic, mirroring Cowork. |
 | `disableAutoUpdates` | The embedded Claude Code engine never self-updates regardless of this key; its version is managed by the app’s own updater. |
@@ -55,13 +58,17 @@ managed-settings.json
 }
 ```
 
-With `"merge"`, Claude Desktop’s policy values are layered under your Claude Code policy. Your values win any conflict, deny and allow lists are unioned, and Claude Desktop’s values are filtered so they can only tighten policy, never loosen it. See [`parentSettingsBehavior`](https://code.claude.com/docs/en/settings#available-settings) in the Claude Code settings reference. Requires Claude Code v2.1.133 or later, which ships with Claude Desktop on 3P.
+With `"merge"`, Claude Desktop’s policy values are layered under your Claude Code policy. Your values win any conflict, deny and allow lists are unioned, and Claude Desktop’s values are filtered so they can only tighten policy, never loosen it. See [`parentSettingsBehavior`](https://code.claude.com/docs/en/settings-reference#parentsettingsbehavior) in the Claude Code settings reference. Requires Claude Code v2.1.133 or later, which ships with Claude Desktop on 3P.
 
 In a third-party deployment there is no Anthropic authentication, so Claude Code’s server-managed settings tier is never present. If you have not separately deployed a Claude Code `managed-settings.json` or OS profile, Claude Desktop’s policy applies automatically and you do not need to set `parentSettingsBehavior`.
 
+##  Remote sessions over SSH
+
+A Code session can run its Claude Code engine on a remote host over SSH while the Code tab stays on the user’s device. In a 3P deployment this is off until you set [`sshHostAllowlist`](https://claude.com/docs/third-party/claude-desktop/configuration#sshhostallowlist), because the app forwards the session’s inference credential to the host. [SSH remote sessions](https://claude.com/docs/third-party/claude-desktop/ssh-remote-sessions) lists the credential kinds that work on a remote host and which of the keys above apply there.
+
 ##  Further reading
 
-* [Claude Code settings reference](https://code.claude.com/docs/en/settings)
+* [Claude Code settings reference](https://code.claude.com/docs/en/settings-reference)
 * [Claude Code sandboxing](https://code.claude.com/docs/en/sandboxing)
 * [Settings precedence](https://code.claude.com/docs/en/settings#settings-precedence)
 

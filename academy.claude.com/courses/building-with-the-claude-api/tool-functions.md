@@ -16,7 +16,7 @@ When building AI applications with Claude, you'll often need to give it access t
 
 The image above shows three essential tools we'll be implementing: getting the current date/time, adding duration to dates, and setting reminders. Let's start with the first one.
 
-## What Are Tool Functions?
+## What Are Tool Functions?[](#what-are-tool-functions)
 
 A tool function is a plain Python function that gets executed automatically when Claude decides it needs extra information to help a user. For example, if someone asks "What time is it?", Claude would call your date/time tool to get the current time.
 
@@ -24,7 +24,7 @@ A tool function is a plain Python function that gets executed automatically when
 
 Here's an example of a weather tool function. Notice how it validates inputs and provides clear error messages - these are important best practices.
 
-## Best Practices for Tool Functions
+## Best Practices for Tool Functions[](#best-practices-for-tool-functions)
 
 When writing tool functions, follow these guidelines:
 
@@ -34,7 +34,7 @@ When writing tool functions, follow these guidelines:
 
 The validation is particularly important because Claude learns from errors. If you raise a clear error like "Location cannot be empty", Claude might try calling the function again with a proper location value.
 
-## Building Your First Tool Function
+## Building Your First Tool Function[](#building-your-first-tool-function)
 
 Let's create a function to get the current date and time. This function will accept a date format parameter so Claude can request the time in different formats:
 
@@ -63,7 +63,7 @@ get_current_datetime("%H:%M")
 
 The validation check ensures Claude can't pass an empty string for the date format. While this specific error is unlikely, it demonstrates the pattern of validating inputs and providing helpful error messages that Claude can learn from.
 
-## Next Steps
+## Next Steps[](#next-steps)
 
 Creating the function is just the first step. Next, you'll need to write a JSON schema that describes the function to Claude, then integrate it into your chat system. This tool function approach gives Claude powerful capabilities while keeping your code organized and maintainable.
 

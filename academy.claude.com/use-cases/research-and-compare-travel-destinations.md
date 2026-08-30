@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Research and compare travel destinations result](https://academy.claude.com/assets/v1/research-and-compare-travel-destinations-ldeutsce.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 With Claude, you can conduct research that would typically take hours across multiple tools—searching sites, taking notes, and organizing data—all within a single conversation. Describe the options you're comparing and get back structured spreadsheets.
 
@@ -32,25 +32,21 @@ Make it look really polished and professional - something I'd feel confident sha
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude can use search online to find current travel information and generate a sophisticated spreadsheet file, with features like conditional formatting, formulas, and embedded images.
 
-### Required context
+### Required context[](#required-context)
 
-### Optional context
+### Optional context[](#optional-context)
 
 Toggle [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) on in the chat bar before starting. Claude will handle the research and design the spreadsheet simultaneously.
 
-For deeper analysis and more thoughtful design decisions, turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking).
-
 [
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude researches each destination comprehensively and produces a multi-sheet spreadsheet file with visual comparisons, detailed ratings across 10+ dimensions, cost breakdowns, and direct links to tourism resources—all correctly formatted with design elements that make your decision clear.
 
@@ -80,11 +76,11 @@ I've researched all five destinations and created a side-by-side comparison spre
 
 **View your destination comparison**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Refine the comparison
+### Refine the comparison[](#refine-the-comparison)
 
 If certain factors matter more to you—like adventure activities or family-friendliness—Claude can reweight the analysis, add new dimensions you care about, or adjust the criteria to match your specific priorities.
 
@@ -92,7 +88,7 @@ The current ratings weigh all factors equally, but I care most about culture and
 
 Open in Claude
 
-### Generate a presentation
+### Generate a presentation[](#generate-a-presentation)
 
 Claude can transform the spreadsheet data into a visual presentation for group decision-making.
 
@@ -100,7 +96,7 @@ Create a PowerPoint presentation from this analysis—one slide per destination 
 
 Open in Claude
 
-### Create a detailed itinerary
+### Create a detailed itinerary[](#create-a-detailed-itinerary)
 
 Once you've chosen a destination, Claude can research and build a day-by-day itinerary.
 
@@ -108,21 +104,21 @@ I've decided on Lisbon! Can you create a 7-day itinerary with specific recommend
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Request advanced spreadsheet features
+### Request advanced spreadsheet features[](#request-advanced-spreadsheet-features)
 
 If you want a specific Excel feature, just ask for it by name. Claude can add heat maps, frozen panes, data bars, dropdown filters, conditional formatting, clickable links, cell comments, formulas, charts, and more. Simply mentioning what you need—"add heat maps to show patterns" or "include dropdown menus for filtering"—ensures you get the functionality that makes your spreadsheet work the way you want.
 
-### Ask Claude to verify layout before finishing
+### Ask Claude to verify layout before finishing[](#ask-claude-to-verify-layout-before-finishing)
 
 For better results the first time, include a quality check in your prompt: "Make sure column widths and row heights accommodate the content, and images are properly sized as small thumbnails that don't overlap text." This prompts Claude to review its own work and catch common spreadsheet issues—text getting cut off, images covering data, cells that are too cramped or too spacious. Adding "verify everything displays correctly" to your request helps Claude catch these details before you open the file.
 
-### Use Web Search for current data
+### Use Web Search for current data[](#use-web-search-for-current-data)
 
 Travel information changes constantly—prices fluctuate, attractions update hours, conditions vary. With Web Search enabled, Claude researches current information from multiple sources rather than using older training data. This matters especially for costs, seasonal weather, recent reviews, and travel advisories.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Claude can research and structure comparisons for any decision where you're weighing multiple options, whether that's destinations, products, investments, or job offers.
 

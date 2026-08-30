@@ -159,4 +159,10 @@ Video caption
 
 ## Related stories
 
-No items found.
+[How can a small team revive solar power and restore trust?](https://claude.com/customers/soflo)How can a small team revive solar power and restore trust?
+
+How can a small team revive solar power and restore trust?
+
+Customer story
+
+[Customer story](https://claude.com/customers/soflo)Customer story

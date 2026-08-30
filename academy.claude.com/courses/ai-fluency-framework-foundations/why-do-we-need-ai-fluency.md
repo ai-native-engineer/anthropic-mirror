@@ -15,9 +15,11 @@ In this lessonBy the end, you’ll be able to
 * Understand what AI Fluency means and why it matters in today's rapidly evolving technological landscape
 * Recognize three emerging ways we collaborate with AI: Automation, Augmentation, and Agency
 
-## Why do we need AI Fluency?
+## Why do we need AI Fluency?[](#why-do-we-need-ai-fluency)
 
 Why do we need AI Fluency?
+
+SummaryTranscript
 
 This video explores what it really means to be "fluent" with AI and why
 this matters. We discuss how AI Fluency involves developing practical

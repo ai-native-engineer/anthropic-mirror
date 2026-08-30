@@ -12,7 +12,7 @@ Lesson 446 min
 
 Claude can read and analyze PDF documents just as easily as it handles images. This capability opens up powerful possibilities for document analysis, summarization, and question-answering workflows.
 
-## Setting Up PDF Processing
+## Setting Up PDF Processing[](#setting-up-pdf-processing)
 
 To work with PDFs, you'll need to make a few key changes to the standard message structure. The process is similar to image handling, but with some important differences in the document specification.
 
@@ -25,7 +25,7 @@ with open("./earth.pdf", "rb") as f:
     file_bytes = f.read()
 ```
 
-## Document Message Structure
+## Document Message Structure[](#document-message-structure)
 
 The message structure for PDFs differs from images in several ways. Instead of an "image" object, you'll use a "document" object with these required fields:
 
@@ -50,7 +50,7 @@ Key points about the document structure:
 
 When you run this code, Claude analyzes the entire PDF content and provides a comprehensive response. In this case, it successfully summarized the Earth Wikipedia article, demonstrating its ability to process multi-page documents with complex layouts, images, and structured information.
 
-## What Claude Can Do with PDFs
+## What Claude Can Do with PDFs[](#what-claude-can-do-with-pdfs)
 
 Claude can handle various PDF processing tasks:
 

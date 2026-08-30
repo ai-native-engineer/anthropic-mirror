@@ -24,7 +24,7 @@ Learn to build, debug, and ship with Claude Code in your terminal, IDE, and brow
 
 An agentic coding tool that lives in your terminal. Learn what Claude Code is, how it works, and the core workflows for getting real work done with it.
 
-Course·12 lessons · 1 quiz·1 hr](https://academy.claude.com/courses/claude-code-101)[### Your first day
+Course·12 lessons · 1 quiz·1.5 hr](https://academy.claude.com/courses/claude-code-101)[### Your first day
 
 Install, sign in, and ship your first change. The path from zero to a working session.
 
@@ -124,4 +124,4 @@ Admin setup](https://academy.claude.com/products/code/setup)
 
 ## Browse it all
 
-[Tutorials11 tutorials](https://academy.claude.com/all?kind=tutorial&product=code)[Courses6 courses](https://academy.claude.com/all?kind=course&product=code)[Claude Code docs code.claude.com (opens in new tab)](https://code.claude.com/docs)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)
+[Tutorials11 tutorials](https://academy.claude.com/all?kind=tutorial&product=code)[Courses7 courses](https://academy.claude.com/all?kind=course&product=code)[Claude Code docs code.claude.com (opens in new tab)](https://code.claude.com/docs)[Help Center support.claude.com (opens in new tab)](https://support.claude.com)

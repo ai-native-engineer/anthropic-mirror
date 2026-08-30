@@ -24,8 +24,6 @@ Claude Code usage analytics are available to:
 3. Click “Claude Code” under **Analytics**.
 4. View Claude Code usage analytics on **[Settings > Claude Code](https://platform.claude.com/claude-code)**.
 
----
-
 ## Usage tab
 
 The **Usage** tab displays the following metrics for your organization. Data on this tab refreshes daily.
@@ -38,13 +36,11 @@ The **Usage** tab displays the following metrics for your organization. Data on 
 * **Lines accepted over time**: Daily breakdown of accepted code lines.
 * **Top commands**: The Claude Code commands used most often across your organization.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1787622300&signature=2112bd69784af6063651c0b3809ca6a526eec415f7a243ded67535045a957882&req=dScmEcx5lINYXvMW1HO4zfiEP6FWjXvNCX9h5MbdDjOHubBHjswnI1reKtI4%0Auck81EzCJPJ8Z591EN0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1787622300&signature=2112bd69784af6063651c0b3809ca6a526eec415f7a243ded67535045a957882&req=dScmEcx5lINYXvMW1HO4zfiEP6FWjXvNCX9h5MbdDjOHubBHjswnI1reKtI4%0Auck81EzCJPJ8Z591EN0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1788033600&signature=0cd441d08fbec13db7d35ee2c31c3fdb5e01d14a19ba21f7ec89da073a463931&req=dScmEcx5lINYXvMW1HO4zfiEP65QjHrICX9h5MbdDjMFBID7GELpMoATWi%2FH%0AFtOdVef4m7eGsFiOjOM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1788033600&signature=0cd441d08fbec13db7d35ee2c31c3fdb5e01d14a19ba21f7ec89da073a463931&req=dScmEcx5lINYXvMW1HO4zfiEP65QjHrICX9h5MbdDjMFBID7GELpMoATWi%2FH%0AFtOdVef4m7eGsFiOjOM%3D%0A)
 
 ### User-level metrics
 
 **Individual usage**: View each team member's email address and their total lines of code accepted for the current month. You can search for specific users or click the “Export” button to generate a CSV of members’ email addresses and total lines of code.
-
----
 
 ## Value tab
 
@@ -55,8 +51,6 @@ The **Value** tab summarizes usage and cost data to help you understand what Cla
 * **Estimated annual value**
 
 Every formula used on this tab is shown inline. Click any input to adjust it to match your organization's assumptions, and the estimates recalculate.
-
----
 
 ## Contribution metrics (beta)
 
@@ -91,8 +85,6 @@ Once enabled, the following metrics appear in your Claude Code analytics dashboa
 
 Data is collected by correlating Claude Code session activity with GitHub commits and pull requests.
 
----
-
 ## Data reset and availability
 
 Usage metrics display data for the current calendar month and reset at the beginning of each month. Historical data visualization shows daily granularity for tracking trends over time.
@@ -104,8 +96,6 @@ Review your organization's code acceptance rate to understand if teams are findi
 Monitor individual usage patterns to identify power users who can share best practices with the broader team, or to spot team members who might benefit from additional support.
 
 Track activity trends to understand when your team uses Claude Code most effectively and ensure adequate seat allocation during peak periods.
-
----
 
 ## Frequently asked questions
 

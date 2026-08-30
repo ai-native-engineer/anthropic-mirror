@@ -10,6 +10,8 @@ Quiz 1 of 1 · AI Fluency for Small BusinessesCourse quiz
 
 Quiz5 min
 
+You've reached the final quiz for AI Fluency for Small Businesses. Its 7 questions revisit the 4D Framework and its loops, how the course applies them to research, business data, and everyday workflows, and its guidance on AI use policies. A score of 80% or higher passes. Once you pass, select **Create your completion badge** to add it to your account, where you can view it and share a verifiable link.
+
 [Previous lessonClosure and looking forward](https://academy.claude.com/courses/ai-fluency-for-small-businesses/closure-and-looking-forward)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-for-small-businesses/badge)
 
 Quiz 1 of 1 · AI Fluency for Small BusinessesCourse quiz

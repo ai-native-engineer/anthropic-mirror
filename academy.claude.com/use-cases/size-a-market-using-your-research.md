@@ -16,7 +16,7 @@ Try in CoworkCopy prompt
 
 ![Size a market using your research result](https://academy.claude.com/assets/v1/size-a-market-using-your-research-fs1r7icl.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 In Cowork, Claude runs market sizing end-to-end: research, analysis, and formatted deliverables. Feed it existing research or company data as a starting point, or let it work from scratch.
 
@@ -36,13 +36,13 @@ Source all claims.
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 [Cowork(opens in new tab)](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat) is a workspace in Claude, available in the [Claude Desktop(opens in new tab)](https://claude.com/download) app and — with remote sessions (in beta) — on web and mobile. Run locally, Claude works directly with your local files and saves deliverables to your computer. The more context you provide, the more targeted the analysis.
 
 **What to expect:** After your initial prompt in Cowork, Claude may ask you questions, like market focus, geographic scope, time horizon, and existing assumptions. It then builds a plan you can review in the sidebar. This helps it produce more targeted, finished analysis with less back-and-forth.
 
-### Required context
+### Required context[](#required-context)
 
 To get started:
 
@@ -50,7 +50,7 @@ To get started:
 * Select ***Work in a folder*** in the chat bar to give Cowork access to your existing research, company data, or templates
 * You can also use the ***+*** button to add individual files
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude researches the market, applies the TAM/SAM/SOM framework, and generates three coordinated deliverables.
 
@@ -72,11 +72,11 @@ Done. I've created three files:
 
 * All data points cited
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Drill into a specific segment
+### Drill into a specific segment[](#drill-into-a-specific-segment)
 
 Go deeper on the most attractive market. Focus research on a particular vertical, company size, or geographic sub-market.
 
@@ -84,7 +84,7 @@ Go deeper on the most attractive market. Focus research on a particular vertical
 
 Open in Cowork
 
-### Build a sensitivity model
+### Build a sensitivity model[](#build-a-sensitivity-model)
 
 Make the calculations interactive. Create an Excel model where you can adjust key assumptions and see how the market size changes.
 
@@ -92,7 +92,7 @@ Make the calculations interactive. Create an Excel model where you can adjust ke
 
 Open in Cowork
 
-### Generate competitor profiles
+### Generate competitor profiles[](#generate-competitor-profiles)
 
 Research the competitive landscape in detail. Pull together profiles on the key players with recent moves, positioning, and market share estimates.
 
@@ -100,21 +100,21 @@ Research the competitive landscape in detail. Pull together profiles on the key 
 
 Open in Cowork
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Start another task while this one runs
+### Start another task while this one runs[](#start-another-task-while-this-one-runs)
 
 Cowork handles the full research and formatting loop. Open a new session from the sidebar for other work. You'll see a grey dot in the sidebar when it needs attention.
 
-### Review the plan before it runs
+### Review the plan before it runs[](#review-the-plan-before-it-runs)
 
 Cowork builds a research plan visible in the sidebar. Check that it's covering the right segments, geographies, and frameworks before it starts pulling data.
 
-### Triangulate estimates
+### Triangulate estimates[](#triangulate-estimates)
 
 Cross-check bottom-up calculations against analyst reports. Claude surfaces data; you decide what it means.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Give Cowork a market sizing question. Come back to a deck, a model, and sourced documentation ready to present.
 

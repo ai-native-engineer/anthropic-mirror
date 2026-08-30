@@ -18,7 +18,7 @@ The ClinicalTrials.gov connector gives Claude access to the NIH/NLM registry of 
 
 The ClinicalTrials.gov integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 The ClinicalTrials.gov connector gives Claude access to ClinicalTrials.gov API v2, the world's largest clinical trial registry managed by the National Library of Medicine (NLM) at the National Institutes of Health (NIH). With more than 1,200 studies, the database has grown to over 500,000 registered trials across 221 countries and territories, representing the most comprehensive source of clinical research information worldwide.
 
@@ -33,7 +33,7 @@ This connector provides six primary tool calls that access different dimensions 
 
 On the provider side, the connector queries ClinicalTrials.gov's RESTful API v2, which accesses a PostgreSQL database updated daily with trial registration data submitted by study sponsors. All interventional trials of FDA-regulated products must be registered before enrollment begins (per FDAAA 801), and results must be submitted within one year of study completion. The database includes structured data fields for conditions (using MeSH terminology), interventions, locations, eligibility criteria, outcome measures, and study design parameters.
 
-## **Who should use the ClinicalTrials.gov integration**
+## **Who should use the ClinicalTrials.gov integration**[](#who-should-use-the-clinicaltrialsgov-integration)
 
 * **Clinical Research Coordinators & Study Recruiters:** Screen institutional patient populations for trial eligibility using demographic and clinical criteria, identify nearby recruiting studies for referral programs, verify detailed trial requirements and visit schedules, and coordinate with study sponsors to accelerate enrollment.
 * **Pharmaceutical & Biotech Companies:** Conduct competitive intelligence on competitor pipelines, analyze clinical development strategies across therapeutic areas, identify partnership opportunities with active research sites, and benchmark study designs and endpoints against industry standards.
@@ -43,7 +43,7 @@ On the provider side, the connector queries ClinicalTrials.gov's RESTful API v2,
 * **Clinical Trial Recruiters & Research Navigators:** Screen institutional patient populations for trial eligibility, identify appropriate trials for referral programs, coordinate with study sponsors for patient enrollment, and maintain databases of active trials at their healthcare system.
 * **Medical Affairs & Health Economists:** Analyze trial completion rates and time-to-results, identify gaps in clinical evidence for specific indications, track real-world evidence studies and post-marketing trials, and support payer value dossiers with clinical trial data.
 
-## **Setting up the ClinicalTrials.gov integration**
+## **Setting up the ClinicalTrials.gov integration**[](#setting-up-the-clinicaltrialsgov-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -69,7 +69,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the ClinicalTrials.gov integration can be found in the [ClinicalTrials.gov MCP Server Documentation(opens in new tab)](http://clinicaltrials.gov).
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Clinical Trial Recruitment & Eligibility Screening**
 

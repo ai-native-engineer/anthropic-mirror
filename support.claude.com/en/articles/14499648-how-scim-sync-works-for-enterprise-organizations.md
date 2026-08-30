@@ -45,7 +45,7 @@ You can trigger a manual sync from two places in your admin settings.
 1. Go to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
 2. Click "Check for updates" under **SCIM sync**:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1787622300&signature=9062635a99add6ebfa815fbfc1bd43d1f881ba59c80e552e912df69a6318f7cb&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDKrN8%2B3rgfl7PnOiunwAsXlUAYmyCEw7oz3%0AQU7U%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1787622300&signature=9062635a99add6ebfa815fbfc1bd43d1f881ba59c80e552e912df69a6318f7cb&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDKrN8%2B3rgfl7PnOiunwAsXlUAYmyCEw7oz3%0AQU7U%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1788033600&signature=295913876fb7d56dc2cf31e194000a6c2cde2c9e68ad071232e805a1b93d81dd&req=diMmFM9%2FnoRbUfMW1HO4zW4gbD2tNs6yrgfl7PnOiumffxIZhTkgJY3hGYGu%0AtOJi%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1788033600&signature=295913876fb7d56dc2cf31e194000a6c2cde2c9e68ad071232e805a1b93d81dd&req=diMmFM9%2FnoRbUfMW1HO4zW4gbD2tNs6yrgfl7PnOiumffxIZhTkgJY3hGYGu%0AtOJi%0A)
 3. Select whether to sync members, groups, or both.
 
 **From the Manage SCIM page**
@@ -54,7 +54,7 @@ You can trigger a manual sync from two places in your admin settings.
 2. Click "Sync."
 3. Select whether to sync members, groups, or both:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1787622300&signature=eb34917b3a8dbc087e535b7760849c36593400cb7e6b9059ec660b9f09a5d353&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr32yTkc43OpyTHzM9Qmt5xVwIwq8M1%2BqhxR%0AM0%2FY%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1787622300&signature=eb34917b3a8dbc087e535b7760849c36593400cb7e6b9059ec660b9f09a5d353&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4fr32yTkc43OpyTHzM9Qmt5xVwIwq8M1%2BqhxR%0AM0%2FY%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1788033600&signature=74cd327ddf0ffdbe0e935161ff766ddb5e2881a08e52258d8a474ecd0e2bdb5b&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frLwyDgZ43OpyTHzM9TRIX%2BCV7zgJbFhziTT%0AiLor%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1788033600&signature=74cd327ddf0ffdbe0e935161ff766ddb5e2881a08e52258d8a474ecd0e2bdb5b&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frLwyDgZ43OpyTHzM9TRIX%2BCV7zgJbFhziTT%0AiLor%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 
@@ -94,7 +94,7 @@ Before you trigger a manual resync, keep these in mind:
 * **Incomplete group mappings remove members from the organization.** When enabling group mapping for SCIM, finish assigning all groups before saving. Any member not included in a role group mapping is removed from the organization. If you enable seat tier mapping, any member not in a seat tier group mapping is also removed.
 
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
+* [Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)
 * [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
 * [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
-* [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

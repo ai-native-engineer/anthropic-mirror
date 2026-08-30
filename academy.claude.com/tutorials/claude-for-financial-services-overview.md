@@ -16,7 +16,7 @@ Overview of how Claude serves financial professionals with AI assistance for res
 
 Claude for Financial Services provides financial professionals with AI assistance for research, analysis, and documentation tasks. This article explains what Claude for Financial Services offers and how it supports common financial workflows.
 
-## Who uses Claude for Financial Services
+## Who uses Claude for Financial Services[](#who-uses-claude-for-financial-services)
 
 Claude for Financial Services assists professionals who work with financial data and investment analysis:
 
@@ -27,9 +27,9 @@ Claude for Financial Services assists professionals who work with financial data
 
 These professionals use Claude to help complete research tasks, build financial models, and create investment documentation. The solution works best for users who need to process large volumes of financial information and produce analytical outputs.
 
-## Core capabilities
+## Core capabilities[](#core-capabilities)
 
-### Financial data integration
+### Financial data integration[](#financial-data-integration)
 
 Claude connects directly to financial data providers through integrations called Connectors. You can access:
 
@@ -38,11 +38,11 @@ Claude connects directly to financial data providers through integrations called
 
 These integrations allow you to pull financial data directly into your analysis without switching between platforms. For setup instructions and detailed capabilities, see [Using Daloopa for Financial Analysis(opens in new tab)](https://support.claude.com/en/articles/12220011-using-daloopa-for-financial-analysis) and [Using Morningstar for Investment Research(opens in new tab)](https://support.claude.com/en/articles/12220057-using-morningstar-for-investment-research).
 
-### Document creation and analysis
+### Document creation and analysis[](#document-creation-and-analysis)
 
 Claude can help you work with common financial document formats. See [Create and edit files with Claude to eliminate hours of busy work(opens in new tab)](https://support.claude.com/en/articles/12143746-create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work) for more on Claude's document creation and analysis ability.
 
-### Excel spreadsheets
+### Excel spreadsheets[](#excel-spreadsheets)
 
 * Build financial models including DCF, LBO, and comparables analyses
 * Generate formulas and structure spreadsheets with proper formatting
@@ -50,21 +50,21 @@ Claude can help you work with common financial document formats. See [Create and
 * Create well-structured, simple models to validate assumptions made in more complex models
 * Extract financial data from PDFs and documents (like CIMs, PIBs, and data packs) into structured Excel formats
 
-### Word documents
+### Word documents[](#word-documents)
 
 * Draft investment memos and committee presentations
 * Create due diligence reports with structured findings
 * Generate market research summaries
 * Produce portfolio update letters
 
-### PowerPoint presentations
+### PowerPoint presentations[](#powerpoint-presentations)
 
 * Create slide decks for investment committees and boards.
 * Have Claude convert PDF or Word documents into PowerPoint files.
 
 Claude can process multiple documents in a single request, allowing you to analyze data rooms, extract metrics from numerous files, and synthesize findings across sources.
 
-### Financial workflow support
+### Financial workflow support[](#financial-workflow-support)
 
 Claude assists with common financial analysis tasks:
 
@@ -73,27 +73,27 @@ Claude assists with common financial analysis tasks:
 * Investment documentation: Generate memos, presentations, and reports following your organization's formats
 * Portfolio monitoring: Track performance metrics, compare actual results to budgets, and create standardized reporting
 
-## Common use cases
+## Common use cases[](#common-use-cases)
 
-### Due diligence
+### Due diligence[](#due-diligence)
 
 Analyze documents from data rooms to extract key commercial terms, financial metrics, and risk factors. Claude can process hundreds of documents to identify material issues, create data extraction templates, and organize findings for review.
 
-### Financial modeling
+### Financial modeling[](#financial-modeling)
 
 Build basic valuation models and comparative analyses. You can create simple DCF frameworks with key assumptions, set up revenue projections with growth scenarios, and structure financial calculations. Claude can also review existing models to help identify formula errors.
 
-### Investment memos
+### Investment memos[](#investment-memos)
 
 Generate investment committee documentation that includes financial analysis, market research, and investment rationale. Claude can follow your firm's standard templates and maintain consistency across different sections of lengthy documents.
 
-### Market research
+### Market research[](#market-research)
 
 Compile sector trends, competitive analysis, and company comparisons using data from integrated sources. Claude can help synthesize information from earnings calls, SEC filings, and research reports to build comprehensive market views.
 
 For detailed workflow examples and step-by-step guidance, see [Financial Analysis Workflows with Claude(opens in new tab)](https://support.claude.com/en/articles/12220298-financial-analysis-workflows-with-claude).
 
-## Tips for organizing financial projects
+## Tips for organizing financial projects[](#tips-for-organizing-financial-projects)
 
 When working on complex analyses, consider using Claude's projects feature to organize related documents:
 
@@ -104,7 +104,7 @@ When working on complex analyses, consider using Claude's projects feature to or
 
 Projects allow you to build a knowledge base that Claude can reference across multiple conversations, maintaining context throughout your analysis. For more information about projects, see [What are projects?(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects)
 
-## Current limitations
+## Current limitations[](#current-limitations)
 
 Be aware of these limitations when using Claude for Financial Services:
 

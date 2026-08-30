@@ -96,6 +96,20 @@ Retrieve detailed information about a specific work item.
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 ### Returns
 
 - `class BetaSelfHostedWork:`
@@ -317,6 +331,20 @@ Long poll for work items in the queue.
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
   - `string anthropicWorkerID`
 
     Header param: Unique identifier for the specific worker polling, used to track aggregated environment-level work metrics in Console
@@ -532,6 +560,20 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `AgentMemory2026_07_22`
 
     - `MidConversationToolChanges2026_07_01`
+
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
 
 ### Returns
 
@@ -754,6 +796,20 @@ Record a heartbeat for a work item to maintain the lease.
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 ### Returns
 
 - `class BetaSelfHostedWorkHeartbeatResponse:`
@@ -914,6 +970,20 @@ Stop a work item, initiating graceful or forced shutdown.
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 ### Returns
 
 - `class BetaSelfHostedWork:`
@@ -1035,7 +1105,7 @@ Console.WriteLine(betaSelfHostedWork);
 
 ## List Work Items
 
-`BetaSelfHostedWorkListResponse Beta.Environments.Work.List(parameters, cancellationToken = default)`
+`WorkListPage Beta.Environments.Work.List(parameters, cancellationToken = default)`
 
 **GET** `/v1/environments/{environment_id}/work`
 
@@ -1133,89 +1203,99 @@ List work items in an environment.
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 ### Returns
 
-- `class BetaSelfHostedWorkListResponse:`
+- `class BetaSelfHostedWork:`
 
-  Response when listing work items with cursor-based pagination.
+  Work resource representing a unit of work in a self-hosted environment.
 
-  - `required IReadOnlyList<BetaSelfHostedWork> Data`
+  Work items are queued when sessions are created or when long-dormant sessions
+  receive new messages. The environment worker polls for work to execute in a
+  self-hosted sandbox.
 
-    List of work items
+  - `required string ID`
+
+    Work identifier (e.g., 'work_...')
+
+  - `required string? AcknowledgedAt`
+
+    RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
+
+  - `required string CreatedAt`
+
+    RFC 3339 timestamp when work was created
+
+  - `required BetaSessionWorkData Data`
+
+    The actual work to be performed
 
     - `required string ID`
 
-      Work identifier (e.g., 'work_...')
-
-    - `required string? AcknowledgedAt`
-
-      RFC 3339 timestamp when the work item was acknowledged and assigned to a self-hosted sandbox
-
-    - `required string CreatedAt`
-
-      RFC 3339 timestamp when work was created
-
-    - `required BetaSessionWorkData Data`
-
-      The actual work to be performed
-
-      - `required string ID`
-
-        Session identifier (e.g., 'session_...')
-
-      - `JsonElement Type constant`
-
-        Type of work data
-
-    - `required string EnvironmentID`
-
-      Environment identifier this work belongs to (e.g., `env_...`)
-
-    - `required string? LatestHeartbeatAt`
-
-      RFC 3339 timestamp of the most recent heartbeat
-
-    - `required IReadOnlyDictionary<string, string> Metadata`
-
-      User-provided metadata key-value pairs associated with this work item
-
-    - `required string? Secret`
-
-      Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
-
-    - `required string? StartedAt`
-
-      RFC 3339 timestamp when work execution started
-
-    - `required State State`
-
-      Current state of the work item
-
-      - `Queued`
-
-      - `Starting`
-
-      - `Active`
-
-      - `Stopping`
-
-      - `Stopped`
-
-    - `required string? StopRequestedAt`
-
-      RFC 3339 timestamp when stop was requested
-
-    - `required string? StoppedAt`
-
-      RFC 3339 timestamp when work execution stopped
+      Session identifier (e.g., 'session_...')
 
     - `JsonElement Type constant`
 
-      The type of object (always 'work')
+      Type of work data
 
-  - `required string? NextPage`
+  - `required string EnvironmentID`
 
-    Opaque cursor for fetching the next page of results
+    Environment identifier this work belongs to (e.g., `env_...`)
+
+  - `required string? LatestHeartbeatAt`
+
+    RFC 3339 timestamp of the most recent heartbeat
+
+  - `required IReadOnlyDictionary<string, string> Metadata`
+
+    User-provided metadata key-value pairs associated with this work item
+
+  - `required string? Secret`
+
+    Credential payload used by the environment worker to execute this work item. May be populated when polling for work; null on all other retrieval paths.
+
+  - `required string? StartedAt`
+
+    RFC 3339 timestamp when work execution started
+
+  - `required State State`
+
+    Current state of the work item
+
+    - `Queued`
+
+    - `Starting`
+
+    - `Active`
+
+    - `Stopping`
+
+    - `Stopped`
+
+  - `required string? StopRequestedAt`
+
+    RFC 3339 timestamp when stop was requested
+
+  - `required string? StoppedAt`
+
+    RFC 3339 timestamp when work execution stopped
+
+  - `JsonElement Type constant`
+
+    The type of object (always 'work')
 
 ### Example
 
@@ -1359,6 +1439,20 @@ Update work item metadata with merge semantics.
     - `AgentMemory2026_07_22`
 
     - `MidConversationToolChanges2026_07_01`
+
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
 
 ### Returns
 
@@ -1565,6 +1659,20 @@ Get statistics about the work queue for an environment.
     - `AgentMemory2026_07_22`
 
     - `MidConversationToolChanges2026_07_01`
+
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
 
 ### Returns
 

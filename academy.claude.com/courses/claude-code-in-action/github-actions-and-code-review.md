@@ -19,7 +19,7 @@ problems. One is a managed service you turn on. The other is a GitHub
 Action you wire up yourself. Let's walk through both and figure out when to
 reach for each.
 
-## The managed path: Code Review
+## The managed path: Code Review[](#the-managed-path-code-review)
 
 The simplest option is Code Review. It's an Anthropic-hosted service that reviews your pull requests through the Claude GitHub app. There's nothing for you to build or host. You turn it on, and it starts posting findings as inline comments right on the lines that matter.
 
@@ -37,7 +37,7 @@ Here's what one of those findings looks like. It lands as a comment from Claude,
 
 The nice part is it deduplicates and ranks the findings. So instead of a wall of nitpicks, you read a handful of real issues worth your attention.
 
-## What Code Review will and won't do
+## What Code Review will and won't do[](#what-code-review-will-and-wont-do)
 
 A couple of things to keep in mind about the boundaries here:
 
@@ -47,7 +47,7 @@ A couple of things to keep in mind about the boundaries here:
 
 Since there's no autofix in the service, applying a finding is a local move. From your own terminal, the `/code-review` command reviews a diff, and its `--fix` flag applies the findings to your working tree. So the flow is: Claude finds it in the PR, you pull it down and fix it locally.
 
-## The do-it-yourself path: the GitHub Action
+## The do-it-yourself path: the GitHub Action[](#the-do-it-yourself-path-the-github-action)
 
 Code Review handles review. When the job goes beyond review, you reach for the GitHub Action. This is for custom CI: implementing changes from a comment, running scheduled reports, anything you'd normally write a workflow for. It runs the agent on PR comments, scheduled jobs, and any GitHub event.
 
@@ -62,7 +62,7 @@ The action itself is `anthropics/claude-code-action@v1`. Here are the inputs you
 * `prompt` — the instruction for the run.
 * `claude_args` — a string of CLI arguments passed straight through to Claude Code.
 
-## A workflow that responds to @claude
+## A workflow that responds to @claude[](#a-workflow-that-responds-to-claude)
 
 Drop a workflow into `.github/workflows/claude.yaml` and it listens for `@claude` on PR comments and issue comments. The core step looks like this:
 
@@ -80,13 +80,13 @@ yaml
 
 Now someone writes `@claude implement the spec in the linked Linear issue` on a pull request, and the action picks it up. Claude pushes commits and posts comments describing what it did.
 
-## A workflow that runs on a schedule
+## A workflow that runs on a schedule[](#a-workflow-that-runs-on-a-schedule)
 
 The same action works for a daily rollup. A cron trigger fires at, say, 9:00 UTC, the action runs, and Claude posts the results. You can also add a `workflow_dispatch` trigger so you can kick it off manually from the Actions tab.
 
 When the action runs, you can watch it work through the steps in the Actions tab, just like any other GitHub workflow.
 
-## Tuning the run with claude\_args
+## Tuning the run with claude\_args[](#tuning-the-run-with-claudeargs)
 
 The `claude_args` line is where the fine-tuning happens. A few knobs worth knowing:
 
@@ -94,7 +94,7 @@ The `claude_args` line is where the fine-tuning happens. A few knobs worth knowi
 * Permission mode. For an unattended job you'll want it to not stop and ask, since there's no one there to answer.
 * Allowed tools. Give the job exactly what it needs and nothing more. For a report, that means read-only.
 
-## Which one should you use?
+## Which one should you use?[](#which-one-should-you-use)
 
 Here's the short version:
 

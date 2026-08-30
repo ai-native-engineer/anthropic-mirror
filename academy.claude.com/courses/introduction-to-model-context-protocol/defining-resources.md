@@ -12,7 +12,7 @@ Lesson 68 min
 
 Resources in MCP servers allow you to expose data to clients, similar to GET request handlers in a typical HTTP server. They're perfect for scenarios where you need to fetch information rather than perform actions.
 
-## Understanding Resources Through an Example
+## Understanding Resources Through an Example[](#understanding-resources-through-an-example)
 
 Let's say you want to build a document mention feature where users can type `@document_name` to reference files. This requires two operations:
 
@@ -25,7 +25,7 @@ When a user mentions a document, your system automatically injects the document'
 
 ![Diagram of a user asking "What's in the @report.pdf file?" — our code wraps the query in a prompt for Claude with the referenced document's contents injected inside a document tag](https://academy.claude.com/assets/media/49dbdb150ca9eba442fd911a0e136afb35a2bab168d8910577c54fdf1bb6e733.png)
 
-## How Resources Work
+## How Resources Work[](#how-resources-work)
 
 Resources follow a request-response pattern. When your client needs data, it sends a `ReadResourceRequest` with a URI to identify which resource it wants. The MCP server processes this request and returns the data in a `ReadResourceResult`.
 
@@ -35,11 +35,11 @@ The flow looks like this: your code requests a resource from the MCP client, whi
 
 ![Sequence diagram continued: the MCP server returns a ReadResourceResult containing the list of doc names, which the MCP client passes back to our code to put into the autocomplete](https://academy.claude.com/assets/media/90c43206eae4c5f233e73b2d4de24c46ad2abd7419c0eac31eaad78d37407290.png)
 
-## Types of Resources
+## Types of Resources[](#types-of-resources)
 
 There are two types of resources:
 
-### Direct Resources
+### Direct Resources[](#direct-resources)
 
 Direct resources have static URIs that never change. They're perfect for operations that don't need parameters.
 
@@ -54,7 +54,7 @@ def list_docs() -> list[str]:
     return list(docs.keys())
 ```
 
-### Templated Resources
+### Templated Resources[](#templated-resources)
 
 Templated resources include parameters in their URIs. The Python SDK automatically parses these parameters and passes them as keyword arguments to your function.
 
@@ -73,7 +73,7 @@ def fetch_doc(doc_id: str) -> str:
 
 ![Side-by-side comparison: a Direct Resource whose URI doesn't contain any params, and a Templated Resource whose URI contains one or more params that the Python SDK parses and passes as args to your function](https://academy.claude.com/assets/media/7fa0c5f6bafc5aec5ed6ff72d121e8b04986bc6379c9c4da1d042b7cca99ce50.png)
 
-## Implementation Details
+## Implementation Details[](#implementation-details)
 
 Resources can return any type of data - strings, JSON, binary data, etc. Use the `mime_type` parameter to give clients a hint about what kind of data you're returning:
 
@@ -83,7 +83,7 @@ Resources can return any type of data - strings, JSON, binary data, etc. Use the
 
 The MCP Python SDK automatically serializes your return values. You don't need to manually convert objects to JSON strings - just return the data structure and let the SDK handle serialization.
 
-## Testing Your Resources
+## Testing Your Resources[](#testing-your-resources)
 
 You can test resources using the MCP Inspector. Start your server with:
 

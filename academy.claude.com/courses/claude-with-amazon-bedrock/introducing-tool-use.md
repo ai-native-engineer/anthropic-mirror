@@ -16,7 +16,7 @@ Tools allow Claude to access information from the outside world, solving one of 
 
 When a user asks "What's the weather in San Francisco, California?" Claude will typically respond with "I'm sorry, but I don't have access to up-to-date weather information." Tools fix this problem by creating a bridge between Claude and external data sources.
 
-## How Tool Use Works
+## How Tool Use Works[](#how-tool-use-works)
 
 The tool use process follows a specific flow that involves multiple back-and-forth communications between your server and Claude:
 
@@ -27,7 +27,7 @@ The tool use process follows a specific flow that involves multiple back-and-for
 3. **Data Retrieval:** Your server runs code to fetch the requested information
 4. **Final Response:** Claude uses the external data to provide a complete, informed answer
 
-## Weather Example in Practice
+## Weather Example in Practice[](#weather-example-in-practice)
 
 Here's how the tool use flow works for a weather query:
 
@@ -35,7 +35,7 @@ Here's how the tool use flow works for a weather query:
 
 When a user asks about weather, you include details on how to retrieve current weather data in your initial request to Claude. Claude recognizes it needs current weather information and asks your server to get it. Your server calls a weather API, retrieves the live data, and sends it back to Claude. Finally, Claude combines the original question with the fresh weather data to provide an accurate, current response.
 
-## Implementation Challenges
+## Implementation Challenges[](#implementation-challenges)
 
 Tool use can feel confusing because there's a disconnect between the logical flow and how you actually write the code. The implementation doesn't follow the same order as the conceptual steps:
 

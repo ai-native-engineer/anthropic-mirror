@@ -12,7 +12,7 @@ Lesson 247 min
 
 After writing your tool function, the next step is creating a JSON schema that tells Claude what arguments your function expects and how to use it. This schema acts as documentation that Claude reads to understand when and how to call your tools.
 
-## Understanding JSON Schema
+## Understanding JSON Schema[](#understanding-json-schema)
 
 JSON Schema isn't specific to AI or tool calling - it's a widely-used data validation specification that's been around for years. The AI community adopted it because it's a convenient way to describe function parameters and validate data.
 
@@ -24,7 +24,7 @@ The complete tool specification has three main parts:
 * **description** - What the tool does and when to use it
 * **input\_schema** - The actual JSON schema describing the arguments
 
-## Writing Effective Descriptions
+## Writing Effective Descriptions[](#writing-effective-descriptions)
 
 ![](https://academy.claude.com/assets/media/770cad2cbde390cb5fabe30c8dd46046297c7491efdac77dce485f94c6580a5c.png)
 
@@ -36,7 +36,7 @@ The description field is crucial for helping Claude understand your tool. Follow
 
 The input\_schema section describes your function's parameters using standard JSON Schema format, including type information and detailed descriptions for each argument.
 
-## The Easy Way: Let Claude Write Your Schema
+## The Easy Way: Let Claude Write Your Schema[](#the-easy-way-let-claude-write-your-schema)
 
 Instead of writing JSON schemas from scratch, you can use Claude itself to generate them. Here's the process:
 
@@ -49,7 +49,7 @@ Instead of writing JSON schemas from scratch, you can use Claude itself to gener
 
 The prompt should be something like: "Write a valid JSON schema spec for the purposes of tool calling for this function. Follow the best practices listed in the attached documentation."
 
-## Implementing the Schema in Code
+## Implementing the Schema in Code[](#implementing-the-schema-in-code)
 
 Once Claude generates your schema, copy it into your code file. Use a consistent naming pattern like `function_name_schema` to keep things organized:
 
@@ -73,7 +73,7 @@ get_current_datetime_schema = {
 }
 ```
 
-## Adding Type Safety
+## Adding Type Safety[](#adding-type-safety)
 
 For better type checking, import and use the `ToolParam` type from the Anthropic library:
 

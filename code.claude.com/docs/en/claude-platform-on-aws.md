@@ -186,7 +186,9 @@ export const Experiment = ({flag, treatment, children}) => {
 
 <Experiment flag="docs-contact-sales-cta" treatment={<ContactSalesCard surface="claude_platform_on_aws" />} />
 
-Claude Platform on AWS is the Anthropic-operated Claude API with AWS authentication, IAM access control, and AWS Marketplace billing. Requests reach Anthropic's API directly, so you get the same models and API features as the [Claude API](https://platform.claude.com/docs) on the same release schedule. Client-side features that Claude Code turns on through Anthropic's feature-flag service, such as [`/loop` self-pacing](/docs/en/scheduled-tasks#let-claude-choose-the-interval), are off by default, and the [advisor tool](/docs/en/advisor) is not available. See the [feature availability matrix](/docs/en/feature-availability#summary-by-provider) for the full list. You authenticate with AWS credentials or a workspace API key, and you pay through AWS Marketplace.
+Claude Platform on AWS is the Anthropic-operated Claude API with AWS authentication, IAM access control, and AWS Marketplace billing. Requests reach Anthropic's API directly, so you get the same models and API features as the [Claude API](https://platform.claude.com/docs) on the same release schedule. You authenticate with AWS credentials or a workspace API key, and you pay through AWS Marketplace.
+
+Client-side features that Claude Code turns on through Anthropic's feature-flag service are off by default, and the [advisor tool](/docs/en/advisor) isn't available. See the [feature availability matrix](/docs/en/feature-availability#summary-by-provider) for the full list.
 
 Use this guide to point Claude Code at a workspace you've already provisioned through Claude Platform on AWS. For the AWS subscription and workspace setup that comes before this, see the [Claude Platform on AWS documentation](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws).
 
@@ -232,7 +234,7 @@ If your SSO credentials expire mid-session, configure [`awsAuthRefresh`](/docs/e
 
 Claude Code also runs this command at startup when it can't validate your existing AWS credentials, and shows the command's output in an `Authentication` panel until the login completes.
 
-With `awsAuthRefresh` configured, `/login` shows a **Claude Platform on AWS · refresh credentials** option under **Using 3rd-party platforms**. Selecting it runs the configured command and re-reads your AWS credentials without restarting Claude Code.
+With `awsAuthRefresh` configured, run `/login`, select **3rd-party platform**, then select **Claude Platform on AWS · refresh credentials** under **Using 3rd-party platforms**. Claude Code runs the configured command and re-reads your AWS credentials without a restart. This option requires Claude Code v2.1.186 or later.
 
 **Option B: Workspace API key**
 

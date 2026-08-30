@@ -13,8 +13,6 @@ The Max plan is designed for users who collaborate with Claude frequently and ne
 * **Access to Claude Code: [Use Claude Code](https://support.claude.com/en/articles/11145838)** for your terminal-based coding workflows with one unified subscription.
 * **Access to Cowork:** Hand off complex, multi-step tasks to Claude in Claude Desktop. See this article for more information: **[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190)**.
 
----
-
 ## How much does the Max plan cost?
 
 ### Pricing tiers
@@ -43,8 +41,6 @@ Price and plans are subject to change at Anthropic's discretion.
 We do not offer standard discounted pricing any of our paid plans, including Max 5x and 20x plans. With that said, anyone in a supported location can access the free version of Claude by navigating to claude.ai and signing up using an email address.
 
 We occasionally run limited-time promotions, but we don't have any standing discounts available upon request. These promotional offers are typically announced through our official channels when available. If you're interested in potential future promotions, we recommend following our official social media accounts or signing up for our newsletter to be notified of any special offers. Our Support team cannot issue one-off discounts or coupons.
-
----
 
 ## Does the Max plan have any usage limits?
 

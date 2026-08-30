@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-cfvv79hl.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fa1zco5y.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Product Management plugin ships with `/stakeholder-update` and other release skills as a starting point, already structured to build a checklist, assign status, and make the go/no-go call. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Product Management7 skills to write specs, synthesize research, run competitive 
 
 Show all 8 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the PRD, the GTM brief, the launch checklist template, the retro from your last two launches) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the readiness checklist back to it. If you run launches regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your checklist template, prior retros, and memory stay attached.
 
@@ -84,15 +84,15 @@ retro-bulk-export-launch.mdOptionalMar 30, 202611 KB
 
 In Cowork’s chat bar:Launches / saved-views
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Sweep launch readiness for the saved-views launch. Produce the launch checklist with status and owner per item, give a red/yellow/green readiness call overall, name the blockers, and note anything that matches what went well or wrong in our last two launches.
 
 Launches / saved-viewsOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Source
 
@@ -110,7 +110,7 @@ Source
 
 **Compare against your own history.** Pointing Claude at your past retros lets it check this launch against what's gone wrong before. Otherwise it's evaluating in isolation.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -120,7 +120,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -130,9 +130,9 @@ LaunchesOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it daily during launch week
+### Run it daily during launch week[](#run-it-daily-during-launch-week)
 
 Readiness changes by the hour in the final stretch. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill posts a fresh checklist every morning of launch week so standup opens with the current picture.
 
@@ -148,7 +148,7 @@ Runs `/stakeholder-update` against the PRD, Linear epic, Slack channel, and GTM 
 
 Every **day at 8:00am, May 4 to May 8**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/stakeholder-update` now carries your checklist template, your owners, and your color criteria. Share it so every launch lead runs the same sweep, and the go/no-go meeting reads one consistent format no matter which feature is shipping.
 
@@ -156,7 +156,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/stakeholder-update` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your checklist and criteria baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

@@ -12,7 +12,7 @@ Lesson 4010 min
 
 Claude's vision capabilities let you include images in your messages and ask Claude to analyze them in countless ways. You can ask Claude to describe what's in an image, compare multiple images, count objects, or perform complex visual analysis tasks.
 
-## Image Handling Basics
+## Image Handling Basics[](#image-handling-basics)
 
 ![](https://academy.claude.com/assets/media/98c768b5f76c2323de2b36964b308e2de4ad89ee155b489ac419e0aeab21b045.jpg)
 
@@ -51,13 +51,13 @@ add_user_message(messages, [
 ])
 ```
 
-## Message Flow
+## Message Flow[](#message-flow)
 
 ![](https://academy.claude.com/assets/media/2e3de7bc759472bad884263d83f216e3b4a429052afd5a01a1359acd4137788a.jpg)
 
 The conversation works just like text-only interactions. Your server sends a user message containing both image and text blocks to Claude, and Claude responds with a text block containing its analysis.
 
-## Prompting Techniques
+## Prompting Techniques[](#prompting-techniques)
 
 ![](https://academy.claude.com/assets/media/89054de9a3667eb929a019f59efb5db86e9f3a95713b6fa67925a98be65293ee.jpg)
 
@@ -69,7 +69,7 @@ You can dramatically improve Claude's accuracy by:
 * Using one-shot or multi-shot examples
 * Breaking down complex tasks into smaller steps
 
-### Step-by-Step Analysis
+### Step-by-Step Analysis[](#step-by-step-analysis)
 
 ![](https://academy.claude.com/assets/media/6cec588debfe41c1968153ee66e3a161fa086e614f9ef28ba0cfb5176e2cff58.jpg)
 
@@ -83,13 +83,13 @@ Analyze this image of marbles and determine the exact count using this methodolo
 What is the exact, verified number of marbles in this image?
 ```
 
-### One-Shot Examples
+### One-Shot Examples[](#one-shot-examples)
 
 ![](https://academy.claude.com/assets/media/0dd5c0bdeb2a02989bf35771a4fabb86e4c6cc8acc45ba3e74d887f1e9825931.jpg)
 
 You can also improve accuracy by providing examples within your message. Include an image with a known count, state the correct answer, then ask about your target image. This gives Claude a reference point for the type of analysis you want.
 
-## Real-World Example: Fire Risk Assessment
+## Real-World Example: Fire Risk Assessment[](#real-world-example-fire-risk-assessment)
 
 ![](https://academy.claude.com/assets/media/cee23b7082e886a69fbe447eb40637e2c9d1bb60fafbd7b04756588c3439f043.jpg)
 

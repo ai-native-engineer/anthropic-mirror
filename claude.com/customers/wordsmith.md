@@ -146,6 +146,22 @@ Video caption
 
 ## Related stories
 
+[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
+
+Spellbook runs 530,000 contract reviews a month with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/spellbook)Customer story
+
+[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
+
+EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/evenup)Customer story
+
 [Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
 
 Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
@@ -161,19 +177,3 @@ GC AI powers legal workflows for 1,500 companies, saving lawyers 14 hours a week
 Customer story
 
 [Customer story](https://claude.com/customers/gc-ai)Customer story
-
-[Thomson Reuters CTO on piloting Cowork with Claude Enterprise](https://claude.com/customers/thomson-reuters-qa)Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Thomson Reuters CTO on piloting Cowork with Claude Enterprise
-
-Customer story
-
-[Customer story](https://claude.com/customers/thomson-reuters-qa)Customer story
-
-[Legora helps lawyers work more efficiently with Claude](https://claude.com/customers/legora)Legora helps lawyers work more efficiently with Claude
-
-Legora helps lawyers work more efficiently with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/legora)Customer story

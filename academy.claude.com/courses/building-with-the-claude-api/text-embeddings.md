@@ -14,13 +14,13 @@ After breaking a document into chunks, the next step in a RAG pipeline is findin
 
 ![](https://academy.claude.com/assets/media/974fa9d12a1524d19e048317f4f35b378a1902c079fe4d3af09c7c0e836c3c65.jpg)
 
-## Semantic Search
+## Semantic Search[](#semantic-search)
 
 The most common approach for finding relevant chunks is semantic search. Unlike keyword-based search that looks for exact word matches, semantic search uses text embeddings to understand the meaning and context of both the user's question and each text chunk.
 
 ![](https://academy.claude.com/assets/media/3325be08d94ce03a851f4c322d35ff96cfa8204b7059106d9afc0e4868d3ec21.jpg)
 
-## Text Embeddings
+## Text Embeddings[](#text-embeddings)
 
 A text embedding is a numerical representation of the meaning contained in some text. Think of it as converting words and sentences into a format that computers can work with mathematically.
 
@@ -33,7 +33,7 @@ Here's how the process works:
 * Each number ranges from -1 to +1
 * These numbers represent different qualities or features of the input text
 
-## Understanding the Numbers
+## Understanding the Numbers[](#understanding-the-numbers)
 
 Each number in an embedding is essentially a "score" for some quality of the input text. However, here's the important caveat: we don't know precisely what each number represents.
 
@@ -41,7 +41,7 @@ Each number in an embedding is essentially a "score" for some quality of the inp
 
 While it's helpful to imagine that one number might represent "how happy the text is" or "how much the text talks about oceans," these are just conceptual examples. The actual meaning of each dimension is learned by the model during training and isn't directly interpretable by humans.
 
-## VoyageAI for Embeddings
+## VoyageAI for Embeddings[](#voyageai-for-embeddings)
 
 Since Anthropic doesn't currently provide embedding generation, the recommended provider is VoyageAI. You'll need to:
 
@@ -59,7 +59,7 @@ bash
 VOYAGE_API_KEY="your_key_here"
 ```
 
-## Implementation
+## Implementation[](#implementation)
 
 First, install the VoyageAI library:
 

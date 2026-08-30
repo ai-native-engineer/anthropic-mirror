@@ -33,13 +33,13 @@ This course is built in partnership with CodePath, drawing on research with engi
 
 The work builds on our AI Fluency: Framework & Foundations course, adapted specifically for the builder context where speed of implementation and the human role in judgment create unique considerations for AI collaboration.
 
-## **Recommended prerequisites**
+## **Recommended prerequisites**[](#recommended-prerequisites)
 
 This course lightly covers the foundational AI Fluency concepts. However, for deeper understanding, participants should complete *AI Fluency: Framework & Foundations* before beginning this builder-focused curriculum.
 
 It is also recommended that learners have access to an AI tool for hands-on practice. Examples in this course will use [Claude.ai(opens in new tab)](http://claude.ai), but any AI assistant will work.
 
-## About the partners
+## About the partners[](#about-the-partners)
 
 This course was created in partnership between Anthropic and CodePath. Anthropic is a frontier AI safety company and the maker of Claude. [CodePath(opens in new tab)](https://codepath.org/?utm_campaign=46412544-Claude%20Corps&utm_source=referral&utm_medium=Anthropic%20Website) is a nonprofit reprogramming computer science education to create the first AI-native generation of builders.
 

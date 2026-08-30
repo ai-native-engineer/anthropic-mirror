@@ -14,7 +14,7 @@ Prompt engineering is about taking a prompt you've written and improving it to g
 
 ![](https://academy.claude.com/assets/media/135340165a55b554a968a55352c565b5d180ee9d685cc339021feb685f620efa.png)
 
-## The Iterative Improvement Process
+## The Iterative Improvement Process[](#the-iterative-improvement-process)
 
 The approach follows a clear cycle that you can repeat until you achieve your desired results:
 
@@ -28,7 +28,7 @@ The approach follows a clear cycle that you can repeat until you achieve your de
 
 You repeat the last two steps until you're satisfied with the performance. Each iteration should show measurable improvement in your evaluation scores.
 
-## Setting Up Your Evaluation Pipeline
+## Setting Up Your Evaluation Pipeline[](#setting-up-your-evaluation-pipeline)
 
 To demonstrate this process, we'll work with a practical example: creating a prompt that generates one-day meal plans for athletes. The prompt needs to take into account an athlete's height, weight, goals, and dietary restrictions, then produce a comprehensive meal plan.
 
@@ -44,7 +44,7 @@ evaluator = PromptEvaluator(max_concurrent_tasks=5)
 
 Start with a low concurrency value (like 3) to avoid rate limit errors. You can increase it if your API quota allows for faster processing.
 
-## Generating Test Data
+## Generating Test Data[](#generating-test-data)
 
 The evaluation system can automatically generate test cases based on your prompt requirements. You define what inputs your prompt needs:
 
@@ -66,7 +66,7 @@ dataset = evaluator.generate_dataset(
 
 Keep the number of test cases low (2-3) during development to speed up your iteration cycle. You can increase this for final validation.
 
-## Writing Your Initial Prompt
+## Writing Your Initial Prompt[](#writing-your-initial-prompt)
 
 Start with a simple, naive prompt to establish a baseline. Here's an example of a deliberately basic first attempt:
 
@@ -90,7 +90,7 @@ What should this person eat?
 
 This basic prompt will likely produce poor results, but it gives you a starting point to measure improvement against.
 
-## Adding Evaluation Criteria
+## Adding Evaluation Criteria[](#adding-evaluation-criteria)
 
 When running your evaluation, you can specify additional criteria that the grading model should consider:
 
@@ -111,7 +111,7 @@ The output should include:
 
 This helps ensure your prompt is evaluated against the specific requirements that matter for your use case.
 
-## Analyzing Results
+## Analyzing Results[](#analyzing-results)
 
 After running an evaluation, you'll get both a numerical score and a detailed HTML report. The report shows you exactly how each test case performed, including the model's reasoning for each score.
 
@@ -123,7 +123,7 @@ Don't be discouraged by low initial scores - a score of 2.3 out of 10 is typical
 
 The detailed evaluation report helps you understand exactly where your prompt is failing and what improvements are needed. Use this feedback to guide your next iteration.
 
-## Next Steps
+## Next Steps[](#next-steps)
 
 With your baseline established, you're ready to start applying specific prompt engineering techniques. Each technique you learn should result in measurable improvement in your evaluation scores, gradually transforming your basic prompt into a reliable, high-performing tool.
 

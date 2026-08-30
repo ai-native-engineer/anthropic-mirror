@@ -12,7 +12,7 @@ Lesson 555 min
 
 Resources in MCP servers allow you to expose data to clients, similar to GET request handlers in a typical HTTP server. They're perfect for scenarios where you need to fetch information rather than perform actions.
 
-## Understanding Resources
+## Understanding Resources[](#understanding-resources)
 
 Think of resources as read-only endpoints that can return any type of data - strings, JSON, binary files, etc. You set a 'mime\_type' to give the client a hint about what kind of data you're returning.
 
@@ -20,7 +20,7 @@ Think of resources as read-only endpoints that can return any type of data - str
 
 Resources work by defining a URI (like a URL) that clients can request. When a client needs data, it sends a ReadResourceRequest with the specific URI, and your server responds with a ReadResourceResult containing the data.
 
-## Two Types of Resources
+## Two Types of Resources[](#two-types-of-resources)
 
 There are two main types of resources you can create:
 
@@ -31,7 +31,7 @@ There are two main types of resources you can create:
 
 For templated resources, the Python SDK automatically parses parameters from the URI and passes them as keyword arguments to your function. The parameter names in the URI must match your function's parameter names exactly.
 
-## Creating Resources
+## Creating Resources[](#creating-resources)
 
 Here's how to implement both types of resources:
 
@@ -57,7 +57,7 @@ def fetch_doc(doc_id: str) -> str:
 
 The MCP Python SDK automatically serializes whatever you return. You don't need to manually convert data to JSON strings - just return Python objects and the SDK handles the conversion.
 
-## Testing Your Resources
+## Testing Your Resources[](#testing-your-resources)
 
 You can test resources using the MCP Inspector. Start your server with:
 
@@ -72,7 +72,7 @@ Then connect to the inspector in your browser. You'll see two sections:
 
 Click on any resource to test it. For templated resources, you'll need to provide values for the parameters. The inspector shows you the exact response structure your client will receive, including the mime type and serialized data.
 
-## Practical Use Cases
+## Practical Use Cases[](#practical-use-cases)
 
 Resources are ideal for implementing features like document mentions in chat applications. For example, when a user types "@" to mention a document, you could:
 

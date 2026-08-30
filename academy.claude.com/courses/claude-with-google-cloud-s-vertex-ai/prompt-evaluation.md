@@ -14,7 +14,7 @@ When working with Claude, writing a good prompt is just the beginning. To build 
 
 ![](https://academy.claude.com/assets/media/c1b0e1164b44e2de255137a6950d9a3795f2ab17eaa22cae93abba5aa021b66e.png)
 
-## Prompt Engineering vs Prompt Evaluation
+## Prompt Engineering vs Prompt Evaluation[](#prompt-engineering-vs-prompt-evaluation)
 
 Prompt engineering is your toolkit for writing and improving prompts. It's a set of best practices that help Claude understand exactly what you're asking for and how you want it to respond. Think of it as the craft of prompt writing - techniques like multishot prompting, structuring with XML tags, and many other approaches we'll explore.
 
@@ -24,7 +24,7 @@ Prompt evaluation, on the other hand, is about measurement. It's automated testi
 * Compare different versions of the same prompt
 * Review outputs for errors
 
-## The Three Paths After Writing a Prompt
+## The Three Paths After Writing a Prompt[](#the-three-paths-after-writing-a-prompt)
 
 Once you've drafted a prompt, you typically face three options for what to do next:
 
@@ -36,13 +36,13 @@ Once you've drafted a prompt, you typically face three options for what to do ne
 
 **Option 3:** Run the prompt through an evaluation pipeline to score it, then iterate on the prompt based on objective data. This requires more work and cost upfront, but gives you much more confidence in your prompt's reliability.
 
-## Why Most Engineers Fall Into Testing Traps
+## Why Most Engineers Fall Into Testing Traps[](#why-most-engineers-fall-into-testing-traps)
 
 Options 1 and 2 are traps that all engineers fall into - myself included. It's natural to write a prompt, test it a couple times with your own inputs, and think "this looks good enough." But when you're building serious applications, this approach often leads to problems in production.
 
 The issue is that you can't predict all the ways users will interact with your prompt. What seems to work perfectly in your limited testing might fail completely when faced with real-world usage patterns.
 
-## The Value of Systematic Evaluation
+## The Value of Systematic Evaluation[](#the-value-of-systematic-evaluation)
 
 Option 3 - running your prompt through an evaluation pipeline - gives you objective data about performance. Instead of relying on gut feelings or limited manual testing, you get measurable scores that tell you how well your prompt handles a variety of inputs.
 

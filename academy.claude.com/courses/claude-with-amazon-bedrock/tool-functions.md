@@ -16,7 +16,7 @@ Building tools for Claude requires solving several challenges that aren't immedi
 
 The solution is to create custom tools that handle these specific tasks. For a reminder system, you'll need three separate tools: one to get the current date and time, another to add durations to dates, and a third to actually set the reminder.
 
-## Why This Is Challenging
+## Why This Is Challenging[](#why-this-is-challenging)
 
 Claude has some limitations when it comes to time-based tasks:
 
@@ -26,7 +26,7 @@ Claude has some limitations when it comes to time-based tasks:
 
 ![](https://academy.claude.com/assets/media/a7c479969f35c554cc2bbba8f8e3908cabc2f621e13b4068267e5c971b20692b.png)
 
-## The Tools You Need
+## The Tools You Need[](#the-tools-you-need)
 
 To solve these problems, you'll create three dedicated tools:
 
@@ -36,7 +36,7 @@ To solve these problems, you'll create three dedicated tools:
 
 ![](https://academy.claude.com/assets/media/ab568fe7efa0dc2e7418393d5d926dbca2ccc2840fa0ea0e396b4c786d2699c6.png)
 
-## How Tool Functions Work
+## How Tool Functions Work[](#how-tool-functions-work)
 
 The tool system follows a specific flow between your server and Claude. You write functions that Claude can call when it needs additional information, and Claude receives the results to help formulate its response.
 
@@ -46,11 +46,11 @@ The process involves several steps: writing the tool function, creating a JSON s
 
 ![](https://academy.claude.com/assets/media/493213de9630b90abce40533716123bee8656cde00774668558a6aedcf045085.png)
 
-## Writing Tool Functions
+## Writing Tool Functions[](#writing-tool-functions)
 
 Tool functions are plain Python functions that get executed when Claude decides it needs additional information to help the user. Here's how to write them effectively:
 
-### Best Practices
+### Best Practices[](#best-practices)
 
 * Use well-named, descriptive arguments (this becomes important later)
 * Validate the inputs, raising an error if they fail validation
@@ -58,7 +58,7 @@ Tool functions are plain Python functions that get executed when Claude decides 
 
 ![](https://academy.claude.com/assets/media/ab8e2ed3a5d133c180b9fb859d6d53a4c122fea7cef28570e948c20faa8dcd33.png)
 
-## Creating Your First Tool
+## Creating Your First Tool[](#creating-your-first-tool)
 
 Let's start with the simplest tool - getting the current date and time. This function takes a date format parameter and returns the current timestamp:
 
@@ -73,7 +73,7 @@ def get_current_datetime(date_format="%Y-%m-%d %H:%M:%S"):
 
 This function is straightforward but follows the key principles: it has a descriptive name, takes a well-named parameter with a sensible default, and returns exactly what it promises.
 
-## JSON Schema Specification
+## JSON Schema Specification[](#json-schema-specification)
 
 Once you have your function, you need to write a JSON Schema that describes it to Claude. This schema tells Claude what arguments the function requires and helps it understand when and how to use the tool.
 
@@ -81,7 +81,7 @@ Once you have your function, you need to write a JSON Schema that describes it t
 
 The JSON Schema serves two purposes: it helps Claude understand what arguments your function requires, and it's not just an LLM concept - JSON Schema is commonly used for data validation across many programming contexts. There are plenty of online tools to help you generate schemas.
 
-### Schema Best Practices
+### Schema Best Practices[](#schema-best-practices)
 
 * Explain what the tool does, when to use it, and what it returns
 * Aim for 3 to 4 sentences in your descriptions

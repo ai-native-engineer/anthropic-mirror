@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create sales reports result](https://academy.claude.com/assets/v1/create-sales-reports-tco4ryx7.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to pull live data from your CRM and synthesize it with your business context enables you to generate full reports in minutes.
 
@@ -37,11 +37,11 @@ Create this as a professional document with clean serif fonts, information dense
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Connect your CRM using [connectors(opens in new tab)](https://claude.ai/customize/connectors) so Claude can pull current sales data directly, eliminating manual exports and ensuring the report reflects your latest metrics.
 
-### Required context
+### Required context[](#required-context)
 
 In Settings > Capabilities, find and enable your [HubSpot(opens in new tab)](https://mcp.hubspot.com/anthropic) connector. Once connected, Claude can read sales data and pull metrics on demand without you exporting files or copying data manually. Add any additional context your CRM doesn't capture to help Claude conduct analysis more tailored to your business.
 
@@ -53,15 +53,7 @@ Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 Q4 Sales Goals documentFILE
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can better reason through your analysis and create high quality outputs.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude analyzes your sales performance data to create a document with an executive summary, data tables showing key metrics with visual indicators, segment-by-segment breakdowns, trend analysis, and actionable recommendations.
 
@@ -89,11 +81,11 @@ I pulled your Q4 data from HubSpot and created a professional sales report. Here
 
 The report is professionally designed and ready to download and edit. You can share it directly or ask me to adjust the visualizations or analysis.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Test your understanding
+### Test your understanding[](#test-your-understanding)
 
 After generating the report, ask Claude to question you on the findings. This ensures you've absorbed the analysis and understand the overall picture.
 
@@ -101,7 +93,7 @@ Quiz me on the findings from this report like your manager. In addition to just 
 
 Open in Claude
 
-### Combine internal data with external intelligence
+### Combine internal data with external intelligence[](#combine-internal-data-with-external-intelligence)
 
 Enable Research and request market context for Claude to compare your data with current market intelligence.
 
@@ -109,7 +101,7 @@ Pull my metrics, then research industry benchmarks for SaaS companies our size. 
 
 Open in Claude
 
-### Deep dive by segment
+### Deep dive by segment[](#deep-dive-by-segment)
 
 After reading the report, zoom in on an area of particular interest to analyze specific findings and implications.
 
@@ -117,21 +109,21 @@ Take the Enterprise segment data and create a detailed analysis document. Break 
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Request professional formatting
+### Request professional formatting[](#request-professional-formatting)
 
 Ask Claude for "professional design" or "sophisticated formatting" and specify you want documents with visual hierarchy, strategic color accents, and proper whitespace. Claude can generate charts and graphs directly from your numbers and embed them into your report, so trends and comparisons are immediately visible without switching to separate files. You can also request companion spreadsheets with editable charts and visualizations that refer to the data in your document.
 
-### Stay current with live information
+### Stay current with live information[](#stay-current-with-live-information)
 
 Unlike uploaded CSV files (static snapshots), [connectors(opens in new tab)](https://claude.com/blog/what-is-model-context-protocol) allow Claude to access current data from your tools. Ask Claude to pull the latest Q4 data from HubSpot whenever you need an update, and generate a report with the latest numbers without re-exporting files.
 
-### Expand analysis across tools
+### Expand analysis across tools[](#expand-analysis-across-tools)
 
 If you store market research in Google Drive or track initiatives in Asana, add those connectors so Claude can correlate additional factors with sales performance. For example: pull competitive intelligence from Drive while analyzing win rates to understand what's influencing deals, or cross-reference Asana milestones with pipeline velocity to see how product launches affect sales momentum.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Connect your CRM, describe the information you need to display, and let Claude handle the analysis and formatting work.
 

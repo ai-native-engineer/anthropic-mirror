@@ -18,7 +18,7 @@ The ICD-10 connector gives Claude access to ICD-10-CM diagnosis codes and ICD-10
 
 The ICD-10 integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 This integration provides access to the 2026 International Classification of Diseases, 10th Revision code sets used in the United States healthcare system. ICD-10 is based on the World Health Organization (WHO) classification system, with ICD-10-CM (Clinical Modification) authorized by WHO and developed by the CDC's National Center for Health Statistics (NCHS) for diagnosis coding, and ICD-10-PCS (Procedure Coding System) developed by CMS for inpatient procedure coding. Both code sets are HIPAA-mandated standards that became effective October 1, 2015, and are updated annually. The FY 2026 release includes over 550 diagnosis code changes (487 additions, 28 deletions, 38 revisions) and became effective October 1, 2025, for patient encounters and discharges through September 30, 2026.
 
@@ -36,7 +36,7 @@ This connector provides nine primary tool calls that access ICD-10-CM and ICD-10
 
 On the provider side, the connector accesses a locally stored database of the 2026 ICD-10-CM and ICD-10-PCS code sets published by CMS and CDC/NCHS. The database includes code structure (chapter, category, subcategory), short and long descriptions, and HIPAA transaction validity flags. ICD-10-CM codes are 3-7 alphanumeric characters documenting diagnoses; ICD-10-PCS codes are exactly 7 alphanumeric characters documenting inpatient procedures. Category header codes (shorter codes like "E11" or "E11.3") serve as organizational groupings and are NOT valid for billing—only fully specified codes with maximum detail are HIPAA-compliant.
 
-## **Who should use the ICD-10 integration**
+## **Who should use the ICD-10 integration**[](#who-should-use-the-icd-10-integration)
 
 * **Medical Coders & Health Information Management Professionals:** Search and validate diagnosis and procedure codes for accurate medical record documentation, ensure code specificity meets billing requirements, verify HIPAA transaction validity, and explore code hierarchies to select the most appropriate codes.
 * **Revenue Cycle Management Teams & Billing Specialists:** Validate code accuracy before claim submission to reduce denials, verify codes are valid for the current fiscal year (FY 2026), identify codes requiring additional documentation specificity, and ensure compliance with payer coding requirements.
@@ -45,7 +45,7 @@ On the provider side, the connector accesses a locally stored database of the 20
 * **Medical Auditors & Compliance Officers:** Audit coded medical records for accuracy and specificity, identify patterns of coding errors or undercoding, verify compliance with CMS coding guidelines and HIPAA standards, and conduct retrospective reviews of diagnosis and procedure coding quality.
 * **Healthcare Data Analysts & Population Health Teams:** Analyze disease prevalence and treatment patterns using standardized ICD-10 codes, track diagnosis trends across patient populations, conduct outcomes research using procedure codes, and support quality reporting and value-based care initiatives with accurate coded data.
 
-## **Setting up the ICD-10 integration**
+## **Setting up the ICD-10 integration**[](#setting-up-the-icd-10-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -69,7 +69,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 3. Restart Claude Code
 4. Verify that the server is connected with /mcp
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Medical Coding & Documentation Accuracy**
 

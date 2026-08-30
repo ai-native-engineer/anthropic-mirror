@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Track discovery timelines and analyze patterns result](https://academy.claude.com/assets/v1/track-discovery-timelines-and-analyze-patterns-jkl17upg.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to synthesize information across multiple documents, paired with your legal expertise, lets you build comprehensive case chronologies and spot patterns that might take days to identify manually.
 
@@ -30,11 +30,11 @@ This needs to be a top of class legal document with exceptional formatting and s
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Provide Claude your discovery documents so it can identify patterns across the entire record, not just summarize individual files.
 
-### Required context
+### Required context[](#required-context)
 
 Connect the tools where your discovery documents are stored. By enabling [Gmail(opens in new tab)](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) and [Google Drive(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) integrations, Claude can search all relevant materials: contracts, amendments, email threads, invoices, and other documentation.
 
@@ -56,15 +56,7 @@ Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 Discovery documentsPDF
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for better cross-document pattern recognition and higher quality file creation.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude produces a comprehensive legal analysis document (.docx format) organized into clear sections.
 
@@ -78,11 +70,11 @@ I've organized all findings in the attached document with full citations, making
 
 **View the contract analysis document**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Extract direct quotes
+### Extract direct quotes[](#extract-direct-quotes)
 
 Pull the actual vendor emails about delays, without having to manually sift through large documents.
 
@@ -90,7 +82,7 @@ Show me the specific emails where VendorTech blamed us for each missed milestone
 
 Open in Claude
 
-### Condense and reformat findings
+### Condense and reformat findings[](#condense-and-reformat-findings)
 
 Create a one-page executive summary for leadership. Claude can easily convert your information into other formats, like a document or memo.
 
@@ -98,7 +90,7 @@ Condense this analysis into a one-page memo for our managing partner. Focus on: 
 
 Open in Claude
 
-### Deep-dive on violations
+### Deep-dive on violations[](#deep-dive-on-violations)
 
 Claude can conduct additional research in areas where you need more information. For instance, ask Claude to concentrate specifically on violations related to change orders within a project or contract.
 
@@ -106,21 +98,21 @@ Zoom in on the two scope changes where they didn't issue change orders. Pull eve
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Always verify dates and citations before using them in filings
+### Always verify dates and citations before using them in filings[](#always-verify-dates-and-citations-before-using-them-in-filings)
 
 Claude is excellent at identifying patterns and organizing information across hundreds of documents, but double-check that cited document numbers match your discovery index, dates align with your case timeline, and quotes are accurate before including anything in briefs or client communications. For chronologies specifically, verify the temporal relationships and confirm no key events are missing. Think of Claude as accelerating your review process, not replacing it.
 
-### Protect sensitive client information appropriately
+### Protect sensitive client information appropriately[](#protect-sensitive-client-information-appropriately)
 
 For cases involving truly confidential information (trade secrets, highly sensitive personal data), consider redacting sensitive details before upload or using this approach for the non-sensitive portions of discovery only. Claude doesn't store uploaded documents after your conversation ends and you control what information you provide. Learn more about our [privacy policy(opens in new tab)](https://www.anthropic.com/legal/privacy)
 
-### Specify professional legal formatting
+### Specify professional legal formatting[](#specify-professional-legal-formatting)
 
 Notice how the prompt includes "professional legal memo format". Claude responds to these cues with appropriate formality, proper section headings, and citation style. Without this direction, outputs may default to more casual formatting. For court filings or client deliverables, specify the level of formality you need or provide template documents from your firm.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Turn your discovery review process from tedious document-by-document reading into strategic pattern analysis. Upload your discovery and get started.
 

@@ -1,7 +1,8 @@
 # claude (YouTube)
 
-영상 174개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 175개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Claude for Word: Turn a draft into a finished document](claude/260826-claude-for-word-turn-a-draft-into-a-finished-document.md) — 2026-08-26
 - [What does AI actually know about you?](claude/260813-what-does-ai-actually-know-about-you.md) — 2026-08-13
 - [Claude Cowork is now your Chrome side panel](claude/260812-claude-cowork-is-now-your-chrome-side-panel.md) — 2026-08-12 (자막없음)
 - [Can you trust what AI tells you?](claude/260811-can-you-trust-what-ai-tells-you.md) — 2026-08-11

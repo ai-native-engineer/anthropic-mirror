@@ -6,8 +6,6 @@ For current pricing by seat type and billing interval, see **[What is the Team p
 
 For information on seat types and what's included, see **[Purchasing and managing seats on Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)**.
 
----
-
 ## How does adding or removing members affect my bill?
 
 **Adding members or upgrading seats:** You will be charged the prorated amount immediately.
@@ -16,13 +14,9 @@ For information on seat types and what's included, see **[Purchasing and managin
 
 For instructions to add and remove members, see **[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750)**.
 
----
-
 ## Usage credits
 
 If usage credits are enabled, your bill may include charges for usage beyond seat limits. For details on how usage credits work and how they're billed on your plan, see **[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970)**.
-
----
 
 ## Billing examples
 

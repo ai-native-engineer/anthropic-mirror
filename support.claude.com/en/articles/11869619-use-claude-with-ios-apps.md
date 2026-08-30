@@ -24,8 +24,6 @@ Claude can help you:
 * **Contacts:** Claude does not have direct access to your contacts.
 * **Health:** Available in beta on Pro and Max plans only. Currently limited to users in the US. Claude can read health data but cannot write or modify entries in Apple Health.
 
----
-
 ## How Claude helps you take action
 
 When Claude determines that using one of these features would be helpful, it will automatically suggest it. You'll see a card or prompt within your conversation that lets you review and take action with Claude’s help.
@@ -90,8 +88,6 @@ When Claude determines that using one of these features would be helpful, it wil
 
 Note that when Claude uses tools to take these actions, their use is preserved in the conversation history in the same way as any tool.
 
----
-
 ## Access and analyze your health data
 
 **Note:** Health features are available in beta on Pro and Max plans only, and currently limited to users in the US.
@@ -111,7 +107,7 @@ With your permission, Claude can read the following types of data from Apple Hea
 * **Sleep:** Total sleep time, sleep stages, time in bed, and sleep efficiency.
 * **Nutrition:** Calories consumed, macronutrients, water intake, and micronutrients (if tracked).
 
-**Note:** Our **[memory feature](https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context#h_c1c0b33879)** is designed to prevent Claude from using sensitive health information in future conversations.
+**Note:** By default, Claude doesn't save health information to memory. If you turn on **Include sensitive topics in memory**, Claude may remember health-related context from your conversations. Learn more about **[sensitive topics in memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context#h_6fe1d0e66f)**.
 
 ### How to use health features
 
@@ -142,8 +138,6 @@ Tap on chart elements to see more details about specific data points.
 
 To get the best results, be specific about what you want, include relevant details like dates, times, and locations in your requests, and review content before sending or saving. Claude understands natural language, so you can make requests conversationally.
 
----
-
 ## What data can Claude access?
 
 Claude only accesses the data necessary for each specific request:
@@ -173,8 +167,6 @@ These permissions can be managed at any time in your device settings by going to
 Health permissions work differently from other app permissions. When Claude requests health access, you'll see the standard iOS Health permissions screen where you can choose exactly which data types to share. You can modify these permissions at any time by going to Settings > Health > Data Access & Devices > Claude.
 
 Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
-
----
 
 ## Troubleshooting
 

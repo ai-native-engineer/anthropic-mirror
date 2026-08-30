@@ -18,7 +18,7 @@ When the creative juices are flowing, the last thing you want to do is interrupt
 
 Making an artifact comes down to two moves: describe the problem you want solved, then build on Claude's responses until the app fits what you pictured. Plan to iterate from the start. The first version Claude builds is a working draft, and every follow-up request makes it more your own.
 
-## What are artifacts and when would you use them?
+## What are artifacts and when would you use them?[](#what-are-artifacts-and-when-would-you-use-them)
 
 [Artifacts(opens in new tab)](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) are interactive apps that emerge from your conversations with Claude. They let you generate material like code, documents, and apps from [Claude(opens in new tab)](http://claude.ai/) app chat.
 
@@ -42,7 +42,7 @@ These are great for when you want to quickly spin up any kind of digital product
 
 The options are really endless. For more inspiration, visit the “Artifacts” tab in your Claude app, or try asking Claude what you should build. (Note that the “Artifacts” tab itself is only available on free, pro, and max plans, and currently does not exist on mobile). Artifacts are also available on team and enterprise plans, where an Owner can enable them for the whole organization.
 
-## Creating your first artifact
+## Creating your first artifact[](#creating-your-first-artifact)
 
 The best way to create an artifact is to describe a problem you want to solve, then let Claude help you refine it. Here's a step-by-step approach:
 
@@ -53,7 +53,7 @@ The best way to create an artifact is to describe a problem you want to solve, t
 
 And that’s it! With just a few turns you’ll have a functioning app that you can further customize to fit your needs.
 
-### Practice: start with a problem you already have
+### Practice: start with a problem you already have[](#practice-start-with-a-problem-you-already-have)
 
 Pick one small annoyance from your week, something you explain repeatedly or track by hand. Head to “artifacts” in your sidebar and send this prompt, with your problem in place of the example:
 
@@ -63,7 +63,7 @@ Open in Claude
 
 Answer Claude's questions, then send at least one follow-up that changes something specific, like "make each priority checkable" or "sort the list by deadline." Each follow-up builds on everything you have already told Claude, so say what to change and keep going until the app does what you need.
 
-## Tips for improving your artifact
+## Tips for improving your artifact[](#tips-for-improving-your-artifact)
 
 Your initial creation is just the starting point. From here, you can request changes, feedback, and more to get your artifact into a sharable state. Here’s 3 tips to get the most out of artifacts:
 
@@ -71,7 +71,7 @@ Your initial creation is just the starting point. From here, you can request cha
 * **Debug through conversation**: When something breaks, either click "Fix with Claude" or describe the problem in plain language ("the calculator isn't working with decimals," "the game crashes at level 3"). No need to understand technical error messages. For even deeper understanding, turn on extended thinking or use a more intelligent model.
 * **Experiment with forking**: Go back to any previous message, click "Edit" to create a new conversation branch, and try different approaches. You can always return to your original version, encouraging bold experimentation with styles, features, or entirely different directions.
 
-### Check your artifact before you share it
+### Check your artifact before you share it[](#check-your-artifact-before-you-share-it)
 
 Artifacts look finished as soon as they render, so spend two minutes trying to break yours before anyone else sees it. Enter the input a rushed user would: a decimal where a whole number is expected, an empty field, an answer that is far too long. If something misbehaves, tell Claude what you entered and what happened instead, or click "Fix with Claude."
 
@@ -79,7 +79,7 @@ Then question the output itself. If your artifact computes, counts, or recommend
 
 The habit worth keeping applies to more than artifacts: whenever Claude builds something for you, follow up with the specific change you want instead of settling for the first version.
 
-## Sharing your creations
+## Sharing your creations[](#sharing-your-creations)
 
 Once your artifact is working how you want it to, you can share it with friends and collaborators in just a few clicks.
 
@@ -89,7 +89,7 @@ Anyone with the link can use and interact with your artifact without signing in 
 
 ![](https://academy.claude.com/assets/media/96051ee27068bc8fc64b170b8724d00591ba0c3aa8dd06a2e4366fc3f0769f2b.png)
 
-## More resources to get started
+## More resources to get started[](#more-resources-to-get-started)
 
 * Browse all [artifacts(opens in new tab)](https://claude.ai/artifacts) for more inspiration. Pro-tip: click “customize” to copy the artifact and make changes for yourself.
 * Learn more about artifacts in our [intro to artifacts(opens in new tab)](https://support.claude.com/en/articles/9945615-intro-to-artifacts) video.

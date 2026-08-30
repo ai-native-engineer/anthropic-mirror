@@ -14,7 +14,7 @@ Claude offers three distinct model families, each optimized for different priori
 
 ![](https://academy.claude.com/assets/media/d87ca18bfca0fadd839a95aa8eecb912a4b3cf1dbb1400081f2324be879509a9.png)
 
-## Claude Opus
+## Claude Opus[](#claude-opus)
 
 Opus delivers Claude's highest level of intelligence. It's designed for complex scenarios that require sophisticated reasoning and planning capabilities.
 
@@ -22,19 +22,19 @@ Opus excels at working independently on complex projects for extended periods. I
 
 The trade-off is moderate latency and higher cost. You're paying more and waiting longer for that extra intelligence.
 
-## Claude Sonnet
+## Claude Sonnet[](#claude-sonnet)
 
 Sonnet sits in the sweet spot of Claude's lineup, offering a balanced combination of intelligence, speed, and cost that works well for most practical applications.
 
 What makes Sonnet particularly valuable is its strong coding ability combined with fast text generation. Many developers appreciate its ability to make precise edits to complex codebases without breaking existing functionality.
 
-## Claude Haiku
+## Claude Haiku[](#claude-haiku)
 
 Haiku is Claude's fastest model, built specifically for applications where response time is critical. It's optimized for speed and cost efficiency rather than maximum intelligence.
 
 Haiku does support reasoning: Claude Haiku 4.5 can think through harder problems when you enable extended thinking with a token budget. The difference from Opus and Sonnet is that Haiku won't decide on its own how much reasoning a request needs. In practice, it's ideal for user-facing applications that need real-time interactions, with extended thinking in reserve for the occasional harder task.
 
-## Choosing the Right Model
+## Choosing the Right Model[](#choosing-the-right-model)
 
 ![](https://academy.claude.com/assets/media/6aad8c72323f0bce9bd4ab382bdaefdb0f3c387cc58446a2732184687afdee7d.png)
 
@@ -44,7 +44,7 @@ Model selection comes down to understanding the trade-offs between intelligence 
 * **Choose Haiku** when speed matters most. For real-time user interactions or high-volume processing where you need the fastest possible responses.
 * **Choose Sonnet** when you need balance. Most applications benefit from Sonnet's combination of intelligence, speed, and reasonable cost.
 
-## Using Multiple Models
+## Using Multiple Models[](#using-multiple-models)
 
 Many teams don't stick to just one model. Instead, they use different models for different parts of the same application:
 

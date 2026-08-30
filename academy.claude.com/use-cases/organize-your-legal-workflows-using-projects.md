@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Organize your legal workflows using Projects result](https://academy.claude.com/assets/v1/organize-your-legal-workflows-using-projects-hkym4oh1.png)[Open artifact](https://claude.ai/public/artifacts/b405e6c9-608b-448a-b2b8-8c8982e582ff)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Contract reviews at scale demand consistency, but playbooks live in shared drives and tribal knowledge stays in senior associates' heads. Projects in Claude solve this by giving you persistent context. Upload your playbook, templates, and term lists once, and Claude references them automatically in every conversation within that Project. This prompt will help you create project instructions for your team.
 
@@ -28,15 +28,15 @@ Then help me craft optimized **project instructions** I can paste into the custo
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Add your documents or connect your document storage so Claude can access your playbooks, templates, and term lists directly. The more complete your reference materials, the more accurately Claude captures your firm's standards and approach.
 
-### Required context
+### Required context[](#required-context)
 
 Upload core reference materials: At minimum, provide your review playbook or guidelines, a standard template showing your preferred language, and any lists of prohibited or flagged terms.
 
-### Optional context
+### Optional context[](#optional-context)
 
 Enable Google Drive integration: Claude can pull your playbooks, templates, and term lists directly from shared drives.
 
@@ -44,13 +44,7 @@ Other Document connectors. If you use other document storage, you can connect [M
 
 Sample redlines or review comments: If you have examples of completed reviews, these help Claude learn your commenting style and severity calibrations.
 
-Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking): For complex document analysis and pattern extraction, Extended Thinking helps Claude produce more thorough and nuanced standards guides.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude analyzes your reference materials, identifies patterns in your review approach, and produces two files: a standards guide for your Project knowledge and ready-to-paste custom instructions.
 
@@ -90,11 +84,11 @@ Ready-to-paste custom instructions that tell Claude to reference the Standards G
 
 Each review will now reference your standards automatically.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Test the setup with a real NDA in a Project
+### Test the setup with a real NDA in a Project[](#test-the-setup-with-a-real-nda-in-a-project)
 
 Create a new Project, upload the Standards Guide to the knowledge base, and paste your custom instructions into the Project settings. Upload an NDA to see how Claude applies your standards, then refine any instructions that need adjustment.
 
@@ -102,7 +96,7 @@ Here's an NDA we received yesterday from a potential vendor. Review it against o
 
 Open in Claude
 
-### Expand to other contract types
+### Expand to other contract types[](#expand-to-other-contract-types)
 
 Once your NDA workflow is running, replicate the approach for other high-volume agreements.
 
@@ -110,7 +104,7 @@ We also review about 15 MSAs per month. I'm uploading our MSA playbook and templ
 
 Open in Claude
 
-### Create a training resource for new associates
+### Create a training resource for new associates[](#create-a-training-resource-for-new-associates)
 
 Turn your systematized approach into onboarding material.
 
@@ -118,29 +112,29 @@ Based on the NDA standards guide, create a training document for new associates 
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Start with your best-documented process
+### Start with your best-documented process[](#start-with-your-best-documented-process)
 
 If your playbook is thorough and your templates are up to date, Claude's standards guide will be stronger. If you're working from informal tribal knowledge, consider using this as an opportunity to formalize your approach first, then have Claude systematize it.
 
-### Teams can share Projects and their configurations
+### Teams can share Projects and their configurations[](#teams-can-share-projects-and-their-configurations)
 
 On Team and Enterprise plans, share the Project so colleagues get the same setup. Everyone reviews against identical standards without each person configuring their own approach. When standards change, update the knowledge base once, and the change propagates to all users.
 
-### Test with real documents before going live
+### Test with real documents before going live[](#test-with-real-documents-before-going-live)
 
 After setup, run 3-5 already reviewed NDAs through the Project and compare Claude's output to how your actual associates handled them. Note where Claude misses nuance or applies the wrong severity level, then refine your custom instructions. Ten minutes of calibration prevents hundreds of inconsistent reviews.
 
-### Claude can work in your file formats
+### Claude can work in your file formats[](#claude-can-work-in-your-file-formats)
 
 Legal documents typically need to stay in .docx for redlining and collaboration. Claude can analyze Word documents and produce outputs in the same format, so deliverables slot directly into your existing workflow without conversion.
 
-### This pattern extends beyond legal work
+### This pattern extends beyond legal work[](#this-pattern-extends-beyond-legal-work)
 
 Marketing teams can document brand voice. Finance teams can capture reporting standards. Research teams can codify methodology. The output becomes infrastructure for consistent AI-assisted work across any domain with established practices.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Upload your NDA playbook and get started with your first Project. Once you've calibrated the workflow, you can expand to MSAs, vendor agreements, employee contracts, and build Projects for every high-volume legal process.
 

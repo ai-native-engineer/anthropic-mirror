@@ -3,6 +3,338 @@
 
 <!-- chunk-start -->
 
+            Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+          - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+          - `Type? Type`
+
+        - `class BetaToolBash20241022:`
+
+          - `JsonElement Name constant`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `JsonElement Type constant`
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct`
+
+            - `CodeExecution20250825`
+
+            - `CodeExecution20260120`
+
+            - `CodeExecution20260521`
+
+          - `BetaCacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class BetaToolBash20250124:`
+
+          - `JsonElement Name constant`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `JsonElement Type constant`
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct`
+
+            - `CodeExecution20250825`
+
+            - `CodeExecution20260120`
+
+            - `CodeExecution20260521`
+
+          - `BetaCacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `IReadOnlyList<IReadOnlyDictionary<string, JsonElement>> InputExamples`
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class BetaCodeExecutionTool20250522:`
+
+          - `JsonElement Name constant`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `JsonElement Type constant`
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct`
+
+            - `CodeExecution20250825`
+
+            - `CodeExecution20260120`
+
+            - `CodeExecution20260521`
+
+          - `BetaCacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class BetaCodeExecutionTool20250825:`
+
+          - `JsonElement Name constant`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `JsonElement Type constant`
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct`
+
+            - `CodeExecution20250825`
+
+            - `CodeExecution20260120`
+
+            - `CodeExecution20260521`
+
+          - `BetaCacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class BetaCodeExecutionTool20260120:`
+
+          Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
+
+          - `JsonElement Name constant`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `JsonElement Type constant`
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct`
+
+            - `CodeExecution20250825`
+
+            - `CodeExecution20260120`
+
+            - `CodeExecution20260521`
+
+          - `BetaCacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class BetaCodeExecutionTool20260521:`
+
+          Code execution tool with REPL state persistence.
+
+          - `JsonElement Name constant`
+
+            Name of the tool.
+
+            This is how the tool will be called by the model and in `tool_use` blocks.
+
+          - `JsonElement Type constant`
+
+          - `IReadOnlyList<AllowedCaller> AllowedCallers`
+
+            - `Direct`
+
+            - `CodeExecution20250825`
+
+            - `CodeExecution20260120`
+
+            - `CodeExecution20260521`
+
+          - `BetaCacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `bool DeferLoading`
+
+            If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+          - `bool Strict`
+
+            When true, guarantees schema validation on tool names and inputs
+
+        - `class BetaBrowserToolset20260801:`
+
+          The browser toolset: a single `tools[]` entry (carrying no
+          `name`) that declares the browser tool family. The model is served
+          the family's tool with any members disabled via `configs` removed
+          from its schema.
+
+          - `JsonElement Type constant`
+
+          - `IReadOnlyList<BetaBrowserToolset20260801AllowedCaller> AllowedCallers`
+
+            - `Direct`
+
+            - `CodeExecution20250825`
+
+            - `CodeExecution20260120`
+
+            - `CodeExecution20260521`
+
+          - `BetaCacheControlEphemeral? CacheControl`
+
+            Create a cache control breakpoint at this content block.
+
+          - `BetaBrowserToolsetConfigs? Configs`
+
+            Per-member configuration for `browser_toolset_20260801`: one
+            optional field per member tool, keyed by the member name — the same
+            name the member's `tool_use` blocks carry. Every member is an
+            accepted key, and a member's defaults apply wherever its key is
+            absent. Unknown keys are rejected: the field set is this toolset
+            version's complete member set.
+
+            - `BetaBrowserCloseTabConfig? CloseTab`
+
+              `close_tab`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BetaBrowserDoubleClickConfig? DoubleClick`
+
+              `double_click`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BetaBrowserFileUploadConfig? FileUpload`
+
+              `file_upload`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BetaBrowserFindConfig? Find`
+
+              `find`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BetaBrowserFormInputConfig? FormInput`
+
+              `form_input`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BetaBrowserGetPageTextConfig? GetPageText`
+
+              `get_page_text`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BetaBrowserHoldKeyConfig? HoldKey`
+
+              `hold_key`'s config overrides.
+
+              - `bool? DeferLoading`
+
+                Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
+
+              - `bool? Enabled`
+
+                Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
+
+            - `BetaBrowserHoverConfig? Hover`
+
+              `hover`'s config overrides.
+
+              - `bool? DeferLoading`
+
                 Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
 
               - `bool? Enabled`
@@ -1564,6 +1896,20 @@
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
   - `string userProfileID`
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
@@ -1968,6 +2314,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 #### Returns
 
 - `class BetaMessageBatch:`
@@ -2101,7 +2461,7 @@ Console.WriteLine(betaMessageBatch);
 
 ### List Message Batches
 
-`BatchListPageResponse Beta.Messages.Batches.List(parameters, cancellationToken = default)`
+`BatchListPage Beta.Messages.Batches.List(parameters, cancellationToken = default)`
 
 **GET** `/v1/messages/batches`
 
@@ -2201,117 +2561,117 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 #### Returns
 
-- `class BatchListPageResponse:`
+- `class BetaMessageBatch:`
 
-  - `required IReadOnlyList<BetaMessageBatch> Data`
+  - `required string ID`
 
-    - `required string ID`
+    Unique object identifier.
 
-      Unique object identifier.
+    The format and length of IDs may change over time.
 
-      The format and length of IDs may change over time.
+  - `required DateTimeOffset? ArchivedAt`
 
-    - `required DateTimeOffset? ArchivedAt`
+    RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
 
-      RFC 3339 datetime string representing the time at which the Message Batch was archived and its results became unavailable.
+    format: date-time
 
-      format: date-time
+  - `required DateTimeOffset? CancelInitiatedAt`
 
-    - `required DateTimeOffset? CancelInitiatedAt`
+    RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
 
-      RFC 3339 datetime string representing the time at which cancellation was initiated for the Message Batch. Specified only if cancellation was initiated.
+    format: date-time
 
-      format: date-time
+  - `required DateTimeOffset CreatedAt`
 
-    - `required DateTimeOffset CreatedAt`
+    RFC 3339 datetime string representing the time at which the Message Batch was created.
 
-      RFC 3339 datetime string representing the time at which the Message Batch was created.
+    format: date-time
 
-      format: date-time
+  - `required DateTimeOffset? EndedAt`
 
-    - `required DateTimeOffset? EndedAt`
+    RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
 
-      RFC 3339 datetime string representing the time at which processing for the Message Batch ended. Specified only once processing ends.
+    Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
 
-      Processing ends when every request in a Message Batch has either succeeded, errored, canceled, or expired.
+    format: date-time
 
-      format: date-time
+  - `required DateTimeOffset ExpiresAt`
 
-    - `required DateTimeOffset ExpiresAt`
+    RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
 
-      RFC 3339 datetime string representing the time at which the Message Batch will expire and end processing, which is 24 hours after creation.
+    format: date-time
 
-      format: date-time
+  - `required ProcessingStatus ProcessingStatus`
 
-    - `required ProcessingStatus ProcessingStatus`
+    Processing status of the Message Batch.
 
-      Processing status of the Message Batch.
+    - `InProgress`
 
-      - `InProgress`
+    - `Canceling`
 
-      - `Canceling`
+    - `Ended`
 
-      - `Ended`
+  - `required BetaMessageBatchRequestCounts RequestCounts`
 
-    - `required BetaMessageBatchRequestCounts RequestCounts`
+    Tallies requests within the Message Batch, categorized by their status.
 
-      Tallies requests within the Message Batch, categorized by their status.
+    Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
 
-      Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+    - `required long Canceled`
 
-      - `required long Canceled`
+      Number of requests in the Message Batch that have been canceled.
 
-        Number of requests in the Message Batch that have been canceled.
+      This is zero until processing of the entire Message Batch has ended.
 
-        This is zero until processing of the entire Message Batch has ended.
+    - `required long Errored`
 
-      - `required long Errored`
+      Number of requests in the Message Batch that encountered an error.
 
-        Number of requests in the Message Batch that encountered an error.
+      This is zero until processing of the entire Message Batch has ended.
 
-        This is zero until processing of the entire Message Batch has ended.
+    - `required long Expired`
 
-      - `required long Expired`
+      Number of requests in the Message Batch that have expired.
 
-        Number of requests in the Message Batch that have expired.
+      This is zero until processing of the entire Message Batch has ended.
 
-        This is zero until processing of the entire Message Batch has ended.
+    - `required long Processing`
 
-      - `required long Processing`
+      Number of requests in the Message Batch that are processing.
 
-        Number of requests in the Message Batch that are processing.
+    - `required long Succeeded`
 
-      - `required long Succeeded`
+      Number of requests in the Message Batch that have completed successfully.
 
-        Number of requests in the Message Batch that have completed successfully.
+      This is zero until processing of the entire Message Batch has ended.
 
-        This is zero until processing of the entire Message Batch has ended.
+  - `required string? ResultsUrl`
 
-    - `required string? ResultsUrl`
+    URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
 
-      URL to a `.jsonl` file containing the results of the Message Batch requests. Specified only once processing ends.
+    Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-      Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
+  - `JsonElement Type constant`
 
-    - `JsonElement Type constant`
+    Object type.
 
-      Object type.
-
-      For Message Batches, this is always `"message_batch"`.
-
-  - `required string? FirstID`
-
-    First ID in the `data` list. Can be used as the `before_id` for the previous page.
-
-  - `required bool HasMore`
-
-    Indicates if there are more results in the requested page direction.
-
-  - `required string? LastID`
-
-    Last ID in the `data` list. Can be used as the `after_id` for the next page.
+    For Message Batches, this is always `"message_batch"`.
 
 #### Example
 
@@ -2446,6 +2806,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `AgentMemory2026_07_22`
 
     - `MidConversationToolChanges2026_07_01`
+
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
 
 #### Returns
 
@@ -2670,6 +3044,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 #### Returns
 
 - `class BetaDeletedMessageBatch:`
@@ -2795,6 +3183,20 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     - `MidConversationToolChanges2026_07_01`
 
+    - `Compact2026_01_12`
+
+    - `ComputerUse2025_11_24`
+
+    - `McpTunnels2026_06_22`
+
+    - `StructuredOutputs2025_11_13`
+
+    - `TaskBudgets2026_03_13`
+
+    - `ThinkingDisplayUpdates2026_08_18`
+
+    - `CEUserManagement2026_07_13`
+
 #### Returns
 
 - `class BetaMessageBatchIndividualResponse:`
@@ -2837,7 +3239,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             format: date-time
 
-          - `required IReadOnlyList<BetaSkill>? Skills`
+          - `required IReadOnlyList<BetaContainerSkill>? Skills`
 
             Skills loaded in the container
 
@@ -4094,15 +4496,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             minimum: 0
 
-          - `required IReadOnlyList<BetaIterationsUsageItems>? Iterations`
+          - `required IReadOnlyList<Iteration>? Iterations`
 
             Per-iteration token usage breakdown.
 
-            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
-            - Calculate the true context window size from the last iteration
+            - Calculate the context window size from the last `message` entry
             - Understand token accumulation across server-side tool use loops
+
+            A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
             - `class BetaMessageIterationUsage:`
 

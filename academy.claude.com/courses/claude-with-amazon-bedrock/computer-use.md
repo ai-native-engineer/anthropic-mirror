@@ -14,7 +14,7 @@ Computer use is a powerful feature that lets Claude interact directly with deskt
 
 ![](https://academy.claude.com/assets/media/4b5ec9792d6955bb4389f95219aaffbced39e4ee1bff425fc72d7cd1adcc9c13.png)
 
-## What Computer Use Can Do
+## What Computer Use Can Do[](#what-computer-use-can-do)
 
 Instead of just describing what to do or generating code, Claude can actually perform tasks by:
 
@@ -26,7 +26,7 @@ Instead of just describing what to do or generating code, Claude can actually pe
 
 This makes it particularly valuable for tasks like quality assurance testing, where you need to interact with a user interface and verify that everything works as expected.
 
-## Real-World Example: Automated QA Testing
+## Real-World Example: Automated QA Testing[](#real-world-example-automated-qa-testing)
 
 Here's a practical scenario that shows the power of computer use. Imagine you've built a React component with an autocomplete feature - users can type `@` to mention files or resources. The component seems to work fine at first glance, but you want to thoroughly test it for edge cases.
 
@@ -44,7 +44,7 @@ Claude will systematically work through each test case, taking screenshots, inte
 
 ![](https://academy.claude.com/assets/media/7644029498ffc8e35056380d5ae29ddf68c110a9e3f05bafbc73991ee2629afe.png)
 
-## How the Testing Process Works
+## How the Testing Process Works[](#how-the-testing-process-works)
 
 When you give Claude a testing task, it follows a structured approach:
 
@@ -57,7 +57,7 @@ When you give Claude a testing task, it follows a structured approach:
 
 The key advantage is that Claude can catch issues you might miss during manual testing, and it can run the same tests consistently every time you make changes to your code.
 
-## Setting Up Computer Use
+## Setting Up Computer Use[](#setting-up-computer-use)
 
 Computer use runs in an isolated environment for security. The typical setup involves:
 
@@ -68,7 +68,7 @@ Computer use runs in an isolated environment for security. The typical setup inv
 
 This isolation is crucial because it means Claude can interact with applications and websites without any risk to your personal data or system security.
 
-## Best Practices for Computer Use
+## Best Practices for Computer Use[](#best-practices-for-computer-use)
 
 When working with computer use, keep these guidelines in mind:
 

@@ -10,14 +10,14 @@ Workspaces provide a way to organize your API usage within an organization. Use 
 
 ## How workspaces work
 
-Every organization has a **Default Workspace** that cannot be renamed, archived, or deleted. When you create additional workspaces, you can assign API keys, members, and resource limits to each one.
+Every organization has a **Default Workspace** that cannot be renamed, archived, or deleted. When you create additional workspaces, you can assign members, service accounts, API keys, and resource limits to each one.
 
 Key characteristics:
 
 * **Workspace identifiers** use the `wrkspc_` prefix (for example, `wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ`)
 * **Maximum 100 workspaces** per organization by default (archived workspaces don't count); contact your account team if you need more
-* **Default Workspace** has a `wrkspc_` ID like any other workspace (returned in the [`anthropic-workspace-id` response header](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response) and accepted by [Get Workspace](https://platform.claude.com/docs/en/api/admin/workspaces/retrieve)), but it doesn't appear in [List Workspaces](https://platform.claude.com/docs/en/api/admin/workspaces/list) results, and API keys, usage reports, and cost reports show `null` for its `workspace_id`
-* **API keys** are scoped to a single workspace and can only access resources within that workspace
+* **Default Workspace** has a `wrkspc_` ID like any other workspace (returned in the [`anthropic-workspace-id` response header](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response) and accepted by [Get Workspace](https://platform.claude.com/docs/en/api/admin/workspaces/retrieve)), but it doesn't appear in [List Workspaces](https://platform.claude.com/docs/en/api/admin/workspaces/list) results, and API keys, usage reports, and cost reports show `null` for its `workspace_id`, as do all-workspaces API keys (an API key's `scope` field tells them apart; for a key bound to the Default Workspace it carries the real ID)
+* **API keys** can be scoped to a single workspace. In this case, they can only access resources within that workspace. Some API keys can be granted permissions across multiple workspaces, and provide a [workspace ID header](https://platform.claude.com/docs/en/manage-claude/authentication#select-a-workspace) to access resources within that workspace
 
 ### Claude Code workspace
 
@@ -26,7 +26,7 @@ When a member of your organization first signs in to [Claude Code](https://code.
 The Claude Code workspace keeps Claude Code traffic separate from your other API workloads:
 
 * Claude Code mints a per-user API key in this workspace at sign-in. You cannot create keys in it manually from the Console.
-* A Claude Code key stops working if its owner is removed from the workspace or organization, unlike standard workspace keys.
+* A Claude Code key stops working if its owner is removed from the workspace or organization, unlike a workspace key.
 * Claude Code usage is rate-limited separately, and admins can cap its share of the organization's limits under [Settings > Workspaces](https://platform.claude.com/settings/workspaces).
 * It is the only workspace that supports per-user monthly spend limits.
 
@@ -40,7 +40,7 @@ Members can have different roles in each workspace, allowing fine-grained access
 
 | Role                        | Permissions                                                                                     |
 | --------------------------- | ----------------------------------------------------------------------------------------------- |
-| Workspace User              | Use Playground only                                                                             |
+| Workspace User              | Use playground only                                                                             |
 | Workspace Limited Developer | Create and manage API keys, use the API. Cannot access session tracing views or download files. |
 | Workspace Developer         | Create and manage API keys, use the API                                                         |
 | Workspace Admin             | Full control over workspace settings and members                                                |
@@ -51,6 +51,7 @@ Members can have different roles in each workspace, allowing fine-grained access
 * **Organization admins** automatically receive Workspace Admin access to all workspaces
 * **Organization billing members** automatically receive Workspace Billing access to all workspaces
 * **Organization users and developers** must be explicitly added to each workspace
+* **Service accounts** are added to workspaces from the service account's page in [Settings → Service accounts](https://platform.claude.com/settings/service-accounts) or from the workspace's **Service accounts** tab
 
 <Note>
   The Workspace Billing role cannot be manually assigned. It's inherited from having the organization billing role.
@@ -127,11 +128,11 @@ Each workspace's settings split these across two tabs:
 To archive a workspace, click the ellipsis menu (**...**) and select **Archive**. Archiving:
 
 * Preserves historical data for reporting
-* Deactivates the workspace and all associated API keys
+* Deactivates the workspace and archives every API key created for it
 * Cannot be undone
 
 <Warning>
-  Archiving a workspace immediately revokes all API keys in that workspace. This action cannot be undone. If you archive the [Claude Code workspace](https://platform.claude.com/docs/en/manage-claude/workspaces#claude-code-workspace), members of your organization can no longer sign in to Claude Code through Console billing.
+  Archiving a workspace archives every API key created for that workspace within seconds (they remain listed in the Admin API as archived), and multi-workspace keys can no longer act in it. This action cannot be undone. If you archive the [Claude Code workspace](https://platform.claude.com/docs/en/manage-claude/workspaces#claude-code-workspace), members of your organization can no longer sign in to Claude Code through Console billing.
 </Warning>
 
 ### Using the Admin API
@@ -139,63 +140,692 @@ To archive a workspace, click the ellipsis menu (**...**) and select **Archive**
 Programmatically manage workspaces using the [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api).
 
 <Note>
-  Admin API endpoints require an Admin API key (starting with `sk-ant-admin...`) that differs from standard API keys. See [Create an Admin API key](https://platform.claude.com/docs/en/manage-claude/admin-api-keys) for how to provision one.
+  Admin API endpoints accept an [Admin API key](https://platform.claude.com/docs/en/manage-claude/admin-api-keys), an `org:admin` OAuth token, or a personal or service account key that isn't scoped to a specific workspace. Workspace keys don't work there. See [Authentication](https://platform.claude.com/docs/en/manage-claude/admin-api#authentication).
 </Note>
 
-```bash cURL
-# Create a workspace
-curl -X POST "https://api.anthropic.com/v1/organizations/workspaces" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "content-type: application/json" \
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \
-  -d '{"name": "Production"}'
+The following SDK and CLI examples construct the default client, which reads the Admin API key from the `ANTHROPIC_API_KEY` environment variable; the SDKs expose these endpoints under `client.beta.organization.workspaces`. SDK list methods fetch further pages on demand, so `limit` sets the page size; the PHP, Ruby, and curl examples return one page.
 
-# List workspaces
-curl "https://api.anthropic.com/v1/organizations/workspaces?limit=10&include_archived=false" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
+Create a workspace:
 
-# Archive a workspace
-curl -X POST "https://api.anthropic.com/v1/organizations/workspaces/{workspace_id}/archive" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
-```
+<CodeGroup>
+  ```bash cURL
+  curl -X POST "https://api.anthropic.com/v1/organizations/workspaces" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01" \
+    -H "content-type: application/json" \
+    -d '{"name": "Production"}'
+  ```
+
+  ```bash CLI
+  ant beta:organization:workspaces create --name Production
+  ```
+
+  ```python Python
+  client = anthropic.Anthropic()
+
+  workspace = client.beta.organization.workspaces.create(name="Production")
+
+  print(f"id: {workspace.id}")
+  print(f"name: {workspace.name}")
+  ```
+
+  ```typescript TypeScript
+  const client = new Anthropic();
+
+  const workspace = await client.beta.organization.workspaces.create({ name: "Production" });
+
+  console.log(`id: ${workspace.id}`);
+  console.log(`name: ${workspace.name}`);
+  ```
+
+  ```csharp C#
+  AnthropicClient client = new();
+
+  var workspace = await client.Beta.Organization.Workspaces.Create(new()
+  {
+      Name = "Production"
+  });
+
+  Console.WriteLine($"id: {workspace.ID}");
+  Console.WriteLine($"name: {workspace.Name}");
+  ```
+
+  ```go Go
+  client := anthropic.NewClient()
+
+  workspace, err := client.Beta.Organization.Workspaces.New(context.Background(), anthropic.BetaOrganizationWorkspaceNewParams{
+  	Name: "Production",
+  })
+  if err != nil {
+  	log.Fatal(err)
+  }
+
+  fmt.Printf("id: %s\n", workspace.ID)
+  fmt.Printf("name: %s\n", workspace.Name)
+  ```
+
+  ```java Java
+  import com.anthropic.models.beta.organization.workspaces.WorkspaceCreateParams;
+
+  void main() {
+      AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+      var params = WorkspaceCreateParams.builder()
+          .name("Production")
+          .build();
+      var workspace = client.beta().organization().workspaces().create(params);
+
+      IO.println("id: " + workspace.id());
+      IO.println("name: " + workspace.name());
+  }
+  ```
+
+  ```php PHP
+  $client = new Client();
+
+  $workspace = $client->beta->organization->workspaces->create(
+      name: 'Production',
+  );
+
+  echo "id: {$workspace->id}\n";
+  echo "name: {$workspace->name}\n";
+  ```
+
+  ```ruby Ruby
+  client = Anthropic::Client.new
+
+  workspace = client.beta.organization.workspaces.create(name: "Production")
+
+  puts "id: #{workspace.id}"
+  puts "name: #{workspace.name}"
+  ```
+</CodeGroup>
+
+List workspaces:
+
+<CodeGroup>
+  ```bash cURL
+  curl "https://api.anthropic.com/v1/organizations/workspaces?limit=10&include_archived=false" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01"
+  ```
+
+  ```bash CLI
+  ant beta:organization:workspaces list --limit 10 --include-archived=false
+  ```
+
+  ```python Python
+  client = anthropic.Anthropic()
+
+  workspaces = client.beta.organization.workspaces.list(limit=10, include_archived=False)
+
+  for workspace in workspaces:
+      print(f"{workspace.id}: {workspace.name}")
+  ```
+
+  ```typescript TypeScript
+  const client = new Anthropic();
+
+  const workspaces = await client.beta.organization.workspaces.list({
+    limit: 10,
+    include_archived: false
+  });
+
+  for await (const workspace of workspaces) {
+    console.log(`${workspace.id}: ${workspace.name}`);
+  }
+  ```
+
+  ```csharp C#
+  AnthropicClient client = new();
+
+  var workspaces = await client.Beta.Organization.Workspaces.List(new()
+  {
+      Limit = 10,
+      IncludeArchived = false
+  });
+
+  await foreach (var workspace in workspaces.Paginate())
+  {
+      Console.WriteLine($"{workspace.ID}: {workspace.Name}");
+  }
+  ```
+
+  ```go Go
+  client := anthropic.NewClient()
+
+  workspaces := client.Beta.Organization.Workspaces.ListAutoPaging(context.Background(), anthropic.BetaOrganizationWorkspaceListParams{
+  	Limit:           anthropic.Int(10),
+  	IncludeArchived: anthropic.Bool(false),
+  })
+
+  for workspaces.Next() {
+  	workspace := workspaces.Current()
+  	fmt.Printf("%s: %s\n", workspace.ID, workspace.Name)
+  }
+  if err := workspaces.Err(); err != nil {
+  	log.Fatal(err)
+  }
+  ```
+
+  ```java Java
+  import com.anthropic.models.beta.organization.workspaces.WorkspaceListParams;
+
+  void main() {
+      AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+      var params = WorkspaceListParams.builder()
+          .limit(10)
+          .includeArchived(false)
+          .build();
+      var workspaces = client.beta().organization().workspaces().list(params);
+
+      for (var workspace : workspaces.autoPager()) {
+          IO.println(workspace.id() + ": " + workspace.name());
+      }
+  }
+  ```
+
+  ```php PHP
+  $client = new Client();
+
+  $workspaces = $client->beta->organization->workspaces->list(
+      limit: 10,
+      includeArchived: false,
+  );
+
+  foreach ($workspaces->getItems() as $workspace) {
+      echo "{$workspace->id}: {$workspace->name}\n";
+  }
+  ```
+
+  ```ruby Ruby
+  client = Anthropic::Client.new
+
+  workspaces = client.beta.organization.workspaces.list(limit: 10, include_archived: false)
+
+  workspaces.data.each do |workspace|
+    puts "#{workspace.id}: #{workspace.name}"
+  end
+  ```
+</CodeGroup>
+
+Archive a workspace:
+
+<CodeGroup>
+  ```bash cURL
+  curl -X POST "https://api.anthropic.com/v1/organizations/workspaces/wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ/archive" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01"
+  ```
+
+  ```bash CLI
+  ant beta:organization:workspaces archive --workspace-id wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ
+  ```
+
+  ```python Python
+  client = anthropic.Anthropic()
+
+  workspace = client.beta.organization.workspaces.archive(
+      "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  )
+
+  print(f"id: {workspace.id}")
+  print(f"archived_at: {workspace.archived_at}")
+  ```
+
+  ```typescript TypeScript
+  const client = new Anthropic();
+
+  const workspace = await client.beta.organization.workspaces.archive(
+    "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  );
+
+  console.log(`id: ${workspace.id}`);
+  console.log(`archived_at: ${workspace.archived_at}`);
+  ```
+
+  ```csharp C#
+  AnthropicClient client = new();
+
+  var workspace = await client.Beta.Organization.Workspaces.Archive(
+      "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  );
+
+  Console.WriteLine($"id: {workspace.ID}");
+  Console.WriteLine($"archived_at: {workspace.ArchivedAt:O}");
+  ```
+
+  ```go Go
+  client := anthropic.NewClient()
+
+  workspace, err := client.Beta.Organization.Workspaces.Archive(context.Background(), "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ")
+  if err != nil {
+  	log.Fatal(err)
+  }
+
+  fmt.Printf("id: %s\n", workspace.ID)
+  fmt.Printf("archived_at: %s\n", workspace.ArchivedAt)
+  ```
+
+  ```java Java
+  AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+  var workspace = client.beta().organization().workspaces()
+      .archive("wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ");
+
+  IO.println("id: " + workspace.id());
+  IO.println("archived_at: " + workspace.archivedAt().orElseThrow());
+  ```
+
+  ```php PHP
+  $client = new Client();
+
+  $workspace = $client->beta->organization->workspaces->archive(
+      workspaceID: 'wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ',
+  );
+
+  echo "id: {$workspace->id}\n";
+  echo "archived_at: {$workspace->archivedAt?->format(DATE_ATOM)}\n";
+  ```
+
+  ```ruby Ruby
+  client = Anthropic::Client.new
+
+  workspace_id = "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  workspace = client.beta.organization.workspaces.archive(workspace_id)
+
+  puts "id: #{workspace.id}"
+  puts "archived_at: #{workspace.archived_at}"
+  ```
+</CodeGroup>
 
 For complete parameter details and response schemas, see the [Workspaces API reference](https://platform.claude.com/docs/en/api/admin/workspaces/retrieve).
 
 ### Managing workspace members
 
-Add, update, or remove members from a workspace:
+Add a member to a workspace:
 
-```bash cURL
-# Add a member to a workspace
-curl -X POST "https://api.anthropic.com/v1/organizations/workspaces/{workspace_id}/members" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "content-type: application/json" \
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \
-  -d '{
-    "user_id": "user_xxx",
-    "workspace_role": "workspace_developer"
-  }'
+<CodeGroup>
+  ```bash cURL
+  curl -X POST "https://api.anthropic.com/v1/organizations/workspaces/wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ/members" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01" \
+    -H "content-type: application/json" \
+    -d '{
+      "user_id": "user_01XyDMpzjS89pFZXqSFUBDr6",
+      "workspace_role": "workspace_developer"
+    }'
+  ```
 
-# Update a member's role
-curl -X POST "https://api.anthropic.com/v1/organizations/workspaces/{workspace_id}/members/{user_id}" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "content-type: application/json" \
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY" \
-  -d '{"workspace_role": "workspace_admin"}'
+  ```bash CLI
+  ant beta:organization:workspaces:members add \
+    --workspace-id wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ \
+    --user-id user_01XyDMpzjS89pFZXqSFUBDr6 \
+    --workspace-role workspace_developer
+  ```
 
-# Remove a member from a workspace
-curl -X DELETE "https://api.anthropic.com/v1/organizations/workspaces/{workspace_id}/members/{user_id}" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "x-api-key: $ANTHROPIC_ADMIN_KEY"
-```
+  ```python Python
+  client = anthropic.Anthropic()
+
+  member = client.beta.organization.workspaces.members.add(
+      "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+      user_id="user_01XyDMpzjS89pFZXqSFUBDr6",
+      workspace_role="workspace_developer",
+  )
+
+  print(f"user_id: {member.user_id}")
+  print(f"workspace_role: {member.workspace_role}")
+  ```
+
+  ```typescript TypeScript
+  const client = new Anthropic();
+
+  const member = await client.beta.organization.workspaces.members.add(
+    "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+    {
+      user_id: "user_01XyDMpzjS89pFZXqSFUBDr6",
+      workspace_role: "workspace_developer"
+    }
+  );
+
+  console.log(`user_id: ${member.user_id}`);
+  console.log(`workspace_role: ${member.workspace_role}`);
+  ```
+
+  ```csharp C#
+  using Anthropic.Models.Beta.Organization.Workspaces;
+
+  AnthropicClient client = new();
+
+  var member = await client.Beta.Organization.Workspaces.Members.Add(
+      "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+      new()
+      {
+          UserID = "user_01XyDMpzjS89pFZXqSFUBDr6",
+          WorkspaceRole = BetaNoBillingWorkspaceRole.WorkspaceDeveloper
+      }
+  );
+
+  Console.WriteLine($"user_id: {member.UserID}");
+  Console.WriteLine($"workspace_role: {member.WorkspaceRole.Raw()}");
+  ```
+
+  ```go Go
+  client := anthropic.NewClient()
+
+  member, err := client.Beta.Organization.Workspaces.Members.Add(
+  	context.Background(),
+  	"wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  	anthropic.BetaOrganizationWorkspaceMemberAddParams{
+  		UserID:        "user_01XyDMpzjS89pFZXqSFUBDr6",
+  		WorkspaceRole: anthropic.BetaNoBillingWorkspaceRoleWorkspaceDeveloper,
+  	},
+  )
+  if err != nil {
+  	log.Fatal(err)
+  }
+
+  fmt.Printf("user_id: %s\n", member.UserID)
+  fmt.Printf("workspace_role: %s\n", member.WorkspaceRole)
+  ```
+
+  ```java Java
+  import com.anthropic.models.beta.organization.workspaces.BetaNoBillingWorkspaceRole;
+  import com.anthropic.models.beta.organization.workspaces.members.MemberAddParams;
+
+  void main() {
+      AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+      var params = MemberAddParams.builder()
+          .userId("user_01XyDMpzjS89pFZXqSFUBDr6")
+          .workspaceRole(BetaNoBillingWorkspaceRole.WORKSPACE_DEVELOPER)
+          .build();
+      var member = client.beta().organization().workspaces().members()
+          .add("wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ", params);
+
+      IO.println("user_id: " + member.userId());
+      IO.println("workspace_role: " + member.workspaceRole().asString());
+  }
+  ```
+
+  ```php PHP
+  use Anthropic\Beta\Organization\Workspaces\NoBillingWorkspaceRole;
+  // ...
+
+  $client = new Client();
+
+  $member = $client->beta->organization->workspaces->members->add(
+      workspaceID: 'wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ',
+      userID: 'user_01XyDMpzjS89pFZXqSFUBDr6',
+      workspaceRole: NoBillingWorkspaceRole::WORKSPACE_DEVELOPER,
+  );
+
+  echo "user_id: {$member->userID}\n";
+  echo "workspace_role: {$member->workspaceRole}\n";
+  ```
+
+  ```ruby Ruby
+  client = Anthropic::Client.new
+
+  workspace_id = "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  member = client.beta.organization.workspaces.members.add(
+    workspace_id,
+    user_id: "user_01XyDMpzjS89pFZXqSFUBDr6",
+    workspace_role: :workspace_developer
+  )
+
+  puts "user_id: #{member.user_id}"
+  puts "workspace_role: #{member.workspace_role}"
+  ```
+</CodeGroup>
+
+Update a member's role:
+
+<CodeGroup>
+  ```bash cURL
+  curl -X POST "https://api.anthropic.com/v1/organizations/workspaces/wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ/members/user_01XyDMpzjS89pFZXqSFUBDr6" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01" \
+    -H "content-type: application/json" \
+    -d '{"workspace_role": "workspace_admin"}'
+  ```
+
+  ```bash CLI
+  ant beta:organization:workspaces:members update \
+    --user-id user_01XyDMpzjS89pFZXqSFUBDr6 \
+    --workspace-id wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ \
+    --workspace-role workspace_admin
+  ```
+
+  ```python Python
+  client = anthropic.Anthropic()
+
+  member = client.beta.organization.workspaces.members.update(
+      "user_01XyDMpzjS89pFZXqSFUBDr6",
+      workspace_id="wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+      workspace_role="workspace_admin",
+  )
+
+  print(f"user_id: {member.user_id}")
+  print(f"workspace_role: {member.workspace_role}")
+  ```
+
+  ```typescript TypeScript
+  const client = new Anthropic();
+
+  const member = await client.beta.organization.workspaces.members.update(
+    "user_01XyDMpzjS89pFZXqSFUBDr6",
+    {
+      workspace_id: "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+      workspace_role: "workspace_admin"
+    }
+  );
+
+  console.log(`user_id: ${member.user_id}`);
+  console.log(`workspace_role: ${member.workspace_role}`);
+  ```
+
+  ```csharp C#
+  using Anthropic.Models.Beta.Organization.Workspaces;
+
+  AnthropicClient client = new();
+
+  var member = await client.Beta.Organization.Workspaces.Members.Update(
+      "user_01XyDMpzjS89pFZXqSFUBDr6",
+      new()
+      {
+          WorkspaceID = "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+          WorkspaceRole = BetaWorkspaceRole.WorkspaceAdmin
+      }
+  );
+
+  Console.WriteLine($"user_id: {member.UserID}");
+  Console.WriteLine($"workspace_role: {member.WorkspaceRole.Raw()}");
+  ```
+
+  ```go Go
+  client := anthropic.NewClient()
+
+  member, err := client.Beta.Organization.Workspaces.Members.Update(
+  	context.Background(),
+  	"user_01XyDMpzjS89pFZXqSFUBDr6",
+  	anthropic.BetaOrganizationWorkspaceMemberUpdateParams{
+  		WorkspaceID:   "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  		WorkspaceRole: anthropic.BetaWorkspaceRoleWorkspaceAdmin,
+  	},
+  )
+  if err != nil {
+  	log.Fatal(err)
+  }
+
+  fmt.Printf("user_id: %s\n", member.UserID)
+  fmt.Printf("workspace_role: %s\n", member.WorkspaceRole)
+  ```
+
+  ```java Java
+  import com.anthropic.models.beta.organization.workspaces.BetaWorkspaceRole;
+  import com.anthropic.models.beta.organization.workspaces.members.MemberUpdateParams;
+
+  void main() {
+      AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+      var params = MemberUpdateParams.builder()
+          .workspaceId("wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ")
+          .workspaceRole(BetaWorkspaceRole.WORKSPACE_ADMIN)
+          .build();
+      var member = client.beta().organization().workspaces().members()
+          .update("user_01XyDMpzjS89pFZXqSFUBDr6", params);
+
+      IO.println("user_id: " + member.userId());
+      IO.println("workspace_role: " + member.workspaceRole().asString());
+  }
+  ```
+
+  ```php PHP
+  use Anthropic\Beta\Organization\Workspaces\WorkspaceRole;
+  // ...
+
+  $client = new Client();
+
+  $member = $client->beta->organization->workspaces->members->update(
+      userID: 'user_01XyDMpzjS89pFZXqSFUBDr6',
+      workspaceID: 'wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ',
+      workspaceRole: WorkspaceRole::WORKSPACE_ADMIN,
+  );
+
+  echo "user_id: {$member->userID}\n";
+  echo "workspace_role: {$member->workspaceRole}\n";
+  ```
+
+  ```ruby Ruby
+  client = Anthropic::Client.new
+
+  user_id = "user_01XyDMpzjS89pFZXqSFUBDr6"
+  member = client.beta.organization.workspaces.members.update(
+    user_id,
+    workspace_id: "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+    workspace_role: :workspace_admin
+  )
+
+  puts "user_id: #{member.user_id}"
+  puts "workspace_role: #{member.workspace_role}"
+  ```
+</CodeGroup>
+
+Remove a member from a workspace:
+
+<CodeGroup>
+  ```bash cURL
+  curl -X DELETE "https://api.anthropic.com/v1/organizations/workspaces/wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ/members/user_01XyDMpzjS89pFZXqSFUBDr6" \
+    -H "x-api-key: $ANTHROPIC_API_KEY" \
+    -H "anthropic-version: 2023-06-01"
+  ```
+
+  ```bash CLI
+  ant beta:organization:workspaces:members remove \
+    --user-id user_01XyDMpzjS89pFZXqSFUBDr6 \
+    --workspace-id wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ
+  ```
+
+  ```python Python
+  client = anthropic.Anthropic()
+
+  removed_member = client.beta.organization.workspaces.members.remove(
+      "user_01XyDMpzjS89pFZXqSFUBDr6",
+      workspace_id="wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  )
+
+  print(f"user_id: {removed_member.user_id}")
+  ```
+
+  ```typescript TypeScript
+  const client = new Anthropic();
+
+  const removedMember = await client.beta.organization.workspaces.members.remove(
+    "user_01XyDMpzjS89pFZXqSFUBDr6",
+    { workspace_id: "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ" }
+  );
+
+  console.log(`user_id: ${removedMember.user_id}`);
+  ```
+
+  ```csharp C#
+  AnthropicClient client = new();
+
+  var removedMember = await client.Beta.Organization.Workspaces.Members.Remove(
+      "user_01XyDMpzjS89pFZXqSFUBDr6",
+      new() { WorkspaceID = "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ" }
+  );
+
+  Console.WriteLine($"user_id: {removedMember.UserID}");
+  ```
+
+  ```go Go
+  client := anthropic.NewClient()
+
+  removedMember, err := client.Beta.Organization.Workspaces.Members.Remove(
+  	context.Background(),
+  	"user_01XyDMpzjS89pFZXqSFUBDr6",
+  	anthropic.BetaOrganizationWorkspaceMemberRemoveParams{
+  		WorkspaceID: "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  	},
+  )
+  if err != nil {
+  	log.Fatal(err)
+  }
+
+  fmt.Printf("user_id: %s\n", removedMember.UserID)
+  ```
+
+  ```java Java
+  import com.anthropic.models.beta.organization.workspaces.members.MemberRemoveParams;
+
+  void main() {
+      AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+      var params = MemberRemoveParams.builder()
+          .workspaceId("wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ")
+          .build();
+      var removedMember = client.beta().organization().workspaces().members()
+          .remove("user_01XyDMpzjS89pFZXqSFUBDr6", params);
+
+      IO.println("user_id: " + removedMember.userId());
+  }
+  ```
+
+  ```php PHP
+  $client = new Client();
+
+  $removedMember = $client->beta->organization->workspaces->members->remove(
+      userID: 'user_01XyDMpzjS89pFZXqSFUBDr6',
+      workspaceID: 'wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ',
+  );
+
+  echo "user_id: {$removedMember->userID}\n";
+  ```
+
+  ```ruby Ruby
+  client = Anthropic::Client.new
+
+  user_id = "user_01XyDMpzjS89pFZXqSFUBDr6"
+  removed_member = client.beta.organization.workspaces.members.remove(
+    user_id,
+    workspace_id: "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  )
+
+  puts "user_id: #{removed_member.user_id}"
+  ```
+</CodeGroup>
 
 For complete parameter details, see the [Workspace Members API reference](https://platform.claude.com/docs/en/api/admin/workspaces/members/retrieve).
 
 ## API keys and resource scoping
 
-API keys are scoped to a specific workspace. When you create an API key in a workspace, it can only access resources within that workspace.
+Every request runs in exactly one workspace and can only access resources within that workspace. Which workspace depends on the [key type](https://platform.claude.com/docs/en/manage-claude/authentication#key-types):
+
+* A **workspace key** (a legacy key without an owner) belongs to the workspace it was created in and always runs there.
+* A **personal key** or **service account key** acts as its user or service account. A single-workspace key always runs in the workspace chosen when it was created. A multi-workspace key runs in the workspace named by each request's `anthropic-workspace-id` header. Accounts must have access to the workspace to use it.
 
 Resources scoped to workspaces include:
 
@@ -203,10 +833,10 @@ Resources scoped to workspaces include:
 * **Message Batches** created through the [Batch API](https://platform.claude.com/docs/en/build-with-claude/batch-processing)
 * **Skills** created through the [Skills API](https://platform.claude.com/docs/en/build-with-claude/skills-guide)
 
-Some resources cannot be managed with a workspace API key:
+Some resources are managed differently:
 
-* **[MCP tunnels](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview)** are managed with a `workspace:manage_tunnels` OAuth token obtained through [Workload Identity Federation](https://platform.claude.com/docs/en/manage-claude/workload-identity-federation), not a workspace API key. Tunnels are created in a workspace, and the Console **MCP tunnels** list and the Managed Agent server picker show tunnels in the current workspace only; the cap of 10 active tunnels applies organization-wide. Tunnel management requires a role with tunnel management permissions; organization developers can view but not change them.
-* **Workspaces** themselves and **organization members** are managed at the organization level through the [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api), which requires an Admin API key.
+* **[MCP tunnels](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/overview)** are managed with a `workspace:manage_tunnels` OAuth token obtained through [Workload Identity Federation](https://platform.claude.com/docs/en/manage-claude/workload-identity-federation), not an API key. Tunnels are created in a workspace, and the Console **MCP tunnels** list and the Managed Agent server picker show tunnels in the current workspace only; the cap of 10 active tunnels applies organization-wide. Tunnel management requires a role with tunnel management permissions; organization developers can view but not change them.
+* **Workspaces** themselves and **organization members** are managed at the organization level through the [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api), using an Admin API key, an `org:admin` OAuth token, or a personal or service account key that isn't scoped to a specific workspace.
 
 To look up your organization's workspace IDs, call the [List Workspaces](https://platform.claude.com/docs/en/api/admin/workspaces/list) endpoint or find them in the [Claude Console](https://platform.claude.com/settings/workspaces).
 
@@ -379,7 +1009,7 @@ The same accessors read the header from other Claude API endpoints too, includin
 With the workspace ID from a response, you can:
 
 * Confirm which workspace's usage, cost, and [rate limits](https://platform.claude.com/docs/en/api/rate-limits) the request counted toward
-* Match it against the `workspace_id` field in [Usage and Cost API](https://platform.claude.com/docs/en/manage-claude/usage-cost-api) reports and on [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api) objects such as API keys (both report `null` for the Default Workspace)
+* Match it against the `workspace_id` field in [Usage and Cost API](https://platform.claude.com/docs/en/manage-claude/usage-cost-api) reports and on [Admin API](https://platform.claude.com/docs/en/manage-claude/admin-api) objects such as API keys (both report `null` for the Default Workspace, as API keys also do for all-workspaces keys; an API key's `scope` field tells the two apart and, for a key bound to one workspace, carries that workspace's real ID)
 * Check whether it's your Default Workspace's ID by passing it to [Get Workspace](https://platform.claude.com/docs/en/api/admin/workspaces/retrieve) with an [Admin API key](https://platform.claude.com/docs/en/manage-claude/admin-api-keys): the Default Workspace comes back with `"name": "Default"`, even though [List Workspaces](https://platform.claude.com/docs/en/api/admin/workspaces/list) omits it
 * Open that workspace in the [Console](https://platform.claude.com/settings/workspaces) to find the request's resources, such as sessions, files, message batches, and skills
 
@@ -471,7 +1101,7 @@ Create workspaces for specific projects or products to track usage and costs sep
 
 <AccordionGroup>
   <Accordion title="What's the Default Workspace?">
-    Every organization has a "Default Workspace" that cannot be renamed, archived, or deleted. Like every workspace, it has a `wrkspc_` ID: the API returns it in the [`anthropic-workspace-id` response header](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response), and you can pass it to [Get Workspace](https://platform.claude.com/docs/en/api/admin/workspaces/retrieve) and [Update Workspace](https://platform.claude.com/docs/en/api/admin/workspaces/update). It has no member list of its own, because access to it follows each member's organization role. It doesn't appear in [List Workspaces](https://platform.claude.com/docs/en/api/admin/workspaces/list) results, and API keys, usage reports, and cost reports that belong to it show `null` for `workspace_id`.
+    Every organization has a "Default Workspace" that cannot be renamed, archived, or deleted. Like every workspace, it has a `wrkspc_` ID: the API returns it in the [`anthropic-workspace-id` response header](https://platform.claude.com/docs/en/manage-claude/workspaces#identify-the-workspace-behind-an-api-response), and you can pass it to [Get Workspace](https://platform.claude.com/docs/en/api/admin/workspaces/retrieve) and [Update Workspace](https://platform.claude.com/docs/en/api/admin/workspaces/update). It has no member list of its own, because access to it follows each member's organization role. It doesn't appear in [List Workspaces](https://platform.claude.com/docs/en/api/admin/workspaces/list) results, and API keys, usage reports, and cost reports that belong to it show `null` for `workspace_id`, as do all-workspaces API keys; an API key's `scope` field tells the two apart and, for a key that belongs to the Default Workspace, carries its real ID.
   </Accordion>
 
   <Accordion title="What's the Claude Code workspace?">
@@ -499,7 +1129,11 @@ Create workspaces for specific projects or products to track usage and costs sep
   </Accordion>
 
   <Accordion title="What happens to API keys when a user is removed from a workspace?">
-    API keys persist in their current state as they are scoped to the organization and workspace, not to individual users. The exception is the [Claude Code workspace](https://platform.claude.com/docs/en/manage-claude/workspaces#claude-code-workspace), where each key is bound to the member who created it and stops working when that member is removed.
+    Behavior depends on the [key type](https://platform.claude.com/docs/en/manage-claude/authentication#key-types).
+
+    A personal or service account key stops working in a workspace shortly after its user or service account is removed from it. A service account key keeps working even if the user who created it is removed. Workspace API keys continue to work. In the [Claude Code workspace](https://platform.claude.com/docs/en/manage-claude/workspaces#claude-code-workspace), each key is bound to the member who created it and stops working when that member is removed.
+
+    Personal keys are archived when their user is removed from the organization. If the user is re-invited, they need to create new keys; archived keys are not restored.
   </Accordion>
 </AccordionGroup>
 

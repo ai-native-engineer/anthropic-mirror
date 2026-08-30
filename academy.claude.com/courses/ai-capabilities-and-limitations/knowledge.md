@@ -17,7 +17,7 @@ In this lessonBy the end, you’ll be able to
 * Identify staleness, uneven coverage, inherited bias, and source amnesia as characteristic knowledge failures
 * Recognize web search, retrieval/RAG, and tool use as the product features that address this limitation
 
-## Understanding knowledge gaps in AI models
+## Understanding knowledge gaps in AI models[](#understanding-knowledge-gaps-in-ai-models)
 
 Knowledge · 5 min
 
@@ -28,9 +28,9 @@ real-time browsing by default, no lived experience, and a hard stop at the
 knowledge cutoff. The practical question isn't "does the AI know this?" but
 "how well-represented was this in what it read?"
 
-## What the model read, and when it stopped reading
+## What the model read, and when it stopped reading[](#what-the-model-read-and-when-it-stopped-reading)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **What generative AI knows** comes entirely from training data and is frozen at the knowledge cutoff. Without tools, it has no access to any information after that date.
   + **Capability zone:** topics that appeared frequently, recently (within training), and consistently in training data.
@@ -39,7 +39,7 @@ knowledge cutoff. The practical question isn't "does the AI know this?" but
   + **Web search, retrieval (RAG/MCPs), and tool use** exist specifically to patch these gaps by giving the model access to information it was never trained on.
 * **4D connection:** Knowledge unevenness is core to Delegation. Understanding where the model is well-stocked versus thin tells you when to hand off, when to supply context yourself, and when to go elsewhere.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### The Outsider Test
 
@@ -61,12 +61,12 @@ Go back to your task list and add a second annotation: for each task, flag wheth
 
 **Stretch goal:** Re-run the staleness probe with web search enabled. Compare what changes. This is retrieval in action.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What's one area of your work where you now realize you need to supply context rather than assume the model has it?
 * Did the default-assumption probe surface anything that surprised you?
 
-## What's next
+## What's next[](#whats-next)
 
 Knowledge covers what the model absorbed during training. Working Memory covers what it's paying attention to right now: your prompt, your documents, your conversation. This property has the hardest edge of all four.
 

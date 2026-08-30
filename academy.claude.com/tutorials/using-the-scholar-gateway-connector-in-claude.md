@@ -18,7 +18,7 @@ The Scholar Gateway by Wiley integration provides authenticated access to the mo
 
 The Scholar Gateway integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## What this integration provides
+## What this integration provides[](#what-this-integration-provides)
 
 Currently >3 million journal articles are available through Scholar Gateway with additional collections, databases and new articles being added all the time.
 
@@ -32,14 +32,14 @@ While the Beta currently provides access to Wiley content only, additional publi
 
 This enables you to verify that claims are backed with sourced research — ensuring your AI-assisted research meets professional research standards.
 
-## Who can access the Scholar Gateway integration
+## Who can access the Scholar Gateway integration[](#who-can-access-the-scholar-gateway-integration)
 
 * Existing subscribers to Wiley journals will need to upgrade their subscription following a trial period to allow AI access.
 * New subscribers will need to subscribe subject to a trial period.
 
 More details on accessing the integration can be found in [Wiley’s MCP Server Documentation(opens in new tab)](https://docs.scholargateway.ai/).
 
-## Setting up the Scholar Gateway integration
+## Setting up the Scholar Gateway integration[](#setting-up-the-scholar-gateway-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -65,7 +65,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the Scholar Gateway integration can be found in [Wiley’s MCP Server Documentation(opens in new tab)](https://docs.scholargateway.ai/).
 
-## Common use cases
+## Common use cases[](#common-use-cases)
 
 * Enhanced literature review when planning experiments and research plans, to efficiently identify, summarize, and evaluate relevant literature as individual articles or in aggregation, enabling new ways of doing research and delivering reliable and cited insights in seconds.
 * Information on latest research in a certain field of medicine or pharmaceuticals.

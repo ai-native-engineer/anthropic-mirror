@@ -12,7 +12,7 @@ Lesson 534 min
 
 When building MCP servers, you need a way to test your functionality without connecting to a full application. The Python MCP SDK includes a built-in browser-based inspector that lets you debug and test your server in real-time.
 
-## Starting the Inspector
+## Starting the Inspector[](#starting-the-inspector)
 
 First, make sure your Python environment is activated (check your project's README for the exact command). Then run the inspector with:
 
@@ -26,7 +26,7 @@ This starts a development server and gives you a local URL (typically on port 62
 
 ![](https://academy.claude.com/assets/media/19b987b5529baeb03bed9b07e03fd0d0c56298a716b439dc896de8898f1d2b3f.png)
 
-## Using the Inspector Interface
+## Using the Inspector Interface[](#using-the-inspector-interface)
 
 The MCP inspector is actively being developed, so the interface may look different when you use it. However, the core functionality remains consistent.
 
@@ -39,7 +39,7 @@ After clicking "Connect" to start your MCP server, you'll see a navigation bar w
 * Tools
 * Other server capabilities
 
-## Testing Your Tools
+## Testing Your Tools[](#testing-your-tools)
 
 The Tools section is where you'll spend most of your debugging time. Click "List Tools" to see all the tools your server provides.
 
@@ -54,7 +54,7 @@ When you select a tool, the right panel shows its details and provides input fie
 
 ![](https://academy.claude.com/assets/media/cb9b3c821130bee229aefb94456017fd04d46e53b1d24a91aef58a83d49b31a4.png)
 
-## Testing Tool Interactions
+## Testing Tool Interactions[](#testing-tool-interactions)
 
 You can test multiple tools in sequence to verify they work together correctly. For instance, after using the `edit_document` tool to modify content:
 
@@ -64,7 +64,7 @@ Run the `read_doc_contents` tool again with the same document ID to confirm your
 
 ![](https://academy.claude.com/assets/media/14cce52c52772af7b18d1a65cd32117d8883c297c738859ddf7b2aff22663d00.png)
 
-## Development Workflow
+## Development Workflow[](#development-workflow)
 
 The inspector creates an efficient development loop:
 

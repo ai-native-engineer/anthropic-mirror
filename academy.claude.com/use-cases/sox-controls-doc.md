@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-gtq6ufl9.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dqfzjo1d.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Finance plugin ships with `/sox-testing` and other close and compliance skills as a starting point, already structured to turn a walkthrough into narrative, matrix, and flowchart. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ FinanceStreamline finance and accounting workflows, from journal entries and rec
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -56,7 +56,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (your walkthrough notes, prior-year narrative, the RCM template, system screenshots) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the narrative, matrix, and flowchart back to it. If you'll document several processes this cycle, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the parent Controls folder so the template and house style stay attached.
 
@@ -72,15 +72,15 @@ system-screenshots/Apr 22, 20266 items
 
 In Cowork’s chat bar:Controls / Order-to-Cash
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Here's how this process runs. Write the process narrative in our standard format, build the risk and control matrix mapping each risk to its control, owner, and frequency, and draw the flowchart. Flag any step where a control looks missing or a segregation of duties issue shows up.
 
 Controls / Order-to-CashOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -98,7 +98,7 @@ Source
 
 **Let the working folder supply the format.** Your RCM template and prior-year narrative sit in the working folder, so "our standard format" resolves to your actual columns and headings without you pasting them in.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -108,7 +108,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -118,9 +118,9 @@ ControlsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on every walkthrough
+### Run it on every walkthrough[](#run-it-on-every-walkthrough)
 
 When a process owner drops their walkthrough notes, the documentation package should already be drafting. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs whenever a new walkthrough is added to the Controls folder.
 
@@ -136,7 +136,7 @@ Runs `/sox-testing` on every new walkthrough in Controls and writes the narrativ
 
 Every **weekday at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/sox-testing` now carries your RCM columns, your control-ID scheme, and your narrative voice. Share it so every process owner produces the same audit-ready package, and internal audit sees one consistent format across the cycle for $0 instead of consulting rates.
 
@@ -144,7 +144,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/sox-testing` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your template and standards baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

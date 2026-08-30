@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-f72xos2e.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j0qghno4.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Data plugin ships with `/write-query` and other warehouse-and-BI skills as a starting point, already structured to read a data model and write queries against it. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Data10 skills for SQL generation, table profiling, dashboard specs, and metric n
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -64,7 +64,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (your schema export or dbt models, your metrics library, your data dictionary) into one folder and point Cowork at it. Cowork reads the model from there and writes the SQL, the result table, and the answer memo back to it. If you field ad-hoc questions regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your naming conventions and certified-metric list stay attached.
 
@@ -78,15 +78,15 @@ data-dictionary.xlsxFeb 14, 202662 KB
 
 In Cowork’s chat bar:Analytics / EMEA-margin-question
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Here's the question from the business: "Why is gross margin down in EMEA this quarter?" Write the SQL to answer it, run it against the warehouse, and tell me what's driving the move. Then give me the chart spec to add to the dashboard so nobody has to ask again.
 
 Analytics / EMEA-margin-questionOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -104,7 +104,7 @@ Source
 
 **Let the working folder supply context.** SQL is written against your tables and your metric names, not invented ones.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -114,7 +114,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -124,9 +124,9 @@ AnalyticsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on every inbound question
+### Run it on every inbound question[](#run-it-on-every-inbound-question)
 
 The ad-hoc queue never stops. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill watches your analytics-requests channel and drafts the query and answer before you've even read the message.
 
@@ -142,7 +142,7 @@ Hourly, reads new questions in #analytics-requests, runs `/write-query` against 
 
 Every **hour on weekdays**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/write-query` now carries your warehouse model, your certified metrics, and your answer format. Share it so every analyst writes SQL against the same definitions, and the business gets the same number no matter who they ask.
 
@@ -150,7 +150,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/write-query` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your model and naming rules baked in, so they don't repeat Steps 1-3.
 
-## What changes for the analytics queue
+## What changes for the analytics queue[](#what-changes-for-the-analytics-queue)
 
 Ad-hoc data questions are answered with a working query and explanation drafted together — you review and correct instead of writing SQL from scratch.
 

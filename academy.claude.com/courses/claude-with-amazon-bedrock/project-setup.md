@@ -12,7 +12,7 @@ Lesson 501 min
 
 We're going to build our own CLI-based chatbot to better understand how MCP clients and servers work together. This hands-on project will give you practical experience with both sides of the MCP architecture.
 
-## What We're Building
+## What We're Building[](#what-were-building)
 
 Our chatbot will be a command-line interface that allows users to chat with a set of documents. Here's what the system will include:
 
@@ -24,7 +24,7 @@ Our chatbot will be a command-line interface that allows users to chat with a se
 
 ![](https://academy.claude.com/assets/media/d46a61c16751d7e35792bfa377ae844576ea6143bc2a3c771498df206e2c3de5.png)
 
-## System Architecture
+## System Architecture[](#system-architecture)
 
 The project consists of three main components working together:
 
@@ -41,7 +41,7 @@ The MCP server will implement two core tools:
 
 All documents (PDFs, spreadsheets, text files, markdown files) will be stored in memory rather than on disk, keeping the project simple and focused on MCP concepts.
 
-## Important Architecture Note
+## Important Architecture Note[](#important-architecture-note)
 
 In real-world projects, you typically implement either an MCP client or an MCP server - not both. You might:
 

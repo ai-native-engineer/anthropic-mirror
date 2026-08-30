@@ -12,7 +12,7 @@ Lesson 613 min
 
 When building AI applications, you'll often encounter tasks that seem straightforward but become complex when you try to handle everything in a single request. Let's explore a workflow pattern that can help you break down complex tasks and get better results from Claude.
 
-## The Problem with Complex Single Requests
+## The Problem with Complex Single Requests[](#the-problem-with-complex-single-requests)
 
 Imagine you're building a material designer application where users upload images of parts and get recommendations for the best material to use. Your first instinct might be to send the image to Claude with a simple prompt asking it to choose between metal, polymer, ceramic, composite, elastomer, or wood.
 
@@ -24,7 +24,7 @@ This basic approach might work, but you're asking Claude to do a lot of analysis
 
 However, this creates a new problem: you end up with an enormous prompt that can confuse Claude because it has to juggle multiple complex analyses simultaneously. The model might get distracted trying to consider all the different pros and cons of each material at once.
 
-## A Better Approach: Parallelization
+## A Better Approach: Parallelization[](#a-better-approach-parallelization)
 
 Instead of cramming everything into one request, you can split the task into multiple specialized requests that run in parallel. Here's how it works:
 
@@ -39,7 +39,7 @@ Send the same image to Claude multiple times, but with different specialized pro
 
 Each prompt can be highly specialized for its specific material, including relevant criteria like strength requirements, temperature resistance, or manufacturing constraints.
 
-## Aggregating the Results
+## Aggregating the Results[](#aggregating-the-results)
 
 Once you receive all the individual analysis results, you make a final request to Claude that acts as an aggregator. This request takes all the specialized analyses and asks Claude to compare them and make a final recommendation.
 
@@ -47,7 +47,7 @@ Once you receive all the individual analysis results, you make a final request t
 
 Now Claude doesn't need to worry about comparing materials from scratch. Instead, it can focus on evaluating the analysis results and identifying the most promising option based on the detailed evaluations you've already gathered.
 
-## The Parallelization Pattern
+## The Parallelization Pattern[](#the-parallelization-pattern)
 
 This approach follows a general pattern called parallelization workflow:
 
@@ -59,7 +59,7 @@ This approach follows a general pattern called parallelization workflow:
 
 The key insight is that the parallelized sub-tasks don't need to be identical. Each can have a specialized prompt, different tools, or unique approaches tailored to its specific purpose.
 
-## Benefits of Parallelization
+## Benefits of Parallelization[](#benefits-of-parallelization)
 
 This workflow pattern offers several advantages:
 
@@ -68,7 +68,7 @@ This workflow pattern offers several advantages:
 * **Better scalability:** Adding new material types or criteria doesn't complicate existing sub-tasks
 * **Faster execution:** Since the sub-tasks run in parallel, the total time is often less than a sequential approach
 
-## When to Use This Pattern
+## When to Use This Pattern[](#when-to-use-this-pattern)
 
 Parallelization works well when you have a complex task that can be broken down into independent sub-problems. Look for situations where you're asking Claude to consider multiple options, perform several types of analysis, or handle different aspects of the same problem simultaneously.
 

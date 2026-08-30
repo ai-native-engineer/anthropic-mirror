@@ -16,7 +16,7 @@ Try in CoworkCopy prompt
 
 ![Source insights from your tools to build a deck result](https://academy.claude.com/assets/v1/source-insights-from-your-tools-to-build-a-deck-nmg2vyrt.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Opus 4.6 follows leads across your connected tools without needing direction at each step. Give it a starting point and it pulls search terms from what it finds, follows people to their updates, follows updates to the data they reference, and reconciles sources that disagree. By the time it builds the deck, it's working from evidence it gathered and cross-referenced itself.
 
@@ -30,7 +30,7 @@ State the decision the deck has to support, lay out the path Claude should follo
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Through Cowork in [Claude Desktop(opens in new tab)](https://claude.com/download), connect your local files and tools. Point Claude at a Slack channel, a Drive folder, or an email thread to give it a starting point.
 
@@ -38,7 +38,7 @@ Connect Slack and Google Drive through connectors. [Claude in Chrome(opens in ne
 
 What Claude gives you back is mostly determined by what you let it read. One more connected source usually improves the deck more than another rewrite of the prompt, so spend your setup time on access to the channels where the quarter was discussed, the folder with the finance report, and the dashboards you want checked.
 
-### Required context
+### Required context[](#required-context)
 
 * Cowork with access to local files ([supported formats(opens in new tab)](https://claude.com/download))
 * At least one connected source: Slack, Google Drive, or email
@@ -64,11 +64,11 @@ Google Drive
 
 Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
-### Optional context
+### Optional context[](#optional-context)
 
 * Previous quarter’s board deck (for continuity and comparison)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Opus 4.6 works outward from the starting point you give it, pulls context from each source it finds, and saves three files locally: a presentation with narrative structure, a supporting data appendix, and an executive pre-read. Through Claude in Chrome, it opens the dashboards you named in new browser tabs and pulls the live numbers directly.
 
@@ -90,11 +90,11 @@ I’ve saved three files:
 2. **Data Appendix** (q3-data-appendix.xlsx): Six tabs covering revenue reconciliation, customer retention, NPS trends, engineering velocity, pipeline, and Apex partnership economics.
 3. **Executive Brief** (q3-executive-brief.docx): Two-page pre-read framing the consolidation bet and what the churn data actually shows.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 The first deck is a draft to direct. Each follow-up below pushes on something the first pass produced: the slide count, the framing each board member needs, and the weak points in the argument.
 
-### Tighten the deck before you rehearse
+### Tighten the deck before you rehearse[](#tighten-the-deck-before-you-rehearse)
 
 Fourteen slides is more deck than most board slots hold. Cutting is easier when the appendix can absorb the detail.
 
@@ -102,7 +102,7 @@ Fourteen slides is more deck than most board slots hold. Cutting is easier when 
 
 Open in Cowork
 
-### Pre-brief each board member on what matters to them
+### Pre-brief each board member on what matters to them[](#pre-brief-each-board-member-on-what-matters-to-them)
 
 Opus 4.6 already knows the quarter’s full context. Use that to draft targeted pre-reads before the meeting.
 
@@ -110,7 +110,7 @@ Opus 4.6 already knows the quarter’s full context. Use that to draft targeted 
 
 Open in Cowork
 
-### Stress-test the narrative before you present it
+### Stress-test the narrative before you present it[](#stress-test-the-narrative-before-you-present-it)
 
 The hardest board questions come from the data you glossed over. Opus 4.6 has read every source and knows where the weak points are.
 
@@ -118,21 +118,21 @@ The hardest board questions come from the data you glossed over. Opus 4.6 has re
 
 Open in Cowork
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Point Opus 4.6 at a starting resource and tell it to follow what it finds
+### Point Opus 4.6 at a starting resource and tell it to follow what it finds[](#point-opus-46-at-a-starting-resource-and-tell-it-to-follow-what-it-finds)
 
 Opus 4.6 can pull search terms from what it reads, so a document that names people, channels, and files gives it more threads to follow across your tools. A project tracker or kickoff doc works well. Once you have the tools you'd like Claude to access, tell it to work outward: "Follow each person across their channels, emails, and documents they reference. Check data against other sources." Paired with Cowork, it sustains that work across as many steps as the task requires.
 
-### Check the reconciled numbers before the board does
+### Check the reconciled numbers before the board does[](#check-the-reconciled-numbers-before-the-board-does)
 
 When sources disagreed, Claude chose a figure and noted the discrepancy in the appendix. Before the deck leaves your desk, open the revenue reconciliation tab, confirm the figure it chose matches the system you treat as the source of truth, and spot-check the slide that cites it.
 
-### Give it last quarter’s deck
+### Give it last quarter’s deck[](#give-it-last-quarters-deck)
 
 Drop the previous board deck in with your local files. Claude picks up the structure the board has already seen and keeps the metrics comparable quarter over quarter.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Point Opus 4.6 at your quarter.
 

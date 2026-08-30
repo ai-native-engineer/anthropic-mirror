@@ -30,7 +30,7 @@ If you haven’t set up Cowork yet, start with [Get started in three steps(opens
 
 To dive deeper into Claude Cowork, take the full [Intro to Claude Cowork course(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork).
 
-## Step 1: Set up the brief skill
+## Step 1: Set up the brief skill[](#step-1-set-up-the-brief-skill)
 
 Set up once
 
@@ -52,7 +52,7 @@ Working folderOpen in Cowork
 
 Claude walks you through your document store and templates, then rewrites the skill to match. Run it on a question you already know the answer to, check the citations, and tell Claude to fix anything it got wrong.
 
-## Step 2: Schedule the morning brief
+## Step 2: Schedule the morning brief[](#step-2-schedule-the-morning-brief)
 
 Set up once
 
@@ -66,7 +66,7 @@ Here’s the prompt to set it up — replace the blanks with your own:
 
 Working folderOpen in Cowork
 
-## Step 3: Run a brief on a question
+## Step 3: Run a brief on a question[](#step-3-run-a-brief-on-a-question)
 
 Per question
 
@@ -80,7 +80,7 @@ ReviewsOpen in Cowork
 
 The brief comes back short and organized: what you’d decided before, what’s different now, and where the two don’t line up. Every point links to the exact source it came from, so you can check it yourself — which is the next step.
 
-## Step 4: Verify before you sign
+## Step 4: Verify before you sign[](#step-4-verify-before-you-sign)
 
 Per question
 
@@ -99,7 +99,7 @@ Claude did the prep, but the call is yours. Reading the source line yourself is 
 
 More on the habit: [The 4 Ds of AI Fluency(opens in new tab)](https://academy.claude.com/tutorials/the-4-ds-of-ai-fluency-behavioral-indicators) · [the Framework and Foundations course(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations)
 
-## Step 5: Reply and close the loop
+## Step 5: Reply and close the loop[](#step-5-reply-and-close-the-loop)
 
 Per question
 
@@ -114,7 +114,7 @@ Draft a reply to [the product manager] in [your messaging tool] — my view: [yo
 
 Working folderOpen in Cowork
 
-## Make it yours
+## Make it yours[](#make-it-yours)
 
 This setup isn’t legal-specific and can work for any role that fields fast questions about past decisions:
 
@@ -130,7 +130,7 @@ This setup isn’t legal-specific and can work for any role that fields fast que
 3. Run a brief on the question; verify the source line before you sign.
 4. Close the loop with a connector so the decision lands where your team can find it.
 
-## Learn more
+## Learn more[](#learn-more)
 
 * [**Claude Cowork 101**(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork). Take the full Cowork course to dive deeper into the product.
 * [**Customize Cowork**(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork). Learn how to set up connectors, skills, and instructions.

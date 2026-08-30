@@ -1,8 +1,22 @@
 <!-- source: https://claude.com/claude-in-chrome -->
 
+Announcement
+
+[Next](#)Next
+
+Claude in Chrome is now generally available
+
+Claude can work through tasks without approving each step,
+
+Read more
+
+[Read more](https://claude.com/blog/claude-in-chrome-generally-available)Read more
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a8ef18fc8c6bab48e493bb2_object-browser.svg)
+
 # Claude in Chrome
 
-A helping hand across all your tabs
+## A helping hand across all your tabs
 
 Claude in Chrome reads the page you’re signed in to, then clicks, types, and fills forms while you decide what happens next.
 
@@ -14,7 +28,7 @@ Available on all paid plans. Not on a paid plan? [Upgrade now](https://claude.co
 
 [](https://assets.claude.ai/brand/videos/chrome/sizzle_950k_942KB.webm)
 
-A refreshing way to work on the web
+## A refreshing way to work on the web
 
 No more copying, pasting, and switching tabs.
 
@@ -70,7 +84,7 @@ Bring Claude into your workflow to make apps work better, without leaving the br
 
 Start a workflow and move on. Claude completes tasks while you focus elsewhere.
 
-Speed up everyday tasks with Claude in Chrome
+## Speed up everyday tasks with Claude in Chrome
 
 ### Pull metrics from analytics dashboards
 
@@ -120,7 +134,7 @@ Learn more
 
 [Learn more](https://claude.com/resources/use-cases/clean-up-promotional-emails)Learn more
 
-Core capabilities
+## Core capabilities
 
 Reach the web that has no API
 
@@ -140,7 +154,7 @@ Every conversation saves to your history. Sessions live with your account, not t
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a7336adf3c16da39d201978_c40a88ac628af6163cb029e7919f298e_chrome_3.webp)
 
-Three ways to access the extension
+### Three ways to access the extension
 
 Access Claude in Chrome through the side panel when the work is on the page in front of you and nothing else needs to be open, in Claude Cowork when the browser is one step in a longer job, or in Claude Code when you’re building the site you’re testing.
 
@@ -164,29 +178,29 @@ If you choose to, Claude can work through a task without asking you to approve e
 
 If you prefer more control, switch to Permissions Mode. You grant access one site at a time. Claude can't reach anything you haven't approved.
 
-### Claude stops before taking sensitive actions
+#### Claude stops before taking sensitive actions
 
 Purchases, financial actions, and other one-way doors wait for you.
 
-### Admins decide for the organization
+#### Admins decide for the organization
 
 On Team and Enterprise, admins turn the extension on or off org-wide and set site allowlists and blocklists.
 
 ### What we recommend
 
-### Don’t use on sensitive workflows
+#### Don’t use on sensitive workflows
 
 Skip banking, health records, and anything with credentials you wouldn't share. Start with workflows you already know well.
 
-### Review Claude prompts
+#### Review Claude prompts
 
 Claude asks before financial, personal, or work-critical actions. Review its prompts carefully.
 
-### Watch for unusual behavior
+#### Watch for unusual behavior
 
 Some sites hide instructions that override yours. Our classifiers provide a defense, but if Claude acts unexpectedly, pause and review.
 
-### Tell us when something looks wrong
+#### Tell us when something looks wrong
 
 Report issues through the feedback options. It’s how we catch attacks we haven’t seen.
 
@@ -228,7 +242,7 @@ Read more
 
 ### How does Claude Cowork work with the Chrome extension?
 
-Claude Cowork users can start a task in Cowork and let it handle work in the browser without switching windows by enabling Claude in Chrome as a connector.
+Claude Cowork now includes its own built-in browser — nothing to install, and fully separate from your own browsing. If you're new to browser use, Claude uses the built-in browser by default. If you already use Claude in Chrome, that stays your default and Claude keeps working in your browser, where you're already signed in. Switch anytime in Settings → Cowork → Preferred browser.
 
 ### Can Enterprise plans enable Claude Cowork in the panel for Claude in Chrome?
 
@@ -244,7 +258,7 @@ Browser AI faces unique security risks, like prompt injection attacks, where mal
 
 ### What’s the difference between using Claude in Chrome alone vs. with Claude Cowork?
 
-On its own, Claude in Chrome helps you navigate, extract information, and take actions in your browser. Paired with Claude Cowork, Chrome becomes the research layer for larger tasks. Claude gathers information from the web, then Claude Cowork produces finished files like Excel workbooks, PowerPoint decks, and formatted reports.
+On its own, Claude in Chrome helps you navigate, extract information, and take actions in your browser. Paired with Claude Cowork, Chrome becomes the research layer for larger tasks. Claude gathers information from the web, then Claude Cowork produces finished files like Excel workbooks, PowerPoint decks, and formatted reports. Both remain available in Cowork. Claude uses the built-in browser by default unless you already use Claude in Chrome; you can pick your default in Settings → Cowork → Preferred browser.
 
 Claude in Chrome Troubleshooting
 

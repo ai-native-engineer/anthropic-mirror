@@ -17,7 +17,7 @@ In this lessonBy the end, you’ll be able to
 * Apply context-as-leverage strategies: front-loading important material, chunking long work, re-supplying critical context
 * Recognize memory, compaction, projects/workspaces, and larger windows as product features addressing this limitation
 
-## How the context window affects generative AI outputs
+## How the context window affects generative AI outputs[](#how-the-context-window-affects-generative-ai-outputs)
 
 Working Memory · 6 min
 
@@ -28,9 +28,9 @@ called the context window. It can attend to what's in there. It can't attend
 to anything outside it. That constraint is hard-edged in a way the other
 properties aren't: things work until they don't.
 
-## The context window: AI's working memory
+## The context window: AI's working memory[](#the-context-window-ais-working-memory)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Working Memory** is the fact that the AI model has a fixed context window that it can attend to.
   + **Capability zone:** your material fits comfortably, the session is current, you're supplying relevant context.
@@ -40,7 +40,7 @@ properties aren't: things work until they don't.
   + **Memory features, compaction, projects, larger windows, and multi-agent workflows** all exist to push this cliff further out.
 * **4D connection:** Working Memory is what Description acts on. Knowing how the window works tells you how to structure context, when to front-load, and when to start fresh.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### The Before-and-After
 
@@ -58,12 +58,12 @@ Go back to your task list and add a third annotation: which tasks need standing 
 
 **Stretch goal:** If your tool has memory or project features, set one up with the context from Probe 1. Run the task again. Compare effort and quality against the cold-start version.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How much did front-loading context change output quality? Was the gap bigger than you expected?
 * What's one piece of standing context you'll set up this week to stop re-explaining yourself?
 
-## What's next
+## What's next[](#whats-next)
 
 The final property: Steerability. How much are you actually in control when you give instructions, and where does that control break down?
 

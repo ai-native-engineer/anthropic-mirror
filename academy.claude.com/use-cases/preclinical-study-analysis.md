@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-k3y0qtqk.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kzqqf3fw.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude connects directly to research platforms like Benchling, allowing you to query complex experimental data as naturally as asking a colleague. It retrieves data from multiple notebook entries and sources, synthesizes comparisons, and creates polished reports, saving hours of tedious compilation work.
 
@@ -24,11 +24,11 @@ Summarize the study designs for ST042 and ST043 and how they're different, inclu
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 To enable this workflow, you'll need Claude connected to your research data management system, like Benchling or other platforms.
 
-### Required context
+### Required context[](#required-context)
 
 To pull data directly from your Benchling workspace, use the [Benchling connector.(opens in new tab)](https://claude.ai/directory/benchling) This connector requires you to have [Claude for Desktop(opens in new tab)](https://www.claude.com/download).
 
@@ -40,7 +40,7 @@ Benchling
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude connects to Benchling's agents to retrieve your study data, then synthesizes a comprehensive summary with key differences highlighted.
 
@@ -116,11 +116,11 @@ Both studies used:
 
 These complementary studies demonstrate that LNP003-L006 effectively restores hepatic PGM protein levels in both wild-type and disease models, with robust dose-dependent efficacy. ST042's 3.5-fold increase in protein levels between dose groups and peak response of 511 µg/mL validates therapeutic potential in a disease-relevant context, while ST043 confirms activity across higher dose ranges in standard models.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Generate regulatory documentation
+### Generate regulatory documentation[](#generate-regulatory-documentation)
 
 After reviewing the study comparison, ask Claude to create a polished report.
 
@@ -128,17 +128,17 @@ From these results, generate a Study Report that I can include in my regulatory 
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Connects directly to your source data
+### Connects directly to your source data[](#connects-directly-to-your-source-data)
 
 When you ask Claude to "link all my notebook entries," it queries Benchling's database and retrieves actual entry IDs with clickable links. This maintains full traceability back to raw experimental data, which is essential for regulatory compliance and internal validation.
 
-### Open external links to verify and interact with content
+### Open external links to verify and interact with content[](#open-external-links-to-verify-and-interact-with-content)
 
 Claude provides Benchling notebook URLs (like benchling.com/entry/bfi\_ZWJIMRJbt) so you can click through to review the original experiment protocols, attachments, results, and visualizations. This gives you full context beyond what appears in the summary.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 What used to take days of compiling and validating across tools now happens in minutes. Connect Claude to your research platform and start querying your experimental data like you'd ask a colleague—with full traceability and regulatory-ready outputs.
 

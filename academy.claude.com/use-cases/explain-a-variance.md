@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-ejn575jr.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-m0b89rp1.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Finance plugin ships with `/variance-analysis` and seven other close-week skills as a starting point, it already knows how to compare periods and structure commentary. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -38,7 +38,7 @@ FinanceStreamline finance and accounting workflows, from journal entries and rec
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -70,7 +70,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (actuals, prior period, budget, chart of accounts) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the narrative back to it. If you'll run this every close, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so instructions, memory, and scheduled runs stay attached to it.
 
@@ -86,15 +86,15 @@ chart-of-accounts.pdfDec 12, 2025118 KB
 
 In Cowork’s chat bar:FY26-Close / March
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Draft this month's variance commentary for the monthly review. Compare actuals to last month and to budget, and for every line that moved more than 10% or $50K explain what moved and why, in plain English for a leadership audience. Write it to the close folder.
 
 FY26-Close / MarchOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Source
 
 **Say where the output goes.** Name a specific file and Cowork edits it; otherwise it creates the draft in your working folder for you to audit.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag any line where the driver isn't clear from the data" so you know exactly where to dig before the review.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ FY26-CloseOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 A document is a snapshot. Ask Cowork to publish the same view as a live artifact and it becomes a link the CFO can open any time. Re-run the skill (or schedule it) and the link reflects the latest.
 
@@ -138,7 +138,7 @@ Publish that variance table as a live artifact for leadership.
 
 FY26-Close / MarchOpen in Cowork
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 Variance commentary is due the same day every close. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs against the latest actuals automatically.
 
@@ -154,7 +154,7 @@ Runs `/variance-analysis` against the latest actuals in FY26-Close and writes th
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/variance-analysis` now carries your team's standards. Share it so everyone on the close runs the same version, same threshold, same format, same voice.
 
@@ -162,7 +162,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/variance-analysis` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your instructions baked in, they don't repeat Steps 1-3.
 
-## What changes for close week
+## What changes for close week[](#what-changes-for-close-week)
 
 Variance commentary is drafted from your actuals with every material line explained and consistently formatted — ready to review instead of write.
 

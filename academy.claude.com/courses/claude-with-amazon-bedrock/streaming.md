@@ -12,7 +12,7 @@ Lesson 77 min
 
 When building chat interfaces with AI models, users expect to see responses appear immediately rather than waiting 10-30 seconds for a complete response. The `converse_stream` function solves this by streaming text as it's generated, creating a much better user experience.
 
-## How Streaming Works
+## How Streaming Works[](#how-streaming-works)
 
 Instead of waiting for the entire response to be generated, streaming sends back pieces of text as soon as they're available. Here's how the flow changes:
 
@@ -20,7 +20,7 @@ Instead of waiting for the entire response to be generated, streaming sends back
 
 When you call `converse_stream`, you immediately get back an initial response that contains a `stream` object. This stream is a generator that yields events as the model generates text. Each event contains a small chunk of the overall response.
 
-## Basic Implementation
+## Basic Implementation[](#basic-implementation)
 
 Here's how to use `converse_stream` in your code:
 
@@ -37,7 +37,7 @@ for event in response["stream"]:
 
 This will print out all the different events as they arrive. You'll see the response come in chunks rather than all at once.
 
-## Understanding Stream Events
+## Understanding Stream Events[](#understanding-stream-events)
 
 The stream yields several types of events, each serving a different purpose:
 
@@ -49,7 +49,7 @@ For basic text generation, you only need to care about `contentBlockDelta` event
 
 The events always arrive in a predictable order: `messageStart`, multiple `contentBlockDelta` events containing your text, then `contentBlockStop`, `messageStop`, and finally `metadata`.
 
-## Extracting the Text
+## Extracting the Text[](#extracting-the-text)
 
 To get just the generated text from each chunk, filter for `contentBlockDelta` events and extract the text:
 
@@ -68,7 +68,7 @@ print("\n\nTotal Message:\n" + text)
 
 The `end=""` parameter removes the automatic newline that Python's print function adds, making the streaming text appear more naturally.
 
-## Practical Applications
+## Practical Applications[](#practical-applications)
 
 In a real application, instead of printing each chunk, you'd typically:
 

@@ -22,8 +22,6 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **1.9 What should I try first?** | Point it at a tedious-but-not-hard bug you’ve been putting off. Example: *“the test in [file] is flaky, figure out why.”* Let it read the code instead of you explaining the code.  Reference: **[Common use cases](https://code.claude.com/docs/en/common-workflows)** |
 | **1.10 How do I update it?** | Native installs auto-update in the background. To force one now, run `claude update`. Homebrew/WinGet don’t auto-update: run `brew upgrade claude-code` or `winget upgrade Anthropic.ClaudeCode` periodically.  Reference: **[Setup: updates](https://code.claude.com/docs/en/setup)** |
 
----
-
 ## 2. Day-to-day use
 
 |  |  |
@@ -42,8 +40,6 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **2.11 Extended thinking** | On by default. The reasoning itself is hidden in the normal view; press **Ctrl+O** to switch to the verbose transcript if you want to read it. Use `/effort` to dial depth up or down. Worth the extra latency for tricky debugging or architecture calls.  Reference: **[Extended thinking](https://code.claude.com/docs/en/common-workflows#use-extended-thinking-thinking-mode)** |
 | **2.12 Stop it mid-task** | Press **Ctrl+C** to cancel the current generation, then tell it what to do instead. No need to start the conversation over. |
 
----
-
 ## 3. Leveling up
 
 |  |  |
@@ -59,8 +55,6 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **3.8 Undo what it did** | `/rewind` rolls back to an earlier checkpoint. Checkpoints are taken automatically at every prompt you send. For anything already committed, use a normal `git revert`.  Reference: **[Checkpointing](https://code.claude.com/docs/en/checkpointing)** |
 | **3.9 Share your setup with the team** | Check `.claude/` into the repo (CLAUDE.md, commands, MCP config). Anyone who clones the repo gets the same setup automatically. Skills can also be packaged as a **plugin** that teams install via `/plugin`.  Reference: **[Plugins](https://code.claude.com/docs/en/plugins)** |
 
----
-
 ## 4. Common gotchas
 
 |  |  |
@@ -74,8 +68,6 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **4.6 Non-interactive -p mode behaves differently** | * MCP servers that need OAuth can’t prompt in non-interactive mode * Interactive approvals don’t carry over  For non-interactive/CI runs, prefer API-key auth and MCP servers configured with env-var tokens. |
 | **4.7 Ran out of context mid-task** | `/compact` summarizes earlier conversation to free up space. `/clear` starts fresh while keeping `CLAUDE.md` and settings loaded. For long tasks, break into steps with a `/clear` between phases.  Reference: **[Managing context](https://code.claude.com/docs/en/common-workflows)** |
 
----
-
 ## 5. Privacy and trust
 
 |  |  |
@@ -87,8 +79,6 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | **5.4 How do I keep secrets and .env files out of the conversation?** | Claude only reads files it needs for the task; it doesn’t scan your whole repo. To hard-block specific files, add a Read deny rule in `.claude/settings.json` (e.g. `"Read(.env*)"`). Denied files can’t be read even if you accidentally ask for them.  Reference: **[Permissions](https://code.claude.com/docs/en/permissions)** |
 | **5.5 What can “acceptEdits” mode do without asking me?** | File edits go through without a prompt. It still asks before running shell commands, making network calls, or touching anything outside your working directory. For tighter control, stay in default mode.  Reference: **[Permissions](https://code.claude.com/docs/en/permissions)** |
 
----
-
 ## Appendix: Still stuck?
 
 |  |  |
@@ -98,8 +88,6 @@ Five sections follow the arc of a developer’s first weeks: getting started, da
 | `/feedback` | File an issue from the terminal (alias for `/bug`) |
 | **[Full docs](https://code.claude.com/docs)** | Everything here, in detail |
 | Your team’s `#claude-code` channel | Small wins and weird errors both belong there |
-
----
 
 ## Appendix: Resource directory
 

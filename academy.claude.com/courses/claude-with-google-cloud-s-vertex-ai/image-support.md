@@ -12,7 +12,7 @@ Lesson 4410 min
 
 Claude's vision capabilities let you include images in your messages and ask Claude to analyze them in sophisticated ways. You can ask Claude to describe image contents, compare multiple images, count objects, or perform complex visual analysis tasks.
 
-## Image Handling Basics
+## Image Handling Basics[](#image-handling-basics)
 
 ![](https://academy.claude.com/assets/media/c7b1cb42c0c5f46b5bf09f44253dd36437835d6302d817dd9f04345498dbd6c0.png)
 
@@ -53,13 +53,13 @@ add_user_message(messages, [
 ])
 ```
 
-## Message Flow
+## Message Flow[](#message-flow)
 
 ![](https://academy.claude.com/assets/media/89621a94c5d850a7741c336f51d220402877da316e72bcc34de53826768d8cb8.png)
 
 The conversation works just like text-only interactions. Your server sends a user message containing both image and text blocks to Claude, and Claude responds with a text message analyzing the image.
 
-## Prompting Techniques
+## Prompting Techniques[](#prompting-techniques)
 
 ![](https://academy.claude.com/assets/media/7822fde09008ecaaef45a499a4c64544727208168ee8e58cb4b75ccc0151695f.png)
 
@@ -71,7 +71,7 @@ For example, asking "How many marbles are in this image?" with an image containi
 * Using one-shot or multi-shot examples
 * Breaking down complex tasks into smaller steps
 
-### Step-by-Step Analysis
+### Step-by-Step Analysis[](#step-by-step-analysis)
 
 ![](https://academy.claude.com/assets/media/5cd168f34e55480f8d3b7a9b76f65fcda3f8d4c498dca282a14c72a6c4f20947.png)
 
@@ -87,7 +87,7 @@ What is the exact, verified number of marbles in this image?
 
 This structured approach helps Claude get the correct count of 12 marbles.
 
-### One-Shot Examples
+### One-Shot Examples[](#one-shot-examples)
 
 ![](https://academy.claude.com/assets/media/9b02f763819da04216b0ab891e75ffca026fc66cf28f979ce70269ce0c8d1274.png)
 
@@ -103,7 +103,7 @@ How many marbles are in this image?
 
 Providing an example significantly improves Claude's accuracy on the target image.
 
-## Real-World Example: Fire Risk Assessment
+## Real-World Example: Fire Risk Assessment[](#real-world-example-fire-risk-assessment)
 
 ![](https://academy.claude.com/assets/media/d71061d0c67d9ece85db6c5a354f08bbb66dbc6ff83dd4a13d7d118d914841fa.png)
 

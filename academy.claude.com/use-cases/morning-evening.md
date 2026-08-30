@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-xxhorrny.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kkbwysr5.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Productivity plugin ships with `/start` and `/update` as a starting point, already structured to read your calendar and channels and rank what matters. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Productivity6 skills for inbox sweeps, daily rundowns, meeting prep, and decisio
 
 Show all 4 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -80,7 +80,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Create a `Daily` folder and point Cowork at it. Each morning briefing and evening wrap writes there as `YYYY-MM-DD.md`, so the evening run reads what the morning run set out to do, and Monday's briefing can look back over last week. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your priorities, mute list, and tone stay attached.
 
@@ -94,15 +94,15 @@ priorities.mdApr 20, 20261 KB
 
 In Cowork’s chat bar:Daily
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Run my morning briefing. Tell me what's on fire, what's due, who's waiting on me, and the three things I should do first. Keep it under a page. Tonight I'll ask you to run /update and you'll write the wrap: what got done, what slipped, and what tomorrow opens with.
 
 DailyOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -120,7 +120,7 @@ Source
 
 **Let prior runs supply the context.** Each run reads yesterday's file, so context compounds without you re-explaining.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -130,7 +130,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -140,9 +140,9 @@ DailyOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it at 8am and 6pm
+### Run it at 8am and 6pm[](#run-it-at-8am-and-6pm)
 
 The briefing should be waiting when you sit down. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skills run on their own at the start and end of every workday.
 
@@ -158,7 +158,7 @@ Runs `/start` at 8am and `/update` at 6pm against Calendar, Slack, and Gmail and
 
 Every **weekday at 8:00am and 6:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/start` and `/update` now carry your channel list, your priority rules, and your tone. Share them so anyone on your team starts and ends the day with the same one-page rhythm, and nobody's asking "what did I miss" in standup.
 
@@ -166,7 +166,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/start` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your buckets and mute list baked in, so they don't repeat Steps 1-3.
 
-## What changes for your day
+## What changes for your day[](#what-changes-for-your-day)
 
 You have a one-page briefing ready each morning and an end-of-day record of what got done and what carries over. Open items continue from one day's file to the next without you tracking them.
 

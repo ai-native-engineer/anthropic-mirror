@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-kv9emaq4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-oise4nkg.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Investment analysis means pulling data from research platforms, building financial models, and formatting to firm standards—work that can occupy analysts for days. Claude connects to your data sources and generates working models based on your deal parameters. You review the assumptions and edit directly in Excel with formulas intact, rather than building from scratch.
 
@@ -38,11 +38,11 @@ Create an Excel model with scenarios (base, upside, downside), sensitivity analy
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Connect your data platforms so Claude conducts research and analysis based on current data rather than requiring manual gathering from multiple sources.
 
-### Required context
+### Required context[](#required-context)
 
 Use [connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) to give Claude access to financial data providers. Browse through the connector library in your settings to find tools from [trusted financial partners(opens in new tab)](https://claude.com/partners/mcp).
 
@@ -68,19 +68,15 @@ S&P Global
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for complex multi-position analysis and to produce higher-quality workbooks with working formulas and charts.
+### Optional context[](#optional-context)
 
 Make sure [Web Search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled so Claude can incorporate current market context and historical scenario precedents.
 
 [
 
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)[
-
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude pulled financials from Daloopa, analyzed healthcare SaaS comparables from S&P Capital IQ, built three-scenario projections with sensitivity analysis, and formatted the multi-sheet model to match your IC template standards.
 
@@ -109,11 +105,11 @@ All formulas are functional. Color coding follows PE standards (blue inputs, bla
 
 **View your financial model**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Create the IC memo
+### Create the IC memo[](#create-the-ic-memo)
 
 Turn your financial model into a written investment recommendation. Claude converts the numbers and analysis into a narrative memo that explains the returns, risks, and why this deal makes sense.
 
@@ -121,7 +117,7 @@ Take the key insights from this model and create an investment memo. Use our sta
 
 Open in Claude
 
-### Validate the growth assumptions
+### Validate the growth assumptions[](#validate-the-growth-assumptions)
 
 Check if your projections match reality. Claude researches how similar companies actually grew at this stage and tells you if your forecast is reasonable or too optimistic.
 
@@ -129,7 +125,7 @@ These growth numbers feel optimistic. Pull actual growth trajectories from simil
 
 Open in Claude
 
-### Research recent exit multiples
+### Research recent exit multiples[](#research-recent-exit-multiples)
 
 Use [Research(opens in new tab)](https://support.claude.com/en/articles/11088861-using-research-on-claude) to find current transaction data across multiple sources. Research takes a few minutes but delivers a thorough report with verified citations. With financial data connectors enabled, Claude can cross-reference your internal knowledge with external market data.
 
@@ -137,21 +133,21 @@ Find healthcare SaaS exit transactions in the last 18 months for companies in th
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Keep comps fresh with connected data
+### Keep comps fresh with connected data[](#keep-comps-fresh-with-connected-data)
 
 Once you connect S&P Capital IQ or Daloopa, refresh comparable company multiples without manual updates. Say: "Pull latest healthcare SaaS comps and update the valuation sheet." Your benchmarking stays current as public market multiples shift.
 
-### Work directly in your spreadsheet with Claude
+### Work directly in your spreadsheet with Claude[](#work-directly-in-your-spreadsheet-with-claude)
 
 Once Claude creates your financial model, download and open the file in Excel. With [Claude for Excel(opens in new tab)](http://claude.com/claude-for-excel), you can get instant explanations of any formula, test scenarios without breaking dependencies, or trace errors to their source. Claude provides cell-level citations for every calculation. Claude for Excel is currently in beta as a research preview. [Join the waitlist(opens in new tab)](https://www.claude.com/claude-for-excel) to get access.
 
-### Unlock further capabilities
+### Unlock further capabilities[](#unlock-further-capabilities)
 
 In addition to the ability to connect to financial data tools, [Claude for Financial Services(opens in new tab)](https://claude.com/solutions/financial-services) adds expanded services. In addition to financial data connections, receive specialized Skills for institutional-grade analysis and frameworks, such as those for financial analysis or valuation. Also receive expert implementation support through tailored onboarding, training, and best practices.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Connect Claude to your data platforms, point to the deal you're evaluating, and receive working spreadsheets for financial analyses.
 

@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Use Description skills to craft effective prompts that direct AI to gather and synthesize information relevant to your small business
 * Use Discernment skills to evaluate AI-generated research for accuracy, relevance, and appropriateness before acting on it
 
-## The Description-Discernment Loop
+## The Description-Discernment Loop[](#the-description-discernment-loop)
 
 Refining with AI · 7 min
 
@@ -43,14 +43,14 @@ PromptThe LoopRefine
 
 Judge what came back.Critical evaluation of the output — quality, relevance, bias — and of the collaboration itself, so the next prompt is sharper.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Effective Description provides context:** explain what your business does, what you're trying to accomplish, and what you specifically need to know.
 * **Discernment isn't optional:** flag specific claims — regulations, pricing data, deadlines — for verification against primary sources.
 * **The loop is iterative:** use what you learn from each response to refine your next prompt.
 * **AI accelerates research but doesn't replace expertise:** you're still the decision-maker applying your own business judgment.
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2
 
@@ -81,12 +81,12 @@ Did your initial prompt give AI enough context to be useful? What would you revi
 
 **Stretch goal:** Ask AI to track down the original source for one key regulatory claim in its summary — a specific fee, deadline, or threshold — and then go verify it yourself. Compare how accurately the AI represented the source.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did providing your business context change the quality of AI's research output versus a generic query?
 * What verification habits will you build into your workflow when using AI for research?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore the outer loop of Delegation and Diligence by analyzing data with AI.
 

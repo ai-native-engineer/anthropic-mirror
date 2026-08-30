@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-kb8jxxpj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lt8ltc3p.png)
 
-## 1. Set up
+## 1. Set up[](#1-set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Sales plugin ships with `/pipeline-review` and other customer success skills as a starting point, already structured to weigh usage, tickets, and sentiment into one call. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Sales8 skills for account research, call prep, pipeline review, and account heal
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -65,7 +65,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 **Want to try this task before setting anything up?** Add your files to a
 working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the usage export, the success plan, the latest NPS responses) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the health summary back to it. If you track this account ongoing, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your health criteria, instructions, and memory stay attached.
 
@@ -79,15 +79,15 @@ nps-responses-q1.csvApr 2, 202612 KB
 
 In Cowork’s chat bar:Accounts / Northwind / health
 
-## 2. The prompt
+## 2. The prompt[](#2-the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 From the usage data, open Zendesk tickets, NPS responses, and success plan for Northwind, write the account health summary to the account folder: call it red, yellow, or green with the reason in one or two sentences, then the two actions to take this week.
 
 Accounts / Northwind / healthOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -113,7 +113,7 @@ Source
 sit in the working folder, so the health call is measured against the goals
 you actually agreed with the customer.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -125,7 +125,7 @@ Practice
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about"
 so you know where to look first when you review the draft.
 
-## 3. Make Cowork work for you
+## 3. Make Cowork work for you[](#3-make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -136,9 +136,9 @@ AccountsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## 4. Make it repeatable
+## 4. Make it repeatable[](#4-make-it-repeatable)
 
-### Run it across your book every week
+### Run it across your book every week[](#run-it-across-your-book-every-week)
 
 Health should be tracked, not checked when something breaks. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill writes a fresh summary for every account in your book each week.
 
@@ -157,7 +157,7 @@ to its health folder, with red accounts rolled up into one digest.
 
 Every **Monday at 7:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## 5. Share with your teammates
+## 5. Share with your teammates[](#5-share-with-your-teammates)
 
 Your customized `/pipeline-review` now carries your usage thresholds, your risk rules, and your summary format. Share it so every CSM scores health the same way, and the red/yellow/green means the same thing across the whole book.
 
@@ -167,7 +167,7 @@ In Cowork, open **Skills** → `/pipeline-review` → **Share** and pick your
 teammates (or your whole workspace, if your admin allows). They get the skill
 with your thresholds and format baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

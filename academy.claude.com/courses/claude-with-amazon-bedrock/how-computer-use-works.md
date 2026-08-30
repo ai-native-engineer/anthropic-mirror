@@ -12,7 +12,7 @@ Lesson 643 min
 
 Computer use in Claude works exactly like regular tool use - it's built on the same foundation you're already familiar with. The key difference is that instead of calling a weather API or database function, Claude is making requests to control a computer interface.
 
-## Tool Use Refresher
+## Tool Use Refresher[](#tool-use-refresher)
 
 Before diving into computer use, let's quickly review how standard tool use works. When you want Claude to use a tool, you send a request that includes both a user message and a tool schema. The tool schema describes the additional functionality you want to expose to Claude.
 
@@ -32,7 +32,7 @@ For example, if you ask about weather in San Francisco, Claude might call a `get
 
 ![](https://academy.claude.com/assets/media/b58e95288655e5f2490b8be8b68ad763c8cbc0964b650cf39c9c78851ab87581.png)
 
-## Computer Use: Same Flow, Different Tool
+## Computer Use: Same Flow, Different Tool[](#computer-use-same-flow-different-tool)
 
 Computer use follows this exact same pattern. The difference is in what the "tool" actually does - instead of fetching weather data, it simulates computer interactions like mouse clicks and keyboard input.
 
@@ -51,7 +51,7 @@ The tool schema you send is minimal, but it automatically converts into a detail
 
 ![](https://academy.claude.com/assets/media/106668c3e02cf97566f702349a7ac220bacc904b69c30f81009bc7ded4e5c8a0.png)
 
-## The Technical Implementation
+## The Technical Implementation[](#the-technical-implementation)
 
 To make computer use work, you need a computing environment that can programmatically execute the actions Claude requests. The reference implementation uses a Docker container running Firefox, along with code that can simulate keypresses and mouse movements.
 
@@ -59,7 +59,7 @@ When Claude decides to interact with the computer, it sends a tool use request j
 
 The important thing to understand is that Claude isn't directly controlling a computer. It's making tool requests, and your infrastructure translates those requests into actual computer interactions.
 
-## Getting Started
+## Getting Started[](#getting-started)
 
 You don't need to build this infrastructure from scratch. Anthropic provides a reference implementation that handles all the complex parts for you.
 

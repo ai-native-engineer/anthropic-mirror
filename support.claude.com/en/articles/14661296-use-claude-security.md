@@ -14,13 +14,9 @@ Claude Security allows you to:
 
 Learn how to get started and how leading enterprises use the tool here: **[Getting started with Claude Security](https://claude.com/resources/tutorials/getting-started-with-claude-security)**.
 
----
-
 ## Enable Claude Security
 
 An organization owner can enable Claude Security by going to **[Organization settings > Claude Security](https://claude.ai/admin-settings/claude-security)** and switching the **Turn on for your organization** toggle on.
-
----
 
 ## Finding types
 
@@ -42,8 +38,6 @@ Finding falls into these example categories below.
 
 **Protocol & Encoding (Cache safety, encoding confusion, length-prefix trust):** Layers disagree or trust declared sizes. E.g., cache poisoning via Host header.
 
----
-
 ## Severities
 
 Severity is assigned per finding based on exploitability in your codebase, not the category itself—so the same category can land at different severities in different repos.
@@ -54,8 +48,6 @@ Severity is assigned per finding based on exploitability in your codebase, not t
 | High | Exploitable by an unauthenticated remote attacker against a default deployment, with no meaningful preconditions | Unauthenticated command injection in a public API endpoint |
 | Medium | Exploitable behind authentication, or needs 1–2 realistic preconditions (specific role, known identifier, user interaction) | SQL injection behind auth requiring knowledge of table schema |
 | Low | Needs 3+ preconditions, local-only access, or lacks a concrete demonstrated attack path | Timing side-channel requiring network proximity and thousands of requests |
-
----
 
 ## Finding structure
 
@@ -78,8 +70,6 @@ Each finding contains the following fields:
   + Dismissal reason
   + Dismissal note — optional
 
----
-
 ## Troubleshooting
 
 ### The security page keeps redirecting to "Install GitHub App"
@@ -91,8 +81,6 @@ The claude.ai/security page runs a per-user check against your own connected Git
 * **SSO isn't authorized for that organization.** If your GitHub organization requires SSO, you must authorize the Claude app for it separately. Follow the steps in **[Use the GitHub integration](https://support.claude.com/en/articles/10167454-use-the-github-integration#h_e169a34a57)**.
 * **Your GitHub organization's IP allow list is blocking the check.** GitHub's "Enable IP allow list configuration for installed GitHub Apps" setting covers traffic from the App itself, such as Code Review, but it doesn't cover this per-user check. To allow it, manually add 160.79.104.0/21 as an organization-level allow list entry. For the full list of ranges, see **[IP addresses](https://platform.claude.com/docs/en/api/ip-addresses)**.
 
----
-
 ## Frequently asked questions
 
 * **Product price and cost** — Scans are charged at direct token cost only. There is no additional platform fee for Claude Security.
@@ -100,12 +88,12 @@ The claude.ai/security page runs a per-user check against your own connected Git
 * **Claude Security plugin for Claude Code** — The plugin uses whichever models you have access to in Claude Code. Only the Claude Security product at **[claude.ai/security](https://claude.ai/security)** runs scans on Claude Mythos 5.
 * **Scan length** — Scan time varies based on the repository and the agent's actions.
 * **Severity configuration** — as of today, severity is not configurable.
-* **Non-GitHub repositories** — Only repositories hosted on GitHub can be scanned today.
+* **Non-GitHub repositories** — Repositories hosted on **[GitHub.com](https://github.com)** and GitHub Enterprise Server can be scanned. Other hosting providers are not supported today.
 * **No Zero Data Retention (No ZDR)** — Anthropic may retain data where required by law or to address Usage Policy violations.
 * **Scan consistency** — Scans are stochastic by design. Unlike traditional static analyzers, Claude Security uses an agent that adapts its analysis to each run, reasoning over code context rather than applying fixed pattern matches. This enables the depth of analysis needed to catch logic-level vulnerabilities.
 * **Exporting findings** — You can copy findings, download them as CSV or Markdown, or push them to your own tracking and notification systems via per-project webhooks. See the “getting started” guide.
 * **Feedback** — Please share your feedback using the in-product feedback icon on the right.
-* **IP addresses for Github** — Use the following Anthropic guide for IP addresses allowlisting: **[IP addresses](https://platform.claude.com/docs/en/api/ip-addresses)**.
+* **IP addresses for Github** — Use the following Anthropic guide for IP addresses allowlisting: **[IP addresses](https://platform.claude.com/docs/en/api/ip-addresses)**. If you use GitHub Enterprise Server, your instance must allow inbound traffic from these IP addresses so Claude Security can reach your repositories.
 
 **Scope of use:** You will only use Claude Security to scan code that you or your company owns and to which you or your company holds all necessary rights to scan. You will not use Claude Security to scan code owned by or licensed from third parties, including but not limited to open source projects or repositories other than those included in your company's codebase(s).
 

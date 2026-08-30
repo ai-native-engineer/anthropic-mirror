@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-dhjvdu9r.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gwns9dwj.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 [Skills(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills) let you package expertise, like your complete brand identity, for Claude to automatically apply across conversations. Upload your color palette, define your typography standards, and specify when to use which elements. Claude can then apply your brand guidelines automatically in any chat, whether it's for a quarterly report, client presentation, or internal spreadsheet.
 
@@ -59,11 +59,11 @@ Create a complete skill with proper structure that I can use whenever I need bra
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Upload any existing brand guidelines, style sheets, or design documentation to serve as examples that Claude can reference within the skill. Enable file creation and Skills in your [settings(opens in new tab)](https://claude.ai/settings/capabilities) so Claude can build the complete skill package with proper structure, code, and documentation.
 
-### Required context
+### Required context[](#required-context)
 
 Enable the [Google Drive(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) integration so Claude can access your brand reference file to further enhance your skill.
 
@@ -79,15 +79,7 @@ Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
 brand-reference-fileDOC
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to help Claude make sophisticated decisions about when to apply which brand elements based on visual hierarchy and content importance.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude produces a complete, working skill package with clear instructions for when the skill applies, brand color specifications with hex values, typography guidelines with fallback fonts, and implementation details. The skill activates automatically when you request your brand styling.
 
@@ -175,11 +167,11 @@ Professional Quality:
 
 You can also upload the brand PDF you mentioned if you'd like me to cross-reference or enhance the skill with additional assets from it. But as it stands, the skill is fully functional and ready to use with all the specifications you provided!
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Test the skill
+### Test the skill[](#test-the-skill)
 
 Create new content and watch your brand apply automatically without specifying colors or fonts. Claude handles all visual styling decisions based on your uploaded guidelines, letting you focus on content rather than formatting details.
 
@@ -187,7 +179,7 @@ Create a quarterly business review presentation covering revenue growth, custome
 
 Open in Claude
 
-### Update the skill
+### Update the skill[](#update-the-skill)
 
 Make changes or add additional visual standards to your skill as your brand evolves. Simply tell Claude your desired output, and it will edit your Skills as your needs evolve.
 
@@ -195,7 +187,7 @@ Update my brand guidelines skill. Use the dark background with light text for al
 
 Open in Claude
 
-### Stack your skills
+### Stack your skills[](#stack-your-skills)
 
 Skills are [composable(opens in new tab)](https://www.anthropic.com/news/skills), meaning they can reference each other for Claude to use them together. Your ‘brand-guidelines’ skill can work with other skills you've created—like product-research or writing-standards—to produce work that's both visually sophisticated and aligned with your other requirements
 
@@ -203,21 +195,21 @@ Create a pitch deck for our new product launch. Use my brand-guidelines skill fo
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Understand how progressive disclosure works
+### Understand how progressive disclosure works[](#understand-how-progressive-disclosure-works)
 
 When Claude evaluates a task, it first scans skill metadata (the description at the top) to see if the skill is relevant. Only if it matches does Claude load the full instructions. Reference files load only when actually needed. This means you can have many skills available without overwhelming Claude's context.
 
-### Add bundled scripts for deterministic execution
+### Add bundled scripts for deterministic execution[](#add-bundled-scripts-for-deterministic-execution)
 
 Instructions allow interpretation variance. Scripts execute identically every time. If your brand skill says "apply orange accent `#d97757`," Claude interprets how to apply it. If your skill includes `scripts/apply_brand_colors.py` with exact RGB values and application logic, execution is deterministic. Use scripts for specific color application, file transformations, data formatting, or anything where consistency matters more than flexibility. Keep instructions for decision-making, creative choices, and context-dependent behavior.
 
-### Learn more about skill creation
+### Learn more about skill creation[](#learn-more-about-skill-creation)
 
 When you ask Claude to create a skill, Claude is using a skill-creator skill under the hood. This skill teaches Claude how to package your workflow into proper SKILL.md format, organize your files correctly, and package everything into a ZIP file. You describe your process in conversation and Claude uses the skill-creator skill to handle the translation of "I want bullets here and prose there" into the proper structure. To learn more about creating skills in Claude.ai, see [*How to create a skill with Claude*(opens in new tab)](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation).
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Create a skill once, and Claude applies that expertise automatically. Start with something you explain often, like your brand colors or your preferred report format, and watch how the skill activates exactly when you need it.
 

@@ -54,14 +54,15 @@ The steps are the same for any server: add it, check the connection status, then
 
     The server appears with a status indicator:
 
-    | Status                                           | Meaning                                                                                                                                                                       |
-    | :----------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `✔ Connected`                                    | Ready to use. This is what you should see for `claude-code-docs`                                                                                                              |
-    | `! Connected · tools fetch failed`               | The server connected but couldn't list its tools. Run `claude mcp get <name>` for the error detail                                                                            |
-    | `! Needs authentication`                         | The server is reachable but needs a browser sign-in, or a token passed with `--header`. See [Connect a server that requires sign-in](#connect-a-server-that-requires-sign-in) |
-    | `✘ Failed to connect`                            | Server didn't respond. See [Troubleshooting](#troubleshooting)                                                                                                                |
-    | `✘ Connection error`                             | The connection attempt threw an error. See [Troubleshooting](#troubleshooting)                                                                                                |
-    | ``⏸ Pending approval (run `claude` to approve)`` | A project-scoped server you haven't approved yet. See [Edit .mcp.json directly](#edit-mcp-json-directly)                                                                      |
+    | Status                                             | Meaning                                                                                                                                                                       |
+    | :------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `✔ Connected`                                      | Ready to use. This is what you should see for `claude-code-docs`                                                                                                              |
+    | `! Connected · tools fetch failed`                 | The server connected but couldn't list its tools. Run `claude mcp get <name>` for the error detail                                                                            |
+    | `! Needs authentication`                           | The server is reachable but needs a browser sign-in, or a token passed with `--header`. See [Connect a server that requires sign-in](#connect-a-server-that-requires-sign-in) |
+    | `✘ Failed to connect`                              | Server didn't respond. See [Troubleshooting](#troubleshooting)                                                                                                                |
+    | `✘ Connection error`                               | The connection attempt threw an error. See [Troubleshooting](#troubleshooting)                                                                                                |
+    | ``⏸ Pending approval (run `claude` to approve)``   | A project-scoped server you haven't approved yet. See [Edit .mcp.json directly](#edit-mcp-json-directly)                                                                      |
+    | `⊘ Disabled for this project (re-enable via /mcp)` | A server turned off for this project by the project's `disabledMcpServers` list. See [Disable a server without removing it](/docs/en/mcp#disable-a-server-without-removing-it)     |
 
     Some legacy Windows consoles, such as the default console on Windows 10, don't support these Unicode glyphs and show `√` and `×` in place of `✔` and `✘`.
   </Step>
@@ -294,6 +295,7 @@ If a server doesn't connect, check its status with `/mcp` inside a session or `c
 
     * You ran `claude mcp add` from a different project. Local-scoped servers are tied to the project where you added them: the repository root, or the exact directory if you weren't in a git repository. Re-add the server from the project you're in now, or add it with `--scope user` so it isn't tied to a project.
     * You edited a configuration file at the wrong path. The correct files are `~/.claude.json` and `<project>/.mcp.json`. Claude Code doesn't read paths such as `~/.claude/.mcp.json`, `~/.claude/config/mcp.json`, `~/.claude/mcp.json`, or `%APPDATA%\Claude\mcp.json`. For user-scoped servers, run `claude mcp add --scope user`, which writes to the `mcpServers` key in `~/.claude.json`; for project-scoped servers, edit `.mcp.json` at the project root.
+    * You wrote a malformed entry in `.mcp.json`. Claude Code skips that entry and still loads the others. Run `claude mcp list` from your shell and look for the parse warning, which names the offending field.
   </Accordion>
 
   <Accordion title="Status shows Failed to connect or Connection error">
@@ -367,7 +369,7 @@ If a server doesn't connect, check its status with `/mcp` inside a session or `c
   <Accordion title="Changes to .mcp.json don't take effect">
     Claude Code reads `.mcp.json` at session start. Exit and restart the session after editing the file.
 
-    If your servers still don't appear, run `/mcp` and look for a parse warning. Claude Code skips malformed entries and shows the offending field there.
+    If your servers still don't appear, run `claude mcp list` and look for a parse warning. Claude Code skips malformed entries and shows the offending field there.
 
     If you previously rejected the server when prompted, reset project approvals:
 

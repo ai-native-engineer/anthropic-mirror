@@ -14,9 +14,11 @@ In this lessonBy the end, you’ll be able to
 
 * Identify major capabilities and limitations of current generative AI
 
-## Capabilities & limitations
+## Capabilities & limitations[](#capabilities-limitations)
 
 Capabilities & limitations · 7 min
+
+SummaryTranscript
 
 This video examines what generative AI can and cannot do effectively at
 this point in time. We highlight generative AI's versatility across language
@@ -28,7 +30,7 @@ emphasize how the field is evolving rapidly and explain that the most
 effective applications bring together the complementary strengths of humans
 and AI working together.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Generative AI creates new content (text, images, code) rather than just analyzing existing data
 * Modern systems like LLMs were made possible by three key developments:
@@ -40,16 +42,16 @@ and AI working together.
 * Current limitations include knowledge cutoff dates, potential for hallucinations, context window constraints, and challenges with complex reasoning
 * The most effective applications combine human and AI strengths, with humans providing critical thinking, judgment, creativity, and ethical oversight
 
-## Exercises
+## Exercises[](#exercises)
 
-### Reflection
+### Reflection[](#reflection)
 
 Before moving on, take a moment to consider:
 
 * How does understanding the technical foundations of generative AI (like training data and pre-training/fine-tuning) change how you think about working with these systems?
 * What ethical considerations come to mind after learning about how these systems work and their current limitations?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll take a closer look at the first of the 4D competencies: Delegation. You'll learn how to make strategic decisions about dividing work between yourself and AI based on understanding both your goals and AI capabilities. This foundation will help you thoughtfully determine when and how to bring AI into your creative and problem-solving processes.
 

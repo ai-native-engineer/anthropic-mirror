@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-kzha9gcj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-kjzr1f4d.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Sales plugin ships with `/call-summary` and other voice-of-customer skills as a starting point, already structured to read a batch of transcripts and roll them up into named themes with counts and quotes. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Sales8 skills for account research, call prep, pipeline review, and account heal
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -58,7 +58,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the transcript exports, any prior themes brief, your theme taxonomy if you have one) into one folder on your machine, then point Cowork at it. Cowork reads every transcript in place and writes the themes brief back to the same folder. If you run this every quarter, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your taxonomy, instructions, and memory stay attached.
 
@@ -74,15 +74,15 @@ themes-taxonomy.docxJan 6, 202618 KB
 
 In Cowork’s chat bar:Calls / 2026-Q1
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Read every transcript in this folder and cluster what customers are saying into themes. For each theme give me the count, the best one-line quote, and which accounts said it. Write the one-page themes brief to the folder for product and marketing.
 
 Calls / 2026-Q1Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -100,7 +100,7 @@ Source
 
 **Keep source and output in one folder.** Every transcript sits in the working folder, so Cowork reads the full quarter in one pass and writes the brief back next to the source files for traceability.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -110,7 +110,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -120,9 +120,9 @@ CallsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it as the quarter closes
+### Run it as the quarter closes[](#run-it-as-the-quarter-closes)
 
 Themes are most useful when they land before planning, not after. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill reads the quarter's folder and writes the brief as soon as the new quarter folder appears.
 
@@ -138,7 +138,7 @@ Runs `/call-summary` on the previous quarter's transcript folder and writes the 
 
 Every **Monday at 9:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/call-summary` now carries your taxonomy, your segment splits, and your brief format. Share it so anyone on the CS or sales team can run it on their own calls, and product hears the same theme names from every region.
 
@@ -146,7 +146,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/call-summary` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your taxonomy and format baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

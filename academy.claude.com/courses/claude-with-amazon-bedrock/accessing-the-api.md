@@ -12,7 +12,7 @@ Lesson 21 min
 
 When building applications with AI models, you need to understand the flow of data from user input to AI-generated response. Let's walk through how this works with AWS Bedrock and see what happens behind the scenes of a typical chat application.
 
-## How Chat Applications Work
+## How Chat Applications Work[](#how-chat-applications-work)
 
 Imagine you're building a web app with a simple chat interface. A user types "Define quantum computing" and clicks send. Here's what actually happens:
 
@@ -22,7 +22,7 @@ The user sees a clean interface, but there's a whole system working behind the s
 
 ![](https://academy.claude.com/assets/media/a284df9b084d1be4f287063287e0921d7d7a0b72b76b356133441a1ae560aefb.png)
 
-## The Request Flow
+## The Request Flow[](#the-request-flow)
 
 When a user submits text, here's the journey that message takes:
 

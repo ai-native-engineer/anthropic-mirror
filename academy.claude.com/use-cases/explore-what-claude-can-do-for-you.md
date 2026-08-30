@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Explore what Claude can do for you result](https://academy.claude.com/assets/v1/explore-what-claude-can-do-for-you-e2llkjto.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Most people start with Claude by asking a random question and hoping for the best. But Claude can do far more than answer questions, and the most useful capabilities depend on what you actually do every day.
 
@@ -30,25 +30,19 @@ I’ve given you access to my docs (I think) to help you understand better what 
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 The more context Claude has about your work, the more specific its suggestions become. Sharing your role is the minimum. Sharing your actual documents lets Claude tailor examples to projects you're already working on.
 
-### Required context
+### Required context[](#required-context)
 
 None. This prompt works with just a role description.
 
-### Optional context
+### Optional context[](#optional-context)
 
 **Add specifics about your work**: Mentioning your industry, team size, or daily tasks helps Claude prioritize the most relevant capabilities.
 
 **Connect Google Drive:** If your documents live in Drive, Claude can pull relevant context without manual uploads.
-
-**Enable Extended Thinking**: For a more thorough breakdown of capabilities and how they connect to your workflow.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
 ![](images/a3bfc5814bd6a3e2.svg)
 
@@ -58,7 +52,7 @@ Google DriveOptional
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude produces a personalized starter guide based on your role and documents. Each suggestion includes a specific example prompt you can try immediately. If you've shared documents, Claude references your actual projects and offers to demonstrate a capability on the spot.
 
@@ -88,11 +82,11 @@ I noticed your Customer Interview Notes doc has feedback from Marcus Webb. Want 
 
 Which one do you want to try first?
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Try it with a real deliverable you're stuck on
+### Try it with a real deliverable you're stuck on[](#try-it-with-a-real-deliverable-youre-stuck-on)
 
 Move from examples to your actual work. Bring Claude something you need to produce this week.
 
@@ -100,7 +94,7 @@ Let's try the 1-pager. I need to get buy-in for simplifying our onboarding flow.
 
 Open in Claude
 
-### Ask Claude to interview you about a problem
+### Ask Claude to interview you about a problem[](#ask-claude-to-interview-you-about-a-problem)
 
 If you're not sure what you need, let Claude ask the questions instead.
 
@@ -108,7 +102,7 @@ I'm not sure how to frame the onboarding problem for leadership. Can you intervi
 
 Open in Claude
 
-### Learn about features beyond chat
+### Learn about features beyond chat[](#learn-about-features-beyond-chat)
 
 Claude has capabilities like [Projects(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects) (persistent context), [web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search), [file creation(opens in new tab)](https://support.claude.com/en/articles/12143746-create-and-edit-files-with-claude-to-eliminate-hours-of-busy-work), and [integrations(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities). Ask what might be useful for your workflow.
 
@@ -116,25 +110,25 @@ What Claude features should I know about beyond this chat? From all of your tool
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Share your documents, not just your title
+### Share your documents, not just your title[](#share-your-documents-not-just-your-title)
 
 "Product manager" gets generic suggestions. Uploading your roadmap, interview notes, and strategy docs lets Claude reference your actual projects.
 
-### Be specific about what takes up your time
+### Be specific about what takes up your time[](#be-specific-about-what-takes-up-your-time)
 
 Adding "I spend hours on status updates" or "I struggle to synthesize interview feedback" helps Claude prioritize capabilities that address your actual pain points.
 
-### Keep learning with [Claude 101(opens in new tab)](https://academy.claude.com/courses/claude-101)
+### Keep learning with [Claude 101(opens in new tab)](https://academy.claude.com/courses/claude-101)[](#keep-learning-with-claude-101)
 
 If you want a more structured way to learn, this free course walks you through Claude's full toolkit. You'll move past the basics and into building Claude into your real workflow—plus a completion badge when you finish.
 
-### Use Claude as a thinking partner
+### Use Claude as a thinking partner[](#use-claude-as-a-thinking-partner)
 
 Some of the best uses aren't about getting Claude to produce something. Try "Help me think through this decision" or "What am I not considering?" when you're stuck.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Whether you're a product manager, teacher, butcher, baker, or candlestick maker (really, we tried it), start a new conversation and tell Claude what you do. You'll have a personalized guide to the features that matter for your work in under a minute.
 

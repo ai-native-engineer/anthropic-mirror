@@ -12,7 +12,7 @@ Lesson 315 min
 
 Making your first request to the Anthropic API is straightforward once you understand the basic setup and structure. This guide walks through the essential steps to get Claude responding to your prompts using Python.
 
-## Setting Up Your Environment
+## Setting Up Your Environment[](#setting-up-your-environment)
 
 Before making any API calls, you need to install the required packages and configure your API key securely.
 
@@ -48,7 +48,7 @@ client = Anthropic()
 model = "claude-sonnet-4-5"
 ```
 
-## The Create Function
+## The Create Function[](#the-create-function)
 
 The core of making API requests is the `client.messages.create()` function. This function requires three key parameters:
 
@@ -60,7 +60,7 @@ The core of making API requests is the `client.messages.create()` function. This
 
 The `max_tokens` parameter acts as a safety mechanism. If you set it to 1000, Claude will stop generating after 1000 tokens even if it has more to say. Claude doesn't try to reach this limit - it just writes what it thinks is appropriate and stops if it hits the maximum.
 
-## Understanding Messages
+## Understanding Messages[](#understanding-messages)
 
 Messages represent the conversation between you and Claude, similar to a chat application. There are two types of messages:
 
@@ -71,7 +71,7 @@ Messages represent the conversation between you and Claude, similar to a chat ap
 
 Each message is a dictionary with a `role` (either "user" or "assistant") and `content` (the actual text).
 
-## Making Your First Request
+## Making Your First Request[](#making-your-first-request)
 
 Here's a complete example of making a request to Claude:
 
@@ -92,7 +92,7 @@ message = client.messages.create(
 
 When you run this code, Claude will process your request and return a response object containing the generated text along with metadata about the request.
 
-## Extracting the Response
+## Extracting the Response[](#extracting-the-response)
 
 The response object contains a lot of information, but you usually just want the generated text. Access it using:
 

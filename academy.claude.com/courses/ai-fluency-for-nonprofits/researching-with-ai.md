@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Use Description skills to craft effective prompts that direct AI to gather and synthesize information relevant to your nonprofit work
 * Use Discernment skills to evaluate AI-generated research for accuracy, relevance, and appropriateness to your nonprofit context
 
-## Researching with AI
+## Researching with AI[](#researching-with-ai)
 
 Researching with AI · 7 min
 
@@ -28,14 +28,14 @@ policy landscapes, funding opportunities, and compliance requirements. The
 video shows how to craft context-rich prompts, evaluate AI outputs
 critically, and iterate toward useful results.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Effective Description provides context**: Don't just ask broad questions—explain who you are, who you serve, and what you specifically need to know. This context helps AI provide relevant, actionable information
 * **Discernment isn't optional**: You must evaluate AI outputs critically, especially when accuracy matters. Flag specific claims for verification, notice gaps, and question recency of information
 * **The Description-Discernment loop is iterative**: Your first prompt rarely gives you everything you need. Use what you learn from evaluating each response to craft better, more targeted follow-up questions
 * **AI accelerates research but doesn't replace expertise**: AI can help you get oriented quickly, but you're still the decision-maker who must apply professional judgment to every deliverable you own
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2
 
@@ -68,12 +68,12 @@ Share your prompt with AI and review the response. Apply Discernment:
 
 **Stretch goal**: Ask AI to track down the original source for one key claim in its summary and compare how accurately it was represented.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did providing context about your nonprofit change the quality of AI's research output compared to a more generic prompt?
 * What verification habits will you build into your workflow when using AI for research?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore these same Description and Discernment skills in a different context: writing with AI. You'll see how the loop works when you're creating content rather than gathering information.
 

@@ -12,7 +12,7 @@ Lesson 439 min
 
 Claude's vision capabilities allow you to include images in your messages and ask Claude to analyze, compare, count objects, or perform virtually any visual task you can imagine. This opens up powerful possibilities for applications ranging from document analysis to automated assessments.
 
-## Image Handling Basics
+## Image Handling Basics[](#image-handling-basics)
 
 When working with images in Claude, you need to understand a few key limitations:
 
@@ -42,13 +42,13 @@ add_user_message(messages, [
 ])
 ```
 
-## Multiple Images
+## Multiple Images[](#multiple-images)
 
 You can send multiple images in a single message by adding multiple image parts. Claude can then analyze relationships between images, compare them, or answer questions that require understanding multiple visual inputs.
 
 ![](https://academy.claude.com/assets/media/eb3d93da4c6eae9dfbb42c81d9af0310645c111350adb26c2940b3906eb97d9d.png)
 
-## Prompting Techniques
+## Prompting Techniques[](#prompting-techniques)
 
 The most important thing to understand about Claude's vision capabilities is that all the same prompting engineering techniques apply to images. You can dramatically increase Claude's vision accuracy by providing guidelines, analysis steps, or using one-shot/multi-shot examples.
 
@@ -69,7 +69,7 @@ Another effective technique is one-shot prompting, where you provide an example 
 
 ![](https://academy.claude.com/assets/media/2c5f3cf4f134638be4f1040e7c813ec8a27d3fc0e8d68c5b995a8e7c265d32b0.png)
 
-## Real-World Example: Fire Risk Assessments
+## Real-World Example: Fire Risk Assessments[](#real-world-example-fire-risk-assessments)
 
 A practical application of Claude's vision capabilities is automated fire risk assessment for insurance companies. Instead of sending inspectors to each property, companies can use high-resolution satellite imagery and ask Claude to evaluate fire risks.
 

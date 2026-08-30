@@ -6,8 +6,6 @@ Seat management allows Team plan owners to control their organization's seat all
 
 For information on adding and removing members from your organization, see **[Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750)**.
 
----
-
 ## Understanding seat types
 
 Team plans offer two seat types:
@@ -21,8 +19,6 @@ Team plans offer two seat types:
 Organizations can mix and match seat types based on team needs. Assign Premium seats to power users who need more capacity, while keeping other team members on Standard seats.
 
 Your plan has a total seat allocation (e.g., 30 Standard seats and 10 Premium seats). Within that allocation, you can assign and reassign users to different seat types as needed.
-
----
 
 ## Purchase new seats
 
@@ -41,8 +37,6 @@ Follow these steps to add seats to your plan's total allocation:
 
 **Note:** You can also purchase seats while adding a new member. The seat type selector only shows seat types your plan already owns—if all seats of the selected type are assigned, you'll be prompted to purchase one.
 
----
-
 ## Reduce your seat allocation
 
 You can reduce the total number of seats on your Team plan:
@@ -56,8 +50,6 @@ You can reduce the total number of seats on your Team plan:
 7. Click “Next” to review the changes.
 8. Check the confirmation box and click "Confirm & purchase" to complete the change.
 
----
-
 ## Assign and reassign seat types
 
 You can move users between Standard and Premium seats within your existing allocation.
@@ -70,8 +62,6 @@ To reassign a user's seat type:
 4. Select "Standard" or "Premium."
 
 Members moved from Premium to Standard will have lower usage limits, and vice versa.
-
----
 
 ## Upgrade a Standard seat to Premium
 
@@ -93,8 +83,6 @@ If your plan includes Premium seats but they're all assigned, you'll be prompted
 
 If your plan includes Premium seats but they're all assigned, reassigning another user to Premium will prompt you to purchase an additional Premium seat. If your plan has no Premium seats at all, see **[Purchase new seats](#h_f05a756e78)** above to add one first.
 
----
-
 ## Swap users between seat types
 
 Selecting **No seat assigned** lets you temporarily remove a user from a seat without removing them from your organization. This is useful when you need to swap people between seat types within your existing allocation.
@@ -108,15 +96,11 @@ Selecting **No seat assigned** lets you temporarily remove a user from a seat wi
 
 **Note:** Unassigned users remain members of your organization but cannot use Claude until they're assigned to a seat.
 
----
-
 ## Seat assignment with JIT or SCIM provisioning
 
 **[Users provisioned via JIT or SCIM](https://support.claude.com/en/articles/13133195-setting-up-jit-or-scim-provisioning-to-manage-user-assignments-on-team-or-enterprise-plans)** are automatically assigned to the highest-available seat type when they're added. Admins and above can manually reassign seat types afterward in **[Organization settings > Members](https://claude.ai/admin-settings/members)**.
 
 You can also enable group mappings with JIT or SCIM to provision users directly to a specific seat type.
-
----
 
 ## Understanding billing
 

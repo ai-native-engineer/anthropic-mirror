@@ -12,7 +12,7 @@ Lesson 310 min
 
 Making your first API request to AWS Bedrock requires three essential components: a Bedrock Runtime Client to connect to the service, a Model ID to specify which model you want to run, and a User Message containing the text you want to feed into the model.
 
-## Setting Up the Bedrock Client
+## Setting Up the Bedrock Client[](#setting-up-the-bedrock-client)
 
 Start by creating a client using boto3 to connect to the Bedrock runtime service:
 
@@ -24,7 +24,7 @@ import boto3
 client = boto3.client("bedrock-runtime", region_name="us-west-2")
 ```
 
-## Understanding Model IDs and Regional Availability
+## Understanding Model IDs and Regional Availability[](#understanding-model-ids-and-regional-availability)
 
 Here's where things get tricky. Not every model is available in every AWS region. If you try to run a model that doesn't exist in your chosen region, you'll get a cryptic error message saying the model doesn't exist.
 
@@ -34,7 +34,7 @@ For example, if Claude Sonnet is available in us-west-2 but you're making reques
 
 ![](https://academy.claude.com/assets/media/bcba2fe357dd53df9ec27b5edeb98ede867d3615e0e291a9a17469c608bc80e2.png)
 
-## Using Inference Profiles
+## Using Inference Profiles[](#using-inference-profiles)
 
 Inference profiles solve the regional availability problem by automatically routing your requests to a region where your chosen model is actually hosted.
 
@@ -52,7 +52,7 @@ To find inference profile IDs, go to the AWS Bedrock console and look under "Cro
 
 Copy the inference profile ID for your chosen model. The examples in this course use Claude Haiku 4.5, whose inference profile ID is `us.anthropic.claude-haiku-4-5-20251001-v1:0`.
 
-## Creating User Messages
+## Creating User Messages[](#creating-user-messages)
 
 User messages have a specific structure that might look overly complex at first, but there's a good reason for it:
 
@@ -71,7 +71,7 @@ The content is a list because a single message can contain different types of co
 
 ![](https://academy.claude.com/assets/media/224c2c12f355b33dfe64e5b1e5105b54154311b98b229085514f7598e67108bd.png)
 
-## Making the Request
+## Making the Request[](#making-the-request)
 
 Now you can make your API call using the converse method:
 
@@ -92,7 +92,7 @@ python
 response["output"]["message"]["content"][0]["text"]
 ```
 
-## Understanding Message Types
+## Understanding Message Types[](#understanding-message-types)
 
 There are two main message types you'll work with:
 

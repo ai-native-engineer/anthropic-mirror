@@ -6,6 +6,8 @@ The Briefing: AI for Science
 
 See Claude Science in action
 
+See how Anthropic and leading research institutions are putting Claude to work across science.
+
 Watch the demo
 
 [Watch the demo](https://www.youtube.com/watch?v=i8g1pdzWJik&t=2643s)Watch the demo

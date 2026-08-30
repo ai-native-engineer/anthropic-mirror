@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-njjghfnk.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-422m6clz.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Corporate Legal plugin ships with `/diligence-issue-extraction`, `/tabular-review`, and other M&A skills as a starting point, already structured to walk a data room, pull the provisions that matter on a change of control, and cite every finding back to its source document. It's one of twelve practice-area plugins for legal teams; if your admin manages plugins and it's not available yet, skip this, nothing below requires it.
 
@@ -46,7 +46,7 @@ First run
 
 Corporate Legal comes from Anthropic's **Claude for Legal** source, which a workspace has to enable once under **Browse Anthropic sources**. On a Team or Enterprise plan an admin does that from the organization's plugin settings (it then shows up for everyone); on an individual plan you can do it yourself. If **Add** doesn't take you straight to the plugin, that's usually the missing step. Once it's installed, run `/cold-start-interview` (a two-minute quick start on sensible defaults, or ten-plus minutes with your real documents) so the plugin learns your request list and materiality thresholds; every other skill reads from that.
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -82,7 +82,7 @@ The document index lands as Excel and the diligence summary as Word, ready for t
 
 Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
-### Set the working folder
+### Set the working folder[](#set-the-working-folder)
 
 Put the diligence request list and your summary template in one folder on your machine, then in Cowork click **+ Add folder** and select it. [Save it as a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your request list, instructions, and memory stay attached as new documents land in the data room — Cowork reads from the connected room and writes the index and summary back to the folder.
 
@@ -98,15 +98,15 @@ diligence-summary-template.docxFeb 3, 202652 KB
 
 In Cowork’s chat bar:Deals / Project-Silvern
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Read every document in the connected data room. Categorize each by type, then for the material contracts extract counterparty, term, change-of-control, assignment, and consent provisions. Flag the material issues and draft the diligence summary with a citation back to the source document and section for every entry.
 
 Deals / Project-SilvernOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -124,7 +124,7 @@ Source
 
 **Read the room directly.** The Box or Datasite connector means the review is run against the live index, so late uploads aren't missed.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -134,7 +134,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know which entries to verify first.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -144,9 +144,9 @@ DealsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 A diligence summary is stale the moment the seller uploads another folder. Ask Cowork to publish the document index and issues list as a live artifact and the deal team has one link that stays current as the room fills.
 
@@ -154,7 +154,7 @@ Publish the document index and material-issues list as a live artifact for the d
 
 Deals / Project-SilvernOpen in Cowork
 
-### Re-run it as the room fills
+### Re-run it as the room fills[](#re-run-it-as-the-room-fills)
 
 New documents land in the data room every day during diligence. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill re-runs each morning so the index and issues list stay current. A scheduled run that needs this folder runs on your computer, so keep the desktop app open.
 
@@ -170,7 +170,7 @@ Runs `/diligence-issue-extraction` against the connected data room, updates the 
 
 Every **day at 7am during the diligence window**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/diligence-issue-extraction` now carries your request list, your summary format, and the provisions you flag on every deal. Share it so the corporate team and outside counsel run the room the same way, and the issues list reads consistently no matter who picks up a folder.
 
@@ -178,7 +178,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/diligence-issue-extraction` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your request list and summary format baked in, so they don't repeat Steps 1-3; each teammate still runs `/cold-start-interview` the first time, pointed at the same request list and thresholds, because the plugin keeps its setup per person.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

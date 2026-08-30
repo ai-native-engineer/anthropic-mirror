@@ -16,9 +16,9 @@ Set up and use the Egnyte connector with Claude for secure document management, 
 
 The Egnyte connector provides Claude with secure access to your organization’s content stored in Egnyte, enabling advanced document search, AI-powered analysis, and intelligent content management. Through the Egnyte Remote MCP Server, Claude can search for files, retrieve document content, ask questions about specific documents, generate summaries, and interact with Egnyte AI capabilities like Copilot and Knowledge Bases.
 
-## What This Connector Provides
+## What This Connector Provides[](#what-this-connector-provides)
 
-### Integration Capabilities
+### Integration Capabilities[](#integration-capabilities)
 
 Through the Egnyte integration, Claude can access content and leverage AI capabilities in your Egnyte workspace:
 
@@ -29,7 +29,7 @@ Through the Egnyte integration, Claude can access content and leverage AI capabi
 * **Knowledge Base Queries:** Claude can query specific Knowledge Bases that your organization has created in Egnyte, providing access to curated information repositories and enabling targeted searches within specialized content collections.
 * **Governed Access:** All data access through the connector respects your organization’s Egnyte permissions. Claude can only access files and folders that your user account has permission to view, ensuring data security and compliance with organizational policies.
 
-## How Claude Uses Egnyte Content
+## How Claude Uses Egnyte Content[](#how-claude-uses-egnyte-content)
 
 Claude applies Egnyte capabilities in several ways to support comprehensive content management and analysis:
 
@@ -39,11 +39,11 @@ Claude applies Egnyte capabilities in several ways to support comprehensive cont
 * **Cross-Document Analysis:** Claude can analyze multiple related documents by asking questions across different files, comparing information, and synthesizing insights from various sources within your Egnyte workspace.
 * **Knowledge Base Utilization:** When your organization has created Knowledge Bases in Egnyte, Claude can query these curated collections for specific information, making it efficient to access specialized or frequently referenced content.
 
-## Setting up the Egnyte Connector
+## Setting up the Egnyte Connector[](#setting-up-the-egnyte-connector)
 
 Technical details of the Egnyte connector can be found in [Egnyte’s MCP Server Documentation(opens in new tab)](https://developers.egnyte.com/api-docs/remote-mcp-server). Authentication is handled via OAuth 2.0, providing secure access to your Egnyte content.
 
-### Prerequisites
+### Prerequisites[](#prerequisites)
 
 Before setting up the Egnyte connector, ensure you have:
 
@@ -51,7 +51,7 @@ Before setting up the Egnyte connector, ensure you have:
 * An MCP-compatible AI client ([Claude.ai(opens in new tab)](http://claude.ai/), Claude Desktop, ChatGPT, etc.)
 * Your Egnyte domain name and credentials for authentication
 
-### Adding the Connector as an Organization Owner
+### Adding the Connector as an Organization Owner[](#adding-the-connector-as-an-organization-owner)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors)
 2. Click “Add custom connector”
@@ -63,13 +63,13 @@ Before setting up the Egnyte connector, ensure you have:
 8. Grant the necessary permissions for the integration
 9. All Egnyte tools should now appear in Claude
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Contract Review and Analysis
+### Contract Review and Analysis[](#contract-review-and-analysis)
 
 **Use Case:** Legal teams need to review multiple contracts for specific clauses and terms.
 
@@ -82,7 +82,7 @@ For this analysis, Claude might use the following workflow:
 
 Claude would then provide a comprehensive analysis showing key findings, comparisons across contracts, and any notable clauses requiring attention.
 
-### Due Diligence Research
+### Due Diligence Research[](#due-diligence-research)
 
 **Use Case:** Investment teams need to analyze company documents during due diligence processes.
 
@@ -102,7 +102,7 @@ For this task, Claude might:
 
 Claude would deliver a comprehensive due diligence summary with financial highlights, operational insights, and risk factors drawn directly from the reviewed documents.
 
-### Policy and Compliance Documentation
+### Policy and Compliance Documentation[](#policy-and-compliance-documentation)
 
 **Use Case:** HR or compliance teams need to quickly reference organizational policies and ensure compliance.
 
@@ -122,7 +122,7 @@ For this request, Claude might:
 
 Claude would respond with clear policy information, citing specific documents and highlighting any recent changes to ensure teams have current, accurate guidance.
 
-### Customer Document Repository Search
+### Customer Document Repository Search[](#customer-document-repository-search)
 
 **Use Case:** Customer success teams need to find specific deliverables, contracts, or correspondence across client folders.
 
@@ -141,7 +141,7 @@ For this analysis, Claude might:
 
 Claude would provide a comprehensive summary of all project deliverables with key outcomes, making it easy for customer success teams to review project history and results.
 
-## Tips for Using Egnyte
+## Tips for Using Egnyte[](#tips-for-using-egnyte)
 
 * Be specific about file locations and criteria when searching. Including folder paths, date ranges, and file types helps Claude locate the exact documents you need.
   + Example: Instead of “Find the contract”, try “Search for PDF contracts in the Legal/Vendor folder from 2024”

@@ -41,7 +41,12 @@ It responds when @-mentioned, and may respond to other messages it judges warran
 Post `@Claude connect` in any channel with no other text, or send `connect` on its own in a direct message with Claude, and give the code it returns to whoever asked you to install. That code is what pairs your workspace to their Claude organization; it expires after 15 minutes.
 Pick a channel that belongs to just your workspace. Claude can decline to reply in [guest and shared channels](https://claude.com/docs/claude-tag/admins/troubleshooting#guest-and-shared-channels).
 
+##  If you uninstall the app
+
+Uninstalling the Claude app from your workspace removes it from Slack and deletes the workspace’s Claude data on Anthropic’s side, the same way [disconnecting the workspace](https://claude.com/docs/claude-tag/admins/workspaces#revoke-a-pairing) from the Claude console does. What Claude posted in Slack, such as messages, canvases, and files, stays in Slack under your workspace’s own retention settings.
+On Enterprise Grid, this applies when the app was installed on an individual workspace and you uninstall it there. Removing an org-wide installation, from the whole grid or from one of its workspaces, doesn’t delete data on its own; to delete it, ask the Claude organization Owner to disconnect the grid in their Claude settings.
+
 ##  Related resources
 
 * [Security and data handling](https://claude.com/docs/claude-tag/concepts/security-and-data): where credentials are stored and what leaves your workspace
-* [Pair your Slack workspace](https://claude.com/docs/claude-tag/admins/pair-workspace): what the Claude Owner does with the code you send
+* [Pair your Slack workspace](https://claude.com/docs/claude-tag/admins/setup-overview#pair-your-slack-workspace): what the Claude Owner does with the code you send

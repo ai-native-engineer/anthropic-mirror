@@ -76,6 +76,20 @@
 
   - `"mid-conversation-tool-changes-2026-07-01"`
 
+  - `"compact-2026-01-12"`
+
+  - `"computer-use-2025-11-24"`
+
+  - `"mcp-tunnels-2026-06-22"`
+
+  - `"structured-outputs-2025-11-13"`
+
+  - `"task-budgets-2026-03-13"`
+
+  - `"thinking-display-updates-2026-08-18"`
+
+  - `"ce-user-management-2026-07-13"`
+
 ### Beta API Error
 
 - `BetaAPIError`
@@ -9001,7 +9015,7 @@ List Session Threads
 
   - `Agent agent`
 
-    A session-resolved multiagent roster entry.
+    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
   - `?\Datetime archivedAt`
 
@@ -9178,7 +9192,7 @@ Get Session Thread
 
   - `Agent agent`
 
-    A session-resolved multiagent roster entry.
+    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
   - `?\Datetime archivedAt`
 
@@ -9349,7 +9363,7 @@ Archive Session Thread
 
   - `Agent agent`
 
-    A session-resolved multiagent roster entry.
+    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
   - `?\Datetime archivedAt`
 
@@ -14551,7 +14565,7 @@ Create a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -14668,7 +14682,7 @@ List memories
 
     - `string memoryVersionID`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `string path`
 
@@ -14784,7 +14798,7 @@ Retrieve a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -14896,7 +14910,7 @@ Update a memory
 
   - `string memoryVersionID`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `string path`
 
@@ -15085,7 +15099,7 @@ List memory versions
 
   - `string memoryID`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `string memoryStoreID`
 
@@ -15219,7 +15233,7 @@ Retrieve a memory version
 
   - `string memoryID`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `string memoryStoreID`
 
@@ -15340,7 +15354,7 @@ Redact a memory version
 
   - `string memoryID`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `string memoryStoreID`
 
@@ -15432,7 +15446,7 @@ var_dump($betaManagedAgentsMemoryVersion);
 
 ### Upload File
 
-`$client->beta->files->upload(string file, ?list<AnthropicBeta> betas): BetaFileMetadata`
+`$client->beta->files->upload(string file, ?int expiresInSeconds, ?list<AnthropicBeta> betas): BetaFileMetadata`
 
 **POST** `/v1/files`
 
@@ -15443,6 +15457,10 @@ Upload File
 - `file: string`
 
   The file to upload
+
+- `expiresInSeconds?:optional int`
+
+  Seconds from upload until the file expires and its bytes become permanently unavailable. Must be between 3600 (one hour) and 7776000 (ninety days).
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15484,6 +15502,10 @@ Upload File
 
     Whether the file can be downloaded.
 
+  - `?\Datetime expiresAt`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
   - `?BetaFileScope scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
@@ -15499,6 +15521,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaFileMetadata = $client->beta->files->upload(
   file: FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
+  expiresInSeconds: 3600,
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
@@ -15516,6 +15539,7 @@ var_dump($betaFileMetadata);
   "size_bytes": 102400,
   "type": "file",
   "downloadable": false,
+  "expires_at": "2025-05-15T18:37:24.100435Z",
   "scope": {
     "id": "id",
     "type": "session"
@@ -15525,7 +15549,7 @@ var_dump($betaFileMetadata);
 
 ### List Files
 
-`$client->beta->files->list(?string afterID, ?string beforeID, ?int limit, ?string scopeID, ?list<AnthropicBeta> betas): Page<BetaFileMetadata>`
+`$client->beta->files->list(?list<string> ids, ?int limit, ?string page, ?string scopeID, ?list<AnthropicBeta> betas): PageCursor<BetaFileMetadata>`
 
 **GET** `/v1/files`
 
@@ -15533,13 +15557,9 @@ List Files
 
 #### Parameters
 
-- `afterID?:optional string`
+- `ids?:optional list<string>`
 
-  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
-
-- `beforeID?:optional string`
-
-  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+  Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
 
 - `limit?:optional int`
 
@@ -15548,6 +15568,10 @@ List Files
   Defaults to `20`. Ranges from `1` to `1000`.
 
   default: 20
+
+- `page?:optional string`
+
+  Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
 
 - `scopeID?:optional string`
 
@@ -15593,6 +15617,10 @@ List Files
 
     Whether the file can be downloaded.
 
+  - `?\Datetime expiresAt`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
   - `?BetaFileScope scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
@@ -15607,9 +15635,9 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->beta->files->list(
-  afterID: 'after_id',
-  beforeID: 'before_id',
+  ids: ['string'],
   limit: 1,
+  page: 'page',
   scopeID: 'scope_id',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
@@ -15630,15 +15658,14 @@ var_dump($page);
       "size_bytes": 102400,
       "type": "file",
       "downloadable": false,
+      "expires_at": "2025-05-15T18:37:24.100435Z",
       "scope": {
         "id": "id",
         "type": "session"
       }
     }
   ],
-  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-  "has_more": true,
-  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+  "next_page": "next_page"
 }
 ```
 
@@ -15734,6 +15761,10 @@ Get File Metadata
 
     Whether the file can be downloaded.
 
+  - `?\Datetime expiresAt`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
   - `?BetaFileScope scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
@@ -15765,6 +15796,7 @@ var_dump($betaFileMetadata);
   "size_bytes": 102400,
   "type": "file",
   "downloadable": false,
+  "expires_at": "2025-05-15T18:37:24.100435Z",
   "scope": {
     "id": "id",
     "type": "session"
@@ -15833,7 +15865,7 @@ var_dump($betaDeletedFile);
 
 ### Create Skill
 
-`$client->beta->skills->create(list<string> files, ?string displayTitle, ?list<AnthropicBeta> betas): SkillNewResponse`
+`$client->beta->skills->create(list<string> files, ?string displayName, ?list<AnthropicBeta> betas): BetaSkill`
 
 **POST** `/v1/skills`
 
@@ -15847,11 +15879,11 @@ Create Skill
 
   All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
-- `displayTitle?:optional string`
+- `displayName?:optional string`
 
-  Display title for the skill.
-
-  This is a human-readable label that is not included in the prompt sent to the model.
+  Human-readable, single-line label for the Skill. Maximum 255 characters.
+  Always set: derived from the SKILL.md frontmatter `name` when omitted at
+  creation. Not unique.
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -15859,7 +15891,7 @@ Create Skill
 
 #### Returns
 
-- `SkillNewResponse`
+- `BetaSkill`
 
   - `string id`
 
@@ -15867,38 +15899,38 @@ Create Skill
 
     The format and length of IDs may change over time.
 
-  - `string createdAt`
+  - `\Datetime createdAt`
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `?string displayTitle`
+  - `string displayName`
 
-    Display title for the skill.
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
 
-    This is a human-readable label that is not included in the prompt sent to the model.
+  - `string latestVersionID`
 
-  - `?string latestVersion`
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
 
-    The latest version identifier for the skill.
+  - `BetaSkillSource source`
 
-    This represents the most recent version of the skill that has been created.
+    Where the Skill comes from.
 
-  - `string source`
+    Possible values:
 
-    Source of the skill.
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
 
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `string type`
+  - `"skill" type`
 
     Object type.
 
     For Skills, this is always `"skill"`.
 
-  - `string updatedAt`
+  - `\Datetime updatedAt`
 
     ISO 8601 timestamp of when the skill was last updated.
 
@@ -15911,15 +15943,15 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$skill = $client->beta->skills->create(
+$betaSkill = $client->beta->skills->create(
   files: [
     FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
   ],
-  displayTitle: 'display_title',
+  displayName: 'display_name',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
-var_dump($skill);
+var_dump($betaSkill);
 ```
 
 ##### Response (200)
@@ -15928,17 +15960,19 @@ var_dump($skill);
 {
   "id": "skill_01JAbcdefghijklmnopqrstuvw",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "display_title": "My Custom Skill",
-  "latest_version": "1759178010641129",
-  "source": "custom",
-  "type": "type",
+  "display_name": "display_name",
+  "latest_version_id": "latest_version_id",
+  "source": {
+    "type": "custom"
+  },
+  "type": "skill",
   "updated_at": "2024-10-30T23:58:27.427722Z"
 }
 ```
 
 ### List Skills
 
-`$client->beta->skills->list(?int limit, ?string page, ?string source, ?list<AnthropicBeta> betas): PageCursor<SkillListResponse>`
+`$client->beta->skills->list(?int limit, ?string page, ?string source, ?list<AnthropicBeta> betas): PageCursor<BetaSkill>`
 
 **GET** `/v1/skills`
 
@@ -15950,7 +15984,7 @@ List Skills
 
   Number of results to return per page.
 
-  Maximum value is 100. Defaults to 20.
+  Ranges from `1` to `1000`. Defaults to `20`.
 
   default: 20
 
@@ -15975,7 +16009,7 @@ List Skills
 
 #### Returns
 
-- `SkillListResponse`
+- `BetaSkill`
 
   - `string id`
 
@@ -15983,38 +16017,38 @@ List Skills
 
     The format and length of IDs may change over time.
 
-  - `string createdAt`
+  - `\Datetime createdAt`
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `?string displayTitle`
+  - `string displayName`
 
-    Display title for the skill.
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
 
-    This is a human-readable label that is not included in the prompt sent to the model.
+  - `string latestVersionID`
 
-  - `?string latestVersion`
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
 
-    The latest version identifier for the skill.
+  - `BetaSkillSource source`
 
-    This represents the most recent version of the skill that has been created.
+    Where the Skill comes from.
 
-  - `string source`
+    Possible values:
 
-    Source of the skill.
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
 
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `string type`
+  - `"skill" type`
 
     Object type.
 
     For Skills, this is always `"skill"`.
 
-  - `string updatedAt`
+  - `\Datetime updatedAt`
 
     ISO 8601 timestamp of when the skill was last updated.
 
@@ -16028,7 +16062,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->beta->skills->list(
-  limit: 0,
+  limit: 1,
   page: 'page',
   source: 'source',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
@@ -16045,21 +16079,22 @@ var_dump($page);
     {
       "id": "skill_01JAbcdefghijklmnopqrstuvw",
       "created_at": "2024-10-30T23:58:27.427722Z",
-      "display_title": "My Custom Skill",
-      "latest_version": "1759178010641129",
-      "source": "custom",
-      "type": "type",
+      "display_name": "display_name",
+      "latest_version_id": "latest_version_id",
+      "source": {
+        "type": "custom"
+      },
+      "type": "skill",
       "updated_at": "2024-10-30T23:58:27.427722Z"
     }
   ],
-  "has_more": true,
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "next_page"
 }
 ```
 
 ### Get Skill
 
-`$client->beta->skills->retrieve(string skillID, ?list<AnthropicBeta> betas): SkillGetResponse`
+`$client->beta->skills->retrieve(string skillID, ?list<AnthropicBeta> betas): BetaSkill`
 
 **GET** `/v1/skills/{skill_id}`
 
@@ -16079,7 +16114,7 @@ Get Skill
 
 #### Returns
 
-- `SkillGetResponse`
+- `BetaSkill`
 
   - `string id`
 
@@ -16087,38 +16122,38 @@ Get Skill
 
     The format and length of IDs may change over time.
 
-  - `string createdAt`
+  - `\Datetime createdAt`
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `?string displayTitle`
+  - `string displayName`
 
-    Display title for the skill.
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
 
-    This is a human-readable label that is not included in the prompt sent to the model.
+  - `string latestVersionID`
 
-  - `?string latestVersion`
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
 
-    The latest version identifier for the skill.
+  - `BetaSkillSource source`
 
-    This represents the most recent version of the skill that has been created.
+    Where the Skill comes from.
 
-  - `string source`
+    Possible values:
 
-    Source of the skill.
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
 
-    This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
-
-  - `string type`
+  - `"skill" type`
 
     Object type.
 
     For Skills, this is always `"skill"`.
 
-  - `string updatedAt`
+  - `\Datetime updatedAt`
 
     ISO 8601 timestamp of when the skill was last updated.
 
@@ -16131,11 +16166,11 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$skill = $client->beta->skills->retrieve(
+$betaSkill = $client->beta->skills->retrieve(
   'skill_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
-var_dump($skill);
+var_dump($betaSkill);
 ```
 
 ##### Response (200)
@@ -16144,17 +16179,19 @@ var_dump($skill);
 {
   "id": "skill_01JAbcdefghijklmnopqrstuvw",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "display_title": "My Custom Skill",
-  "latest_version": "1759178010641129",
-  "source": "custom",
-  "type": "type",
+  "display_name": "display_name",
+  "latest_version_id": "latest_version_id",
+  "source": {
+    "type": "custom"
+  },
+  "type": "skill",
   "updated_at": "2024-10-30T23:58:27.427722Z"
 }
 ```
 
 ### Delete Skill
 
-`$client->beta->skills->delete(string skillID, ?list<AnthropicBeta> betas): SkillDeleteResponse`
+`$client->beta->skills->delete(string skillID, ?list<AnthropicBeta> betas): BetaDeletedSkill`
 
 **DELETE** `/v1/skills/{skill_id}`
 
@@ -16174,7 +16211,7 @@ Delete Skill
 
 #### Returns
 
-- `SkillDeleteResponse`
+- `BetaDeletedSkill`
 
   - `string id`
 
@@ -16182,7 +16219,7 @@ Delete Skill
 
     The format and length of IDs may change over time.
 
-  - `string type`
+  - `"skill_deleted" type`
 
     Deleted object type.
 
@@ -16197,11 +16234,11 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$skill = $client->beta->skills->delete(
+$betaDeletedSkill = $client->beta->skills->delete(
   'skill_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
 );
 
-var_dump($skill);
+var_dump($betaDeletedSkill);
 ```
 
 ##### Response (200)
@@ -16209,7 +16246,7 @@ var_dump($skill);
 ```json
 {
   "id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type"
+  "type": "skill_deleted"
 }
 ```
 
@@ -16217,7 +16254,7 @@ var_dump($skill);
 
 ### Create Skill Version
 
-`$client->beta->skills->versions->create(string skillID, list<string> files, ?list<AnthropicBeta> betas): VersionNewResponse`
+`$client->beta->skills->versions->create(string skillID, list<string> files, ?list<AnthropicBeta> betas): SkillVersion`
 
 **POST** `/v1/skills/{skill_id}/versions`
 
@@ -16243,17 +16280,16 @@ Create Skill Version
 
 #### Returns
 
-- `VersionNewResponse`
+- `SkillVersion`
 
   - `string id`
 
-    Unique identifier for the skill version.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    The format and length of IDs may change over time.
+  - `\Datetime createdAt`
 
-  - `string createdAt`
-
-    ISO 8601 timestamp of when the skill version was created.
+    ISO 8601 timestamp of when the skill was created.
 
   - `string description`
 
@@ -16261,33 +16297,24 @@ Create Skill Version
 
     This is extracted from the SKILL.md file in the skill upload.
 
-  - `string directory`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
   - `string name`
 
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
   - `string skillID`
 
-    Identifier for the skill that this version belongs to.
+    Unique identifier for the skill.
 
-  - `string type`
+    The format and length of IDs may change over time.
+
+  - `"skill_version" type`
 
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
-
-  - `string version`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 #### Example
 
@@ -16298,7 +16325,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$version = $client->beta->skills->versions->create(
+$betaSkillVersion = $client->beta->skills->versions->create(
   'skill_id',
   files: [
     FileParam::fromString('Example data', filename: uniqid('file-upload-', true)),
@@ -16306,27 +16333,25 @@ $version = $client->beta->skills->versions->create(
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
-var_dump($version);
+var_dump($betaSkillVersion);
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "id": "id",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
+  "description": "description",
+  "name": "name",
   "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
+  "type": "skill_version"
 }
 ```
 
 ### List Skill Versions
 
-`$client->beta->skills->versions->list(string skillID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<VersionListResponse>`
+`$client->beta->skills->versions->list(string skillID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<SkillVersion>`
 
 **GET** `/v1/skills/{skill_id}/versions`
 
@@ -16342,9 +16367,11 @@ List Skill Versions
 
 - `limit?:optional int`
 
-  Number of items to return per page.
+  Number of results to return per page.
 
-  Defaults to `20`. Ranges from `1` to `1000`.
+  Ranges from `1` to `1000`. Defaults to `20`.
+
+  default: 20
 
 - `page?:optional string`
 
@@ -16356,17 +16383,16 @@ List Skill Versions
 
 #### Returns
 
-- `VersionListResponse`
+- `SkillVersion`
 
   - `string id`
 
-    Unique identifier for the skill version.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    The format and length of IDs may change over time.
+  - `\Datetime createdAt`
 
-  - `string createdAt`
-
-    ISO 8601 timestamp of when the skill version was created.
+    ISO 8601 timestamp of when the skill was created.
 
   - `string description`
 
@@ -16374,33 +16400,24 @@ List Skill Versions
 
     This is extracted from the SKILL.md file in the skill upload.
 
-  - `string directory`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
   - `string name`
 
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
   - `string skillID`
 
-    Identifier for the skill that this version belongs to.
+    Unique identifier for the skill.
 
-  - `string type`
+    The format and length of IDs may change over time.
+
+  - `"skill_version" type`
 
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
-
-  - `string version`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 #### Example
 
@@ -16413,7 +16430,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $page = $client->beta->skills->versions->list(
   'skill_id',
-  limit: 0,
+  limit: 1,
   page: 'page',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
@@ -16427,18 +16444,15 @@ var_dump($page);
 {
   "data": [
     {
-      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "id": "id",
       "created_at": "2024-10-30T23:58:27.427722Z",
-      "description": "A custom skill for doing something useful",
-      "directory": "my-skill",
-      "name": "my-skill",
+      "description": "description",
+      "name": "name",
       "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-      "type": "type",
-      "version": "1759178010641129"
+      "type": "skill_version"
     }
   ],
-  "has_more": true,
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "next_page"
 }
 ```
 
@@ -16460,9 +16474,9 @@ Download a skill version's content as a zip archive.
 
 - `version: string`
 
-  Version identifier for the skill.
+  Identifies the skill version by its version ID.
 
-  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+  Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -16492,7 +16506,7 @@ var_dump($response);
 
 ### Get Skill Version
 
-`$client->beta->skills->versions->retrieve(string version, string skillID, ?list<AnthropicBeta> betas): VersionGetResponse`
+`$client->beta->skills->versions->retrieve(string version, string skillID, ?list<AnthropicBeta> betas): SkillVersion`
 
 **GET** `/v1/skills/{skill_id}/versions/{version}`
 
@@ -16508,9 +16522,9 @@ Get Skill Version
 
 - `version: string`
 
-  Version identifier for the skill.
+  Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
 
-  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+  Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -16518,17 +16532,16 @@ Get Skill Version
 
 #### Returns
 
-- `VersionGetResponse`
+- `SkillVersion`
 
   - `string id`
 
-    Unique identifier for the skill version.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    The format and length of IDs may change over time.
+  - `\Datetime createdAt`
 
-  - `string createdAt`
-
-    ISO 8601 timestamp of when the skill version was created.
+    ISO 8601 timestamp of when the skill was created.
 
   - `string description`
 
@@ -16536,33 +16549,24 @@ Get Skill Version
 
     This is extracted from the SKILL.md file in the skill upload.
 
-  - `string directory`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
   - `string name`
 
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
   - `string skillID`
 
-    Identifier for the skill that this version belongs to.
+    Unique identifier for the skill.
 
-  - `string type`
+    The format and length of IDs may change over time.
+
+  - `"skill_version" type`
 
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
-
-  - `string version`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 #### Example
 
@@ -16573,33 +16577,31 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$version = $client->beta->skills->versions->retrieve(
+$betaSkillVersion = $client->beta->skills->versions->retrieve(
   'version',
   skillID: 'skill_id',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
-var_dump($version);
+var_dump($betaSkillVersion);
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "id": "id",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
+  "description": "description",
+  "name": "name",
   "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
+  "type": "skill_version"
 }
 ```
 
 ### Delete Skill Version
 
-`$client->beta->skills->versions->delete(string version, string skillID, ?list<AnthropicBeta> betas): VersionDeleteResponse`
+`$client->beta->skills->versions->delete(string version, string skillID, ?list<AnthropicBeta> betas): DeletedSkillVersion`
 
 **DELETE** `/v1/skills/{skill_id}/versions/{version}`
 
@@ -16615,9 +16617,9 @@ Delete Skill Version
 
 - `version: string`
 
-  Version identifier for the skill.
+  Identifies the skill version by its version ID.
 
-  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+  Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
 - `betas?:optional list<AnthropicBeta>`
 
@@ -16625,15 +16627,14 @@ Delete Skill Version
 
 #### Returns
 
-- `VersionDeleteResponse`
+- `DeletedSkillVersion`
 
   - `string id`
 
-    Version identifier for the skill.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-  - `string type`
+  - `"skill_version_deleted" type`
 
     Deleted object type.
 
@@ -16648,21 +16649,21 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
-$version = $client->beta->skills->versions->delete(
+$betaDeletedSkillVersion = $client->beta->skills->versions->delete(
   'version',
   skillID: 'skill_id',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
-var_dump($version);
+var_dump($betaDeletedSkillVersion);
 ```
 
 ##### Response (200)
 
 ```json
 {
-  "id": "1759178010641129",
-  "type": "type"
+  "id": "id",
+  "type": "skill_version_deleted"
 }
 ```
 
@@ -16671,6 +16672,10 @@ var_dump($version);
 ### Unwrap
 
 `$client->beta->webhooks->unwrap(): void`
+
+Verifies the webhook signature from the `webhook-id`, `webhook-timestamp` and `webhook-signature`
+headers using your webhook signing key, then parses the payload into an event. Fails if the
+signature is missing or invalid.
 
 #### Example
 
@@ -16682,6 +16687,27 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $result = $client->beta->webhooks->unwrap();
+
+var_dump($result);
+```
+
+### Parse Unverified
+
+`$client->beta->webhooks->parseUnverified(): void`
+
+Parses a webhook payload into an event without verifying its signature. Prefer `unwrap()` unless
+you have already verified the signature yourself.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$result = $client->beta->webhooks->parseUnverified();
 
 var_dump($result);
 ```
@@ -18315,7 +18341,7 @@ var_dump($betaTunnelToken);
 
 ### Create Tunnel Certificate
 
-`$client->beta->tunnels->certificates->create(string tunnelID, string caCertificatePem, ?list<AnthropicBeta> betas): TunnelCertificate`
+`$client->beta->tunnels->certificates->create(string tunnelID, string caCertificatePEM, ?list<AnthropicBeta> betas): TunnelCertificate`
 
 **POST** `/v1/tunnels/{tunnel_id}/certificates`
 
@@ -18327,7 +18353,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
 - `tunnelID: string`
 
-- `caCertificatePem: string`
+- `caCertificatePEM: string`
 
   PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
 
@@ -18376,7 +18402,7 @@ $client = new Client(apiKey: 'my-anthropic-api-key');
 
 $betaTunnelCertificate = $client->beta->tunnels->certificates->create(
   'tunnel_id',
-  caCertificatePem: 'ca_certificate_pem',
+  caCertificatePEM: 'ca_certificate_pem',
   betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
 );
 
@@ -18657,5 +18683,6182 @@ var_dump($betaTunnelCertificate);
   "fingerprint": "fingerprint",
   "tunnel_id": "tunnel_id",
   "type": "tunnel_certificate"
+}
+```
+
+## Beta › Organization
+
+### Get Current Organization
+
+`$client->beta->organization->retrieve(): BetaOrganization`
+
+**GET** `/v1/organizations/me`
+
+Retrieve information about the organization associated with the authenticated API key.
+
+#### Returns
+
+- `BetaOrganization`
+
+  - `string id`
+
+    ID of the Organization.
+
+  - `string name`
+
+    Name of the Organization.
+
+  - `"organization" type`
+
+    Object type.
+
+    For Organizations, this is always `"organization"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaOrganization = $client->beta->organization->retrieve();
+
+var_dump($betaOrganization);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "12345678-1234-5678-1234-567812345678",
+  "name": "Organization Name",
+  "type": "organization"
+}
+```
+
+## Beta › Organization › API Keys
+
+### List API Keys
+
+`$client->beta->organization->apiKeys->list(?string afterID, ?string beforeID, ?string createdByUserID, ?int limit, ?Status status, ?string workspaceID): Page<APIKey>`
+
+**GET** `/v1/organizations/api_keys`
+
+List API Keys
+
+#### Parameters
+
+- `afterID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+- `beforeID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+- `createdByUserID?:optional string`
+
+  Filter by the ID of the User who created the object.
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20
+
+- `status?:optional Status`
+
+  Filter by API key status.
+
+- `workspaceID?:optional string`
+
+  Filter by Workspace ID.
+
+#### Returns
+
+- `APIKey`
+
+  - `string id`
+
+    ID of the API key.
+
+  - `\Datetime createdAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+  - `?APIKeyCreatedBy createdBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+  - `?\Datetime expiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+  - `string name`
+
+    Name of the API key.
+
+  - `?string partialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `?Principal principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+  - `Scope scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+  - `Status status`
+
+    Status of the API key.
+
+  - `"api_key" type`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `?string workspaceID`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->apiKeys->list(
+  afterID: 'after_id',
+  beforeID: 'before_id',
+  createdByUserID: 'created_by_user_id',
+  limit: 1,
+  status: 'active',
+  workspaceID: 'workspace_id',
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by": {
+        "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+        "type": "user"
+      },
+      "expires_at": "2024-10-30T23:58:27.427722Z",
+      "name": "Developer Key",
+      "partial_key_hint": "sk-ant-api03-R2D...igAA",
+      "principal": {
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "scope": {
+        "type": "workspace",
+        "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+      },
+      "status": "active",
+      "type": "api_key",
+      "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Get API Key
+
+`$client->beta->organization->apiKeys->retrieve(string apiKeyID): APIKey`
+
+**GET** `/v1/organizations/api_keys/{api_key_id}`
+
+Get API Key
+
+#### Parameters
+
+- `apiKeyID: string`
+
+  ID of the API key.
+
+#### Returns
+
+- `APIKey`
+
+  - `string id`
+
+    ID of the API key.
+
+  - `\Datetime createdAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+  - `?APIKeyCreatedBy createdBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+  - `?\Datetime expiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+  - `string name`
+
+    Name of the API key.
+
+  - `?string partialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `?Principal principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+  - `Scope scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+  - `Status status`
+
+    Status of the API key.
+
+  - `"api_key" type`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `?string workspaceID`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaAPIKey = $client->beta->organization->apiKeys->retrieve('api_key_id');
+
+var_dump($betaAPIKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+### Update API Key
+
+`$client->beta->organization->apiKeys->update(string apiKeyID, ?string name, ?Status status): APIKey`
+
+**POST** `/v1/organizations/api_keys/{api_key_id}`
+
+Update API Key
+
+#### Parameters
+
+- `apiKeyID: string`
+
+  ID of the API key.
+
+- `name?:optional string`
+
+  Name of the API key.
+
+- `status?:optional Status`
+
+  Status of the API key.
+
+#### Returns
+
+- `APIKey`
+
+  - `string id`
+
+    ID of the API key.
+
+  - `\Datetime createdAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+  - `?APIKeyCreatedBy createdBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+  - `?\Datetime expiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+  - `string name`
+
+    Name of the API key.
+
+  - `?string partialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `?Principal principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+  - `Scope scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+  - `Status status`
+
+    Status of the API key.
+
+  - `"api_key" type`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `?string workspaceID`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaAPIKey = $client->beta->organization->apiKeys->update(
+  'api_key_id', name: 'x', status: 'active'
+);
+
+var_dump($betaAPIKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+## Beta › Organization › External Keys
+
+### Create External Key
+
+`$client->beta->organization->externalKeys->create(ProviderConfig providerConfig, ?string displayName, ?Geo geo): ExternalKey`
+
+**POST** `/v1/organizations/external_keys`
+
+Create an external key config owned by the caller's organization.
+
+#### Parameters
+
+- `providerConfig: ProviderConfig`
+
+  KMS provider identity and auth coordinates.
+
+- `displayName?:optional string`
+
+  Human-friendly display name.
+
+- `geo?:optional Geo`
+
+  Data residency geo. Only `us` is supported.
+
+#### Returns
+
+- `ExternalKey`
+
+  - `string id`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `Attachment attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+  - `\Datetime createdAt`
+
+  - `?string displayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `string geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+  - `"external_key" type`
+
+  - `\Datetime updatedAt`
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaExternalKey = $client->beta->organization->externalKeys->create(
+  providerConfig: [
+    'kmsARN' => 'arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222',
+    'type' => 'aws',
+    'region' => 'us-east-1',
+    'roleARN' => 'arn:aws:iam::111122223333:role/anthropic-cmek',
+  ],
+  displayName: 'x',
+  geo: 'us',
+);
+
+var_dump($betaExternalKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### List External Keys
+
+`$client->beta->organization->externalKeys->list(?int limit, ?string page): PageCursor<ExternalKey>`
+
+**GET** `/v1/organizations/external_keys`
+
+List external key configs in the caller's organization.
+
+Results are ordered by creation time (newest first). Use the
+`next_page` cursor from the response to fetch subsequent pages.
+
+#### Parameters
+
+- `limit?:optional int`
+
+  Number of results per page.
+
+  default: 20
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+#### Returns
+
+- `ExternalKey`
+
+  - `string id`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `Attachment attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+  - `\Datetime createdAt`
+
+  - `?string displayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `string geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+  - `"external_key" type`
+
+  - `\Datetime updatedAt`
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->externalKeys->list(limit: 1, page: 'page');
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+      "attachment": {
+        "type": "attached"
+      },
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_name": "prod-us-key",
+      "geo": "us",
+      "provider_config": {
+        "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+        "type": "aws",
+        "region": "us-east-1",
+        "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+      },
+      "type": "external_key",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get External Key
+
+`$client->beta->organization->externalKeys->retrieve(string externalKeyID): ExternalKey`
+
+**GET** `/v1/organizations/external_keys/{external_key_id}`
+
+Retrieve a single external key config in the caller's organization by ID.
+
+#### Parameters
+
+- `externalKeyID: string`
+
+  ID of the External Key.
+
+#### Returns
+
+- `ExternalKey`
+
+  - `string id`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `Attachment attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+  - `\Datetime createdAt`
+
+  - `?string displayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `string geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+  - `"external_key" type`
+
+  - `\Datetime updatedAt`
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaExternalKey = $client->beta->organization->externalKeys->retrieve(
+  'external_key_id'
+);
+
+var_dump($betaExternalKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Update External Key
+
+`$client->beta->organization->externalKeys->update(string externalKeyID, ?string displayName, ?Geo geo, ?ProviderConfig providerConfig): ExternalKey`
+
+**POST** `/v1/organizations/external_keys/{external_key_id}`
+
+Partially update an external key config. Omitted fields are left unchanged.
+
+`display_name` is always editable. `geo` and `provider_config` cannot
+be changed once any workspace references this config, because previously
+encrypted data requires the original key identity to decrypt.
+
+#### Parameters
+
+- `externalKeyID: string`
+
+  ID of the External Key.
+
+- `displayName?:optional string`
+
+  Human-friendly display name.
+
+- `geo?:optional Geo`
+
+  Data residency geo. Only `us` is supported.
+
+- `providerConfig?:optional ProviderConfig`
+
+  KMS provider identity and auth coordinates.
+
+#### Returns
+
+- `ExternalKey`
+
+  - `string id`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `Attachment attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+  - `\Datetime createdAt`
+
+  - `?string displayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `string geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+  - `"external_key" type`
+
+  - `\Datetime updatedAt`
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaExternalKey = $client->beta->organization->externalKeys->update(
+  'external_key_id',
+  displayName: 'x',
+  geo: 'us',
+  providerConfig: [
+    'kmsARN' => 'arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222',
+    'type' => 'aws',
+    'region' => 'us-east-1',
+    'roleARN' => 'arn:aws:iam::111122223333:role/anthropic-cmek',
+  ],
+);
+
+var_dump($betaExternalKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Delete External Key
+
+`$client->beta->organization->externalKeys->delete(string externalKeyID): ExternalKeyDeleteResponse`
+
+**DELETE** `/v1/organizations/external_keys/{external_key_id}`
+
+Delete an external key config.
+
+The request is rejected if any workspace still references this config.
+
+#### Parameters
+
+- `externalKeyID: string`
+
+  ID of the External Key.
+
+#### Returns
+
+- `ExternalKeyDeleteResponse`
+
+  - `string id`
+
+    ID of the deleted External Key.
+
+  - `"external_key_deleted" type`
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$externalKey = $client->beta->organization->externalKeys->delete(
+  'external_key_id'
+);
+
+var_dump($externalKey);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01AbCdEfGhIjKlMnOpQrStUv",
+  "type": "external_key_deleted"
+}
+```
+
+### Validate External Key
+
+`$client->beta->organization->externalKeys->validate(string externalKeyID): ExternalKeyValidateResponse`
+
+**POST** `/v1/organizations/external_keys/{external_key_id}/validate`
+
+Validate an external key config against the customer's KMS.
+
+Anthropic performs an encrypt/decrypt roundtrip against the configured
+KMS key and waits up to 30 seconds for the result. The response status is
+`success` if the roundtrip succeeded, or `failure` with an error
+message if it failed or timed out.
+
+#### Parameters
+
+- `externalKeyID: string`
+
+  ID of the External Key.
+
+#### Returns
+
+- `ExternalKeyValidateResponse`
+
+  - `?string error`
+
+    Error message when status is `failure`. Null otherwise.
+
+  - `Status status`
+
+    `success` — encrypt/decrypt roundtrip succeeded. `failure` — the roundtrip failed or timed out; see `error`.
+
+  - `"external_key_validation" type`
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$response = $client->beta->organization->externalKeys->validate(
+  'external_key_id'
+);
+
+var_dump($response);
+```
+
+##### Response (200)
+
+```json
+{
+  "error": "error",
+  "status": "failure",
+  "type": "external_key_validation"
+}
+```
+
+## Beta › Organization › Federation › Issuers
+
+### Create Federation Issuer
+
+`$client->beta->organization->federation->issuers->create(string issuerURL, string name, ?bool checkJTI, ?JWKS jwks, ?int maxJWTLifetimeSeconds, ?list<AnthropicBeta> betas): BetaFederationIssuer`
+
+**POST** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Register an OIDC issuer that Anthropic will trust for workload identity
+federation in your organization.
+
+The `jwks` field controls how the issuer's signing keys are obtained and
+takes one of three shapes selected by `type`: `discovery` (resolve keys
+through OIDC discovery), `explicit_url` (fetch keys from a fixed JWKS
+URL), or `inline` (provide a static key set). When `jwks.type` is
+`discovery` and no `discovery_base` is set, the issuer URL must be
+publicly reachable over HTTPS so Anthropic can fetch the discovery
+document; for `explicit_url` and `inline` modes the issuer URL is only
+matched as the JWT's `iss` claim and is not fetched.
+
+#### Parameters
+
+- `issuerURL: string`
+
+  The `iss` claim value to match against.
+
+- `name: string`
+
+  Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+- `checkJTI?:optional bool`
+
+  Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Defaults to true. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+- `jwks?:optional JWKS`
+
+  How signing keys are obtained. Defaults to OIDC discovery.
+
+- `maxJWTLifetimeSeconds?:optional int`
+
+  Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Defaults to 3600 (1h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationIssuer`
+
+  - `string id`
+
+    Tagged ID of the federation issuer.
+
+  - `?\Datetime archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `bool checkJTI`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `\Datetime createdAt`
+
+    When this issuer was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `string issuerURL`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `JWKS jwks`
+
+    How signing keys are obtained for signature verification.
+
+  - `?\Datetime jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+  - `int maxJWTLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `?BetaFederationIssuerPollStatus pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+  - `"federation_issuer" type`
+
+  - `\Datetime updatedAt`
+
+    When this issuer was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationIssuer = $client
+  ->beta
+  ->organization
+  ->federation
+  ->issuers
+  ->create(
+  issuerURL: 'x',
+  name: 'x',
+  checkJTI: true,
+  jwks: [
+    'type' => 'discovery',
+    'caCertPEM' => 'ca_cert_pem',
+    'discoveryBase' => 'discovery_base',
+  ],
+  maxJWTLifetimeSeconds: 1,
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaFederationIssuer);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### List Federation Issuers
+
+`$client->beta->organization->federation->issuers->list(?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaFederationIssuer>`
+
+**GET** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List federation issuers in your organization.
+
+Archived issuers are excluded unless `include_archived=true`.
+
+#### Parameters
+
+- `includeArchived?:optional bool`
+
+  Include archived resources. Defaults to false.
+
+  default: false
+
+- `limit?:optional int`
+
+  Number of results per page.
+
+  default: 20
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationIssuer`
+
+  - `string id`
+
+    Tagged ID of the federation issuer.
+
+  - `?\Datetime archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `bool checkJTI`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `\Datetime createdAt`
+
+    When this issuer was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `string issuerURL`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `JWKS jwks`
+
+    How signing keys are obtained for signature verification.
+
+  - `?\Datetime jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+  - `int maxJWTLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `?BetaFederationIssuerPollStatus pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+  - `"federation_issuer" type`
+
+  - `\Datetime updatedAt`
+
+    When this issuer was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->federation->issuers->list(
+  includeArchived: true,
+  limit: 1,
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "check_jti": true,
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "issuer_url": "https://token.actions.githubusercontent.com",
+      "jwks": {
+        "type": "discovery",
+        "ca_cert_pem": "ca_cert_pem",
+        "discovery_base": "discovery_base"
+      },
+      "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+      "max_jwt_lifetime_seconds": 0,
+      "name": "github-actions",
+      "poll_status": {
+        "consecutive_failures": 0,
+        "last_fetched_at": "2019-12-27T18:11:19.117Z",
+        "next_poll_at": "2019-12-27T18:11:19.117Z"
+      },
+      "type": "federation_issuer",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Federation Issuer
+
+`$client->beta->organization->federation->issuers->retrieve(string federationIssuerID, ?list<AnthropicBeta> betas): BetaFederationIssuer`
+
+**GET** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a federation issuer by its ID (`fdis_...`).
+
+#### Parameters
+
+- `federationIssuerID: string`
+
+  ID of the federation issuer.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationIssuer`
+
+  - `string id`
+
+    Tagged ID of the federation issuer.
+
+  - `?\Datetime archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `bool checkJTI`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `\Datetime createdAt`
+
+    When this issuer was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `string issuerURL`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `JWKS jwks`
+
+    How signing keys are obtained for signature verification.
+
+  - `?\Datetime jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+  - `int maxJWTLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `?BetaFederationIssuerPollStatus pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+  - `"federation_issuer" type`
+
+  - `\Datetime updatedAt`
+
+    When this issuer was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationIssuer = $client
+  ->beta
+  ->organization
+  ->federation
+  ->issuers
+  ->retrieve(
+  'federation_issuer_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+);
+
+var_dump($betaFederationIssuer);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Update Federation Issuer
+
+`$client->beta->organization->federation->issuers->update(string federationIssuerID, ?bool checkJTI, ?string issuerURL, ?JWKS jwks, ?bool jwksPollingDisabled, ?int maxJWTLifetimeSeconds, ?string name, ?list<AnthropicBeta> betas): BetaFederationIssuer`
+
+**POST** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Partially update a federation issuer.
+
+Setting `jwks` replaces the full JWKS shape at once. Archived issuers
+cannot be updated; this returns 400. Create a new issuer instead.
+
+Updating an issuer that backs a rule with a scope outside
+`workspace:developer` or `workspace:inference` requires a Console
+session.
+
+#### Parameters
+
+- `federationIssuerID: string`
+
+  ID of the federation issuer to update.
+
+- `checkJTI?:optional bool`
+
+  Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+- `issuerURL?:optional string`
+
+  Replaces the `iss` claim value to match against. For discovery-mode issuers without a `discovery_base`, this is also the URL Anthropic fetches the OIDC discovery document and signing keys from, so changing it repoints the JWKS source. Changing the issuer URL to a well-known shared platform is rejected while any live rule under this issuer would not constrain tenant identity.
+
+- `jwks?:optional JWKS`
+
+  Replaces the entire JWKS configuration.
+
+- `jwksPollingDisabled?:optional bool`
+
+  Only `false` is accepted, to re-enable polling after the system pauses it. Polling is paused automatically; sending `true` is rejected.
+
+- `maxJWTLifetimeSeconds?:optional int`
+
+  Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+- `name?:optional string`
+
+  Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationIssuer`
+
+  - `string id`
+
+    Tagged ID of the federation issuer.
+
+  - `?\Datetime archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `bool checkJTI`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `\Datetime createdAt`
+
+    When this issuer was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `string issuerURL`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `JWKS jwks`
+
+    How signing keys are obtained for signature verification.
+
+  - `?\Datetime jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+  - `int maxJWTLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `?BetaFederationIssuerPollStatus pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+  - `"federation_issuer" type`
+
+  - `\Datetime updatedAt`
+
+    When this issuer was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationIssuer = $client
+  ->beta
+  ->organization
+  ->federation
+  ->issuers
+  ->update(
+  'federation_issuer_id',
+  checkJTI: true,
+  issuerURL: 'x',
+  jwks: [
+    'type' => 'discovery',
+    'caCertPEM' => 'ca_cert_pem',
+    'discoveryBase' => 'discovery_base',
+  ],
+  jwksPollingDisabled: true,
+  maxJWTLifetimeSeconds: 1,
+  name: 'x',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaFederationIssuer);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Archive Federation Issuer
+
+`$client->beta->organization->federation->issuers->archive(string federationIssuerID, ?list<AnthropicBeta> betas): BetaFederationIssuer`
+
+**POST** `/v1/organizations/federation_issuers/{federation_issuer_id}/archive`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Archive a federation issuer.
+
+Idempotent; re-archiving returns the issuer with its original
+`archived_at`. Rejected with 400 if any live (non-archived) federation
+rule still references the issuer; archive those rules first (a rule's
+issuer cannot be changed), or recreate them against another issuer.
+
+#### Parameters
+
+- `federationIssuerID: string`
+
+  ID of the federation issuer to archive.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationIssuer`
+
+  - `string id`
+
+    Tagged ID of the federation issuer.
+
+  - `?\Datetime archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `bool checkJTI`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `\Datetime createdAt`
+
+    When this issuer was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `string issuerURL`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `JWKS jwks`
+
+    How signing keys are obtained for signature verification.
+
+  - `?\Datetime jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+  - `int maxJWTLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `?BetaFederationIssuerPollStatus pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+  - `"federation_issuer" type`
+
+  - `\Datetime updatedAt`
+
+    When this issuer was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationIssuer = $client
+  ->beta
+  ->organization
+  ->federation
+  ->issuers
+  ->archive(
+  'federation_issuer_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+);
+
+var_dump($betaFederationIssuer);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+## Beta › Organization › Federation › Rules
+
+### Create Federation Rule
+
+`$client->beta->organization->federation->rules->create(string issuerID, BetaFederationRuleMatch match, string name, string oauthScope, BetaServiceAccountTarget target, ?bool appliesToAllWorkspaces, ?array<string,string> attributes, ?string description, ?int tokenLifetimeSeconds, ?string workspaceID, ?list<AnthropicBeta> betas): BetaFederationRule`
+
+**POST** `/v1/organizations/federation_rules`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Create a federation rule owned by your organization.
+
+The referenced issuer and the target service account must already exist
+in the same organization; invalid references are rejected with a 400
+error. The workspace reference is validated. Membership is not checked
+at rule creation: token exchange resolves a single enabled workspace per
+call and is rejected unless the target service account is a member of
+that workspace (it is implicitly a member of the default workspace).
+Rules on well-known shared issuers (GitHub Actions, GitLab, Buildkite,
+Terraform Cloud, Google) must constrain tenant identity via an
+identity-bearing claim, a tenant-pinning subject prefix (such as
+`repo:YOUR_ORG/...`), or a CEL condition referencing one of those
+identity claims (e.g. `claims.repository_owner`). OAuth callers may only
+manage rules whose `oauth_scope` is `workspace:developer` or
+`workspace:inference`; other scopes require a Console session.
+
+#### Parameters
+
+- `issuerID: string`
+
+  Tagged ID of the federation issuer.
+
+- `match: BetaFederationRuleMatch`
+
+  Conditions the verified JWT must satisfy for this rule to apply. At least one of `subject_prefix` (other than a wildcard-only value like `*`), `claims`, or `condition` is required; `audience` alone is not sufficient.
+
+- `name: string`
+
+  Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+- `oauthScope: string`
+
+  Space-separated OAuth scopes. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+
+- `target: BetaServiceAccountTarget`
+
+  Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+- `appliesToAllWorkspaces?:optional bool`
+
+  When true, enable this rule for every workspace in the org (including workspaces created later).
+
+- `attributes?:optional array<string,string>`
+
+  CEL expressions `{name: expr}` extracting named values from claims. Not yet supported; any non-empty value is rejected with 400.
+
+- `description?:optional string`
+
+  Optional free-text description.
+
+- `tokenLifetimeSeconds?:optional int`
+
+  Lifetime in seconds for access tokens minted via this rule (60-86400). Defaults to 3600 (1h). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+- `workspaceID?:optional string`
+
+  Tagged ID of the workspace to enable this rule for. Required unless `applies_to_all_workspaces` is true. Additional workspaces can be added via the `/federation_rules/{federation_rule_id}/workspaces` sub-resource.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationRule`
+
+  - `string id`
+
+    Tagged ID of the federation rule.
+
+  - `bool appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `?\Datetime archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `?array<string,string> attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `\Datetime createdAt`
+
+    When this rule was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string issuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `?string issuerName`
+
+    Issuer's display name at read time.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `string oauthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+  - `int tokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `"federation_rule" type`
+
+  - `\Datetime updatedAt`
+
+    When this rule was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `?string workspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `list<string> workspaceIDs`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationRule = $client->beta->organization->federation->rules->create(
+  issuerID: 'issuer_id',
+  match: [
+    'audience' => 'audience',
+    'claims' => ['foo' => 'string'],
+    'condition' => 'condition',
+    'subjectPrefix' => 'subject_prefix',
+  ],
+  name: 'x',
+  oauthScope: 'x',
+  target: [
+    'serviceAccountID' => 'svac_01SDCCSbTxrXDpWc1phhtcfK',
+    'type' => 'service_account',
+    'serviceAccountName' => 'service_account_name',
+  ],
+  appliesToAllWorkspaces: true,
+  attributes: ['foo' => 'string'],
+  description: 'description',
+  tokenLifetimeSeconds: 60,
+  workspaceID: 'workspace_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaFederationRule);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### List Federation Rules
+
+`$client->beta->organization->federation->rules->list(?bool includeArchived, ?string issuerID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaFederationRule>`
+
+**GET** `/v1/organizations/federation_rules`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List federation rules in your organization.
+
+Optionally filter by issuer with `issuer_id`. Archived rules are excluded
+unless `include_archived=true`.
+
+#### Parameters
+
+- `includeArchived?:optional bool`
+
+  Include archived resources. Defaults to false.
+
+  default: false
+
+- `issuerID?:optional string`
+
+  Filter to rules referencing this federation issuer.
+
+- `limit?:optional int`
+
+  Number of results per page.
+
+  default: 20
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationRule`
+
+  - `string id`
+
+    Tagged ID of the federation rule.
+
+  - `bool appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `?\Datetime archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `?array<string,string> attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `\Datetime createdAt`
+
+    When this rule was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string issuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `?string issuerName`
+
+    Issuer's display name at read time.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `string oauthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+  - `int tokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `"federation_rule" type`
+
+  - `\Datetime updatedAt`
+
+    When this rule was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `?string workspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `list<string> workspaceIDs`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->federation->rules->list(
+  includeArchived: true,
+  issuerID: 'issuer_id',
+  limit: 1,
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+      "applies_to_all_workspaces": true,
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "attributes": {
+        "foo": "string"
+      },
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "description": "description",
+      "issuer_id": "issuer_id",
+      "issuer_name": "issuer_name",
+      "match": {
+        "audience": "audience",
+        "claims": {
+          "foo": "string"
+        },
+        "condition": "condition",
+        "subject_prefix": "subject_prefix"
+      },
+      "name": "prod-deploy-pipeline",
+      "oauth_scope": "oauth_scope",
+      "target": {
+        "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+        "type": "service_account",
+        "service_account_name": "service_account_name"
+      },
+      "token_lifetime_seconds": 0,
+      "type": "federation_rule",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id",
+      "workspace_id": "workspace_id",
+      "workspace_ids": [
+        "string"
+      ]
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Federation Rule
+
+`$client->beta->organization->federation->rules->retrieve(string federationRuleID, ?list<AnthropicBeta> betas): BetaFederationRule`
+
+**GET** `/v1/organizations/federation_rules/{federation_rule_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a federation rule by its ID (`fdrl_...`).
+
+#### Parameters
+
+- `federationRuleID: string`
+
+  ID of the federation rule.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationRule`
+
+  - `string id`
+
+    Tagged ID of the federation rule.
+
+  - `bool appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `?\Datetime archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `?array<string,string> attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `\Datetime createdAt`
+
+    When this rule was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string issuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `?string issuerName`
+
+    Issuer's display name at read time.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `string oauthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+  - `int tokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `"federation_rule" type`
+
+  - `\Datetime updatedAt`
+
+    When this rule was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `?string workspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `list<string> workspaceIDs`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationRule = $client->beta->organization->federation->rules->retrieve(
+  'federation_rule_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+);
+
+var_dump($betaFederationRule);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### Update Federation Rule
+
+`$client->beta->organization->federation->rules->update(string federationRuleID, ?bool appliesToAllWorkspaces, ?array<string,string> attributes, ?string description, ?BetaFederationRuleMatch match, ?string name, ?string oauthScope, ?BetaServiceAccountTarget target, ?int tokenLifetimeSeconds, ?string workspaceID, ?list<AnthropicBeta> betas): BetaFederationRule`
+
+**POST** `/v1/organizations/federation_rules/{federation_rule_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Partially update a federation rule.
+
+`issuer_id` is immutable. `match` and `target` are replaced as whole
+objects when set. Referenced service accounts and workspaces must exist
+in your organization; invalid references are rejected with a 400 error.
+Archived rules cannot be updated; this returns 400. Create a new rule
+instead. Rules on well-known shared issuers (GitHub Actions, GitLab,
+Buildkite, Terraform Cloud, Google) must constrain tenant identity via
+an identity-bearing claim, a tenant-pinning subject prefix (such as
+`repo:YOUR_ORG/...`), or a CEL condition referencing one of those
+identity claims (e.g. `claims.repository_owner`). On these issuers the
+requirement is re-checked on every update; if an existing rule's stored
+match does not yet constrain tenant identity, any update (even a rename
+or description change) must also supply a conforming `match` in the same
+request. OAuth callers may only manage rules whose `oauth_scope` is
+`workspace:developer` or `workspace:inference`; other scopes require a
+Console session.
+
+#### Parameters
+
+- `federationRuleID: string`
+
+  ID of the federation rule to update.
+
+- `appliesToAllWorkspaces?:optional bool`
+
+  When true, enables this rule for every workspace in the org (including workspaces created later). Setting `false` is rejected with 400 if no workspace would remain enabled; a rule with only a legacy `workspace_id` binding continues to mint.
+
+- `attributes?:optional array<string,string>`
+
+  Replaces the CEL expressions `{name: expr}` extracting named values from claims. Send null to clear them. Not yet supported; any non-empty value is rejected with 400.
+
+- `description?:optional string`
+
+  Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
+
+- `match?:optional BetaFederationRuleMatch`
+
+  Does the incoming JWT qualify?
+
+  All populated fields must pass; omitted fields are skipped. At least one
+  of `subject_prefix` (other than a wildcard-only value like `*`), `claims`,
+  or `condition` is required; `audience` alone is not sufficient.
+
+- `name?:optional string`
+
+  Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+- `oauthScope?:optional string`
+
+  Replaces the space-separated OAuth scopes granted on minted tokens. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+
+- `target?:optional BetaServiceAccountTarget`
+
+  Bind to a fixed service account by ID.
+
+- `tokenLifetimeSeconds?:optional int`
+
+  Replaces the lifetime in seconds for access tokens minted via this rule (60-86400). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+- `workspaceID?:optional string`
+
+  Replaces the existing single workspace enablement (the previous one is removed). Rejected with 400 if the rule is enabled for more than one workspace; use the `/federation_rules/{federation_rule_id}/workspaces` sub-resource instead.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationRule`
+
+  - `string id`
+
+    Tagged ID of the federation rule.
+
+  - `bool appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `?\Datetime archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `?array<string,string> attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `\Datetime createdAt`
+
+    When this rule was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string issuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `?string issuerName`
+
+    Issuer's display name at read time.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `string oauthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+  - `int tokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `"federation_rule" type`
+
+  - `\Datetime updatedAt`
+
+    When this rule was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `?string workspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `list<string> workspaceIDs`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationRule = $client->beta->organization->federation->rules->update(
+  'federation_rule_id',
+  appliesToAllWorkspaces: true,
+  attributes: ['foo' => 'string'],
+  description: 'description',
+  match: [
+    'audience' => 'audience',
+    'claims' => ['foo' => 'string'],
+    'condition' => 'condition',
+    'subjectPrefix' => 'subject_prefix',
+  ],
+  name: 'x',
+  oauthScope: 'x',
+  target: [
+    'serviceAccountID' => 'svac_01SDCCSbTxrXDpWc1phhtcfK',
+    'type' => 'service_account',
+    'serviceAccountName' => 'service_account_name',
+  ],
+  tokenLifetimeSeconds: 60,
+  workspaceID: 'workspace_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaFederationRule);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### Archive Federation Rule
+
+`$client->beta->organization->federation->rules->archive(string federationRuleID, ?list<AnthropicBeta> betas): BetaFederationRule`
+
+**POST** `/v1/organizations/federation_rules/{federation_rule_id}/archive`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Archive a federation rule.
+
+Token exchange through this rule stops immediately. Idempotent;
+re-archiving returns the rule with its original `archived_at`. Archiving
+clears the rule's workspace targeting (`workspace_id` and
+`workspace_ids` are emptied). Tokens already minted before archive
+remain valid until they expire. OAuth callers may only manage rules
+whose `oauth_scope` is `workspace:developer` or `workspace:inference`;
+other scopes require a Console session.
+
+#### Parameters
+
+- `federationRuleID: string`
+
+  ID of the federation rule to archive.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationRule`
+
+  - `string id`
+
+    Tagged ID of the federation rule.
+
+  - `bool appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `?\Datetime archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `?array<string,string> attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `\Datetime createdAt`
+
+    When this rule was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string issuerID`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `?string issuerName`
+
+    Issuer's display name at read time.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `string oauthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+  - `int tokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `"federation_rule" type`
+
+  - `\Datetime updatedAt`
+
+    When this rule was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `?string workspaceID`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `list<string> workspaceIDs`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationRule = $client->beta->organization->federation->rules->archive(
+  'federation_rule_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+);
+
+var_dump($betaFederationRule);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+## Beta › Organization › Federation › Rules › Workspaces
+
+### Add Federation Rule Workspace
+
+`$client->beta->organization->federation->rules->workspaces->add(string federationRuleID, string workspaceID, ?list<AnthropicBeta> betas): BetaFederationRuleWorkspace`
+
+**POST** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Enable a federation rule for a workspace.
+
+Idempotent; re-enabling returns the existing enablement. The rule and
+workspace must both belong to your organization. Membership of the
+rule's target service account in this workspace is not checked at
+enablement: token exchange into this workspace is rejected unless the
+target is a member (it is implicitly a member of the default workspace).
+Archived rules are rejected with 400. OAuth callers may only manage rules
+whose `oauth_scope` is `workspace:developer` or `workspace:inference`;
+other scopes require a Console session.
+
+#### Parameters
+
+- `federationRuleID: string`
+
+  ID of the federation rule.
+
+- `workspaceID: string`
+
+  Tagged ID of the workspace to enable this rule for.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationRuleWorkspace`
+
+  - `\Datetime createdAt`
+
+    When this workspace was enabled for the rule.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_...` or `svac_...`) of the actor that enabled this workspace for the rule, if known.
+
+  - `string federationRuleID`
+
+    Tagged ID of the federation rule.
+
+  - `"federation_rule_workspace" type`
+
+  - `string workspaceID`
+
+    Tagged ID of the workspace this rule is enabled for.
+
+  - `?string workspaceName`
+
+    Workspace display name. Populated when listing; null in the enable response.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaFederationRuleWorkspace = $client
+  ->beta
+  ->organization
+  ->federation
+  ->rules
+  ->workspaces
+  ->add(
+  'federation_rule_id',
+  workspaceID: 'workspace_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaFederationRuleWorkspace);
+```
+
+##### Response (200)
+
+```json
+{
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "federation_rule_id": "federation_rule_id",
+  "type": "federation_rule_workspace",
+  "workspace_id": "workspace_id",
+  "workspace_name": "workspace_name"
+}
+```
+
+### List Federation Rule Workspaces
+
+`$client->beta->organization->federation->rules->workspaces->list(string federationRuleID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<BetaFederationRuleWorkspace>`
+
+**GET** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List workspaces where this federation rule is enabled.
+
+Returns all workspace enablements in a single response; the `limit` and
+`page` parameters are accepted but have no effect, and `next_page` is
+always `null`. Returns explicit per-workspace enablements only; for
+rules with `applies_to_all_workspaces` or a legacy single
+`workspace_id`, check those fields on the rule itself.
+
+#### Parameters
+
+- `federationRuleID: string`
+
+  ID of the federation rule.
+
+- `limit?:optional int`
+
+  Number of results per page.
+
+  default: 20
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaFederationRuleWorkspace`
+
+  - `\Datetime createdAt`
+
+    When this workspace was enabled for the rule.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_...` or `svac_...`) of the actor that enabled this workspace for the rule, if known.
+
+  - `string federationRuleID`
+
+    Tagged ID of the federation rule.
+
+  - `"federation_rule_workspace" type`
+
+  - `string workspaceID`
+
+    Tagged ID of the workspace this rule is enabled for.
+
+  - `?string workspaceName`
+
+    Workspace display name. Populated when listing; null in the enable response.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->federation->rules->workspaces->list(
+  'federation_rule_id',
+  limit: 1,
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "federation_rule_id": "federation_rule_id",
+      "type": "federation_rule_workspace",
+      "workspace_id": "workspace_id",
+      "workspace_name": "workspace_name"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Remove Federation Rule Workspace
+
+`$client->beta->organization->federation->rules->workspaces->remove(string workspaceID, string federationRuleID, ?list<AnthropicBeta> betas): WorkspaceRemoveResponse`
+
+**DELETE** `/v1/organizations/federation_rules/{federation_rule_id}/workspaces/{workspace_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Disable a federation rule for a workspace.
+
+Idempotent; succeeds even if the enablement was already removed. OAuth
+callers may only manage rules whose `oauth_scope` is
+`workspace:developer` or `workspace:inference`; other scopes require a
+Console session.
+
+#### Parameters
+
+- `federationRuleID: string`
+
+  ID of the federation rule.
+
+- `workspaceID: string`
+
+  ID of the workspace to disable for.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `WorkspaceRemoveResponse`
+
+  - `string federationRuleID`
+
+    Tagged ID of the federation rule.
+
+  - `"federation_rule_workspace_deleted" type`
+
+  - `string workspaceID`
+
+    Tagged ID of the workspace named in the delete request. Removal is idempotent.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$workspace = $client->beta->organization->federation->rules->workspaces->remove(
+  'workspace_id',
+  federationRuleID: 'federation_rule_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($workspace);
+```
+
+##### Response (200)
+
+```json
+{
+  "federation_rule_id": "federation_rule_id",
+  "type": "federation_rule_workspace_deleted",
+  "workspace_id": "workspace_id"
+}
+```
+
+## Beta › Organization › Invites
+
+### Create Invite
+
+`$client->beta->organization->invites->create(string email, Role role, ?list<string> rbacGroupIDs): OrganizationInvite`
+
+**POST** `/v1/organizations/invites`
+
+Invite a user to join the organization by email.
+
+On plans that draw members from a finite pool of purchased seats, the invite automatically consumes a seat from the lowest tier with availability; there is no seat-tier parameter. When no seat is free the request fails with a 400 error rather than purchasing a seat.
+
+#### Parameters
+
+- `email: string`
+
+  Email of the User.
+
+- `role: Role`
+
+  Role for the invited User.
+
+  The accepted values depend on the organization type. Console and API organizations accept `user`, `developer`, `billing`, and `claude_code_user`; `admin` cannot be assigned through the API. Claude Enterprise organizations accept `user` and `managed`.
+
+- `rbacGroupIDs?:optional list<string>`
+
+  RBAC group IDs to assign to the User when the Invite is accepted. A non-empty array is accepted only for a Claude Enterprise organization with RBAC groups, and requires the key to carry the `write:rbac_groups` scope.
+
+#### Returns
+
+- `OrganizationInvite`
+
+  - `string id`
+
+    ID of the Invite.
+
+  - `?\Datetime acceptedAt`
+
+    RFC 3339 datetime string indicating when the Invite was accepted, or null.
+
+  - `string email`
+
+    Email of the User being invited.
+
+  - `\Datetime expiresAt`
+
+    RFC 3339 datetime string indicating when the Invite expires.
+
+  - `\Datetime invitedAt`
+
+    RFC 3339 datetime string indicating when the Invite was created.
+
+  - `list<string> rbacGroupIDs`
+
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+
+  - `BetaOrganizationRole role`
+
+    Organization role of the User.
+
+  - `Status status`
+
+    Status of the Invite.
+
+  - `"invite" type`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaOrganizationInvite = $client->beta->organization->invites->create(
+  email: 'user@emaildomain.com', role: 'user', rbacGroupIDs: ['string']
+);
+
+var_dump($betaOrganizationInvite);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+  "accepted_at": "2019-12-27T18:11:19.117Z",
+  "email": "user@emaildomain.com",
+  "expires_at": "2024-11-20T23:58:27.427722Z",
+  "invited_at": "2024-10-30T23:58:27.427722Z",
+  "rbac_group_ids": [
+    "string"
+  ],
+  "role": "admin",
+  "status": "pending",
+  "type": "invite"
+}
+```
+
+### List Invites
+
+`$client->beta->organization->invites->list(?string afterID, ?string beforeID, ?string email, ?int limit, ?list<string> roles, ?list<Status> statuses): Page<OrganizationInvite>`
+
+**GET** `/v1/organizations/invites`
+
+List the organization's invites.
+
+#### Parameters
+
+- `afterID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+- `beforeID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+- `email?:optional string`
+
+  Filter by the email address the Invite was sent to. Matches the same way as the Users list's `email` filter (normalized, case-insensitive).
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20
+
+- `roles?:optional list<string>`
+
+  Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
+
+  Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
+
+- `statuses?:optional list<Status>`
+
+  Filter by Invite status. Repeatable; values are OR'ed together. Omit to return `pending`, `accepted`, and `expired` Invites alike.
+
+#### Returns
+
+- `OrganizationInvite`
+
+  - `string id`
+
+    ID of the Invite.
+
+  - `?\Datetime acceptedAt`
+
+    RFC 3339 datetime string indicating when the Invite was accepted, or null.
+
+  - `string email`
+
+    Email of the User being invited.
+
+  - `\Datetime expiresAt`
+
+    RFC 3339 datetime string indicating when the Invite expires.
+
+  - `\Datetime invitedAt`
+
+    RFC 3339 datetime string indicating when the Invite was created.
+
+  - `list<string> rbacGroupIDs`
+
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+
+  - `BetaOrganizationRole role`
+
+    Organization role of the User.
+
+  - `Status status`
+
+    Status of the Invite.
+
+  - `"invite" type`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->invites->list(
+  afterID: 'after_id',
+  beforeID: 'before_id',
+  email: 'dev@stainless.com',
+  limit: 1,
+  roles: ['string'],
+  statuses: ['accepted'],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+      "accepted_at": "2019-12-27T18:11:19.117Z",
+      "email": "user@emaildomain.com",
+      "expires_at": "2024-11-20T23:58:27.427722Z",
+      "invited_at": "2024-10-30T23:58:27.427722Z",
+      "rbac_group_ids": [
+        "string"
+      ],
+      "role": "admin",
+      "status": "pending",
+      "type": "invite"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Get Invite
+
+`$client->beta->organization->invites->retrieve(string inviteID): OrganizationInvite`
+
+**GET** `/v1/organizations/invites/{invite_id}`
+
+Retrieve an invite by ID.
+
+#### Parameters
+
+- `inviteID: string`
+
+  ID of the Invite.
+
+#### Returns
+
+- `OrganizationInvite`
+
+  - `string id`
+
+    ID of the Invite.
+
+  - `?\Datetime acceptedAt`
+
+    RFC 3339 datetime string indicating when the Invite was accepted, or null.
+
+  - `string email`
+
+    Email of the User being invited.
+
+  - `\Datetime expiresAt`
+
+    RFC 3339 datetime string indicating when the Invite expires.
+
+  - `\Datetime invitedAt`
+
+    RFC 3339 datetime string indicating when the Invite was created.
+
+  - `list<string> rbacGroupIDs`
+
+    RBAC group IDs recorded on the Invite (Claude Enterprise organizations), to be assigned to the User when the Invite is accepted. `[]` when none.
+
+  - `BetaOrganizationRole role`
+
+    Organization role of the User.
+
+  - `Status status`
+
+    Status of the Invite.
+
+  - `"invite" type`
+
+    Object type.
+
+    For Invites, this is always `"invite"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaOrganizationInvite = $client->beta->organization->invites->retrieve(
+  'invite_id'
+);
+
+var_dump($betaOrganizationInvite);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+  "accepted_at": "2019-12-27T18:11:19.117Z",
+  "email": "user@emaildomain.com",
+  "expires_at": "2024-11-20T23:58:27.427722Z",
+  "invited_at": "2024-10-30T23:58:27.427722Z",
+  "rbac_group_ids": [
+    "string"
+  ],
+  "role": "admin",
+  "status": "pending",
+  "type": "invite"
+}
+```
+
+### Delete Invite
+
+`$client->beta->organization->invites->delete(string inviteID): InviteDeleteResponse`
+
+**DELETE** `/v1/organizations/invites/{invite_id}`
+
+Delete a pending invite.
+
+#### Parameters
+
+- `inviteID: string`
+
+  ID of the Invite.
+
+#### Returns
+
+- `InviteDeleteResponse`
+
+  - `string id`
+
+    ID of the Invite.
+
+  - `"invite_deleted" type`
+
+    Deleted object type.
+
+    For Invites, this is always `"invite_deleted"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$invite = $client->beta->organization->invites->delete('invite_id');
+
+var_dump($invite);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+  "type": "invite_deleted"
+}
+```
+
+## Beta › Organization › Service Accounts
+
+### Create Service Account
+
+`$client->beta->organization->serviceAccounts->create(string name, ?string description, ?OrganizationRole organizationRole, ?list<AnthropicBeta> betas): ServiceAccount`
+
+**POST** `/v1/organizations/service_accounts`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Create a service account.
+
+A service account is a named workload identity that federation rules
+target. `organization_role` is `developer` (default) or `admin`; a rule
+may only be created or retargeted to grant `org:admin` scope when the
+target's `organization_role` is `admin`. Creating an `admin`-role service
+account requires an interactive credential (a user OAuth token or a
+Console session) — a workload may only create `developer`-role service
+accounts.
+
+#### Parameters
+
+- `name: string`
+
+  Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+- `description?:optional string`
+
+  Optional free-text description.
+
+- `organizationRole?:optional OrganizationRole`
+
+  Org-level role. Defaults to `developer`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccount`
+
+  - `string id`
+
+    Tagged ID of the service account.
+
+  - `?\Datetime archivedAt`
+
+    If set, this service account is archived.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `\Datetime createdAt`
+
+    When this service account was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole organizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+  - `"service_account" type`
+
+  - `\Datetime updatedAt`
+
+    When this service account was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaServiceAccount = $client->beta->organization->serviceAccounts->create(
+  name: 'ci-deploy-bot',
+  description: 'description',
+  organizationRole: 'admin',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaServiceAccount);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "name": "ci-deploy-bot",
+  "organization_role": "admin",
+  "type": "service_account",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### List Service Accounts
+
+`$client->beta->organization->serviceAccounts->list(?bool includeArchived, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ServiceAccount>`
+
+**GET** `/v1/organizations/service_accounts`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List service accounts in the caller's organization.
+
+Results are ordered by creation time, newest first. Use `limit` and the
+`next_page` cursor to paginate; set `include_archived=true` to include
+archived service accounts.
+
+#### Parameters
+
+- `includeArchived?:optional bool`
+
+  Include archived resources. Defaults to false.
+
+  default: false
+
+- `limit?:optional int`
+
+  Number of results per page.
+
+  default: 20
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccount`
+
+  - `string id`
+
+    Tagged ID of the service account.
+
+  - `?\Datetime archivedAt`
+
+    If set, this service account is archived.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `\Datetime createdAt`
+
+    When this service account was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole organizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+  - `"service_account" type`
+
+  - `\Datetime updatedAt`
+
+    When this service account was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->serviceAccounts->list(
+  includeArchived: true,
+  limit: 1,
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "description": "description",
+      "name": "ci-deploy-bot",
+      "organization_role": "admin",
+      "type": "service_account",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Service Account
+
+`$client->beta->organization->serviceAccounts->retrieve(string serviceAccountID, ?list<AnthropicBeta> betas): ServiceAccount`
+
+**GET** `/v1/organizations/service_accounts/{service_account_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a service account by its ID (`svac_...`).
+
+#### Parameters
+
+- `serviceAccountID: string`
+
+  ID of the service account.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccount`
+
+  - `string id`
+
+    Tagged ID of the service account.
+
+  - `?\Datetime archivedAt`
+
+    If set, this service account is archived.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `\Datetime createdAt`
+
+    When this service account was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole organizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+  - `"service_account" type`
+
+  - `\Datetime updatedAt`
+
+    When this service account was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaServiceAccount = $client->beta->organization->serviceAccounts->retrieve(
+  'service_account_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+);
+
+var_dump($betaServiceAccount);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "name": "ci-deploy-bot",
+  "organization_role": "admin",
+  "type": "service_account",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Update Service Account
+
+`$client->beta->organization->serviceAccounts->update(string serviceAccountID, ?string description, ?OrganizationRole organizationRole, ?list<AnthropicBeta> betas): ServiceAccount`
+
+**POST** `/v1/organizations/service_accounts/{service_account_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Update a service account.
+
+Only `description` and `organization_role` are mutable; `name` cannot be
+changed. Archived service accounts cannot be updated; this returns 400.
+Setting `organization_role` to `admin` (even when unchanged) requires an
+interactive credential (a user OAuth token or a Console session).
+
+#### Parameters
+
+- `serviceAccountID: string`
+
+  ID of the service account to update.
+
+- `description?:optional string`
+
+  Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
+
+- `organizationRole?:optional OrganizationRole`
+
+  Replaces the org-level role. Omit or send `null` to leave unchanged.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccount`
+
+  - `string id`
+
+    Tagged ID of the service account.
+
+  - `?\Datetime archivedAt`
+
+    If set, this service account is archived.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `\Datetime createdAt`
+
+    When this service account was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole organizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+  - `"service_account" type`
+
+  - `\Datetime updatedAt`
+
+    When this service account was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaServiceAccount = $client->beta->organization->serviceAccounts->update(
+  'service_account_id',
+  description: 'description',
+  organizationRole: 'admin',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaServiceAccount);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "name": "ci-deploy-bot",
+  "organization_role": "admin",
+  "type": "service_account",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Archive Service Account
+
+`$client->beta->organization->serviceAccounts->archive(string serviceAccountID, ?list<AnthropicBeta> betas): ServiceAccount`
+
+**POST** `/v1/organizations/service_accounts/{service_account_id}/archive`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Archive a service account.
+
+Idempotent; re-archiving returns the service account with its original
+`archived_at`. Rejected with 400 if any live (non-archived) federation
+rule still targets this service account, same as issuer archival; archive
+those rules first or change their target to another service account.
+
+#### Parameters
+
+- `serviceAccountID: string`
+
+  ID of the service account to archive.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccount`
+
+  - `string id`
+
+    Tagged ID of the service account.
+
+  - `?\Datetime archivedAt`
+
+    If set, this service account is archived.
+
+  - `?string archivedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this service account.
+
+  - `\Datetime createdAt`
+
+    When this service account was created.
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this service account.
+
+  - `?string description`
+
+    Optional free-text description.
+
+  - `string name`
+
+    Admin-chosen slug identifier.
+
+  - `OrganizationRole organizationRole`
+
+    Org-level role. A federation rule may only be created or retargeted to grant `org:admin` scope when this is `admin`. A rule granting `org:admin` whose target is later demoted to `developer` is rejected at token exchange. Rules granting `org:admin` are managed in the Console.
+
+  - `"service_account" type`
+
+  - `\Datetime updatedAt`
+
+    When this service account was last updated.
+
+  - `?string updatedByActorID`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this service account.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaServiceAccount = $client->beta->organization->serviceAccounts->archive(
+  'service_account_id', betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24]
+);
+
+var_dump($betaServiceAccount);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "name": "ci-deploy-bot",
+  "organization_role": "admin",
+  "type": "service_account",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+## Beta › Organization › Service Accounts › Workspaces
+
+### Add Workspace To Service Account
+
+`$client->beta->organization->serviceAccounts->workspaces->add(string serviceAccountID, string workspaceID, NoBillingWorkspaceRole workspaceRole, ?list<AnthropicBeta> betas): ServiceAccountWorkspaceMember`
+
+**POST** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Add a service account to a workspace with the given `workspace_role`.
+
+Mirror of `POST /workspaces/{workspace_id}/service_accounts`, addressed
+from the service-account side; both create the same membership. If the
+service account is already an explicit member of the workspace, its
+`workspace_role` is replaced with the value supplied here. Archived
+workspaces return 400. Archived service accounts cannot be added and are
+rejected.
+
+#### Parameters
+
+- `serviceAccountID: string`
+
+  ID of the service account.
+
+- `workspaceID: string`
+
+  Tagged workspace ID to add the service account to.
+
+- `workspaceRole: NoBillingWorkspaceRole`
+
+  Role to assign to the service account in this workspace.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccountWorkspaceMember`
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
+
+  - `?bool implicit`
+
+    True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role `workspace_user` and cannot be removed.
+
+  - `string serviceAccountID`
+
+    Tagged service account ID (`svac_...`).
+
+  - `"service_account_workspace_member" type`
+
+  - `string workspaceID`
+
+    Tagged workspace ID (`wrkspc_...`).
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaServiceAccountWorkspaceMember = $client
+  ->beta
+  ->organization
+  ->serviceAccounts
+  ->workspaces
+  ->add(
+  'service_account_id',
+  workspaceID: 'workspace_id',
+  workspaceRole: NoBillingWorkspaceRole::WORKSPACE_ADMIN,
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaServiceAccountWorkspaceMember);
+```
+
+##### Response (200)
+
+```json
+{
+  "created_by_actor_id": "created_by_actor_id",
+  "implicit": true,
+  "service_account_id": "service_account_id",
+  "type": "service_account_workspace_member",
+  "workspace_id": "workspace_id",
+  "workspace_role": "workspace_admin"
+}
+```
+
+### List Workspaces For Service Account
+
+`$client->beta->organization->serviceAccounts->workspaces->list(string serviceAccountID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ServiceAccountWorkspaceMember>`
+
+**GET** `/v1/organizations/service_accounts/{service_account_id}/workspaces`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List the workspaces a service account is a member of.
+
+Each entry includes the service account's `workspace_role` in that
+workspace. Use `limit` and the `next_page` cursor to paginate. When the
+service account has no explicit default-workspace membership, the
+implicit (`implicit: true`) membership is returned as the first entry on
+the first page; with `limit=1` the first page may return up to 2 entries
+(the implicit entry plus one explicit membership) so a pagination cursor
+can be derived. Memberships are returned only while
+the service account is active. Without a `page` cursor, an archived
+service account returns an empty list. A `page` cursor that does not
+match an active membership returns a 400 invalid-request error. A cursor
+stops matching when the membership is removed, the workspace is deleted,
+or the service account is archived. Restart pagination from the first
+page to recover.
+
+#### Parameters
+
+- `serviceAccountID: string`
+
+  ID of the service account.
+
+- `limit?:optional int`
+
+  Number of results per page.
+
+  default: 20
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccountWorkspaceMember`
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
+
+  - `?bool implicit`
+
+    True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role `workspace_user` and cannot be removed.
+
+  - `string serviceAccountID`
+
+    Tagged service account ID (`svac_...`).
+
+  - `"service_account_workspace_member" type`
+
+  - `string workspaceID`
+
+    Tagged workspace ID (`wrkspc_...`).
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->serviceAccounts->workspaces->list(
+  'service_account_id',
+  limit: 1,
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "created_by_actor_id": "created_by_actor_id",
+      "implicit": true,
+      "service_account_id": "service_account_id",
+      "type": "service_account_workspace_member",
+      "workspace_id": "workspace_id",
+      "workspace_role": "workspace_admin"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Remove Workspace From Service Account
+
+`$client->beta->organization->serviceAccounts->workspaces->remove(string workspaceID, string serviceAccountID, ?list<AnthropicBeta> betas): WorkspaceRemoveResponse`
+
+**DELETE** `/v1/organizations/service_accounts/{service_account_id}/workspaces/{workspace_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Remove a service account from a workspace.
+
+Mirror of `DELETE /workspaces/{workspace_id}/service_accounts/{service_account_id}`,
+addressed from the service-account side. Removal is idempotent (returns
+200 even if the membership was already removed). A DELETE against the
+implicit default-workspace membership returns 200 but is a no-op and the
+membership persists; deleting an explicit default-workspace row reverts
+to the implicit `workspace_user` membership. Archived workspaces return
+400.
+
+#### Parameters
+
+- `serviceAccountID: string`
+
+  ID of the service account.
+
+- `workspaceID: string`
+
+  ID of the workspace.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `WorkspaceRemoveResponse`
+
+  - `string serviceAccountID`
+
+    Tagged service account ID (`svac_...`) named in the delete request. Removal is idempotent; see the endpoint description for the implicit-membership no-op.
+
+  - `"service_account_workspace_member_deleted" type`
+
+  - `string workspaceID`
+
+    Tagged workspace ID (`wrkspc_...`) named in the delete request.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$workspace = $client->beta->organization->serviceAccounts->workspaces->remove(
+  'workspace_id',
+  serviceAccountID: 'service_account_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($workspace);
+```
+
+##### Response (200)
+
+```json
+{
+  "service_account_id": "service_account_id",
+  "type": "service_account_workspace_member_deleted",
+  "workspace_id": "workspace_id"
+}
+```
+
+## Beta › Organization › Users
+
+### List Users
+
+`$client->beta->organization->users->list(?string afterID, ?string beforeID, ?string email, ?int limit, ?list<string> roles): Page<OrganizationUser>`
+
+**GET** `/v1/organizations/users`
+
+List the organization's members.
+
+#### Parameters
+
+- `afterID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+- `beforeID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+- `email?:optional string`
+
+  Filter by user email.
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20
+
+- `roles?:optional list<string>`
+
+  Filter to items whose `role` equals one of the supplied values. Repeatable; values are OR'ed together.
+
+  Accepted values depend on the organization type: Console and API organizations accept `user`, `developer`, `billing`, `admin`, and `claude_code_user`; Claude Enterprise organizations accept `user`, `owner`, `primary_owner`, `membership_admin`, and `managed`.
+
+#### Returns
+
+- `OrganizationUser`
+
+  - `string id`
+
+    ID of the User.
+
+  - `\Datetime addedAt`
+
+    RFC 3339 datetime string indicating when the User joined the Organization.
+
+  - `string email`
+
+    Email of the User.
+
+  - `string name`
+
+    Name of the User.
+
+  - `BetaOrganizationRole role`
+
+    Organization role of the User.
+
+  - `"user" type`
+
+    Object type.
+
+    For Users, this is always `"user"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->users->list(
+  afterID: 'after_id',
+  beforeID: 'before_id',
+  email: 'dev@stainless.com',
+  limit: 1,
+  roles: ['string'],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+      "added_at": "2024-10-30T23:58:27.427722Z",
+      "email": "user@emaildomain.com",
+      "name": "Jane Doe",
+      "role": "admin",
+      "type": "user"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Get User
+
+`$client->beta->organization->users->retrieve(string userID): OrganizationUser`
+
+**GET** `/v1/organizations/users/{user_id}`
+
+Retrieve a member of the organization by user ID.
+
+#### Parameters
+
+- `userID: string`
+
+  ID of the User.
+
+#### Returns
+
+- `OrganizationUser`
+
+  - `string id`
+
+    ID of the User.
+
+  - `\Datetime addedAt`
+
+    RFC 3339 datetime string indicating when the User joined the Organization.
+
+  - `string email`
+
+    Email of the User.
+
+  - `string name`
+
+    Name of the User.
+
+  - `BetaOrganizationRole role`
+
+    Organization role of the User.
+
+  - `"user" type`
+
+    Object type.
+
+    For Users, this is always `"user"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaOrganizationUser = $client->beta->organization->users->retrieve('user_id');
+
+var_dump($betaOrganizationUser);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "added_at": "2024-10-30T23:58:27.427722Z",
+  "email": "user@emaildomain.com",
+  "name": "Jane Doe",
+  "role": "admin",
+  "type": "user"
+}
+```
+
+### Update User
+
+`$client->beta->organization->users->update(string userID, Role role): OrganizationUser`
+
+**POST** `/v1/organizations/users/{user_id}`
+
+Update a member's organization role.
+
+#### Parameters
+
+- `userID: string`
+
+  ID of the User.
+
+- `role: Role`
+
+  New role for the User.
+
+  The accepted values depend on the organization type. Console and API organizations accept `user`, `developer`, `billing`, and `claude_code_user`; `admin` cannot be assigned through the API. Claude Enterprise organizations accept `user` and `managed`.
+
+#### Returns
+
+- `OrganizationUser`
+
+  - `string id`
+
+    ID of the User.
+
+  - `\Datetime addedAt`
+
+    RFC 3339 datetime string indicating when the User joined the Organization.
+
+  - `string email`
+
+    Email of the User.
+
+  - `string name`
+
+    Name of the User.
+
+  - `BetaOrganizationRole role`
+
+    Organization role of the User.
+
+  - `"user" type`
+
+    Object type.
+
+    For Users, this is always `"user"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaOrganizationUser = $client->beta->organization->users->update(
+  'user_id', role: 'user'
+);
+
+var_dump($betaOrganizationUser);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "added_at": "2024-10-30T23:58:27.427722Z",
+  "email": "user@emaildomain.com",
+  "name": "Jane Doe",
+  "role": "admin",
+  "type": "user"
+}
+```
+
+### Remove User
+
+`$client->beta->organization->users->remove(string userID): UserRemoveResponse`
+
+**DELETE** `/v1/organizations/users/{user_id}`
+
+Remove a member from the organization.
+
+#### Parameters
+
+- `userID: string`
+
+  ID of the User.
+
+#### Returns
+
+- `UserRemoveResponse`
+
+  - `string id`
+
+    ID of the User.
+
+  - `"user_deleted" type`
+
+    Deleted object type.
+
+    For Users, this is always `"user_deleted"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$user = $client->beta->organization->users->remove('user_id');
+
+var_dump($user);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "type": "user_deleted"
+}
+```
+
+## Beta › Organization › Workspaces
+
+### List Workspaces
+
+`$client->beta->organization->workspaces->list(?string afterID, ?string beforeID, ?bool includeArchived, ?int limit): Page<Workspace>`
+
+**GET** `/v1/organizations/workspaces`
+
+List Workspaces
+
+#### Parameters
+
+- `afterID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+- `beforeID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+- `includeArchived?:optional bool`
+
+  Whether to include Workspaces that have been archived in the response
+
+  default: false
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20
+
+#### Returns
+
+- `Workspace`
+
+  - `string id`
+
+    ID of the Workspace.
+
+  - `?\Datetime archivedAt`
+
+    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+  - `string compartmentID`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK) on AWS, reference this value in your
+    KMS key-policy condition so the key is scoped to this compartment. On GCP and
+    Azure, Anthropic enforces the compartment binding automatically; you do not
+    need to reference this value in your key configuration. See the CMEK integration guide for the
+    required key configuration, including the value used during key validation.
+
+  - `\Datetime createdAt`
+
+    RFC 3339 datetime string indicating when the Workspace was created.
+
+  - `DataResidency dataResidency`
+
+    Data residency configuration.
+
+  - `string displayColor`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+  - `?string externalKeyID`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
+  - `string name`
+
+    Name of the Workspace.
+
+  - `array<string,string> tags`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+  - `"workspace" type`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->workspaces->list(
+  afterID: 'after_id', beforeID: 'before_id', includeArchived: true, limit: 1
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+      "archived_at": "2024-11-01T23:59:27.427722Z",
+      "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "data_residency": {
+        "allowed_inference_geos": "unrestricted",
+        "default_inference_geo": "default_inference_geo",
+        "workspace_geo": "workspace_geo"
+      },
+      "display_color": "#6C5BB9",
+      "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+      "name": "Workspace Name",
+      "tags": {
+        "env": "prod",
+        "team": "platform"
+      },
+      "type": "workspace"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Create Workspace
+
+`$client->beta->organization->workspaces->create(string name, ?DataResidencyCreateConfig dataResidency, ?string displayColor, ?string externalKeyID, ?array<string,string> tags, ?list<AnthropicBeta> betas): Workspace`
+
+**POST** `/v1/organizations/workspaces`
+
+Create Workspace
+
+#### Parameters
+
+- `name: string`
+
+  Name of the Workspace.
+
+- `dataResidency?:optional DataResidencyCreateConfig`
+
+  Data residency configuration for the workspace. If omitted, defaults to `workspace_geo: "us"`, `allowed_inference_geos: "unrestricted"`, and `default_inference_geo: "global"`.
+
+- `displayColor?:optional string`
+
+  Hex color code representing the Workspace in the Anthropic Console.
+
+- `externalKeyID?:optional string`
+
+  ID of the customer-managed encryption key (CMEK) configuration to use for this
+  Workspace. Setting this field requires CMEK to be enabled for your
+  organization. When set, data stored for this Workspace is encrypted with the
+  referenced key. Create key configurations with the External Keys API. This
+  field is write-once: once a key is attached to a Workspace it cannot be
+  detached or replaced. To rotate key material, rotate the underlying key on
+  your cloud KMS; the `external_key_id` stays the same.
+
+- `tags?:optional array<string,string>`
+
+  User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `Workspace`
+
+  - `string id`
+
+    ID of the Workspace.
+
+  - `?\Datetime archivedAt`
+
+    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+  - `string compartmentID`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK) on AWS, reference this value in your
+    KMS key-policy condition so the key is scoped to this compartment. On GCP and
+    Azure, Anthropic enforces the compartment binding automatically; you do not
+    need to reference this value in your key configuration. See the CMEK integration guide for the
+    required key configuration, including the value used during key validation.
+
+  - `\Datetime createdAt`
+
+    RFC 3339 datetime string indicating when the Workspace was created.
+
+  - `DataResidency dataResidency`
+
+    Data residency configuration.
+
+  - `string displayColor`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+  - `?string externalKeyID`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
+  - `string name`
+
+    Name of the Workspace.
+
+  - `array<string,string> tags`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+  - `"workspace" type`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaWorkspace = $client->beta->organization->workspaces->create(
+  name: 'x',
+  dataResidency: [
+    'allowedInferenceGeos' => 'unrestricted',
+    'defaultInferenceGeo' => 'global',
+    'workspaceGeo' => 'us',
+  ],
+  displayColor: '#6C5BB9',
+  externalKeyID: 'ekey_01SDCCSbTxrXDpWc1phhtcfK',
+  tags: ['env' => 'prod', 'team' => 'platform'],
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaWorkspace);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+### Get Workspace
+
+`$client->beta->organization->workspaces->retrieve(string workspaceID): Workspace`
+
+**GET** `/v1/organizations/workspaces/{workspace_id}`
+
+Get Workspace
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the Workspace.
+
+#### Returns
+
+- `Workspace`
+
+  - `string id`
+
+    ID of the Workspace.
+
+  - `?\Datetime archivedAt`
+
+    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+  - `string compartmentID`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK) on AWS, reference this value in your
+    KMS key-policy condition so the key is scoped to this compartment. On GCP and
+    Azure, Anthropic enforces the compartment binding automatically; you do not
+    need to reference this value in your key configuration. See the CMEK integration guide for the
+    required key configuration, including the value used during key validation.
+
+  - `\Datetime createdAt`
+
+    RFC 3339 datetime string indicating when the Workspace was created.
+
+  - `DataResidency dataResidency`
+
+    Data residency configuration.
+
+  - `string displayColor`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+  - `?string externalKeyID`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
+  - `string name`
+
+    Name of the Workspace.
+
+  - `array<string,string> tags`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+  - `"workspace" type`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaWorkspace = $client->beta->organization->workspaces->retrieve(
+  'workspace_id'
+);
+
+var_dump($betaWorkspace);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+### Update Workspace
+
+`$client->beta->organization->workspaces->update(string workspaceID, ?DataResidencyUpdateConfig dataResidency, ?string displayColor, ?string externalKeyID, ?string name, ?array<string,string> tags): Workspace`
+
+**POST** `/v1/organizations/workspaces/{workspace_id}`
+
+Update Workspace
+
+#### Parameters
+
+- `workspaceID: string`
+
+- `dataResidency?:optional DataResidencyUpdateConfig`
+
+  Data residency configuration for the workspace.
+
+- `displayColor?:optional string`
+
+  Hex color code representing the Workspace in the Anthropic Console.
+
+- `externalKeyID?:optional string`
+
+  ID of the customer-managed encryption key (CMEK) configuration to use for this
+  Workspace. Setting this field requires CMEK to be enabled for your
+  organization. When set, data stored for this Workspace is encrypted with the
+  referenced key. Create key configurations with the External Keys API. This
+  field is write-once: once a key is attached to a Workspace it cannot be
+  detached or replaced. To rotate key material, rotate the underlying key on
+  your cloud KMS; the `external_key_id` stays the same.
+
+- `name?:optional string`
+
+  Name of the Workspace.
+
+- `tags?:optional array<string,string>`
+
+  User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+#### Returns
+
+- `Workspace`
+
+  - `string id`
+
+    ID of the Workspace.
+
+  - `?\Datetime archivedAt`
+
+    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+  - `string compartmentID`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK) on AWS, reference this value in your
+    KMS key-policy condition so the key is scoped to this compartment. On GCP and
+    Azure, Anthropic enforces the compartment binding automatically; you do not
+    need to reference this value in your key configuration. See the CMEK integration guide for the
+    required key configuration, including the value used during key validation.
+
+  - `\Datetime createdAt`
+
+    RFC 3339 datetime string indicating when the Workspace was created.
+
+  - `DataResidency dataResidency`
+
+    Data residency configuration.
+
+  - `string displayColor`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+  - `?string externalKeyID`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
+  - `string name`
+
+    Name of the Workspace.
+
+  - `array<string,string> tags`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+  - `"workspace" type`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaWorkspace = $client->beta->organization->workspaces->update(
+  'workspace_id',
+  dataResidency: [
+    'allowedInferenceGeos' => 'unrestricted', 'defaultInferenceGeo' => 'global'
+  ],
+  displayColor: '#6C5BB9',
+  externalKeyID: 'ekey_01SDCCSbTxrXDpWc1phhtcfK',
+  name: 'x',
+  tags: ['env' => 'prod', 'team' => 'platform'],
+);
+
+var_dump($betaWorkspace);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+### Archive Workspace
+
+`$client->beta->organization->workspaces->archive(string workspaceID): Workspace`
+
+**POST** `/v1/organizations/workspaces/{workspace_id}/archive`
+
+Archive Workspace
+
+#### Parameters
+
+- `workspaceID: string`
+
+#### Returns
+
+- `Workspace`
+
+  - `string id`
+
+    ID of the Workspace.
+
+  - `?\Datetime archivedAt`
+
+    RFC 3339 datetime string indicating when the Workspace was archived, or `null` if the Workspace is not archived.
+
+  - `string compartmentID`
+
+    Identifier for this Workspace's encryption compartment. When you configure a
+    customer-managed encryption key (CMEK) on AWS, reference this value in your
+    KMS key-policy condition so the key is scoped to this compartment. On GCP and
+    Azure, Anthropic enforces the compartment binding automatically; you do not
+    need to reference this value in your key configuration. See the CMEK integration guide for the
+    required key configuration, including the value used during key validation.
+
+  - `\Datetime createdAt`
+
+    RFC 3339 datetime string indicating when the Workspace was created.
+
+  - `DataResidency dataResidency`
+
+    Data residency configuration.
+
+  - `string displayColor`
+
+    Hex color code representing the Workspace in the Anthropic Console.
+
+  - `?string externalKeyID`
+
+    ID of the customer-managed encryption key (CMEK) configuration to use for this
+    Workspace. Setting this field requires CMEK to be enabled for your
+    organization. When set, data stored for this Workspace is encrypted with the
+    referenced key. Create key configurations with the External Keys API. This
+    field is write-once: once a key is attached to a Workspace it cannot be
+    detached or replaced. To rotate key material, rotate the underlying key on
+    your cloud KMS; the `external_key_id` stays the same.
+
+  - `string name`
+
+    Name of the Workspace.
+
+  - `array<string,string> tags`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
+  - `"workspace" type`
+
+    Object type.
+
+    For Workspaces, this is always `"workspace"`.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaWorkspace = $client->beta->organization->workspaces->archive(
+  'workspace_id'
+);
+
+var_dump($betaWorkspace);
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "compartment_id": "f8a7b6c5-4d3e-4f1a-8b9c-0d1e2f3a4b5c",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "external_key_id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+## Beta › Organization › Workspaces › Rate Limits
+
+### List Workspace Rate Limits
+
+`$client->beta->organization->workspaces->rateLimits->list(string workspaceID, ?GroupType groupType, ?int limit, ?string page): PageCursor<BetaWorkspaceRateLimit>`
+
+**GET** `/v1/organizations/workspaces/{workspace_id}/rate_limits`
+
+List rate-limit overrides configured for a workspace.
+
+Returns only the groups and limiter types that have a workspace-level
+override. Groups without overrides inherit the organization limits and
+are not listed; use `GET /v1/organizations/rate_limits` to see those.
+
+When `limit` is omitted, every matching entry is returned in a single
+page; when `limit` truncates the result, follow `next_page` to fetch
+the remaining entries.
+
+#### Parameters
+
+- `workspaceID: string`
+
+  The ID of the workspace.
+
+- `groupType?:optional GroupType`
+
+  Filter by group type.
+
+- `limit?:optional int`
+
+  Maximum number of items to return per page. Ranges from `1` to `1000`.
+
+  When omitted, every remaining entry is returned in a single page and `next_page` is `null`.
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+#### Returns
+
+- `BetaWorkspaceRateLimit`
+
+  - `GroupType groupType`
+
+    The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+
+  - `list<BetaWorkspaceRateLimitValue> limits`
+
+    The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
+
+  - `?list<string> models`
+
+    Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
+
+  - `string rateLimitID`
+
+    The `id` of the RateLimit group this override applies to.
+
+  - `"workspace_rate_limit" type`
+
+    Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
+
+  - `string workspaceID`
+
+    ID of the Workspace this override applies to.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->workspaces->rateLimits->list(
+  'workspace_id', groupType: 'batch', limit: 1, page: 'page'
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "group_type": "batch",
+      "limits": [
+        {
+          "org_limit": 0,
+          "type": "type",
+          "value": 0
+        }
+      ],
+      "models": [
+        "string"
+      ],
+      "rate_limit_id": "rate_limit_id",
+      "type": "workspace_rate_limit",
+      "workspace_id": "workspace_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Beta › Organization › Workspaces › Members
+
+### List Workspace Members
+
+`$client->beta->organization->workspaces->members->list(string workspaceID, ?string afterID, ?string beforeID, ?int limit): Page<WorkspaceMember>`
+
+**GET** `/v1/organizations/workspaces/{workspace_id}/members`
+
+List Workspace Members
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the Workspace.
+
+- `afterID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+- `beforeID?:optional string`
+
+  ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+- `limit?:optional int`
+
+  Number of items to return per page.
+
+  Defaults to `20`. Ranges from `1` to `1000`.
+
+  default: 20
+
+#### Returns
+
+- `WorkspaceMember`
+
+  - `"workspace_member" type`
+
+    Object type.
+
+    For Workspace Members, this is always `"workspace_member"`.
+
+  - `string userID`
+
+    ID of the User.
+
+  - `string workspaceID`
+
+    ID of the Workspace.
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the Workspace Member.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->workspaces->members->list(
+  'workspace_id', afterID: 'after_id', beforeID: 'before_id', limit: 1
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "type": "workspace_member",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+      "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+      "workspace_role": "workspace_admin"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Create Workspace Member
+
+`$client->beta->organization->workspaces->members->add(string workspaceID, string userID, NoBillingWorkspaceRole workspaceRole): WorkspaceMember`
+
+**POST** `/v1/organizations/workspaces/{workspace_id}/members`
+
+Create Workspace Member
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the Workspace.
+
+- `userID: string`
+
+  ID of the User.
+
+- `workspaceRole: NoBillingWorkspaceRole`
+
+  Role of the new Workspace Member. Cannot be `workspace_billing`.
+
+#### Returns
+
+- `WorkspaceMember`
+
+  - `"workspace_member" type`
+
+    Object type.
+
+    For Workspace Members, this is always `"workspace_member"`.
+
+  - `string userID`
+
+    ID of the User.
+
+  - `string workspaceID`
+
+    ID of the Workspace.
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the Workspace Member.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaWorkspaceMember = $client->beta->organization->workspaces->members->add(
+  'workspace_id',
+  userID: 'user_01WCz1FkmYMm4gnmykNKUu3Q',
+  workspaceRole: NoBillingWorkspaceRole::WORKSPACE_ADMIN,
+);
+
+var_dump($betaWorkspaceMember);
+```
+
+##### Response (200)
+
+```json
+{
+  "type": "workspace_member",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "workspace_role": "workspace_admin"
+}
+```
+
+### Get Workspace Member
+
+`$client->beta->organization->workspaces->members->retrieve(string userID, string workspaceID): WorkspaceMember`
+
+**GET** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`
+
+Get Workspace Member
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the Workspace.
+
+- `userID: string`
+
+  ID of the User.
+
+#### Returns
+
+- `WorkspaceMember`
+
+  - `"workspace_member" type`
+
+    Object type.
+
+    For Workspace Members, this is always `"workspace_member"`.
+
+  - `string userID`
+
+    ID of the User.
+
+  - `string workspaceID`
+
+    ID of the Workspace.
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the Workspace Member.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaWorkspaceMember = $client
+  ->beta
+  ->organization
+  ->workspaces
+  ->members
+  ->retrieve('user_id', workspaceID: 'workspace_id');
+
+var_dump($betaWorkspaceMember);
+```
+
+##### Response (200)
+
+```json
+{
+  "type": "workspace_member",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "workspace_role": "workspace_admin"
+}
+```
+
+### Update Workspace Member
+
+`$client->beta->organization->workspaces->members->update(string userID, string workspaceID, WorkspaceRole workspaceRole): WorkspaceMember`
+
+**POST** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`
+
+Update Workspace Member
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the Workspace.
+
+- `userID: string`
+
+  ID of the User.
+
+- `workspaceRole: WorkspaceRole`
+
+  New workspace role for the User.
+
+#### Returns
+
+- `WorkspaceMember`
+
+  - `"workspace_member" type`
+
+    Object type.
+
+    For Workspace Members, this is always `"workspace_member"`.
+
+  - `string userID`
+
+    ID of the User.
+
+  - `string workspaceID`
+
+    ID of the Workspace.
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the Workspace Member.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaWorkspaceMember = $client->beta->organization->workspaces->members->update(
+  'user_id',
+  workspaceID: 'workspace_id',
+  workspaceRole: WorkspaceRole::WORKSPACE_ADMIN,
+);
+
+var_dump($betaWorkspaceMember);
+```
+
+##### Response (200)
+
+```json
+{
+  "type": "workspace_member",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "workspace_role": "workspace_admin"
+}
+```
+
+### Delete Workspace Member
+
+`$client->beta->organization->workspaces->members->remove(string userID, string workspaceID): MemberRemoveResponse`
+
+**DELETE** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`
+
+Delete Workspace Member
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the Workspace.
+
+- `userID: string`
+
+  ID of the User.
+
+#### Returns
+
+- `MemberRemoveResponse`
+
+  - `"workspace_member_deleted" type`
+
+    Deleted object type.
+
+    For Workspace Members, this is always `"workspace_member_deleted"`.
+
+  - `string userID`
+
+    ID of the User.
+
+  - `string workspaceID`
+
+    ID of the Workspace.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$member = $client->beta->organization->workspaces->members->remove(
+  'user_id', workspaceID: 'workspace_id'
+);
+
+var_dump($member);
+```
+
+##### Response (200)
+
+```json
+{
+  "type": "workspace_member_deleted",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+## Beta › Organization › Workspaces › Service Accounts
+
+### List Service Account Workspace Members
+
+`$client->beta->organization->workspaces->serviceAccounts->list(string workspaceID, ?int limit, ?string page, ?list<AnthropicBeta> betas): PageCursor<ServiceAccountWorkspaceMember>`
+
+**GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List the service accounts that are members of a workspace.
+
+Each entry includes the service account's `workspace_role`. Use `limit`
+and the `next_page` cursor to paginate. Archived workspaces return 400;
+use `GET /service_accounts/{id}/workspaces` to audit memberships of an
+archived workspace. The implicit default-workspace membership is not
+included in this list. Memberships of archived service accounts are
+omitted from the results.
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the workspace.
+
+- `limit?:optional int`
+
+  Number of results per page.
+
+  default: 20
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccountWorkspaceMember`
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
+
+  - `?bool implicit`
+
+    True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role `workspace_user` and cannot be removed.
+
+  - `string serviceAccountID`
+
+    Tagged service account ID (`svac_...`).
+
+  - `"service_account_workspace_member" type`
+
+  - `string workspaceID`
+
+    Tagged workspace ID (`wrkspc_...`).
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->workspaces->serviceAccounts->list(
+  'workspace_id',
+  limit: 1,
+  page: 'page',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "created_by_actor_id": "created_by_actor_id",
+      "implicit": true,
+      "service_account_id": "service_account_id",
+      "type": "service_account_workspace_member",
+      "workspace_id": "workspace_id",
+      "workspace_role": "workspace_admin"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Create Service Account Workspace Member
+
+`$client->beta->organization->workspaces->serviceAccounts->add(string workspaceID, string serviceAccountID, NoBillingWorkspaceRole workspaceRole, ?list<AnthropicBeta> betas): ServiceAccountWorkspaceMember`
+
+**POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Add a service account to a workspace with the given `workspace_role`.
+
+The role determines what the service account can do in the workspace and
+which workspace-scoped permissions it can be granted when authenticating
+through federation. Every service account is already an implicit
+`workspace_user` member of the default workspace; adding it explicitly
+assigns a chosen role. If the service account is already an explicit
+member of the workspace, its `workspace_role` is replaced with the
+value supplied here. Archived workspaces return 400. Archived service
+accounts cannot be added and are rejected.
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the workspace.
+
+- `serviceAccountID: string`
+
+  Tagged service account ID to add.
+
+- `workspaceRole: NoBillingWorkspaceRole`
+
+  Role to assign to the service account in this workspace.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccountWorkspaceMember`
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
+
+  - `?bool implicit`
+
+    True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role `workspace_user` and cannot be removed.
+
+  - `string serviceAccountID`
+
+    Tagged service account ID (`svac_...`).
+
+  - `"service_account_workspace_member" type`
+
+  - `string workspaceID`
+
+    Tagged workspace ID (`wrkspc_...`).
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaServiceAccountWorkspaceMember = $client
+  ->beta
+  ->organization
+  ->workspaces
+  ->serviceAccounts
+  ->add(
+  'workspace_id',
+  serviceAccountID: 'service_account_id',
+  workspaceRole: NoBillingWorkspaceRole::WORKSPACE_ADMIN,
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaServiceAccountWorkspaceMember);
+```
+
+##### Response (200)
+
+```json
+{
+  "created_by_actor_id": "created_by_actor_id",
+  "implicit": true,
+  "service_account_id": "service_account_id",
+  "type": "service_account_workspace_member",
+  "workspace_id": "workspace_id",
+  "workspace_role": "workspace_admin"
+}
+```
+
+### Get Service Account Workspace Member
+
+`$client->beta->organization->workspaces->serviceAccounts->retrieve(string serviceAccountID, string workspaceID, ?list<AnthropicBeta> betas): ServiceAccountWorkspaceMember`
+
+**GET** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a service account's membership in a workspace.
+
+Returns the membership record, including the service account's
+`workspace_role` in this workspace. Archived workspaces return 400. For
+the default workspace, returns the implicit (`implicit: true`)
+membership when no explicit membership exists; an explicitly added
+membership is returned with its assigned role. An archived service
+account returns 404.
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the workspace.
+
+- `serviceAccountID: string`
+
+  ID of the service account.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccountWorkspaceMember`
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
+
+  - `?bool implicit`
+
+    True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role `workspace_user` and cannot be removed.
+
+  - `string serviceAccountID`
+
+    Tagged service account ID (`svac_...`).
+
+  - `"service_account_workspace_member" type`
+
+  - `string workspaceID`
+
+    Tagged workspace ID (`wrkspc_...`).
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaServiceAccountWorkspaceMember = $client
+  ->beta
+  ->organization
+  ->workspaces
+  ->serviceAccounts
+  ->retrieve(
+  'service_account_id',
+  workspaceID: 'workspace_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaServiceAccountWorkspaceMember);
+```
+
+##### Response (200)
+
+```json
+{
+  "created_by_actor_id": "created_by_actor_id",
+  "implicit": true,
+  "service_account_id": "service_account_id",
+  "type": "service_account_workspace_member",
+  "workspace_id": "workspace_id",
+  "workspace_role": "workspace_admin"
+}
+```
+
+### Update Service Account Workspace Member
+
+`$client->beta->organization->workspaces->serviceAccounts->update(string serviceAccountID, string workspaceID, NoBillingWorkspaceRole workspaceRole, ?list<AnthropicBeta> betas): ServiceAccountWorkspaceMember`
+
+**POST** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Change a service account's role in a workspace.
+
+The new `workspace_role` replaces the current one. Only explicit
+memberships can be updated; to set a role on the implicit
+default-workspace membership, add the service account explicitly with
+`POST /workspaces/{workspace_id}/service_accounts`. Archived workspaces
+return 400. Archived service accounts cannot be updated and are
+rejected.
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the workspace.
+
+- `serviceAccountID: string`
+
+  ID of the service account.
+
+- `workspaceRole: NoBillingWorkspaceRole`
+
+  New role for the service account in this workspace.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccountWorkspaceMember`
+
+  - `?string createdByActorID`
+
+    Tagged ID (`user_...`/`svac_...`) of the actor who created this membership.
+
+  - `?bool implicit`
+
+    True when this is the implicit default-workspace membership every service account has when no explicit membership exists. Implicit memberships have role `workspace_user` and cannot be removed.
+
+  - `string serviceAccountID`
+
+    Tagged service account ID (`svac_...`).
+
+  - `"service_account_workspace_member" type`
+
+  - `string workspaceID`
+
+    Tagged workspace ID (`wrkspc_...`).
+
+  - `WorkspaceRole workspaceRole`
+
+    Role of the service account in this workspace. Service accounts cannot hold the `workspace_billing` role.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$betaServiceAccountWorkspaceMember = $client
+  ->beta
+  ->organization
+  ->workspaces
+  ->serviceAccounts
+  ->update(
+  'service_account_id',
+  workspaceID: 'workspace_id',
+  workspaceRole: NoBillingWorkspaceRole::WORKSPACE_ADMIN,
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($betaServiceAccountWorkspaceMember);
+```
+
+##### Response (200)
+
+```json
+{
+  "created_by_actor_id": "created_by_actor_id",
+  "implicit": true,
+  "service_account_id": "service_account_id",
+  "type": "service_account_workspace_member",
+  "workspace_id": "workspace_id",
+  "workspace_role": "workspace_admin"
+}
+```
+
+### Delete Service Account Workspace Member
+
+`$client->beta->organization->workspaces->serviceAccounts->remove(string serviceAccountID, string workspaceID, ?list<AnthropicBeta> betas): ServiceAccountRemoveResponse`
+
+**DELETE** `/v1/organizations/workspaces/{workspace_id}/service_accounts/{service_account_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Remove a service account from a workspace.
+
+Removal is idempotent (returns 200 even if the membership was already
+removed). A DELETE against the implicit default-workspace membership
+returns 200 but is a no-op and the membership persists; deleting an
+explicit default-workspace row reverts to the implicit `workspace_user`
+membership. Archived workspaces return 400.
+
+#### Parameters
+
+- `workspaceID: string`
+
+  ID of the workspace.
+
+- `serviceAccountID: string`
+
+  ID of the service account.
+
+- `betas?:optional list<AnthropicBeta>`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `ServiceAccountRemoveResponse`
+
+  - `string serviceAccountID`
+
+    Tagged service account ID (`svac_...`) named in the delete request. Removal is idempotent; see the endpoint description for the implicit-membership no-op.
+
+  - `"service_account_workspace_member_deleted" type`
+
+  - `string workspaceID`
+
+    Tagged workspace ID (`wrkspc_...`) named in the delete request.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$serviceAccount = $client
+  ->beta
+  ->organization
+  ->workspaces
+  ->serviceAccounts
+  ->remove(
+  'service_account_id',
+  workspaceID: 'workspace_id',
+  betas: [AnthropicBeta::MESSAGE_BATCHES_2024_09_24],
+);
+
+var_dump($serviceAccount);
+```
+
+##### Response (200)
+
+```json
+{
+  "service_account_id": "service_account_id",
+  "type": "service_account_workspace_member_deleted",
+  "workspace_id": "workspace_id"
+}
+```
+
+## Beta › Organization › Rate Limits
+
+### List Organization Rate Limits
+
+`$client->beta->organization->rateLimits->list(?GroupType groupType, ?int limit, ?string model, ?string page): PageCursor<OrganizationRateLimit>`
+
+**GET** `/v1/organizations/rate_limits`
+
+List Messages API rate limits for your organization.
+
+Each entry corresponds to one rate-limit group (either a model family
+or an API-surface category such as the Files API or Message Batches)
+and contains the set of limiter values that apply to it.
+
+When `limit` is omitted, every matching entry is returned in a single
+page; when `limit` truncates the result, follow `next_page` to fetch
+the remaining entries.
+
+#### Parameters
+
+- `groupType?:optional GroupType`
+
+  Filter by group type.
+
+- `limit?:optional int`
+
+  Maximum number of items to return per page. Ranges from `1` to `1000`.
+
+  When omitted, every remaining entry is returned in a single page and `next_page` is `null`.
+
+- `model?:optional string`
+
+  Filter to the single entry containing this model. Accepts full model names and aliases. Returns 404 if the model is not found or has no rate limits for this organization.
+
+- `page?:optional string`
+
+  Opaque cursor from a previous response's `next_page`.
+
+#### Returns
+
+- `OrganizationRateLimit`
+
+  - `string id`
+
+    Stable identifier for this rate-limit group within the organization.
+
+  - `GroupType groupType`
+
+    The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
+
+  - `list<OrganizationRateLimitValue> limits`
+
+    The limiter values that apply to this group.
+
+  - `?list<string> models`
+
+    Model names this entry's limits apply to, including aliases. `null` when `group_type` is not `"model_group"`.
+
+  - `"rate_limit" type`
+
+    Object type. Always `rate_limit` for organization rate-limit entries.
+
+#### Example
+
+```php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+$client = new Client(apiKey: 'my-anthropic-api-key');
+
+$page = $client->beta->organization->rateLimits->list(
+  groupType: 'batch', limit: 1, model: 'model', page: 'page'
+);
+
+var_dump($page);
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "group_type": "batch",
+      "limits": [
+        {
+          "type": "type",
+          "value": 0
+        }
+      ],
+      "models": [
+        "string"
+      ],
+      "type": "rate_limit"
+    }
+  ],
+  "next_page": "next_page"
 }
 ```

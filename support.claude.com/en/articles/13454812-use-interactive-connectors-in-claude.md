@@ -12,8 +12,6 @@ Claude can also generate its own custom visuals—diagrams, charts, and simple i
 
 For more on Claude-generated visuals, see **[Custom visuals in chat](https://support.claude.com/en/articles/13979539-custom-visuals-in-chat)**.
 
----
-
 ## How interactive connectors appear
 
 Interactive connectors display in two ways:
@@ -63,8 +61,6 @@ We’re adding support for more interactive connectors over time.
 
 Yes. Team and Enterprise owners can disable the specific tool calls that render interactive connectors within **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**. This does not disable the connector itself — text-based tool functionality continues to work normally.
 
----
-
 ## Permissions and security
 
 ### How are interactive connectors secured?
@@ -78,8 +74,6 @@ No. Interactive connectors use the same permissions you granted when connecting 
 ### Can interactive connectors make purchases or financial transactions?
 
 No. Purchases through third-party interactive connectors are not supported.
-
----
 
 ## Troubleshooting
 
@@ -99,14 +93,12 @@ No. Purchases through third-party interactive connectors are not supported.
 * **Team and Enterprise users:** Ask your organization owner to disable the relevant tool calls in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**.
 * **Individual users:** You can disable specific connector tools via the "Search and tools" menu in your conversation.
 
----
-
 ## I'm a developer. Where can I learn about building MCP Apps?
 
 MCP Apps is the open-source extension to the Model Context Protocol that powers interactive apps. If you are building your own interactive connector, note that it must meet additional design, security, and testing requirements. For details, see **[Submitting to the Connectors Directory](https://claude.com/docs/connectors/building/submission)** on Claude Docs.
 
+* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [When to use desktop and web connectors](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)
 * [Visual and interactive content](https://support.claude.com/en/articles/13641943-visual-and-interactive-content)
-* [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)

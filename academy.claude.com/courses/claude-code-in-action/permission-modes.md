@@ -22,7 +22,7 @@ cycle through them: manual, accept edits, and plan. Those cover the
 everyday, hands-on work. The rest of the modes are where hands-off Claude
 Code really lives, and the one to reach for there is auto.
 
-## The six permission modes
+## The six permission modes[](#the-six-permission-modes)
 
 Here's the full set. Each mode draws a different line between what runs freely and what needs your sign-off.
 
@@ -33,11 +33,11 @@ Here's the full set. Each mode draws a different line between what runs freely a
 * **Don't ask** allows only pre-approved tools. Everything else is auto-denied with no prompt.
 * **Bypass permissions** skips all checks. This is the equivalent of the dangerously-skip-permissions flag. Only run it inside an isolated container or virtual machine.
 
-## Cycling with shift-tab
+## Cycling with shift-tab[](#cycling-with-shift-tab)
 
 You don't need to memorize a command for each mode. Press shift-tab to cycle through the everyday ones: manual, accept edits, plan, and auto. The status bar at the bottom always shows which mode you're currently in, so you can glance down and know exactly what Claude is allowed to do.
 
-## How auto mode works
+## How auto mode works[](#how-auto-mode-works)
 
 Auto is the hands-off mode. Claude runs on its own, but before each action executes, a separate classifier model reviews it. The classifier guards intent. It's watching for moves that escalate beyond what you actually asked for.
 
@@ -50,7 +50,7 @@ Here's the kind of thing it's designed to block:
 
 And it waves through the everyday work: local edits in your project, installing dependencies from your lock file, read-only requests, and pushing to your own branch.
 
-## What the classifier can't do
+## What the classifier can't do[](#what-the-classifier-cant-do)
 
 The classifier checks intent, not correctness. It won't catch whether the code actually works. So if you ask Claude to refactor authentication and it writes broken authentication, the classifier waves it through, because broken isn't dangerous.
 
@@ -61,11 +61,11 @@ That's why you pair auto mode with a stop hook that runs your tests. The two wor
 
 One guards intent before each action, the other guards correctness after. Auto mode's guardrails are still evolving, so check the docs for the current block and allow lists.
 
-## Don't ask, for unattended runs
+## Don't ask, for unattended runs[](#dont-ask-for-unattended-runs)
 
 Don't ask is the right move whenever no human is around to approve prompts: CI pipelines, scheduled jobs, overnight batches. Only pre-approved tools are allowed, and anything off that list gets auto-denied with no prompt. That's the whole point. Your pipeline keeps moving instead of hanging on an approval no one is there to give.
 
-## Match the mode to the job
+## Match the mode to the job[](#match-the-mode-to-the-job)
 
 There are several permission modes, and you reach the everyday ones by cycling shift-tab. To sum it up:
 

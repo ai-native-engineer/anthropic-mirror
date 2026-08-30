@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/news/skt-partnership-announcement -->
 
-# SKT Partnership Announcement
+# SKT partnership announcement
 
 Aug 15, 2023
 

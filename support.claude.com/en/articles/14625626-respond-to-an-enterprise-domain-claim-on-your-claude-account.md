@@ -52,8 +52,6 @@ After migration, you’ll sign in to Claude using your organization’s single s
 
 If you chose to merge, your conversations, projects, and files will be waiting in your new Enterprise account.
 
----
-
 ## Frequently asked questions
 
 ### Can I undo a merge?
@@ -82,6 +80,6 @@ You can migrate your personal account to an existing Enterprise account; data fr
 
 * [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
 * [Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)
-* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
 * [Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)
 * [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)
+* [Set up Claude for Teachers for your school or district](https://support.claude.com/en/articles/16559896-set-up-claude-for-teachers-for-your-school-or-district)

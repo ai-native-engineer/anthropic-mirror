@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Recognize the importance of clear, purposeful communication
 * Develop skills in three types of Description: Product, Process, and Performance
 
-## A closer look at description
+## A closer look at description[](#a-closer-look-at-description)
 
 A closer look at Description · 4 min
 
@@ -34,7 +34,7 @@ introduce three key components of Description:
 
 We also emphasize that AI can't read your mind, and how the quality of your results often comes down to how clearly you articulate your needs, preferred approach, and desired interaction style.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Description is about communicating with AI in ways that create a productive collaborative environment
 * Product Description involves clearly defining what you want in terms of outputs, format, audience, and style
@@ -43,7 +43,7 @@ We also emphasize that AI can't read your mind, and how the quality of your resu
 * AI systems are interactive partners, not databases or vending machines
 * Clear communication up front saves time and leads to better results
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Bad Prompt Makeover
 
@@ -57,14 +57,14 @@ We also emphasize that AI can't read your mind, and how the quality of your resu
 3. Have a chat about the before/after versions with Claude and ask for feedback on how your improved descriptions would help it provide better responses.
 4. After about 5 minutes, switch roles and provide bad prompts for Claude to fix. Notice what information Claude tends to add and how it organizes this information.
 
-### Reflection
+### Reflection[](#reflection)
 
 Before moving on, take a moment to consider:
 
 * Which component of Description (product, process, or performance) do you think you might be overlooking in your current AI interactions?
 * Think about a recent AI interaction that didn't quite meet your expectations. How might better description skills have improved the outcome?
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, we'll take a deeper dive into effective prompting techniques. You'll learn what prompt engineering is and why it matters, apply six foundational techniques for getting better results from AI, and practice troubleshooting and refining prompts when responses don't meet your needs.
 

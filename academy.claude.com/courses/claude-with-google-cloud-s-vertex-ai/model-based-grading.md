@@ -12,7 +12,7 @@ Lesson 1410 min
 
 When building prompt evaluation workflows, grading systems provide objective signals about output quality. A grader takes model output and returns some kind of measurable feedback - typically a number between 1 and 10, where 10 represents high quality and 1 represents poor quality.
 
-## Types of Graders
+## Types of Graders[](#types-of-graders)
 
 ![](https://academy.claude.com/assets/media/4ddd6988ba49fadfcd2e95aeb3da98a4d9537d0bf0918d0223eaf0d97ce1bc50.png)
 
@@ -22,7 +22,7 @@ There are three main approaches to grading model outputs:
 * **Model graders** - Use another AI model to assess the quality
 * **Human graders** - Have people manually review and score outputs
 
-### Code Graders
+### Code Graders[](#code-graders)
 
 Code graders let you implement any programmatic check you can imagine. Common uses include:
 
@@ -31,7 +31,7 @@ Code graders let you implement any programmatic check you can imagine. Common us
 * Syntax validation for JSON, Python, or regex
 * Readability scores to ensure appropriate reading levels
 
-### Model Graders
+### Model Graders[](#model-graders)
 
 Model graders offer tremendous flexibility by using an additional API call to evaluate outputs. They're useful for assessing:
 
@@ -41,11 +41,11 @@ Model graders offer tremendous flexibility by using an additional API call to ev
 * Helpfulness
 * Safety
 
-### Human Graders
+### Human Graders[](#human-graders)
 
 Human graders provide the most flexibility but come with significant downsides. While humans can evaluate responses for any criteria imaginable, the process is time-consuming and tedious.
 
-## Defining Evaluation Criteria
+## Defining Evaluation Criteria[](#defining-evaluation-criteria)
 
 ![](https://academy.claude.com/assets/media/73dbc7e22915d1004fcfe651c18a37312bbf0d5ed7e2973048ff77364e1ada21.png)
 
@@ -59,7 +59,7 @@ Before implementing any grader, you need clear evaluation criteria. For a code g
 
 The first two criteria work well with code graders, while task following is better suited for model graders due to their flexibility.
 
-## Implementing a Model Grader
+## Implementing a Model Grader[](#implementing-a-model-grader)
 
 Model graders are often the easiest to implement. Here's a basic structure:
 
@@ -85,7 +85,7 @@ The grading prompt should be comprehensive and include:
 
 Ask for more than just a score. Request strengths, weaknesses, and reasoning alongside the numerical score. This prevents the model from defaulting to middling scores like 6 and forces more thoughtful evaluation.
 
-## Integrating Graders into Your Workflow
+## Integrating Graders into Your Workflow[](#integrating-graders-into-your-workflow)
 
 Once you have a grader function, integrate it into your test case runner:
 

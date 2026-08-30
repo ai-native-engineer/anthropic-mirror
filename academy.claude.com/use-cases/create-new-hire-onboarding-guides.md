@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create new hire onboarding guides result](https://academy.claude.com/assets/v1/create-new-hire-onboarding-guides-kz6n6qsj.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to combine standard information with personalized details, paired with your knowledge of what new hires actually need, lets you create welcoming, practical guides without manually assembling the same pieces each time.
 
@@ -39,11 +39,11 @@ Make it information-dense but beautifully organized—a senior designer should l
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Provide your standard company information and the new hire's specific details so Claude can create a guide that feels informational, welcoming, and personally relevant.
 
-### Required context
+### Required context[](#required-context)
 
 Enable the [Google Calendar integration(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) so Claude can reformat your onboarding calendar events into a schedule for the new hire.
 
@@ -63,15 +63,7 @@ Company policy handbookPDF
 
 Office logisticsDOC
 
-### Optional context
-
-Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can spend more time thinking through information across your tools and creating high quality file outputs.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude combines your standard company information with personalized details into a single, welcoming guide that equips new hires with helpful, specific onboarding information.
 
@@ -91,11 +83,11 @@ The document balances being informative without overwhelming—she can read it S
 
 **View Sarah's first week guide**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Batch create for multiple new hires
+### Batch create for multiple new hires[](#batch-create-for-multiple-new-hires)
 
 Generate personalized versions for different recipients from a single template. Claude customizes content for each person's role, team, or context while maintaining consistency.
 
@@ -103,7 +95,7 @@ I have four people starting Monday: Alex (Engineering), Maria (Sales), Jordan (M
 
 Open in Claude
 
-### Add additional features
+### Add additional features[](#add-additional-features)
 
 Embed images, diagrams, or hyperlinks into your documents. Claude handles both the upload and formatting.
 
@@ -111,7 +103,7 @@ Using the files I just uploaded, add our team photo to the 'Your Team' section a
 
 Open in Claude
 
-### Convert to other formats
+### Convert to other formats[](#convert-to-other-formats)
 
 Take one source document and create versions optimized for different uses—reading, presenting, emailing, printing. Claude adapts structure and formatting for each purpose.
 
@@ -119,21 +111,21 @@ Convert this word document into a PDF for printing, a bulleted list of urgent in
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Iterate on design with specific feedback
+### Iterate on design with specific feedback[](#iterate-on-design-with-specific-feedback)
 
 If the first version doesn't look right, give Claude specific direction: "make it more information-dense, the first page has too much wasted space", “this looks too generic, create something that looks like a high-end creative agency made it not HR” or "the boxes aren't rendering correctly, simplify the table structure." Claude can quickly adjust typography, layout, spacing, or restructure entirely. Design iteration is fast.
 
-### Personalize the design
+### Personalize the design[](#personalize-the-design)
 
 Clarify how you want your document to look by describing your design preferences to Claude—whether that's clean and minimal, bold and modern, or sophisticated and corporate. For even better results, upload your brand guidelines or screenshots of your company website so Claude can match your specific color schemes, typography, and overall design aesthetic.
 
-### Create a reusable template
+### Create a reusable template[](#create-a-reusable-template)
 
 Once you've created your initial guide, save its structure as a template within a 'New Hire Guide' Project. This project should include instructions on which tools to use for gathering company information and emphasize a warm yet practical tone. For each new hire, simply input their specific details, and Claude will personalize the template accordingly.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Create a first week guide that helps your next hire walk in feeling confident instead of overwhelmed.
 

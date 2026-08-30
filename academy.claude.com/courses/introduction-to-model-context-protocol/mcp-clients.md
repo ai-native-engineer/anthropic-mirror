@@ -12,7 +12,7 @@ Lesson 22 min
 
 The MCP client serves as the communication bridge between your server and MCP servers. It's your access point to all the tools that an MCP server provides, handling the message exchange and protocol details so your application doesn't have to.
 
-## Transport Agnostic Communication
+## Transport Agnostic Communication[](#transport-agnostic-communication)
 
 One of MCP's key strengths is being transport agnostic - a fancy way of saying the client and server can communicate over different protocols depending on your setup.
 
@@ -26,7 +26,7 @@ The most common setup runs both the MCP client and server on the same machine, c
 
 ![](https://academy.claude.com/assets/media/3a63d189484fd713cdaa1932e5b9638da2b20059ce414c288f77d915371b5f5c.png)
 
-## MCP Message Types
+## MCP Message Types[](#mcp-message-types)
 
 Once connected, the client and server exchange specific message types defined in the MCP specification. The main ones you'll work with are:
 
@@ -38,7 +38,7 @@ Once connected, the client and server exchange specific message types defined in
 
 **CallToolRequest/CallToolResult:** The client asks the server to run a specific tool with given arguments, then receives the results.
 
-## How It All Works Together
+## How It All Works Together[](#how-it-all-works-together)
 
 Here's a complete example showing how a user query flows through the entire system - from your server, through the MCP client, to external services like GitHub, and back to Claude.
 

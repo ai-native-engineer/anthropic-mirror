@@ -10,7 +10,7 @@
 
 Each use case below links to a page with prompts to paste, what it needs connected, and how to set it up to [run on a schedule or watch the channel](https://claude.com/docs/claude-tag/users/proactivity) instead of asking each time.
 
-If `@Claude` doesn’t autocomplete in your workspace, your admin hasn’t enabled Claude Tag. Send them the [setup guide](https://claude.com/docs/claude-tag/admins/setup-overview).
+If typing `@Claude` doesn’t show **Claude** with an **APP** badge, the Claude app isn’t installed in your Slack workspace; ask your Slack admin to install it. If the mention sends but Claude doesn’t reply, ask your Claude organization admin to enable Claude Tag for the channel and send them the [setup guide](https://claude.com/docs/claude-tag/admins/setup-overview).
 
 ##  All use cases
 
@@ -28,7 +28,7 @@ If `@Claude` doesn’t autocomplete in your workspace, your admin hasn’t enabl
 | [Work with GitHub](https://claude.com/docs/claude-tag/users/use-cases/work-with-github) | Engineering, anyone with repository questions | Answers repository questions in-thread, watches pull requests for you, turns postponed chores into draft PRs | GitHub |
 | [Watch monitors and alerts](https://claude.com/docs/claude-tag/users/use-cases/watch-monitors) | On-call, SRE | Checks dashboards on a schedule; investigates alerts before anyone asks | Datadog, Sentry, or PagerDuty |
 | [Pull deal and account state](https://claude.com/docs/claude-tag/users/use-cases/pull-deal-state) | Sales, customer success | Answers account questions in-thread; pre-call briefs; weekly pipeline digest | Salesforce, HubSpot, or Gong |
-| [Claude Tag for marketing teams](https://claude.com/docs/claude-tag/users/use-cases/marketing-team) | Marketing | Answers policy questions from team docs, drafts from campaign threads, checks lead state, posts a weekly metrics digest | HubSpot or Salesforce, plus Google Drive or Notion; BigQuery or Snowflake for the metrics digest (varies by recipe) |
+| [Claude Tag for marketing teams](https://claude.com/docs/claude-tag/users/use-cases/marketing-team) | Marketing | Answers policy questions from team docs, drafts from campaign threads, checks lead state, posts a weekly metrics digest | HubSpot or Salesforce, plus Google Drive, Notion, or Confluence; BigQuery or Snowflake for the metrics digest (varies by recipe) |
 
 ##  Use cases by connection
 

@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Apply your disciplinary expertise to create field-specific applications of the 4Ds
 * Collaborate with colleagues to build shared understanding of AI Fluency in your department
 
-## Applying discipline expertise to AI Fluency
+## Applying discipline expertise to AI Fluency[](#applying-discipline-expertise-to-ai-fluency)
 
 Applying discipline expertise to AI Fluency
 
@@ -37,7 +37,7 @@ navigate any collaboration responsibly. The video concludes by noting that
 preparing students to be irreplaceable means developing these uniquely human
 capabilities.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Making tacit disciplinary knowledge (e.g. best practices, ethics, research genres, etc.) explicit prepares students for effective AI collaboration
 * Each of the 4Ds requires discipline-specific interpretation and application
@@ -45,7 +45,7 @@ capabilities.
 * Students who understand quality, methods, and ethics in your field can better direct AI
 * The goal is preparing students to be irreplaceable by developing uniquely human capabilities
 
-## Exercises
+## Exercises[](#exercises)
 
 For our final exercise we’re going to give our AI partners a break and just talk to our human colleagues!
 
@@ -96,7 +96,7 @@ Here are some suggested topics to help guide your discussion:
 * Consider how to assess whether these frameworks are helping students
 * Agree on next steps to continue the discussion and implement new initiatives
 
-## What's next
+## What's next[](#whats-next)
 
 You've completed our teaching AI Fluency course! Take the final quiz in the next lesson to earn a completion badge.
 

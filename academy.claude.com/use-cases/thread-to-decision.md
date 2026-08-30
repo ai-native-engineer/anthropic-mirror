@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-dcudi118.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-bcr99b8o.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Productivity plugin ships with `/task-management` and other thread-distilling skills as a starting point, already structured to separate decisions from discussion and name owners. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Productivity6 skills for inbox sweeps, daily rundowns, meeting prep, and decisio
 
 Show all 4 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -62,7 +62,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Keep a `Decisions/` folder and point Cowork at it. Drop exported email chains or pasted threads there when connectors aren't an option, and Cowork writes each new entry alongside your running decision log. If your team logs decisions regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so the log format and owner directory stay attached.
 
@@ -76,15 +76,15 @@ vendor-email-chain.pdfApr 22, 2026210 KB
 
 In Cowork’s chat bar:Team / Decisions
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Tell me what was actually decided, who owns each next step with the date they committed to, and what's still open or contested. Append it to the decision log: decision, owners, open questions, links back to the source messages. No commentary, just the record.
 
 Team / DecisionsOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -102,7 +102,7 @@ Source
 
 **Link each item to its source.** The thread permalink and the email chain in the folder mean every line in the entry is one click from the conversation that produced it.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -112,7 +112,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -122,9 +122,9 @@ DecisionsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it whenever a thread gets long
+### Run it whenever a thread gets long[](#run-it-whenever-a-thread-gets-long)
 
 Decisions get buried the moment a thread crosses fifty replies. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill watches your key channels and writes an entry whenever a thread is marked resolved.
 
@@ -140,7 +140,7 @@ Checks watched channels for threads marked decided since the last run and append
 
 Every **weekday at 5pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/task-management` now carries your entry format, your sign-off rules, and your log location. Share it so anyone on the team can turn a thread into a log entry the same way, and the running log stays consistent no matter who captures it.
 
@@ -148,7 +148,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/task-management` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your format and sign-off rules baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

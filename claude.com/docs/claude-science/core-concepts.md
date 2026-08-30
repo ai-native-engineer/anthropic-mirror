@@ -15,7 +15,7 @@ A session is one conversation thread. Each session has its own workspace folder 
 
 ##  Files stay on your computer
 
-Claude reads and writes files in place, in the folders you grant. Anthropic doesn’t host or store your files; file content that Claude reads to answer a prompt is sent to Anthropic’s API as part of that conversation and handled under Anthropic’s standard retention policy. If you sign in to Claude Science on a different computer, your files, artifacts, and conversation history don’t follow you there. See [Use Claude Science on more than one computer](https://claude.com/docs/claude-science/multiple-computers) for what your account does carry between computers.
+Claude reads and writes files in place, in the folders you grant. Anthropic doesn’t host or store your files; file content that Claude reads to answer a prompt is sent to Anthropic as part of the conversation, and Anthropic retains it as [How Claude Science works with your data](https://claude.com/docs/claude-science/how-claude-science-works-with-your-data) describes. If you sign in to Claude Science on a different computer, your files, artifacts, and conversation history don’t follow you there. See [Use Claude Science on more than one computer](https://claude.com/docs/claude-science/multiple-computers) for what your account does carry between computers.
 The one exception to working in place is **Attach files** in the composer: attached files are copied into the application’s local data folder so they stay with the conversation.
 
 Don’t move, rename, or delete files inside ~/.claude-science directly. Doing so can break artifact links and version history. Manage artifacts through the app.
@@ -48,7 +48,7 @@ All code Claude writes runs inside an operating-system sandbox on your computer.
 
 ##  Memory
 
-Memory lets Claude save short facts about you, your projects, and your files across sessions. Memory is off by default. Turn it on in Settings > Memory.
+Memory lets Claude save short facts about you, your projects, and your files across sessions. You choose whether memory is on during first-time setup, and you can change it anytime in Settings > Memory.
 Saved facts are stored in the app’s local database on your computer; they aren’t synced to Anthropic. The Memory settings page lists every saved fact. You can edit, delete, add, or clear facts there. A per-session toggle in the session settings menu turns memory off for that session only.
 
 ##  Composer shortcuts

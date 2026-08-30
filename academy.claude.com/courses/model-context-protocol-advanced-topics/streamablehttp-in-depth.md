@@ -12,17 +12,17 @@ Lesson 102 min
 
 StreamableHTTP is MCP's solution to a fundamental problem: some MCP functionality requires the server to make requests to the client, but HTTP makes this challenging. Let's explore how StreamableHTTP works around this limitation and when you might need to break that workaround.
 
-## The Core Problem
+## The Core Problem[](#the-core-problem)
 
 Some MCP features like sampling, notifications, and logging rely on the server initiating requests to the client. However, HTTP is designed for clients to make requests to servers, not the other way around. StreamableHTTP solves this with a clever workaround using Server-Sent Events (SSE).
 
-## How StreamableHTTP Works
+## How StreamableHTTP Works[](#how-streamablehttp-works)
 
 The magic happens through a multi-step process that establishes persistent connections between client and server.
 
 ![](https://academy.claude.com/assets/media/672d7ee890f7d2e488ee062732d8008b8078bff2b894368a541d09a88be1cdbf.png)
 
-### Initial Connection Setup
+### Initial Connection Setup[](#initial-connection-setup)
 
 The process starts like any MCP connection:
 
@@ -32,7 +32,7 @@ The process starts like any MCP connection:
 
 This session ID is crucial - it uniquely identifies the client and must be included in all future requests.
 
-### The SSE Workaround
+### The SSE Workaround[](#the-sse-workaround)
 
 After initialization, the client can make a GET request to establish a Server-Sent Events connection. This creates a long-lived HTTP response that the server can use to stream messages back to the client at any time.
 
@@ -40,7 +40,7 @@ After initialization, the client can make a GET request to establish a Server-Se
 
 This SSE connection is the key to allowing server-to-client communication. The server can now send requests, notifications, and other messages through this persistent channel.
 
-## Tool Calls and Dual SSE Connections
+## Tool Calls and Dual SSE Connections[](#tool-calls-and-dual-sse-connections)
 
 When the client makes a tool call, things get more complex. The system creates two separate SSE connections:
 
@@ -49,7 +49,7 @@ When the client makes a tool call, things get more complex. The system creates t
 * **Primary SSE Connection:** Used for server-initiated requests and stays open indefinitely
 * **Tool-Specific SSE Connection:** Created for each tool call and closes automatically when the tool result is sent
 
-### Message Routing
+### Message Routing[](#message-routing)
 
 Different types of messages get routed through different connections:
 
@@ -58,7 +58,7 @@ Different types of messages get routed through different connections:
 
 ![](https://academy.claude.com/assets/media/857a3d847a1d27824d158e7c882db0524ea37819fe699d6c252317a92b9f57fb.png)
 
-## Configuration Flags That Break the Workaround
+## Configuration Flags That Break the Workaround[](#configuration-flags-that-break-the-workaround)
 
 StreamableHTTP includes two important configuration options:
 
@@ -67,7 +67,7 @@ StreamableHTTP includes two important configuration options:
 
 Setting these to `True` can break the SSE workaround mechanism. You might want to enable these flags in certain scenarios, but doing so limits the full MCP functionality that depends on server-to-client communication.
 
-## Key Takeaways
+## Key Takeaways[](#key-takeaways)
 
 StreamableHTTP is more complex than other MCP transports because it has to work around HTTP's limitations. The SSE-based workaround enables full MCP functionality over HTTP, but understanding the dual-connection model is crucial for debugging and optimization.
 

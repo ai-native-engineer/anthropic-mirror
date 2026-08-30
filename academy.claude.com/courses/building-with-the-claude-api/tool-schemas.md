@@ -12,7 +12,7 @@ Lesson 237 min
 
 After writing your tool function, the next step is creating a JSON schema that tells Claude what arguments your function expects and how to use it. This schema acts as documentation that Claude reads to understand when and how to call your tools.
 
-## Understanding JSON Schema
+## Understanding JSON Schema[](#understanding-json-schema)
 
 JSON Schema isn't specific to AI or tool calling - it's a widely-used data validation specification that's been around for years. The AI community adopted it because it's a convenient way to describe function parameters and validate data.
 
@@ -24,7 +24,7 @@ The complete tool specification has three main parts:
 * **description** - What the tool does, when to use it, and what it returns
 * **input\_schema** - The actual JSON schema describing the function's arguments
 
-## Writing Effective Descriptions
+## Writing Effective Descriptions[](#writing-effective-descriptions)
 
 Your tool description is crucial for helping Claude understand when to use your function. Best practices include:
 
@@ -35,7 +35,7 @@ Your tool description is crucial for helping Claude understand when to use your 
 
 ![](https://academy.claude.com/assets/media/770cad2cbde390cb5fabe30c8dd46046297c7491efdac77dce485f94c6580a5c.png)
 
-## The Easy Way to Generate Schemas
+## The Easy Way to Generate Schemas[](#the-easy-way-to-generate-schemas)
 
 Instead of writing JSON schemas from scratch, you can use Claude itself to generate them. Here's the process:
 
@@ -48,7 +48,7 @@ The prompt should be something like: "Write a valid JSON schema spec for the pur
 
 ![](https://academy.claude.com/assets/media/99b70132340d9f18a0c4e56a6bcc5e1aae1e2d4625b4dc159ebc69131fad56f0.png)
 
-## Implementing the Schema in Code
+## Implementing the Schema in Code[](#implementing-the-schema-in-code)
 
 Once Claude generates your schema, copy it into your code file. Here's a good naming pattern to follow:
 
@@ -79,7 +79,7 @@ get_current_datetime_schema = {
 
 Use the pattern of `function_name` followed by `function_name_schema` to keep your schemas organized and easy to match with their corresponding functions.
 
-## Adding Type Safety
+## Adding Type Safety[](#adding-type-safety)
 
 For better type checking, import and use the `ToolParam` type from the Anthropic library:
 

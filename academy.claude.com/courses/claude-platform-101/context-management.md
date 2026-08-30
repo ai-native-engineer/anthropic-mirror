@@ -17,7 +17,7 @@ sounds like a lot, but it runs out faster than you think once you're
 shipping a real agent. That's where **context management** comes in: it's
 how you stay inside the window without losing what matters.
 
-## What counts as context
+## What counts as context[](#what-counts-as-context)
 
 Context is **everything Claude sees on a given turn**:
 
@@ -37,13 +37,13 @@ Anthropic publishes **four patterns** for managing context in long-running agent
 
 ![Diagram of the four patterns for managing context: just-in-time context, compaction, caching, and memory](https://academy.claude.com/assets/media/aa9eae1644eab04cb5954503b69a4622a7a21bb6af326f3c4ca0d9aaea86d849.png)
 
-## Pattern 1: Just-in-time context
+## Pattern 1: Just-in-time context[](#pattern-1-just-in-time-context)
 
 Don't load everything upfront. Load what the agent needs *now*, and let it pull more in via tools when it asks.
 
 Think of a compliance review agent. It doesn't get the entire building code book stuffed into its system prompt — it calls a `lookup_building_code` tool when it needs a specific section. This is the design pattern of the four: nothing special in the API, just a deliberate choice about what you load and when.
 
-## Pattern 2: Server-side compaction
+## Pattern 2: Server-side compaction[](#pattern-2-server-side-compaction)
 
 When a conversation runs long, Anthropic's **server-side compaction** summarizes old turns into a single block. You opt in by adding a `context_management` key to your request, holding an edit with a type:
 
@@ -65,13 +65,13 @@ response = client.beta.messages.create(
 
 The API auto-summarizes when the input crosses the trigger threshold. You don't have to track conversation length yourself.
 
-## Pattern 3: Prompt caching
+## Pattern 3: Prompt caching[](#pattern-3-prompt-caching)
 
 **Prompt caching** lets you mark the stable parts of a request — the system prompt, the tool definitions, a long document — and reuse them across calls at a fraction of the cost.
 
 The math matters more than it looks. If your system prompt is 4,000 tokens and you call it 100 times an hour, caching is the difference between a usable bill and a phone call from finance.
 
-## Pattern 4: The memory tool
+## Pattern 4: The memory tool[](#pattern-4-the-memory-tool)
 
 Some context needs to survive *across sessions*: user preferences, the agent's running notes, what was decided last week. The recommended primitive for this is the **memory tool**.
 
@@ -83,13 +83,13 @@ Here's how it works:
 
 ![A memory directory viewed in the browser, with folders for incidents and saas-pricing and a saved incident note from a previous session](https://academy.claude.com/assets/media/151cfe356d66b03d1e13d1f02081c2bcf76d0ab15bb144209018db18b3bc71b8.png)
 
-## Layering the patterns
+## Layering the patterns[](#layering-the-patterns)
 
 In a production app, you'll usually layer all four at once. The compliance review agent caches its system prompt and tool definitions, and pulls building code sections in just in time via `lookup_building_code`.
 
 Each pattern handles a different failure mode: **cost**, **window size**, **statelessness**. Pick the ones that match what's breaking for you.
 
-## Recap
+## Recap[](#recap)
 
 * Context is everything Claude sees on a turn — and it isn't free or infinite. Once the window fills, the request fails.
 * **Just-in-time context**: load what's needed now, let tools pull in the rest. This is the design pattern of the four.

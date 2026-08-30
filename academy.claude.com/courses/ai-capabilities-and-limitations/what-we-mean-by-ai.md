@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Understand that generative AI's properties exist on a continuum from capability to limitation
 * Preview the four core properties you'll explore in depth: Next Token Prediction, knowledge, working memory, and steerability
 
-## What we mean by generative AI
+## What we mean by generative AI[](#what-we-mean-by-generative-ai)
 
 What We Mean by AI · 4 min
 
@@ -26,16 +26,16 @@ Most AI in the world (spam filters, recommendations, fraud detection) isn't
 generative. This course is about the kind that is: transformer-based text
 models that produce new content one token at a time.
 
-## Building a mental model of the machine
+## Building a mental model of the machine[](#building-a-mental-model-of-the-machine)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Generative AI produces new content** rather than classifying existing content.
 * **AI isn't uniformly capable or uniformly unreliable.** It's strong and weak along four predictable axes: Next Token Prediction, Knowledge, Working Memory, and Steerability.
 * **Each property is a continuum.** The same mechanism gives you both the capability and the limitation.
 * **Calibrated trust** means locating your task on the continuum, not granting or withholding trust wholesale.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Generative or Not?
 
@@ -52,12 +52,12 @@ Why? You just learned that generative AI is fundamentally different from the AI 
 
 You're not expected to get these right. You're creating predictions you'll test over the next four lessons.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Did the generative/classification distinction with AI change how you think about any tool you use?
 * Look at how you tagged your task list. Did any task feel like it could belong under more than one property?
 
-## What's next
+## What's next[](#whats-next)
 
 Before we dig into the four properties, we'll spend one lesson on how an AI system ends up with a personality at all. Why it's polite, helpful, honest, why it sometimes agrees too easily, why it declines certain things. That shaping process leaves fingerprints on everything that follows.
 

@@ -12,7 +12,7 @@ Lesson 52 min
 
 Roots are a way to grant MCP servers access to specific files and folders on your local machine. Think of them as a permission system that says "Hey, MCP server, you can access these files" - but they do much more than just grant permission.
 
-## The Problem Roots Solve
+## The Problem Roots Solve[](#the-problem-roots-solve)
 
 Without roots, you'd run into a common issue. Imagine you have an MCP server with a video conversion tool that takes a file path and converts an MP4 to MOV format.
 
@@ -26,7 +26,7 @@ Your file system might be complex with files scattered across different director
 
 You could solve this by requiring users to always provide full paths, but that's not very user-friendly. Nobody wants to type out complete file paths every time.
 
-## Roots in Action
+## Roots in Action[](#roots-in-action)
 
 Here's how the workflow changes with roots:
 
@@ -37,13 +37,13 @@ Here's how the workflow changes with roots:
 
 This happens automatically - users can still just say "convert biking.mp4" without providing full paths.
 
-## Security and Boundaries
+## Security and Boundaries[](#security-and-boundaries)
 
 Roots also provide security by limiting access. If you only grant access to your Desktop folder, the MCP server cannot access files in other locations like Documents or Downloads.
 
 When Claude tries to access a file outside the approved roots, it gets an error and can inform the user that the file isn't accessible from the current server configuration.
 
-## Implementation Details
+## Implementation Details[](#implementation-details)
 
 The MCP SDK doesn't automatically enforce root restrictions - you need to implement this yourself. A typical pattern is to create a helper function like `is_path_allowed()` that:
 
@@ -54,7 +54,7 @@ The MCP SDK doesn't automatically enforce root restrictions - you need to implem
 
 You then call this function in any tool that accesses files or directories before performing the actual file operation.
 
-## Key Benefits
+## Key Benefits[](#key-benefits)
 
 * **User-friendly** - Users don't need to provide full file paths
 * **Focused search** - Claude only looks in approved directories, making file discovery faster

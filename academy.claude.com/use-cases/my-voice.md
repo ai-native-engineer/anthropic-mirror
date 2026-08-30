@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-jpnl9xn4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-cdz8tber.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Productivity plugin ships with `/memory-management` so Cowork can save what it learns about how you work; you'll build your own `/my-voice` on top. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ ProductivityManage tasks, plan your day, and build up memory of important contex
 
 Show all 4 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -74,7 +74,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 This one runs almost entirely through connectors, so the working folder is optional. If you'd rather not connect mail, export a folder of writing samples (sent emails, docs you're proud of) and point Cowork at that instead. Either way, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so the voice profile and your later corrections stay attached.
 
@@ -86,15 +86,15 @@ all-hands-update-feb.docxFeb 12, 202622 KB
 
 In Cowork’s chat bar:Personal / Writing-Samples
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Read my sent messages and tell me about my tone and writing style.
 
 Personal / Writing-SamplesOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -104,7 +104,7 @@ Source
 
 **Your real writing is the corpus.** Reading what you actually sent, not a curated best-of, means the profile catches your real habits.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -114,7 +114,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 The first profile is a snapshot; your voice keeps moving. Every time you edit a draft Cowork wrote and think "I wouldn't say it like that," feed the correction back. Tell Cowork to add the rule to `/my-voice`, or just say "remember that" in the moment and Cowork writes it into the skill's memory. Over a few weeks the profile tightens until the drafts barely need editing.
 
@@ -124,9 +124,9 @@ PersonalOpen in Cowork
 
 **Save tweaks as you go.** Any time you rewrite a Cowork draft, end with "add that to /my-voice." The skill accumulates your corrections as rules and your edited drafts as reference examples, so the gap closes every time you use it.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Refresh the profile monthly
+### Refresh the profile monthly[](#refresh-the-profile-monthly)
 
 Your writing shifts as your role does. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and Cowork re-reads the last 90 days each month and merges what's new into the skill without losing the rules you've added by hand.
 
@@ -142,7 +142,7 @@ Re-reads the last 90 days of sent mail and Slack and merges anything new into `/
 
 Every **Sunday at 6:00pm**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 `/my-voice` is personal by design, but the pattern is worth spreading. Share the base skill (without your profile) so teammates can build their own in one prompt, or share your version with an EA or comms partner who drafts on your behalf.
 
@@ -150,7 +150,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/my-voice` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill scaffold so they can build their own profile without repeating Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

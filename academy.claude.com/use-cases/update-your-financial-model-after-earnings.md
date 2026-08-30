@@ -14,7 +14,7 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-g4zceag4.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-dyg71tvq.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 The print drops after hours and the stock is moving. You've got the model in a folder somewhere, the release open in one tab, the transcript in another, and a PM meeting in the morning.
 
@@ -35,11 +35,11 @@ Show me the flags before I touch anything.
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Cowork pulls earnings data through the S&P Global connector and reads your model from the attached folder — that's where the cross-referencing happens. Cell edits happen in Claude for Excel with the workbook open, and the conversation carries into Claude for PowerPoint so the deck build picks up where you left off.
 
-### Required context
+### Required context[](#required-context)
 
 Attach your portfolio folder with the model. Enable the S&P Global connector. Have Claude for Excel and PowerPoint add-in installed — that's where the cell edits and slide builds happen.
 
@@ -61,7 +61,7 @@ ACME valuation model
 
 In Cowork’s chat bar:Portfolio folder
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 A brief you can act on: what moved the stock, where your forecast was off, and the exact cells to look at when you open the workbook.
 
@@ -89,11 +89,11 @@ Copy prompt
 
 Once you've signed off on the cells, open the deck in Claude for PowerPoint. The conversation carries from Excel, so the page build already knows what changed.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Compare to your forecast
+### Compare to your forecast[](#compare-to-your-forecast)
 
 In Cowork, ask where the actual landed against what you had.
 
@@ -101,7 +101,7 @@ oh ok how does the actual number compare to what I had in my model?
 
 Open in Cowork
 
-### Check an assumption against the call
+### Check an assumption against the call[](#check-an-assumption-against-the-call)
 
 See if management said anything that should move a specific cell.
 
@@ -109,7 +109,7 @@ is my FY28 gross margin too aggressive? what did they actually say about out-yea
 
 Open in Cowork
 
-### Build scenarios in the workbook
+### Build scenarios in the workbook[](#build-scenarios-in-the-workbook)
 
 In Claude for Excel, once you've signed off on the assumptions.
 
@@ -117,25 +117,25 @@ ok keep the 43% — build me best/base/worst around the margin range in a new Sc
 
 Copy prompt
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Ask Cowork for the Excel-ready brief
+### Ask Cowork for the Excel-ready brief[](#ask-cowork-for-the-excel-ready-brief)
 
 End your Cowork session by asking for a one-paragraph brief with the cell refs — that's what you paste into the Claude for Excel sidebar. Tighter than scrolling back through the chat.
 
-### Click the cell reference
+### Click the cell reference[](#click-the-cell-reference)
 
 When Claude flags Assumptions!C7 in the Excel sidebar, click it and Excel jumps to that cell. Check the number before you agree to change anything.
 
-### Excel to PowerPoint carries the conversation
+### Excel to PowerPoint carries the conversation[](#excel-to-powerpoint-carries-the-conversation)
 
 When you open the deck in Claude for PowerPoint, it already knows what you changed in Excel. You're not re-explaining the print or the thesis — just say "build me the page."
 
-### Save it as a skill
+### Save it as a skill[](#save-it-as-a-skill)
 
 Post-earnings is the same loop every quarter. Once the Cowork conversation works, save it as a skill so the next print starts one click in.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Try it on your next earnings print. Attach your model folder in Cowork, ask what moved the stock, and review the flags before anything changes.
 

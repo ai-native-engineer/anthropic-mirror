@@ -16,7 +16,7 @@ Resources in MCP allow your server to expose information that can be directly in
 
 The diagram above shows how resources work: when a user types something like "What's in the @..." our code recognizes this as a resource request, sends a ReadResourceRequest to the MCP server, and gets back a ReadResourceResult with the actual content.
 
-## Implementing Resource Reading
+## Implementing Resource Reading[](#implementing-resource-reading)
 
 To enable resource access in your MCP client, you need to implement a `read_resource` function. First, add the necessary imports:
 
@@ -43,7 +43,7 @@ async def read_resource(self, uri: str) -> Any:
     return resource.text
 ```
 
-## Understanding the Response Structure
+## Understanding the Response Structure[](#understanding-the-response-structure)
 
 When you request a resource, the server returns a result with a `contents` list. We access the first element since we typically only need one resource at a time. The response includes:
 
@@ -51,7 +51,7 @@ When you request a resource, the server returns a result with a `contents` list.
 * A MIME type that tells us how to parse the content
 * Other metadata about the resource
 
-## Content Type Handling
+## Content Type Handling[](#content-type-handling)
 
 The function checks the MIME type to determine how to process the content:
 
@@ -60,7 +60,7 @@ The function checks the MIME type to determine how to process the content:
 
 This approach handles both structured data (like JSON) and plain text documents seamlessly.
 
-## Testing Resource Access
+## Testing Resource Access[](#testing-resource-access)
 
 Once implemented, you can test the resource functionality through your CLI application. When you type "@" followed by a resource name, the system will:
 

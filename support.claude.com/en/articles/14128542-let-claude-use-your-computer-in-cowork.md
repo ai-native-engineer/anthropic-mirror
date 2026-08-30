@@ -4,19 +4,15 @@ Claude can now use your computer to complete tasks in Cowork and Claude Code (re
 
 Computer use is in research preview for Pro and Max plans. It’s available in Cowork and Claude Code in the Claude Desktop application for both macOS and Windows. This early research preview comes with risks—review **[Use Cowork safely](https://support.claude.com/en/articles/13364135-use-cowork-safely)** before using this capability.
 
----
-
 ## How computer use works with Cowork
 
 In Cowork, Claude uses the most precise tool first. When you assign a task, Claude follows this order:
 
 1. **Connectors.** If a connector is available—like Gmail, Google Drive, or Slack—Claude uses it. This is the fastest and most reliable path.
-2. **Browser.** When there isn’t a connector for the tool you need, Claude can navigate the Chrome browser to work on your task using Claude in Chrome.
+2. **Browser.** When there isn't a connector for the tool you need, Claude works on your task in the browser built into the Claude Desktop app, or in your own Chrome browser through Claude in Chrome if that's your preferred browser. Learn more in **[Use the built-in browser in Claude Cowork](https://support.claude.com/en/articles/16607400)**.
 3. **Screen interaction.** Claude uses computer use to interact directly with your screen: clicking, typing, and navigating your desktop apps.
 
 Claude prioritizes the fastest method. For example, pulling messages through your Slack connection takes seconds, but navigating Slack through your screen takes much longer and is more error-prone.
-
----
 
 ## What you can do
 
@@ -29,17 +25,13 @@ Computer use lets Claude work with the apps and files on your machine. For examp
 
 If your work involves a physical machine, Claude keeps working while you step away. Your computer just needs to be on.
 
----
-
 ## Permissions and access
 
 Claude asks for your permission before accessing each application. You’ll see a prompt and must approve before Claude can interact with that app. Some apps are off-limits by default.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193297849/243cf7bd2386d92a253c2cec7d32/46cb6fcb-c0ee-4d1c-9974-9c1c1058c81c?expires=1787622300&signature=375bf14395ab4a26b2d0e578372974efcd6083353dd4147d327428786a259ec1&req=diEuFct3molbUPMW1HO4za8%2BRnuEQSKfOFMEfKzd96qQVwJSb1NP4qlt1ur0%0ANE4J8X8Zld70YCmt3Mo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193297849/243cf7bd2386d92a253c2cec7d32/46cb6fcb-c0ee-4d1c-9974-9c1c1058c81c?expires=1787622300&signature=375bf14395ab4a26b2d0e578372974efcd6083353dd4147d327428786a259ec1&req=diEuFct3molbUPMW1HO4za8%2BRnuEQSKfOFMEfKzd96qQVwJSb1NP4qlt1ur0%0ANE4J8X8Zld70YCmt3Mo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193297849/243cf7bd2386d92a253c2cec7d32/46cb6fcb-c0ee-4d1c-9974-9c1c1058c81c?expires=1788033600&signature=7700b6bd87b712d8139fff9b8d4d1f158b56e56ad8718ae62f55fa42f573dc5f&req=diEuFct3molbUPMW1HO4za8%2BRnSCQCOaOFMEfKzd96pjunj9WqENDTgq4iGI%0AArh2IoIKV3WrLahu5Cc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193297849/243cf7bd2386d92a253c2cec7d32/46cb6fcb-c0ee-4d1c-9974-9c1c1058c81c?expires=1788033600&signature=7700b6bd87b712d8139fff9b8d4d1f158b56e56ad8718ae62f55fa42f573dc5f&req=diEuFct3molbUPMW1HO4za8%2BRnSCQCOaOFMEfKzd96pjunj9WqENDTgq4iGI%0AArh2IoIKV3WrLahu5Cc%3D%0A)
 
 Claude is trained to avoid risky operations—like transferring funds, modifying or deleting files, or handling sensitive data—and to flag signs of prompt injection. However, these safeguards aren't perfect, and Claude may occasionally act outside these boundaries.
-
----
 
 ## Safeguarding personal data
 
@@ -72,9 +64,7 @@ We strongly advise against using computer use to manage or take actions on sensi
 
 ### Memory
 
-Cowork has memory, which means Claude can learn how you work and retain context across sessions. Sensitive data—like passwords, financial details, or health information—is excluded from memory. You can view, edit, and delete what Claude remembers at any time.
-
----
+Cowork in the cloud shares the memory you use in chat, so Claude can start from what it already knows about how you work. By default, Claude doesn't save topics some people consider sensitive, such as health information, unless you turn on **Include sensitive topics in memory** in **[Settings > Memory](https://claude.ai/settings/memory)**. Some information is never saved, including government ID numbers, criminal history, financial account numbers, and immigration status. You can view, edit, and delete what Claude remembers at any time. Learn more about **[Claude's memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context#h_82126ebcc9)**.
 
 ## Safety
 
@@ -88,8 +78,6 @@ That said, computer use is a new capability, and the threats it guards against a
 
 For detailed safety guidance, see **[Use Cowork safely](https://support.claude.com/en/articles/13364135-use-cowork-safely)**.
 
----
-
 ## Current limitations
 
 This is a research preview. Keep the following in mind:
@@ -99,8 +87,6 @@ This is a research preview. Keep the following in mind:
 * Screen interaction is slower than connectors. When Claude works through your screen instead of a direct integration, tasks take longer. Where possible, connect the tools you use most.
 * Available on Pro and Max plans only. Team and Enterprise plans don’t have access to computer use at this time.
 
----
-
 ## Get started with computer use
 
 To start using computer use:
@@ -109,11 +95,11 @@ To start using computer use:
 2. Open the desktop app and go to **Settings > General** (under **Desktop app**).
 3. Find the **Computer use** toggle and turn it on:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193911341/630e6df3b08b27d1c7b4f1ca6a1f/image.png?expires=1787622300&signature=972257c05dc683d3ae62b96155f108df69bcd8d35628fe41345d3dbc5695073b&req=diEuFcB%2FnIJbWPMW1HO4zR8GoUN6R0gzjdPXX%2BaSOrHVbb1BB%2BL4NoP0C7d5%0AoC9B%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193911341/630e6df3b08b27d1c7b4f1ca6a1f/image.png?expires=1787622300&signature=972257c05dc683d3ae62b96155f108df69bcd8d35628fe41345d3dbc5695073b&req=diEuFcB%2FnIJbWPMW1HO4zR8GoUN6R0gzjdPXX%2BaSOrHVbb1BB%2BL4NoP0C7d5%0AoC9B%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193911341/630e6df3b08b27d1c7b4f1ca6a1f/image.png?expires=1788033600&signature=5a804333a6177c6042e13dc3d0301a52ed601f122f3e6b4ed2040eda52ae490f&req=diEuFcB%2FnIJbWPMW1HO4zR8GoUx8Rkk2jdPXX%2BaSOrHF2FXHuVAhTreIRnca%0Ama1Q%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193911341/630e6df3b08b27d1c7b4f1ca6a1f/image.png?expires=1788033600&signature=5a804333a6177c6042e13dc3d0301a52ed601f122f3e6b4ed2040eda52ae490f&req=diEuFcB%2FnIJbWPMW1HO4zR8GoUx8Rkk2jdPXX%2BaSOrHF2FXHuVAhTreIRnca%0Ama1Q%0A)
 4. Open Cowork or Claude Code in the desktop app and start a session.
 5. Ask Claude to do something that involves an app on your computer. Claude will ask for permission to access the app before proceeding.
 
-We’re sharing this early because it’s the kind of capability that gets better with real usage. If something doesn’t work as expected, use the in-app feedback button or reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#81f4f2e4f3f2e0e7e4f5f8c1e0eff5e9f3eef1e8e2afe2eeec).
+We’re sharing this early because it’s the kind of capability that gets better with real usage. If something doesn’t work as expected, use the in-app feedback button or reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#453036203736242320313c05242b312d372a352c266b262a28).
 
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)

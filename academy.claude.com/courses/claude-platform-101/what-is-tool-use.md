@@ -17,7 +17,7 @@ management software, databases, files. Claude can't just check these things
 itself. Instead, it relies on **tools**, which give Claude access to
 external data and actions.
 
-## What a tool is
+## What a tool is[](#what-a-tool-is)
 
 Simply put, a tool is a **function you define and expose to Claude**. You describe what it does and what inputs it takes, and Claude decides when to call it.
 
@@ -27,7 +27,7 @@ Here's the key thing to internalize: **Claude doesn't execute the tool — your 
 2. **Your code executes** the function.
 3. **The result goes back to Claude**, and it keeps going.
 
-## How tools are defined
+## How tools are defined[](#how-tools-are-defined)
 
 Tools are **JSON schemas** with three parts: a **name**, a **description**, and an **input schema**. You pass them to Claude in the request body as a `tools` array.
 
@@ -64,7 +64,7 @@ Our loop calls `lookup_building_code` with the parameter Claude requested, then 
 
 And Claude keeps going. At that point, we can keep calling tools and returning results to Claude until it has what it needs.
 
-## Multiple tools: letting Claude pick
+## Multiple tools: letting Claude pick[](#multiple-tools-letting-claude-pick)
 
 One tool is useful, but the interesting part is giving Claude **multiple tools** and watching it pick which one to use, in what order.
 
@@ -146,7 +146,7 @@ Run this, and you'll see Claude call `get_weather` and then `get_forecast` — s
 
 Now notice *how* Claude chose. It read the descriptions, mapped your prompt to "today's weather" and "the next few days," and picked the right tool for each. That's why your tool descriptions really matter.
 
-## The tool runner: skip the boilerplate
+## The tool runner: skip the boilerplate[](#the-tool-runner-skip-the-boilerplate)
 
 You've probably already spotted two red flags with what we just wrote:
 
@@ -195,7 +195,7 @@ Same scenario, a fraction of the code:
 
 Run it, and you get the same answer.
 
-## Real tools wrap your existing code
+## Real tools wrap your existing code[](#real-tools-wrap-your-existing-code)
 
 In real life, your tools wouldn't be hardcoded weather data. They'd wrap **actual functions you already have in your application**.
 
@@ -203,7 +203,7 @@ Take a compliance review agent: its tools are thin wrappers around `lookup_build
 
 ![A compliance review app showing a structural report alongside agent findings, each flagged item citing the specific building code section it checked](https://academy.claude.com/assets/media/4f12647940dbd1f6b762f36afcbfe0a134aece88896ff9f2e97f2c35b8008e94.png)
 
-## Recap
+## Recap[](#recap)
 
 * **Tools give Claude access to your systems.** A tool is a function you define and expose; Claude decides when to call it, and your code executes it.
 * Tools are JSON schemas with a **name**, a **description**, and an **input schema**, passed in the request as a `tools` array.

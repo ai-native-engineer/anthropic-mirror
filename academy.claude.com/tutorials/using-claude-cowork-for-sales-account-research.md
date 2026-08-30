@@ -28,7 +28,7 @@ If you haven’t set up Cowork yet, start with [Get started in three steps(opens
 
 To dive deeper into Claude Cowork, take the full [Intro to Claude Cowork course(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork).
 
-## Step 1: Set up the account-research skill
+## Step 1: Set up the account-research skill[](#step-1-set-up-the-account-research-skill)
 
 Set up once
 
@@ -48,7 +48,7 @@ AccountsOpen in Cowork
 
 Claude walks you through what information to pull, which connected tools to look through, and how you want the brief laid out, then rewrites the skill to match. Once the skill is built, try running it on an account you already know, compare what comes back to how you’d write it on your own, and tell Claude to fix anything it missed.
 
-## Step 2: Run the account brief before the call
+## Step 2: Run the account brief before the call[](#step-2-run-the-account-brief-before-the-call)
 
 Before each call
 
@@ -60,7 +60,7 @@ AccountsOpen in Cowork
 
 Claude reads from every connected source at once and writes one brief to your working folder — spend trajectory, the stakeholder map, what they’ve adopted, open deals, and the risk signals worth knowing before you’re in the room. You walk in with real context, so the first conversation is about strategy instead of getting oriented.
 
-## Step 3: Run the debrief after the call
+## Step 3: Run the debrief after the call[](#step-3-run-the-debrief-after-the-call)
 
 After each call
 
@@ -78,7 +78,7 @@ From the transcript, Claude drafts three pieces:
 * **Team message** — key takeaways, next steps, and owners for your account channel
 * **Customer follow-up** — a recap and next steps, drafted in your voice
 
-## Make it yours
+## Make it yours[](#make-it-yours)
 
 This setup fits any role that walks into a meeting needing more context than they have:
 
@@ -96,7 +96,7 @@ This setup fits any role that walks into a meeting needing more context than the
 
 Claude does the gathering. The judgment about what to do with it is yours.
 
-## Learn more
+## Learn more[](#learn-more)
 
 * [**Claude Cowork 101**(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork). Take the full Cowork course to dive deeper into the product.
 * [**Customize Cowork**(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork). Learn how to set up connectors, skills, and instructions.

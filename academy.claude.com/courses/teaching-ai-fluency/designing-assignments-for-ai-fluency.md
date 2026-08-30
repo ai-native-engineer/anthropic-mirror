@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Design assignments that help students both develop and demonstrate AI Fluency
 * Manage the increased volume and complexity of AI-enhanced student work
 
-## Designing assignments for AI Fluency
+## Designing assignments for AI Fluency[](#designing-assignments-for-ai-fluency)
 
 Designing assignments for AI Fluency
 
@@ -36,7 +36,7 @@ AI-enhanced assignments generate, such as using detailed rubrics,
 emphasizing peer review, conducting lightning round conferences, and
 selective sampling of student work.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Effective AI Fluency assignments emphasize authenticity, iteration, and pedagogical transparency
 * Outcome-based assignments focus on products but reveal collaboration skills
@@ -44,7 +44,7 @@ selective sampling of student work.
 * Reflection-based assignments develop metacognitive awareness but need variety to avoid fatigue
 * Managing increased volume requires strategic approaches like rubrics, peer review, and selective sampling
 
-## Exercises
+## Exercises[](#exercises)
 
 This exercise helps you create a comprehensive assignment that develops and assesses AI Fluency.
 
@@ -71,12 +71,12 @@ Continue your conversation from Exercise 1 about assessment design:
 * Ensure the workload is manageable for both students and yourself
 * Work with the AI to ensure the assignment mirrors real-world AI collaboration in your field and build in genuine problems where AI partnership adds value
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What challenges do you anticipate in implementing these assessments?
 * How will you communicate the value of process and reflection to students?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll examine AI's specific impact on curriculum, pedagogy, and assessment in your field.
 

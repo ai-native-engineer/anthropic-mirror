@@ -1180,7 +1180,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       format: date-time
 
-    - `skills: array of BetaSkill`
+    - `skills: array of BetaContainerSkill`
 
       Skills loaded in the container
 
@@ -2507,11 +2507,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Per-iteration token usage breakdown.
 
-      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+      Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
       - Determine which iterations exceeded long context thresholds (>=200k tokens)
-      - Calculate the true context window size from the last iteration
+      - Calculate the context window size from the last `message` entry
       - Understand token accumulation across server-side tool use loops
+
+      A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
       - `beta_message_iteration_usage: object`
 
@@ -3110,7 +3112,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           format: date-time
 
-        - `skills: array of BetaSkill`
+        - `skills: array of BetaContainerSkill`
 
           Skills loaded in the container
 
@@ -3248,11 +3250,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Per-iteration token usage breakdown.
 
-        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+        Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
-        - Calculate the true context window size from the last iteration
+        - Calculate the context window size from the last `message` entry
         - Understand token accumulation across server-side tool use loops
+
+        A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
         - `beta_message_iteration_usage: object`
 
@@ -4854,7 +4858,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             format: date-time
 
-          - `skills: array of BetaSkill`
+          - `skills: array of BetaContainerSkill`
 
             Skills loaded in the container
 
@@ -6181,11 +6185,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Per-iteration token usage breakdown.
 
-            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
+            Each entry represents one sampling iteration, with its own input/output token counts and cache statistics, discriminated by `type`. For `message` entries (model sampling iterations, such as the turns of a server-side tool use loop), this allows you to:
 
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
-            - Calculate the true context window size from the last iteration
+            - Calculate the context window size from the last `message` entry
             - Understand token accumulation across server-side tool use loops
+
+            A `compaction` entry reports the token usage of the compaction operation itself — the server-side request that summarizes the context being closed — NOT the size of the context that was compacted away, and its token counts can be much smaller than that closed context (for example, a compaction that closes a ~200k-token context can report only a few thousand tokens). Do not derive the context window size from a `compaction` entry, even when it is the last entry. A `compaction` entry's tokens are not included in the top-level `usage` fields. When an input-token trigger is in effect (the default — 150,000 tokens unless configured otherwise), each `compaction` entry closes a context that had reached at least that threshold, though the context can exceed it by the final iteration's output and tool results.
 
             - `beta_message_iteration_usage: object`
 
@@ -24232,7 +24238,7 @@ List Session Threads
 
     - `agent: BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
-      A session-resolved multiagent roster entry.
+      The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
       - `beta_managed_agents_session_thread_agent: object`
 
@@ -24984,7 +24990,7 @@ Get Session Thread
 
   - `agent: BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
-    A session-resolved multiagent roster entry.
+    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
     - `beta_managed_agents_session_thread_agent: object`
 
@@ -25728,7 +25734,7 @@ Archive Session Thread
 
   - `agent: BetaManagedAgentsSessionThreadAgent or BetaManagedAgentsAdvisor`
 
-    A session-resolved multiagent roster entry.
+    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
     - `beta_managed_agents_session_thread_agent: object`
 
@@ -37232,129 +37238,3 @@ List Credentials
           - `scope: optional string`
 
             OAuth scope for the refresh request.
-
-      - `beta_managed_agents_static_bearer_auth_response: object`
-
-        Static bearer token credential details for an MCP server.
-
-        - `mcp_server_url: string`
-
-          URL of the MCP server this credential authenticates against.
-
-        - `type: "static_bearer"`
-
-      - `beta_managed_agents_environment_variable_auth_response: object`
-
-        Environment variable credential details. The secret value is never returned.
-
-        - `injection_location: object`
-
-          Where in the outbound request the secret value is substituted.
-
-          - `body: boolean`
-
-            Whether the placeholder is substituted in the request body.
-
-          - `header: boolean`
-
-            Whether the placeholder is substituted in request header values.
-
-        - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-          Outbound hosts the secret value is substituted on.
-
-          - `beta_managed_agents_unrestricted_credential_networking_response: object`
-
-            The secret is substituted on any host the session's Environment network policy permits egress to.
-
-            - `type: "unrestricted"`
-
-          - `beta_managed_agents_limited_credential_networking_response: object`
-
-            The secret is substituted only on requests to the listed hosts.
-
-            - `allowed_hosts: array of string`
-
-              Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-            - `type: "limited"`
-
-        - `secret_name: string`
-
-          Name of the environment variable.
-
-        - `type: "environment_variable"`
-
-    - `created_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `metadata: map[string]`
-
-      Arbitrary key-value metadata attached to the credential.
-
-    - `type: "vault_credential"`
-
-    - `updated_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `vault_id: string`
-
-      Identifier of the vault this credential belongs to.
-
-    - `display_name: optional string`
-
-      Human-readable name for the credential.
-
-  - `next_page: optional string`
-
-    Pagination token for the next page, or null if no more results.
-
-#### Example
-
-```bash
-ant beta:vaults:credentials list \
-  --api-key my-anthropic-api-key \
-  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-      "archived_at": null,
-      "auth": {
-        "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-        "type": "static_bearer"
-      },
-      "created_at": "2026-03-15T10:00:00Z",
-      "metadata": {
-        "environment": "production"
-      },
-      "type": "vault_credential",
-      "updated_at": "2026-03-15T10:00:00Z",
-      "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-      "display_name": "Example credential"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Get Credential
-
-`$ ant beta:vaults:credentials retrieve`
-
-**GET** `/v1/vaults/{vault_id}/credentials/{credential_id}`
-
-Get Credential
-
-#### Parameters

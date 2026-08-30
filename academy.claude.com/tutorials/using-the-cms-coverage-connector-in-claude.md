@@ -20,7 +20,7 @@ The CMS Coverage integration relies upon Claude's ability to [use remote connect
 
 This server may return data governed by third-party license agreements, including those available [here(opens in new tab)](https://api.coverage.cms.gov/v1/metadata/license-agreement/). By connecting to this server, you understand and agree to abide by any applicable agreements.
 
-## **What this integration provides**
+## **What this integration provides**[](#what-this-integration-provides)
 
 This integration connects to the CMS Coverage API v1, providing comprehensive access to the Medicare Coverage Database maintained by the Centers for Medicare & Medicaid Services. This connector enables users to search, retrieve, and monitor Medicare Part B coverage policies that determine whether and under what circumstances Medicare will pay for medical services, procedures, durable medical equipment (DME), laboratory tests, and injectable drugs administered in medical settings across the United States. It's important to note that this connector covers Part B coverage only — it does not include Medicare Part D prescription drug formularies or Part A inpatient hospital coverage.
 
@@ -40,7 +40,7 @@ Detail retrieval tools like **get\_ncd**, **get\_nca**, and **get\_cal** fetch c
 
 On the provider side, the connector accesses structured data from the CMS Medicare Coverage Database API, retrieving policy documents, contractor information, billing codes, medical necessity criteria, and revision histories directly from CMS's official repository. Data returned from these APIs may be governed by third-party license agreements, including those available [here(opens in new tab)](https://api.coverage.cms.gov/v1/metadata/license-agreement/).
 
-## **Who should use the CMS Coverage integration**
+## **Who should use the CMS Coverage integration**[](#who-should-use-the-cms-coverage-integration)
 
 * **Healthcare Providers & Physicians:** Verify coverage for procedures, understand medical necessity requirements, and ensure compliance with Medicare billing policies before providing services
 * **Medical Coders & Billers:** Access detailed billing articles with CPT/HCPCS codes, ICD-10 diagnosis codes, modifiers, and documentation requirements for accurate claims submission
@@ -51,7 +51,7 @@ On the provider side, the connector accesses structured data from the CMS Medica
 * **Medical Affairs & Market Access Teams:** Research coverage landscapes for medical devices, procedures, and treatments to inform commercialization strategies
 * **Clinical Trial Investigators:** Verify Medicare coverage status for procedures and services used in clinical research protocols
 
-## **Setting up the CMS Coverage integration**
+## **Setting up the CMS Coverage integration**[](#setting-up-the-cms-coverage-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -75,7 +75,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 3. Restart Claude Code
 4. Verify that the server is connected with /mcp
 
-## **Example use cases**
+## **Example use cases**[](#example-use-cases)
 
 **Pre-Service Coverage Verification**
 

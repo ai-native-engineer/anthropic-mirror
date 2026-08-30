@@ -16,7 +16,7 @@ Watch
 
 [Claude in Excel(opens in new tab)](https://support.claude.com/en/articles/12650343-claude-in-excel) works directly inside your spreadsheet through a sidebar, reading your data and making changes through conversation. In this tutorial, you'll see how an accountant uses Claude to validate an ASC 606 revenue recognition model—the kind of multi-tab workbook you might inherit during an audit or acquire in a transaction.
 
-## What you'll learn
+## What you'll learn[](#what-youll-learn)
 
 **Understand workbooks you didn't build** — Ask Claude to explain how tabs connect. It reads every sheet first, then maps the structure—how schedules tie together, where data flows, what feeds into what.
 
@@ -28,7 +28,7 @@ Watch
 
 **Create charts by describing them** — Tell Claude what visualization you need. It creates helper tables when necessary, builds the chart, and will rebuild if the first version isn't right.
 
-## In this video
+## In this video[](#in-this-video)
 
 Follow along with the video, or copy these prompts to try in your own workbook.
 
@@ -80,7 +80,7 @@ Let's go back to the issues you identified—a missing journal entry and one oth
 
 Copy prompt
 
-## What to notice
+## What to notice[](#what-to-notice)
 
 **Claude reads before it answers.**
 When you ask about the model, Claude doesn't guess—it reads all six sheets first, then explains how they connect. This prevents errors from incomplete context and gives Claude the baseline it needs for follow-up questions.
@@ -97,7 +97,7 @@ When you say "let's go back to the issues you identified," Claude remembers what
 **Claude learns patterns from your data.**
 When adding September journal entries, Claude analyzed the existing July and August entries, identified that revenue splits 80% Platform / 12% Support / 8% Services, and applied that same logic. The new entries follow your established pattern.
 
-## Next steps
+## Next steps[](#next-steps)
 
 This tutorial shows one use case: validating an ASC 606 revenue model with reconciliation issues and missing entries. The same approach works for any multi-sheet model where you need to understand the structure, catch problems, or extend what's already built—budgets, forecasts, audit workpapers.
 

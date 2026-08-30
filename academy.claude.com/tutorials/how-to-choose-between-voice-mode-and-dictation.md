@@ -20,23 +20,23 @@ Most of the time, though, you already know what you want to say or do, and want 
 
 Claude gives you both, and they're built for different moments. This guide is about telling them apart: [**dictation**(opens in new tab)](https://support.claude.com/en/articles/10065434-use-dictation-on-claude-mobile) gets your words down; [**voice mode**(opens in new tab)](https://claude.com/blog/think-through-hard-problems-in-voice-mode) helps you work out what you think.
 
-## Dictation: typing with your voice
+## Dictation: typing with your voice[](#dictation-typing-with-your-voice)
 
 Dictation is like typing with your voice. You speak, your words become text in the message box, and Claude replies in text the way it always does. It swaps your keyboard for your voice; everything else about the conversation stays the same.
 
 In the desktop app, you press the mic, speak, and send when you're ready. On your phone, you hold the mic while you talk and let go to send.
 
-## Voice mode: a spoken conversation
+## Voice mode: a spoken conversation[](#voice-mode-a-spoken-conversation)
 
 Voice mode is a spoken conversation. You talk, Claude talks back, without ever needing to use the keyboard. You can interrupt Claude mid-sentence when it's heading somewhere you didn't intend. You can ask the next question the moment it occurs to you, the way you would with a person.
 
-## At a glance
+## At a glance[](#at-a-glance)
 
-## When to reach for which
+## When to reach for which[](#when-to-reach-for-which)
 
 Start from where you are: if you already know what you want to say or do, use dictation. If you're trying to figure something out or practice, that's voice mode.
 
-### Voice mode
+### Voice mode[](#voice-mode)
 
 **Thinking and deciding**
 
@@ -53,13 +53,13 @@ Start from where you are: if you already know what you want to say or do, use di
 * **Work through a dense document.** Add the doc into the conversation and ask your way through it, from what it says to what's missing to where you'd push back.
 * **Prepare for a customer call.** Ask Claude to brief you from your calendar and CRM. Afterward, talk through how the call went and have Claude draft the notes.
 
-### Dictation
+### Dictation[](#dictation)
 
 * **You have a long, messy request in your head.** Speaking is faster than typing, and Claude can understand even rough phrasing.
 * **You need to look over your prompt before it goes to Claude.** Your speech becomes text in the message box, where you can edit it before sending.
 * **You want the response back as text.** Work with a plan, a table, or a draft more easily where you can see, copy, or edit it.
 
-## Voice mode features
+## Voice mode features[](#voice-mode-features)
 
 Voice mode just got a major update. If you tried it early on, here's what's different:
 
@@ -68,7 +68,7 @@ Voice mode just got a major update. If you tried it early on, here's what's diff
 * **It speaks many more languages** (in beta for languages beyond English): Pick your language in settings, or prompt Claude to make the switch. Claude doesn't detect your language automatically.
 * **It remembers:** Voice conversations are saved like any other chat, and Claude can draw on memory and your past conversations, so you can pick up where you left off.
 
-## Voice mode settings
+## Voice mode settings[](#voice-mode-settings)
 
 Voice mode has a few settings of its own:
 
@@ -77,11 +77,11 @@ Voice mode has a few settings of its own:
 * **Pick the voice Claude speaks with:** Choose the one you like from several options.
 * **Choose the model behind the conversation** (paid plans): Your usual chat model carries over as the default, and you can switch to a more capable model when the conversation calls for it.
 
-## Using them together
+## Using them together[](#using-them-together)
 
 You can start in one and finish in the other. Think something through in voice mode on a walk, and when you've made up your mind, ask Claude to sum up the plan. The conversation is saved like any other chat, so everything you talked through is there as text when you come back to it. Open it again at your desk and dictate the follow-up.
 
-## A few things to know
+## A few things to know[](#a-few-things-to-know)
 
 * Voice mode is available on every plan. It's built first for your phone (iOS and Android) and is also available on the web and in the desktop app.
 * In voice mode, paid plans include more capable models and tool connections.
@@ -91,7 +91,7 @@ You can start in one and finish in the other. Think something through in voice m
 
 For more on voice mode, the [help center article(opens in new tab)](https://support.claude.com/en/articles/11101966-use-voice-mode) covers settings and getting set up.
 
-## Get started
+## Get started[](#get-started)
 
 Next time you're about to type a long message to Claude, try using dictation to speak it instead. And next time you catch yourself wishing you could talk something through, open voice mode and think out loud. If you're unsure which one to use, think about what sort of output you want back. If it's text you can read and reuse, that's dictation. If it's a conversation, that's voice mode. Either way, Claude keeps up as you do your best thinking.
 

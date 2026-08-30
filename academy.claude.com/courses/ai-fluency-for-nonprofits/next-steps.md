@@ -16,9 +16,11 @@ In this lessonBy the end, you’ll be able to
 * Share what you've learned with colleagues in your organization
 * Learn where to collect your completion badge
 
-## Next steps
+## Next steps[](#next-steps)
 
 Next steps · 5 min
+
+SummaryTranscript
 
 This video brings together everything you've learned and challenges you to
 put it into practice immediately. You'll get guidance on selecting a real
@@ -26,7 +28,7 @@ task from your work, applying all four competencies of the 4D Framework,
 and building AI Fluency through hands-on experience. The video also
 introduces blueprints and resources to support your continued learning.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Start with one real task this week**: Pick something waiting for you—a grant application, a donor report, program data to analyze—and use what you've learned to tackle it with AI support
 * **Apply the full 4D Framework**: Begin with Delegation (what needs AI support vs. human judgment?), move to Description (share context about your organization, process, and desired outcomes), use Discernment (evaluate and refine through iteration), and practice Diligence (take responsibility for the final result)
@@ -34,7 +36,7 @@ introduces blueprints and resources to support your continued learning.
 * **Use blueprints to guide your first attempts**: Access step-by-step guides for common nonprofit tasks to support your initial AI interactions
 * **Share with your community**: Use your completion badge to start conversations about AI Fluency in your organization
 
-## Your final assignment
+## Your final assignment[](#your-final-assignment)
 
 Before completing this course, choose one real task from your work to tackle with AI support this week.
 
@@ -65,9 +67,9 @@ After completing the task, consider:
 * Which competencies felt natural? Which need more practice?
 * How will you apply this approach to future tasks?
 
-## Continue your learning
+## Continue your learning[](#continue-your-learning)
 
-### Blueprints
+### Blueprints[](#blueprints)
 
 Access step-by-step guides for common nonprofit tasks in [the use case library(opens in new tab)](https://academy.claude.com/all?kind=use-case). These blueprints cover:
 
@@ -76,7 +78,7 @@ Access step-by-step guides for common nonprofit tasks in [the use case library(o
 * Data analysis and visualization
 * And more
 
-### Resources
+### Resources[](#resources)
 
 You have access to:
 
@@ -84,17 +86,17 @@ You have access to:
 * Key terminology cheat sheet
 * Course exercises and reflection prompts
 
-### Deepen your understanding
+### Deepen your understanding[](#deepen-your-understanding)
 
 If you haven't already, Anthropic's [AI Fluency: Framework & Foundations(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations) course provides deeper exploration of the 4D Framework and its applications.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What's the one task you're committing to tackle with AI support this week?
 * How has your relationship with AI changed from the beginning of this course?
 * Who in your organization or network would benefit from taking this course?
 
-## Congratulations!
+## Congratulations![](https://academy.claude.com/courses/ai-fluency-for-nonprofits/next-steps#congratulations)
 
 Congratulations on completing AI Fluency for Nonprofits! You've built a foundation in the 4D Framework, practiced applying it to research, writing, data analysis, and workflow automation, and developed strategies for responsible organizational integration.
 

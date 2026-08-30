@@ -51,7 +51,3 @@ We hope you’ll continue to share your feedback with us so we can improve our s
 #### Footnotes
 
 1 As a result, we expect the total number of fallbacks—for biology–related or any other reasons—will also be reduced: by roughly 67% on [Claude.ai](http://Claude.ai), 55% on Cowork, 17% on Claude Code, and 7% on the Claude Platform.
-
-### Investigating three real-world incidents in our cybersecurity evaluations
-
-[Read more](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals)

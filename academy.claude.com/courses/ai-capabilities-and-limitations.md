@@ -33,11 +33,11 @@ We organize the course around four properties that shape what an AI system can a
 
 The final section looks at what happens when these properties collide — because in real use, they always do. A long document pushes against working memory while also straying into knowledge the model doesn't have; a vague instruction tests steerability at the same moment next-token prediction is reaching for whatever sounds most plausible. We close with a practical diagnostic: how to look at an unexpected output, recognize which kind of unexpected it is, locate roughly where on the capability-to-limitation continuum your task landed, and respond with a targeted fix instead of a generic retry.
 
-## Recommended prerequisites
+## Recommended prerequisites[](#recommended-prerequisites)
 
 None. This course assumes no technical background and no prior experience with AI tools. If you've already completed AI Fluency: Framework & Foundations, you'll recognize where each property connects to the 4Ds — but it's not required.
 
-## Who this is for
+## Who this is for[](#who-this-is-for)
 
 Anyone who uses, or is about to start using, generative AI in their work or studies and wants to understand why it behaves the way it does. Educators, students, knowledge workers, and team leads will all find the same core model useful, because the properties it describes don't change across use cases.
 

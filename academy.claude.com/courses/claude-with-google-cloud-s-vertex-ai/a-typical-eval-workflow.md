@@ -14,7 +14,7 @@ A typical prompt evaluation workflow follows five key steps that help you system
 
 ![](https://academy.claude.com/assets/media/c7dc99eee2300e25b5e601d4873fb6fc50dd72ef7781e054a2da3139d7087179.png)
 
-## Step 1: Draft a Prompt
+## Step 1: Draft a Prompt[](#step-1-draft-a-prompt)
 
 Start by writing an initial prompt that you want to improve. For this example, we'll use a simple prompt:
 
@@ -32,7 +32,7 @@ Please answer the user's question:
 
 This basic prompt will serve as our baseline for testing and improvement.
 
-## Step 2: Create an Evaluation Dataset
+## Step 2: Create an Evaluation Dataset[](#step-2-create-an-evaluation-dataset)
 
 Your evaluation dataset contains sample inputs that you'll feed into your prompt. Since our prompt only has one input (the user's question), we need a collection of different questions to test with.
 
@@ -44,7 +44,7 @@ The dataset contains questions that we will merge with our prompt. You can assem
 * How do I make oatmeal?
 * How far away is the Moon?
 
-## Step 3: Feed Through Claude
+## Step 3: Feed Through Claude[](#step-3-feed-through-claude)
 
 Take each question from your dataset and merge it with your prompt template to create complete prompts. Then send each one to Claude and collect the responses.
 
@@ -52,7 +52,7 @@ Take each question from your dataset and merge it with your prompt template to c
 
 For example, the first question becomes a complete prompt that Claude processes and returns an answer like "2 + 2 = 4". You repeat this process for all questions in your dataset, building a collection of question-answer pairs.
 
-## Step 4: Feed Through a Grader
+## Step 4: Feed Through a Grader[](#step-4-feed-through-a-grader)
 
 Now comes the crucial step of objectively measuring the quality of Claude's responses. You take each question-answer pair and feed them into a grader that scores the responses.
 
@@ -68,7 +68,7 @@ After scoring all responses, you average the scores together. In our example, sc
 
 ![](https://academy.claude.com/assets/media/0e9f812d824c4b31dfaa72e4983983fa9c519b253da93fc2501323e178157ee1.png)
 
-## Step 5: Change Prompt and Repeat
+## Step 5: Change Prompt and Repeat[](#step-5-change-prompt-and-repeat)
 
 With your baseline score established, you can now modify your prompt and run the entire process again to see if your changes improve performance.
 
@@ -88,7 +88,7 @@ Answer the question with ample detail
 """
 ```
 
-## Prompt Scoring
+## Prompt Scoring[](#prompt-scoring)
 
 The power of this workflow lies in getting objective measurements of prompt performance. You can compare scores between different prompt versions to determine which performs better.
 

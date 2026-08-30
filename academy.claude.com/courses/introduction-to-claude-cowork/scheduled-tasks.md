@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Set up a scheduled task with /schedule
 * Run Cowork tasks in the cloud (in beta, on eligible plans), and start or check on them from your phone or any browser
 
-## What makes a task right for Claude Cowork
+## What makes a task right for Claude Cowork[](#what-makes-a-task-right-for-claude-cowork)
 
 Not every task is a fit for Cowork, and you'll get more out of it when you can recognize the tasks that are. Three patterns cover most of the work Cowork is built for: tasks that take several steps, tasks that leverage context from real files, and tasks that span the tools you already use.
 
@@ -45,9 +45,11 @@ Explore the interactive below to see how Cowork performs across the three patter
 
 The through-line across all three patterns is the same: work that used to mean juggling steps, files, and tools in your own head can now be handed off as a single task. When you spot that shape, give it to Cowork.
 
-## Scheduled tasks: have Claude work on a cadence
+## Scheduled tasks: have Claude work on a cadence[](#scheduled-tasks-have-claude-work-on-a-cadence)
 
 Scheduled Tasks in Cowork: Set it once, Claude handles the rest
+
+SummaryTranscript
 
 This video demonstrates scheduling in the desktop app, where a task runs
 when your computer is on. Where a scheduled task runs — including what
@@ -65,7 +67,7 @@ Some ideas worth scheduling:
 * A monthly metrics roll-up pulled from your spreadsheets on the first of every month
 * A morning briefing for the meetings on your calendar that draws on past meeting notes in your folder and your email threads to surface necessary context
 
-## Run Cowork in the cloud: work away from your desk
+## Run Cowork in the cloud: work away from your desk[](#run-cowork-in-the-cloud-work-away-from-your-desk)
 
 So far we've covered tasks you start at your desk and tasks Claude runs on a schedule. Running Cowork in the cloud covers the third case: work you start while you're nowhere near your computer.
 
@@ -80,15 +82,15 @@ Examples:
 
 If you don't have Cowork in the cloud yet, availability varies by plan and by your organization as the beta rolls out.
 
-## Bringing it together
+## Bringing it together[](#bringing-it-together)
 
 Multi-step, file-based, multi-tool — the patterns tell you what's worth handing off. Scheduled tasks and Cowork in the cloud tell you when and where the handoff can happen. The judgment stays with you: Claude plans, executes, and asks. You decide what gets sent, shared, or shipped.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Look at your calendar or to-do list for this week. Pick one piece of work that matches one or more of the three patterns above — multi-step, file-producing, or tool-using. Write it down. You'll hand it to Claude in Lesson 4.
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, you'll walk through delegating that task end to end — from prompt to finished deliverable.
 

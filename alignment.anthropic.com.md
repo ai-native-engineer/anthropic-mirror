@@ -6,6 +6,16 @@
 
 August 2026
 
+[### Automated Researchers Can Reliably Mitigate Alignment Failures
+
+Across 10 common alignment failures, the strongest technique our automated alignment researchers
+discover significantly mitigates the targeted failures and generalizes out of distribution. Our
+findings suggest that automating measurable alignment research may already be practical, rather
+than years away.](https://alignment.anthropic.com/2026/automated-alignment-researchers/)
+[### TASTE: Can AI Models Judge AI Safety Research Proposals?
+
+We introduce TASTE, a benchmark measuring how well models can judge AI safety research proposals
+against the preferences of experienced researchers.](https://alignment.anthropic.com/2026/taste/)
 [### Would This Change Your Answer? Evaluating Explanations of LLM Behavior in the Wild with Counterfactual Experiments
 
 We evaluate whether interpretability tools are useful for predicting counterfactual behaviors under

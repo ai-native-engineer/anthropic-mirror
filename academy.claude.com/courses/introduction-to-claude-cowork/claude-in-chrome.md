@@ -15,20 +15,22 @@ In this lessonBy the end, you’ll be able to
 * Recognize the kinds of work Claude in Chrome unlocks
 * Use Chrome alongside Cowork on a real piece of work
 
-## Watch it work
+## Watch it work[](#watch-it-work)
 
 Claude in Chrome brings AI where you're already working
+
+SummaryTranscript
 
 The video shows how Claude can work in Chrome to read, click, and navigate
 websites alongside you.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Claude in Chrome is the bridge for tools that don't have a connector.** For anything that lives in a browser, Claude can read and act on those pages.
 * **Claude in Chrome and Cowork work together.** Claude can gather info and take actions in the browser; it then takes the results and builds the deliverable back in Cowork. One conversation, both surfaces.
 * **You stay in control.** By default, Claude in Chrome asks before sensitive actions, and you can approve or deny each one.
 
-## What this unlocks
+## What this unlocks[](#what-this-unlocks)
 
 A few examples that matter in real work:
 
@@ -39,7 +41,7 @@ A few examples that matter in real work:
 
 The pattern: any time you'd find yourself thinking *"I'd love to give this context to Claude, but it lives on the web,"* Claude in Chrome is the answer.
 
-## Use it with Cowork
+## Use it with Cowork[](#use-it-with-cowork)
 
 A real example: your team's customer health dashboard lives behind a login and doesn't have a connector. You want a one-page summary of every account showing yellow or red, by Friday.
 
@@ -51,18 +53,18 @@ Open in Cowork
 
 Claude hands the browser steps to Claude in Chrome, takes the data back, pulls the supporting context from Drive and Slack, and builds the summary in your folder. One delegation, three sources of context.
 
-## A few watch-outs
+## A few watch-outs[](#a-few-watch-outs)
 
 * **You need to be signed in.** Claude can't sign in to a tool for you. If the dashboard requires authentication, you log in once in your browser; Claude works in the session you're already authenticated in.
 * **Be deliberate about what you give Claude access to on the web.** Just like with connectors, Claude sees what you see — but on the open web, that includes anything you have access to. For sensitive sites, narrow what Claude can act on, and review the actions before approving them.
 
 To find the latest setup guidance, see [Get started with Claude in Chrome(opens in new tab)](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome).
 
-## Try it now
+## Try it now[](#try-it-now)
 
 Pick one task on your plate that lives in a browser-based tool that doesn't have a connector. Open Cowork, describe the task, and let Claude work in Chrome, then hand off insights to Claude in Cowork.
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, you'll see Claude show up inside the M365 apps where a lot of work actually lands — Word, Excel, PowerPoint, and Outlook.
 

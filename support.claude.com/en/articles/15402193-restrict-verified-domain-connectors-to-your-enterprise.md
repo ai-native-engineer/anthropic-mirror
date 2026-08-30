@@ -36,8 +36,6 @@ When the setting is off, they can sign in to Claude with their personal account 
 
 When the setting is on, they can't connect their work Gmail from their personal account. They can still connect it from their work account. That keeps company information inside your organization's controls.
 
----
-
 ## Prerequisites
 
 Before you can turn on this setting, your Enterprise organization must verify your domain.
@@ -49,8 +47,6 @@ Before you can turn on this setting, your Enterprise organization must verify yo
 3. Toggle on "Restrict verified-domain connectors to your enterprise."
 
 You can turn off this setting at any time. It's separate from domain capture, which can't be reversed once enabled.
-
----
 
 ## What people see when a connection is restricted
 
@@ -64,8 +60,6 @@ If someone tries to make a connection that’s restricted, the connection fails 
 * **It doesn't replace data loss prevention.** It's a safeguard against accidentally connecting a work account to the wrong Claude account, not a control against deliberate data movement.
 * **It doesn't disconnect existing connections.** The restriction applies only to new connection attempts. Connections made before you turned on the setting stay connected.
 * **It doesn't notify admins.** Only the person attempting the connection sees the message if it fails.
-
----
 
 ## Frequently asked questions
 
@@ -85,4 +79,4 @@ Coverage depends on the identity information each service provides. In a small n
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Claim and migrate accounts on your domain](https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain)
 * [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)
-* [Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)
+* [Set up Claude for Teachers for your school or district](https://support.claude.com/en/articles/16559896-set-up-claude-for-teachers-for-your-school-or-district)

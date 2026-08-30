@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Practice interview skills with AI as your coach
 * Build a strategic approach to career development that leverages AI appropriately
 
-## AI as a learning partner
+## AI in career planning[](#ai-in-career-planning)
 
 AI in career planning
+
+SummaryTranscript
 
 This video explores how to use AI as a thinking partner for career planning
 rather than a machine that makes decisions or creates generic content for
@@ -33,7 +35,7 @@ itself is becoming a valuable career skill worth highlighting. Throughout,
 the focus is on using AI to enhance your career planning while ensuring all
 representations of yourself remain authentic.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Career planning combines AI's information gathering with your self-knowledge and values
 * Generic AI-generated resumes and cover letters are easily spotted and ineffective
@@ -41,7 +43,7 @@ representations of yourself remain authentic.
 * Skill building with AI requires specific goals and active practice, not passive consumption
 * AI Fluency is itself a valuable career skill to develop and showcase
 
-## Exercises
+## Exercises[](#exercises)
 
 This comprehensive exercise takes you through a complete career development process using AI strategically at each stage. The timing is just a guideline - don't feel like you need to rush anything!
 
@@ -86,7 +88,7 @@ Have the AI ask you questions to explore:
 * Note skill gaps between where you are and where you want to be
 * Save this exploration for reference
 
-## What's next
+## What's next[](#whats-next)
 
 In our final lesson, we'll explore what it means to be "the human in the loop." You'll create a personal AI collaboration policy that reflects your values, develop guidelines for responsible AI use, and build a framework for continued growth in AI fluency that will serve you throughout your academic and professional journey.
 
@@ -111,7 +113,7 @@ Conclusion & badge
 
 * [Completion badge](https://academy.claude.com/courses/ai-fluency-for-students/badge)
 
-* [AI as a learning partner](#ai-as-a-learning-partner)
+* [AI in career planning](#ai-in-career-planning)
 * [Key takeaways](#key-takeaways)
 * [Exercises](#exercises)
 * [What's next](#whats-next)

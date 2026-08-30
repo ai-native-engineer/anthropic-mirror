@@ -14,7 +14,7 @@ Try in ClaudeCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-fjnnaiiq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mslbc9us.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 You're working out how to teach something — where students get stuck, what framing would land better, whether your usual sketch is doing the right work. Claude can think through that with you, and a visual streams in as part of the exchange, making the reframing concrete right alongside the advice. The drawing does two things at once. It sharpens your own articulation — seeing it move makes the teaching script write itself — and it's a first draft of something students could use, with a path from prep session to classroom tool when you want one.
 
@@ -24,27 +24,27 @@ I'm prepping to teach supply and demand equilibrium next week. Here's the sketch
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Attach what you've been using — a sketch, a slide, a half-built example. Claude reads your framing and works from it, so what comes back extends your explanation rather than replacing it.
 
-### Required context
+### Required context[](#required-context)
 
 A photo of the whiteboard, a slide, or a description of what you've been drawing.
 
 Sketch, slide, or descriptionJPEG
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 The response is a teaching conversation with a visual woven through it. Claude diagnoses why the static sketch loses students — a concept about *movement* needs to move — offers a reframe, and the interactive version streams in where the reframe lands: your curves, a slider the student would drag, a readout that rewrites wherever they set the price. The graph is a prop for the thinking first. What you do with it comes second.
 
 ![Claude's response with an interactive supply and demand graph: crossing supply and demand curves with a shaded surplus zone, a market price slider with shift-demand and shift-supply controls, a Snap to equilibrium button, a readout explaining the unsold units piling up at the set price, and follow-up buttons for a demand spike and price floors and ceilings](https://academy.claude.com/assets/v1/equilibrium-graph-g5qe2b55.png)
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Ask Claude to redraw it with one thing changed
+### Ask Claude to redraw it with one thing changed[](#ask-claude-to-redraw-it-with-one-thing-changed)
 
 Describe a change to the interaction and Claude redraws — you say what's different, the visual updates.
 
@@ -52,7 +52,7 @@ Add a step before the snap button: students predict which way the price moves fi
 
 Open in Claude
 
-### Click a button in the visual to see the next scenario
+### Click a button in the visual to see the next scenario[](#click-a-button-in-the-visual-to-see-the-next-scenario)
 
 The buttons below the graph send follow-up prompts — click one and Claude builds a second visual for that scenario. The equilibrium graph stays above.
 
@@ -60,7 +60,7 @@ What happens when demand spikes? Show me the curves shifting and where the new e
 
 Open in Claude
 
-### Ask Claude to rebuild the same format for a different concept
+### Ask Claude to rebuild the same format for a different concept[](#ask-claude-to-rebuild-the-same-format-for-a-different-concept)
 
 Claude rebuilds the same drag-predict-check interaction around the new concept — price floors this time, same snap button, different curves.
 
@@ -68,21 +68,21 @@ Redraw this for price floors and ceilings — same predict-then-snap format, but
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### How you word your prompt shapes what you get
+### How you word your prompt shapes what you get[](#how-you-word-your-prompt-shapes-what-you-get)
 
 "Students follow the crossing but not why the price goes there" tells Claude which misconception to build around — generic framing gets a generic diagram. Attach what you've been using, say where students stall, and the visual gets shaped around that specific gap.
 
-### Check the visual against your own understanding
+### Check the visual against your own understanding[](#check-the-visual-against-your-own-understanding)
 
 The predict-then-snap interaction is Claude's guess at what would help your students — it's one way to build the graph, and it might not fit your class. Try it with a few students before committing. If they click through without predicting, or the surplus zone doesn't land, that's worth knowing — tell Claude what happened and the next version gets built around what you saw.
 
-### What to do with the visual next
+### What to do with the visual next[](#what-to-do-with-the-visual-next)
 
 When the visual is close to something students could use on their own, hover over it for options. Save as Artifact turns the whiteboard draft into a link students open on their own. Create skill from visual has Claude remember the interaction shape — next time you bring a different concept and get the same drag-predict-check format without rebuilding the idea.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Try it on whatever you're planning to teach — attach your sketch, say where students tend to stall, and think it through with Claude. The drawing shows up mid-conversation, useful for your own prep first, with a path to a student tool when one's worth building.
 

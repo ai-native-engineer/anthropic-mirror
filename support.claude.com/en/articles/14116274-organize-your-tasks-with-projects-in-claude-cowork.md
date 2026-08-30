@@ -15,29 +15,27 @@ Cowork is available for paid plans (Pro, Max, Team, Enterprise) on:
 
   + Cowork requires the latest version of Claude for Windows. Download or update at **[our download page](https://claude.com/download)**.
 
----
-
 ## Create a project
 
 Find **Projects** in the left navigation panel and click the “+” button to see the three different ways to create a project:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183720240/6f6ef438913391703598d86d606c/CleanShot+2026-03-20+at+09_11_43.png?expires=1787622300&signature=9adfca0fe437426d49942089f1300fc022ce15c844203bc39908f74e641754dd&req=diEvFc58nYNbWfMW1HO4zcOgiwK80yp2ZwSvwegvtgwPUStJ9FUzLDQ%2FTDQ4%0A9VeG1GNvEsZDh3m9wV8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183720240/6f6ef438913391703598d86d606c/CleanShot+2026-03-20+at+09_11_43.png?expires=1787622300&signature=9adfca0fe437426d49942089f1300fc022ce15c844203bc39908f74e641754dd&req=diEvFc58nYNbWfMW1HO4zcOgiwK80yp2ZwSvwegvtgwPUStJ9FUzLDQ%2FTDQ4%0A9VeG1GNvEsZDh3m9wV8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183720240/6f6ef438913391703598d86d606c/CleanShot+2026-03-20+at+09_11_43.png?expires=1788033600&signature=feb07580030e0a0fa383c9bfc2607d571df6f8e727e4920391b9c39dbdfcca44&req=diEvFc58nYNbWfMW1HO4zcOgiw260itzZwSvwegvtgxmvm89x%2BceiNflEZZj%0A3OOWXb51fqe2ox%2FeLGw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183720240/6f6ef438913391703598d86d606c/CleanShot+2026-03-20+at+09_11_43.png?expires=1788033600&signature=feb07580030e0a0fa383c9bfc2607d571df6f8e727e4920391b9c39dbdfcca44&req=diEvFc58nYNbWfMW1HO4zcOgiw260itzZwSvwegvtgxmvm89x%2BceiNflEZZj%0A3OOWXb51fqe2ox%2FeLGw%3D%0A)
 
 ### Start from scratch
 
 Selecting “Start from scratch” allows you to set up a new folder with instructions and files:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177090014/07832b50003cf7fd3b4e9c7c448b/3385d9b8-c3e7-42b9-ae3f-4d213baa53a7?expires=1787622300&signature=d7a99f8a984833c7e93d8e6cd4e77a87b4cbfcfd9f4c6616704ea28371a3de49&req=diEgEcl3nYFeXfMW1HO4zZCoQ4pDTHeVvb0suCMAnj1xrMrUr5TFLPnrtOHr%0AxlJbZ%2BLipjWMAn2kOBk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177090014/07832b50003cf7fd3b4e9c7c448b/3385d9b8-c3e7-42b9-ae3f-4d213baa53a7?expires=1787622300&signature=d7a99f8a984833c7e93d8e6cd4e77a87b4cbfcfd9f4c6616704ea28371a3de49&req=diEgEcl3nYFeXfMW1HO4zZCoQ4pDTHeVvb0suCMAnj1xrMrUr5TFLPnrtOHr%0AxlJbZ%2BLipjWMAn2kOBk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177090014/07832b50003cf7fd3b4e9c7c448b/3385d9b8-c3e7-42b9-ae3f-4d213baa53a7?expires=1788033600&signature=ea065e4ea9b7b33dd3be6dbe2f3c7873c28a828989391942f41936e16c06afb1&req=diEgEcl3nYFeXfMW1HO4zZCoQ4VFTXaQvb0suCMAnj2Vt%2B%2FMH570ZJNEfojp%0A%2FhhoI8tdJbceuho6AMA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177090014/07832b50003cf7fd3b4e9c7c448b/3385d9b8-c3e7-42b9-ae3f-4d213baa53a7?expires=1788033600&signature=ea065e4ea9b7b33dd3be6dbe2f3c7873c28a828989391942f41936e16c06afb1&req=diEgEcl3nYFeXfMW1HO4zZCoQ4VFTXaQvb0suCMAnj2Vt%2B%2FMH570ZJNEfojp%0A%2FhhoI8tdJbceuho6AMA%3D%0A)
 
 ### Import from a Claude project
 
 After selecting “Import from project,” you’ll see a “Search projects in Chat…” field:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183717962/acdc11bcc825ae76a13f508365bc/CleanShot+2026-03-20+at+09_12_08.png?expires=1787622300&signature=e5501cde76d74c27bb227e96038f9e9bf7d85747180afef93eb44a5df417ac63&req=diEvFc5%2FmohZW%2FMW1HO4zQQ7UGRbyJocjggUT7FIJz9VgokiQV77uGk4A29F%0AurNFt6sigmTcH%2FeCKUM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183717962/acdc11bcc825ae76a13f508365bc/CleanShot+2026-03-20+at+09_12_08.png?expires=1787622300&signature=e5501cde76d74c27bb227e96038f9e9bf7d85747180afef93eb44a5df417ac63&req=diEvFc5%2FmohZW%2FMW1HO4zQQ7UGRbyJocjggUT7FIJz9VgokiQV77uGk4A29F%0AurNFt6sigmTcH%2FeCKUM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183717962/acdc11bcc825ae76a13f508365bc/CleanShot+2026-03-20+at+09_12_08.png?expires=1788033600&signature=97a75859b95e9953028a17733f38e0669ad52831cf601038ab0635187ffaa6db&req=diEvFc5%2FmohZW%2FMW1HO4zQQ7UGtdyZsZjggUT7FIJz%2BmU0jNX0Hsu0I6ru0A%0APgylNq6fNvbwkIKME2I%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183717962/acdc11bcc825ae76a13f508365bc/CleanShot+2026-03-20+at+09_12_08.png?expires=1788033600&signature=97a75859b95e9953028a17733f38e0669ad52831cf601038ab0635187ffaa6db&req=diEvFc5%2FmohZW%2FMW1HO4zQQ7UGtdyZsZjggUT7FIJz%2BmU0jNX0Hsu0I6ru0A%0APgylNq6fNvbwkIKME2I%3D%0A)
 
 Clicking into the field will display a drop-down showing your recent projects, but you can also use it to search all your projects. After you select a chat project (bulk upload is not supported), you can name the new Cowork project and choose where to save it on your computer:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183727973/7a25430123d9e13e7c3cdd411f70/CleanShot+2026-03-20+at+09_13_41.png?expires=1787622300&signature=b2a4569f9a1f683ec4fdb424e9f83d80841d9615ff5f49ffe425ccfad960ae76&req=diEvFc58mohYWvMW1HO4zU%2FKAiRA%2FiHPI7f%2FdY0VL6iunsfpu6NuZSTAmmI%2B%0AZLNbQrGtzi9X5Nq2Vp4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183727973/7a25430123d9e13e7c3cdd411f70/CleanShot+2026-03-20+at+09_13_41.png?expires=1787622300&signature=b2a4569f9a1f683ec4fdb424e9f83d80841d9615ff5f49ffe425ccfad960ae76&req=diEvFc58mohYWvMW1HO4zU%2FKAiRA%2FiHPI7f%2FdY0VL6iunsfpu6NuZSTAmmI%2B%0AZLNbQrGtzi9X5Nq2Vp4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183727973/7a25430123d9e13e7c3cdd411f70/CleanShot+2026-03-20+at+09_13_41.png?expires=1788033600&signature=8b1b4a1a1497f080dea20111229555839e263d12cc43d525fadb78e8f2c0f852&req=diEvFc58mohYWvMW1HO4zU%2FKAitG%2FyDKI7f%2FdY0VL6hf2WyxUGUpg64%2FoCgr%0Az5hNVTCYfs4L%2BCG0k1M%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2183727973/7a25430123d9e13e7c3cdd411f70/CleanShot+2026-03-20+at+09_13_41.png?expires=1788033600&signature=8b1b4a1a1497f080dea20111229555839e263d12cc43d525fadb78e8f2c0f852&req=diEvFc58mohYWvMW1HO4zU%2FKAitG%2FyDKI7f%2FdY0VL6hf2WyxUGUpg64%2FoCgr%0Az5hNVTCYfs4L%2BCG0k1M%3D%0A)
 
 Clicking “Create” will transfer the files and instructions from your existing Claude project and create a new Cowork project.
 
@@ -45,13 +43,11 @@ Clicking “Create” will transfer the files and instructions from your existin
 
 If you select “Use an existing folder,” you’ll be prompted to pick a file to use as context for the new Cowork project:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177087935/2f0052dae601d0b7fecdc029e1c3/2e3ca9e7-23b1-436e-bbdb-edcd31c41f15?expires=1787622300&signature=299149dba7070fe23b657bab39a9a9cfdfe3869266c9248b37f38515329e8265&req=diEgEcl2mohcXPMW1HO4zejrnzHQFyFcuv8e2Xj2xOUVBRuaayWZlvNiaxy4%0Aiu0w6ORd311bQjrdYYU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177087935/2f0052dae601d0b7fecdc029e1c3/2e3ca9e7-23b1-436e-bbdb-edcd31c41f15?expires=1787622300&signature=299149dba7070fe23b657bab39a9a9cfdfe3869266c9248b37f38515329e8265&req=diEgEcl2mohcXPMW1HO4zejrnzHQFyFcuv8e2Xj2xOUVBRuaayWZlvNiaxy4%0Aiu0w6ORd311bQjrdYYU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177087935/2f0052dae601d0b7fecdc029e1c3/2e3ca9e7-23b1-436e-bbdb-edcd31c41f15?expires=1788033600&signature=1710d83cde6c4f5a00bb61bea2e7d3065d72bdc5d661245c4b6932672e4d6acf&req=diEgEcl2mohcXPMW1HO4zejrnz7WFiBZuv8e2Xj2xOXhBUAzw5cZUkxmExDS%0AUFa67Djdnsp2aQeluBw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177087935/2f0052dae601d0b7fecdc029e1c3/2e3ca9e7-23b1-436e-bbdb-edcd31c41f15?expires=1788033600&signature=1710d83cde6c4f5a00bb61bea2e7d3065d72bdc5d661245c4b6932672e4d6acf&req=diEgEcl2mohcXPMW1HO4zejrnz7WFiBZuv8e2Xj2xOXhBUAzw5cZUkxmExDS%0AUFa67Djdnsp2aQeluBw%3D%0A)
 
 After selecting a folder, you can name the new Cowork project, choose where to save it on your computer, add instructions, and attach any additional files. Click “Create” to start using your new project:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177087937/f59dbe3fc28448a9597ea097cb4d/96a59acb-4054-4b4b-a208-751f9711f535?expires=1787622300&signature=7b453c6ffa55f696ea9b0b6ed48b09f2b91c6add932b3b7481780aed35366a59&req=diEgEcl2mohcXvMW1HO4zUq4V%2BSygaA5MfnqHouW6MIOB3vRKdDjGJvpu%2F22%0AKkZTWPLHUY7xhK5Prpk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177087937/f59dbe3fc28448a9597ea097cb4d/96a59acb-4054-4b4b-a208-751f9711f535?expires=1787622300&signature=7b453c6ffa55f696ea9b0b6ed48b09f2b91c6add932b3b7481780aed35366a59&req=diEgEcl2mohcXvMW1HO4zUq4V%2BSygaA5MfnqHouW6MIOB3vRKdDjGJvpu%2F22%0AKkZTWPLHUY7xhK5Prpk%3D%0A)
-
----
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177087937/f59dbe3fc28448a9597ea097cb4d/96a59acb-4054-4b4b-a208-751f9711f535?expires=1788033600&signature=e46bac4e079434e158e4bd86ad9a6e6f1ba83e79d05b960b8d9c663cfdaf408e&req=diEgEcl2mohcXvMW1HO4zUq4V%2Bu0gKE8MfnqHouW6MI33A%2FY6MDmZE5QcZUC%0ACZTdnpyDPrkhZ9gyatw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2177087937/f59dbe3fc28448a9597ea097cb4d/96a59acb-4054-4b4b-a208-751f9711f535?expires=1788033600&signature=e46bac4e079434e158e4bd86ad9a6e6f1ba83e79d05b960b8d9c663cfdaf408e&req=diEgEcl2mohcXvMW1HO4zUq4V%2Bu0gKE8MfnqHouW6MI33A%2FY6MDmZE5QcZUC%0ACZTdnpyDPrkhZ9gyatw%3D%0A)
 
 ## What's included in a project
 
@@ -62,15 +58,11 @@ Each project has its own:
 * **Context** — Add a local folder, link a chat project, or paste in a URL for Claude to reference.
 * **Memory** — Claude remembers context from your work within the project.
 
----
-
 ## Memory in projects
 
 Memory is enabled for Cowork projects. This means Claude can remember context from tasks you've run in a project and apply it to future tasks in the same project. Memory is scoped to the project, so what Claude learns in one project doesn't carry over to others.
 
 For more information about how memory works, see **[Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)**.
-
----
 
 ## Archive a project
 
@@ -78,8 +70,6 @@ When you archive a project in Cowork:
 
 * The project's metadata is removed from the UI, but is not removed locally.
 * Any related files or folders stored on your computer are not affected.
-
----
 
 ## Current limitations
 

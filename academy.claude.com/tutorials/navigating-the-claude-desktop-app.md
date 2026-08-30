@@ -22,7 +22,7 @@ Cowork and Code run on the same engine. Both are [Claude Code(opens in new tab)]
 
 Each mode is designed around the work it serves, showing you what matters and giving you control where you need it.
 
-## Chat
+## Chat[](#chat)
 
 ![](https://academy.claude.com/assets/media/6fcef3fffebbdcc24dfe51c43e57196dcec0402c986c32bb803a2bd6a6fcdffc.png)
 
@@ -41,7 +41,7 @@ If you've used [claude.ai,(opens in new tab)](http://claude.ai/) this works the 
 * **You're in between meetings** and want to think through how to structure a presentation. Open quick entry, switch to voice, and talk it through. Claude drafts an outline from what you said.
 * **You've been jotting down ideas for a product launch** across Apple Notes for weeks. You add the Notes connector from Settings and ask Claude: "Pull together everything in my notes about the Osprey launch, figure out where I left things half-finished, and check my other connected tools for anything that fills in the gaps." Claude reads your notes on your machine, pieces together what you have, and follows up where you trailed off.
 
-## Cowork
+## Cowork[](#cowork)
 
 ![](https://academy.claude.com/assets/media/782ff424a16217adc2bf15d89f81250e2d2c9c4f112ddad39a28942c6ae43386.png)
 
@@ -68,7 +68,7 @@ See [more examples(opens in new tab)](https://academy.claude.com/all?kind=use-ca
 
 Cowork is generally available on the Pro, Max, Team, and Enterprise plans, where it's on by default. It isn't available on the Free plan.
 
-## Code
+## Code[](#code)
 
 ![](https://academy.claude.com/assets/media/40fbc77a34b0790f53acda7cc3b7ed0476ac386e6ca57f6131800573f424fb32.png)
 
@@ -94,9 +94,9 @@ You can run multiple sessions across projects and filter them by status (Active 
 
 The Code tab is rolling out to Pro, Max, Team, and Enterprise users. For sessions, permissions, hooks, skills, and other configuration, see the [Claude Code desktop documentation(opens in new tab)](https://code.claude.com/docs/en/desktop).
 
-## Comparing the three modes on Desktop
+## Comparing the three modes on Desktop[](#comparing-the-three-modes-on-desktop)
 
-## Practice choosing the mode
+## Practice choosing the mode[](#practice-choosing-the-mode)
 
 Pull up three real tasks: the last three things you asked Claude for, or three things you want help with this week. For each one, decide which mode you would use and note what about the task drove the choice.
 
@@ -113,7 +113,7 @@ Where Claude's call differs from yours, question both before accepting either. T
 
 The habit worth keeping: before you type the first prompt, name what the task needs, then start in the mode built for it. A quick exchange belongs in Chat, sustained work across many sources belongs in Cowork, and anything that ends in running code belongs in Code.
 
-## Get started
+## Get started[](#get-started)
 
 * [Download Claude for Mac or Windows(opens in new tab)](https://claude.com/download)
 

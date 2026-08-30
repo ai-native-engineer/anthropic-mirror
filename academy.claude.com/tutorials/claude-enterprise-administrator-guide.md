@@ -18,11 +18,11 @@ Walk through the four phases of a successful Claude Enterprise deployment: Techn
 
 This guide walks you through the four phases of a successful Claude Enterprise deployment: Technical Setup, Change Management & Launch, Enablement & Training, and Scaling Adoption. It also covers Claude.ai and Claude Code access controls, configuration options, and seat management.
 
-## Phase 1: Technical Setup
+## Phase 1: Technical Setup[](#phase-1-technical-setup)
 
 **Complete these technical configuration steps before launching Claude to your organization.**
 
-### Authentication & Access
+### Authentication & Access[](#authentication-access)
 
 **Follow these steps to configure SSO:**
 
@@ -32,7 +32,7 @@ Claude Enterprise supports SAML 2.0 and OIDC (OpenID Connect) for single sign-on
 2. **Enable domain capture:** Automatically route users from your domain to your workspace. See [Domain Capture Setup(opens in new tab)](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning).
 3. **Enforce SSO:** Require SSO for all access once configuration is validated.
 
-### User Provisioning Options
+### User Provisioning Options[](#user-provisioning-options)
 
 Choose your provisioning method based on your organization's needs. See [User Provisioning Overview(opens in new tab)](https://support.claude.com/en/articles/13133195-setting-up-jit-or-scim-provisioning) for setup instructions.
 
@@ -49,7 +49,7 @@ Many organizations use SCIM for a phased rollout approach:
 3. Gradually expand SCIM groups to include additional departments
 4. Enable organization-wide access once processes are established
 
-### Security & Compliance
+### Security & Compliance[](#security-compliance)
 
 Claude Enterprise includes robust security and compliance features designed for enterprise environments:
 
@@ -59,7 +59,7 @@ Review security details at the [Anthropic Trust Center(opens in new tab)](https:
 2. **No model training:** Your organization's data is not used to train Claude models by default.
 3. **Role-based access:** Primary Owner, Owner, and Member roles provide granular permissions. See [Member Roles Guide(opens in new tab)](https://support.claude.com/en/articles/9267276-roles-and-permissions).
 
-### Pre-Launch Checklist
+### Pre-Launch Checklist[](#pre-launch-checklist)
 
 * Important considerations before setting up Identity Management — [Important Considerations(opens in new tab)](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
 * SSO configured and tested — [Setting Up SSO(opens in new tab)](https://support.claude.com/en/articles/13132885-setting-up-single-sign-on-sso)
@@ -71,7 +71,7 @@ Review security details at the [Anthropic Trust Center(opens in new tab)](https:
 * Admin roles assigned — [Member Roles(opens in new tab)](https://support.claude.com/en/articles/9267276-roles-and-permissions)
 * Claude Code seat configuration completed (see next section)
 
-### Claude Code Access & Seat Configuration
+### Claude Code Access & Seat Configuration[](#claude-code-access-seat-configuration)
 
 #### Understanding Claude Enterprise Seat Types for Claude Code
 
@@ -125,11 +125,11 @@ Claude Code access requires a Premium seat (legacy model), or a Chat + Code or C
 
 For organizations migrating from Console/API-based Claude Code access, users must re-authenticate via Enterprise SSO to link their subscription.
 
-## Phase 2: Change Management & Launch
+## Phase 2: Change Management & Launch[](#phase-2-change-management-launch)
 
 A successful Claude deployment requires thoughtful change management to drive adoption and demonstrate value.
 
-### Define Success Metrics
+### Define Success Metrics[](#define-success-metrics)
 
 Establish clear metrics to measure the success of your Claude deployment:
 
@@ -142,7 +142,7 @@ Establish clear metrics to measure the success of your Claude deployment:
 | Impact | User Satisfaction Score | 4.0+ / 5.0 | Quarterly Survey |
 | Impact | Tasks Augmented by Claude | 5+ per week | User Self-Report |
 
-### Identify & Enable Champions
+### Identify & Enable Champions[](#identify-enable-champions)
 
 Champions are enthusiastic early adopters who can help drive adoption across their teams:
 
@@ -152,7 +152,7 @@ Champions are enthusiastic early adopters who can help drive adoption across the
 * Create a champions Slack channel or Teams group for peer support
 * Recognize and reward champion contributions to adoption
 
-### Launch Communications
+### Launch Communications[](#launch-communications)
 
 Plan a multi-channel communication strategy for your launch:
 
@@ -161,11 +161,11 @@ Plan a multi-channel communication strategy for your launch:
 * **Post-Launch (Week 1):** Tips and tricks, success stories from pilot users
 * **Ongoing:** Weekly tips, monthly newsletters, quarterly business reviews
 
-## Phase 3: Enablement & Training
+## Phase 3: Enablement & Training[](#phase-3-enablement-training)
 
 Provide comprehensive training resources to help users get the most from Claude.
 
-### Structured Training Programs
+### Structured Training Programs[](#structured-training-programs)
 
 Deploying Claude is a technical milestone, but adoption depends on whether people know how to use it effectively. A structured training program ensures users move past initial curiosity into productive, habitual use — and reduces the support burden on your IT and champion teams.
 
@@ -174,7 +174,7 @@ Deploying Claude is a technical milestone, but adoption depends on whether peopl
 * **Office Hours:** Weekly or biweekly drop-in sessions where users bring real work and get hands-on help from champions. Especially valuable in the first 30–60 days.
 * **LMS Integration:** If your organization uses an LMS, package Claude training into trackable courses to monitor enablement coverage and tie completion to access or feature rollout milestones.
 
-### Self-Service Learning Resources
+### Self-Service Learning Resources[](#self-service-learning-resources)
 
 Direct users to these Anthropic-provided learning resources:
 
@@ -183,7 +183,7 @@ Direct users to these Anthropic-provided learning resources:
 * [Help Center(opens in new tab)](https://support.claude.com) — Comprehensive documentation and FAQs on Claude Enterprise
 * [Docs Site(opens in new tab)](https://platform.claude.com/docs/en/home) — Comprehensive support for Claude Code and API use
 
-### Feature-Specific Guides
+### Feature-Specific Guides[](#feature-specific-guides)
 
 Ensure users understand key enterprise features:
 
@@ -195,7 +195,7 @@ Ensure users understand key enterprise features:
 
 [**Enterprise Search**(opens in new tab)](https://support.claude.com/en/articles/12489464-using-enterprise-search)**:** Connect internal knowledge bases and documents to Claude for organization-specific answers. Supports various file formats and integrations.
 
-### Claude Code Training Resources
+### Claude Code Training Resources[](#claude-code-training-resources)
 
 Provide these resources to help users get started with Claude Code:
 
@@ -1572,7 +1572,7 @@ Thank you.
 </details>
 
 
-### Internal Support Channels
+### Internal Support Channels[](#internal-support-channels)
 
 Establish ongoing support infrastructure for your Claude users:
 
@@ -1582,11 +1582,11 @@ Establish ongoing support infrastructure for your Claude users:
 * Monthly user group meetings to share best practices
 * Dedicated Claude Code support channel for developer-specific questions
 
-## Phase 4: Scaling Adoption
+## Phase 4: Scaling Adoption[](#phase-4-scaling-adoption)
 
 After initial deployment, focus on expanding usage, building internal ownership, and demonstrating sustained value across the organization.
 
-### Expanding Across Teams
+### Expanding Across Teams[](#expanding-across-teams)
 
 Prioritize teams with strong use case fit and willing champions. For each new team:
 
@@ -1594,7 +1594,7 @@ Prioritize teams with strong use case fit and willing champions. For each new te
 * Provision seats (including Claude Code for developer teams) and deliver tailored onboarding
 * Appoint a local champion to drive adoption and share early wins across the organization
 
-### Measuring Impact
+### Measuring Impact[](#measuring-impact)
 
 Shift from tracking activity metrics to demonstrating business value. Focus on outcomes that matter to leadership:
 
@@ -1603,7 +1603,7 @@ Shift from tracking activity metrics to demonstrating business value. Focus on o
 * Pair quantitative data with qualitative examples – short case studies from team leads illustrating real impact
 * Establish a regular reporting cadence (e.g., quarterly business reviews) to keep stakeholders informed
 
-### Feature Rollout & Governance
+### Feature Rollout & Governance[](#feature-rollout-governance)
 
 Introduce advanced capabilities gradually so teams can build confidence without feeling overwhelmed. A natural progression might move from core features (Projects, Artifacts, Connectors) to intelligence features (Enterprise Search, Research) to integrations (Claude Code, Skills) and finally to automation (Cowork, custom connectors).
 
@@ -1613,7 +1613,7 @@ As usage grows, revisit your governance posture:
 * Maintain an allowlist of approved connectors and extensions, routing new requests through your standard IT governance process
 * Configure usage guardrails to manage consumption as the user base expands
 
-### Sustaining Momentum
+### Sustaining Momentum[](#sustaining-momentum)
 
 Long-term success depends on building internal ownership and feedback loops:
 
@@ -1626,11 +1626,11 @@ Long-term success depends on building internal ownership and feedback loops:
   + What barriers remain?
   + What should change for the next phase?
 
-## Appendix: Resource Directory
+## Appendix: Resource Directory[](#appendix-resource-directory)
 
 A comprehensive directory of support, training, and enablement resources for Claude Enterprise administrators and end users.
 
-### Getting Started
+### Getting Started[](#getting-started)
 
 **Essential resources for new deployments and first-time users:**
 
@@ -1640,7 +1640,7 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Release Notes(opens in new tab)](https://support.claude.com/en/articles/12138966-release-notes) — Chronological log of new features, improvements, and changes across all Claude products
 * [How to get support(opens in new tab)](https://support.claude.com/en/articles/9015913-how-to-get-support) — Contacting Anthropic support, submitting tickets, and self-service resources
 
-### Training & Enablement
+### Training & Enablement[](#training-enablement)
 
 **Resources to upskill your organization on Claude:**
 
@@ -1650,14 +1650,14 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Claude Enterprise Help Center(opens in new tab)](https://support.claude.com) — Central hub for all Claude help articles and documentation
 * [Use Case Library(opens in new tab)](https://www.anthropic.com/customers) — Real-world examples of how organizations use Claude
 
-### Identity & Access Management
+### Identity & Access Management[](#identity-access-management)
 
 * [Identity Management(opens in new tab)](https://support.claude.com/en/collections/17270717-identity-management-sso-jit-scim) — SSO setup (SAML 2.0 / OIDC), JIT and SCIM provisioning, and IdP migration
 * [Restrict access with IP allowlisting(opens in new tab)](https://support.claude.com/en/articles/13200993-restrict-access-to-claude-with-ip-allowlisting) — Network-level access control by restricting Claude to approved IP ranges
 * [Enforce Tenant Restrictions(opens in new tab)](https://support.claude.com/en/articles/13198485-enforce-network-level-access-control-with-tenant-restrictions) — Prevent users from accessing unauthorized Claude organizations from your network
 * [Configuring session security settings(opens in new tab)](https://support.claude.com/en/articles/13163631-configuring-session-security-settings) — Session timeout, re-authentication, and session management policies
 
-### User & Seat Management
+### User & Seat Management[](#user-seat-management)
 
 * [Managing members on Team and Enterprise plans(opens in new tab)](https://support.claude.com/en/articles/13133750-managing-members-on-team-and-enterprise-plans) — Inviting, removing, and managing user roles from the admin console
 * [Roles and Permissions(opens in new tab)](https://support.claude.com/en/articles/9267276-roles-and-permissions) — Owner, Admin, and Member permission levels
@@ -1666,7 +1666,7 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Migrating individual accounts to Enterprise(opens in new tab)](https://support.claude.com/en/articles/9267400-can-individuals-with-pro-or-max-plan-accounts-migrate-them-to-team-or-enterprise-plan-organizations) — Migration paths and data handling when transitioning plan types
 * [What happens to a user's data when removed?(opens in new tab)](https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization) — Data retention and cleanup policies when removing users
 
-### Governance & Compliance
+### Governance & Compliance[](#governance-compliance)
 
 * [Exporting organization data(opens in new tab)](https://support.claude.com/en/articles/13346720-how-can-i-export-my-organization-s-data) — Bulk data export for compliance, migration, or backup
 * [Usage analytics(opens in new tab)](https://support.claude.com/en/articles/12883420-usage-analytics-for-team-and-enterprise-plans) — Dashboard for tracking adoption, usage patterns, and seat utilization
@@ -1677,13 +1677,13 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Business Associate Agreements (BAA)(opens in new tab)](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers) — How to request and execute a BAA with Anthropic
 * [Security & Compliance Overview (Trust Center)(opens in new tab)](https://trust.anthropic.com) — Certifications (SOC 2 Type II, CSA STAR), pen test reports, and compliance documentation
 
-### Billing & Usage
+### Billing & Usage[](#billing-usage)
 
 * [Enterprise billing(opens in new tab)](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan) — Billing structure, invoicing, and payment options
 * [Extra usage controls(opens in new tab)](https://support.claude.com/en/articles/12005970-extra-usage-for-team-and-seat-based-enterprise-plans) — Overage pricing and usage guardrails for organizational plans
 * [Usage limits and best practices(opens in new tab)](https://support.claude.com/en/articles/9797557-usage-limit-best-practices) — Tips for staying within limits and optimizing conversation efficiency
 
-### Admin Controls
+### Admin Controls[](#admin-controls)
 
 * [Project visibility and sharing(opens in new tab)](https://support.claude.com/en/articles/9519189-project-visibility-and-sharing) — Admin controls for project sharing policies
 * [Disabling public projects(opens in new tab)](https://support.claude.com/en/articles/9927533-how-can-i-disable-public-projects) — Restrict project sharing to internal-only
@@ -1691,54 +1691,54 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Cowork for Enterprise(opens in new tab)](https://support.claude.com/en/articles/13455879-cowork-for-team-and-enterprise-plans) — Enabling and configuring Cowork mode for your organization
 * [Visual and interactive content controls(opens in new tab)](https://support.claude.com/en/articles/13663666-visual-and-interactive-content-for-team-and-enterprise-plans) — Admin controls for visual content generation features
 
-### Projects & Knowledge Management
+### Projects & Knowledge Management[](#projects-knowledge-management)
 
 * [What are projects?(opens in new tab)](https://support.claude.com/en/articles/9517075-what-are-projects) — Persistent workspaces for grouping conversations, uploading reference files, and setting custom instructions
 * [How can I create and manage projects?(opens in new tab)](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects) — Creating projects and organizing them across different roles and workflows
 * [RAG for projects(opens in new tab)](https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects) — How Claude searches uploaded project files for grounded, accurate responses
 * [Chat search and memory(opens in new tab)](https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context) — Search past conversations and let Claude remember key details across sessions
 
-### Content Creation & Artifacts
+### Content Creation & Artifacts[](#content-creation-artifacts)
 
 * [What are artifacts?(opens in new tab)](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) — Interactive content blocks for code, documents, websites, and visualizations
 * [Create and edit files with Claude(opens in new tab)](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude) — Generate Word docs, spreadsheets, presentations, and other file types
 * [Visual and interactive content(opens in new tab)](https://support.claude.com/en/articles/13641943-visual-and-interactive-content) — Charts, diagrams, interactive web apps, and visual outputs
 * [Uploading files to Claude(opens in new tab)](https://support.claude.com/en/articles/8241126-uploading-files-to-claude) — Supported file types, size limits, and best practices
 
-### Research & Reasoning
+### Research & Reasoning[](#research-reasoning)
 
 * [Using Research(opens in new tab)](https://support.claude.com/en/articles/11088861-using-research-on-claude) — Deep research mode that searches the web and synthesizes findings into comprehensive reports
 * [Web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) — Real-time web search to supplement Claude's knowledge with current information
 * [Extended thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) — Step-by-step reasoning for complex problems
 * [When to use search vs. thinking vs. Research(opens in new tab)](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research) — Decision guide for choosing the right tool
 
-### Skills & Customization
+### Skills & Customization[](#skills-customization)
 
 * [What are Skills?(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills) — Reusable instruction sets that teach Claude specialized workflows and domain expertise
 * [How to create custom Skills(opens in new tab)](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills) — Build skills through natural conversation or manual configuration
 * [Provisioning Skills for your organization(opens in new tab)](https://support.claude.com/en/articles/13119606-provisioning-and-managing-skills-for-your-organization) — Deploy skills across teams and manage the organizational skills catalog
 
-### Cowork & Desktop Agent
+### Cowork & Desktop Agent[](#cowork-desktop-agent)
 
 * [Getting started with Cowork(opens in new tab)](https://support.claude.com/en/articles/13345190-getting-started-with-cowork) — Desktop agent mode where Claude creates files, runs code, and automates workflows
 * [Using Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135-using-cowork-safely) — Safety guidelines and sandboxing details
 
-### Personalization
+### Personalization[](#personalization)
 
 * [Personalization features(opens in new tab)](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features) — Memory, preferred name, and options that shape Claude's responses
 * [Custom styles(opens in new tab)](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features) — Create and apply response styles (concise, detailed, formal, casual, etc.)
 * [Language preferences(opens in new tab)](https://support.claude.com/en/articles/10769299-how-to-use-claude-in-your-preferred-language) — Multilingual support and language settings
 
-### Enterprise Search & Data
+### Enterprise Search & Data[](#enterprise-search-data)
 
 * [Using Enterprise Search(opens in new tab)](https://support.claude.com/en/articles/12489464-using-enterprise-search) — Search across connected organizational data sources within Claude
 
-### Integration Overview
+### Integration Overview[](#integration-overview)
 
 * [When to use desktop vs. web connectors(opens in new tab)](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors) — Comparison of web-based (Remote MCP) and desktop connector architectures
 * [Interactive Connectors(opens in new tab)](https://support.claude.com/en/articles/13454812-using-interactive-connectors-in-claude) — Connectors that let Claude take actions (not just read data) in external tools
 
-### Pre-Built Connectors
+### Pre-Built Connectors[](#pre-built-connectors)
 
 **Ready-to-use integrations with popular enterprise tools:**
 
@@ -1749,44 +1749,44 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Microsoft 365 Security Guide(opens in new tab)](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide) — Data handling, permissions, and security architecture for the M365 connector
 * [All pre-built web connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-pre-built-web-connectors-using-remote-mcp) — Full list of available pre-built connectors using Remote MCP
 
-### Custom Connectors
+### Custom Connectors[](#custom-connectors)
 
 **Build your own connectors for proprietary or specialized tools:**
 
 * [Building custom connectors(opens in new tab)](https://claude.com/docs/connectors/building) — Technical guide for developing and deploying Remote MCP server connectors
 * [Building desktop extensions with MCPB(opens in new tab)](https://claude.com/docs/connectors/building/mcpb) — MCPB tooling for installable desktop extensions
 
-### Desktop & Browser
+### Desktop & Browser[](#desktop-browser)
 
 * [Claude Desktop(opens in new tab)](https://support.claude.com/en/collections/16163169-claude-desktop) — Installation, enterprise deployment (Windows/macOS via MDM), managed configuration, and extension allowlists
 * [Claude in Chrome(opens in new tab)](https://support.claude.com/en/collections/18031491-claude-in-chrome) — Browser extension setup, permissions, admin controls, safety best practices, and troubleshooting
 
-### Mobile
+### Mobile[](#mobile)
 
 * [Claude Mobile Apps(opens in new tab)](https://support.claude.com/en/collections/9387080-claude-mobile-apps) — iOS and Android installation, voice mode, dictation, widgets, and shortcuts
 
-### Productivity Suites
+### Productivity Suites[](#productivity-suites)
 
 * [Claude in Excel(opens in new tab)](https://support.claude.com/en/articles/12650343-using-claude-in-excel) — AI-powered formulas, data analysis, and chart creation within Excel
 * [Claude in PowerPoint(opens in new tab)](https://support.claude.com/en/articles/13521390-using-claude-in-powerpoint) — Generate and edit slide decks directly inside PowerPoint
 
-### Developer Tools
+### Developer Tools[](#developer-tools)
 
 * [Claude in Xcode(opens in new tab)](https://support.claude.com/en/articles/12293051-using-claude-in-xcode) — Code completion, debugging, and refactoring in Apple's Xcode IDE
 * [Claude in Microsoft Foundry(opens in new tab)](https://support.claude.com/en/articles/12864745-using-claude-in-microsoft-foundry) — Access Claude models through Microsoft's AI Foundry platform
 
-### Claude Code Setup & Configuration
+### Claude Code Setup & Configuration[](#claude-code-setup-configuration)
 
 * [Claude Code(opens in new tab)](https://support.claude.com/en/collections/14445694-claude-code) — Team/Enterprise setup, model configuration, security reviews, and usage analytics
 * [Using Claude Code with Team or Enterprise Plan(opens in new tab)](https://support.claude.com/en/articles/11845131-using-claude-code-with-your-team-or-enterprise-plan) — Configuration and deployment for organizational plans
 * [Claude Code Usage Analytics(opens in new tab)](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics) — Track adoption and usage across your organization
 * [Claude Code Troubleshooting(opens in new tab)](https://support.claude.com/en/articles/12386420-claude-code-faq) — Common issues, fixes, and debugging steps
 
-### Claude Code Training
+### Claude Code Training[](#claude-code-training)
 
 * [Claude Academy — Claude Code in Action(opens in new tab)](https://academy.claude.com/courses/claude-code-in-action) — Self-paced course on Claude Code workflows
 
-### Function-Specific Guides
+### Function-Specific Guides[](#function-specific-guides)
 
 **Share these guides with team leads to accelerate adoption in their departments:**
 
@@ -1796,7 +1796,7 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Claude for Product Management(opens in new tab)](https://support.claude.com/en/articles/9999062-claude-for-product-management) — PRDs, competitive analysis, and user research synthesis
 * [Claude for Human Resources(opens in new tab)](https://support.claude.com/en/articles/9998942-claude-for-human-resources) — Policy drafting, interview prep, and employee communications
 
-### Industry Solutions
+### Industry Solutions[](#industry-solutions)
 
 **Specialized resources and connectors for regulated and vertical industries:**
 
@@ -1805,7 +1805,7 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Claude for Education(opens in new tab)](https://support.claude.com/en/collections/12630177-claude-for-education) — Admin deployment guide, Canvas LTI integration, FERPA-compliant data controls, and end-user FAQs
 * [Claude for Nonprofits(opens in new tab)](https://academy.claude.com/tutorials/getting-started-with-claude-for-nonprofits) — Getting started plus connectors for Benevity, Blackbaud, and Candid
 
-### Privacy & Data Handling
+### Privacy & Data Handling[](#privacy-data-handling)
 
 * [Privacy practices(opens in new tab)](https://support.claude.com/en/articles/10035659-where-can-i-learn-more-about-anthropic-s-privacy-practices) — How Anthropic handles user data, model training, and privacy controls
 * [Who can view my conversations?(opens in new tab)](https://support.claude.com/en/articles/8325621-i-would-like-to-input-sensitive-data-into-my-chats-with-claude-who-can-view-my-conversations) — Data visibility, access controls, and conversation privacy by plan type
@@ -1815,7 +1815,7 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Data Processing Addendum (DPA)(opens in new tab)](https://support.claude.com/en/articles/7996862-how-do-i-view-and-sign-your-data-processing-addendum-dpa) — Self-service DPA signing for GDPR compliance
 * [Safeguards(opens in new tab)](https://support.claude.com/en/collections/4078535-safeguards) — Usage policy, safeguard appeals, agent guidelines, content reporting, and vulnerability reporting
 
-### Troubleshooting
+### Troubleshooting[](#troubleshooting)
 
 **Common issues and resolution guides:**
 
@@ -1823,7 +1823,7 @@ A comprehensive directory of support, training, and enablement resources for Cla
 * [Incorrect or misleading responses(opens in new tab)](https://support.claude.com/en/articles/8525154-claude-is-providing-incorrect-or-misleading-responses-what-s-going-on) — Understanding hallucinations and how to get more accurate answers
 * [Content filtering errors(opens in new tab)](https://support.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error) — Why outputs may be blocked and how to adjust your approach
 
-### Video Tutorials
+### Video Tutorials[](#video-tutorials)
 
 **Share these video walkthroughs with your team for visual, hands-on learning.**
 

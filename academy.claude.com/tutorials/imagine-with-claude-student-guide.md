@@ -22,7 +22,7 @@ The visual streams in alongside the text and the conversation keeps going. You c
 
 **You don't need to do anything special.** Claude decides when a visual would help. You can also ask to explicitly trigger it — any version of "draw this," "show me," or "can I see that" works.
 
-### What this is, practically
+### What this is, practically[](#what-this-is-practically)
 
 * **Appears as part of Claude's answer** — in the flow of the conversation, not a side panel. If you've used [Artifacts(opens in new tab)](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them), this is the lighter version.
 * **Interactive, often.** Sliders, draggable points, buttons, interactive elements, and even sound.
@@ -30,29 +30,29 @@ The visual streams in alongside the text and the conversation keeps going. You c
 * **Diagrams, charts, tools** — not image generation.
 * **Web and desktop**, all plans while in beta.
 
-## A few moments where this may help you
+## A few moments where this may help you[](#a-few-moments-where-this-may-help-you)
 
 Here's what it looks like in practice — the prompt, the response, and the visual appearing mid-answer.
 
-### Seeing the explanation drawn out
+### Seeing the explanation drawn out[](#seeing-the-explanation-drawn-out)
 
 A concept from lecture, a dense passage from a textbook, a thing you keep hearing about but can't picture— drawn so you can see what it actually means.
 
-### Interacting with the concept in chat
+### Interacting with the concept in chat[](#interacting-with-the-concept-in-chat)
 
 Some things you need to hear, or change, or click. Claude builds the interactive version so you're doing, not just reading.
 
-### Visualizing how things connect
+### Visualizing how things connect[](#visualizing-how-things-connect)
 
 Some concepts are spatial — things connect, one number feeds into another. Text forces you to hold it all in your head. Claude draws the connections so you can trace them.
 
-### Practicing what you just learned
+### Practicing what you just learned[](#practicing-what-you-just-learned)
 
 Stay hands-on while you study — the quiz appears right where you're learning, so you're trying things while the idea is fresh.
 
-## Things to try out while studying with Claude
+## Things to try out while studying with Claude[](#things-to-try-out-while-studying-with-claude)
 
-### 1. See the mechanism behind an explanation
+### 1. See the mechanism behind an explanation[](#1-see-the-mechanism-behind-an-explanation)
 
 When a concept has moving parts — a cycle, a cascade, a sequence that fires in order — a static diagram shows you one frame of it. Ask Claude, and you can turn the explanation into something more alive and interactive.
 
@@ -62,7 +62,7 @@ When a concept has moving parts — a cycle, a cascade, a sequence that fires in
 
 **See it in action:** [Visualize the mechanism behind an explanation mid-chat →(opens in new tab)](https://academy.claude.com/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)
 
-### 2. See the thing you can't picture
+### 2. See the thing you can't picture[](#2-see-the-thing-you-cant-picture)
 
 Some passages describe a structure, a sequence, a shape and assume you can picture it. When you can't, paste the text. Claude draws the thing the words refer to. The explanation stays the same; what you get is the picture that was missing.
 
@@ -72,7 +72,7 @@ Some passages describe a structure, a sequence, a shape and assume you can pictu
 
 **See it in action:** [Plan your course from its syllabus→(opens in new tab)](https://academy.claude.com/use-cases/plan-your-syllabus-see-which-weeks-are-locked)
 
-### 3. Apply a concept as you learn it
+### 3. Apply a concept as you learn it[](#3-apply-a-concept-as-you-learn-it)
 
 Sometimes the way to learn a thing is to practice it — try it, get it wrong, see why. Ask Claude for something interactive and you get a tool to practice on with the explanation right there as you go: a simulation where you change the inputs, a quiz that shows you where you're off, a problem that responds while you work it.
 
@@ -82,7 +82,7 @@ Sometimes the way to learn a thing is to practice it — try it, get it wrong, s
 
 **See it in action:** [Apply a formula as you learn it →(opens in new tab)](https://academy.claude.com/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)
 
-### 4. Work through your own material
+### 4. Work through your own material[](#4-work-through-your-own-material)
 
 Bring what you have — lab data, lecture notes, a difficult problem. As you chat with Claude, a visual appears built around the topic: a chart to dig into together, a map of your notes, a quiz, a correction.
 
@@ -92,7 +92,7 @@ Bring what you have — lab data, lecture notes, a difficult problem. As you cha
 
 **See it in action:** [Chart your data before you commit →(opens in new tab)](https://academy.claude.com/use-cases/chart-your-data-before-you-commit) · [Map your lit review mid-conversation →(opens in new tab)](https://academy.claude.com/use-cases/map-your-lit-review-mid-conversation)
 
-## What you can do with what Claude draws
+## What you can do with what Claude draws[](#what-you-can-do-with-what-claude-draws)
 
 **Make it interactive —** If what you got is static and you want it to move, say so — "let me adjust this" or "make it interactive" is enough.
 
@@ -110,13 +110,13 @@ Bring what you have — lab data, lecture notes, a difficult problem. As you cha
 
 **Take it further.** Ask Claude to help you write up what clicked from the visual in a doc for your notes. Explain it to someone else to test whether it stuck. Or ask Claude to map what you now understand and what's still fuzzy; articulating one gap often surfaces the next. Either way, check the content against a real source before treating it as authoritative.
 
-## A few practical things
+## A few practical things[](#a-few-practical-things)
 
 * If you expected a visual and didn't get one, any version of "show me" or "visualize this" brings one in.
 * If the visual renders oddly — overlapping elements, cut-off labels — ask Claude to fix the formatting.
 * Works on [claude.ai(opens in new tab)](https://claude.ai) web and the desktop apps. Not on mobile yet.
 
-## Go deeper — the full set of walkthroughs
+## Go deeper — the full set of walkthroughs[](#go-deeper-the-full-set-of-walkthroughs)
 
 Each of these is a complete use case with a tested prompt, a chat-window view of what Claude builds, follow-ups, and tips.
 

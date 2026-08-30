@@ -14,7 +14,7 @@ The hybrid retrieval approach we've built works well, but it still has some roug
 
 This is where re-ranking comes in - a post-processing technique that can significantly improve retrieval accuracy.
 
-## How Re-ranking Works
+## How Re-ranking Works[](#how-re-ranking-works)
 
 Re-ranking adds an extra step after your hybrid search process. Instead of just returning the merged results from your vector and BM25 indexes, you pass those results through an LLM for intelligent reordering.
 
@@ -27,7 +27,7 @@ The process is straightforward:
 * Send the merged results to Claude with a re-ranking prompt
 * Get back a reordered list of the most relevant documents
 
-## The Re-ranking Prompt
+## The Re-ranking Prompt[](#the-re-ranking-prompt)
 
 The prompt structure is simple but effective. You provide Claude with the user's question and all the candidate documents, then ask it to return the most relevant ones in order of decreasing relevance.
 
@@ -53,7 +53,7 @@ Respond in the following format:
 ```
 ```
 
-## Efficiency Considerations
+## Efficiency Considerations[](#efficiency-considerations)
 
 A key optimization is using document IDs instead of asking Claude to return full text chunks. If you asked Claude to return the complete text of each relevant document, you'd waste time waiting for it to copy large amounts of text.
 
@@ -61,7 +61,7 @@ A key optimization is using document IDs instead of asking Claude to return full
 
 Instead, assign each text chunk a unique ID ahead of time, then ask Claude to return just those IDs in the preferred order. This makes the re-ranking process much faster while still giving you the reordered results you need.
 
-## Implementation
+## Implementation[](#implementation)
 
 The re-ranker function gets called automatically after your initial hybrid search completes. Here's the basic structure:
 
@@ -92,11 +92,11 @@ python
 retriever = Retriever(bm25_index, vector_index, reranker_fn=reranker_fn)
 ```
 
-## Results
+## Results[](#results)
 
 The re-ranking approach shows clear improvements. When testing the query "what did the eng team do with INC-2023-Q4-011?", the Software Engineering section now correctly appears first, ahead of the Cybersecurity section. Claude successfully identified that the user was specifically asking about the engineering team's involvement with the incident.
 
-## Trade-offs
+## Trade-offs[](#trade-offs)
 
 Re-ranking comes with trade-offs to consider:
 

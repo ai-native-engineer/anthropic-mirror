@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Navigate between loops dynamically
 * Own the full process
 
-## Tying it all together
+## Tying it all together[](#tying-it-all-together)
 
 Tying it all together · 8 min
 
@@ -31,14 +31,14 @@ it responds, evaluating what comes back, and taking full ownership of the
 final output. By the end, the four Ds won't feel like a framework you're
 following. They'll feel like how you work.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **The full 4D workflow can be applied to the work you do every day.**
 * **You belong in the loop.** The work isn't "done" when the AI finishes.
 * **The skill you build here is owning the process,** not the output.
 * **The 4Ds become invisible when they're used well.**
 
-## Exercises
+## Exercises[](#exercises)
 
 ### End-to-end 4D workflow
 
@@ -67,12 +67,12 @@ With a completed output in hand, reflect:
 
 Bring your log to a colleague and debrief—not to compare outputs, but to share processes.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Looking back at the full workflow you just ran: where did the process feel natural, and where did it still feel effortful or uncertain? What does that tell you about where you still want to grow?
 * At the start of this course, how would you have described your relationship to AI tools? How would you describe it now, and what specifically changed?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll close out the course with a final build exercise and resources for continuing your practice.
 

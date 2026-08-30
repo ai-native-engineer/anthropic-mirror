@@ -3,6 +3,892 @@
 
 <!-- chunk-start -->
 
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `ghe_configuration_id: optional string or null`
+
+      ID of the GHE configuration
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "ghe_user_disconnected"`
+
+      default: ghe_user_disconnected
+
+  - `GheWebhookSignatureInvalid object`
+
+    Webhook signature validation failed.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `ghe_configuration_id: string`
+
+      ID of the GHE configuration
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "ghe_webhook_signature_invalid"`
+
+      default: ghe_webhook_signature_invalid
+
+  - `ClaudeGitHubIntegrationCreated object`
+
+    A GitHub integration was enabled for the organization.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `integration_id: string`
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `enabled: optional boolean or null`
+
+      Whether the integration is enabled after this change.
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_name: optional string or null`
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `previous_enabled: optional boolean or null`
+
+      Whether the integration was enabled before this change; null when the integration had never been configured.
+
+    - `repository_name: optional string or null`
+
+    - `type: optional "claude_github_integration_created"`
+
+      default: claude_github_integration_created
+
+  - `ClaudeGitHubIntegrationDeleted object`
+
+    A GitHub integration was disabled for the organization.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `integration_id: string`
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `enabled: optional boolean or null`
+
+      Whether the integration is enabled after this change.
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_name: optional string or null`
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `previous_enabled: optional boolean or null`
+
+      Whether the integration was enabled before this change; null when the integration had never been configured.
+
+    - `repository_name: optional string or null`
+
+    - `type: optional "claude_github_integration_deleted"`
+
+      default: claude_github_integration_deleted
+
+  - `ClaudeGitHubIntegrationUpdated object`
+
+    A GitHub integration's configuration was updated.
+
+    - `actor: object or object or object or 8 more`
+
       Automated background processing performed by Anthropic systems, acting
       without a user or customer credential.
 
@@ -5463,6 +6349,10 @@
 
       Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
 
+    - `token_vault_connect_mode: optional string or null`
+
+      How a token vault credential sign-in was completed: "authorization_server" for a sign-in at an administrator-provided authorization server, or "mcp_server" for a sign-in at a tool server the organization has not registered as a connector.
+
     - `type: optional "integration_user_connected"`
 
       default: integration_user_connected
@@ -7849,11 +8739,13 @@
 
       Unique identifier for the activity e.g. 'activity_abcd1234'
 
-    - `auth_method: optional "magic_link"`
+    - `auth_method: optional "magic_link" or "unspecified" or null`
 
       The method the user used to authenticate. May be absent on activities recorded before this field was introduced.
 
-      default: magic_link
+      - `"magic_link"`
+
+      - `"unspecified"`
 
     - `created_at: optional string`
 
@@ -7861,9 +8753,13 @@
 
       format: date-time
 
-    - `mfa_method: optional "not_used" or null`
+    - `mfa_method: optional "not_used" or "unspecified" or null`
 
       The second authentication factor performed during this login, if any. `null` when the second-factor status is not recorded on this event — for example, when authentication was delegated to an external identity provider and any second factor is not visible to Anthropic, or when this event is one step of a multistep login whose MFA is reported on another activity. May be absent on activities recorded before this field was introduced.
+
+      - `"not_used"`
+
+      - `"unspecified"`
 
     - `organization_id: optional string or null`
 
@@ -33620,7 +34516,7 @@
 
   - `OrgWorkAcrossAppsDisabled object`
 
-    Organization Work Across Apps was disabled.
+    The organization's "Let Claude work across apps" setting was turned off.
 
     - `actor: object or object or object or 8 more`
 
@@ -33865,7 +34761,7 @@
 
   - `OrgWorkAcrossAppsEnabled object`
 
-    Organization Work Across Apps was enabled.
+    The organization's "Let Claude work across apps" setting was turned on.
 
     - `actor: object or object or object or 8 more`
 
@@ -35052,15 +35948,15 @@
 
     - `updates: array of object or object or object or 84 more`
 
-      - `OrganizationName object`
+      - `Name object`
 
         The organization name setting was changed.
 
-        - `current_value: string or null`
+        - `current_value: optional string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: string or null`
+        - `previous_value: optional string or null`
 
           Setting value immediately before this change
 
@@ -35068,15 +35964,15 @@
 
           default: name
 
-      - `OrganizationCapabilities object`
+      - `Capabilities object`
 
         The organization capabilities setting was changed.
 
-        - `current_value: array of string or null`
+        - `current_value: optional array of string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: array of string or null`
+        - `previous_value: optional array of string or null`
 
           Setting value immediately before this change
 
@@ -35084,15 +35980,15 @@
 
           default: capabilities
 
-      - `OrganizationRedactContent object`
+      - `RedactContent object`
 
         The organization content-redaction setting was changed.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35104,11 +36000,11 @@
 
         The public projects setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35120,11 +36016,11 @@
 
         The web search setting was changed.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35136,11 +36032,11 @@
 
         The geolocation setting was changed.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35148,15 +36044,15 @@
 
           default: geolocation_enabled
 
-      - `OrgMemoryEnabledSetting object`
+      - `EnabledSaffron object`
 
         The memory setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35168,7 +36064,7 @@
 
         The data retention periods setting was changed for the organization.
 
-        - `current_value: array of object or null`
+        - `current_value: optional array of object or null`
 
           Setting value immediately after this change
 
@@ -35196,7 +36092,7 @@
 
             - `"month"`
 
-        - `previous_value: array of object or null`
+        - `previous_value: optional array of object or null`
 
           Setting value immediately before this change
 
@@ -35232,11 +36128,11 @@
 
         The members limit setting was changed for the organization.
 
-        - `current_value: number or null`
+        - `current_value: optional number or null`
 
           Setting value immediately after this change
 
-        - `previous_value: number or null`
+        - `previous_value: optional number or null`
 
           Setting value immediately before this change
 
@@ -35248,11 +36144,11 @@
 
         The Claude API in Artifacts setting was changed.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35264,7 +36160,7 @@
 
         The support contact routing mode setting was changed for the organization.
 
-        - `current_value: "ai_support_only" or "human_support_restricted" or null`
+        - `current_value: optional "ai_support_only" or "human_support_restricted" or "unspecified" or null`
 
           Setting value immediately after this change
 
@@ -35272,13 +36168,17 @@
 
           - `"human_support_restricted"`
 
-        - `previous_value: "ai_support_only" or "human_support_restricted" or null`
+          - `"unspecified"`
+
+        - `previous_value: optional "ai_support_only" or "human_support_restricted" or "unspecified" or null`
 
           Setting value immediately before this change
 
           - `"ai_support_only"`
 
           - `"human_support_restricted"`
+
+          - `"unspecified"`
 
         - `type: optional "support_contact_mode"`
 
@@ -35288,11 +36188,11 @@
 
         The support contact always-include-admins-owners setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35304,11 +36204,11 @@
 
         The support contact designated groups setting was changed for the organization.
 
-        - `current_value: array of string or null`
+        - `current_value: optional array of string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: array of string or null`
+        - `previous_value: optional array of string or null`
 
           Setting value immediately before this change
 
@@ -35320,11 +36220,11 @@
 
         The organization's subscription seat quotas were changed.
 
-        - `current_value: map[number] or null`
+        - `current_value: optional map[number] or null`
 
           Seat-type to quantity mapping immediately after this change. A null quantity means the item is unlimited/unmetered.
 
-        - `previous_value: map[number] or null`
+        - `previous_value: optional map[number] or null`
 
           Seat-type to quantity mapping immediately before this change. A null quantity means the item was unlimited/unmetered.
 
@@ -35336,7 +36236,7 @@
 
         All organization members were assigned the specified seat tier.
 
-        - `current_value: string or null`
+        - `current_value: optional string or null`
 
           The seat tier every member was assigned to
 
@@ -35356,11 +36256,11 @@
 
         The Claude Code on the web setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35372,11 +36272,11 @@
 
         The Claude Code Desktop bypass-permissions mode setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35388,11 +36288,11 @@
 
         The Claude Code Desktop auto-permissions mode setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35404,11 +36304,11 @@
 
         The Claude.ai skills setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35420,11 +36320,11 @@
 
         The Workbench completion feedback setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35436,11 +36336,11 @@
 
         The Claude.ai completion feedback setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35452,11 +36352,11 @@
 
         The Claude.ai integration sharing setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35468,11 +36368,11 @@
 
         The Claude.ai chat sharing setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35480,15 +36380,15 @@
 
           default: claude_ai_chat_sharing_enabled
 
-      - `ClaudeAiccrSharingEnabled object`
+      - `ClaudeAICcrSharingEnabled object`
 
         The Claude.ai remote Claude Code session sharing setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35496,15 +36396,15 @@
 
           default: claude_ai_ccr_sharing_enabled
 
-      - `ClaudeAiccrSupportSharingEnabled object`
+      - `ClaudeAICcrSupportSharingEnabled object`
 
         The Anthropic support access setting for Claude Code sessions was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35516,7 +36416,7 @@
 
         The batches download UI visibility setting was changed for the organization.
 
-        - `current_value: "all" or "none" or "selected" or null`
+        - `current_value: optional "all" or "none" or "selected" or "unspecified" or null`
 
           Setting value immediately after this change
 
@@ -35526,7 +36426,9 @@
 
           - `"selected"`
 
-        - `previous_value: "all" or "none" or "selected" or null`
+          - `"unspecified"`
+
+        - `previous_value: optional "all" or "none" or "selected" or "unspecified" or null`
 
           Setting value immediately before this change
 
@@ -35535,6 +36437,8 @@
           - `"none"`
 
           - `"selected"`
+
+          - `"unspecified"`
 
         - `type: optional "batches_download_ui_visibility"`
 
@@ -35544,11 +36448,11 @@
 
         The allowed invite domains setting was changed for the organization.
 
-        - `current_value: array of string or null`
+        - `current_value: optional array of string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: array of string or null`
+        - `previous_value: optional array of string or null`
 
           Setting value immediately before this change
 
@@ -35556,11 +36460,11 @@
 
           default: allowed_invite_domains
 
-      - `WebSearchAPISettingsChanged object`
+      - `WebSearchAPISettings object`
 
         The web search API setting was changed for the organization.
 
-        - `current_value: object or null`
+        - `current_value: optional object or null`
 
           Setting value immediately after this change
 
@@ -35574,7 +36478,7 @@
 
           - `is_enabled: boolean`
 
-        - `previous_value: object or null`
+        - `previous_value: optional object or null`
 
           Setting value immediately before this change
 
@@ -35592,11 +36496,11 @@
 
           default: web_search_api_settings
 
-      - `WebFetchAPISettingsChanged object`
+      - `WebFetchAPISettings object`
 
         The web fetch API setting was changed for the organization.
 
-        - `current_value: object or null`
+        - `current_value: optional object or null`
 
           Setting value immediately after this change
 
@@ -35610,7 +36514,7 @@
 
           - `is_enabled: boolean`
 
-        - `previous_value: object or null`
+        - `previous_value: optional object or null`
 
           Setting value immediately before this change
 
@@ -35632,7 +36536,7 @@
 
         The default workspace setting was changed for the organization.
 
-        - `current_value: object or null`
+        - `current_value: optional object or null`
 
           Setting value immediately after this change
 
@@ -35640,7 +36544,7 @@
 
             default: true
 
-        - `previous_value: object or null`
+        - `previous_value: optional object or null`
 
           Setting value immediately before this change
 
@@ -35656,11 +36560,11 @@
 
         The batches download UI enabled workspace IDs setting was changed for the organization.
 
-        - `current_value: array of string or null`
+        - `current_value: optional array of string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: array of string or null`
+        - `previous_value: optional array of string or null`
 
           Setting value immediately before this change
 
@@ -35693,11 +36597,11 @@
 
         Tracks changes to the enterprise account session duration setting (in seconds).
 
-        - `current_value: number or null`
+        - `current_value: optional number or null`
 
           Setting value immediately after this change
 
-        - `previous_value: number or null`
+        - `previous_value: optional number or null`
 
           Setting value immediately before this change
 
@@ -35709,7 +36613,7 @@
 
         Tracks changes to VCS (GitHub, etc.) organization connections.
 
-        - `current_value: array of object or null`
+        - `current_value: optional array of object or null`
 
           Setting value immediately after this change
 
@@ -35723,7 +36627,7 @@
 
           - `org_id: optional string or null`
 
-        - `previous_value: array of object or null`
+        - `previous_value: optional array of object or null`
 
           Setting value immediately before this change
 
@@ -35745,11 +36649,11 @@
 
         Tracks changes to which admin request types are disabled.
 
-        - `current_value: array of string or null`
+        - `current_value: optional array of string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: array of string or null`
+        - `previous_value: optional array of string or null`
 
           Setting value immediately before this change
 
@@ -35761,11 +36665,11 @@
 
         The member usage dashboard visibility setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35777,11 +36681,11 @@
 
         The code execution network egress setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35793,11 +36697,11 @@
 
         The code execution domain allowlist setting was changed for the organization.
 
-        - `current_value: array of string or null`
+        - `current_value: optional array of string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: array of string or null`
+        - `previous_value: optional array of string or null`
 
           Setting value immediately before this change
 
@@ -35809,7 +36713,7 @@
 
         The code execution domain allowlist template setting was changed for the organization.
 
-        - `current_value: "custom" or "full_egress" or "package_managers" or null`
+        - `current_value: optional "custom" or "full_egress" or "package_managers" or "unspecified" or null`
 
           Setting value immediately after this change
 
@@ -35819,7 +36723,9 @@
 
           - `"package_managers"`
 
-        - `previous_value: "custom" or "full_egress" or "package_managers" or null`
+          - `"unspecified"`
+
+        - `previous_value: optional "custom" or "full_egress" or "package_managers" or "unspecified" or null`
 
           Setting value immediately before this change
 
@@ -35829,6 +36735,8 @@
 
           - `"package_managers"`
 
+          - `"unspecified"`
+
         - `type: optional "code_execution_domain_allowlist_template_changed"`
 
           default: code_execution_domain_allowlist_template_changed
@@ -35837,11 +36745,11 @@
 
         The chat setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35853,11 +36761,11 @@
 
         The Claude Code quick web setup setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35869,7 +36777,7 @@
 
         The Claude Code team memory mode setting was changed for the organization.
 
-        - `current_value: "all_org_members" or "github_repo" or "off" or "specific_groups" or null`
+        - `current_value: optional "all_org_members" or "github_repo" or "off" or 2 more or null`
 
           Setting value immediately after this change
 
@@ -35881,7 +36789,9 @@
 
           - `"specific_groups"`
 
-        - `previous_value: "all_org_members" or "github_repo" or "off" or "specific_groups" or null`
+          - `"unspecified"`
+
+        - `previous_value: optional "all_org_members" or "github_repo" or "off" or 2 more or null`
 
           Setting value immediately before this change
 
@@ -35893,19 +36803,21 @@
 
           - `"specific_groups"`
 
+          - `"unspecified"`
+
         - `type: optional "claude_code_team_memory_mode"`
 
           default: claude_code_team_memory_mode
 
-      - `BrowserExtensionSettingsUpdated object`
+      - `BrowserExtensionSettings object`
 
         The browser extension setting was changed for the organization.
 
-        - `current_value: map[unknown] or null`
+        - `current_value: optional map[unknown] or null`
 
           Setting value immediately after this change
 
-        - `previous_value: map[unknown] or null`
+        - `previous_value: optional map[unknown] or null`
 
           Setting value immediately before this change
 
@@ -35913,15 +36825,15 @@
 
           default: browser_extension_settings
 
-      - `DesktopExtensionAllowlistEnabled object`
+      - `IsDesktopExtensionAllowlistEnabled object`
 
         The desktop extension allowlist setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35933,11 +36845,11 @@
 
         The per-member self-serve data export setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35945,15 +36857,15 @@
 
           default: allow_member_data_export
 
-      - `ClaudeDesignEnabled object`
+      - `ClaudeAIDesignEnabled object`
 
         The Claude Design setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35965,11 +36877,11 @@
 
         The setting that turns Claude Science on or off for the organization was changed.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35981,11 +36893,11 @@
 
         The Claude Science memory setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -35997,11 +36909,11 @@
 
         The Claude Science custom connectors setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36013,11 +36925,11 @@
 
         The Claude Science custom skills setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36029,11 +36941,11 @@
 
         The Claude Science setting that puts the network allowlist under the organization's management, instead of each member managing their own, was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36045,11 +36957,11 @@
 
         The Claude Science SSH hosts setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36061,11 +36973,11 @@
 
         The Claude Science setting that lets members connect Modal cloud compute was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36077,11 +36989,11 @@
 
         The Claude Science scientific model endpoints setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36093,11 +37005,11 @@
 
         The hostnames on the organization's Claude Science network allowlist, which applies to members while the organization manages the allowlist, were changed.
 
-        - `current_value: array of string or null`
+        - `current_value: optional array of string or null`
 
           Setting value immediately after this change: the organization's complete saved allowlist (built-in and custom domains alike) as lowercase hostnames, each optionally prefixed with '*.'. Null means no list is saved (this change reset it), so Claude Science's built-in allowlist applies; an empty list means a list with no domains on it is saved.
 
-        - `previous_value: array of string or null`
+        - `previous_value: optional array of string or null`
 
           Setting value immediately before this change: the organization's complete saved allowlist (built-in and custom domains alike) as lowercase hostnames, each optionally prefixed with '*.'. Null means no list was saved at that point (never saved, or since reset), so Claude Science's built-in allowlist applied; an empty list means a list with no domains on it had been saved.
 
@@ -36109,11 +37021,11 @@
 
         The Claude Science Modal cloud compute workspace allowlist setting was changed for the organization.
 
-        - `current_value: array of string or null`
+        - `current_value: optional array of string or null`
 
           Setting value immediately after this change: the Modal workspace names members can connect to. Null or an empty list means any workspace is allowed.
 
-        - `previous_value: array of string or null`
+        - `previous_value: optional array of string or null`
 
           Setting value immediately before this change: the Modal workspace names members could connect to. Null or an empty list means any workspace was allowed.
 
@@ -36125,11 +37037,11 @@
 
         The Claude Science package mirror setting for the conda channel was changed for the organization.
 
-        - `current_value: string or null`
+        - `current_value: optional string or null`
 
           Setting value immediately after this change: the HTTPS URL of the organization's conda channel mirror, as saved (scheme, host, any non-default port, and path; the setting does not accept a username or password, a query string or a fragment in the URL). Null means none is set.
 
-        - `previous_value: string or null`
+        - `previous_value: optional string or null`
 
           Setting value immediately before this change: the HTTPS URL of the organization's conda channel mirror, as saved (scheme, host, any non-default port, and path; the setting does not accept a username or password, a query string or a fragment in the URL). Null means none was set.
 
@@ -36141,11 +37053,11 @@
 
         The Claude Science package mirror setting for the Python package index was changed for the organization.
 
-        - `current_value: string or null`
+        - `current_value: optional string or null`
 
           Setting value immediately after this change: the HTTPS URL of the organization's Python (pip) package index mirror, as saved (scheme, host, any non-default port, and path; the setting does not accept a username or password, a query string or a fragment in the URL). Null means none is set.
 
-        - `previous_value: string or null`
+        - `previous_value: optional string or null`
 
           Setting value immediately before this change: the HTTPS URL of the organization's Python (pip) package index mirror, as saved (scheme, host, any non-default port, and path; the setting does not accept a username or password, a query string or a fragment in the URL). Null means none was set.
 
@@ -36153,15 +37065,15 @@
 
           default: claude_science_package_mirror_pip_index_changed
 
-      - `SkillPluginsScanningEnabled object`
+      - `ClaudeAISkillPluginsScanningEnabled object`
 
         The skill and plugin security scanning setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36173,11 +37085,11 @@
 
         The Artifact publishing setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36189,11 +37101,11 @@
 
         The Artifact external sharing setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36205,11 +37117,11 @@
 
         The Artifact presence setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36221,11 +37133,11 @@
 
         The Claude.ai skill sharing setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36237,11 +37149,11 @@
 
         The Claude.ai organization-wide skill sharing setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36253,11 +37165,11 @@
 
         The Claude.ai group-based skill sharing setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36269,7 +37181,7 @@
 
         The Claude.ai organization skill publish policy was changed for the organization.
 
-        - `current_value: "off" or "open" or "review" or null`
+        - `current_value: optional "off" or "open" or "review" or "unspecified" or null`
 
           Setting value immediately after this change
 
@@ -36279,7 +37191,9 @@
 
           - `"review"`
 
-        - `previous_value: "off" or "open" or "review" or null`
+          - `"unspecified"`
+
+        - `previous_value: optional "off" or "open" or "review" or "unspecified" or null`
 
           Setting value immediately before this change
 
@@ -36289,6 +37203,8 @@
 
           - `"review"`
 
+          - `"unspecified"`
+
         - `type: optional "claude_ai_skill_publish_policy"`
 
           default: claude_ai_skill_publish_policy
@@ -36297,11 +37213,11 @@
 
         The Claude Code remote control setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36313,11 +37229,11 @@
 
         The Claude Code remote control auto-enable default was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36329,11 +37245,11 @@
 
         The Claude Code routines setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36345,11 +37261,11 @@
 
         The Claude Code Workflows setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36361,11 +37277,11 @@
 
         The frontier services data use setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36377,11 +37293,11 @@
 
         The LTI course projects setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36393,11 +37309,11 @@
 
         The Claude.ai skill creation setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36409,11 +37325,11 @@
 
         The Claude Code GitHub analytics setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36425,11 +37341,11 @@
 
         The Claude Code hide managed environments setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36441,11 +37357,11 @@
 
         The Claude Code allow session pool moves setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36457,11 +37373,11 @@
 
         The Claude Code disable Anthropic compute setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36473,11 +37389,11 @@
 
         The Claude Code metrics logging setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36489,11 +37405,11 @@
 
         The Claude Code fast mode setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36505,11 +37421,11 @@
 
         The Claude Code trusted devices setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36521,11 +37437,11 @@
 
         The Cowork trusted devices enforcement setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36537,11 +37453,11 @@
 
         The inline visualizations setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -36549,15 +37465,15 @@
 
           default: inline_visualizations_enabled
 
-      - `OrganizationBannerSettingsUpdated object`
+      - `OrganizationBannerSettings object`
 
         The organization banner setting was changed.
 
-        - `current_value: map[unknown] or null`
+        - `current_value: optional map[unknown] or null`
 
           Setting value immediately after this change
 
-        - `previous_value: map[unknown] or null`
+        - `previous_value: optional map[unknown] or null`
 
           Setting value immediately before this change
 
@@ -36565,15 +37481,15 @@
 
           default: organization_banner_settings
 
-      - `ClaudeInSlackSettingsUpdated object`
+      - `ClaudeInSlackSettings object`
 
         The Claude in Slack setting was changed for the organization.
 
-        - `current_value: map[unknown] or null`
+        - `current_value: optional map[unknown] or null`
 
           Setting value immediately after this change
 
-        - `previous_value: map[unknown] or null`
+        - `previous_value: optional map[unknown] or null`
 
           Setting value immediately before this change
 
@@ -36585,11 +37501,11 @@
 
         The Claude Code default worker environment setting was changed for the organization.
 
-        - `current_value: string or null`
+        - `current_value: optional string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: string or null`
+        - `previous_value: optional string or null`
 
           Setting value immediately before this change
 
@@ -36601,11 +37517,11 @@
 
         The Claude Code default worker pool setting was changed for the organization.
 
-        - `current_value: string or null`
+        - `current_value: optional string or null`
 
           Setting value immediately after this change
 
-        - `previous_value: string or null`
+        - `previous_value: optional string or null`
 
           Setting value immediately before this change
 
@@ -36617,11 +37533,11 @@
 
         The managed agents setting was changed for the organization.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -41737,989 +42653,3 @@
         - `user_agent: optional string or null`
 
       - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `user_agent: optional string or null`
-
-    - `resource_id: string`
-
-      The resource that was removed, e.g. "resource_01HX...".
-
-    - `session_id: string`
-
-      The agent session the resource belonged to, e.g. "session_01HX...".
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `type: optional "platform_agent_session_resource_deleted"`
-
-      default: platform_agent_session_resource_deleted
-
-    - `workspace_id: optional string or null`
-
-      Tagged workspace ID, e.g. "wrkspc_01HX...". Optional because org-scoped credentials may not resolve a workspace at request time.
-
-  - `PlatformAgentSessionResourceUpdated object`
-
-    A resource attached to an agent session was updated.
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-      - `UserActor object`
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-      - `UnauthenticatedUserActor object`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `email_address: optional string or null`
-
-          format: email
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-      - `AdminAPIKeyActor object`
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-      - `ServiceAccountActor object`
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-      - `ScimDirectorySyncActor object`
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `subscription_id: string`
-
-            - `type: optional "azure"`
-
-              default: azure
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `project_number: string`
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `user_agent: optional string or null`
-
-    - `resource_id: string`
-
-      The resource that was updated, e.g. "resource_01HX...".
-
-    - `session_id: string`
-
-      The agent session the resource belongs to, e.g. "session_01HX...".
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `type: optional "platform_agent_session_resource_updated"`
-
-      default: platform_agent_session_resource_updated
-
-    - `workspace_id: optional string or null`
-
-      Tagged workspace ID, e.g. "wrkspc_01HX...". Optional because org-scoped credentials may not resolve a workspace at request time.
-
-  - `PlatformAgentSessionThreadArchived object`
-
-    A thread within an agent session was archived.
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-      - `UserActor object`
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-      - `UnauthenticatedUserActor object`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `email_address: optional string or null`
-
-          format: email
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-      - `AdminAPIKeyActor object`
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-      - `ServiceAccountActor object`
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-      - `ScimDirectorySyncActor object`
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `subscription_id: string`
-
-            - `type: optional "azure"`
-
-              default: azure
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `project_number: string`
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `user_agent: optional string or null`
-
-    - `session_id: string`
-
-      The agent session the thread belongs to, e.g. "session_01HX...".
-
-    - `thread_id: string`
-
-      The thread that was archived, e.g. "thread_01HX...".
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `type: optional "platform_agent_session_thread_archived"`
-
-      default: platform_agent_session_thread_archived
-
-    - `workspace_id: optional string or null`
-
-      Tagged workspace ID, e.g. "wrkspc_01HX...". Optional because org-scoped credentials may not resolve a workspace at request time.
-
-  - `PlatformAgentSessionUpdated object`
-
-    An agent session was updated on the API platform.
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-      - `UserActor object`
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-      - `UnauthenticatedUserActor object`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `email_address: optional string or null`
-
-          format: email
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-      - `AdminAPIKeyActor object`
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-      - `ServiceAccountActor object`
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-      - `ScimDirectorySyncActor object`
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `subscription_id: string`
-
-            - `type: optional "azure"`
-
-              default: azure
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `project_number: string`
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `type: optional "federated_actor"`
-
-          default: federated_actor
-
-        - `user_agent: optional string or null`
-
-      - `AttestedDeviceActor object`
-
-        An attested mobile device authenticated via Apple App Attest.
-
-        - `external_client_id: string`
-
-        - `kid_hash: string`
-
-        - `ip_address: optional string or null`
-
-        - `type: optional "attested_device_actor"`
-
-          default: attested_device_actor
-
-        - `user_agent: optional string or null`
-
-    - `session_id: string`
-
-      The agent session that was updated, e.g. "session_01HX...".
-
-    - `id: optional string`
-
-      Unique identifier for the activity e.g. 'activity_abcd1234'
-
-    - `created_at: optional string`
-
-      When this activity occurred.
-
-      format: date-time
-
-    - `organization_id: optional string or null`
-
-      Organization ID this activity is associated with
-
-    - `organization_uuid: optional string or null`
-
-      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
-
-    - `type: optional "platform_agent_session_updated"`
-
-      default: platform_agent_session_updated
-
-    - `workspace_id: optional string or null`
-
-      Tagged workspace ID, e.g. "wrkspc_01HX...". Optional because org-scoped credentials may not resolve a workspace at request time.
-
-  - `PlatformAgentUpdated object`
-
-    An agent was updated on the API platform.
-
-    - `actor: object or object or object or 8 more`
-
-      Automated background processing performed by Anthropic systems, acting
-      without a user or customer credential.
-
-      - `APIActor object`
-
-        - `api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "api_actor"`
-
-          default: api_actor
-
-      - `UserActor object`
-
-        - `email_address: string`
-
-          format: email
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `user_id: string`
-
-        - `type: optional "user_actor"`
-
-          default: user_actor
-
-      - `UnauthenticatedUserActor object`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "unauthenticated_user_actor"`
-
-          default: unauthenticated_user_actor
-
-        - `unauthenticated_email_address: optional string or null`
-
-          format: email
-
-      - `AnthropicActor object`
-
-        - `email_address: optional string or null`
-
-          format: email
-
-        - `type: optional "anthropic_actor"`
-
-          default: anthropic_actor
-
-      - `SystemActor object`
-
-        Automated background processing performed by Anthropic systems, acting
-        without a user or customer credential.
-
-        - `service: optional string or null`
-
-          Name of the automated process that performed the action, when known.
-
-        - `type: optional "system_actor"`
-
-          default: system_actor
-
-      - `AdminAPIKeyActor object`
-
-        - `admin_api_key_id: string`
-
-        - `ip_address: string`
-
-        - `user_agent: string`
-
-        - `type: optional "admin_api_key_actor"`
-
-          default: admin_api_key_actor
-
-      - `ServiceAccountActor object`
-
-        - `ip_address: string`
-
-        - `service_account_id: string`
-
-        - `user_agent: string`
-
-        - `type: optional "service_account_actor"`
-
-          default: service_account_actor
-
-      - `ScimDirectorySyncActor object`
-
-        - `directory_id: string`
-
-        - `workos_event_id: string`
-
-        - `idp_connection_type: optional string or null`
-
-        - `type: optional "scim_directory_sync_actor"`
-
-          default: scim_directory_sync_actor
-
-      - `FederatedIdentityActor object`
-
-        A federated external workload authenticated via a verified OIDC token.
-
-        Carries the verified issuer, subject, and audience claims from the
-        presented JWT.
-
-        - `issuer: string`
-
-        - `subject: string`
-
-        - `audience: optional array of string`
-
-        - `ip_address: optional string or null`
-
-        - `type: optional "federated_identity_actor"`
-
-          default: federated_identity_actor
-
-        - `user_agent: optional string or null`
-
-      - `FederatedActor object`
-
-        An external identity asserted by a trusted provider — a cloud-provider
-        gateway or a customer-registered federation issuer — acting without an
-        Anthropic-provisioned account or service account.
-
-        - `provider: object or object or object or object`
-
-          Asserting party: the AWS account the organization is bound to.
-
-          - `FederatedActorAwsProvider object`
-
-            Asserting party: the AWS account the organization is bound to.
-
-            - `account_id: string`
-
-            - `signed_principal: string`
-
-              The AWS-signed ARN of the IAM principal that requested the token.
-
-            - `type: optional "aws"`
-
-              default: aws
-
-          - `FederatedActorAzureProvider object`
-
-            Asserting party: the Azure subscription the organization is bound to.
-
-            - `subscription_id: string`
-
-            - `type: optional "azure"`
-
-              default: azure
-
-          - `FederatedActorGcpProvider object`
-
-            Asserting party: the GCP project the organization is bound to.
-
-            - `project_number: string`
-
-            - `type: optional "gcp"`
-
-              default: gcp
-
-          - `FederatedActorOidcProvider object`
-
-            Asserting party: a customer-registered OIDC federation issuer.
-
-            - `issuer: optional string or null`
-
-              The federation issuer's URL. Null when the presented credential failed verification.
-
-            - `type: optional "oidc"`
-
-              default: oidc
-
-        - `ip_address: optional string or null`
-
-        - `subject: optional string or null`
-
-          The provider's verified identifier for the caller; its form depends on the provider.
-
-        - `type: optional "federated_actor"`

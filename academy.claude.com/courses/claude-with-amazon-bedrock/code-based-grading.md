@@ -12,7 +12,7 @@ Lesson 1510 min
 
 Code-based grading adds an extra layer of validation to your prompt evaluations by checking whether the model's output follows the correct format and has valid syntax. This is especially useful when you're asking models to generate code, JSON, or regular expressions.
 
-## How Code Grading Works
+## How Code Grading Works[](#how-code-grading-works)
 
 The code grader evaluates two main criteria:
 
@@ -23,7 +23,7 @@ The code grader evaluates two main criteria:
 
 The system uses separate validation functions for each format type. If the code parses successfully, it gets a perfect score of 10. If parsing fails with an error, it gets a score of 0.
 
-## Setting Up Validation Functions
+## Setting Up Validation Functions[](#setting-up-validation-functions)
 
 You'll need three helper functions to validate different output types:
 
@@ -54,7 +54,7 @@ def validate_regex(text):
 
 These functions use Python's built-in parsing capabilities to check syntax validity. The `json.loads()` function validates JSON, `ast.parse()` creates a Python abstract syntax tree, and `re.compile()` validates regular expressions.
 
-## Adding Format Information to Test Cases
+## Adding Format Information to Test Cases[](#adding-format-information-to-test-cases)
 
 Your test dataset needs to specify the expected output format for each task. Update your dataset generation prompt to include a format field:
 
@@ -69,7 +69,7 @@ json
 
 The format field should contain "json", "python", or "regex" depending on what type of output you expect from that particular task.
 
-## Improving Your Prompt
+## Improving Your Prompt[](#improving-your-prompt)
 
 To get better results from the code grader, make your prompt instructions more specific:
 
@@ -80,7 +80,7 @@ To get better results from the code grader, make your prompt instructions more s
 
 You can also use a pre-filled assistant message with code blocks and stop sequences to ensure clean output formatting.
 
-## Combining Scores
+## Combining Scores[](#combining-scores)
 
 The final step is merging your model grader score with the syntax grader score. A simple approach is to take the average of both scores:
 
@@ -96,7 +96,7 @@ score = (model_score + syntax_score) / 2
 
 This gives equal weight to both content quality (from the model grader) and technical correctness (from the code grader). You can adjust this weighting based on what matters more for your specific use case.
 
-## Interpreting Results
+## Interpreting Results[](#interpreting-results)
 
 Once you run your evaluation, you'll get a combined score that reflects both the semantic quality and technical correctness of the generated code. Remember that a single score in isolation doesn't tell you much - the real value comes from comparing scores as you iterate on your prompt design.
 

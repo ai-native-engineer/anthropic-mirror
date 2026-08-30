@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/news/frontier-model-security -->
 
-# Frontier Model Security
+# Frontier model security
 
 Jul 25, 2023
 

@@ -14,15 +14,15 @@ Learn what Claude for Life Sciences offers and how to access the connectors and 
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-nl47vzgi.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-e9qz4tjy.png)
 
-## What is Claude for Life Sciences
+## What is Claude for Life Sciences[](#what-is-claude-for-life-sciences)
 
 Claude for Life Sciences enhances Claude with specialized capabilities for life sciences researchers and organizations. It connects Claude to the data sources, tools, and systems that teams use daily across R&D, clinical operations, and regulatory affairs — eliminating the need to toggle between platforms and enabling insights that span your entire product lifecycle. The result: accelerated timelines from discovery through approval, with the rigor and traceability these workflows demand.
 
-## How do I access life sciences tools and features?
+## How do I access life sciences tools and features?[](#how-do-i-access-life-sciences-tools-and-features)
 
 Individuals can access Claude for Life Sciences features and tools from a [Claude Pro(opens in new tab)](https://claude.com/pricing) or [Claude Max(opens in new tab)](https://claude.com/pricing) account, and teams can access through [Claude for Work(opens in new tab)](https://www.claude.com/pricing/team). For questions about Claude for Life Sciences for enterprise contact our [Sales team(opens in new tab)](https://claude.com/contact-sales/life-sciences).
 
-## **Connectors for the life sciences development cycle**
+## **Connectors for the life sciences development cycle**[](#connectors-for-the-life-sciences-development-cycle)
 
 Through Model Context Protocol (MCP) [connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) and [desktop extensions(opens in new tab)](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop), Claude connects directly to leading platforms and databases, enabling you to query data using natural language and receive responses with source citations.
 
@@ -51,7 +51,7 @@ Claude also includes Connectors to other workplace and productivity platforms li
 
 You can also add custom connectors to connect Claude directly to the tools and data sources that matter most to your workflows. Learn more about setting up custom connectors [here(opens in new tab)](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
 
-## Common research & discovery use cases
+## Common research & discovery use cases[](#common-research-discovery-use-cases)
 
 * **Advanced data analysis and hypothesis generation:** Synthesize multi-source data to accelerate discovery cycles from weeks to hours.
 * **Literature synthesis with citations:** Access abstracts and full papers to clarify experimental approaches, identify key findings, determine novelty and applicability, and surface specific papers for deeper exploration.

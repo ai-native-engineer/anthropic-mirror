@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Apply systematic quality control through Discernment
 * Build materials that work together as an integrated learning experience
 
-## Applying AI Fluency to learning materials and assignments
+## Applying AI Fluency to learning materials and assignments[](#applying-ai-fluency-to-learning-materials-and-assignments)
 
 Applying AI Fluency to learning materials and assignments · 10 min
+
+SummaryTranscript
 
 This video explores using AI Fluency to create the materials students
 actually work with—from lecture slides to assessments. We demonstrate how
@@ -39,14 +41,14 @@ video concludes by noting that while this approach saves time, the real
 transformation is in quality—materials that build coherently, align with
 objectives, and embody your pedagogical vision.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Established context makes each new workflow better than starting fresh
 * The Description-Discernment loop refines materials through meaningful iteration
 * Different materials require different delegation strategies
 * Focus on coherence and quality, not just efficiency
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Creating Learning Materials
 
@@ -152,12 +154,12 @@ Building on this context, create one or more of these learning materials.
 * Ensure appropriate challenge level
 * Consider how students might misinterpret questions
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did having established context affect the quality of materials generated?
 * How did these materials build on and reference each other?
 
-## What's next
+## What's next[](#whats-next)
 
 You've now experienced the full cycle of AI Fluency in teaching—from establishing your pedagogical context to creating coherent learning materials. In the next lesson, you'll have an opportunity to take a short quiz and earn a completion badge.
 

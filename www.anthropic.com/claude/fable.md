@@ -20,6 +20,7 @@ Next generation of intelligence for the hardest knowledge work and coding proble
 
   We’re making updates to Claude Fable 5’s biology safeguards in a way that substantially reduces false positives.
 
+  [Read more](https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards)
 * Claude Fable 5 is rolling out
 
   Jul 1, 2026

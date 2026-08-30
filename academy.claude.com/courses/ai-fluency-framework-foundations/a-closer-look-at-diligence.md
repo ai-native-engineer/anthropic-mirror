@@ -16,9 +16,11 @@ In this lessonBy the end, you’ll be able to
 * Understand the importance of transparency in AI work
 * Recognize your responsibility in AI interactions and outputs
 
-## Video: A closer look at diligence
+## Video: A closer look at diligence[](#video-a-closer-look-at-diligence)
 
 A closer look at Diligence · 7 min
+
+SummaryTranscript
 
 This video explores Diligence, the AI Fluency competency that focuses on
 responsible and ethical AI collaborations. We explain that while the other
@@ -32,7 +34,7 @@ three components:
 
 We emphasize that different contexts may have different expectations, but we each have a responsibility to understand and meet these expectations.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Diligence is about taking responsibility for our AI collaborations
 * Creation Diligence involves being thoughtful about which AI systems we use and how we engage with them
@@ -41,7 +43,7 @@ We emphasize that different contexts may have different expectations, but we eac
 * Different contexts (personal, academic, professional) may have different expectations for disclosure and verification
 * Thoughtful Diligence helps ensure our AI collaborations are not only effective and efficient, but also ethical and safe
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Creating a Diligence Statement
 
@@ -95,7 +97,7 @@ Open a conversation with Claude and:
 
 When you finish your project, add your diligence statement in an appropriate location (e.g., footer, appendix, or metadata).
 
-## Reflection
+## Reflection[](#reflection)
 
 Before moving on, take a moment to consider:
 
@@ -105,7 +107,7 @@ Before moving on, take a moment to consider:
 * What ethical considerations arose during your project that you hadn't anticipated?
 * What personal guidelines might you develop for responsible AI collaboration going forward?
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the final lesson of this course, we'll reflect on what we've learned about AI Fluency and how these competencies work together. We'll revisit the framework as a whole and discuss how you can continue developing these skills as AI capabilities evolve. The conclusion will help you synthesize the knowledge and practices you've gained and apply them to future AI collaborations.
 

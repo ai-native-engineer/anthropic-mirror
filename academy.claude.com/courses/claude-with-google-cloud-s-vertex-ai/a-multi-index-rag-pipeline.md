@@ -14,7 +14,7 @@ When you have both semantic search (vector embeddings) and lexical search (BM25)
 
 ![](https://academy.claude.com/assets/media/961cd9717345a16435ab45da7572f0b9fa5c4125f4823018c271d8e33c7c9963.png)
 
-## Creating a Unified Interface
+## Creating a Unified Interface[](#creating-a-unified-interface)
 
 Both search implementations share nearly identical APIs - they both have `add_document()` and `search()` methods that work the same way. This consistency makes it straightforward to wrap them in a single `Retriever` class.
 
@@ -24,7 +24,7 @@ The Retriever acts as a coordinator that forwards user queries to both indexes, 
 
 ![](https://academy.claude.com/assets/media/1aae9ddbb1781429d0c3797b675cc9d0fd9d9e1a8fba70b49aa7bc510c29e6ab.png)
 
-## Reciprocal Rank Fusion
+## Reciprocal Rank Fusion[](#reciprocal-rank-fusion)
 
 The challenge is merging results from different search methods that use different scoring systems. Vector search returns cosine similarity scores, while BM25 returns relevance scores - you can't simply combine these numbers directly.
 
@@ -66,7 +66,7 @@ The final ranking becomes: Section 2 (0.833), Section 6 (0.75), Section 7 (0.583
 
 ![](https://academy.claude.com/assets/media/c17e3349fd61b432b819c67d700780f96f20f8b86ba881907b3fb4e323bd45ea.png)
 
-## Implementation
+## Implementation[](#implementation)
 
 The Retriever class implementation is straightforward:
 
@@ -95,7 +95,7 @@ class Retriever:
 
 The merge logic tracks document ranks across all search results, calculates RRF scores, and returns the top-k documents sorted by their combined scores.
 
-## Testing the Hybrid Approach
+## Testing the Hybrid Approach[](#testing-the-hybrid-approach)
 
 When testing with the query "what happened with INC-2023-Q4-011?", the hybrid approach delivers much better results than vector search alone:
 
@@ -109,7 +109,7 @@ The results now correctly prioritize:
 
 ![](https://academy.claude.com/assets/media/99e48f9eae840a3bddb1d226d4f9f4b0bfb372749ff212509f7b558d12a31dd6.png)
 
-## Benefits of the Hybrid Architecture
+## Benefits of the Hybrid Architecture[](#benefits-of-the-hybrid-architecture)
 
 This design offers several advantages:
 

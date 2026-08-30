@@ -16,7 +16,7 @@ Every time you explain your team's coding standards to Claude, you're repeating 
 
 A skill is a markdown file that teaches Claude how to do something once, and Claude applies that knowledge automatically whenever it's relevant. Claude skills are folders of instructions, scripts, and resources that agents can discover and use to do things more accurately and efficiently.
 
-With Claude Code, we have the skill MD file. The description is how Claude decides whether to use the skill. When you ask Claude to review this PR, it matches your request against available skill descriptions and finds this one. Claude reads your request, compares it to all available skill descriptions, and activates the ones that match.
+With Claude Code, we have the SKILL.md file. The description is how Claude decides whether to use the skill. When you ask Claude to review this PR, it matches your request against available skill descriptions and finds this one. Claude reads your request, compares it to all available skill descriptions, and activates the ones that match.
 
 You can store skills in a few places depending on who needs them. Personal skills go in the home directory .claude/skills, and follow you across all your projects. These are your preferences, your commit message style, your documentation format, how you like code explained. Project skills go in the .claude/skills inside of the root directory of your repository. Someone who clones the repository gets these skills automatically. This is where team standards live, like your company's brand guidelines, preferred fonts, and colors that you use for web design.
 

@@ -18,7 +18,7 @@ However, there's an important caveat: some configuration settings can significan
 
 ![](https://academy.claude.com/assets/media/75cfbece553b5f35edc67a839efeeff9027fa1d3d58fa84c95ecf1d374807319.png)
 
-## Configuration Settings That Matter
+## Configuration Settings That Matter[](#configuration-settings-that-matter)
 
 Two key settings control how the streamable HTTP transport behaves:
 
@@ -27,7 +27,7 @@ Two key settings control how the streamable HTTP transport behaves:
 
 By default, both settings are `false`, but certain deployment scenarios may force you to set them to `true`. When enabled, these settings can break core functionality like progress notifications, logging, and server-initiated requests.
 
-## The HTTP Communication Challenge
+## The HTTP Communication Challenge[](#the-http-communication-challenge)
 
 To understand why these limitations exist, we need to review how HTTP communication works. In standard HTTP:
 
@@ -40,7 +40,7 @@ To understand why these limitations exist, we need to review how HTTP communicat
 
 ![](https://academy.claude.com/assets/media/453bc7c551e0d45a15632325326e930ff847e52156ddb69553b94f2c4166e411.png)
 
-## MCP Message Types Affected
+## MCP Message Types Affected[](#mcp-message-types-affected)
 
 This HTTP limitation impacts specific MCP communication patterns. The following message types become difficult to implement with plain HTTP:
 
@@ -49,7 +49,7 @@ This HTTP limitation impacts specific MCP communication patterns. The following 
 
 These are exactly the features that break when you enable the restrictive HTTP settings. Progress bars disappear, logging stops working, and server-initiated sampling requests fail.
 
-## The Streamable HTTP Solution
+## The Streamable HTTP Solution[](#the-streamable-http-solution)
 
 The streamable HTTP transport does provide a clever solution to work around HTTP's limitations, but it comes with trade-offs. When you're forced to use `stateless_http=True` or `json_response=True`, you're essentially telling the transport to operate within HTTP's constraints rather than working around them.
 

@@ -6,8 +6,6 @@ Model access settings are available for Enterprise plan organizations. Primary O
 
 To set the model new conversations start on, see **[Set a default model for your organization](https://support.claude.com/en/articles/15330088)**.
 
----
-
 ## How model access works
 
 Model access is determined at two levels:
@@ -24,8 +22,6 @@ The organization setting is the ceiling, so a role can’t grant access to a mod
 * Disabling a model at the organization level affects every member, including Primary Owners, Owners, Admins, and Users.
 * Role-level model access and effort limits affect only members whose role is set to “Custom.” Members with the User, Admin, or Owner roles can use every model enabled at the organization level, at any effort level.
 
----
-
 ## Enable or disable a model for your organization
 
 1. Navigate to **[Organization settings > Models](https://claude.ai/admin-settings/models)**.
@@ -36,11 +32,9 @@ The organization setting is the ceiling, so a role can’t grant access to a mod
 
 If any custom role uses the model you’re disabling as its default, you’ll be prompted to change that role’s default before the change can be saved.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693921/02ea72756f5163f14e5d158516dc/69102088-cd86-498e-97aa-c8a6e0004419?expires=1787622300&signature=afebc58c571f7d23fabc376f5e4286d55badbcf0d20f8f0e713fe9d4f74e6132&req=diUmEs93nohdWPMW1HO4zXlxEuC%2FVdNUQf5Pb7M2Q0vWm8ydI4ukMNTH%2F62i%0ANNhYDtG7OIzd%2F3WpT%2B0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693921/02ea72756f5163f14e5d158516dc/69102088-cd86-498e-97aa-c8a6e0004419?expires=1787622300&signature=afebc58c571f7d23fabc376f5e4286d55badbcf0d20f8f0e713fe9d4f74e6132&req=diUmEs93nohdWPMW1HO4zXlxEuC%2FVdNUQf5Pb7M2Q0vWm8ydI4ukMNTH%2F62i%0ANNhYDtG7OIzd%2F3WpT%2B0%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693921/02ea72756f5163f14e5d158516dc/69102088-cd86-498e-97aa-c8a6e0004419?expires=1788033600&signature=69ed87a1a8dea5046d450d45e574fa7d8238cf759147959aaf7fbd62ceb23bd9&req=diUmEs93nohdWPMW1HO4zXlxEu%2B5VNJRQf5Pb7M2Q0twV%2FpZLO47KcXbKME%2F%0AaKKZUTY5XolHkgR4kJM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693921/02ea72756f5163f14e5d158516dc/69102088-cd86-498e-97aa-c8a6e0004419?expires=1788033600&signature=69ed87a1a8dea5046d450d45e574fa7d8238cf759147959aaf7fbd62ceb23bd9&req=diUmEs93nohdWPMW1HO4zXlxEu%2B5VNJRQf5Pb7M2Q0twV%2FpZLO47KcXbKME%2F%0AaKKZUTY5XolHkgR4kJM%3D%0A)
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693922/bfc5de6626eb19dca1d7caf818ca/c3cd8bb6-f86c-4d01-92da-6ae4ca966662?expires=1787622300&signature=8ece855536bf052cbd6216447c9d74ed52a3e3477d5bd6bf4d86dc5b332ce4d6&req=diUmEs93nohdW%2FMW1HO4zTqNsY7DRFpUAod9uc510lwSQALHkcONh2gNkIwY%0A9ISzVfFEFNk7mT9Dp1A%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693922/bfc5de6626eb19dca1d7caf818ca/c3cd8bb6-f86c-4d01-92da-6ae4ca966662?expires=1787622300&signature=8ece855536bf052cbd6216447c9d74ed52a3e3477d5bd6bf4d86dc5b332ce4d6&req=diUmEs93nohdW%2FMW1HO4zTqNsY7DRFpUAod9uc510lwSQALHkcONh2gNkIwY%0A9ISzVfFEFNk7mT9Dp1A%3D%0A)
-
----
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693922/bfc5de6626eb19dca1d7caf818ca/c3cd8bb6-f86c-4d01-92da-6ae4ca966662?expires=1788033600&signature=443029157099ed367c797749034a5d7b27341c8522af2c0b9103c19103de991e&req=diUmEs93nohdW%2FMW1HO4zTqNsYHFRVtRAod9uc510lw7uuBXIvhh47h9sy5%2F%0AxpFcoSVW3scVR5%2BvFds%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693922/bfc5de6626eb19dca1d7caf818ca/c3cd8bb6-f86c-4d01-92da-6ae4ca966662?expires=1788033600&signature=443029157099ed367c797749034a5d7b27341c8522af2c0b9103c19103de991e&req=diUmEs93nohdW%2FMW1HO4zTqNsYHFRVtRAod9uc510lw7uuBXIvhh47h9sy5%2F%0AxpFcoSVW3scVR5%2BvFds%3D%0A)
 
 ## Set model access for a custom role
 
@@ -52,9 +46,7 @@ If any custom role uses the model you’re disabling as its default, you’ll be
 
 Only models the role grants access to can be selected as that role’s default model.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693923/880665a87dbd4776cf19d6063a37/29d30c6d-f9fc-408c-8c72-4320c6d88d14?expires=1787622300&signature=49138bf6a6df4d95ee9111e5db5a92df54317484290c1083bb169c78050e1b61&req=diUmEs93nohdWvMW1HO4zYj9SfIF74O%2BXsqpNqvyFRIBqMVh2xdRE%2BymveEU%0AfFeoaqZEEO7gyWJdcuw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693923/880665a87dbd4776cf19d6063a37/29d30c6d-f9fc-408c-8c72-4320c6d88d14?expires=1787622300&signature=49138bf6a6df4d95ee9111e5db5a92df54317484290c1083bb169c78050e1b61&req=diUmEs93nohdWvMW1HO4zYj9SfIF74O%2BXsqpNqvyFRIBqMVh2xdRE%2BymveEU%0AfFeoaqZEEO7gyWJdcuw%3D%0A)
-
----
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693923/880665a87dbd4776cf19d6063a37/29d30c6d-f9fc-408c-8c72-4320c6d88d14?expires=1788033600&signature=67d1eaa74387028e3846d04a92c79681b857f6e2c4e3c5c5cdafab1606f52270&req=diUmEs93nohdWvMW1HO4zYj9Sf0D7oK7XsqpNqvyFRJ4qZsKhwus9DsjjrJA%0ArPqQNyIPquTVTBQGlm8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693923/880665a87dbd4776cf19d6063a37/29d30c6d-f9fc-408c-8c72-4320c6d88d14?expires=1788033600&signature=67d1eaa74387028e3846d04a92c79681b857f6e2c4e3c5c5cdafab1606f52270&req=diUmEs93nohdWvMW1HO4zYj9Sf0D7oK7XsqpNqvyFRJ4qZsKhwus9DsjjrJA%0ArPqQNyIPquTVTBQGlm8%3D%0A)
 
 ## Limit the maximum effort level for a custom role
 
@@ -66,11 +58,9 @@ Effort limits determine how much computation members on a role can apply per res
 4. Next to a model, click the gear icon and choose a level.
 5. Click "Save" to save your changes.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693927/7a25673b3b075d72adb3cdc371e3/d2d7cd8d-a713-4e91-a706-f589ac46a9fe?expires=1787622300&signature=244fcf0bde8e94d0b30dfb8f259467c47db07d7188cb01bc7032d250f03a658e&req=diUmEs93nohdXvMW1HO4ze1xBjS6cbsaDeA1RkowXUGS3FVRE15Bdnt6l7Af%0AprLr2pczpt2Dh3kEx8k%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693927/7a25673b3b075d72adb3cdc371e3/d2d7cd8d-a713-4e91-a706-f589ac46a9fe?expires=1787622300&signature=244fcf0bde8e94d0b30dfb8f259467c47db07d7188cb01bc7032d250f03a658e&req=diUmEs93nohdXvMW1HO4ze1xBjS6cbsaDeA1RkowXUGS3FVRE15Bdnt6l7Af%0AprLr2pczpt2Dh3kEx8k%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693927/7a25673b3b075d72adb3cdc371e3/d2d7cd8d-a713-4e91-a706-f589ac46a9fe?expires=1788033600&signature=feb6ce1054c17fae8cc4dd6c64f219605d18d62a0b0644d6b191172f98066222&req=diUmEs93nohdXvMW1HO4ze1xBju8cLofDeA1RkowXUGY%2FRKOH9r5OkOHRTsD%0A4KO7nmRyl1yMMxDI4cs%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514693927/7a25673b3b075d72adb3cdc371e3/d2d7cd8d-a713-4e91-a706-f589ac46a9fe?expires=1788033600&signature=feb6ce1054c17fae8cc4dd6c64f219605d18d62a0b0644d6b191172f98066222&req=diUmEs93nohdXvMW1HO4ze1xBju8cLofDeA1RkowXUGY%2FRKOH9r5OkOHRTsD%0A4KO7nmRyl1yMMxDI4cs%3D%0A)
 
 Members on the role see only effort levels at or below the cap in their model menu. Note that available effort levels differ depending on the model, and some models don’t support effort level settings at all. For an explanation of each level, see **[Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678)**.
-
----
 
 ## How access combines across multiple roles
 
@@ -83,8 +73,6 @@ For how default models are chosen across multiple roles, see **[Set a default mo
 
 For details on creating roles and assigning them to groups, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
 
----
-
 ## What users see
 
 In every covered product, the model picker shows only the models the member has access to. Effort levels above a role’s cap don’t appear in the effort menu.
@@ -92,8 +80,6 @@ In every covered product, the model picker shows only the models the member has 
 Model availability also depends on the product. Each product supports a different set of models, so an enabled model appears only in the products that support it.
 
 If you disable a model a member is using in an open conversation or session, that conversation falls back to the member’s default model the next time they open it. If the member sends a message while you’re making the change, they’ll see an error that the model isn’t available and be prompted to switch.
-
----
 
 ## Where model access settings apply
 

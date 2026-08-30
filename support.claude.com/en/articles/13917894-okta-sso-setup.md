@@ -18,8 +18,6 @@ The ACS URL, Entity ID, and SCIM credentials referenced below are provided in th
 
 Start the SSO setup flow there and keep it open alongside the Okta Admin console as you work through the steps below.
 
----
-
 ## Step 1 — Create the Okta application
 
 1. In the Okta Admin console, go to **Applications → Applications → Create App Integration**.
@@ -53,8 +51,6 @@ Start the SSO setup flow there and keep it open alongside the Okta Admin console
 
 1. If you enabled SCIM, check provisioning logs to confirm people were successfully created in Claude.
 2. Have a test user complete SSO and verify they land in your organization's workspace.
-
----
 
 ## Need help?
 

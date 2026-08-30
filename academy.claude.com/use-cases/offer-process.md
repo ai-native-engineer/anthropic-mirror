@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-jslgxynt.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-fx1l2f4o.png)
 
-## 1. Set up
+## 1. Set up[](#1-set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Human Resources plugin ships with `/draft-offer` and other recruiting skills as a starting point, already structured to fill an offer template, draft the email, and lay out the call deck. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Human Resources9 skills for recruiting, onboarding, performance reviews, comp an
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the candidate summary, your offer letter template, the comp approval, the benefits one-pager) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the filled offer, the email draft, and the HTML deck back to it. If you run offers regularly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the role's offers folder so your templates and tone stay attached.
 
@@ -84,15 +84,15 @@ benefits-overview-2026.pdfFeb 3, 2026410 KB
 
 In Cowork’s chat bar:Hiring / Senior-PM-Growth / offers
 
-## 2. The prompt
+## 2. The prompt[](#2-the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Put together the offer package for our finalist. Fill out the offer fields for my review, draft a warm email to the candidate that sets up the call, and build a short HTML presentation I can screenshare on the offer call covering the role, the numbers, and why we're excited about them.
 
 Hiring / Senior-PM-Growth / offersOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -110,7 +110,7 @@ Source
 
 **Put your source files in the folder.** The offer template, the approved numbers, and the benefits one-pager sit in the working folder, so the filled offer and the deck quote your real terms and land back next to them.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -120,7 +120,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## 3. Make Cowork work for you
+## 3. Make Cowork work for you[](#3-make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -130,9 +130,9 @@ HiringOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## 4. Make it repeatable
+## 4. Make it repeatable[](#4-make-it-repeatable)
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs every weekday morning. It checks the hiring folder for candidates who moved to Offer overnight so the package is ready before the recruiter opens it.
 
@@ -148,7 +148,7 @@ Runs `/draft-offer` each weekday morning for any candidate who moved to Offer ov
 
 Every **Weekdays at 9am · checks the hiring folder for new Offer-stage candidates**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## 5. Share with your teammates
+## 5. Share with your teammates[](#5-share-with-your-teammates)
 
 Your customized `/draft-offer` now carries your offer template, your email tone, and your branded deck layout. Share it so every recruiter and hiring manager produces the same quality of offer artifact, and candidates get a consistent experience no matter which team is closing them.
 
@@ -156,7 +156,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/draft-offer` → **Share** and pick your recruiting team (or your whole workspace, if your admin allows). They get the skill with your templates and guardrails baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

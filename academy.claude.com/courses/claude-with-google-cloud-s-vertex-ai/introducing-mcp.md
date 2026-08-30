@@ -16,7 +16,7 @@ Model Context Protocol (MCP) is a communication layer that provides Claude with 
 
 When you first encounter MCP, you'll see diagrams showing the basic architecture: an MCP Client (your server) connects to MCP Servers that contain tools, prompts, and resources. Each MCP Server acts as an interface to outside services like GitHub, AWS, or databases.
 
-## The Problem MCP Solves
+## The Problem MCP Solves[](#the-problem-mcp-solves)
 
 Let's say you're building a chat interface where users can ask Claude about their GitHub data. A user might ask "What open pull requests are there across all my repositories?" To answer this, Claude needs tools that can access GitHub's API.
 
@@ -37,7 +37,7 @@ This means writing, testing, and maintaining a lot of code for functions like:
 * `get_issue()`
 * `create_file()`
 
-## How MCP Changes This
+## How MCP Changes This[](#how-mcp-changes-this)
 
 MCP shifts the burden of tool definitions and execution from your server to MCP Servers. Instead of you writing all those GitHub integration tools, someone else creates an MCP Server for GitHub that contains all the necessary tools and functions.
 
@@ -47,13 +47,13 @@ The MCP Server acts as a wrapper around the outside service, providing pre-built
 
 ![](https://academy.claude.com/assets/media/6007c0bb43df548f5718d979f8f3edf520d95cd5d9cd10924de5c1d115d0a274.png)
 
-## Who Creates MCP Servers
+## Who Creates MCP Servers[](#who-creates-mcp-servers)
 
 Anyone can create an MCP Server implementation. Often, service providers themselves will create official MCP implementations. For example, AWS might release their own official MCP Server with tools for their various services.
 
 You can also create your own MCP Server to wrap access to any service you need to integrate with.
 
-## Common Questions
+## Common Questions[](#common-questions)
 
 ![](https://academy.claude.com/assets/media/69d10ad78e4bc7d024d6956b7dd7ddab90e68b004434f998c62d4e5a5fbc3da9.png)
 

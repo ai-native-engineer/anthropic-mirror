@@ -12,7 +12,7 @@ Lesson 195 min
 
 Providing examples in your prompts is one of the most effective prompt engineering techniques you'll use. This approach, known as "one-shot" or "multi-shot" prompting, involves giving Claude sample input/output pairs to guide its responses.
 
-## How Examples Work
+## How Examples Work[](#how-examples-work)
 
 Let's look at a sentiment analysis example. Say you want Claude to categorize whether a tweet is positive or negative:
 
@@ -20,7 +20,7 @@ Let's look at a sentiment analysis example. Say you want Claude to categorize wh
 
 The challenge here is sarcasm. A tweet like "Yeah, sure, that was the best movie I've seen since 'Plan 9 from Outer Space'" appears positive on the surface, but it's actually sarcastic and negative (Plan 9 is famously one of the worst movies ever made).
 
-## Adding Examples to Handle Corner Cases
+## Adding Examples to Handle Corner Cases[](#adding-examples-to-handle-corner-cases)
 
 To solve this, you can add examples that show Claude how to handle tricky cases:
 
@@ -34,7 +34,7 @@ The improved prompt includes:
 
 Notice how the examples are wrapped in XML tags like `<sample_input>` and `<ideal_output>`. This structure makes it crystal clear to Claude what each part represents.
 
-## When to Use Examples
+## When to Use Examples[](#when-to-use-examples)
 
 Examples are particularly useful for:
 
@@ -43,7 +43,7 @@ Examples are particularly useful for:
 * Showing the exact style or tone you want
 * Demonstrating how to handle ambiguous inputs
 
-## One-Shot vs Multi-Shot
+## One-Shot vs Multi-Shot[](#one-shot-vs-multi-shot)
 
 **One-Shot**: Provide a single example to establish the pattern
 
@@ -51,7 +51,7 @@ Examples are particularly useful for:
 
 Use multi-shot when you need to handle various edge cases or want to show different types of valid responses.
 
-## Finding Good Examples from Evaluations
+## Finding Good Examples from Evaluations[](#finding-good-examples-from-evaluations)
 
 When running prompt evaluations, look for your highest-scoring outputs to use as examples:
 
@@ -59,7 +59,7 @@ When running prompt evaluations, look for your highest-scoring outputs to use as
 
 Find responses that scored 10 (or your highest available score) and use those input/output pairs as examples in your prompt. This helps Claude understand what "perfect" output looks like for your specific use case.
 
-## Adding Context to Examples
+## Adding Context to Examples[](#adding-context-to-examples)
 
 Don't just provide the input/output pair - explain why the output is good:
 
@@ -75,7 +75,7 @@ goals and restrictions.
 
 This additional context helps Claude understand the reasoning behind good responses, not just the format.
 
-## Best Practices
+## Best Practices[](#best-practices)
 
 * Always use XML tags to structure your examples clearly
 * Be explicit about what you're showing: "Here is an example input with an ideal response"

@@ -14,7 +14,7 @@ In this lessonBy the end, you’ll be able to
 
 * Apply all four dimensions of the 4D Framework together to build a repeatable procedure with AI
 
-## Workflow automation
+## Workflow automation[](#workflow-automation)
 
 Workflow automation · 6 min
 
@@ -28,14 +28,14 @@ tasks by what AI should handle versus what needs human attention, how to
 describe the system's behavior precisely, and how to maintain Diligence
 through testing and transparency.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Start with Problem Awareness**: Before touching any AI tools, analyze your actual workload. What are people asking? What patterns emerge? Make a specific list before deciding what to automate
 * **Task Delegation means asking "should AI do this?" not just "can AI do this?"**: Some tasks (like answering documented questions) are good candidates for automation. Others (like handling complaints or high-stakes requests) should stay with humans
 * **Test iteratively with real examples**: Use actual emails you've received to test the system. You'll discover gaps in your descriptions that need refinement—this is normal and necessary
 * **Practice all three types of Diligence**: Creation Diligence means being intentional about what you automate. Deployment Diligence means reviewing outputs before they go out (especially early on). Transparency Diligence means being honest about AI's role, especially if something goes wrong
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2Exercise 3
 
@@ -68,12 +68,12 @@ Choose one task from your "AI can handle" or "AI can assist" categories that wou
 * What criteria helped you decide which category each task belongs in?
 * Were you surprised by how many (or how few) tasks felt appropriate for automation?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did using all four dimensions of the 4D Framework together change how you approached this automation task?
 * What surprised you about the process of describing an automation system precisely enough for AI to execute it?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll discuss strategies for integrating AI into your organization thoughtfully and sustainably—from addressing concerns about AI dependency to building an AI policy that reflects your values.
 

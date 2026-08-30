@@ -16,8 +16,6 @@ Your collector receives all span attributes, including those carrying user-gener
 
 Telemetry is sent via OTLP/HTTP to your endpoint at `{your_url}/v1/traces`. gRPC isn't supported because the add-in runs in an Office WebView.
 
----
-
 ## Enable a custom collector
 
 Setup differs depending on how your organization authenticates with Claude.
@@ -93,8 +91,6 @@ When multiple channels supply a value, later channels override earlier ones: man
 
 If you haven't already, the fastest path is the **[claude-for-msft-365-install plugin](https://github.com/anthropics/financial-services/tree/main/claude-for-msft-365-install)**.
 
----
-
 ## Deployment modes
 
 Custom collector export is available on both deployment modes:
@@ -113,8 +109,6 @@ Every span includes two labels identifying which Office application and platform
 | **Label** | **Values** |
 | `agent.surface` | sheet (Excel), doc (Word), slide (PowerPoint), mail (Outlook) |
 | `agent.vendor` | m (Microsoft) |
-
----
 
 ## Span reference
 
@@ -242,8 +236,6 @@ One span per individual file upload, as a child of the query span. SpanKind: CLI
 | `file.upload.file_id` | Anthropic Files API identifier |
 | `file.upload.success` | Boolean |
 
----
-
 ## Span events
 
 Span events are timestamped markers attached to the spans above. They capture lifecycle transitions and counter-equivalent signals.
@@ -256,8 +248,6 @@ Span events are timestamped markers attached to the spans above. They capture li
 
 Every internal product counter also records a span event with the same name on the currently active span, providing the equivalent of the metrics stream within your trace data. The `office_agent.token.usage` event is emitted on each `agent.stream` span, once per non-zero token type, with attributes {token\_usage.type: input | output | cacheRead | cacheCreation, token\_usage.model, token\_usage.token\_count}. This mirrors the `*.token.usage` counter shape emitted by other Anthropic products, so a single collector can aggregate token cost across products by grouping on `service.name`.
 
----
-
 ## Surface-specific behavior
 
 The telemetry schema is consistent across all surfaces. These are the differences:
@@ -266,8 +256,6 @@ The telemetry schema is consistent across all surfaces. These are the difference
 * Documents (Word): document-edit funnel events track the edit lifecycle: `office_agent.doc_edit_received_total`, `office_agent.doc_edit_parsed_total`, `office_agent.doc_edit_applied_total`, `office_agent.doc_proposed_edit_reviewed_total`. No `sheet.cells_*` attributes.
 * Slides (PowerPoint): no surface-specific attributes or events beyond the common schema.
 * Mail (Outlook): no surface-specific attributes or events beyond the common schema.
-
----
 
 ## Reconstructing a user session
 
@@ -289,8 +277,8 @@ The add-in has no Claude.ai user identity in this mode, so spans carry no `user.
 
 This produces a complete, ordered transcript of the interaction in both deployment modes.
 
+* [Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide)
 * [Microsoft Entra ID SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch)
 * [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [Ping Identity SSO setup](https://support.claude.com/en/articles/13917902-ping-identity-sso-setup)
 * [Monitor Claude Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry)
-* [MCP: Individual connectors](https://support.claude.com/en/articles/14503703-mcp-individual-connectors)

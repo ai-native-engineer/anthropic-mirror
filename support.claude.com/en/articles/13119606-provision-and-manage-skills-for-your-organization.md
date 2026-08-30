@@ -8,8 +8,6 @@ Organization-wide skill management is available to Team and Enterprise plans.
 
 Before you can provision skills for your organization, navigate to **[Organization settings > Skills](https://claude.ai/admin-settings/skills)** and check that both **Code execution and file creation** and **Skills** are toggled on. Skills require code execution to function, so if code execution is disabled, skills will not be available.
 
----
-
 ## Provision skills for everyone
 
 When you upload a skill through organization settings, it becomes available to everyone in your organization in **[Customize > Skills](https://claude.ai/customize/skills)**. Individual users no longer need to upload the same skill themselves.
@@ -23,8 +21,6 @@ When you upload a skill through organization settings, it becomes available to e
 
 Admin-provisioned skills are enabled by default for everyone, but users can toggle individual skills off if they choose. This gives your organization consistent, approved workflows while letting users customize their own experience.
 
----
-
 ## Provision skills to specific groups
 
 Provisioning a skill through **[Organization settings > Skills](https://claude.ai/admin-settings/skills)** gives it to everyone. To give a skill to only some users, bundle your skills into a plugin and assign that plugin to a group. The group's members see those skills, and members outside the group don't.
@@ -34,8 +30,6 @@ For example, if you have 10 skills for your marketing team, add them to a plugin
 Skills provisioned this way appear in chat, on the web and the Chat tab in Claude Desktop, as well as in Claude Cowork. Group targeting you've already set up for Cowork carries over to chat with no extra steps.
 
 To set this up, see **[Manage plugins for your organization](https://support.claude.com/en/articles/13837433)**.
-
----
 
 ## Control whether users can create skills
 
@@ -52,8 +46,6 @@ When **User-created skills** is off:
 * Skills you've provisioned and Anthropic's built-in skills stay available, and users can still enable and use them.
 
 **Note:** If your organization uses custom roles, a user also needs the **Create skills** capability on their role. The organization setting is the main switch: when it's off, users can't create or upload their own skills, regardless of role, but Owners can still provision skills for the organization. When it's on, Enterprise plan users on custom roles still need the role capability. Learn more about **[managing custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
-
----
 
 ## Control skill sharing between users
 
@@ -95,8 +87,6 @@ Skill sharing events are captured in the audit log and Compliance API as `role_a
 
 The audit log doesn't capture the contents of shared skills—only the share event itself. There's no admin dashboard to browse or inspect the contents of skills shared between users.
 
----
-
 ## How users see provisioned and shared skills
 
 Skills appear for each user in **[Customize > Skills](https://claude.ai/customize/skills)**, organized into three sections:
@@ -109,8 +99,6 @@ Owner-provisioned skills are marked with a visual indicator so users can disting
 
 For more on how users browse and install from the directory, see **[Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)**.
 
----
-
 ## Manage and remove provisioned skills
 
 The **Organization skills** section in **[Organization settings > Skills](https://claude.ai/admin-settings/skills)** displays all skills provisioned for your organization. Use search and the section headings to navigate them.
@@ -118,8 +106,6 @@ The **Organization skills** section in **[Organization settings > Skills](https:
 To remove a skill from your organization, locate it in the **Organization skills** list and select the option to remove it. Once removed, the skill will no longer appear in users' skills lists in **[Customize > Skills](https://claude.ai/customize/skills).**
 
 **Note:** Only owners can add or remove organization-wide skills. Individual users cannot delete provisioned skills, though they can toggle them off for their own use.
-
----
 
 ## Scan skills and plugins for malicious content (beta)
 
@@ -139,8 +125,6 @@ Here's what your users see:
 * A skill or plugin with malicious content is blocked and can't be used.
 
 A blocked skill can't be overridden by the user who uploaded it, and can't be approved for the organization at this time. Scanning isn't available for organizations using customer-managed encryption keys (CMEK), zero data retention (ZDR), or HIPAA configurations. Learn more about **[skill and plugin scanning](https://support.claude.com/en/articles/15927065)**.
-
----
 
 ## Best practices
 

@@ -21,11 +21,11 @@ Here's the failure mode we're trying to avoid. Ask a model a multi-step question
 
 ![Diagram of an app sending a multi-step apples question to a model, which immediately replies with the wrong answer: you'd have 6.5 apples](https://academy.claude.com/assets/media/f5d4c633d434b2972169941e685cd3c1a049b9db48c4126de844bb8490389065.png)
 
-## What is extended thinking?
+## What is extended thinking?[](#what-is-extended-thinking)
 
 Extended thinking lets Claude reason step by step before producing a final response. When it's enabled, Claude generates internal reasoning tokens — often called a **chain of thought** — and then delivers the answer. The reasoning isn't hidden: you can see it in the response alongside the final text.
 
-## Adaptive thinking on Claude Opus 5
+## Adaptive thinking on Claude Opus 5[](#adaptive-thinking-on-claude-opus-5)
 
 On Opus 5, thinking is **adaptive** and on by default. There's no token budget to pick: Claude decides dynamically when to think and how much.
 
@@ -37,7 +37,7 @@ To control how much Claude thinks, use the **effort** parameter. One gotcha: it 
 * `xhigh` (extra high)
 * `max`
 
-## When to use it (and when to skip it)
+## When to use it (and when to skip it)[](#when-to-use-it-and-when-to-skip-it)
 
 Extended thinking helps with:
 
@@ -50,7 +50,7 @@ Extended thinking helps with:
 
 Skip it for simple classification, extraction, or boilerplate. For those tasks it just adds latency and cost without actually improving the results.
 
-## Thinking in action
+## Thinking in action[](#thinking-in-action)
 
 Let's see it work. Here's an agent loop with one weather tool, and we'll ask Claude to plan a road trip out of San Francisco — two stops, weighing weather and drive time. That's a real trade-off, the kind of question where thinking earns its keep.
 
@@ -93,13 +93,13 @@ When you run this, the output is more interesting than usual. You'll see **think
 
 The reasoning is visible — that's the whole point.
 
-## Why this matters in production
+## Why this matters in production[](#why-this-matters-in-production)
 
 In a production app, this is the difference between an agent that finds problems one at a time and an agent that connects them. Take a compliance review app: toggling adaptive thinking on the auto-review call lets the agent reason *across* report sections — catching things like a wind load spec in section three that conflicts with the material spec elsewhere in the document.
 
 ![Compliance review app UI with a Thorough review checkbox enabled, running an auto-review that cross-references findings between report sections](https://academy.claude.com/assets/media/965c3809645179776a2e75d93d26acd5a60a03496c55ce3c69418090f3728b8d.png)
 
-## Recap
+## Recap[](#recap)
 
 * **Extended thinking** gives Claude room to reason before it answers, and the reasoning is visible in the response.
 * On Opus 5, adaptive thinking is on by default — no token budget needed. Add `"display": "summarized"` to see the reasoning in the response.

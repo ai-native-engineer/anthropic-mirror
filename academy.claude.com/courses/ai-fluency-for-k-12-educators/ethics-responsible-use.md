@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Reflect on your values and identify the ethical concerns that matter most to you
 * Draft personal ethical commitments for AI use in your practice
 
-## Ethics & AI
+## Ethics & AI[](#ethics-ai)
 
 Ethics & responsible AI use · 10 min
 
@@ -48,14 +48,14 @@ You decide which parts of your data work are safe to hand to AI, and which must 
 
 DelegationDiligence
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Data protections like FERPA apply to AI tools.** Use only district-approved tools for anything with student information.
 * **Responsible AI use takes pedagogical judgment.** You'll navigate gray areas policy doesn't cover.
 * **Your values already guide your teaching.** Connect them to AI: decide what you won't delegate and what "useful" means.
 * **Ethical AI use is continuous.** Revisit your commitments as students, context, and tools change.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Articulate your ethical line as an educator
 
@@ -82,12 +82,12 @@ Turn the tension(s) you named into commitments and add them to your context docu
 
 *You've just drafted a personal ethical stance, something no tool can do for you. Revisit it as your students, context, and tools change.*
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What's one concrete change you'll make to how you handle data with AI—and which tools are actually approved for it?
 * Think about the data work you do most regularly: analyzing student performance, reviewing attendance, interpreting survey results. Where in that process do you think AI could genuinely help, and where do you think human judgment is too important to hand off?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore how different AI models differ and you'll build a personal AI value document: the intentions, principles, and boundaries that define how you work with AI.
 

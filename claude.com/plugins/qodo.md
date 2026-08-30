@@ -2,7 +2,7 @@
 
 # Qodo
 
-Qodo Skills: AI agent capabilities for code quality, testing, security, and compliance across your SDLC.
+Shift-left code review skills that bring Qodo's quality standards and code review capabilities into your development workflow.
 
 * Install in
 
@@ -17,7 +17,7 @@ Qodo Skills: AI agent capabilities for code quality, testing, security, and comp
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-Qodo Skills brings shift-left code review directly into your Claude Code workflow. It connects to Qodo's AI-powered code quality platform to retrieve relevant coding rules before you write or refactor code, and to resolve PR review feedback without leaving your agent session. The plugin enforces your organization's coding standards consistently across your entire development lifecycle.
+Qodo brings shift-left code review directly into your Claude Code workflow. It connects to Qodo's AI-powered code quality platform to retrieve relevant coding rules before you write or refactor code, and to resolve PR review feedback without leaving your agent session. The plugin enforces your organization's coding standards consistently across your entire development lifecycle.
 
 The **qodo-get-rules** skill automatically fetches the most relevant coding rules for your current task using semantic search. When you're about to write, edit, or refactor code, it queries Qodo's rules database and returns applicable standards ranked by relevance, with severity levels (error, warning, recommendation) so you know which rules are strict requirements and which are advisory.
 

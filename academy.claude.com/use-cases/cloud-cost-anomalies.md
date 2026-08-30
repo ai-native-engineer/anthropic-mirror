@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-nuxe06ft.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lz8vk1yx.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Engineering plugin ships with `/debug` already wired to read a Cost Explorer or BigQuery billing export, baseline it, and group the deltas by tag. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Engineering9 skills for postmortems, design docs, on-call handoffs, and cost rev
 
 Show all 10 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -66,7 +66,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drop the billing CSV (or point at the export bucket), your tag-to-team mapping, and last quarter's report into one folder so Cowork has the baseline and the ownership map. The anomaly report and the per-team breakouts get written back here. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the folder so your thresholds and known-okay exceptions persist month to month.
 
@@ -80,15 +80,15 @@ tag-team-map.csvFeb 3, 20264 KB
 
 In Cowork’s chat bar:Infra / cloud-cost / 2026-04
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Compare this month's AWS costs to the trailing three-month average by service and tag:team. Flag any line more than 20% over trend, trace each to the workload or change behind it, and write the cost-anomaly report with an owner and recommended action for every item. Put a one-line summary for the infra channel at the top.
 
 Infra / cloud-cost / 2026-04Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -106,7 +106,7 @@ Source
 
 **Include who owns what.** Every anomaly has an owner, so the report is a to-do list, not an FYI.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -116,7 +116,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-### Finish it where the file lives
+### Finish it where the file lives[](#finish-it-where-the-file-lives)
 
 [![](https://academy.claude.com/surfaces/excel-icon.svg)
 
@@ -126,7 +126,7 @@ Compare savings against the budget
 
 Install](https://claude.com/claude-for-excel)
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -136,9 +136,9 @@ Infra / cloud-costOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it when the bill closes
+### Run it when the bill closes[](#run-it-when-the-bill-closes)
 
 The report should be waiting before anyone opens the console. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs against the new export as soon as the month closes.
 
@@ -154,7 +154,7 @@ Runs `/debug` on the closed month, writes the ranked anomaly report to the dated
 
 Every **Monday at 7:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/debug` now knows your tag scheme, your threshold, and the spikes you've already accepted. Share it so any infra engineer can run the same analysis mid-month when something looks off.
 
@@ -162,7 +162,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/debug` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your thresholds and exceptions baked in, so they don't repeat Steps 1-3.
 
-## What changes for the bill review
+## What changes for the bill review[](#what-changes-for-the-bill-review)
 
 Cloud spend is checked against trend with each anomaly traced to a cause, costed, and assigned an owner — ready to act on instead of investigate.
 

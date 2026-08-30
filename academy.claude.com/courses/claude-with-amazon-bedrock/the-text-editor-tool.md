@@ -14,7 +14,7 @@ Lesson 327 min
 
 The Text Editor Tool is Claude's built-in capability that gives it file system access and text editing abilities. Unlike other tools where you write both the schema and implementation, Claude already knows how to request text editor operations - you just need to handle those requests.
 
-## What the Text Editor Tool Does
+## What the Text Editor Tool Does[](#what-the-text-editor-tool-does)
 
 This tool gives Claude the ability to work with files and directories like a software engineer would:
 
@@ -24,7 +24,7 @@ This tool gives Claude the ability to work with files and directories like a sof
 * Create new files
 * Insert text at specific line numbers
 
-## How It Works
+## How It Works[](#how-it-works)
 
 The Text Editor Tool is different from custom tools because only the JSON schema is built into Claude. You still need to provide the actual implementation.
 
@@ -32,7 +32,7 @@ The Text Editor Tool is different from custom tools because only the JSON schema
 
 When you create custom tools, you write both sides - the schema that tells Claude about the tool, and the function that actually does the work. With the Text Editor Tool, Claude already has the schema, but you must write functions to handle Claude's requests to view, edit, or create files.
 
-## Setting Up the Tool
+## Setting Up the Tool[](#setting-up-the-tool)
 
 To use the Text Editor Tool, you need to provide the tool version that matches your model:
 
@@ -50,7 +50,7 @@ The rest of this lesson uses the Claude 4 and later version; with `text_editor_2
 
 You'll also need to modify your chat function to accept the text editor parameter and include it in the model configuration.
 
-## Tool Commands
+## Tool Commands[](#tool-commands)
 
 When Claude wants to use the text editor, it sends back tool use requests with specific commands:
 
@@ -75,7 +75,7 @@ def run_tool(tool_name, tool_input):
         # ... handle other commands
 ```
 
-## Example: File Analysis
+## Example: File Analysis[](#example-file-analysis)
 
 Here's how the tool works in practice. When you ask Claude to "Write a one sentence description of the code in the ./main.py file", this happens:
 
@@ -83,7 +83,7 @@ Here's how the tool works in practice. When you ask Claude to "Write a one sente
 
 Claude sends a tool use request with `{"command": "view", "path": "./main.py"}`. Your server uses the TextEditorTool class to read the file and returns the contents. Claude then provides its analysis based on the code it read.
 
-## Practical Applications
+## Practical Applications[](#practical-applications)
 
 The Text Editor Tool essentially turns Claude into a code assistant that can:
 

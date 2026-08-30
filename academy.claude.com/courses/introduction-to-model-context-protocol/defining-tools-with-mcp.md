@@ -16,7 +16,7 @@ Building an MCP server becomes much simpler when you use the official Python SDK
 
 In this example, we're creating a document management server with two core tools: one to read documents and another to update them. All documents exist in memory as a simple dictionary where keys are document IDs and values are the content.
 
-## Setting Up the MCP Server
+## Setting Up the MCP Server[](#setting-up-the-mcp-server)
 
 The Python MCP SDK makes server creation straightforward. You can initialize a server with just one line:
 
@@ -43,11 +43,11 @@ docs = {
 }
 ```
 
-## Tool Definition with Decorators
+## Tool Definition with Decorators[](#tool-definition-with-decorators)
 
 The SDK uses decorators to define tools. Instead of writing JSON schemas manually, you can use Python type hints and field descriptions. The SDK automatically generates the proper schema that Claude can understand.
 
-## Creating a Document Reader Tool
+## Creating a Document Reader Tool[](#creating-a-document-reader-tool)
 
 The first tool reads document contents by ID. Here's the complete implementation:
 
@@ -69,7 +69,7 @@ def read_document(
 
 The decorator specifies the tool name and description, while the function parameters define the required arguments. The `Field` class from Pydantic provides argument descriptions that help Claude understand what each parameter expects.
 
-## Building a Document Editor Tool
+## Building a Document Editor Tool[](#building-a-document-editor-tool)
 
 The second tool performs simple find-and-replace operations on documents:
 
@@ -93,7 +93,7 @@ def edit_document(
 
 This tool takes three parameters: the document ID, the text to find, and the replacement text. The implementation includes error handling for missing documents and performs a straightforward string replacement.
 
-## Key Benefits of the SDK Approach
+## Key Benefits of the SDK Approach[](#key-benefits-of-the-sdk-approach)
 
 * No manual JSON schema writing required
 * Type hints provide automatic validation

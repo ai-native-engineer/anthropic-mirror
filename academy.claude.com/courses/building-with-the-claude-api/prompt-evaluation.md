@@ -14,7 +14,7 @@ When working with Claude, writing a good prompt is just the beginning. To build 
 
 ![](https://academy.claude.com/assets/media/c1b0e1164b44e2de255137a6950d9a3795f2ab17eaa22cae93abba5aa021b66e.png)
 
-## Prompt Engineering vs Prompt Evaluation
+## Prompt Engineering vs Prompt Evaluation[](#prompt-engineering-vs-prompt-evaluation)
 
 Prompt engineering is your toolkit for crafting effective prompts. It includes techniques like:
 
@@ -30,7 +30,7 @@ Prompt evaluation takes a different approach. Instead of focusing on how to writ
 * Compare different versions of the same prompt
 * Review outputs for errors
 
-## Three Paths After Writing a Prompt
+## Three Paths After Writing a Prompt[](#three-paths-after-writing-a-prompt)
 
 Once you've drafted a prompt, you typically face three options for what to do next:
 
@@ -42,13 +42,13 @@ Once you've drafted a prompt, you typically face three options for what to do ne
 
 **Option 3:** Run the prompt through an evaluation pipeline to score it, then iterate on the prompt based on objective metrics. This approach requires more work and cost, but gives you much more confidence in your prompt's reliability.
 
-## Why Most Engineers Fall Into Testing Traps
+## Why Most Engineers Fall Into Testing Traps[](#why-most-engineers-fall-into-testing-traps)
 
 Options 1 and 2 are common traps that all engineers fall into, myself included. It's natural to write a prompt for a serious application and not test it thoroughly enough. We tend to underestimate how many edge cases real users will encounter.
 
 The reality is that when you deploy a prompt to production, users will interact with it in ways you never anticipated. What seemed like a solid prompt during your limited testing can quickly break down when faced with the full variety of real-world inputs.
 
-## The Evaluation-First Approach
+## The Evaluation-First Approach[](#the-evaluation-first-approach)
 
 Option 3 represents a more systematic approach to prompt development. By running your prompt through an evaluation pipeline, you get objective metrics about its performance across a broader range of test cases. This data-driven approach lets you:
 

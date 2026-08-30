@@ -18,7 +18,7 @@ The NPI Registry connector gives Claude access to the CMS National Plan and Prov
 
 The NPI Registry integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## What this integration provides
+## What this integration provides[](#what-this-integration-provides)
 
 The NPI Registry connector provides programmatic access to the Centers for Medicare & Medicaid Services (CMS) NPPES NPI Registry API v2.1. The National Provider Identifier (NPI) is a unique 10-digit identification number required under HIPAA for covered healthcare providers in the United States. This connector enables users to validate NPI numbers, retrieve comprehensive provider information, and search the registry containing millions of individual providers (NPI-1) and organizations (NPI-2) including physicians, nurses, therapists, hospitals, clinics, and pharmacies.
 
@@ -28,7 +28,7 @@ The connector provides three core tools that access different NPPES endpoints:
 * **npi\_lookup** retrieves complete provider records by NPI number including credentials (MD, DO, RN, PA-C, etc.), primary specialty/taxonomy codes, state license numbers, practice addresses, phone numbers, and enumeration status
 * **npi\_search** enables discovery of providers through flexible queries combining first/last name, organization name, location (city/state/ZIP), specialty/taxonomy descriptions, and supports wildcards and name alias expansion. The provider-side data accessed includes self-reported information from NPPES enrollment records such as legal business names, practice locations, NUCC healthcare provider taxonomy classifications, state licensing information, mailing addresses, and optional health information exchange endpoints.
 
-## Who should use the NPI Registry integration
+## Who should use the NPI Registry integration[](#who-should-use-the-npi-registry-integration)
 
 * **Healthcare Administrators:** Verify provider credentials, validate billing information, and maintain accurate provider directories for insurance networks and health systems
 * **Clinical Research Coordinators:** Validate US-based clinical trial investigators' credentials and verify their medical specialties and practice locations
@@ -38,7 +38,7 @@ The connector provides three core tools that access different NPPES endpoints:
 * **Healthcare Recruiters:** Find providers by specialty and location, identify practice affiliations, and verify credentials during candidate screening
 * **Health Services Researchers:** Analyze provider distribution patterns, study specialty availability by geographic region, and access provider taxonomy data
 
-## Setting up the NPI Registry integration
+## Setting up the NPI Registry integration[](#setting-up-the-npi-registry-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -62,7 +62,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 3. Restart Claude Code
 4. Verify that the server is connected with /mcp
 
-## Example use cases
+## Example use cases[](#example-use-cases)
 
 **Provider Credential Verification**
 

@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-jwybpfo3.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-gah6gl3f.png)
 
-## 1. Set up
+## 1. Set up[](#1-set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Sales plugin ships with `/pipeline-review` and other forecast-hygiene skills as a starting point, already structured to score opps and call out risk. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ SalesProspect, craft outreach, and build deal strategy faster. Prep for calls, m
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -57,7 +57,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 **Want to try this task before setting anything up?** Add your files to a
 working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (this week's pipeline export, last week's review doc, your stage definitions) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the scored sheet and review doc back to it. If you run pipeline weekly, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your stage criteria, instructions, and memory stay attached.
 
@@ -71,15 +71,15 @@ stage-exit-criteria.pdfJan 6, 202652 KB
 
 In Cowork’s chat bar:Pipeline / 2026-W17
 
-## 2. The prompt
+## 2. The prompt[](#2-the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Score each open opp in this week's pipeline on stage hygiene, whether there's a real next step, and how long it's sat in stage. Flag the at-risk deals and say why in one line each, then write the manager-ready review doc for our Monday pipeline meeting.
 
 Pipeline / 2026-W17Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -105,7 +105,7 @@ Source
 week's review doc sit in the working folder, so hygiene is scored against
 your definitions and the doc follows the format your manager already expects.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -117,7 +117,7 @@ Practice
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about"
 so you know where to look first when you review the draft.
 
-## 3. Make Cowork work for you
+## 3. Make Cowork work for you[](#3-make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ PipelineOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## 4. Make it repeatable
+## 4. Make it repeatable[](#4-make-it-repeatable)
 
-### Run it before the Monday meeting
+### Run it before the Monday meeting[](#run-it-before-the-monday-meeting)
 
 The review should be waiting before the meeting, not built during it. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill scores the pipeline and writes the doc every Monday morning.
 
@@ -149,7 +149,7 @@ the scored sheet and review doc to a weekly folder.
 
 Every **Monday at 8:00 AM**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## 5. Share with your teammates
+## 5. Share with your teammates[](#5-share-with-your-teammates)
 
 Your customized `/pipeline-review` now carries your stage criteria, your at-risk thresholds, and your review doc format. Share it so every rep scores their own pipeline the same way, and the team meeting reads from one consistent doc per rep.
 
@@ -159,7 +159,7 @@ In Cowork, open **Skills** → `/pipeline-review` → **Share** and pick your
 teammates (or your whole workspace, if your admin allows). They get the skill
 with your criteria and format baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

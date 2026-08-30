@@ -2,9 +2,9 @@
 
 ## Collections
 
-[Plan overviews2 articles](https://support.claude.com/en/collections/18901829-plan-overviews)
+[Plan overviews3 articles](https://support.claude.com/en/collections/18901829-plan-overviews)
 
-[Get started7 articles](https://support.claude.com/en/collections/18901835-get-started)
+[Get started8 articles](https://support.claude.com/en/collections/18901835-get-started)
 
 [Billing7 articles](https://support.claude.com/en/collections/9811436-billing)
 
@@ -12,6 +12,6 @@
 
 [Analytics and usage3 articles](https://support.claude.com/en/collections/18901831-analytics-and-usage)
 
-[Capabilities7 articles](https://support.claude.com/en/collections/9811414-capabilities)
+[Capabilities6 articles](https://support.claude.com/en/collections/9811414-capabilities)
 
 [Security and compliance17 articles](https://support.claude.com/en/collections/10351014-security-and-compliance)

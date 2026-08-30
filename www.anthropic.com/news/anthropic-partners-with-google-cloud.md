@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/news/anthropic-partners-with-google-cloud -->
 
-# Anthropic Partners with Google Cloud
+# Anthropic partners with Google Cloud
 
 Feb 3, 2023
 

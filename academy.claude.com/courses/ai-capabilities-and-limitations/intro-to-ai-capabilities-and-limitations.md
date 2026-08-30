@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Explain why this material is durable even as models and products keep changing
 * See how the Capabilities and Limitations framework and the 4D Framework work together
 
-## Welcome to the AI Capabilities and Limitations Course
+## Welcome to the AI Capabilities and Limitations Course[](#welcome-to-the-ai-capabilities-and-limitations-course)
 
 Intro to AI Capabilities and Limitations · 4 min
 
@@ -26,7 +26,7 @@ The 4D Framework teaches YOU how to collaborate with AI. This course teaches
 you how AI is able to work with you. Together they're one system: human
 competencies on one side and machine properties on the other.
 
-## A mental model of the machine
+## A mental model of the machine[](#a-mental-model-of-the-machine)
 
 Course roadmap
 
@@ -46,13 +46,13 @@ Course roadmap
 
    Next stepsHow do you use this knowledge to use AI safely, effectively, and ethically?
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **The AI Fluency Framework (4Ds)** describes human competencies. This course describes the machine properties those competencies respond to.
 * **Generative AI has four core properties:** Next Token Prediction, knowledge, working memory, and steerability.
 * **This material is durable** because the properties stay stable even as models improve. Boundaries shift but the properties remain the same.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Mapping Your Current AI Use
 
@@ -64,12 +64,12 @@ Why? This is the foundation for every exercise that follows in this course.
 
 Hold onto this list. You'll return to it in every lesson, and it'll look different each time you do.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Which of your listed tasks felt "safe" to hand to AI, and which felt risky? Can you articulate why yet?
 * What's one AI behavior you've noticed (good or bad) that you couldn't explain at the time?
 
-## What's next
+## What's next[](#whats-next)
 
 Before the four properties, we need to draw a line around what "AI" means in this course. We're talking specifically about generative AI and how it's different from other forms of AI.
 

@@ -16,7 +16,7 @@ Building an MCP server becomes much simpler when you use the official Python SDK
 
 In this example, we're creating a document management server with two core tools: one to read documents and another to update them. All documents exist in memory as a simple dictionary where keys are document IDs and values are the content.
 
-## Setting Up the MCP Server
+## Setting Up the MCP Server[](#setting-up-the-mcp-server)
 
 The Python MCP SDK makes server creation straightforward. You can initialize a server with just one line:
 
@@ -30,7 +30,7 @@ mcp = FastMCP("DocumentMCP", log_level="ERROR")
 
 This creates a fully functional MCP server that can handle tool definitions, client connections, and message routing.
 
-## Tool Definition with Decorators
+## Tool Definition with Decorators[](#tool-definition-with-decorators)
 
 ![](https://academy.claude.com/assets/media/7cbfdec43d3001525c22fb80f0dd0c6a920d3ce071b85a492bea8acf33ec52f5.png)
 
@@ -52,7 +52,7 @@ def tool_fn(
 
 Behind the scenes, MCP generates the complete tool schema that Claude needs to understand when and how to use your tool.
 
-## Building the Document Reader Tool
+## Building the Document Reader Tool[](#building-the-document-reader-tool)
 
 The first tool reads document contents by ID. It takes a document identifier and returns the corresponding content from our in-memory dictionary:
 
@@ -74,7 +74,7 @@ def read_document(
 
 The function includes basic error handling to catch requests for non-existent documents. When Claude calls this tool with a valid document ID, it receives the full document content as a string.
 
-## Creating the Document Editor Tool
+## Creating the Document Editor Tool[](#creating-the-document-editor-tool)
 
 The second tool performs simple find-and-replace operations on documents. It requires three parameters: the document ID, the text to find, and the replacement text:
 
@@ -98,7 +98,7 @@ def edit_document(
 
 This implementation uses Python's built-in string replace method, which requires exact matches including whitespace. The tool modifies the document in place within our dictionary.
 
-## Key Benefits of the SDK Approach
+## Key Benefits of the SDK Approach[](#key-benefits-of-the-sdk-approach)
 
 * No manual JSON schema writing required
 * Type hints provide automatic parameter validation

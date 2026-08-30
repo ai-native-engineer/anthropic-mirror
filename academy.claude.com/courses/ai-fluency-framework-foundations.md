@@ -35,17 +35,17 @@ This framework has already informed undergraduate and postgraduate courses at bo
 
 Our goal is to make AI Fluency accessible and useful to everyone, no matter what stage of AI expertise you find yourself at. We hope you find it valuable in navigating the evolving landscape of AI collaboration.
 
-### About this course
+### About this course[](#about-this-course)
 
 * [About this course(opens in new tab)](https://www-cdn.anthropic.com/7e9692bba414a91a562af2a64b7e99d7946de590.pdf)
 * [Meet your instructors(opens in new tab)](https://www-cdn.anthropic.com/e5f2470543977625bf82bbf74cd7898f47da4ae1.pdf)
 * [How we used AI in building the course(opens in new tab)](https://www-cdn.anthropic.com/0e37fa9da01fab7a5478a2194d352027794c1b89.pdf)
 
-### Completion badge
+### Completion badge[](#completion-badge)
 
 After finishing the course, you will have the opportunity to take a final assessment and earn a completion badge.
 
-## AI diligence statement
+## AI diligence statement[](#ai-diligence-statement)
 
 In the development of the AI Fluency: Framework and Foundations course, we engaged in extensive collaboration with Claude 3.7 from Anthropic.
 

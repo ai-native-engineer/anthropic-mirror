@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create interactive PDF forms result](https://academy.claude.com/assets/v1/create-interactive-pdf-forms-disuio7a.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude can design and build interactive forms with clickable links, drop-downs, checkboxes, and multi-page layouts for you, handling the technical details while you focus on what information you need to collect.
 
@@ -35,11 +35,11 @@ Use a professional color scheme with a branded header. The event is "2025 Innova
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Given reference files or examples, Claude can match your style or design preferences, making your PDF feel cohesive with the rest of your event materials.
 
-### Required context
+### Required context[](#required-context)
 
 Upload relevant brand materials, style preferences so Claude can match color, text, or layout.
 
@@ -47,7 +47,7 @@ Event\_Branding\_GuidelinesPDF
 
 Event\_Branding\_FlyerPDF
 
-### Optional context
+### Optional context[](#optional-context)
 
 Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to give Claude more time to think through and produce high quality file outputs.
 
@@ -55,7 +55,7 @@ Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/artic
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude creates an interactive PDF with all your specified form fields and information, ready to distribute. Recipients can open it in any PDF reader to fill in their information and send it back.
 
@@ -74,11 +74,11 @@ The form is fully interactive. When people open this PDF, they can click into an
 
 **View the registration form**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Personalize the design
+### Personalize the design[](#personalize-the-design)
 
 Specify any additional design or formatting changes you’d like Claude to make to enhance the form.
 
@@ -86,7 +86,7 @@ I've uploaded our company logo and brand colors—can you update the PDF to incl
 
 Open in Claude
 
-### Collect and organize responses
+### Collect and organize responses[](#collect-and-organize-responses)
 
 Upload the completed forms and ask Claude to create a spreadsheet for a quick overview of responses and cumulative totals.
 
@@ -94,7 +94,7 @@ Extract all the data from my completed registration forms and create an Excel sp
 
 Open in Claude
 
-### Tailor for different audiences
+### Tailor for different audiences[](#tailor-for-different-audiences)
 
 Adapt the form to your needs: translate for global audiences, customize for different user groups, or modify for specific events.
 
@@ -102,17 +102,17 @@ Create a Spanish version of this registration form, translating all labels and d
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Convert your existing static forms
+### Convert your existing static forms[](#convert-your-existing-static-forms)
 
 Upload prior forms and have Claude make batch edits to add interactive elements. For simple forms, try using [Haiku 4.5(opens in new tab)](https://www.anthropic.com/claude/haiku), which is our fastest model for more straightforward work. Use [Sonnet 4.5(opens in new tab)](https://www.anthropic.com/news/claude-sonnet-4-5) for when you are working with more complex layouts or unique design elements. To learn more, visit our [Model Report(opens in new tab)](https://www.anthropic.com/transparency/model-report).
 
-### Download and test before distributing
+### Download and test before distributing[](#download-and-test-before-distributing)
 
 The preview in chat shows visual design, but you need to download the actual PDF to test interactivity. Click fields, try dropdowns, check tab order to ensure all works correctly before sharing.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Whether you need event registration, client intake, feedback surveys, or application forms, Claude can design professional interactive PDFs tailored to your exact requirements.
 

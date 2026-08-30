@@ -12,7 +12,7 @@ Lesson 547 min
 
 Now that we have our MCP server working, it's time to build the client side. The client is what allows our application to communicate with the MCP server and access its functionality.
 
-## Understanding the Client Architecture
+## Understanding the Client Architecture[](#understanding-the-client-architecture)
 
 Before diving into the code, let's clarify an important point about MCP projects. Normally, you'd implement either an MCP client or an MCP server - not both. We're building both in this project just so you can see how they work together.
 
@@ -27,7 +27,7 @@ The MCP client consists of two main components:
 
 The client session requires resource cleanup when we're done with it, which is why we wrap it in our custom class. This handles connection management and cleanup automatically.
 
-## How the Client Fits Into Our Application
+## How the Client Fits Into Our Application[](#how-the-client-fits-into-our-application)
 
 Remember our application flow? Our CLI code needs to interact with Claude in two key ways:
 
@@ -35,11 +35,11 @@ Remember our application flow? Our CLI code needs to interact with Claude in two
 
 The client enables both of these interactions by exposing the server's functionality to our codebase.
 
-## Implementing Core Client Functions
+## Implementing Core Client Functions[](#implementing-core-client-functions)
 
 We need to implement two essential functions: `list_tools` and `call_tool`.
 
-### List Tools Function
+### List Tools Function[](#list-tools-function)
 
 This function gets all available tools from the server:
 
@@ -53,7 +53,7 @@ async def list_tools(self) -> list[types.Tool]:
 
 It's straightforward - we access our session (the connection to the MCP server), call the built-in `list_tools` function, and return the tools from the result.
 
-### Call Tool Function
+### Call Tool Function[](#call-tool-function)
 
 This function executes a specific tool on the server:
 
@@ -68,13 +68,13 @@ async def call_tool(
 
 We pass the tool name and input parameters (provided by Claude) to the server and return the result.
 
-## Testing the Client
+## Testing the Client[](#testing-the-client)
 
 To verify our implementation works, we can test it directly. The client file includes a testing harness that connects to the MCP server and runs commands against it.
 
 Running `uv run mcp_client.py` should return a list of available tools with their descriptions and input schemas. You should see tools like `read_doc_contents` and `edit_document` that we defined in our server.
 
-## End-to-End Testing
+## End-to-End Testing[](#end-to-end-testing)
 
 Now that both the client and server are working, we can test the complete flow. Running our main application and asking Claude "What is the contents of the report.pdf document?" should:
 

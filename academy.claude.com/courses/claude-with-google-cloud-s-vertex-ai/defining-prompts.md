@@ -12,7 +12,7 @@ Lesson 579 min
 
 Prompts in MCP servers let you define pre-built, high-quality instructions that clients can use instead of writing their own prompts from scratch. Think of them as carefully crafted templates that give better results than what users might come up with on their own.
 
-## Why Use Prompts?
+## Why Use Prompts?[](#why-use-prompts)
 
 Let's say you want Claude to reformat a document into markdown. A user could just type "convert report.pdf to markdown" and get decent results. But they'd probably get much better output if they used a thoroughly tested, specialized prompt that you've designed specifically for document formatting.
 
@@ -20,7 +20,7 @@ Let's say you want Claude to reformat a document into markdown. A user could jus
 
 The key insight is that while users can accomplish these tasks on their own, they'll get superior results when using prompts that have been carefully engineered and tested by the MCP server authors.
 
-## How Prompts Work
+## How Prompts Work[](#how-prompts-work)
 
 Prompts define a set of user and assistant messages that clients can use directly. When a client requests a prompt, your server returns a list of messages that can be sent straight to Claude.
 
@@ -41,7 +41,7 @@ def format_document(
     # Return a list of messages
 ```
 
-## Building a Format Command
+## Building a Format Command[](#building-a-format-command)
 
 Here's a practical example. We'll create a format command that lets users type `/format doc_id` to reformat any document into markdown syntax.
 
@@ -69,7 +69,7 @@ Use the 'edit_document' tool to edit the document. After the document has been r
     ]
 ```
 
-## Testing Your Prompts
+## Testing Your Prompts[](#testing-your-prompts)
 
 You can test prompts using the MCP Inspector. Navigate to the Prompts tab, select your prompt, and provide any required parameters.
 
@@ -77,14 +77,14 @@ You can test prompts using the MCP Inspector. Navigate to the Prompts tab, selec
 
 The inspector shows you exactly what messages will be sent to Claude, including how any parameters get interpolated into the prompt text.
 
-## Key Benefits
+## Key Benefits[](#key-benefits)
 
 * **Quality control** - You can test and refine prompts before users see them
 * **Consistency** - Users get reliable results every time
 * **Specialization** - Prompts can be tailored to your server's specific domain
 * **Reusability** - Multiple clients can use the same well-crafted prompts
 
-## Implementation Details
+## Implementation Details[](#implementation-details)
 
 Don't forget to import the base module for message types:
 

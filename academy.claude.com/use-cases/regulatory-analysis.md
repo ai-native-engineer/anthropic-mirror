@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-btqx4o1h.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mbqnkmu3.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Regulatory Legal plugin ships with `/policy-diff` and other regulatory-change skills as a starting point, already structured to read a new rule against your current policies and pull out which ones it touches and where the gaps are. It's one of twelve practice-area plugins for legal teams; if your admin manages plugins and it's not available yet, skip this, nothing below requires it.
 
@@ -42,7 +42,7 @@ First run
 
 Regulatory Legal comes from Anthropic's **Claude for Legal** source, which a workspace has to enable once under **Browse Anthropic sources**. On a Team or Enterprise plan an admin does that from the organization's plugin settings (it then shows up for everyone); on an individual plan you can do it yourself. If **Add** doesn't take you straight to the plugin, that's usually the missing step. Once it's installed, run `/cold-start-interview`: the full pass (ten-plus minutes, pointed at the policies in your working folder) is what indexes your policy library for `/policy-diff` to read against — the two-minute quick start gets you going on sensible defaults but skips that index. Every other skill reads from that setup.
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -68,7 +68,7 @@ Ground the applicability brief in authoritative content with citations you can v
 
 Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
-### Set the working folder
+### Set the working folder[](#set-the-working-folder)
 
 Put the regulation PDF, your product descriptions, and your current policies in one folder on your machine, then in Cowork click **+ Add folder** and select it. [Save it as a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your product context, instructions, and memory stay attached for the next rule that drops — Cowork reads from the folder and writes the applicability brief and action table back to it.
 
@@ -86,15 +86,15 @@ current-privacy-and-ai-policies.pdfJan 12, 2026612 KB
 
 In Cowork’s chat bar:Regulatory / EU-AI-Act
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Read this regulation against our product descriptions and current policies. Draft the compliance brief: what changed from the prior rule, which provisions apply to us and why, and for each what we need to do and by when. Save it to the folder for product and compliance leads.
 
 Regulatory / EU-AI-ActOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -112,7 +112,7 @@ Source
 
 **Let the working folder supply context.** The regulation, your product descriptions, and your policies sit in the working folder, so the brief is written against what you actually ship and the action table is saved next to the source text.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -122,7 +122,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag any provision where you're not sure it applies to us" so you know which applicability calls to check first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -132,9 +132,9 @@ RegulatoryOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on every new regulation
+### Run it on every new regulation[](#run-it-on-every-new-regulation)
 
 A final rule drops, the applicability brief should already be drafting. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs whenever a new regulation is added to the watch folder. Scheduled tasks run in the cloud unless they need files on your machine; this one reads a local watch folder, so it runs locally.
 
@@ -150,7 +150,7 @@ Runs `/policy-diff` on every new file in Regulatory/Watch and writes the brief a
 
 Every **Weekdays at 9am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/policy-diff` now carries your policy library, your jurisdictions, and your memo format. Share it so product, privacy, and compliance all read the same brief, and the action table follows the same structure every time a rule drops.
 
@@ -158,7 +158,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/policy-diff` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your jurisdictions and memo format baked in, so they don't repeat Steps 1-3; each teammate still runs `/cold-start-interview` the first time, pointed at the same policy library, because the plugin keeps its index per person.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

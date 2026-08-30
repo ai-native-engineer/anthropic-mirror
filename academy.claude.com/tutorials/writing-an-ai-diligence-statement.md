@@ -12,7 +12,7 @@ Create transparent, specific disclosures of AI use in your work
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-mgzhysjk.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jvn9chjj.png)
 
-## What is an AI diligence statement?
+## What is an AI diligence statement?[](#what-is-an-ai-diligence-statement)
 
 An AI diligence statement is a transparent acknowledgment of AI's role in your work, paired with your commitment to taking responsibility for the final output. Think of it as the "methods section" for your AI collaboration: it explains what AI did, what you did, and how you verified the result. Learn more about Diligence and the 4D framework for AI Fluency [here(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations).
 
@@ -20,7 +20,7 @@ Here’s an example for this tutorial:
 
 In creating this tutorial, I collaborated with Claude to assist with synthesis, voice, tone, and format. I affirm that all AI-generated and co-created content underwent thorough review and evaluation. The final output accurately reflects my understanding, expertise, and intended meaning. While AI assistance was instrumental in the process, I maintain full responsibility for the content, its accuracy, and its presentation. This disclosure is made in the spirit of transparency and to acknowledge the role of AI in the creation process.
 
-## Why write one?
+## Why write one?[](#why-write-one)
 
 AI use in professional work is becoming common, but norms around disclosure are still forming. In many fields, especially regulated industries like life sciences, finance, and education, transparency about AI involvement is increasingly expected or required.
 
@@ -204,11 +204,11 @@ happen.
 </details>
 
 
-## Anatomy of a strong AI diligence statement
+## Anatomy of a strong AI diligence statement[](#anatomy-of-a-strong-ai-diligence-statement)
 
 Strong AI diligence statements share a few characteristics. They are specific about what AI was used for, they describe the human review process, and they make clear who is accountable for the final product.
 
-### Five elements to include
+### Five elements to include[](#five-elements-to-include)
 
 1. **What AI assisted with.** Name the specific tasks: drafting, research synthesis, data analysis, editing, formatting. Vague language like "AI contributed to this work" doesn't tell your reader anything useful.
 2. **Which AI tool you used.** Identify the model or platform. "Claude" is more informative than "an AI assistant." If you used multiple tools, say so.
@@ -216,11 +216,11 @@ Strong AI diligence statements share a few characteristics. They are specific ab
 4. **What you changed.** Note where you applied your own expertise to revise, add to, or override AI-generated content. This is where your professional judgment is most visible.
 5. **Who is responsible.** Affirm that you stand behind the final output. This is the accountability piece that turns a disclosure into a commitment.
 
-## Creating an AI diligence statement with AI
+## Creating an AI diligence statement with AI[](#creating-an-ai-diligence-statement-with-ai)
 
 You can use any AI tool to help you draft an AI diligence statement for a project where AI played a role. The process takes about 10 minutes and works best when you bring specifics about your project and your review process.
 
-### Step 1: Describe the project and AI's role
+### Step 1: Describe the project and AI's role[](#step-1-describe-the-project-and-ais-role)
 
 Start by telling AI about your project and how you used AI in it. Be specific about the tasks. The more detail you provide here, the more precise and useful the resulting AI diligence statement will be.
 
@@ -230,7 +230,7 @@ I need to write an AI diligence statement for a competitive landscape analysis I
 
 Copy prompt
 
-### Step 2: Review and refine the draft
+### Step 2: Review and refine the draft[](#step-2-review-and-refine-the-draft)
 
 The AI tool you’ve selected will produce a first draft. Review it to make sure it accurately describes your process. Common things to refine include adjusting the scope (did it capture all the tasks you described, or miss some?), adding specific details about your verification steps, and making sure the statement reflects your field's norms and expectations.
 
@@ -240,7 +240,7 @@ This is close, but I want to add that our VP of Clinical Development also review
 
 Copy prompt
 
-### Step 3: Adapt for your audience
+### Step 3: Adapt for your audience[](#step-3-adapt-for-your-audience)
 
 Different audiences need different levels of detail. An AI diligence statement in an internal strategy document might be brief, while one accompanying a regulatory submission should be thorough. Ask AI to adjust.
 
@@ -250,11 +250,11 @@ Can you create two versions of this AI diligence statement? One for the full int
 
 Copy prompt
 
-### Step 4: Verify the AI diligence statement itself
+### Step 4: Verify the AI diligence statement itself[](#step-4-verify-the-ai-diligence-statement-itself)
 
 This is an important step that's easy to skip. Read the AI diligence statement carefully and make sure it accurately represents what happened. If the statement says you "verified all citations," make sure that's true. If it says you "cross-referenced with primary sources," confirm that's what you actually did. Your AI diligence statement is itself a claim about your process, and it needs to be accurate.
 
-## Building an organizational culture of diligence
+## Building an organizational culture of diligence[](#building-an-organizational-culture-of-diligence)
 
 Diligence statements only work if people feel safe writing them. If disclosing AI use feels risky, whether because of unclear policies, judgment from colleagues, or fear that it diminishes the perceived value of their work, people will either stop using AI or stop being honest about it. Both outcomes are worse than transparent use.
 
@@ -266,7 +266,7 @@ A few practical steps for organizations:
 * Celebrate thorough disclosures the same way you'd celebrate thorough methods sections in research.
 * Avoid policies that treat AI use as inherently suspect. The goal is responsible use, and responsibility requires honesty. If your culture penalizes honesty, you won't get responsibility either.
 
-## Frequently asked questions about AI diligence statements
+## Frequently asked questions about AI diligence statements[](#frequently-asked-questions-about-ai-diligence-statements)
 
 1. **How do I trust what AI gives me?** AI is capable, but it does have limitations. The key is to adjust your level of scrutiny based on what you're asking, what the stakes are, and how verifiable the output is. Ask for sources and check them. Run the same question multiple ways and look for consistency. For document-based tasks, ask the AI to quote directly from source material rather than paraphrase. Check out our videos on hallucination and bias for a deeper dive.
 2. **Do I have to stand behind everything I make with AI?** You can use AI for many different reasons and many different use cases. You decide if you stand behind it. For example, you might say “I asked Claude to summarize this article. Here’s the summary; read it with discernment.” In that way, the diligence statement helps you signal how other people should approach the work and giving you the flexibility to decide the level of review provided to all tasks you conduct with AI. Every aspect of AI Fluency, including this one, is about putting you in the driver’s seat.
@@ -274,7 +274,7 @@ A few practical steps for organizations:
 4. **Does including an AI diligence statement on my work make it seem less credible?** The opposite, in most cases. A specific diligence statement demonstrates that you were thoughtful about your process, that you verified the output, and that you're confident enough in the result to describe exactly how it was made. Vague or absent disclosure is what erodes trust, especially if someone discovers the AI involvement later.
 5. **Can I reuse AI diligence statements across projects?** You can use a consistent structure, but the content should be specific to each project. A template that you fill in with project-specific details (what AI did, what you reviewed, what you changed) is the right approach. A copy-pasted generic statement that doesn't describe your actual process provides very little value.
 
-## Wrapping up
+## Wrapping up[](#wrapping-up)
 
 Writing AI diligence statements and taking full responsibility for AI’s outputs is a key component of AI Fluency. Normalizing this practice will help ensure we all build intentional relationships with AI use in a variety of settings.
 

@@ -174,9 +174,9 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID \
 
 ## Domain types
 
-### Group List Response
+### Group Retrieve Response
 
-- `GroupListResponse object`
+- `GroupRetrieveResponse object`
 
   Group information for compliance responses.
 
@@ -208,9 +208,9 @@ curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID \
 
     Group last-updated timestamp (ISO 8601)
 
-### Group Retrieve Response
+### Group List Response
 
-- `GroupRetrieveResponse object`
+- `GroupListResponse object`
 
   Group information for compliance responses.
 

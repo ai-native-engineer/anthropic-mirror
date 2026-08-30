@@ -22,6 +22,36 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
+Code
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a92037562db4c7eac16f805_factory-rotor-white-on-black%20-%20Sarah%20Malek.png)
+
+### Factory
+
+Factory helps enterprises continuously build and operate production software through governed autonomous engineering
+
+Code](https://claude.com/platform/marketplace/factory)
+
+Data
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6972b2009201ad5676779ae6_gamma.png)
+
+### Gamma
+
+Turn ideas or existing content into polished presentations, documents, websites, and more in minutes.
+
+Data](https://claude.com/platform/marketplace/gamma)
+
+Code
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac166a0909415690fdb58_Vercel.jpg)
+
+### Vercel
+
+Deploy AI agents, apps, and websites in seconds with security and governance
+
+Code](https://claude.com/platform/marketplace/vercel)
+
 Legal
 
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3985937993a05b553f8674_Harvey.jpg)
@@ -112,15 +142,9 @@ The agent platform for engineering orgs, with expert agents on every stage of th
 
 Code](https://claude.com/platform/marketplace/augment)
 
-Financial Services
+[Load more](https://claude.com/platform/marketplace?032e8f4b_page=2)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3984e704afeecf6668c6c5_Rogo.jpg)
-
-### Rogo
-
-Work with an analyst who already knows the deal.
-
-Financial Services](https://claude.com/platform/marketplace/rogo)
+1 / 2
 
 No match for those filters
 

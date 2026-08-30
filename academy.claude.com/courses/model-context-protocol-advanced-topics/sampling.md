@@ -12,7 +12,7 @@ Lesson 19 min
 
 Sampling allows a server to access a language model like Claude through a connected MCP client. Instead of the server directly calling Claude, it asks the client to make the call on its behalf. This shifts the responsibility and cost of text generation from the server to the client.
 
-## The Problem Sampling Solves
+## The Problem Sampling Solves[](#the-problem-sampling-solves)
 
 Imagine you have an MCP server with a research tool that fetches information from Wikipedia. After gathering all that data, you need to summarize it into a coherent report. You have two options:
 
@@ -24,7 +24,7 @@ Imagine you have an MCP server with a research tool that fetches information fro
 
 **Option 2:** Use sampling. The server generates a prompt and asks the client "Could you call Claude for me?" The client, which already has a connection to Claude, makes the call and returns the results.
 
-## How Sampling Works
+## How Sampling Works[](#how-sampling-works)
 
 The flow is straightforward:
 
@@ -35,18 +35,18 @@ The flow is straightforward:
 * Client returns the generated text to the server
 * Server uses the generated text in its response
 
-## Benefits of Sampling
+## Benefits of Sampling[](#benefits-of-sampling)
 
 * **Reduces server complexity:** The server doesn't need to integrate with language models directly
 * **Shifts cost burden:** The client pays for token usage, not the server
 * **No API keys needed:** The server doesn't need credentials for Claude
 * **Perfect for public servers:** You don't want a public server racking up AI costs for every user
 
-## Implementation
+## Implementation[](#implementation)
 
 Setting up sampling requires code on both sides:
 
-### Server Side
+### Server Side[](#server-side)
 
 In your tool function, use the `create_message` function to request text generation:
 
@@ -80,7 +80,7 @@ async def summarize(text_to_summarize: str, ctx: Context):
         raise ValueError("Sampling failed")
 ```
 
-### Client Side
+### Client Side[](#client-side)
 
 Create a sampling callback that handles the server's requests:
 
@@ -113,7 +113,7 @@ async with ClientSession(
     await session.initialize()
 ```
 
-## When to Use Sampling
+## When to Use Sampling[](#when-to-use-sampling)
 
 Sampling is most valuable when building publicly accessible MCP servers. You don't want random users generating unlimited text at your expense. By using sampling, each client pays for their own AI usage while still benefiting from your server's functionality.
 

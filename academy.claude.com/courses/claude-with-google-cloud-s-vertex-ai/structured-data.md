@@ -22,7 +22,7 @@ This pattern shows up whenever you're generating structured data. Claude natural
 
 ![](https://academy.claude.com/assets/media/fe78ee5b2f1d0628529af587d5c481c8d86bb36c24b6f34511b2ce2ad51e9fd8.png)
 
-## Combining Stop Sequences with Assistant Message Prefilling
+## Combining Stop Sequences with Assistant Message Prefilling[](#combining-stop-sequences-with-assistant-message-prefilling)
 
 The solution combines two techniques we've covered: stop sequences and assistant message prefilling. Here's how it works in practice:
 
@@ -39,7 +39,7 @@ text = chat(messages, stop_sequences=["```"])
 
 When you run this code, you get back just the JSON content without any markdown formatting or additional commentary.
 
-## How It Works Behind the Scenes
+## How It Works Behind the Scenes[](#how-it-works-behind-the-scenes)
 
 ![](https://academy.claude.com/assets/media/d46178d7619b14e8d9d2d2f417e6a49c407f09791f929e4e6e58d21e82375c2a.png)
 
@@ -53,7 +53,7 @@ Here's what happens when Claude processes your request:
 
 The result is that you get everything between the prefilled start and the stop sequence - exactly the content you wanted.
 
-## Cleaning Up the Output
+## Cleaning Up the Output[](#cleaning-up-the-output)
 
 The returned text might have some extra newlines, but you can easily clean this up:
 

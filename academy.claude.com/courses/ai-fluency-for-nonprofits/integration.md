@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Address concerns about AI dependency and preserving human connection
 * Create an organizational AI policy that reflects your values and ensures sustainable AI use
 
-## Integration
+## Integration[](#integration)
 
 Integration · 5 min
 
@@ -30,7 +30,7 @@ specifically for mission-driven organizations. It then walks through the key
 elements of an organizational AI policy that can help you scale AI Fluency
 across your team.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Being "the human in the loop" means more than oversight**: In the nonprofit context, it means ensuring AI serves your mission—you decide what problems AI should help solve, you evaluate whether solutions align with your values, and you maintain the relationships and real-world impact that define nonprofit work
 * **Avoid dependency through understanding, not avoidance**: Regularly reflect on your processes and ask "can we explain what the AI is doing?" If yes, that's healthy augmentation. If not, rework your processes until you can
@@ -38,7 +38,7 @@ across your team.
 * **Set cultural norms around productivity early**: As you bring AI into your organization, discuss expectations about what happens with time saved to ensure everyone feels good about the work AI is supporting
 * **An AI policy helps scale your understanding**: A policy documents your decisions about platforms, task delegation, quality oversight, transparency, and values alignment so the whole organization can work consistently
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Draft your organizational AI policy
 
@@ -106,7 +106,7 @@ Work with AI to synthesize your answers into a draft policy document:
 * Identify any gaps or areas that need further discussion with your team
 * Plan how you'll introduce and revisit this policy as your organization's AI use evolves
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How has your thinking about AI integration changed from the beginning of this course?
 * What's one thing you'll do differently in your work with AI based on what you've learned?

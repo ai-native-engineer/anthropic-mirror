@@ -16,13 +16,13 @@ We have tools, skills, and connectors. So why does **MCP** exist? At first
 glance it looks like a second API stacked on top of the API. Fair
 question — and the answer comes down to who maintains the integration code.
 
-## The maintenance problem
+## The maintenance problem[](#the-maintenance-problem)
 
 Say your agent needs to pull tasks from Asana, check a Google Calendar, and search Slack — all in one go. With custom tools, you have to write three integrations. That part is doable. The painful part comes after: you also have to **maintain** those integrations every time one of those services changes its API, which happens often. Congratulations, you're now maintaining a pile of third-party API wrappers.
 
 MCP shifts that maintenance to the service provider. Asana publishes an MCP server. Slack publishes one. Google publishes one. Each server exposes its own tools — with descriptions, schemas, and authentication — through a standard protocol. When their API changes, they update their server. You change nothing.
 
-## Tools vs. skills vs. MCP
+## Tools vs. skills vs. MCP[](#tools-vs-skills-vs-mcp)
 
 These three features do different jobs:
 
@@ -34,7 +34,7 @@ The short version: **tools are for your stuff, skills are for your processes, an
 
 ![Comparison cards for Tools, Skills, and MCP, with the MCP card highlighted: connects Claude to third-party services, maintained by the service provider](https://academy.claude.com/assets/media/821da22122cacc23edfad5b7e7589d7f2b8975df8479f2ace1444eee7dd8ad18.png)
 
-## Connecting to an MCP server
+## Connecting to an MCP server[](#connecting-to-an-mcp-server)
 
 The cleanest way to get a feel for MCP is to point Claude at any MCP server and let it discover what's there. For this example, we'll use the Linear MCP server, with the connection details and auth token stored in a `.env` file.
 
@@ -80,7 +80,7 @@ Run it, and if your MCP URL points at Linear's MCP endpoint, Claude lists Linear
 
 ![Terminal output listing the Linear MCP server's discovered tools, followed by Claude noting they are Linear project management tools and choosing which to call](https://academy.claude.com/assets/media/68fe5bf6c4014b9d7852c1798bd9cd6a29f3604662363025b5cdde44dcd12bc8.png)
 
-## Filtering which tools Claude can use
+## Filtering which tools Claude can use[](#filtering-which-tools-claude-can-use)
 
 MCP servers often expose many, many tools — and you don't always want Claude using all of them. Maybe you don't want it to have write permissions, or you just don't want all those tool definitions taking up context.
 
@@ -106,7 +106,7 @@ tools=[
 
 Now Claude can search Slack and list channels, but it can't post or delete. This is useful when you trust a service for reads but don't want Claude writing on your behalf by accident.
 
-## Recap
+## Recap[](#recap)
 
 * **MCP exists so you don't have to maintain integrations** someone else has already built. The service provider publishes an MCP server and keeps it up to date — you change nothing when their API changes.
 * Pick the right feature for the job: **tools for your data, skills for your process, MCP for third-party services**.

@@ -12,7 +12,7 @@ Courses and tutorials from Anthropic for developers. Learn Claude Code and the C
 
 An agentic coding tool that lives in your terminal. Learn what Claude Code is, how it works, and the core workflows for getting real work done with it.
 
-Course·12 lessons · 1 quiz·1 hr](https://academy.claude.com/courses/claude-code-101)[### Claude Code in Action
+Course·12 lessons · 1 quiz·1.5 hr](https://academy.claude.com/courses/claude-code-101)[### Claude Code in Action
 
 Run long, hands-off Claude Code sessions you can trust: steer, configure, automate, and verify
 

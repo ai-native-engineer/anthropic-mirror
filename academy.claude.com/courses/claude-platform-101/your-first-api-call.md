@@ -16,7 +16,7 @@ Saying hi to Claude might warm your heart, but it's not really useful. In
 this lesson we'll send Claude something real and get structured insight
 back — in just under 20 lines of code.
 
-## Get set up
+## Get set up[](#get-set-up)
 
 First, grab an **API key** from platform.claude.com. You'll need to purchase some credits beforehand.
 
@@ -28,7 +28,7 @@ Next, install the SDK:
 
 `npm install @anthropic-ai/sdk`
 
-## The anatomy of a request
+## The anatomy of a request[](#the-anatomy-of-a-request)
 
 Every API call goes through the **`messages.create`** function. You specify three things:
 
@@ -55,7 +55,7 @@ const msg = await client.messages.create({
 });
 ```
 
-## A real example: reviewing buggy code
+## A real example: reviewing buggy code[](#a-real-example-reviewing-buggy-code)
 
 Let's give Claude something a little more interesting than "hello." We'll point it at some buggy code and ask for a review. Here's the whole thing — one file, about 20 lines of code:
 
@@ -97,13 +97,13 @@ Run it, and Claude spots that `add` is subtracting and tells you in one paragrap
 
 ![Terminal output from running the script: Claude responds that the function is named add but uses subtraction, and suggests changing return a - b to return a + b](https://academy.claude.com/assets/media/dce7c9afcff7179ab8479e35af39099e6f199f94e09ac965b1d5e814e80cf428.png)
 
-## From script to product
+## From script to product[](#from-script-to-product)
 
 In a real product, this same `messages.create` shape is the engine behind something like a summarize endpoint. Pull a meeting transcript out of the database, hand it to Claude with a system prompt that says "extract insights and risks," save the result back on the row, and return it to the UI. It's the same call — just wrapped in a route handler.
 
 ![A meetings dashboard in a demo web app listing recorded project meetings, each with a transcript preview and a Generate summary button powered by the same API call](https://academy.claude.com/assets/media/4d065f9ff24a1b89c8e1c60748cec11485c48c40ac6134b1df0bd2de8f7ea429.png)
 
-## Recap
+## Recap[](#recap)
 
 * Your first API call is a **`messages.create`** function with a **model**, a **token limit**, and **messages**.
 * Store your API key in a `.env.local` file to keep it out of version control.

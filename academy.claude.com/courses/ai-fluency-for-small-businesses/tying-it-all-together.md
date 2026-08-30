@@ -17,7 +17,7 @@ In this lessonBy the end, you’ll be able to
 * Construct clear Product, Process, and Performance Descriptions to guide an AI-powered workflow
 * Plan for Creation, Deployment, and Transparency Diligence when automating business processes
 
-## Tying it all together
+## Tying it all together[](#tying-it-all-together)
 
 Tying it all together · 10 min
 
@@ -26,7 +26,7 @@ SummaryTranscript
 This video brings together all four dimensions of the 4D Framework to build
 a practical workflow automation for common small business tasks.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Start with Problem Awareness:** analyze your actual workload — what are customers asking, and what patterns repeat?
 * **Task Delegation means asking "should AI do this?"** not just "can it?" — documented FAQs are great candidates; complaints and judgment calls stay human.
@@ -34,7 +34,7 @@ a practical workflow automation for common small business tasks.
 * **Test iteratively with real examples** to practice Discernment — real-world testing reveals gaps your descriptions miss.
 * **Practice Diligence:** review outputs before they reach customers, be honest about AI's role, and provide a clear path to a human.
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2Exercise 3
 
@@ -69,14 +69,14 @@ Choose one task from your "AI can handle" or "AI can assist" categories that wou
 * Were you surprised by how many (or how few) tasks felt appropriate for automation?
 * Did the potential consequences of errors influence your categorization? How?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did using all four dimensions together change your approach compared to earlier lessons?
 * Was describing an automation precisely enough for AI to execute easier or harder than you expected?
 * After the Description and Diligence exercises, is your Exercise 1 task still the right one to automate first?
 * How has your thinking about efficiency versus personal customer relationships evolved?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll discuss strategies for integrating AI into your business thoughtfully and sustainably — including how to build an AI use policy for your team and how to manage concerns about AI dependency.
 

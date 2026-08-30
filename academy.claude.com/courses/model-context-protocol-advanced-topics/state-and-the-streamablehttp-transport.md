@@ -12,7 +12,7 @@ Lesson 112 min
 
 The `stateless_http` and `json_response` flags in MCP servers control fundamental aspects of how your server behaves. Understanding when and why to use them is crucial, especially if you're planning to scale your server or deploy it in production.
 
-## When You Need Stateless HTTP
+## When You Need Stateless HTTP[](#when-you-need-stateless-http)
 
 Imagine you build an MCP server that becomes popular. Initially, you might have just a few clients connecting to a single server instance:
 
@@ -37,7 +37,7 @@ With a load balancer, these requests might get routed to different server instan
 
 ![](https://academy.claude.com/assets/media/b92d21851ccfc52b59ec99b9d493a82beb562369a934a9ae78b8643d73bb9325.png)
 
-## How Stateless HTTP Solves This
+## How Stateless HTTP Solves This[](#how-stateless-http-solves-this)
 
 Setting `stateless_http=True` eliminates this coordination problem, but with significant trade-offs:
 
@@ -55,7 +55,7 @@ However, there's one benefit: **client initialization is no longer required**. C
 
 ![](https://academy.claude.com/assets/media/685167d8dee5bd3aa4196febf9063335586d8d0b5c72bb8745d8f5d24ff09971.png)
 
-## Understanding JSON Response
+## Understanding JSON Response[](#understanding-json-response)
 
 The `json_response=True` flag is simpler - it just disables streaming for POST request responses. Instead of getting multiple SSE messages as a tool executes, you get only the final result as plain JSON.
 
@@ -65,7 +65,7 @@ With streaming disabled:
 * No log statements during execution
 * Just the final tool result
 
-## When to Use These Flags
+## When to Use These Flags[](#when-to-use-these-flags)
 
 **Use stateless HTTP when:**
 
@@ -80,7 +80,7 @@ With streaming disabled:
 * You prefer simpler, non-streaming HTTP responses
 * You're integrating with systems that expect plain JSON
 
-## Development vs Production
+## Development vs Production[](#development-vs-production)
 
 If you're developing locally with standard I/O transport but planning to deploy with HTTP transport, test with the same transport you'll use in production. The behavior differences between stateful and stateless modes can be significant, and it's better to catch any issues during development rather than after deployment.
 

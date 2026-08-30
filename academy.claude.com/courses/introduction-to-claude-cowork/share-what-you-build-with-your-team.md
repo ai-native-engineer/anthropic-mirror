@@ -15,13 +15,13 @@ In this lessonBy the end, you’ll be able to
 * Explain how plugins get distributed across an Enterprise organization
 * Apply a few good habits for keeping a shared plugin healthy over time
 
-## Scaling workflows across your team
+## Scaling workflows across your team[](#scaling-workflows-across-your-team)
 
 By this point, your team has a handful of skills that have earned their place. They started as someone's personal way of working, they've been run through evals, and they hold up on more than one person's use cases.
 
 When you want to scale those across the whole team efficiently, you bundle them into a plugin — you covered how in Lesson 8. This lesson is about the next step: getting that plugin to everyone who needs it.
 
-## Distributing a plugin in your organization
+## Distributing a plugin in your organization[](#distributing-a-plugin-in-your-organization)
 
 Inside a larger company, the recommended way to share a plugin is through your organization's private marketplace — a catalog of company-approved plugins that an admin manages.
 
@@ -37,7 +37,7 @@ What this looks like for *you* depends on what your admin has set up. Some organ
 
 Match what you see in your org to the distribution path that fits — and who to talk to if the marketplace isn't live yet.
 
-## Habits worth keeping
+## Habits worth keeping[](#habits-worth-keeping)
 
 A short set of practices that prevent a shared plugin from quietly going stale:
 
@@ -46,7 +46,7 @@ A short set of practices that prevent a shared plugin from quietly going stale:
 * **Name skills and plugins specifically.** "meeting-prep" may collide with three other meeting-prep skills across your organization's plugins directory. "sales-customer-renewal-prep" won't.
 * **Set a review rhythm.** Quarterly is a reasonable starting point to look at what's installed, what's actually getting used, and what's gone stale. Retire what nobody runs and make amendments where people have identified opportunities for improvement.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Think about the skills you and your immediate teammates rely on most in Cowork today.
 
@@ -55,7 +55,7 @@ Think about the skills you and your immediate teammates rely on most in Cowork t
 
 If you don't know the answer to the second question yet, that's your real next step.
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the final lesson, you'll get a quick recap of the arc you've just been through and the next moves to keep the momentum going.
 

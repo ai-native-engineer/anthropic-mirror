@@ -20,7 +20,7 @@ Claude in Chrome is available for paid plan users on the Chrome web browser.
 
 **Important:** Browser use is a feature that allows Claude to interact directly with websites on your behalf, which carries inherent risks. Please review [Using Claude for Chrome Safely(opens in new tab)](https://support.claude.com/en/articles/12902428-using-claude-for-chrome-safely) before use.
 
-## How Claude understands your browser
+## How Claude understands your browser[](#how-claude-understands-your-browser)
 
 The Chrome extension brings Claude directly into your web workflow. Claude operates in your browser with your permissions, your logins, and your context to take action in the sites you use every day.
 
@@ -31,44 +31,44 @@ The Chrome extension brings Claude directly into your web workflow. Claude opera
 
 **Note:** Claude maintains context within a single task but doesn't remember information across sessions.
 
-## What makes a good browser task
+## What makes a good browser task[](#what-makes-a-good-browser-task)
 
 Not every browser activity suits delegation to the Claude browser extension. Here are a few examples to help you understand which tool to use to work more effectively:
 
-### Ideal for Claude in Chrome:
+### Ideal for Claude in Chrome:[](#ideal-for-claude-in-chrome)
 
 * Taking action on specific websites like filling forms, clicking buttons, navigating interfaces, making changes to live pages
 * Executing well-defined workflows using shortcuts you've created, repeating proven processes
 * Specific, targeted tasks or information gathering behind a login or using your permissions
 
-### Ideal for Claude apps:
+### Ideal for Claude apps:[](#ideal-for-claude-apps)
 
 * Exploratory research when you don't know exactly where to look and need Claude to discover relevant sources
 * Complex synthesis across many sources like creating reports that pull from dozens of articles, academic research requiring extensive citations
 
-### Better handled yourself:
+### Better handled yourself:[](#better-handled-yourself)
 
 * One-time tasks that are faster to do than explain like single clicks, simple copy-paste, quick edits
 * Highly subjective decisions requiring nuanced judgment
 * Learning through doing tasks like exploring new tools or understanding workflows
 
-## Repeat effective workflows with shortcuts
+## Repeat effective workflows with shortcuts[](#repeat-effective-workflows-with-shortcuts)
 
 Once you create a successful workflow or find yourself repeating the same request to Claude, there are a few ways to save it as a shortcut for Claude to follow next time. From then on, type `/` to select your shortcut and trigger the workflow instantly.
 
-### Record a workflow to create a shortcut
+### Record a workflow to create a shortcut[](#record-a-workflow-to-create-a-shortcut)
 
 Teach Claude your task by demonstration. Click the cursor icon in the menu bar or type `/` in the chat bar and select ‘Record workflow’. Perform the task, clicking, typing, and narrating, while Claude watches your screen and listens to your voice. When you finish, Claude generates a shortcut: a name, a prompt describing what you did, and the starting URL.
 
-### Convert a conversation to a shortcut
+### Convert a conversation to a shortcut[](#convert-a-conversation-to-a-shortcut)
 
 If you’ve completed a workflow across several chats, click `Convert to task` in the conversation header to save it as a repeatable shortcut.
 
-### Save a prompt as a shortcut
+### Save a prompt as a shortcut[](#save-a-prompt-as-a-shortcut)
 
 If you've already sent a well-crafted prompt in chat, hover over it to reveal an icon that lets you save it directly as a shortcut.
 
-### Schedule recurring tasks using shortcuts
+### Schedule recurring tasks using shortcuts[](#schedule-recurring-tasks-using-shortcuts)
 
 Once a workflow runs reliably — whether from a recording or a saved shortcut — schedule it to run automatically. When creating or editing a shortcut, toggle on `Schedule`. Choose the frequency, set the date and time, and select which model to use. Claude runs the workflow at the specified time and notifies you when it's done or needs input.
 
@@ -78,7 +78,7 @@ Once a workflow runs reliably — whether from a recording or a saved shortcut �
 * [Data extraction(opens in new tab)](https://academy.claude.com/use-cases/pull-metrics-from-analytics-dashboards) that pulls weekly metrics from dashboards that don't offer exports
 * [Calendar planning(opens in new tab)](https://academy.claude.com/use-cases/prepare-and-plan-from-your-calendar) for your upcoming week by flagging which meetings need prep and finding the details.
 
-### Additional shortcuts to try:
+### Additional shortcuts to try:[](#additional-shortcuts-to-try)
 
 Taking action:
 
@@ -110,7 +110,7 @@ For each person in this meeting invite: look up their professional background, n
 
 /stakeholder-mapCopy prompt
 
-## Setting yourself up for success
+## Setting yourself up for success[](#setting-yourself-up-for-success)
 
 As Claude in your browser has limitations that are helpful to understand.
 
@@ -126,7 +126,7 @@ Claude in Chrome is "pure Claude" without extended features of [Claude.ai(opens 
 
 For safety, Claude cannot access financial services, adult content, or pirated content sites.
 
-## Ready to practice?
+## Ready to practice?[](#ready-to-practice)
 
 Claude in your browser represents an early step in our work on AI that can handle increasingly complex workflows and work seamlessly where you do. Try our [interactive demo(opens in new tab)](https://claude.ai/chrome/installed) to build confidence before working with real tasks.
 

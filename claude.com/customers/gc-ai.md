@@ -154,6 +154,22 @@ Co-founder and CEO
 
 ## Related stories
 
+[Spellbook runs 530,000 contract reviews a month with Claude](https://claude.com/customers/spellbook)Spellbook runs 530,000 contract reviews a month with Claude
+
+Spellbook runs 530,000 contract reviews a month with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/spellbook)Customer story
+
+[EvenUp cuts document drafting from 15 hours to 15 minutes with Claude](https://claude.com/customers/evenup)EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
+
+EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
+
+Customer story
+
+[Customer story](https://claude.com/customers/evenup)Customer story
+
 [Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude](https://claude.com/customers/eve-legal)Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
 
 Eve Legal helps plaintiff law firms settle cases 60 days faster with Claude
@@ -169,19 +185,3 @@ Thomson Reuters CTO on piloting Cowork with Claude Enterprise
 Customer story
 
 [Customer story](https://claude.com/customers/thomson-reuters-qa)Customer story
-
-[Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows](https://claude.com/customers/wordsmith)Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
-
-Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
-
-Customer story
-
-[Customer story](https://claude.com/customers/wordsmith)Customer story
-
-[Legora helps lawyers work more efficiently with Claude](https://claude.com/customers/legora)Legora helps lawyers work more efficiently with Claude
-
-Legora helps lawyers work more efficiently with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/legora)Customer story

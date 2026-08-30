@@ -17,13 +17,13 @@ SummaryTranscript
 One of the most useful features in Claude Code is the CLAUDE.md file. It
 gives Claude Code persistent memory about your project.
 
-## The Problem It Solves
+## The Problem It Solves[](#the-problem-it-solves)
 
 When you open Claude Code without a CLAUDE.md file, it starts fresh every time. It has to re-explore your codebase, figure out what dependencies are needed, and understand what features are already implemented. Sometimes it makes assumptions, which makes it harder to steer Claude in the right direction.
 
 CLAUDE.md solves this. It's a Markdown file you add to the root of your project, and Claude Code reads it automatically every time you start a session. Think of it as an onboarding script for your codebase. The contents of the CLAUDE.md file are appended to your prompt.
 
-## An Example
+## An Example[](#an-example)
 
 Here's what a typical CLAUDE.md file looks like:
 
@@ -50,14 +50,14 @@ It's straightforward. Now if you ask Claude Code to create a React component, it
 
 ![A CLAUDE.md file open in VS Code showing project info, commands, and code style rules](https://academy.claude.com/assets/media/3bc0b82a5595e143f7c169346d9cca4e578013befa12eeb71963851299cb097b.jpg)
 
-## CLAUDE.md is for Teams
+## CLAUDE.md is for Teams[](#claudemd-is-for-teams)
 
 You can (and should) commit your CLAUDE.md to version control so your team benefits from it. There's actually a hierarchy of memory files depending on who they're for:
 
 * **Project-level CLAUDE.md** lives in the root directory of your project. Shared with the team.
 * **User-level CLAUDE.md** lives in your configuration folder. This one is just for you and applies across all your projects. Put your personal preferences here.
 
-## Tips
+## Tips[](#tips)
 
 **Save corrections to memory.** If you find yourself correcting Claude repeatedly — like telling it to always use server actions instead of API routes — explicitly ask Claude to save that rule to memory. Next time you open the project, it'll know.
 
@@ -75,7 +75,7 @@ Please read if you need more info: @README.md
 
 **Start without one.** We recommend starting a project without a CLAUDE.md file so you can see where you constantly have to course-correct the model. This keeps your CLAUDE.md compact and focused on only the necessary information. When you're ready, run `/init` to have Claude generate one for you.
 
-## Recap
+## Recap[](#recap)
 
 The difference between a frustrating Claude Code session and a productive one often comes down to context — and the CLAUDE.md file is how you provide that context. Start with your stack, your preferences, and your commands, then build from there as you go.
 

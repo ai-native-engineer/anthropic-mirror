@@ -16,7 +16,7 @@ Consider building a web app that generates AWS EventBridge rules. Users enter a 
 
 ![](https://academy.claude.com/assets/media/f9a2ebeaa89109fd4f9b690a4a4e7587e8268c582c2ce1945205a184cbc49220.png)
 
-## The Problem with Default Responses
+## The Problem with Default Responses[](#the-problem-with-default-responses)
 
 By default, when you ask Claude to generate JSON, you might get something like this:
 
@@ -38,7 +38,7 @@ This rule captures EC2 instance state changes when instances start running.
 
 The JSON is correct, but it's wrapped in markdown formatting and includes explanatory text. For a web app where users need to copy the raw JSON, this creates friction in the user experience.
 
-## The Solution: Assistant Message Prefilling + Stop Sequences
+## The Solution: Assistant Message Prefilling + Stop Sequences[](#the-solution-assistant-message-prefilling-stop-sequences)
 
 You can combine assistant message prefilling with stop sequences to get exactly the content you want. Here's how it works:
 
@@ -76,7 +76,7 @@ json
 }
 ```
 
-## Processing the Response
+## Processing the Response[](#processing-the-response)
 
 You might notice some extra newline characters in the response. These are easy to handle:
 
@@ -89,7 +89,7 @@ import json
 clean_json = json.loads(text.strip())
 ```
 
-## Beyond JSON
+## Beyond JSON[](#beyond-json)
 
 This technique isn't limited to JSON generation. Use it anytime you need structured data without commentary:
 

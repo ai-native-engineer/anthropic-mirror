@@ -6,8 +6,6 @@ This guide covers how to add, remove, and manage the people on your Team or Ente
 
 For information on purchasing seats or adjusting your plan's seat allocation, see our guides for **[Team plans](https://support.claude.com/en/articles/12004354-purchasing-and-managing-seats)** and **[Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**.
 
----
-
 ## Add members
 
 ### Add members by invitation
@@ -59,8 +57,6 @@ Organizations with single sign-on (SSO) configured can automate member provision
 
 **Important:** An Owner or Primary Owner must ensure seats are available before new users can be provisioned. We recommend monitoring your seat usage and adding seats proactively to ensure uninterrupted access for your team. You can **[enable group mappings with JIT or SCIM](https://support.claude.com/en/articles/13133195-setting-up-jit-or-scim-provisioning#h_adee31eeba) to provision users directly to a specific role and seat tier**.
 
----
-
 ## Member-to-member invites
 
 Organization members can invite teammates by email, even if they aren't admins. This makes it easier for your team to grow organically without requiring admin involvement for every new member.
@@ -83,8 +79,6 @@ Invites sent by members follow the same domain restrictions as other join method
 
 Admins can enable or disable member-to-member invites from the admin settings. When disabled, only admins can send invitations. Invitees added through member invites are assigned the default member role and placed in the lowest available seat tier.
 
----
-
 ## Remove members
 
 You can remove a member by navigating to **[Organization settings > Members](https://claude.ai/admin-settings/members)**, clicking the menu button to the right of the member, then selecting "Remove from team." However, if you are an Owner or Primary Owner, you can't remove yourself from your organization. Another Primary Owner or Owner must remove you from the team.
@@ -101,8 +95,6 @@ Removing a member frees up their seat for reassignment, but does not automatical
 
 **Note:** If you're on a Team plan, the option to remove members from **[Organization settings > Members](https://claude.ai/admin-settings/members)** will no longer be available after you cancel your plan. For more information, see **[Cancel your organization's Team plan subscription](https://support.claude.com/en/articles/9267323)**.
 
----
-
 ## Export member data
 
 Admins and above can export a CSV of your organization's current member list from your organization settings.
@@ -115,8 +107,6 @@ To export:
 2. Click the "Export CSV" button at the top of the **Members** section.
 3. A CSV file will download to your device.
 
----
-
 ## Manage invitations
 
 ### Resend an expired invitation
@@ -126,8 +116,6 @@ You can resend an invite from **[Organization settings > Members](https://claude
 ### Revoke a pending invitation
 
 You can revoke a pending invite from **[Organization settings > Members](https://claude.ai/admin-settings/members)**. Click the “Pending” tab, find the member, and select "Remove from team."
-
----
 
 ## Frequently asked questions
 

@@ -18,7 +18,7 @@ When Claude sends back tool use parts in a message, there can be more than one t
 
 However, Claude doesn't always try to parallelize tool calls as much as you'd expect. Instead of making both calls simultaneously, it often makes them sequentially, which is less efficient.
 
-## How the Batch Tool Works
+## How the Batch Tool Works[](#how-the-batch-tool-works)
 
 The batch tool is implemented just like any other tool - you need a tool specification and a function to handle when it gets called. The key idea is to create a tool that can invoke multiple other tools simultaneously.
 
@@ -59,11 +59,11 @@ json
 
 The tool takes a list of invocations, where each invocation contains the name of a tool to call and its arguments (encoded as a JSON string).
 
-## Implementation
+## Implementation[](#implementation)
 
 The batch tool implementation involves two main functions:
 
-### The run\_batch Function
+### The run\_batch Function[](#the-runbatch-function)
 
 python
 
@@ -82,7 +82,7 @@ def run_batch(tool_input):
 
 This function loops through each invocation, extracts the tool name and arguments, calls the appropriate tool using the existing `run_tool` function, and collects all the results.
 
-### Adding to run\_tool
+### Adding to run\_tool[](#adding-to-runtool)
 
 You also need to add a case to your main `run_tool` function:
 
@@ -95,7 +95,7 @@ elif tool_name == "batch_tool":
 
 Note that unlike other tools, you pass `tool_input` directly without using the splat operator (`**`), since the batch tool needs to handle the raw input structure.
 
-## Results
+## Results[](#results)
 
 When you implement the batch tool and run the same date calculation query, instead of seeing two separate tool calls in the message log, you'll see a single call to the batch tool. This single call contains both date calculations as sub-invocations, effectively parallelizing the operations.
 

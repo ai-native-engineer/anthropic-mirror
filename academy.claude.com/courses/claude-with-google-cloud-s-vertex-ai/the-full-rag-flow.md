@@ -12,14 +12,14 @@ Lesson 376 min
 
 Now that we've covered the basics of RAG, text chunking, and embeddings, let's walk through the complete RAG pipeline step by step. This detailed example will show you exactly how all the pieces fit together in a real implementation.
 
-## Step 1: Chunk Your Source Text
+## Step 1: Chunk Your Source Text[](#step-1-chunk-your-source-text)
 
 First, we take our source document and break it into manageable chunks. For this example, we'll use two simple text sections:
 
 * Section 1: Medical Research - "This year saw significant strides in our understanding of XDR-47, a 'bug' we have not seen before."
 * Section 2: Software Engineering - "This division dedicated significant effort to studying various infection vectors in our distributed systems"
 
-## Step 2: Generate Embeddings
+## Step 2: Generate Embeddings[](#step-2-generate-embeddings)
 
 Next, we convert each text chunk into numerical embeddings. To make this easier to understand, let's imagine we have a perfect embedding model that always returns exactly two numbers, and we know what each number represents:
 
@@ -32,7 +32,7 @@ In our imaginary model:
 
 So our medical research section gets `[0.97, 0.34]` - very medical, somewhat software-related due to the word "bug". The software engineering section gets `[0.30, 0.97]` - very software-focused, but "infection vectors" has medical connotations.
 
-## Normalization
+## Normalization[](#normalization)
 
 Before storing these embeddings, they go through a normalization process that scales each vector to have a magnitude of 1.0. This is typically handled automatically by your embedding API, but it's important to understand it happens.
 
@@ -42,7 +42,7 @@ After normalization, our embeddings become `[0.944, 0.331]` and `[0.295, 0.955]`
 
 ![](https://academy.claude.com/assets/media/c0f5e517c4260f85779a61cd731b5fe815963e0fcc9e4c055d00884a0a67e17c.png)
 
-## Step 3: Store in Vector Database
+## Step 3: Store in Vector Database[](#step-3-store-in-vector-database)
 
 The normalized embeddings get stored in a vector database - a specialized database optimized for storing, comparing, and searching through long lists of numbers like our embeddings.
 
@@ -50,7 +50,7 @@ The normalized embeddings get stored in a vector database - a specialized databa
 
 At this point, we pause. All the work so far has been preprocessing that happens ahead of time. Now we wait for a user to submit a query.
 
-## Step 4: Process User Query
+## Step 4: Process User Query[](#step-4-process-user-query)
 
 When a user asks a question like "I'm curious about the company. In particular, what did the software engineering dept do this year?", we run their query through the same embedding model.
 
@@ -58,7 +58,7 @@ When a user asks a question like "I'm curious about the company. In particular, 
 
 This query gets embedded as `[0.1, 0.89]` - low medical score, high software engineering score. After normalization, it becomes `[0.112, 0.993]`.
 
-## Step 5: Find Similar Embeddings
+## Step 5: Find Similar Embeddings[](#step-5-find-similar-embeddings)
 
 Now we ask the vector database: "Find the stored embedding that's closest to this user query embedding." The database returns the software engineering section because it's the most similar.
 
@@ -66,7 +66,7 @@ Now we ask the vector database: "Find the stored embedding that's closest to thi
 
 But how does the database determine "closest"? It uses cosine similarity.
 
-## Cosine Similarity
+## Cosine Similarity[](#cosine-similarity)
 
 The vector database calculates the cosine of the angle between vectors to measure similarity. This gives us a number between -1 and 1:
 
@@ -81,7 +81,7 @@ In our example:
 * User query vs Software Engineering: cosine similarity = 0.983 (very similar!)
 * User query vs Medical Research: cosine similarity = 0.398 (less similar)
 
-## Cosine Distance
+## Cosine Distance[](#cosine-distance)
 
 You'll often see "cosine distance" in vector database documentation. This is simply `1 - cosine similarity`, which flips the scale so that smaller numbers mean more similar:
 
@@ -89,7 +89,7 @@ You'll often see "cosine distance" in vector database documentation. This is sim
 * 1.0 = perpendicular
 * 2.0 = completely opposite
 
-## Step 6: Build the Final Prompt
+## Step 6: Build the Final Prompt[](#step-6-build-the-final-prompt)
 
 Finally, we take the user's question and the most relevant text chunk (software engineering section) and combine them into a prompt for Claude:
 

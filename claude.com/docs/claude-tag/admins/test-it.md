@@ -8,11 +8,11 @@
 
 [Skip to main content](#content-area)
 
-[1 · Pair workspace](https://claude.com/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/claude-tag/admins/test-it)
+[1 · Pair workspace](https://claude.com/docs/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/docs/claude-tag/admins/add-connections)[3 · Connect GitHub](https://claude.com/docs/docs/claude-tag/admins/configure-github)[4 · Spend limit](https://claude.com/docs/docs/claude-tag/admins/set-spend-limit)[5 · See it work](https://claude.com/docs/docs/claude-tag/admins/test-it)
 
 Role you needAnyone in the pilot channel can run the prompts; you’ll want Owner access handy to fix anything they surface
 
-Before this stepWorkspace paired and a [spend limit](https://claude.com/docs/claude-tag/admins/set-spend-limit) set
+Before this stepWorkspace paired and a [spend limit](https://claude.com/docs/docs/claude-tag/admins/set-spend-limit) set
 
 Do I need this?RequiredThe only way to know the setup holds together before rolling out to more channels.
 

@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Quickly prep for your week result](https://academy.claude.com/assets/v1/quickly-prep-for-your-week-holgruap.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Planning your week typically means opening your calendar, scanning your inbox, maybe checking a few documents—then trying to mentally synthesize which meetings need prep, what's urgent, and how to distribute your time. Claude can read through your calendar and inbox simultaneously, identify connections you'd miss while context-switching between tools, and create a structured overview showing what needs attention and when you actually have time to handle it.
 
@@ -32,11 +32,11 @@ Create an overview document of my must-dos, daily structure, preparation I still
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 To help Claude analyze your week effectively, give Claude access to your workspaces. Use the [Microsoft 365 connector(opens in new tab)](https://www.anthropic.com/news/productivity-platforms) to give Claude access to your Outlook calendar, email, SharePoint documents, OneDrive files, and Teams conversations.
 
-### Required context
+### Required context[](#required-context)
 
 In [Settings > Connectors(opens in new tab)](https://claude.ai/customize/connectors), you'll find the [Microsoft 365 connector(opens in new tab)](https://www.anthropic.com/news/productivity-platforms).
 
@@ -50,7 +50,7 @@ Microsoft 365
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude reads your sources simultaneously, analyzing what matters, and showing you how to prepare for the week ahead.
 
@@ -113,11 +113,11 @@ Thursday is your only real focus day: 4+ hours unstructured time. First substant
 
 **View your formatted document**
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Draft out urgent responses
+### Draft out urgent responses[](#draft-out-urgent-responses)
 
 Ask Claude to write replies based on dashboard triage. Claude can identify urgent emails and draft replies based on the email thread and relevant documents. You can then easily copy these drafts to your inbox. Specify which emails to respond to and what each response should accomplish.
 
@@ -125,7 +125,7 @@ Draft three email responses: Reply to Finance (confirm I'll send the Q3 budget v
 
 Open in Claude
 
-### Create meeting prep materials
+### Create meeting prep materials[](#create-meeting-prep-materials)
 
 After seeing which meetings need prep, Claude can search email threads, SharePoint documents, and OneDrive files to gather relevant background. It pulls context from where your work actually lives rather than you hunting through each system.
 
@@ -133,7 +133,7 @@ For my Thursday board meeting, search my emails and documents for budget discuss
 
 Open in Claude
 
-### Adjust the output to your needs
+### Adjust the output to your needs[](#adjust-the-output-to-your-needs)
 
 Claude can quickly restructure the format of your document. If you want it more compact, more detailed, or different styling, Claude adjusts to match how you actually work.
 
@@ -141,25 +141,25 @@ Refine the output to have tighter spacing so more content fits on one page. Chan
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Use your [organization's search project(opens in new tab)](https://support.claude.com/en/articles/12489464-using-enterprise-search) for company-wide information
+### Use your [organization's search project(opens in new tab)](https://support.claude.com/en/articles/12489464-using-enterprise-search) for company-wide information[](#use-your-organizations-search-project-for-company-wide-information)
 
 When you connect tools like calendar and email individually, Claude searches only your personal files and messages. If you need information from across your organization—team documents in SharePoint, company-wide Slack channels, other people's shared files—look for a project in your sidebar named "Ask [Your Company Name]". This is a separate project your admin sets up that connects to company-wide sources, not just your individual accounts. When you use that project, Claude searches across all the tools your organization has connected: everyone's shared documents, team channels, company knowledge bases.
 
-### Be specific about timeframes and priorities
+### Be specific about timeframes and priorities[](#be-specific-about-timeframes-and-priorities)
 
 Claude searches more effectively when you provide clear parameters. "Plan my week" searches all meetings and emails. "Plan my week, focusing on client meetings and budget proposal items" tells Claude exactly which calendar entries and email threads to prioritize.
 
-### Create a variety of outputs.
+### Create a variety of outputs.[](#create-a-variety-of-outputs)
 
 Beyond creating a Word document, Claude can save your weekly plan as a spreadsheet, add it to your Notion workspace, or send it as a Slack message to yourself. The file is convenient for reference, but if you want your plan living in the tools you use daily, enable those [connectors(opens in new tab)](https://claude.ai/customize/connectors) and ask Claude to output there instead.
 
-### Turn this workflow into a Skill
+### Turn this workflow into a Skill[](#turn-this-workflow-into-a-skill)
 
 Once you've refined this workflow, create and save it as a [Skill(opens in new tab)](https://www.anthropic.com/news/skills) so Claude can automatically complete the task in any chat. Skills teach Claude how to complete a task the same way you do, searching through the right sources, including the right information and styling, and saving it in the correct format. Learn more about how to [create a custom skill using Claude.(opens in new tab)](https://support.claude.com/en/articles/12599426-how-to-create-a-skill-with-claude-through-conversation)
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Connect Claude to your Microsoft 365 workspaces and prepare for the week ahead. Claude can search your calendar, email and other tools to show what needs attention and when you have time to handle it.
 

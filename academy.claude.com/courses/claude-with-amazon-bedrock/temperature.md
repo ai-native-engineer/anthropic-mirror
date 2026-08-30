@@ -12,7 +12,7 @@ Lesson 65 min
 
 Temperature is a powerful parameter that controls how creative or deterministic Claude's responses will be. Understanding how to use it effectively can dramatically improve your AI applications.
 
-## How Claude Generates Text
+## How Claude Generates Text[](#how-claude-generates-text)
 
 Before diving into temperature, it's helpful to understand Claude's text generation process. When you send Claude a prompt like "What do you think?", it goes through three phases:
 
@@ -26,7 +26,7 @@ In the diagram above, you can see how Claude might assign different probabilitie
 
 ![](https://academy.claude.com/assets/media/fd8b6aa732eb08b6b96b37f58cdfa4f457ad26b60606200f75490e64edee5bb5.png)
 
-## What Temperature Does
+## What Temperature Does[](#what-temperature-does)
 
 Temperature is a decimal value between 0 and 1 that directly influences these token selection probabilities. Think of it as a creativity dial:
 
@@ -37,34 +37,34 @@ Temperature is a decimal value between 0 and 1 that directly influences these to
 
 At temperature 0, Claude becomes deterministic - it will always pick the most probable token. At temperature 1, lower-probability tokens have a much better chance of being selected, leading to more creative and varied outputs.
 
-## Temperature Ranges and Use Cases
+## Temperature Ranges and Use Cases[](#temperature-ranges-and-use-cases)
 
 Different tasks call for different temperature settings:
 
 ![](https://academy.claude.com/assets/media/939a7ade13434b2fa7c8d519d428465b1803736f5ef6432020a4a241aa14360d.png)
 
-### Low Temperature (0.0 - 0.3)
+### Low Temperature (0.0 - 0.3)[](#low-temperature-00---03)
 
 * Factual responses
 * Coding assistance
 * Data extraction
 * Content moderation
 
-### Medium Temperature (0.4 - 0.7)
+### Medium Temperature (0.4 - 0.7)[](#medium-temperature-04---07)
 
 * Summarization
 * Educational content
 * Problem-solving
 * Creative writing with constraints
 
-### High Temperature (0.8 - 1.0)
+### High Temperature (0.8 - 1.0)[](#high-temperature-08---10)
 
 * Brainstorming
 * Creative writing
 * Marketing content
 * Joke generation
 
-## Setting Temperature in Code
+## Setting Temperature in Code[](#setting-temperature-in-code)
 
 By default, Claude's temperature is set to 1.0, which means maximum creativity. You can override this by adding temperature to your inference configuration:
 
@@ -85,7 +85,7 @@ def chat(messages, system=None, temperature=1.0):
     return response["output"]["message"]["content"][0]["text"]
 ```
 
-## Temperature in Practice
+## Temperature in Practice[](#temperature-in-practice)
 
 Here's a practical example using movie idea generation. With temperature set to the default (1.0), you might get creative responses like:
 
@@ -97,7 +97,7 @@ But when you set temperature to 0.0 for the same prompt, you'll consistently get
 
 Running the low-temperature version multiple times will produce very similar responses, often with repeated themes like "time-traveling historian" or "time-traveling archaeologist."
 
-## Key Takeaways
+## Key Takeaways[](#key-takeaways)
 
 Temperature gives you direct control over Claude's creativity level. Use lower temperatures when you need consistent, factual responses, and higher temperatures when you want creative, varied outputs. The default temperature of 1.0 maximizes creativity, so consider lowering it for tasks requiring precision and consistency.
 

@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Analyze AI's specific impacts on curriculum, pedagogy, and assessment in your field
 * Create a position paper articulating your perspective on AI's role in your discipline
 
-## AI's impact and your discipline
+## AI's impact and your discipline[](#ais-impact-and-your-discipline)
 
 AI's impact and your discipline
 
@@ -35,7 +35,7 @@ impacts, emphasizing that some disruptions are opportunities to leverage
 while others are problems to solve, and your expertise determines which is
 which.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * AI impacts curriculum, pedagogy, and assessment differently across disciplines
 * Your disciplinary, pedagogical, and assessment expertise are the foundation for meaningful AI integration
@@ -43,7 +43,7 @@ which.
 * Impact and disruption patterns vary—some areas transform while others remain stable
 * AI Fluency amplifies rather than replaces disciplinary expertise
 
-## Exercises
+## Exercises[](#exercises)
 
 This exercise helps you systematically analyze AI's impact on your discipline and articulate your position. The timing is just a reference - take your time and make your conversations meaningful.
 
@@ -70,7 +70,7 @@ Start a conversation with Claude (or continue from previous lessons):
 * Consider where human-AI collaboration could add the most value in your field
 * Discuss what new competencies students need to work effectively with AI in your discipline
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll focus on applying your disciplinary knowledge to make the AI Fluency Framework specific to your field. You'll work with colleagues to develop discipline-specific applications of the 4Ds.
 

@@ -12,13 +12,13 @@ Lesson 279 min
 
 Building multi-turn conversations with tool use requires handling different response types from Claude. When Claude responds, it might need to use a tool, or it might provide a direct answer. Your code needs to handle both scenarios gracefully.
 
-## The Problem with Simple Tool Integration
+## The Problem with Simple Tool Integration[](#the-problem-with-simple-tool-integration)
 
 If you just add tool results to every conversation, you'll run into issues. When Claude answers a simple question like "What is 1+1?", it doesn't need any tools. But if your code always tries to process tool results, you'll end up adding empty messages to your conversation history.
 
 The solution is to check the `stop_reason` that comes back with every Claude response. This tells you why Claude stopped generating - whether it finished naturally or because it wants to use a tool.
 
-## Stop Reasons
+## Stop Reasons[](#stop-reasons)
 
 ![](https://academy.claude.com/assets/media/a461bfa198f998666258b152abc1a277f7804c7d9850a10e70ac5df553fa13f2.png)
 
@@ -29,7 +29,7 @@ Claude can stop for several reasons:
 * `"max_tokens"` - Hit the output limit
 * `"stop_sequence"` - Encountered a stop sequence you provided
 
-## Improving the Chat Function
+## Improving the Chat Function[](#improving-the-chat-function)
 
 First, update your chat function to return more information. Instead of just returning text and parts separately, return a dictionary with everything you need:
 
@@ -48,7 +48,7 @@ def chat(messages, tools=None, system=None, **kwargs):
 
 This approach extracts all text content from the response parts, which is more robust than assuming the first part is always text.
 
-## Building a Conversation Loop
+## Building a Conversation Loop[](#building-a-conversation-loop)
 
 Create a function that handles the full conversation flow:
 
@@ -79,7 +79,7 @@ This loop continues until Claude stops for a reason other than tool use. Each it
 4. If so, runs the tools and adds results back to the conversation
 5. If not, exits the loop
 
-## Testing the Implementation
+## Testing the Implementation[](#testing-the-implementation)
 
 This approach handles both tool-requiring and simple questions:
 

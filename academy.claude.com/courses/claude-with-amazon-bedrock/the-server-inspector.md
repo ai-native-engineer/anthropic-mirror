@@ -12,7 +12,7 @@ Lesson 524 min
 
 When building MCP servers, you need a way to test your functionality without connecting to a full application. The Python MCP SDK includes a built-in browser-based inspector that lets you debug and test your server in real-time.
 
-## Starting the Inspector
+## Starting the Inspector[](#starting-the-inspector)
 
 First, make sure your Python environment is activated (check your project's README for the exact command). Then run the inspector with:
 
@@ -24,7 +24,7 @@ mcp dev mcp_server.py
 
 This starts a development server and gives you a local URL (typically on port 6277) to access the inspector in your browser.
 
-## Using the Inspector Interface
+## Using the Inspector Interface[](#using-the-inspector-interface)
 
 The MCP inspector is actively being developed, so the interface may look different by the time you use it. However, the core functionality remains consistent.
 
@@ -32,13 +32,13 @@ The MCP inspector is actively being developed, so the interface may look differe
 
 When you first open the inspector, you'll see a "Connect" button on the left side. Click this to start your MCP server and load your tools.
 
-## Testing Your Tools
+## Testing Your Tools[](#testing-your-tools)
 
 Once connected, look for a navigation bar with sections like Resources, Prompts, and Tools. Click on the Tools section to see your available tools.
 
 Click "List Tools" to see all the tools your server provides. When you select a specific tool, the right panel updates to show a form where you can test that tool.
 
-## Running Tool Tests
+## Running Tool Tests[](#running-tool-tests)
 
 For example, to test a document reading tool:
 
@@ -50,7 +50,7 @@ The inspector will execute your tool and show the results, including success sta
 
 ![](https://academy.claude.com/assets/media/14cce52c52772af7b18d1a65cd32117d8883c297c738859ddf7b2aff22663d00.png)
 
-## Testing Document Editing
+## Testing Document Editing[](#testing-document-editing)
 
 You can also test more complex tools like document editing:
 
@@ -61,7 +61,7 @@ You can also test more complex tools like document editing:
 
 ![](https://academy.claude.com/assets/media/768ecb1a50bbf0db37a9ba8dcc98e3147cac24f121fd043a0e530ee5d41dc96d.png)
 
-## Development Workflow
+## Development Workflow[](#development-workflow)
 
 The inspector shows a history of your tool calls on the left side, making it easy to track what you've tested and repeat previous operations. This creates an efficient development loop where you can:
 

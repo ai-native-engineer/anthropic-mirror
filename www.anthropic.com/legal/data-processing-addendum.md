@@ -367,5 +367,3 @@ Customer warrants that it and/or Customer Affiliates have made any notifications
 ## Schedule 4 - Subprocessors
 
 Anthropic’s list of subprocessors is available at <https://www.anthropic.com/subprocessors>.
-
-Data Processing Addendum \ Anthropic

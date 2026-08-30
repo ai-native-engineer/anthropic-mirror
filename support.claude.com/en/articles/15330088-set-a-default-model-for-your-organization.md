@@ -4,8 +4,6 @@ This guide explains how to choose the Claude model that new conversations start 
 
 Default model settings are available for Enterprise plan organizations. Primary Owners, Owners, and members whose custom role grants the Identity & Access permission can manage them in **[Organization settings > Models](https://claude.ai/admin-settings/models)**.
 
----
-
 ## How default models work
 
 When you set or change a default model, it replaces the model currently selected in each member’s model picker. New conversations in chat, Claude Cowork, Claude Code, and Office Agents then start on the model you’ve chosen.
@@ -27,8 +25,6 @@ For member-facing CLI instructions, see **[Claude Code model configuration](http
 
 For member-facing instructions on switching models, see **[Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)**.
 
----
-
 ## Set the organization default model
 
 The organization default applies to every member. To set it:
@@ -41,9 +37,7 @@ The organization default applies to every member. To set it:
 3. If you select “Choose a specific model,” choose a model from the list.
 4. Click “Save changes.”
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1787622300&signature=8cd53b0f658d171a5829d8a582ba2dd6255d120b5da6634b77b523cf8c49938a&req=diUmEs58n4BcUPMW1HO4zelOdzVGL0pEfdGVZ664dGGuGb8GnDA6wi83dts0%0AO91oWm25a6sLy%2FVfJgo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1787622300&signature=8cd53b0f658d171a5829d8a582ba2dd6255d120b5da6634b77b523cf8c49938a&req=diUmEs58n4BcUPMW1HO4zelOdzVGL0pEfdGVZ664dGGuGb8GnDA6wi83dts0%0AO91oWm25a6sLy%2FVfJgo%3D%0A)
-
----
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1788033600&signature=2b3d08f2ecf032946da25370d3d00ff8b2ade39e19cbe8af5dfd3ae4fe47a100&req=diUmEs58n4BcUPMW1HO4zelOdzpALktBfdGVZ664dGE%2F%2BQDmzRIZIGM8tOe7%0A1D4iLf6U61GXuOkTdmo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2514722139/d05c94072a41ea9090ecf386c53e/c32ee31d-954a-4551-a2da-91677fbd0b6f?expires=1788033600&signature=2b3d08f2ecf032946da25370d3d00ff8b2ade39e19cbe8af5dfd3ae4fe47a100&req=diUmEs58n4BcUPMW1HO4zelOdzpALktBfdGVZ664dGE%2F%2BQDmzRIZIGM8tOe7%0A1D4iLf6U61GXuOkTdmo%3D%0A)
 
 ## Set a default model for a custom role
 
@@ -61,8 +55,6 @@ If a member belongs to multiple groups whose custom roles set different default 
 **Note:** Custom roles only affect members whose role is set to “Custom.” Members with the User, Admin, or Owner roles get the default model from the organization setting, not from custom roles.
 
 For details on creating roles and assigning them to groups, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452)**.
-
----
 
 ## Default model and Claude Code managed settings
 

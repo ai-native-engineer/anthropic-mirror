@@ -16,7 +16,7 @@ Extended thinking is Claude's advanced reasoning feature that gives the model ti
 
 This feature significantly improves Claude's ability to handle complex tasks with greater accuracy, but it comes with important trade-offs. You'll be charged for all tokens generated during the thinking phase, and the additional processing time increases response latency. The key is knowing when the improved intelligence justifies the extra cost and wait time.
 
-## When to Use Extended Thinking
+## When to Use Extended Thinking[](#when-to-use-extended-thinking)
 
 The decision to enable extended thinking should be driven by your prompt evaluations. Here's the recommended approach:
 
@@ -25,7 +25,7 @@ The decision to enable extended thinking should be driven by your prompt evaluat
 * If results aren't meeting your standards after prompt optimization efforts
 * Then consider enabling extended thinking as a solution
 
-## How Extended Thinking Changes Responses
+## How Extended Thinking Changes Responses[](#how-extended-thinking-changes-responses)
 
 Without extended thinking, Claude's response flow is straightforward - you send a user message with a text block and receive an assistant message with a text block in return.
 
@@ -38,7 +38,7 @@ With extended thinking enabled, the response structure changes significantly. Yo
 * A `thinking` block containing Claude's reasoning process
 * A `text` block with the final response
 
-## The Signature System
+## The Signature System[](#the-signature-system)
 
 Each thinking block includes a cryptographic signature that serves an important security purpose. This signature ensures that the thinking text hasn't been modified when you include the message in future conversation turns.
 
@@ -46,7 +46,7 @@ Each thinking block includes a cryptographic signature that serves an important 
 
 Claude relies heavily on the thinking content for response generation, so preventing tampering is crucial for maintaining safe and consistent behavior. If you modify the thinking text, the signature validation will fail.
 
-## Redacted Thinking
+## Redacted Thinking[](#redacted-thinking)
 
 Sometimes Claude's thinking process gets flagged by internal safety systems. When this happens, you'll receive a redacted thinking block instead of the raw thinking text.
 
@@ -54,7 +54,7 @@ Sometimes Claude's thinking process gets flagged by internal safety systems. Whe
 
 The redacted content contains the actual thinking text in encrypted form. While you can't read it, you can still include this block in future conversation turns so Claude doesn't lose context from its previous reasoning.
 
-## Implementation
+## Implementation[](#implementation)
 
 To enable extended thinking in your code, you'll need to modify your chat function with two new parameters:
 
@@ -88,7 +88,7 @@ if thinking:
     }
 ```
 
-## Testing Redacted Responses
+## Testing Redacted Responses[](#testing-redacted-responses)
 
 During development, you may want to test how your application handles redacted thinking blocks. You can force Claude to return a redacted response by including this special trigger string in your message:
 

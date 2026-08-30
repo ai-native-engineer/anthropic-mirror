@@ -12,7 +12,7 @@ The Alignment team works to understand the risks of AI models and develop ways t
 
 ### Economics
 
-The Economic Research team studies how AI is reshaping the economy, including work, productivity, and economic opportunity.
+The Economics team studies how AI is reshaping the economy, including work, productivity, and economic opportunity.
 
 ### Frontier Red Team
 
@@ -38,7 +38,7 @@ An unreleased research version of Claude has made strides on a problem related t
 
 #### How Claude is accelerating protein design and analytical chemistry
 
-In this post, we share two results that show how Claude can help life scientists increase the pace of their research.](https://www.anthropic.com/research/Claude-accelerates-protein-design)[Economic ResearchAug 12, 2026
+In this post, we share two results that show how Claude can help life scientists increase the pace of their research.](https://www.anthropic.com/research/Claude-accelerates-protein-design)[EconomicsAug 12, 2026
 
 #### Reviewing the evidence on worker retraining programs
 
@@ -58,13 +58,19 @@ Search
 
 DateCategoryTitle
 
+* [Aug 28, 2026Alignment
+
+  Automated researchers can reliably mitigate alignment failures](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+* [Aug 26, 2026Societal Impacts
+
+  Enabling independent research on how people use Claude](https://www.anthropic.com/research/enabling-independent-research)
 * [Aug 18, 2026Science
 
   How Claude is accelerating protein design and analytical chemistry](https://www.anthropic.com/research/Claude-accelerates-protein-design)
 * [Aug 13, 2026Frontier Red Team
 
   Patterns and problems in emerging multiagent systems](https://www.anthropic.com/research/multiagent-systems)
-* [Aug 12, 2026Economic Research
+* [Aug 12, 2026Economics
 
   Reviewing the evidence on worker retraining programs](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
 * [Aug 10, 2026Science
@@ -76,20 +82,16 @@ DateCategoryTitle
 * [Jul 24, 2026Frontier Red Team
 
   Project Pilot: Can AI control a drone?](https://www.anthropic.com/research/project-pilot)
-* [Jul 14, 2026Economic Research
+* [Jul 14, 2026Economics
 
   How Canada uses Claude: Findings from the Anthropic Economic Index](https://www.anthropic.com/research/how-canada-uses-claude)
 * [Jul 13, 2026Societal Impacts
 
   Claude’s values across models and languages](https://www.anthropic.com/research/claude-values-models-languages)
-* [Jul 9, 2026Frontier Red Team
-
-  Claude plays robotics](https://www.anthropic.com/research/claude-plays-robotics)
-* [Jul 8, 2026Alignment
-
-  An off switch for dual-use knowledge in AI models](https://www.anthropic.com/research/off-switch-dual-use)
 
 [See more](#)
+
+![Automated researchers can reliably mitigate alignment failures](https://www-cdn.anthropic.com/images/4zrzovbb/website/ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
 
 Join the Research team
 

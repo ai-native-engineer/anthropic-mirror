@@ -30,8 +30,6 @@ Claude supports the following image formats:
 * GIF
 * WebP
 
----
-
 ## How to upload files
 
 You can upload files to Claude in several ways:
@@ -43,8 +41,6 @@ You can upload files to Claude in several ways:
 5. You can also copy images and paste them from your clipboard into Claude.
 
 Files can be uploaded to individual chats or uploaded to a project's **Files** section for persistent reference across conversations.
-
----
 
 ## File limits
 
@@ -63,13 +59,9 @@ Files can be uploaded to individual chats or uploaded to a project's **Files** s
 
 **Note:** Additional token limits may apply based on the length of extracted content.
 
----
-
 ## PDF processing
 
 Claude analyzes both text and visual elements (like images, charts, and graphics) in PDFs of 100 pages or fewer. For PDFs from 101 to 1000 pages, Claude processes text only and doesn't analyze visual elements. You can't upload PDFs over 1000 pages. If you try, you'll see an "Uploaded file is too large" error.
-
----
 
 ## Tips for best results
 

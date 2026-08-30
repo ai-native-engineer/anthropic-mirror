@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-kwp2o4y3.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-hfgoshpu.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -44,7 +44,7 @@ The variance table lands as Excel and the talking points as Word, ready for the 
 
 Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connectors)
 
-### Set the working folder
+### Set the working folder[](#set-the-working-folder)
 
 Put your outside counsel billing guidelines and the matter budget tracker in one folder on your machine, then in Cowork click **+ Add folder** and select it. [Save it as a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) so your guidelines, instructions, and memory stay attached for the next firm review — Cowork reads from the folder and writes the variance table and talking points back to it.
 
@@ -60,15 +60,15 @@ matter-budgets-FY26.xlsxApr 30, 202688 KB
 
 In Cowork’s chat bar:Legal-Ops / OC-Review-Q2
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Pull the billing and matter data for this firm from the connected matter system. Flag entries that are off-pattern against our billing guidelines, list every matter drifting against its budget with the variance and driver, and draft the talking points for the relationship-partner conversation.
 
 Legal-Ops / OC-Review-Q2Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -86,7 +86,7 @@ Source
 
 **Pull from the matter system directly.** The iManage or NetDocuments connector means the review covers every matter and invoice, not the ones that made it into a spreadsheet.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -96,7 +96,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know which entries to verify against the invoice before you raise them.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 No plugin ships with this one yet — once the prompt is producing the review the way you want, turn it into your own skill. A few minutes of conversation and it runs with your guidelines and format from then on.
 
@@ -106,9 +106,9 @@ Legal-OpsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it before every partner review
+### Run it before every partner review[](#run-it-before-every-partner-review)
 
 The variance table and talking points should be waiting before the quarterly review, not built the night before. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the skill runs monthly across every panel firm.
 
@@ -124,7 +124,7 @@ Runs `/oc-spend-review` for every panel firm and writes the variance table and t
 
 Every **first Monday of each month at 8am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your `/oc-spend-review` now carries your billing guidelines, your variance thresholds, and your talking-point format. Share it so legal ops and the in-house owners run every firm the same way, and the partner conversation starts from the same prep.
 
@@ -132,7 +132,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/oc-spend-review` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your guidelines and thresholds baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

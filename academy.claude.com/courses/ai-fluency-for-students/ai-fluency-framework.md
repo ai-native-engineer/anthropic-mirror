@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Recognize the difference between using AI for automation versus augmentation
 * Create a personal learning context document to guide future AI collaborations
 
-## The 4Ds - Understanding the AI Fluency Framework
+## The 4Ds - Understanding the AI Fluency Framework[](#the-4ds---understanding-the-ai-fluency-framework)
 
 AI Fluency Framework
+
+SummaryTranscript
 
 This comprehensive video introduces the 4D Framework—Delegation,
 Description, Discernment, and Diligence—as the foundation of AI fluency. It
@@ -36,14 +38,14 @@ partner.
 
 This video is just an introduction to the framework, for the full breakdown and many practical exercises, check out our AI Fluency: Framework & Foundations course [here(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations).
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The 4Ds work together to create genuine AI Fluency
 * Augmentation (working with AI) is more valuable than automation in the learning context (AI doing work for you)
 * Description and Discernment form a continuous improvement loop
 * These competencies remain relevant regardless of how AI technology evolves
 
-## Exercises
+## Exercises[](#exercises)
 
 This foundational exercise helps you establish your learning context and goals, creating a reusable document for future AI collaborations. Always be careful when sharing information with an AI (or any computer system). Protect your privacy and the privacy of others.
 
@@ -76,12 +78,12 @@ Before engaging with AI, clarify your own position as a learner. Consider your:
 * What do you hope AI can help you achieve academically?
 * What boundaries do you want to set for AI use in your learning?
 
-### Reflection questions:
+### Reflection questions:[](#reflection-questions)
 
 * What surprised you about articulating your learning needs?
 * How do you think having this context will improve your AI interactions?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore using AI as a genuine learning partner. You'll discover the crucial difference between having AI do work for you versus helping you learn, create an AI study buddy configured for your needs, and build a learning journal system that tracks your real growth over time.
 

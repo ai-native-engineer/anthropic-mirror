@@ -16,9 +16,9 @@ The set up that makes Claude Cowork specific to your work or team.
 
 [Claude Cowork(opens in new tab)](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) runs full tasks across your files and tools. Customizing it once means every task after that starts with your systems connected and your team's process already in place. For the quickstart, see [Get started in Cowork in three steps(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps).
 
-## Level 1: Your context and tools
+## Level 1: Your context and tools[](#level-1-your-context-and-tools)
 
-### **Connectors**
+### **Connectors**[](#connectors)
 
 [Connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities) plug Cowork into the systems where your work already is — Slack, HubSpot, Microsoft 365, Jira, your company's internal tools — giving it the context to understand a task and the ability to act on it. With a connector enabled, Claude can read your data *and* write back: update a ticket, draft a reply, post to a channel, save a file.
 
@@ -26,7 +26,7 @@ Enable connectors from the **Customize** panel in the left sidebar. Authorize on
 
 **Permissions.** For enterprise users, your admin controls which connectors are available — including Claude in Chrome — and whether each has read-only or write authorization. You can adjust which tools are enabled for a given session from the **Customize** menu or in the chat bar. [More on connector permissions.(opens in new tab)](https://support.claude.com/en/collections/15399129-connectors)
 
-### **Instructions**
+### **Instructions**[](#instructions)
 
 Instructions are standing rules you write for how Claude should work — tone, formatting, which sources to check first, conventions to follow. Set them at two levels:
 
@@ -38,9 +38,9 @@ Instructions are standing rules you write for how Claude should work — tone, f
 
 Instructions apply to every task — they're like the background rules Claude follows regardless of what you're working on. A Skill is for one specific kind of task, loads only when relevant, and can be shared with teammates. General rules go in Instructions; a repeatable process goes in a Skill.
 
-## Level 2: Capture your process
+## Level 2: Capture your process[](#level-2-capture-your-process)
 
-### **Skills**
+### **Skills**[](#skills)
 
 [Skills(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills) are instruction files for Claude to complete specific tasks in a repeatable way. Use skills to encode your personal best practices — as well as your team's expertise — into a repeatable set of instructions.
 
@@ -54,9 +54,9 @@ Open in Cowork
 
 The built-in skill-creator captures the steps, templates, and source locations so the next run is one prompt. [Create your first skill in Cowork](claude://cowork/new?q=Walk%20me%20through%20creating%20my%20first%20Skill.%20Ask%20me%20about%20a%20task%20I%20repeat%20every%20week%2C%20then%20help%20me%20capture%20it.).
 
-## Level 3: Bundle and share
+## Level 3: Bundle and share[](#level-3-bundle-and-share)
 
-### **Plugins**
+### **Plugins**[](#plugins)
 
 [Plugins(opens in new tab)](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork) bundle together Connectors and Skills so teammates have what they need to get started.
 
@@ -71,7 +71,7 @@ Anthropic publishes ready-made plugins for common roles, each pairing the connec
 
 Browse available Plugins in the **Customize** sidebar for more options, or ask Claude to bundle your own connectors and Skills into a custom plugin to share with your team. [Browse plugins for my role in Cowork](claude://cowork/new?q=Show%20me%20the%20plugins%20available%20for%20my%20role%20and%20help%20me%20pick%20one%20to%20install.).
 
-## Where to go from here
+## Where to go from here[](#where-to-go-from-here)
 
 Most people start with connectors and Instructions, write a skill after running the same task a few times, and share it once a teammate asks how to set theirs up the same way. Plugins are how your admin distributes the org's standard set across roles.
 

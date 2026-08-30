@@ -16,16 +16,16 @@ In this lessonBy the end, you’ll be able to
 * Navigate the connectors directory and set up your first connection
 * Use connected tools effectively in your conversations with Claude
 
-## What are connectors?
+## What are connectors?[](#what-are-connectors)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Connectors transform Claude from an assistant into an informed collaborator** by giving Claude access to the same tools, data, and context that you use every day. Instead of starting every conversation from scratch, Claude can work directly with your actual information.
 * **Connectors allow Claude to read information and perform actions on your behalf.** Depending on the connector and permissions you grant, Claude can search your files, retrieve documents, analyze data, create new content, update records, and execute tasks across your connected applications—all from within your conversation.
 * **The Model Context Protocol (MCP) powers connectors.** Think of MCP like USB-C for AI—a universal standard that allows Claude to connect to many different applications through a single, consistent interface. This open standard means developers can build connectors for any tool, and those connectors work seamlessly with Claude.
 * **There are two types of connectors: web connectors and desktop extensions.** Web connectors link Claude to cloud services like Google Drive, Notion, Slack, and Asana. Desktop extensions run locally on your computer through the Claude Desktop app, giving Claude access to local files and native applications.
 
-## Finding and connecting tools
+## Finding and connecting tools[](#finding-and-connecting-tools)
 
 Below is a request Claude can already handle — everything it needs is in the words you typed. Nothing else is connected yet. **Turn on a source and watch the request grow:** each connection lets you ask for something that lives outside your message.
 
@@ -34,9 +34,11 @@ Anthropic maintains a directory of recommended connectors at claude.ai/directory
 * **Web:** Cloud services and applications (Gmail, Notion, Slack, Asana, Linear, Stripe, and many more)
 * **Desktop extensions:** Local tools that run on your computer through the Claude Desktop app
 
+The directory lists connectors rather than individual applications, so one entry can cover several related tools. The Atlassian Rovo connector, for example, reaches both Jira and Confluence, so look for Atlassian rather than either app by name. If a tool you need doesn't have its own entry, you can add it as a custom connector instead.
+
 To browse available connectors, you can also click the **+** button in the lower left of the chat window, then select **Connectors**.
 
-### Setting up a web connector
+### Setting up a web connector[](#setting-up-a-web-connector)
 
 Here's how to connect a cloud service:
 
@@ -48,7 +50,7 @@ Here's how to connect a cloud service:
 
 Once connected, Claude can search, read, and in some cases take actions within that service—depending on the permissions you've granted.
 
-### Desktop extensions
+### Desktop extensions[](#desktop-extensions)
 
 Desktop extensions require the Claude Desktop app rather than the web interface. These extensions let Claude interact with local applications, your file system, and native features on macOS or Windows.
 
@@ -65,7 +67,7 @@ To install a desktop extension:
 3. Browse available extensions and click Install
 4. Follow any additional setup steps specific to that extension
 
-## Using connectors in your work
+## Using connectors in your work[](#using-connectors-in-your-work)
 
 Once you've connected your tools, Claude considers them when responding to your requests. Here are some practical ways to use connected tools:
 
@@ -93,7 +95,7 @@ Once you've connected your tools, Claude considers them when responding to your 
 * “What's the status of the Acme Corp opportunity?”
 * “List recent transactions over $1,000”
 
-## Security and permissions
+## Security and permissions[](#security-and-permissions)
 
 When you connect Claude to external services, you're granting it access to read—and sometimes modify—data within those services. Here are some important considerations:
 
@@ -101,7 +103,7 @@ When you connect Claude to external services, you're granting it access to read�
 * **Claude sees what you see:** Claude can only access data *you* have access to. Connecting your work email doesn't give Claude access to your CEO's inbox—only your own.
 * **Revocable at any time:** You can disconnect a service through Claude's settings or through the third-party service's security settings. Just as with Skills, you can also find or build custom connectors. Exercise the same caution — only install connectors from trusted sources.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Before moving on, consider:
 
@@ -109,7 +111,7 @@ Before moving on, consider:
 * What tasks currently require you to copy and paste information that connectors could handle automatically?
 * Are there workflows where combining data from multiple connected sources would save you significant time?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, you'll learn about Enterprise Search—a specialized feature for Claude for Work users that connects Claude to your organization's knowledge sources with custom prompts optimized for your company's context.
 

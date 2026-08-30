@@ -14,7 +14,7 @@ A playbook for rolling out Claude Cowork across your organization.
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-eb38a4h1.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j0al2e51.png)
 
-## The scaling mindset
+## The scaling mindset[](#the-scaling-mindset)
 
 Skills, plugins, and connectors compose into an operating model that transforms work across departments. Once Cowork is set up and you’re ready to roll it out to your teams, the question becomes: "we've deployed Cowork, now how do we think about building and governing the workflows that make it valuable?"
 
@@ -26,7 +26,7 @@ You are the director of this rollout, and that ownership does not transfer becau
 
 **Who this is for:** Admins, AI CoE leaders, transformation teams and department leads — anyone responsible for making Claude Cowork work across the org. You won't build every workflow yourself — that happens through internal champions and power users who build for their teams. Your job is strategy, champion selection, and enablement.
 
-## Building blocks
+## Building blocks[](#building-blocks)
 
 | Component | What it does | Help center |
 | --- | --- | --- |
@@ -37,13 +37,13 @@ You are the director of this rollout, and that ownership does not transfer becau
 
 ![](https://academy.claude.com/assets/media/8d7eac8934f5b85fdf935afeca7aae184612535769587ee31302dbded747ec12.png)
 
-### How the components fit together
+### How the components fit together[](#how-the-components-fit-together)
 
 Here's how skills, connectors and plugins combine for a single finance workflow:
 
 A finance team member asks Claude to reconcile the December cash account. The **Finance plugin** is installed, so Claude loads the **reconciliation skill** (step-by-step instructions for matching GL to bank). The **data-warehouse connector** retrieves the trial balance and transactions. Claude runs the comparison, flags discrepancies, and writes the workpaper back. One request, three pieces: connector feeds it data, skill directs Claude, plugin delivers it.
 
-### Skill flywheel: from individual to the organization
+### Skill flywheel: from individual to the organization[](#skill-flywheel-from-individual-to-the-organization)
 
 Skills, connectors and plugins scale beyond unique workflows for individuals. Taking finance as an example, here’s the typical flow for individual expertise to become an organizational capability:
 
@@ -56,7 +56,7 @@ Skills and plugins can drive horizontal workflows across your org, too. For exam
 
 That’s the flywheel — personal expertise becoming organizational capability, and org capabilities and best-practices getting distributed across teams.
 
-## 2. Choosing a governance posture
+## 2. Choosing a governance posture[](#2-choosing-a-governance-posture)
 
 Workflows scale when skills get distributed through departments and surface to the rest of the organization. Governance posture is your stance on how freely that movement happens.
 
@@ -81,17 +81,17 @@ Governance posture does not currently control Connector access. Connectors are o
 
 **For how admins distribute skills and plugins (**admin-provisioned skills, group-scoped plugins, GitHub-synced marketplace), see [Provision and manage skills for your org(opens in new tab)](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization), [Managing Cowork plugins,(opens in new tab)](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization) and [Customize plugin access by group(opens in new tab)](https://support.claude.com/en/articles/13837433-manage-claude-cowork-plugins-for-your-organization#h_ac08ca5f63)**.**
 
-## 3. Champion model
+## 3. Champion model[](#3-champion-model)
 
 Champions are enthusiastic adopters who can help drive peer adoption across their teams. They will be participants in your pilot if you run one, and play a key role in your Cowork rollout. Champions are the people who will test workflows, demo at workshops, maintain plugins, and drive adoption within their departments.
 
-### Who makes a good champion:
+### Who makes a good champion:[](#who-makes-a-good-champion)
 
 * A power user who is already getting value from AI tools - whether Claude or otherwise
 * Willing to build and experiment for their teams
 * Trusted by admins to help gather departmental feedback and surface blockers
 
-### How to find champions:
+### How to find champions:[](#how-to-find-champions)
 
 * Usage analytics are a great signal for discovering champions. Anthropic provides per-user activity data which will help uncover power users early on.
 * Ask function leads to nominate
@@ -99,7 +99,7 @@ Champions are enthusiastic adopters who can help drive peer adoption across thei
 * Mix technical and non-technical users across different departments
 * Include enthusiasts and sceptics; an all-enthusiastic pilot gives false positives
 
-### What to give champions:
+### What to give champions:[](#what-to-give-champions)
 
 * Permission to create Skills and consider turning on peer-to-peer Skill sharing for pilot group
 * A 30-minute orientation on skills, plugins, and the governance model you're using
@@ -107,7 +107,7 @@ Champions are enthusiastic adopters who can help drive peer adoption across thei
 * Access to Anthropic's pre-built plugins as starting points
 * Recognition for their contributions to the rollout
 
-### What to expect from champions:
+### What to expect from champions:[](#what-to-expect-from-champions)
 
 * Build 2–3 starter skills for their team
 * Help their teams audit workflows and generate use case ideas
@@ -116,7 +116,7 @@ Champions are enthusiastic adopters who can help drive peer adoption across thei
 * Surface what's working and what's not in the champions channel
 * Do a quarterly curation review of their department's skills
 
-## 4. Rollout phases
+## 4. Rollout phases[](#4-rollout-phases)
 
 The organizations that see the fastest, deepest value invest in readiness, curate first experiences, and govern deliberately by following these five principles.
 
@@ -128,7 +128,7 @@ The organizations that see the fastest, deepest value invest in readiness, curat
 
 Here's what a typical Cowork rollout looks like. Adapt the pace to your org. Note that the phases below assume Setup and Configuration steps from the [Cowork Enterprise Admin Guide(opens in new tab)](https://academy.claude.com/tutorials/claude-cowork-enterprise-administrator-guide) are complete.
 
-### Phase 1: Pilot
+### Phase 1: Pilot[](#phase-1-pilot)
 
 **Goal:** Validate your configuration and produce the first proof points with a small group of champions.
 
@@ -154,7 +154,7 @@ Exit when ready:
 
 What changes between pilot and broad rollout is usually the governance posture, new connectors cleared by security, and new departments onboarding with their own champions.
 
-### Phase 2: Expansion
+### Phase 2: Expansion[](#phase-2-expansion)
 
 **Goal:** Turn pilot proof points into department-level adoption — the skill flywheel starts here.
 
@@ -178,7 +178,7 @@ Exit when:
 * Workshop run in each department; majority of attendees built or adopted a skill
 * Connector and governance requests are flowing through a defined process
 
-### Phase 3: Scale and Monitor
+### Phase 3: Scale and Monitor[](#phase-3-scale-and-monitor)
 
 **Goal:** Reach remaining departments and shift from launch mode to operating rhythm.
 
@@ -212,13 +212,13 @@ The habit worth keeping past this rollout is reassignment. Every quarter, and ev
 
 **Only measuring time-saved or login counts.** Consider what ROI on Claude Cowork means for your business. Define outcome-based measures including net new work completed and qualitative feedback on use cases in addition to productivity measurement.
 
-## 5. Enablement methods
+## 5. Enablement methods[](#5-enablement-methods)
 
 Cowork training should be hands-on-keyboard when possible — the value shows up in *doing*, not watching. But "training" is really three different jobs depending on where a user is in their journey. Reference Anthropics researched-backed [AI Fluency principles(opens in new tab)](https://academy.claude.com/tutorials/getting-good-at-claude-a-research-backed-curriculum) when designing enablement for your teams.
 
 Enablement follows a natural progression: users start by completing a single task with a connector, then build competence with skills and plugins, then reach the point where Claude Cowork runs workflows for them automatically.
 
-### Phase 1: Activation (first prompt to first skill)
+### Phase 1: Activation (first prompt to first skill)[](#phase-1-activation-first-prompt-to-first-skill)
 
 Get every user from zero to their first successful task with a connector.
 
@@ -227,7 +227,7 @@ Get every user from zero to their first successful task with a connector.
 * **Side-by-side demo**. The champion shows the same task done as a chat prompt vs. a delegated Claude Cowork task with connectors. Same input, different output.
 * **1:many Cowork 101 training**. Introduce skills, connectors, plugins and recurring tasks following the curriculum outlined in [Intro to Claude Cowork(opens in new tab)](https://academy.claude.com/courses/introduction-to-claude-cowork)
 
-### Phase 2: Enablement (connectors, skills, and real workflows)
+### Phase 2: Enablement (connectors, skills, and real workflows)[](#phase-2-enablement-connectors-skills-and-real-workflows)
 
 Shift from first success to repeatable competence. Every user gets at least one skill they rely on and at least one plugin installed.
 
@@ -237,7 +237,7 @@ Shift from first success to repeatable competence. Every user gets at least one 
 * **Skill of the week**. Team posts one skill in the team channel with a short video of it running on real work. Skills provide inspiration for cross-functional teams.
 * **Champion demo days**. Cross-department show-and-tell on a monthly cadence. A sales champion demos their call-prep skill; an engineer demos their incident postmortem drafter. This is how ideas cross silos.
 
-### Phase 3: Habit (automation and steady state)
+### Phase 3: Habit (automation and steady state)[](#phase-3-habit-automation-and-steady-state)
 
 Lasting adoption means Claude Cowork is already running when users sit down in the morning.
 
@@ -252,7 +252,7 @@ Lasting adoption means Claude Cowork is already running when users sit down in t
 
 **Bake into new-hire onboarding**. Include Cowork in Day-1 checklist: install the desktop app, authenticate 3 connectors, install the department plugin, run its flagship skill. See [Installing Claude Desktop(opens in new tab)](https://support.claude.com/en/articles/10065433-installing-claude-desktop).
 
-## 6. FAQ
+## 6. FAQ[](#6-faq)
 
 **Can I control which connectors specific users see?** No. Currently, you can only enable connectors org-wide.
 

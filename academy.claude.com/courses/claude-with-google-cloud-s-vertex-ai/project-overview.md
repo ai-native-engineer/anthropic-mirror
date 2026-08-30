@@ -16,7 +16,7 @@ We're going to build a practical project that teaches Claude how to set reminder
 
 The goal is to have a conversation like this: you tell Claude "Set a reminder for my doctor's appointment. It's a week from Thursday," and Claude responds "OK, I will remind you." To make this work, we need to understand why this is actually harder than it looks.
 
-## Why This Is Challenging
+## Why This Is Challenging[](#why-this-is-challenging)
 
 Claude has some built-in knowledge about dates and times, but it also has some significant limitations:
 
@@ -28,21 +28,21 @@ Claude has some built-in knowledge about dates and times, but it also has some s
 
 These limitations mean that even a simple request like "set a reminder for 24 hours from now" becomes problematic. Claude doesn't know what "24 hours from now" actually means without knowing the current time. And even if it could calculate the right date, it has no mechanism to actually create a reminder.
 
-## Tools We Need
+## Tools We Need[](#tools-we-need)
 
 To solve these problems, we'll create three custom tools that work together:
 
 ![](https://academy.claude.com/assets/media/d1042ce4670eec51e35842b37d919f53d8285a0da854a7661546e4e3b3ef62eb.png)
 
-## Get the Current Date Time
+## Get the Current Date Time[](#get-the-current-date-time)
 
 This is our starting tool - it gives Claude access to both the current date and the exact time. This solves the problem of Claude not knowing when "now" actually is.
 
-## Add Duration to Date Time
+## Add Duration to Date Time[](#add-duration-to-date-time)
 
 This tool handles the math of adding time periods to dates. Instead of relying on Claude to correctly calculate "what date is 379 days from January 13th, 1973," we give it a reliable tool that can handle these calculations accurately.
 
-## Set a Reminder
+## Set a Reminder[](#set-a-reminder)
 
 Finally, we need a way for Claude to actually create reminders. This tool will provide the mechanism that Claude lacks for setting up future notifications.
 

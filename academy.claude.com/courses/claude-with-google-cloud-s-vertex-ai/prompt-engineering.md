@@ -14,7 +14,7 @@ Prompt engineering is about taking a prompt you've written and improving it to g
 
 ![](https://academy.claude.com/assets/media/135340165a55b554a968a55352c565b5d180ee9d685cc339021feb685f620efa.png)
 
-## The Iterative Improvement Process
+## The Iterative Improvement Process[](#the-iterative-improvement-process)
 
 The approach follows a clear cycle that you can repeat until you achieve your desired results:
 
@@ -28,7 +28,7 @@ The approach follows a clear cycle that you can repeat until you achieve your de
 
 You repeat the last two steps until you're satisfied with the performance. Each iteration should show measurable improvement in your evaluation scores.
 
-## Example: Meal Planning for Athletes
+## Example: Meal Planning for Athletes[](#example-meal-planning-for-athletes)
 
 Let's walk through a practical example. The goal is to create a prompt that generates a one-day meal plan for athletes based on their physical characteristics and requirements.
 
@@ -36,7 +36,7 @@ Let's walk through a practical example. The goal is to create a prompt that gene
 
 The prompt takes these inputs and should produce a comprehensive meal plan with caloric totals, macronutrient breakdowns, and specific meal details with portions and timing.
 
-## Setting Up the Evaluation Framework
+## Setting Up the Evaluation Framework[](#setting-up-the-evaluation-framework)
 
 To measure improvement systematically, you need a robust evaluation setup. The framework includes:
 
@@ -46,7 +46,7 @@ To measure improvement systematically, you need a robust evaluation setup. The f
 
 When setting up your evaluator, be mindful of API rate limits. Start with low concurrency (1-3 concurrent requests) and only increase if you don't encounter rate limiting errors.
 
-## Creating Your Initial Prompt
+## Creating Your Initial Prompt[](#creating-your-initial-prompt)
 
 Start with something simple, even if you know it's not great. Here's an example of a basic first attempt:
 
@@ -61,7 +61,7 @@ What should this person eat?
 
 This prompt is intentionally basic and will likely produce poor results. That's exactly what you want - a clear baseline to improve from.
 
-## Establishing Evaluation Criteria
+## Establishing Evaluation Criteria[](#establishing-evaluation-criteria)
 
 Define specific criteria that your prompt should meet. For the meal planning example, good output should include:
 
@@ -71,13 +71,13 @@ Define specific criteria that your prompt should meet. For the meal planning exa
 
 These criteria help the evaluation model grade outputs consistently and give you clear targets for improvement.
 
-## Measuring Baseline Performance
+## Measuring Baseline Performance[](#measuring-baseline-performance)
 
 Run your initial prompt through the evaluation framework. Don't be discouraged by low scores - a score of 2.3 out of 10 is actually perfect for a starting point. It gives you plenty of room to demonstrate improvement.
 
 ![](https://academy.claude.com/assets/media/2fd0f9ee259eec89733058334e131c87c93a044ab903477ced9e647b681c7a42.png)
 
-## Analyzing Results
+## Analyzing Results[](#analyzing-results)
 
 Most evaluation frameworks generate detailed reports showing how each test case performed. These reports typically include:
 
@@ -89,7 +89,7 @@ Most evaluation frameworks generate detailed reports showing how each test case 
 
 Use this detailed feedback to identify specific areas where your prompt needs improvement. Look for patterns across multiple test cases to understand systematic issues rather than one-off problems.
 
-## Next Steps
+## Next Steps[](#next-steps)
 
 With your baseline established and evaluation framework in place, you're ready to start applying specific prompt engineering techniques. Each technique you apply should result in measurable improvement in your evaluation scores, moving you closer to your ideal output quality.
 

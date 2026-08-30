@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Understand and extend an inherited spreadsheet result](https://academy.claude.com/assets/v1/understand-and-extend-an-inherited-spreadsheet-7lf1zt77.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Inherited spreadsheets carry hidden complexity—formulas referencing other formulas, assumptions buried across tabs, calculations that cascade in undocumented ways. Before extending a model, you need to understand how it works.
 
@@ -34,11 +34,11 @@ Add some visual elements so I can see the trends at a glance—data bars on the 
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Upload the spreadsheet so Claude can read formulas and trace cell references directly.
 
-### Required context
+### Required context[](#required-context)
 
 Make sure [file creation(opens in new tab)](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude) is enabled in settings so Claude can produce an extended version with working formulas.
 
@@ -48,7 +48,7 @@ Click the (+) button in the chat bar to browse through your files or, alternativ
 
 Revenue ModelXLSX
 
-### Optional context
+### Optional context[](#optional-context)
 
 Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) for Claude to develop sophisticated layouts and logic during multi-step tasks.
 
@@ -56,7 +56,7 @@ Turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/arti
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude explains the tab structure and hidden logic, adds sparklines to surface trends and comments to explain formulas, then extends the model. The new spreadsheet matches the original conventions so the file stays coherent.
 
@@ -97,11 +97,11 @@ I've read Marcus's Legend tab and cell comments. Here's the full picture.
 
 The sparklines show seasonality patterns—Q4 spikes, Q1 dips—without you scanning numbers. Hover over cells with red corners to see the comments. Test the model: change Enterprise churn in Assumptions and watch it cascade through all tabs.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Create a changelog for what you modified
+### Create a changelog for what you modified[](#create-a-changelog-for-what-you-modified)
 
 When you extend or modify a model, documenting what changed makes future handoffs cleaner and protects you if questions arise.
 
@@ -109,7 +109,7 @@ Can you create a summary of every change made to this file? List what was added,
 
 Open in Claude
 
-### Update with actuals and analyze variance
+### Update with actuals and analyze variance[](#update-with-actuals-and-analyze-variance)
 
 The quarter closed. Now you need to replace projections with actual results and understand where the forecast diverged from reality.
 
@@ -117,21 +117,21 @@ Q4 2025 closed at $8.2M revenue versus the $8.5M forecast. Update the model with
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Choose Opus for complex financial models
+### Choose Opus for complex financial models[](#choose-opus-for-complex-financial-models)
 
 Sonnet handles simple spreadsheets well. But inherited models with cross-sheet dependencies—where changing one assumption cascades through four tabs—benefit from Opus 4.5's deeper reasoning. The extra time per response pays off in fewer formula errors, better pattern recognition, and polished output files with working formulas, formatting, and annotations intact.
 
-### Ask Claude to annotate the file
+### Ask Claude to annotate the file[](#ask-claude-to-annotate-the-file)
 
 Cell comments travel with the spreadsheet—unlike external docs that get separated and lost. Ask Claude to add comments explaining complex formulas directly in the file, so the explanation lives where you need it.
 
-### Add features to visualize patterns
+### Add features to visualize patterns[](#add-features-to-visualize-patterns)
 
 Ask Claude to add sparklines or embed charts next to key metrics to show clear trends. You'll instantly see which quarters spike, where margins dip, how segments compare. When you present the model, stakeholders grasp the story without scanning rows.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Work from previous financial models with clear understanding and logic. Upload inherited spreadsheets and ask Claude to show you how they work so you can extend with confidence.
 

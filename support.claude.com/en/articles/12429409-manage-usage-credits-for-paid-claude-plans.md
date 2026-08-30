@@ -8,8 +8,6 @@ Usage credits allow individuals subscribed to paid Claude plans (Pro, Max 5x, an
 
 **Note:** If you subscribed through one of the Claude mobile apps, you can only enable usage credits on the web version of Claude. You will need to add your payment method before enabling and purchasing usage credits on the web.
 
----
-
 ## How usage credits work
 
 When you reach your plan’s usage limit with usage credits enabled:
@@ -20,8 +18,6 @@ When you reach your plan’s usage limit with usage credits enabled:
 * Your session limits reset every five hours as usual.
 
 **Note:** Usage credits are charged separately from your paid Claude subscription and appear as additional charges on your bill.
-
----
 
 ## Enabling usage credits
 
@@ -36,11 +32,9 @@ To enable usage credits on your paid Claude plan:
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1787622300&signature=be781e4762dc27dde663e972a49eaca94252232b718106c6ceef4e03a44d0222&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARWfp%2FI7opE7m38YdfcPcHiuTa0w7%2BAdip29%0Ager4euodf1CUCFr5CPo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1787622300&signature=be781e4762dc27dde663e972a49eaca94252232b718106c6ceef4e03a44d0222&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARWfp%2FI7opE7m38YdfcPcHiuTa0w7%2BAdip29%0Ager4euodf1CUCFr5CPo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1788033600&signature=80e9c624583205b8b165f7f74eb7d43e1a9b7db909b616c2906d420b4fd5e789&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARqZpvM%2BopE7m38YdfdfsJXUAwVP19iOKI2k%0ANgnNxuhnxoPcCDhj%2FU8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1788033600&signature=80e9c624583205b8b165f7f74eb7d43e1a9b7db909b616c2906d420b4fd5e789&req=dSgnE8F%2FlIZXXPMW1HO4zYj2ARqZpvM%2BopE7m38YdfdfsJXUAwVP19iOKI2k%0ANgnNxuhnxoPcCDhj%2FU8%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
-
----
 
 ## Set spend limits
 
@@ -50,15 +44,11 @@ Control your usage credit spending with:
 * **Auto-reload settings:** Automatically add funds when your balance drops below a threshold.
 * **Usage alerts:** Receive notifications when approaching your spend limits.
 
----
-
 ## Usage credit pricing
 
 Usage credits are billed at standard API rates; see our **[pricing page](https://claude.com/pricing#api)** for details.
 
 Price and plans are subject to change at Anthropic's discretion.
-
----
 
 ## Managing your usage credits
 
@@ -80,8 +70,6 @@ To manage usage credit costs while maintaining productivity:
 * **Use projects effectively:** Store frequently referenced documents in project knowledge instead of re-uploading.
 * **Set appropriate limits:** Start with conservative spending caps and adjust based on your needs.
 
----
-
 ## How usage credits work with other features
 
 ### Claude Code
@@ -95,8 +83,6 @@ When using Research mode, usage credits apply once you exceed your plan's includ
 ### Projects and files
 
 Documents stored in project files count toward your context when used in conversations. Usage credits apply to all tokens processed, including project content.
-
----
 
 ## Frequently asked questions
 
@@ -124,8 +110,8 @@ Yes, you’ll see a clear notification when approaching and reaching your includ
 
 In most cases, usage credits do not expire. However, in certain jurisdictions such as Japan, usage credits expire six months after purchase starting September 10, 2026. You'll receive an email notification seven days before your credits expire, and you can view expiration dates on the Usage page in Settings.
 
-* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
+* [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
 * [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
 * [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)

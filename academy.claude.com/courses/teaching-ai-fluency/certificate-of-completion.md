@@ -10,6 +10,8 @@ Quiz 1 of 1 · Teaching AI FluencyCourse quiz
 
 Quiz9 min
 
+You've reached the final quiz for Teaching AI Fluency. Its 12 questions revisit how to teach the 4Ds, the Delegation-Diligence and Description-Discernment loops, and the course's assessment and assignment strategies. A score of 80% or higher passes. Once you pass, select **Create your completion badge** to add it to your account, where you can view it and share a verifiable link.
+
 [Previous lessonApplying discipline expertise to AI Fluency](https://academy.claude.com/courses/teaching-ai-fluency/applying-discipline-expertise-to-ai-fluency)[Up nextCompletion badge](https://academy.claude.com/courses/teaching-ai-fluency/badge)
 
 Quiz 1 of 1 · Teaching AI FluencyCourse quiz

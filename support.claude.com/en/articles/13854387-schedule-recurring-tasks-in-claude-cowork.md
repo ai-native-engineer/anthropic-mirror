@@ -28,8 +28,6 @@ Scheduled tasks run remotely, so they run on their cadence even when your comput
 
 For Team and Enterprise organizations, admins control Cowork access through the admin toggle. For more details, see **[Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879)**.
 
----
-
 ## Create a scheduled task
 
 There are two ways to create a scheduled task:
@@ -43,7 +41,7 @@ There are two ways to create a scheduled task:
 5. Once Claude has all the necessary information, it will output the name of the task it’s creating, the schedule it will follow, and what the task actually does.
 6. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1787622300&signature=a4d9e0fa361642f8630dd0453317bcc9a0593552c473310bd9c63fe4f02e89ba&req=diEnEsl2mIJWUPMW1HO4zeLJBkLi%2FeiEPx%2FSrZI7l8yVt2Hqi6AVbyGHN6XS%0AWKqX%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1787622300&signature=a4d9e0fa361642f8630dd0453317bcc9a0593552c473310bd9c63fe4f02e89ba&req=diEnEsl2mIJWUPMW1HO4zeLJBkLi%2FeiEPx%2FSrZI7l8yVt2Hqi6AVbyGHN6XS%0AWKqX%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1788033600&signature=8db5fe6fb8586a2d746c5fc026983575bf09168e5dbffcc960b3152a67ad16aa&req=diEnEsl2mIJWUPMW1HO4zeLJBk3k%2FOmBPx%2FSrZI7l8zqro0TpKO6P5cqzXa3%0AXS6d%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1788033600&signature=8db5fe6fb8586a2d746c5fc026983575bf09168e5dbffcc960b3152a67ad16aa&req=diEnEsl2mIJWUPMW1HO4zeLJBk3k%2FOmBPx%2FSrZI7l8zqro0TpKO6P5cqzXa3%0AXS6d%0A)
 7. Claude will create and schedule your task, and it will be added to the **Scheduled tasks** page.
 
 ### Set up manually

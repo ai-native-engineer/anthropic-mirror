@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-n3rpgf21.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-jww7pt0u.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Human Resources plugin ships with `/performance-review` and other people-ops skills as a starting point, already structured to gather input, score against competencies, and draft a review. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Human ResourcesStreamline people operations — recruiting, onboarding, performa
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -62,7 +62,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (your performance framework, the rating definitions, the review template, the cycle instructions you send managers) into one folder on your machine, then point Cowork at it. Cowork reads from it to build the skill and writes the skill file back to it. If you administer the cycle each half, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so the framework, instructions, and memory stay attached.
 
@@ -78,15 +78,15 @@ manager-cycle-instructions.pdfMar 30, 2026126 KB
 
 In Cowork’s chat bar:People / perf-cycle
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Help me build the /performance-review skill for our managers. The skill should walk a manager through gathering input, scoring against our competencies, and drafting the review in our template. It should quote our rating definitions verbatim and never invent criteria that aren't in the framework.
 
 People / perf-cycleOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -104,7 +104,7 @@ Source
 
 **Let the working folder supply context.** The framework, rating definitions, and template sit in the working folder, so the skill is built from your current cycle documents and updates when you replace them.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -114,7 +114,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -124,9 +124,9 @@ People / perf-cycleOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it when the cycle opens
+### Run it when the cycle opens[](#run-it-when-the-cycle-opens)
 
 The cycle opens on the same date each half. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and Cowork reminds every manager to run `/performance-review` and refreshes the skill from the latest framework in the folder.
 
@@ -142,7 +142,7 @@ Refreshes `/performance-review` from People/perf-cycle and posts the manager kic
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/performance-review` now carries your framework, your rating language, and your template. Share it so every people manager runs the same process, and calibration compares reviews that were written against the same bar.
 
@@ -150,7 +150,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/performance-review` → **Share** and pick all people managers (or your whole workspace, if your admin allows). They get the skill with your framework and instructions baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

@@ -4,7 +4,7 @@
 
 # Get back to why you started teaching
 
-Focus on students instead of paperwork. US K-12 educators get free access to premium Claude features, like teaching skills and a connection to evidence-based curricula, aligned to state standards.
+US K-12 educators and districts get free access to premium Claude features, like teaching skills and a connection to evidence-based curricula, aligned to state standards. Schools and district leaders can bring Claude for Teachers into one workspace with enterprise-level features like role-based access controls and SSO, all at no cost.
 
 Get verified
 
@@ -35,6 +35,10 @@ You can connect to Learning Commons, which gives Claude access to academic stand
 ### Built to protect student data
 
 No model training on your content by default and student data stays protected.
+
+### Ready for your school or district
+
+Schools and district leaders can give every educator Claude for Teachers under accounts they manage, with enterprise-level features like role-based access controls, SSO and K-12 Terms.
 
 Use current teaching tools
 
@@ -86,7 +90,7 @@ Create new lesson plans, or update existing files on your desktop using Cowork. 
 
 Prompt
 
-Make a spreadsheet analysis on how my 4th grade ELA students are performing on grade-level standards. Then put everyone into small groups (reteach, on-level, and extension) for tomorrow’s lesson on main ideas and supporting details.
+Make a spreadsheet analysis on how my 4th grade ELA students are performing on grade-level standards, using the de-identified reading data I've attached. Then put everyone into small groups (reteach, on-level, and extension) for tomorrow's lesson on main ideas and supporting details.
 
 Attachments
 
@@ -96,7 +100,7 @@ Attachments
 
 PDF
 
-class-reading-levels
+class-reading-levels-deidentified
 
 100 kb
 
@@ -112,7 +116,7 @@ Learning Commons
 
 ### Differentiate for every student in the room
 
-Give Claude context about your class, like reading levels, English language learner status, and specific accommodations. It produces varied materials for students working below, at, and above grade level.
+Give Claude context about your classroom — like de-identified reading levels — to produce differentiated materials for students working below, at, and above grade level.
 
 Whether and how educational data may be used in Claude for Teachers is determined by your district and state policies. You can read more about our K-12 data privacy standards for Claude for Teachers [here](https://support.claude.com/en/articles/15926041).
 
@@ -445,7 +449,7 @@ Training is off by default for every verified educator account. Your conversatio
 
 ### Built with FERPA in mind
 
-Educator accounts include FERPA-aligned terms and a defined SLA for deleting conversations that contain student data.
+Educator accounts include FERPA-aligned terms. District accounts include school or district-wide K-12 terms and data privacy agreement.
 
 ### Informed by the AFT Gold Standard
 
@@ -491,20 +495,6 @@ Learn more
 
 [Learn more](https://claude.com/skills)Learn more
 
-Build performance plans
-
-![thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4ef89311177e5831258f84_teachers-tutorial-2.jpg)
-
-Analyze and plan with a holistic view of student performance.
-
-Learn more
-
-[Learn more](https://claude.com/resources/tutorials/claude-for-teachers-in-action)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4ef89311177e5831258f84_teachers-tutorial-2.jpg)
-
 How can I help?
 
 Set up a weekly email for parents that includes what the class will learn next week. Highlight how parents can support  students at home.
@@ -532,12 +522,6 @@ Ask Claude
 [Prev](#)Prev
 
 [Next](#)Next
-
-![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-“Claude surprised me when it broke down my lesson by grade-level standards, suggested accommodations for IEP students, and effectively surfaced interdisciplinary connections!”
-
-Sara, Science Teacher
 
 ![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)![Logo](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
@@ -573,16 +557,32 @@ Serving verified teachers across US school systems
 
 Free
 
+Verify now
+
+[Verify now](https://claude.ai/teachers)Verify now
+
 * Free account with access to premium Claude features
 * Skills for teaching workflows
 * Connectors to evidence-based curriculum (including Learning Commons)
 * Models are never trained on your conversations
 
-Verify now
+### For US K-12 schools and districts
 
-[Verify now](https://claude.ai/teachers)Verify now
+Bring Claude for Teachers to every educator
 
-Sign up by June 30, 2027 for your full year of free access. Claude for Teachers is for individual educators—a dedicated offering for schools and districts is coming soon. In the meantime, K-12 schools and districts interested in Claude can continue using [Claude for Nonprofits](https://claude.com/solutions/nonprofits) as they do today.
+Free
+
+Get started
+
+[Get started](https://claude.ai/k12districts)Get started
+
+* Claude for Teachers for every educator on your school or district domain
+* Centrally managed accounts with enterprise-level features like role-based access controls and single sign-on
+* K-12 terms and student data privacy agreement
+* Models are never trained on your conversations
+
+Sign up by June 30, 2027 for your full year of free access.
+
 \*Extra usage limits apply. Prices shown don’t include applicable tax. Price and plans are subject to change at Anthropic’s discretion.
 
 [Usage limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Price and plans are subject to change at Anthropic's discretion.

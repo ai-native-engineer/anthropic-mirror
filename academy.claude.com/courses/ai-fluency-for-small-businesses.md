@@ -33,19 +33,19 @@ This course is the result of a partnership between Anthropic, PayPal, Prospect B
 
 The work builds on our AI Fluency: Framework & Foundations course, adapted specifically for the small business context where limited resources, business accountabilities, and customer experience create unique considerations for AI collaboration.
 
-## **Recommended prerequisites**
+## **Recommended prerequisites**[](#recommended-prerequisites)
 
 This course lightly covers the foundational AI Fluency concepts. However, for deeper understanding, participants should complete *AI Fluency: Framework & Foundations* before beginning this small business-focused curriculum.
 
 It is also recommended that learners have access to an AI chat tool for hands-on practice. Examples in this course will use [Claude.ai(opens in new tab)](http://claude.ai), but any chatbot will work.
 
-## About the partners
+## About the partners[](#about-the-partners)
 
 This course was created in partnership between Anthropic, PayPal, Prospect Butcher Company, and MAKS TIPM Rebuilders. Anthropic is a frontier AI safety company and the maker of Claude. PayPal is a platform that helps businesses of all sizes make selling and shopping simple and secure. Prospect Butcher Company and MAKS TIPM Rebuilders are the two small businesses featured throughout the course — a Brooklyn butcher shop and an automotive power-module rebuilder, each using AI to grow.
 
 ![PayPal](https://academy.claude.com/assets/media/4a1c413c7ac02aad10cf355acc7710a9296cbf67e12c28d62678938d5ceadf19.png)![Prospect Butcher Company](https://academy.claude.com/assets/media/ef92dd043a409872e053c27ac5be16968699a65242592a3cb11042666e340f91.png)![MAKS TIPM Rebuilders](https://academy.claude.com/assets/media/1e89ca29bf0a79acfa99b2f509788f3341b545808b7d852a89032b7144d15f4b.png)
 
-## AI diligence statement
+## AI diligence statement[](#ai-diligence-statement)
 
 In the development of the AI Fluency: Framework and Foundations course, we engaged in extensive collaboration with Claude from Anthropic.
 

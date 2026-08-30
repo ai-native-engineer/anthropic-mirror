@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Turn emails into an event tracker result](https://academy.claude.com/assets/v1/turn-emails-into-an-event-tracker-js6qs8fq.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude connects to external tools like your email to access information at its source, then processes multiple unstructured documents simultaneously - extracting specific data in varied formats and turning them into outputs, like spreadsheets, that you can immediately use.
 
@@ -30,11 +30,11 @@ We're locking in the agenda next week. Build me a tracker with formulas, color-c
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Enable access to your tools so Claude can search for and collect the relevant information.
 
-### Required context
+### Required context[](#required-context)
 
 In Setting > Connectors, enable the [Gmail integration(opens in new tab)](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) and make sure it is toggled on in the chat bar. This allows Claude to search through your recent emails, extract details related to your upcoming event, and organize the logistics you're tracking.
 
@@ -46,15 +46,7 @@ Gmail
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
-
-Enable [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) to help Claude complete complex tasks and create higher quality outputs.
-
-[
-
-Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
-
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude searches your inbox for the confirmation emails, reads through each response to find the specific details you requested, and structures all of the answers into a spreadsheet.
 
@@ -78,11 +70,11 @@ I found 38 speaker confirmations in your inbox. Here's your coordination tracker
 
 **Materials Tracking:** Shows the 11 speakers who haven't submitted bios yet, with their contact info. Sorted by when they're presenting so you can prioritize Day 1 speakers for immediate follow-up.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Add events to your calendar
+### Add events to your calendar[](#add-events-to-your-calendar)
 
 With Google Calendar connected, Claude can create calendar events from your event tracker and add them directly to your Google calendar
 
@@ -90,7 +82,7 @@ Create calendar events for each confirmed speaker session on [conference dates].
 
 Open in Claude
 
-### Draft follow-up messages
+### Draft follow-up messages[](#draft-follow-up-messages)
 
 Claude can help with the repetitive work of drafting similar emails for multiple recipients, while you review, personalize, and send each one.
 
@@ -98,7 +90,7 @@ For the 11 speakers missing bios, write friendly follow-up emails that reference
 
 Open in Claude
 
-### Ensure spreadsheets are dynamic
+### Ensure spreadsheets are dynamic[](#ensure-spreadsheets-are-dynamic)
 
 If Claude created a spreadsheet with hardcoded totals, ask it to rebuild those sections with dynamic formulas that update automatically.
 
@@ -106,17 +98,17 @@ The speaker count and session totals should use formulas like =COUNTIF() and =SU
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Specify how to search your inbox
+### Specify how to search your inbox[](#specify-how-to-search-your-inbox)
 
 Claude understands context and can find related emails even without exact keyword matches, but it needs clear direction about what you're looking for. Instead of "find important emails," try "emails from speakers about their session needs" or "customer emails mentioning billing issues in the last week." The more context you provide about what matters, the better Claude can filter what's relevant.
 
-### Download and open the actual file, not just the preview.
+### Download and open the actual file, not just the preview.[](#download-and-open-the-actual-file-not-just-the-preview)
 
 The preview in chat shows basic structure, but the real spreadsheet file has the formulas, color-coding, and formatting. Open the spreadsheet to see—and continue editing—the complete output.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Integrate Claude with your various tools to quickly locate information within your inbox and transform it into a functional spreadsheet tracker in just minutes.
 

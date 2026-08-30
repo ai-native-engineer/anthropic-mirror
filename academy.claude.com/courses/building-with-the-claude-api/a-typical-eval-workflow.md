@@ -14,7 +14,7 @@ A typical prompt evaluation workflow follows five key steps that help you system
 
 ![](https://academy.claude.com/assets/media/c7dc99eee2300e25b5e601d4873fb6fc50dd72ef7781e054a2da3139d7087179.png)
 
-## Step 1: Draft a Prompt
+## Step 1: Draft a Prompt[](#step-1-draft-a-prompt)
 
 Start by writing an initial prompt that you want to improve. For this example, we'll use a simple prompt:
 
@@ -32,7 +32,7 @@ Please answer the user's question:
 
 This basic prompt will serve as our baseline for testing and improvement.
 
-## Step 2: Create an Eval Dataset
+## Step 2: Create an Eval Dataset[](#step-2-create-an-eval-dataset)
 
 Your evaluation dataset contains sample inputs that represent the types of questions or requests your prompt will handle in production. The dataset should include questions that will be interpolated into your prompt template.
 
@@ -46,7 +46,7 @@ For this example, our dataset includes three questions:
 
 In real-world evaluations, you might have tens, hundreds, or even thousands of records. You can assemble these datasets by hand or use Claude to generate them for you.
 
-## Step 3: Feed Through Claude
+## Step 3: Feed Through Claude[](#step-3-feed-through-claude)
 
 Take each question from your dataset and merge it with your prompt template to create complete prompts. Then send each one to Claude to get responses.
 
@@ -61,7 +61,7 @@ What's 2+2?
 
 Claude might respond with "2 + 2 = 4" for the math question, provide oatmeal cooking instructions for the second question, and give the distance to the Moon for the third.
 
-## Step 4: Feed Through a Grader
+## Step 4: Feed Through a Grader[](#step-4-feed-through-a-grader)
 
 The grader evaluates the quality of Claude's responses by examining both the original question and Claude's answer. This step provides objective scoring, typically on a scale from 1 to 10, where 10 represents a perfect answer and lower scores indicate room for improvement.
 
@@ -75,7 +75,7 @@ In our example, the grader might assign:
 
 The average score across all questions gives you an objective measurement: (10 + 4 + 9) ÷ 3 = 7.66
 
-## Step 5: Change Prompt and Repeat
+## Step 5: Change Prompt and Repeat[](#step-5-change-prompt-and-repeat)
 
 Now that you have a baseline score, you can modify your prompt and run the entire process again to see if your changes improve performance.
 
@@ -97,7 +97,7 @@ Answer the question with ample detail
 
 After running this improved prompt through the same evaluation process, you might get a higher average score of 8.7, indicating that the additional instruction helped Claude provide better responses.
 
-## Prompt Scoring
+## Prompt Scoring[](#prompt-scoring)
 
 The key benefit of this workflow is getting objective measurements of prompt performance. You can:
 

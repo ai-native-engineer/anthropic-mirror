@@ -12,8 +12,6 @@ Plugins can also bundle connectors, so the right services are set up for a workf
 
 **Note:** In Cowork, connectors reach external services through Anthropic's cloud, not through your local network. A custom connector must point to a server that's reachable over the public internet from Anthropic's IP ranges. If your organization's servers are behind a firewall or on a private network, see **[Network requirements for custom connectors](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp#h_b66e88c454)**.
 
----
-
 ## Browse available plugins
 
 Claude includes a growing library of plugins for common knowledge work—including sales, finance, legal, marketing, HR, engineering, design, operations, data analysis, and more. Each one comes pre-configured with the skills and connectors relevant to that function.
@@ -23,8 +21,6 @@ We also provide **Plugin Create**, a plugin that helps you build custom plugins 
 For the full collection of Anthropic-built plugins, visit **[GitHub](https://github.com/anthropics/knowledge-work-plugins)**.
 
 **Note:** Plugins may include local MCP servers that run on your computer with the same permissions as any other program you run. Only install plugins from sources you trust. If your organization is on an Enterprise plan, your admin may have restricted which plugins you can install, or disabled local MCP servers entirely.
-
----
 
 ## Install a plugin
 
@@ -37,19 +33,15 @@ In Cowork, open the "Cowork" tab first, then open **Customize**.
 
 You can also upload a custom plugin file if you built one yourself or received one from a colleague. On Claude Desktop and in Cowork, plugins you add yourself are saved locally to your computer.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1787622300&signature=7eb24a87c90af9e91c775b053feab9a57b60e6eb5d95a1c9c372f0f925d42c42&req=diEnFs1%2BlINeWPMW1HO4zZF3IhLbMfdWxakFVfq5WwyqVT3owTBPsFmxwrCN%0Ags6KRx1x2c9RIt%2Bjm%2FQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1787622300&signature=7eb24a87c90af9e91c775b053feab9a57b60e6eb5d95a1c9c372f0f925d42c42&req=diEnFs1%2BlINeWPMW1HO4zZF3IhLbMfdWxakFVfq5WwyqVT3owTBPsFmxwrCN%0Ags6KRx1x2c9RIt%2Bjm%2FQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1788033600&signature=5b436405ea7525ff0e46177b47a01402b63f27bcbd07115cf5c7699aaa58bfad&req=diEnFs1%2BlINeWPMW1HO4zZF3Ih3dMPZTxakFVfq5WwykITuLfbskI4N1yrtt%0AStybnPQzDNp2crHZeGM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1788033600&signature=5b436405ea7525ff0e46177b47a01402b63f27bcbd07115cf5c7699aaa58bfad&req=diEnFs1%2BlINeWPMW1HO4zZF3Ih3dMPZTxakFVfq5WwykITuLfbskI4N1yrtt%0AStybnPQzDNp2crHZeGM%3D%0A)
 
 If you're on the Enterprise plan and your organization has skill scanning turned on, plugins are checked for malicious content when they're installed or updated. A plugin with malicious content is blocked, and one that may carry risk shows a caution banner. Learn more about **[skill and plugin scanning](https://support.claude.com/en/articles/15927065)**.
-
----
 
 ## Use skills from plugins
 
 Each plugin you install adds skills you can use while working with Claude. Type "/" or click the "+" button to see the available skills from your installed plugins, in chat and in Cowork. Click any skill to see its details.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1787622300&signature=f5f4a35f3586e84c57c4076de70e32e05b5c1deab0e0156a1e2f774a828e0f25&req=diEiEcp3m4lbXfMW1HO4zf4NBPH6gUKXmKUxugP2BQsEULmdjnj29xjPE8fn%0AatqynT85mywqQ8EmSyg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1787622300&signature=f5f4a35f3586e84c57c4076de70e32e05b5c1deab0e0156a1e2f774a828e0f25&req=diEiEcp3m4lbXfMW1HO4zf4NBPH6gUKXmKUxugP2BQsEULmdjnj29xjPE8fn%0AatqynT85mywqQ8EmSyg%3D%0A)
-
----
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1788033600&signature=acbfcc0a3d5a218cc341e329190750e2757e4233bc2c7b0ad637e016bf622c75&req=diEiEcp3m4lbXfMW1HO4zf4NBP78gEOSmKUxugP2BQt076NSeJeO7C5JDjS5%0A8MxToEaslo1NOhBjjBc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1788033600&signature=acbfcc0a3d5a218cc341e329190750e2757e4233bc2c7b0ad637e016bf622c75&req=diEiEcp3m4lbXfMW1HO4zf4NBP78gEOSmKUxugP2BQt076NSeJeO7C5JDjS5%0A8MxToEaslo1NOhBjjBc%3D%0A)
 
 ## Customize a plugin
 
@@ -59,13 +51,9 @@ In Cowork, you can tailor an installed plugin to better fit your workflow:
 2. This opens a new Cowork task with a prompt asking Claude to customize the plugin you chose.
 3. Click “Let's go” to start working with Claude to adjust the plugin's Skills and connectors to match how you work.
 
----
-
 ## Build your own plugin
 
 Want to create something from scratch? The "Plugin Create" plugin walks you through the process, and you can start from any Anthropic-built template and modify it. For details on plugin structure and formatting, see the **[Plugins reference](https://code.claude.com/docs/en/plugins-reference)** in our Claude Code docs.
-
----
 
 ## Add or remove plugin marketplaces
 
@@ -84,8 +72,6 @@ To remove a marketplace, including the default Knowledge Work marketplace:
 
 1. Find the marketplace in the **Plugins** section.
 2. Click the menu button in the right corner and select "Remove."
-
----
 
 ## Organization-managed plugins
 

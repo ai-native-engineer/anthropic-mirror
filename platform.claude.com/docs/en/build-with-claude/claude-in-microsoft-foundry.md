@@ -79,7 +79,7 @@ Anthropic's [client SDKs](https://platform.claude.com/docs/en/cli-sdks-libraries
     <Tabs>
       <Tab title="Gradle">
         ```kotlin
-        implementation("com.anthropic:anthropic-java-foundry:2.57.0")
+        implementation("com.anthropic:anthropic-java-foundry:2.58.0")
 
         // For Entra ID authentication, also add the Azure Identity library
         implementation("com.azure:azure-identity:1.18.3")
@@ -91,7 +91,7 @@ Anthropic's [client SDKs](https://platform.claude.com/docs/en/cli-sdks-libraries
         <dependency>
             <groupId>com.anthropic</groupId>
             <artifactId>anthropic-java-foundry</artifactId>
-            <version>2.57.0</version>
+            <version>2.58.0</version>
         </dependency>
         <!-- For Entra ID authentication, also add the Azure Identity library -->
         <dependency>
@@ -651,12 +651,11 @@ Claude Fable 5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6
 
 The following features are available for deployments hosted on Anthropic but are not supported for deployments hosted on Azure:
 
-* Structured outputs
-* Server-side tools (web search, web fetch, code execution, and tool search)
-* MCP connector
-* Agent Skills
-* Programmatic tool calling
-* Files API
+* [Code execution](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool)
+* [Web search](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-search-tool) and [web fetch](https://platform.claude.com/docs/en/agents-and-tools/tool-use/web-fetch-tool) tool versions later than `web_search_20250305` and `web_fetch_20250910`. Deployments hosted on Azure support only these basic versions, so dynamic filtering, response inclusion, and cache bypass are not available.
+* [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
+* [Programmatic tool calling](https://platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling)
+* [Files API](https://platform.claude.com/docs/en/build-with-claude/files)
 
 Requests that use these features against a deployment hosted on Azure return a `400 Bad Request` error by design. Claude Code detects deployments hosted on Azure and automatically adapts its feature set.
 

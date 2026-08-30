@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create health and exercise notes result](https://academy.claude.com/assets/v1/create-health-and-exercise-notes-nywplaxg.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude on your desktop can research exercises for specific needs—physical therapy, general fitness, injury recovery, or flexibility—and create structured routines saved directly to your Notes app. Instead of piecing together advice from multiple websites, you get organized programs you can reference during workouts.
 
@@ -30,11 +30,11 @@ Format for Apple Notes on my phone. Use HTML <br> tags in order to create natura
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude can [search the web(opens in new tab)](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research) for current exercise information and physical therapy best practices, then saves the routine directly to your Notes app where it syncs across all your devices.
 
-### Required context
+### Required context[](#required-context)
 
 The Notes connector is a desktop extension: it runs in the Claude [desktop app(opens in new tab)](https://www.claude.com/download) on a Mac, where Claude reads and writes the Apple Notes app on your computer; with Notes syncing over iCloud, the routine shows up on your iPhone too.
 
@@ -48,7 +48,7 @@ A desktop extension of the Claude app on a Mac — enable it under Desktop exten
 
 Browse all connectors[Open in Claude](https://claude.ai/customize/connectors)
 
-### Optional context
+### Optional context[](#optional-context)
 
 Turn on [Web Search(opens in new tab)](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research) to provide Claude the ability to browse online for recent information.
 
@@ -56,7 +56,7 @@ Turn on [Web Search(opens in new tab)](https://support.claude.com/en/articles/11
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude searches for current exercise information and physical therapy best practices, and then structures findings into a clear routine saved directly to your Notes app. You can reference it across devices or during workouts and healthcare appointments.
 
@@ -72,11 +72,11 @@ Your routine is ready to pull up on your phone. It includes 6 low-impact exercis
 
 The routine starts conservatively (3× weekly) with built-in progression for weeks 3-5+. I included a checkbox for your PT appointment date so you can fill that in.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Create a progress tracker
+### Create a progress tracker[](#create-a-progress-tracker)
 
 Build a spreadsheet to log workouts and track improvement over time. Claude can create a structured log with dates, exercises, reps, pain levels, and notes—making it easy to see patterns and share progress with your PT.
 
@@ -84,7 +84,7 @@ Create an Excel spreadsheet to track this routine. Include columns for date, eac
 
 Open in Claude
 
-### Learn the science behind it
+### Learn the science behind it[](#learn-the-science-behind-it)
 
 Understand what's actually happening in your knee and why it hurts. Claude can research the biomechanics, explain which structures are involved in your injury, and show how each exercise targets specific problems.
 
@@ -92,7 +92,7 @@ Explain the anatomy of patellar tendinitis—what structures are damaged, why do
 
 Open in Claude
 
-### Adapt the routine as you improve
+### Adapt the routine as you improve[](#adapt-the-routine-as-you-improve)
 
 Modify exercises when they become too easy or your situation changes. Claude can progress the difficulty, swap exercises that aren't working, or scale back if you're experiencing setbacks.
 
@@ -100,17 +100,17 @@ These exercises are getting easier—I can do the full sets without much effort 
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Formatting for Notes
+### Formatting for Notes[](#formatting-for-notes)
 
 Keep in mind the notes app needs different structure than a normal file output. For better formatting when creating content for Apple Notes, ask Claude to use HTML breaks for spacing between lines and sections, abbreviations to keep things brief, and to prioritize quick reference information, so the content is easily viewable on mobile formats.
 
-### Always consult healthcare providers first
+### Always consult healthcare providers first[](#always-consult-healthcare-providers-first)
 
 Claude researches exercise information from reputable sources, but this doesn't replace medical advice. Before starting any routine—especially for injury recovery or pain management—show it to your doctor or physical therapist. They can confirm exercises are appropriate for your specific condition, suggest modifications based on your assessment, and warn you about movements to avoid. Think of Claude's research as a starting point for discussion with your healthcare team, not as a replacement for professional guidance.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Whether you're recovering from injury, building strength, or just trying to move better, Claude helps you research and structure exercise advice into organized routines you'll actually use.
 

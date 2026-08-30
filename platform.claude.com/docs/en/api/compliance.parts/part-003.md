@@ -3,6 +3,992 @@
 
 <!-- chunk-start -->
 
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `resource_id: string`
+
+      The resource that was removed, e.g. "resource_01HX...".
+
+    - `session_id: string`
+
+      The agent session the resource belonged to, e.g. "session_01HX...".
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "platform_agent_session_resource_deleted"`
+
+      default: platform_agent_session_resource_deleted
+
+    - `workspace_id: optional string or null`
+
+      Tagged workspace ID, e.g. "wrkspc_01HX...". Optional because org-scoped credentials may not resolve a workspace at request time.
+
+  - `PlatformAgentSessionResourceUpdated object`
+
+    A resource attached to an agent session was updated.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `resource_id: string`
+
+      The resource that was updated, e.g. "resource_01HX...".
+
+    - `session_id: string`
+
+      The agent session the resource belongs to, e.g. "session_01HX...".
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "platform_agent_session_resource_updated"`
+
+      default: platform_agent_session_resource_updated
+
+    - `workspace_id: optional string or null`
+
+      Tagged workspace ID, e.g. "wrkspc_01HX...". Optional because org-scoped credentials may not resolve a workspace at request time.
+
+  - `PlatformAgentSessionThreadArchived object`
+
+    A thread within an agent session was archived.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `session_id: string`
+
+      The agent session the thread belongs to, e.g. "session_01HX...".
+
+    - `thread_id: string`
+
+      The thread that was archived, e.g. "thread_01HX...".
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "platform_agent_session_thread_archived"`
+
+      default: platform_agent_session_thread_archived
+
+    - `workspace_id: optional string or null`
+
+      Tagged workspace ID, e.g. "wrkspc_01HX...". Optional because org-scoped credentials may not resolve a workspace at request time.
+
+  - `PlatformAgentSessionUpdated object`
+
+    An agent session was updated on the API platform.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `session_id: string`
+
+      The agent session that was updated, e.g. "session_01HX...".
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "platform_agent_session_updated"`
+
+      default: platform_agent_session_updated
+
+    - `workspace_id: optional string or null`
+
+      Tagged workspace ID, e.g. "wrkspc_01HX...". Optional because org-scoped credentials may not resolve a workspace at request time.
+
+  - `PlatformAgentUpdated object`
+
+    An agent was updated on the API platform.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
           default: federated_actor
 
         - `user_agent: optional string or null`
@@ -1795,6 +2781,741 @@
     - `type: optional "platform_cost_report_viewed"`
 
       default: platform_cost_report_viewed
+
+  - `PlatformDreamArchived object`
+
+    A Dream (asynchronous memory-consolidation job) was archived.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `dream_id: string`
+
+      Tagged dream ID, e.g. "drm_01HX...".
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "platform_dream_archived"`
+
+      default: platform_dream_archived
+
+    - `workspace_id: optional string or null`
+
+      Tagged ID of the workspace the dream belongs to, e.g. "wrkspc_01HX...". For organization-scoped credentials this is the organization's default workspace.
+
+  - `PlatformDreamCancelled object`
+
+    A Dream (asynchronous memory-consolidation job) was cancelled before it completed.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `dream_id: string`
+
+      Tagged dream ID, e.g. "drm_01HX...".
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "platform_dream_cancelled"`
+
+      default: platform_dream_cancelled
+
+    - `workspace_id: optional string or null`
+
+      Tagged ID of the workspace the dream belongs to, e.g. "wrkspc_01HX...". For organization-scoped credentials this is the organization's default workspace.
+
+  - `PlatformDreamCreated object`
+
+    A Dream (asynchronous memory-consolidation job) was created.
+
+    - `actor: object or object or object or 8 more`
+
+      Automated background processing performed by Anthropic systems, acting
+      without a user or customer credential.
+
+      - `APIActor object`
+
+        - `api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "api_actor"`
+
+          default: api_actor
+
+      - `UserActor object`
+
+        - `email_address: string`
+
+          format: email
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `user_id: string`
+
+        - `type: optional "user_actor"`
+
+          default: user_actor
+
+      - `UnauthenticatedUserActor object`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "unauthenticated_user_actor"`
+
+          default: unauthenticated_user_actor
+
+        - `unauthenticated_email_address: optional string or null`
+
+          format: email
+
+      - `AnthropicActor object`
+
+        - `email_address: optional string or null`
+
+          format: email
+
+        - `type: optional "anthropic_actor"`
+
+          default: anthropic_actor
+
+      - `SystemActor object`
+
+        Automated background processing performed by Anthropic systems, acting
+        without a user or customer credential.
+
+        - `service: optional string or null`
+
+          Name of the automated process that performed the action, when known.
+
+        - `type: optional "system_actor"`
+
+          default: system_actor
+
+      - `AdminAPIKeyActor object`
+
+        - `admin_api_key_id: string`
+
+        - `ip_address: string`
+
+        - `user_agent: string`
+
+        - `type: optional "admin_api_key_actor"`
+
+          default: admin_api_key_actor
+
+      - `ServiceAccountActor object`
+
+        - `ip_address: string`
+
+        - `service_account_id: string`
+
+        - `user_agent: string`
+
+        - `type: optional "service_account_actor"`
+
+          default: service_account_actor
+
+      - `ScimDirectorySyncActor object`
+
+        - `directory_id: string`
+
+        - `workos_event_id: string`
+
+        - `idp_connection_type: optional string or null`
+
+        - `type: optional "scim_directory_sync_actor"`
+
+          default: scim_directory_sync_actor
+
+      - `FederatedIdentityActor object`
+
+        A federated external workload authenticated via a verified OIDC token.
+
+        Carries the verified issuer, subject, and audience claims from the
+        presented JWT.
+
+        - `issuer: string`
+
+        - `subject: string`
+
+        - `audience: optional array of string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "federated_identity_actor"`
+
+          default: federated_identity_actor
+
+        - `user_agent: optional string or null`
+
+      - `FederatedActor object`
+
+        An external identity asserted by a trusted provider — a cloud-provider
+        gateway or a customer-registered federation issuer — acting without an
+        Anthropic-provisioned account or service account.
+
+        - `provider: object or object or object or object`
+
+          Asserting party: the AWS account the organization is bound to.
+
+          - `FederatedActorAwsProvider object`
+
+            Asserting party: the AWS account the organization is bound to.
+
+            - `account_id: string`
+
+            - `signed_principal: string`
+
+              The AWS-signed ARN of the IAM principal that requested the token.
+
+            - `type: optional "aws"`
+
+              default: aws
+
+          - `FederatedActorAzureProvider object`
+
+            Asserting party: the Azure subscription the organization is bound to.
+
+            - `subscription_id: string`
+
+            - `type: optional "azure"`
+
+              default: azure
+
+          - `FederatedActorGcpProvider object`
+
+            Asserting party: the GCP project the organization is bound to.
+
+            - `project_number: string`
+
+            - `type: optional "gcp"`
+
+              default: gcp
+
+          - `FederatedActorOidcProvider object`
+
+            Asserting party: a customer-registered OIDC federation issuer.
+
+            - `issuer: optional string or null`
+
+              The federation issuer's URL. Null when the presented credential failed verification.
+
+            - `type: optional "oidc"`
+
+              default: oidc
+
+        - `ip_address: optional string or null`
+
+        - `subject: optional string or null`
+
+          The provider's verified identifier for the caller; its form depends on the provider.
+
+        - `type: optional "federated_actor"`
+
+          default: federated_actor
+
+        - `user_agent: optional string or null`
+
+      - `AttestedDeviceActor object`
+
+        An attested mobile device authenticated via Apple App Attest.
+
+        - `external_client_id: string`
+
+        - `kid_hash: string`
+
+        - `ip_address: optional string or null`
+
+        - `type: optional "attested_device_actor"`
+
+          default: attested_device_actor
+
+        - `user_agent: optional string or null`
+
+    - `dream_id: string`
+
+      Tagged dream ID, e.g. "drm_01HX...".
+
+    - `id: optional string`
+
+      Unique identifier for the activity e.g. 'activity_abcd1234'
+
+    - `created_at: optional string`
+
+      When this activity occurred.
+
+      format: date-time
+
+    - `organization_id: optional string or null`
+
+      Organization ID this activity is associated with
+
+    - `organization_uuid: optional string or null`
+
+      Organization UUID where the activity occurred. Null when the activity is not tied to an organization (for example, login and logout events or calls to the Compliance API).
+
+    - `type: optional "platform_dream_created"`
+
+      default: platform_dream_created
+
+    - `workspace_id: optional string or null`
+
+      Tagged ID of the workspace the dream belongs to, e.g. "wrkspc_01HX...". For organization-scoped credentials this is the organization's default workspace.
 
   - `PlatformFederatedAuthentication object`
 
@@ -21962,21 +23683,27 @@
 
     - `audience: array of object or object`
 
-      Sharing audience for the project. If empty, this it's only visible to the creating user.
+      Sharing audience for the project. If empty, it's only visible to the creating user.
 
-      - `ProjectSharingAudiencePublic object`
+      - `Public object`
+
+        Sharing audience: the project is visible to anyone with the link.
 
         - `type: optional "public"`
 
           default: public
 
-      - `ProjectSharingAudienceOrganization object`
+      - `Organization object`
+
+        Sharing audience: the project is visible to members of the owning organization.
 
         - `type: optional "organization"`
 
           default: organization
 
     - `claude_project_id: string`
+
+      The project's identifier, e.g. "claude_proj_01Ab...".
 
     - `id: optional string`
 
@@ -24459,13 +26186,23 @@
 
     - `resource_id: optional string or null`
 
+      ID of the resource the role is on.
+
     - `resource_type: optional string or null`
+
+      What kind of resource the role is on, for example "chat_project", "skill", or "plugin".
 
     - `role: optional string or null`
 
+      The role that was granted, for example "skill:viewer" or "plugin:viewer".
+
     - `target_id: optional string or null`
 
+      ID of the grantee: a user ID for a member, a group ID for a group, the organization ID for an organization-wide grant.
+
     - `target_type: optional string or null`
+
+      What kind of grantee received the role, for example "organization_member", "group", or "organization".
 
     - `type: optional "role_assignment_granted"`
 
@@ -24706,13 +26443,23 @@
 
     - `resource_id: optional string or null`
 
+      ID of the resource the role was on.
+
     - `resource_type: optional string or null`
+
+      What kind of resource the role was on, for example "chat_project", "skill", or "plugin".
 
     - `role: optional string or null`
 
+      The role that was revoked, for example "skill:viewer" or "plugin:viewer".
+
     - `target_id: optional string or null`
 
+      ID of the grantee that held the role: a user ID for a member, a group ID for a group, the organization ID for an organization-wide grant.
+
     - `target_type: optional string or null`
+
+      What kind of grantee held the role, for example "organization_member", "group", or "organization".
 
     - `type: optional "role_assignment_revoked"`
 
@@ -37234,11 +38981,11 @@
 
         The web search setting was changed.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -37250,11 +38997,11 @@
 
         The geolocation setting was changed.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -37368,11 +39115,11 @@
 
         The Claude API in Artifacts setting was changed.
 
-        - `current_value: boolean or null`
+        - `current_value: optional boolean or null`
 
           Setting value immediately after this change
 
-        - `previous_value: boolean or null`
+        - `previous_value: optional boolean or null`
 
           Setting value immediately before this change
 
@@ -39936,7 +41683,7 @@ unknown organizations and organizations outside the hierarchy return 404.
 
     A setting whose enforced value is a single true/false flag.
 
-    - `name: "ai_powered_artifacts_enabled" or "api_workbench_feedback_collection_enabled" or "artifact_connectors_enabled" or 44 more`
+    - `name: "ai_powered_artifacts_enabled" or "api_workbench_feedback_collection_enabled" or "artifact_connectors_enabled" or 52 more`
 
       - `"ai_powered_artifacts_enabled"`
 
@@ -39979,6 +41726,22 @@ unknown organizations and organizations outside the hierarchy return 404.
       - `"claude_design_enabled"`
 
       - `"claude_in_slack_enabled"`
+
+      - `"claude_science_custom_connectors_enabled"`
+
+      - `"claude_science_custom_skills_enabled"`
+
+      - `"claude_science_enabled"`
+
+      - `"claude_science_managed_network_allowlist_enabled"`
+
+      - `"claude_science_memory_enabled"`
+
+      - `"claude_science_modal_enabled"`
+
+      - `"claude_science_scientific_model_endpoints_enabled"`
+
+      - `"claude_science_ssh_hosts_enabled"`
 
       - `"code_execution_enabled"`
 
@@ -41572,1490 +43335,3 @@ are sorted chronologically (time ascending) by created_at.
     key may read.
 
     - `id: string`
-
-      User identifier (tagged ID)
-
-    - `email_address: string`
-
-      User's email address
-
-  - `organization_id: string`
-
-    **Deprecated**
-
-    Organization identifier (tagged ID)
-
-- `has_more: boolean`
-
-  Whether more records exist beyond the current result set
-
-- `next_page: string or null`
-
-  Token to retrieve the next page. Use this as the 'page' parameter in your next request
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/projects \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "claude_proj_abc123",
-      "name": "Q4 Product Planning",
-      "created_at": "2025-06-01T10:00:00Z",
-      "updated_at": "2025-06-15T14:30:00Z",
-      "is_private": true,
-      "organization_id": "org_abc123",
-      "organization_uuid": "abc12345-6789-0abc-def0-123456789abc",
-      "user": {
-        "id": "user_xyz456",
-        "email_address": "user@example.com"
-      }
-    }
-  ],
-  "has_more": true,
-  "next_page": "page_eyJjcmVhdGVkX2F0IjoiMjAyNS0wNi0wMVQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn0="
-}
-```
-
-### Get project details
-
-**GET** `/v1/compliance/apps/projects/{project_id}`
-
-Get detailed information for a specific project.
-
-#### Path parameters
-
-- `project_id: string`
-
-  The project ID (tagged ID, e.g., claude_proj_abc123)
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `id: string`
-
-  Project identifier (tagged ID)
-
-- `attachments_count: number`
-
-  Number of attachments contained within this project
-
-- `chats_count: number`
-
-  Number of chats contained within this project
-
-- `created_at: string`
-
-  Project creation timestamp
-
-  format: date-time
-
-- `deleted_at: string or null`
-
-  Timestamp when the project was deleted by an end user, or null otherwise
-
-  format: date-time
-
-- `description: string`
-
-  Project description
-
-- `instructions: string`
-
-  Project's custom instructions / prompt
-
-- `is_private: boolean`
-
-  If false, the project is visible to all organization members; if true the project is accessible only to the creator and specified collaborators
-
-- `name: string`
-
-  Project name
-
-- `organization_uuid: string`
-
-  Organization UUID this project belongs to
-
-- `updated_at: string`
-
-  Project last update timestamp
-
-  format: date-time
-
-- `user: object or null`
-
-  The user who created a project or project document.
-
-  Fields that reference this type are null when the creator's account has
-  been deleted or the creator is no longer a member of an organization the
-  key may read.
-
-  - `id: string`
-
-    User identifier (tagged ID)
-
-  - `email_address: string`
-
-    User's email address
-
-- `organization_id: string`
-
-  **Deprecated**
-
-  Organization identifier (tagged ID)
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "claude_proj_01Nm7PqRsTuVwXyZaBcDeFgH",
-  "attachments_count": 3,
-  "chats_count": 14,
-  "created_at": "2025-03-12T18:22:41.123456Z",
-  "deleted_at": "2019-12-27T18:11:19.117Z",
-  "description": "Planning and research for the Q3 launch",
-  "instructions": "Focus on concise, actionable answers.",
-  "is_private": true,
-  "name": "Q3 Product Launch",
-  "organization_id": "org_015eofRkKpogX7uDKUyvBTph",
-  "organization_uuid": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
-  "updated_at": "2025-03-14T09:05:17.456789Z",
-  "user": {
-    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
-    "email_address": "jane.doe@example.com"
-  }
-}
-```
-
-### Delete project
-
-**DELETE** `/v1/compliance/apps/projects/{project_id}`
-
-Delete a project for compliance purposes.
-
-Hard-deletes the project and all its associated data including:
-
-- All project documents and files
-- All role assignments
-- Knowledge base (if RAG is enabled)
-- Sync sources
-
-Project must have no attached chats - returns 409 if chats exist.
-
-#### Path parameters
-
-- `project_id: string`
-
-  The project ID (tagged ID, e.g., claude_proj_abc123)
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `id: string`
-
-  The ID of the Claude project that was deleted
-
-- `type: optional "claude_project_deleted"`
-
-  Constant string confirming deletion.
-
-  default: claude_project_deleted
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
-    -X DELETE \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "type": "claude_project_deleted"
-}
-```
-
-## Compliance API › Apps › Projects › Attachments
-
-### List project attachments
-
-**GET** `/v1/compliance/apps/projects/{project_id}/attachments`
-
-List files and documents attached to a project.
-
-List files and project documents attached to the project referenced by project_id.
-This includes the IDs of attached files, and attached project documents.
-
-The raw binary content of attached files can be downloaded using the
-GET /v1/compliance/apps/chats/files/{claude_file_id}/content endpoint.
-
-The text content of attached project documents can be fetched using the
-GET /v1/compliance/apps/projects/documents/{claude_proj_doc_id} endpoint.
-
-#### Path parameters
-
-- `project_id: string`
-
-  The project ID (tagged ID, e.g., claude_proj_abc123)
-
-#### Query parameters
-
-- `limit: optional number`
-
-  Maximum results (default: 20, max: 100)
-
-  default: 20, maximum: 100, minimum: 1
-
-- `page: optional string`
-
-  Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `data: array of object or object`
-
-  List of attachments sorted chronologically by created_at, tie break by id
-
-  - `ComplianceProjectFileReference object`
-
-    File attachment reference for compliance responses.
-
-    - `id: string`
-
-      File identifier (e.g., 'claude_file_abcd')
-
-    - `created_at: string`
-
-      Creation timestamp (RFC 3339 format)
-
-      format: date-time
-
-    - `filename: string`
-
-      Display name of the file (e.g., 'document.pdf')
-
-    - `md5: string or null`
-
-      Lowercase hex MD5 of the file's preferred downloadable variant, when recorded. Null otherwise. Use the per-file `/metadata` endpoint for the authoritative value.
-
-    - `mime_type: string`
-
-      MIME type of the file's preferred downloadable variant when one is recorded, else 'application/octet-stream'. Use the per-file `/metadata` endpoint for the authoritative value.
-
-    - `size_bytes: number or null`
-
-      Size in bytes of the file's preferred downloadable variant, when recorded. Null otherwise. Use the per-file `/metadata` endpoint for the authoritative value.
-
-    - `type: "project_file"`
-
-      Discriminator marking this as a binary file
-
-      default: project_file
-
-  - `ComplianceProjectDocReference object`
-
-    Project document attachment reference for compliance responses.
-
-    - `id: string`
-
-      Project document identifier (e.g., 'claude_proj_doc_abcd')
-
-    - `created_at: string`
-
-      Creation timestamp (RFC 3339 format)
-
-      format: date-time
-
-    - `filename: string`
-
-      Display name of the document (e.g., 'document.txt')
-
-    - `mime_type: "text/plain"`
-
-      MIME type of the project document, always set to plain text
-
-      default: text/plain
-
-    - `type: "project_doc"`
-
-      Discriminator marking this as a plain text document
-
-      default: project_doc
-
-    - `updated_at: string or null`
-
-      Last-modified timestamp of the document. Reserved for future use — currently always null.
-
-      format: date-time
-
-- `has_more: boolean`
-
-  Whether more records exist beyond the current result set
-
-- `next_page: string or null`
-
-  To get the next page, use the 'next_page' from the current response as the 'page' in your next request
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachments \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "id",
-      "created_at": "2019-12-27T18:11:19.117Z",
-      "filename": "filename",
-      "md5": "md5",
-      "mime_type": "mime_type",
-      "size_bytes": 0,
-      "type": "project_file"
-    }
-  ],
-  "has_more": true,
-  "next_page": "next_page"
-}
-```
-
-## Compliance API › Apps › Projects › Collaborators
-
-### List project collaborators
-
-**GET** `/v1/compliance/apps/projects/{project_id}/collaborators`
-
-List the users, groups, and organization-wide grants on a project.
-
-Each entry represents one active role assignment on the project. Principals
-are returned as a discriminated union on `type` — an individual user, an
-RBAC group, the whole organization, or all holders of an organization-level
-role.
-
-#### Path parameters
-
-- `project_id: string`
-
-  The project ID (tagged ID, e.g., claude_proj_abc123)
-
-#### Query parameters
-
-- `limit: optional number`
-
-  Maximum results (default: 20, max: 100)
-
-  default: 20, maximum: 100, minimum: 1
-
-- `page: optional string`
-
-  Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `data: array of object or object or object or object`
-
-  List of collaborators sorted chronologically by granted_at, tie break by the underlying role-assignment UUID
-
-  - `ComplianceProjectUserCollaborator object`
-
-    An individual user granted a role on a project.
-
-    - `granted_at: string`
-
-      When this collaborator was granted access (RFC 3339 format)
-
-      format: date-time
-
-    - `role: "admin" or "editor" or "owner" or "viewer"`
-
-      Role granted on the project
-
-      - `"admin"`
-
-      - `"editor"`
-
-      - `"owner"`
-
-      - `"viewer"`
-
-    - `type: "user"`
-
-      Discriminator marking this as an individual user collaborator
-
-      default: user
-
-    - `user_id: string or null`
-
-      Identifier of the user granted access (tagged ID), or null if their account has since been deleted
-
-  - `ComplianceProjectGroupCollaborator object`
-
-    An RBAC group granted a role on a project.
-
-    - `granted_at: string`
-
-      When this collaborator was granted access (RFC 3339 format)
-
-      format: date-time
-
-    - `group_id: string`
-
-      Identifier of the group granted access (tagged ID)
-
-    - `role: "admin" or "editor" or "owner" or "viewer"`
-
-      Role granted on the project
-
-      - `"admin"`
-
-      - `"editor"`
-
-      - `"owner"`
-
-      - `"viewer"`
-
-    - `type: "group"`
-
-      Discriminator marking this as a group collaborator
-
-      default: group
-
-  - `ComplianceProjectOrganizationCollaborator object`
-
-    An entire organization granted a role on a project.
-
-    - `granted_at: string`
-
-      When this collaborator was granted access (RFC 3339 format)
-
-      format: date-time
-
-    - `organization_uuid: string`
-
-      UUID of the organization granted access
-
-    - `role: "admin" or "editor" or "owner" or "viewer"`
-
-      Role granted on the project
-
-      - `"admin"`
-
-      - `"editor"`
-
-      - `"owner"`
-
-      - `"viewer"`
-
-    - `type: "organization"`
-
-      Discriminator marking this as an organization-wide grant
-
-      default: organization
-
-  - `ComplianceProjectOrganizationRoleCollaborator object`
-
-    All holders of an organization-level role granted a role on a project.
-
-    - `granted_at: string`
-
-      When this collaborator was granted access (RFC 3339 format)
-
-      format: date-time
-
-    - `organization_role: string`
-
-      The organization-level role whose holders are granted access
-
-    - `role: "admin" or "editor" or "owner" or "viewer"`
-
-      Role granted on the project
-
-      - `"admin"`
-
-      - `"editor"`
-
-      - `"owner"`
-
-      - `"viewer"`
-
-    - `type: "organization_role"`
-
-      Discriminator marking this as a grant to all organization members holding a specific org-level role
-
-      default: organization_role
-
-- `has_more: boolean`
-
-  Whether more records exist beyond the current result set
-
-- `next_page: string or null`
-
-  To get the next page, use the 'next_page' from the current response as the 'page' in your next request
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/collaborators \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "granted_at": "2019-12-27T18:11:19.117Z",
-      "role": "admin",
-      "type": "user",
-      "user_id": "user_id"
-    }
-  ],
-  "has_more": true,
-  "next_page": "next_page"
-}
-```
-
-## Compliance API › Apps › Projects › Documents
-
-### Get project document content
-
-**GET** `/v1/compliance/apps/projects/documents/{document_id}`
-
-Get detailed information for a specific project document.
-
-#### Path parameters
-
-- `document_id: string`
-
-  The document ID (tagged ID, e.g., claude_proj_doc_abc123)
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `id: string`
-
-  Project document identifier (tagged ID)
-
-- `content: string`
-
-  Document text content
-
-- `created_at: string`
-
-  Document creation timestamp
-
-  format: date-time
-
-- `filename: string`
-
-  Document filename
-
-- `user: object or null`
-
-  The user who created a project or project document.
-
-  Fields that reference this type are null when the creator's account has
-  been deleted or the creator is no longer a member of an organization the
-  key may read.
-
-  - `id: string`
-
-    User identifier (tagged ID)
-
-  - `email_address: string`
-
-    User's email address
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "claude_proj_doc_01Qr8StUvWxYzAbCdEfGhJjK",
-  "content": "# Design notes\n\n- Item one\n- Item two\n",
-  "created_at": "2025-03-12T18:22:41.123456Z",
-  "filename": "design-notes.txt",
-  "user": {
-    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
-    "email_address": "jane.doe@example.com"
-  }
-}
-```
-
-### Get project document metadata
-
-**GET** `/v1/compliance/apps/projects/documents/{document_id}/metadata`
-
-Returns metadata for a project document, without the content body.
-
-Use the sibling `GET /v1/compliance/apps/projects/documents/{document_id}`
-endpoint to fetch the document text. The `md5` and `size_bytes`
-fields here are computed over the UTF-8 encoding of that text, so a DLP
-consumer can dedupe or match hashes without downloading every document.
-
-#### Path parameters
-
-- `document_id: string`
-
-  The document ID (tagged ID, e.g., claude_proj_doc_abc123)
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `id: string`
-
-  Project document identifier (tagged ID)
-
-- `claude_project_id: string`
-
-  The project this document belongs to
-
-- `created_at: string`
-
-  Document creation timestamp
-
-  format: date-time
-
-- `filename: string`
-
-  Document filename
-
-- `md5: string`
-
-  Lowercase hex MD5 of the document content (UTF-8 encoded). Matches the `content` field returned by the sibling content endpoint.
-
-- `mime_type: "text/plain"`
-
-  MIME type of the document content, always plain text
-
-  default: text/plain
-
-- `size_bytes: number`
-
-  Size in bytes of the document content (UTF-8 encoded)
-
-- `user: object or null`
-
-  The user who created a project or project document.
-
-  Fields that reference this type are null when the creator's account has
-  been deleted or the creator is no longer a member of an organization the
-  key may read.
-
-  - `id: string`
-
-    User identifier (tagged ID)
-
-  - `email_address: string`
-
-    User's email address
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID/metadata \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "claude_project_id": "claude_project_id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "filename": "filename",
-  "md5": "md5",
-  "mime_type": "text/plain",
-  "size_bytes": 0,
-  "user": {
-    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
-    "email_address": "jane.doe@example.com"
-  }
-}
-```
-
-### Delete project document
-
-**DELETE** `/v1/compliance/apps/projects/documents/{document_id}`
-
-Delete a project document for compliance purposes.
-
-Hard-deletes the project document permanently.
-
-#### Path parameters
-
-- `document_id: string`
-
-  The document ID (tagged ID, e.g., claude_proj_doc_abc123)
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `id: string`
-
-  The ID of the project document that was deleted
-
-- `type: "claude_project_document_deleted"`
-
-  Constant string confirming deletion.
-
-  default: claude_project_document_deleted
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
-    -X DELETE \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "type": "claude_project_document_deleted"
-}
-```
-
-## Compliance API › Apps › Artifacts
-
-### Get artifact metadata
-
-**GET** `/v1/compliance/apps/artifacts/{artifact_version_id}`
-
-Returns metadata for an artifact version, without the content body.
-
-Use the sibling `/content` endpoint to fetch the artifact text. The
-`md5` and `size_bytes` fields here are computed over the UTF-8
-encoding of that text, so a DLP consumer can dedupe or match hashes
-without downloading every artifact.
-
-#### Path parameters
-
-- `artifact_version_id: string`
-
-  The artifact version ID (tagged ID, e.g., claude_artifact_version_abc123)
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `id: string`
-
-  Artifact ID e.g. 'claude_artifact_abc123'
-
-- `artifact_type: string or null`
-
-  MIME-like artifact type e.g. 'application/vnd.ant.code'
-
-- `claude_chat_id: string`
-
-  The chat this artifact belongs to
-
-- `created_at: string`
-
-  Artifact version creation timestamp
-
-  format: date-time
-
-- `md5: string`
-
-  Lowercase hex MD5 of the artifact content (UTF-8 encoded). Matches the `content` field returned by the sibling `/content` endpoint.
-
-- `size_bytes: number`
-
-  Size in bytes of the artifact content (UTF-8 encoded)
-
-- `title: string or null`
-
-  Artifact title
-
-- `version_id: string`
-
-  Artifact version ID e.g. 'claude_artifact_version_abc123'
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/artifacts/$ARTIFACT_VERSION_ID \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "id",
-  "artifact_type": "artifact_type",
-  "claude_chat_id": "claude_chat_id",
-  "created_at": "2019-12-27T18:11:19.117Z",
-  "md5": "md5",
-  "size_bytes": 0,
-  "title": "title",
-  "version_id": "version_id"
-}
-```
-
-### Download artifact content
-
-**GET** `/v1/compliance/apps/artifacts/{artifact_version_id}/content`
-
-Download the content of an artifact version for compliance purposes.
-
-Returns the full text content of the artifact version.
-
-#### Path parameters
-
-- `artifact_version_id: string`
-
-  The artifact version ID (tagged ID, e.g., claude_artifact_version_abc123)
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/artifacts/$ARTIFACT_VERSION_ID/content \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-## Compliance API › Apps › Sessions › Local
-
-### List local sessions
-
-**GET** `/v1/compliance/apps/sessions/local`
-
-List local sessions across the organizations the key may read.
-
-Results are ordered by `created_at` descending. Pagination is
-forward-only via `next_page`; there is no reverse cursor.
-
-#### Query parameters
-
-- `created_at: optional object`
-
-  - `gte: optional string`
-
-    Only return sessions whose first inference call is at or after this time (RFC 3339; a UTC offset is required).
-
-    format: date-time
-
-  - `lt: optional string`
-
-    Only return sessions whose first inference call is strictly before this time (RFC 3339; a UTC offset is required).
-
-    format: date-time
-
-- `limit: optional number`
-
-  Maximum results (default: 100, max: 500)
-
-  default: 100, maximum: 500, minimum: 1
-
-- `page: optional string`
-
-  Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
-
-- `updated_at: optional object`
-
-  - `gte: optional string`
-
-    Only return sessions whose last inference call is at or after this time (RFC 3339; a UTC offset is required). Combines with `created_at.gte` / `created_at.lt`; the ordering and pagination are unchanged. Use it to poll for sessions that have been active since a previous pass — a session that becomes active later can only enter the result, never leave it.
-
-    format: date-time
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `data: array of object`
-
-  Page of local sessions, ordered by `created_at` descending; ties are broken by a fixed server-side order. `updated_at` never participates in the ordering; the `updated_at.gte` query parameter filters on it without changing the order or the pagination cursor.
-
-  - `id: string`
-
-    Local session identifier, prefixed `clls_`. Unique within the parent organization. Treat as an opaque string; the format may change without notice.
-
-  - `created_at: string`
-
-    Timestamp of the session's first retained inference call (RFC 3339, UTC). When a session's activity spans the child organization's retention boundary, calls older than the boundary are no longer reflected, so this value is the timestamp of the earliest retained call: always strictly after the boundary, never the boundary itself.
-
-    format: date-time
-
-  - `organization_uuid: string`
-
-    UUID of the child organization the session belongs to
-
-  - `product_surface: string or null`
-
-    The product the session ran in: `cowork` for Cowork sessions in Claude Desktop, or `claude_code` for Claude Code sessions. New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
-
-  - `type: "compliance_local_session"`
-
-    default: compliance_local_session
-
-  - `updated_at: string`
-
-    Timestamp of the session's last retained inference call (RFC 3339, UTC). Always at or after `created_at`. When a session's activity spans the child organization's retention boundary, calls older than the boundary are no longer reflected — but because retention removes only the oldest calls, this value (unlike `created_at`) is unaffected until the entire session has aged out. On the list endpoint this value is a lower bound: for a session still active at a page or `created_at.lt` window boundary it can momentarily lag the session's true last activity. Retrieving the session, or its messages, always reflects the exact latest retained call.
-
-    format: date-time
-
-  - `user: object`
-
-    The authenticated user at the time of the session. Always set; `user.id` is always populated. `user.email_address` is null when the user's account has been deleted or the user is no longer a member of an organization the key may read.
-
-    - `id: string`
-
-      User identifier (tagged ID, prefixed `user_`). Always set, so attribution survives after the user's account is deleted or the user leaves the organizations the key may read.
-
-    - `email_address: string or null`
-
-      User's email address. Null when the user's account has been deleted or the user is no longer a member of an organization the key may read. The messages endpoint does not resolve email addresses; this field is always null there.
-
-  - `workspace_id: string or null`
-
-    Workspace identifier (tagged ID, prefixed `wrkspc_`). Null for sessions not attributed to a workspace.
-
-- `next_page: string or null`
-
-  Opaque pagination cursor (prefixed `page_`) for the next page. Null when there is no further page. Treat as an opaque string; the format may change without notice.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/sessions/local \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "type": "compliance_local_session",
-      "id": "clls_eyJ2IjoxLCJvIjoiOWEx…",
-      "organization_uuid": "9a1e0000-0000-0000-0000-000000000000",
-      "workspace_id": "wrkspc_01SvYKoWVRVHoEbwESNvzYdR",
-      "user": {
-        "id": "user_01GpKpLmNoPqRsTuVwXyZaBc",
-        "email_address": "engineer@example.com"
-      },
-      "product_surface": "cowork",
-      "created_at": "2026-07-09T14:02:11Z",
-      "updated_at": "2026-07-09T15:47:33Z"
-    }
-  ]
-}
-```
-
-### Retrieve a local session
-
-**GET** `/v1/compliance/apps/sessions/local/{local_session_id}`
-
-Retrieve one local session.
-
-The response is the same session object the list endpoint returns,
-with `user.email_address` resolved the same way. Retention is
-enforced when the response is served: a session whose every
-inference call has aged out returns 404.
-
-#### Path parameters
-
-- `local_session_id: string`
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `id: string`
-
-  Local session identifier, prefixed `clls_`. Unique within the parent organization. Treat as an opaque string; the format may change without notice.
-
-- `created_at: string`
-
-  Timestamp of the session's first retained inference call (RFC 3339, UTC). When a session's activity spans the child organization's retention boundary, calls older than the boundary are no longer reflected, so this value is the timestamp of the earliest retained call: always strictly after the boundary, never the boundary itself.
-
-  format: date-time
-
-- `organization_uuid: string`
-
-  UUID of the child organization the session belongs to
-
-- `product_surface: string or null`
-
-  The product the session ran in: `cowork` for Cowork sessions in Claude Desktop, or `claude_code` for Claude Code sessions. New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
-
-- `type: "compliance_local_session"`
-
-  default: compliance_local_session
-
-- `updated_at: string`
-
-  Timestamp of the session's last retained inference call (RFC 3339, UTC). Always at or after `created_at`. When a session's activity spans the child organization's retention boundary, calls older than the boundary are no longer reflected — but because retention removes only the oldest calls, this value (unlike `created_at`) is unaffected until the entire session has aged out. On the list endpoint this value is a lower bound: for a session still active at a page or `created_at.lt` window boundary it can momentarily lag the session's true last activity. Retrieving the session, or its messages, always reflects the exact latest retained call.
-
-  format: date-time
-
-- `user: object`
-
-  The authenticated user at the time of the session. Always set; `user.id` is always populated. `user.email_address` is null when the user's account has been deleted or the user is no longer a member of an organization the key may read.
-
-  - `id: string`
-
-    User identifier (tagged ID, prefixed `user_`). Always set, so attribution survives after the user's account is deleted or the user leaves the organizations the key may read.
-
-  - `email_address: string or null`
-
-    User's email address. Null when the user's account has been deleted or the user is no longer a member of an organization the key may read. The messages endpoint does not resolve email addresses; this field is always null there.
-
-- `workspace_id: string or null`
-
-  Workspace identifier (tagged ID, prefixed `wrkspc_`). Null for sessions not attributed to a workspace.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/sessions/local/$LOCAL_SESSION_ID \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "type": "compliance_local_session",
-  "id": "clls_eyJ2IjoxLCJvIjoiOWEx…",
-  "organization_uuid": "9a1e0000-0000-0000-0000-000000000000",
-  "workspace_id": "wrkspc_01SvYKoWVRVHoEbwESNvzYdR",
-  "user": {
-    "id": "user_01GpKpLmNoPqRsTuVwXyZaBc",
-    "email_address": "engineer@example.com"
-  },
-  "product_surface": "cowork",
-  "created_at": "2026-07-09T14:02:11Z",
-  "updated_at": "2026-07-09T15:47:33Z"
-}
-```
-
-## Compliance API › Apps › Sessions › Local › Messages
-
-### Retrieve local session messages
-
-**GET** `/v1/compliance/apps/sessions/local/{local_session_id}/messages`
-
-Read one local session's transcript, oldest-first by default.
-
-Retention is enforced read-side: turns at or before the child
-organization's retention boundary are never returned; a session
-that straddles the boundary carries one leading
-`content_unavailable` placeholder (`reason: "retention_elapsed"`)
-in their place. The boundary is pinned on the walk's first page and
-honored for 24 hours: a cursor older than that is rejected with an
-explicit 400; restart the walk to read under the current boundary.
-
-#### Path parameters
-
-- `local_session_id: string`
-
-#### Query parameters
-
-- `limit: optional number`
-
-  Maximum results (default: 100, max: 1000)
-
-  default: 100, maximum: 1000, minimum: 1
-
-- `order: optional "asc" or "desc"`
-
-  Sort direction. `asc` (oldest-first, default) or `desc`.
-
-  default: asc
-
-  - `"asc"`
-
-  - `"desc"`
-
-- `page: optional string`
-
-  Opaque pagination token from a previous response's `next_page` field. Pass this to retrieve the next page of results. Clients should treat this value as an opaque string and not attempt to parse or interpret its contents, as the format may change without notice.
-
-- `tool_result_max_bytes: optional number`
-
-  Truncate each text item inside a tool result to at most this many bytes (cut on a code-point boundary). Pass `-1` to request the server maximum (approximately 1 MiB); larger values are clamped to it. `0` is not a valid value.
-
-  default: 10000, maximum: 2147483647, minimum: -1
-
-- `tool_use_input_max_bytes: optional number`
-
-  Truncate each tool-use input to at most this many bytes (cut on a code-point boundary so the result is valid UTF-8). Pass `-1` to request the server maximum (approximately 1 MiB); larger values are clamped to it. `0` is not a valid value.
-
-  default: 10000, maximum: 2147483647, minimum: -1
-
-#### Headers
-
-- `"x-api-key": optional string`
-
-#### Returns
-
-- `data: array of object`
-
-  Transcript turns for this page, in call order: oldest call first by default, newest call first with `order=desc`. The messages of one call carry the call's timestamp and follow each other in transcript order; a page boundary can fall between them.
-
-  - `id: string`
-
-    Message identifier, prefixed `clsm_`. Stable for as long as the message's turn is retained: identifiers of retained turns do not change as older turns age out of the organization's retention period. The `retention_elapsed` placeholder's identifier is distinct from every retained turn's and changes only when further turns age out.
-
-  - `content: array of object or object or object`
-
-    Content blocks within the message, discriminated on `type` (`text` / `tool_use` / `tool_result`: the same discriminator values as the claude.ai chat-messages endpoint; the tool variants omit `integration_name` and `mcp_server_url`, and `text` carries `truncated`). Extended-thinking content is never included. The request's `system` field is never included; a presence-only marker message is emitted when it was set. The request's `tools[]` definitions are never included as transcript messages. Project-level instructions (such as CLAUDE.md files) appear in the message stream as a user-role context block and are included. Empty when `provenance.type` is `content_unavailable`.
-
-    - `Text object`
-
-      Text content block.
-
-      - `text: string`
-
-        Text content from the user or the assistant
-
-      - `truncated: boolean`
-
-        True when `text` was shortened by the server's fixed per-string bound (approximately 1 MiB), or when ancillary content the block carried (such as citations) was omitted, or when this block stands in for a non-text block whose content is not shown, or when it is an explanatory marker the server inserted (its text enclosed in square brackets, e.g. prefacing client-asserted history). There is no request parameter that raises the per-string bound.
-
-        default: false
-
-      - `type: "text"`
-
-        default: text
-
-    - `ToolUse object`
-
-      Tool invocation requested by the assistant.
-
-      - `id: string or null`
-
-        Tool-use ID, e.g. 'toolu_01AbC...'
-
-      - `input: string`
-
-        Arguments passed to the tool, as a JSON-encoded string. May be shortened (see the `truncated` field); a truncated value is cut mid-document and is not valid JSON.
-
-      - `name: string`
-
-        Name of the tool invoked
-
-      - `truncated: boolean`
-
-        True when `input` was shortened. Pass `tool_use_input_max_bytes=-1` to request the server maximum.
-
-        default: false
-
-      - `type: "tool_use"`
-
-        default: tool_use
-
-    - `ToolResult object`
-
-      Result returned by a tool invocation.
-
-      - `content: array of object`
-
-        Text content returned by the tool. Non-text item types are omitted and signalled via `truncated` with an in-band item-count marker.
-
-        - `text: string`
-
-          Text returned by the tool
-
-        - `type: "text"`
-
-          default: text
-
-      - `is_error: boolean`
-
-        True when the tool reported an error
-
-      - `name: string`
-
-        Name of the tool that produced this result
-
-      - `tool_use_id: string or null`
-
-        ID of the tool_use block this result responds to
-
-      - `truncated: boolean`
-
-        True when one or more text items in `content` were shortened or non-text items were omitted. Pass `tool_result_max_bytes=-1` to request the server maximum.
-
-        default: false
-
-      - `type: "tool_result"`
-
-        default: tool_result
-
-  - `created_at: string`
-
-    When the message was recorded (RFC 3339, UTC)
-
-    format: date-time
-
-  - `model: string or null`
-
-    The model that served this assistant turn, as reported in the `model` field of the underlying Messages API response. Null on user messages and on any assistant message whose `provenance` is set: client-asserted history and synthetic markers were not produced by a model during this session, and for unavailable content the serving model is not known.
-
-  - `provenance: object or object or object or null`
-
-    Where this turn's content came from, discriminated on `type`. Null (the common case) means verified content: on an assistant message, content Claude produced during this session; on a user message, content the user sent. `content_unavailable`: the turn's content cannot be returned and `content` is empty; `reason` says why. `client_asserted`: assistant content the client supplied as conversation history; `content` shows what the model received but its authorship is not verified; never on user-role messages. `synthetic_marker`: a transcript marker the endpoint generated rather than content either party sent during the session. Both `client_asserted` and `synthetic_marker` can result from normal request or client processing, not only client modification. Callers should tolerate unrecognized `type` values.
-
-    - `ContentUnavailable object`
-
-      The turn's content cannot be returned; `content` is empty.
-
-      - `reason: string`
-
-        Why this turn's content cannot be returned, e.g. `not_captured` (the content was not captured for compliance retrieval), `client_aborted` (the client closed the connection or cancelled the request before the response completed, so the response was not captured for this turn; any partial output already streamed to the client is not included; assistant-role turns only), `cmek_key_revoked` (the content is encrypted under the organization's customer-managed key and that key is unavailable), `retention_elapsed` (the content lies past the organization's retention boundary; on the placeholder standing in for every pre-boundary turn), or `oversize` (the message exceeds the server's per-message size bound even after per-block truncation). Callers should tolerate unrecognized values. `not_captured` is not proof that no record was stored: content withheld by the storage layer's fail-closed access policies carries the same reason and is deliberately indistinguishable from content that was never captured.
-
-      - `type: "content_unavailable"`
-
-        default: content_unavailable
-
-    - `ClientAsserted object`
-
-      Assistant content the client supplied as conversation history
-      rather than produced by Claude during this session. `content` shows
-      what the model received but its authorship is not verified; this can
-      result from normal request or client processing, not only client
-      modification. Never on user-role messages.
-
-      - `type: "client_asserted"`
-
-        default: client_asserted
-
-    - `SyntheticMarker object`
-
-      A transcript marker generated by the endpoint rather than sent by
-      either party during the session. Marker messages indicate that the
-      prompt history diverged from what was captured, that the request's
-      `system` field was present but is not shown, or that
-      prompt-carried history was suppressed because the session spans the
-      child organization's retention boundary and those turns cannot be
-      placed against it (the marker's text names the cause). Markers that
-      report a mismatch with captured history can result from normal request
-      or client processing, not only client modification.
-
-      - `type: "synthetic_marker"`
-
-        default: synthetic_marker
-
-  - `role: "assistant" or "user"`
-
-    Message sender (`user` or `assistant`)
-
-    - `"assistant"`
-
-    - `"user"`
-
-  - `type: "compliance_local_session_message"`
-
-    default: compliance_local_session_message
-
-- `next_page: string or null`
-
-  Opaque pagination cursor (prefixed `page_`) for the next page. Null when there is no further page. Treat as an opaque string; the format may change without notice.
-
-- `session: object`
-
-  The local session the messages belong to. `user.email_address` is always null on this endpoint; the messages endpoint does not resolve email addresses.
-
-  - `id: string`
-
-    Local session identifier, prefixed `clls_`. Unique within the parent organization. Treat as an opaque string; the format may change without notice.
-
-  - `created_at: string`
-
-    Timestamp of the session's first retained inference call (RFC 3339, UTC). When a session's activity spans the child organization's retention boundary, calls older than the boundary are no longer reflected, so this value is the timestamp of the earliest retained call: always strictly after the boundary, never the boundary itself.
-
-    format: date-time
-
-  - `organization_uuid: string`
-
-    UUID of the child organization the session belongs to
-
-  - `product_surface: string or null`
-
-    The product the session ran in: `cowork` for Cowork sessions in Claude Desktop, or `claude_code` for Claude Code sessions. New values appear as coverage expands; treat unrecognized values as opaque. `null` when the surface was not recorded.
-
-  - `type: "compliance_local_session"`
-
-    default: compliance_local_session
-
-  - `updated_at: string`
-
-    Timestamp of the session's last retained inference call (RFC 3339, UTC). Always at or after `created_at`. When a session's activity spans the child organization's retention boundary, calls older than the boundary are no longer reflected — but because retention removes only the oldest calls, this value (unlike `created_at`) is unaffected until the entire session has aged out. On the list endpoint this value is a lower bound: for a session still active at a page or `created_at.lt` window boundary it can momentarily lag the session's true last activity. Retrieving the session, or its messages, always reflects the exact latest retained call.
-
-    format: date-time
-
-  - `user: object`
-
-    The authenticated user at the time of the session. Always set; `user.id` is always populated. `user.email_address` is null when the user's account has been deleted or the user is no longer a member of an organization the key may read.
-
-    - `id: string`
-
-      User identifier (tagged ID, prefixed `user_`). Always set, so attribution survives after the user's account is deleted or the user leaves the organizations the key may read.
-
-    - `email_address: string or null`
-
-      User's email address. Null when the user's account has been deleted or the user is no longer a member of an organization the key may read. The messages endpoint does not resolve email addresses; this field is always null there.
-
-  - `workspace_id: string or null`
-
-    Workspace identifier (tagged ID, prefixed `wrkspc_`). Null for sessions not attributed to a workspace.
-
-#### Example
-
-```bash
-curl https://api.anthropic.com/v1/compliance/apps/sessions/local/$LOCAL_SESSION_ID/messages \
-    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "clsm_eyJ2IjoxLCJsIjoi…",
-      "content": [
-        {
-          "text": "text",
-          "truncated": true,
-          "type": "text"
-        }
-      ],
-      "created_at": "2025-03-12T18:22:41.123456Z",
-      "model": "claude-opus-5",
-      "provenance": {
-        "reason": "not_captured",
-        "type": "content_unavailable"
-      },
-      "role": "assistant",
-      "type": "compliance_local_session_message"
-    }
-  ],
-  "next_page": "page_eyJ2IjoxLCJmIjoibSIs…",
-  "session": {
-    "id": "clls_eyJ2IjoxLCJvIjoiOWEx…",
-    "created_at": "2025-03-12T18:22:41.123456Z",
-    "organization_uuid": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
-    "product_surface": "cowork",
-    "type": "compliance_local_session",
-    "updated_at": "2025-03-12T18:22:41.123456Z",
-    "user": {
-      "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
-      "email_address": "jane.doe@example.com"
-    },
-    "workspace_id": "wrkspc_01SvYKoWVRVHoEbwESNvzYdR"
-  }
-}
-```
-
-## Compliance API › Apps › Sessions › Remote
-
-### List remote sessions
-
-**GET** `/v1/compliance/apps/sessions/remote`
-
-List remote sessions (Cowork sessions that run in Anthropic-managed
-cloud environments) across the organizations the key may read.
-
-Each entry carries session metadata only; retrieve a session's
-transcript from the messages endpoint. By default the list spans every
-such organization; pass up to 500 `organization_ids[]` values to
-narrow it. Pass 1 to 10 `user_ids[]` values to scope the
-list to specific users: that filter matches the session's owning user,
-so agent-owned sessions are excluded whenever it is set. Bound results
-in time with the `created_at` range parameters (`created_at.gte`,
-`created_at.gt`, `created_at.lt`, `created_at.lte`; RFC 3339). There
-is no `updated_at` filter.
-
-Results are sorted newest first by `created_at`, with at most `limit`
-sessions per page (default 100, maximum 500). Pagination is
-forward-only: pass the response's `next_page` value back as `page` to
-retrieve the next page, and stop when `next_page` is null.
-
-#### Query parameters
-
-- `created_at: optional object`
-
-  - `gt: optional string`
-
-    Filter remote sessions created after this time (RFC 3339 format)
-
-    format: date-time
-
-  - `gte: optional string`
-
-    Filter remote sessions created at or after this time (RFC 3339 format)
-
-    format: date-time
-
-  - `lt: optional string`

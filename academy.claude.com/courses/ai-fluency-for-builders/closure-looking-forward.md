@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Share what you learned with colleagues who could benefit from the 4D Framework
 * Collect your completion badge
 
-## Looking forward
+## Looking forward[](#looking-forward)
 
 Looking forward · 4 min
 
@@ -24,7 +24,7 @@ This closing video brings together everything you've learned across the
 course and challenges you to put it into practice immediately with real
 work that's already waiting for you.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **AI is strongest in the middle of the toolkit.** Delegate implementation freely. Keep empathy, judgment, and shipping in your hands.
 * **Robust description** means following the full chain: user voice to requirement to spec to AI instruction to tests. A failure at any link cascades downstream.
@@ -32,7 +32,7 @@ work that's already waiting for you.
 * **Apply discernment before shipping.** AI output often passes “Does it work?” but stumbles on “Is it the right thing?” Those gaps are where your judgment matters most.
 * **The 4Ds are dynamic, not a sequence.** Moving fluidly between them as you build is what fluency looks like in practice.
 
-## Exercise
+## Exercise[](#exercise)
 
 ### Your next build
 
@@ -52,13 +52,13 @@ Work through it using all four competencies:
 * **Discernment** — Evaluate output through all five lenses.
 * **Diligence** — Before shipping: Do I understand what this does? Is there a feedback loop? Would I stand behind it?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What task are you committing to this week — and which part of the 4D Framework will matter most?
 * What did you believe about working with AI at the start of this course that you now see differently?
 * Who on your team would benefit from the 4D Framework?
 
-## What's next
+## What's next[](#whats-next)
 
 Next, take the short assessment to earn your completion badge.
 

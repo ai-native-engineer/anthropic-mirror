@@ -396,7 +396,7 @@ During long sessions, Claude's context window can fill with irrelevant conversat
   Delegate research with `"use subagents to investigate X"`. They explore in a separate context, keeping your main conversation clean for implementation.
 </Tip>
 
-Since context is your fundamental constraint, subagents are one of the most powerful tools available. When Claude researches a codebase it reads lots of files, all of which consume your context. Subagents run in separate context windows and report back summaries:
+Since context is your fundamental constraint, use subagents to keep research out of it. When Claude researches a codebase it reads lots of files, all of which consume your context. Subagents run in separate context windows and report back summaries:
 
 ```text wrap theme={null}
 Use subagents to investigate how our authentication system handles token
@@ -460,9 +460,10 @@ The first command prints plain text. The `json` format returns a single JSON obj
   Run multiple Claude sessions in parallel to speed up development, run isolated experiments, or start complex workflows.
 </Tip>
 
-Pick the parallel approach that fits how much coordination you want to do yourself:
+Pick the parallel approach that fits how much coordination you want to do yourself, and add messaging when the sessions need to pass findings between them:
 
 * [Worktrees](/docs/en/worktrees): run separate CLI sessions in isolated git checkouts so edits don't collide
+* [Cross-session messaging](/docs/en/cross-session-messaging): let the sessions you run yourself pass findings to each other
 * [Desktop app](/docs/en/desktop#work-in-parallel-with-sessions): manage multiple local sessions visually, each in its own worktree
 * [Claude Code on the web](/docs/en/claude-code-on-the-web): run sessions in the cloud, on Anthropic-managed infrastructure by default
 * [Agent view](/docs/en/agent-view): research preview. Run `claude agents` to dispatch sessions that keep running in the background and watch them from one screen
@@ -496,13 +497,13 @@ For large migrations or analyses, you can distribute work across many parallel C
   <Step title="Write a script to loop through the list">
     ```bash theme={null}
     for file in $(cat files.txt); do
-      claude -p "Migrate $file from React to Vue. Return OK or FAIL." \
+      claude -p "Migrate $file from Python 2 to Python 3. Return OK or FAIL." \
         --allowedTools "Edit,Bash(git commit *)"
     done
     ```
   </Step>
 
-  <Step title="Test on a few files, then run at scale">
+  <Step title="Test on a few files, then run on all of them">
     Refine your prompt based on what goes wrong with the first 2-3 files, then run on the full set. The `--allowedTools` flag restricts what Claude can do, which matters when you're running unattended.
   </Step>
 </Steps>

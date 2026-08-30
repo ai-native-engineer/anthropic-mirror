@@ -16,7 +16,7 @@ Try in CoworkCopy prompt
 
 ![Validate reserves and draft filing narrative with Claude for Excel result](https://academy.claude.com/assets/v1/validate-reserves-and-draft-filing-narrative-with-claude-for-excel-facgxrom.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 The valuation cutoff was last Friday. You’ve got the reserve workbook with five tabs of triangles, the prior-year filing memo open in another window, the appointed actuary asking about IBNR movement, and the state filing due in two weeks.
 
@@ -37,11 +37,11 @@ Show me the flags before I touch anything.
 
 Open in Cowork
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Cowork reads the reserve workbook from the attached folder and pulls historical filings through your organization's own NAIC connector — that's where the formula validation and prior-period comparison happen. Workbook fixes happen in Claude for Excel with the file open, and the conversation carries into Claude for Word so the filing narrative picks up where you left off.
 
-### Required context
+### Required context[](#required-context)
 
 Attach the valuation folder with the reserve workbook. This walkthrough assumes your organization runs its own NAIC data source as a remote MCP server: an Owner adds it once under Organization settings > Connectors (Add > Custom > Web, then the server URL), and you connect it under Customize > Connectors and turn it on from the + menu in your Cowork task. Have the Claude for Excel and Claude for Word add-ins installed — that's where the workbook fixes and filing narrative happen.
 
@@ -53,7 +53,7 @@ Prior-year filing memo
 
 In Cowork’s chat bar:Valuation folder
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 A brief you can act on: where the workbook is broken, where the reserves moved, and the exact cells to look at when you open the file.
 
@@ -90,11 +90,11 @@ Copy prompt
 
 Once you've signed off on the workbook, open the filing memo in Claude for Word. The conversation carries from Excel, so the narrative already knows the IBNR movement and the LDF refresh — you just need it to draft the reserve adequacy section and the methodology change disclosure.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Pressure-test the development factors
+### Pressure-test the development factors[](#pressure-test-the-development-factors)
 
 In Cowork, ask whether the LDFs look consistent with industry data.
 
@@ -102,7 +102,7 @@ are my 12-24 and 24-36 link ratios in line with the industry benchmarks NAIC pub
 
 Open in Cowork
 
-### Run a sensitivity on the tail
+### Run a sensitivity on the tail[](#run-a-sensitivity-on-the-tail)
 
 In Claude for Excel, once the workbook is clean.
 
@@ -110,7 +110,7 @@ rebuild the tail sensitivity — show ultimate at tail factors of 1.010, 1.015, 
 
 Copy prompt
 
-### Draft the methodology change disclosure
+### Draft the methodology change disclosure[](#draft-the-methodology-change-disclosure)
 
 In Claude for Word, once the reserves are locked.
 
@@ -118,25 +118,25 @@ draft the methodology change section for the filing — we updated the tail fact
 
 Copy prompt
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Ask Cowork for the Excel-ready brief
+### Ask Cowork for the Excel-ready brief[](#ask-cowork-for-the-excel-ready-brief)
 
 End your Cowork session by asking for a one-paragraph brief with the sheet refs and the formula flags — that's what you paste into the Claude for Excel sidebar. Tighter than scrolling back through the chat.
 
-### Click the sheet reference
+### Click the sheet reference[](#click-the-sheet-reference)
 
 When Claude flags Triangles!K47 in the Excel sidebar, click it and Excel jumps to that cell. Check the formula and the surrounding pattern before you agree to change anything.
 
-### Excel to Word carries the conversation
+### Excel to Word carries the conversation[](#excel-to-word-carries-the-conversation)
 
 When you open the filing memo in Claude for Word, it already knows which formulas you fixed and which movements need narrative. You're not re-explaining the reserve walk — just say "draft the reserve adequacy section and the methodology disclosure."
 
-### Save it as a skill
+### Save it as a skill[](#save-it-as-a-skill)
 
 Quarterly reserve review is the same loop every cycle. Once the Cowork conversation works for one segment, save it as a skill so the next quarter's review across all your lines starts one click in.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Try it on your next reserve cycle. Attach the valuation folder in Cowork, ask where the workbook needs fixing, and review the flags before anything moves.
 

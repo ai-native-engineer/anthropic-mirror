@@ -4,7 +4,9 @@ Webinar (on demand)
 
 [Next](#)Next
 
-# Claude Security: Putting Claude to work for defenders
+# Claude Security
+
+# Putting Claude to work for defenders.
 
 Watch on-demand
 

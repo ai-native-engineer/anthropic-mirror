@@ -14,7 +14,7 @@ Claude Code isn't just a tool for writing code - it's designed to be your coding
 
 ![](https://academy.claude.com/assets/media/a7b4baf081b4100802708298bce2a0481adf57c1f574f05da55b83aa84a4aeea.png)
 
-## The /init Command
+## The /init Command[](#the-init-command)
 
 When starting with a new project, the `/init` command is your first step. Claude Code will scan your codebase, noting project structure, dependencies, commands, and coding patterns. The findings get summarized in a `CLAUDE.md` file that Claude automatically reads in future conversations.
 
@@ -28,13 +28,13 @@ You can have multiple CLAUDE.md files for different scopes:
 
 When running `/init`, you can add special directions for areas you want Claude to focus on. You can also use the `#` shortcut to add quick notes that get appended to your CLAUDE.md file.
 
-## Common Workflows
+## Common Workflows[](#common-workflows)
 
 Claude works best as an effort multiplier. The more context and structure you provide, the better results you'll get. Here are two effective approaches:
 
 ![](https://academy.claude.com/assets/media/4f24df4e60bfce37882a7a719d234680bd3a163bb236186f07fecdad1f2438ed.png)
 
-### Planning-First Workflow
+### Planning-First Workflow[](#planning-first-workflow)
 
 This three-step approach works well for complex features:
 
@@ -44,7 +44,7 @@ This three-step approach works well for complex features:
 
 For example, when building a document conversion tool, you might first ask Claude to examine existing tool examples and helper functions. Then ask it to plan out the implementation steps. Finally, request the actual code implementation.
 
-### Test-Driven Development Workflow
+### Test-Driven Development Workflow[](#test-driven-development-workflow)
 
 ![](https://academy.claude.com/assets/media/69c44a8412c3ec8155606d3f9bf3f4c66b5b7f5bc0b5f2e1483f2624c0ed8a6f.png)
 
@@ -57,7 +57,7 @@ This approach requires more upfront effort but dramatically increases Claude's e
 
 This workflow helps ensure your code is robust and handles edge cases you might not have considered initially.
 
-## Practical Tips
+## Practical Tips[](#practical-tips)
 
 Claude can handle routine development tasks beyond just writing code. You can ask it to:
 

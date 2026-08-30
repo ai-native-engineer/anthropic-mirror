@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Create a volunteer management system result](https://academy.claude.com/assets/v1/create-a-volunteer-management-system-mny15n26.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to process complex information and synthesize frameworks lets you develop a volunteer management system with depth and sophistication. Instead of piecing together documents over weeks, you develop complete systems in hours.
 
@@ -61,11 +61,11 @@ Create professional, comprehensive documents that make our volunteer program fee
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 To create volunteer infrastructure that matches your organization's specific needs and brand, provide context about your program structure and existing materials.
 
-### Required context
+### Required context[](#required-context)
 
 Provide Claude with any relevant information:
 
@@ -83,7 +83,7 @@ Volunteer Program Handbook and Role DescriptionsPDF
 
 Foundation Organizational OverviewPDF
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude creates a complete volunteer program infrastructure with 4 core deliverables.
 
@@ -102,11 +102,11 @@ The Excel workbook provides a professional database system with five interconnec
 
 Together, these documents create a professional volunteer management system that scales with your program growth.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Customize for Additional Roles
+### Customize for Additional Roles[](#customize-for-additional-roles)
 
 Add specialized volunteer positions to your program
 
@@ -114,7 +114,7 @@ Add role descriptions for two new positions: Curriculum Developer (volunteers wh
 
 Open in Claude
 
-### Build Program Evaluation
+### Build Program Evaluation[](#build-program-evaluation)
 
 Measure volunteer program effectiveness
 
@@ -122,7 +122,7 @@ Create an evaluation system for our volunteer program including quarterly volunt
 
 Open in Claude
 
-### Generate Volunteer Recruitment Materials
+### Generate Volunteer Recruitment Materials[](#generate-volunteer-recruitment-materials)
 
 Create materials to attract quality volunteers
 
@@ -130,21 +130,21 @@ Design volunteer recruitment materials including a one-page program overview fly
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Maintaining consistency across documents
+### Maintaining consistency across documents[](#maintaining-consistency-across-documents)
 
 These interconnected materials reference each other—the onboarding guide mentions roles from the role descriptions document, templates use language from the handbook, and tracking systems align with defined roles. When you update one document, review related materials to maintain alignment. You can ask Claude to "update the training timeline in the onboarding guide to reflect the new 6-week schedule" when policies change.
 
-### Training staff to use the system
+### Training staff to use the system[](#training-staff-to-use-the-system)
 
 These documents are detailed enough that staff new to volunteer management can implement them. The onboarding guide walks through processes step-by-step, templates include customization instructions, and the Excel system uses clear labels and notes. Consider creating a simple "How to Use This System" overview document that orients staff to which materials to use when.
 
-### Scaling for program growth
+### Scaling for program growth[](#scaling-for-program-growth)
 
 Start with the core infrastructure for your current volunteer roles and numbers. As your program expands, ask Claude to "add materials for [new role]" or "expand the tracking system to include [new metric]." Building incrementally with Claude maintaining consistency is faster than creating everything at once or hiring consultants for each expansion phase.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Transform your volunteer program from scattered systems to professional infrastructure. Claude creates the comprehensive, interconnected materials that make volunteer management scalable and effective.
 

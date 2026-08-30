@@ -12,7 +12,7 @@ Lesson 623 min
 
 When building AI applications, you'll often encounter tasks that seem simple on the surface but become complex when you try to implement them effectively. Let's explore a powerful pattern called parallelization workflows that can help you break down complex tasks into manageable, focused pieces.
 
-## The Problem with Complex Single Prompts
+## The Problem with Complex Single Prompts[](#the-problem-with-complex-single-prompts)
 
 Imagine you're building a material designer application where users upload images of parts and receive recommendations for the best material to use. Your first instinct might be to send the image to Claude with a simple prompt asking it to choose between metal, polymer, ceramic, composite, elastomer, or wood.
 
@@ -24,7 +24,7 @@ You might think to improve this by adding detailed criteria for each material in
 
 ![](https://academy.claude.com/assets/media/e330c0e6739aada8fe24e7e8d3ea5585ae19e889337ef841676d5c2c1f704630.jpg)
 
-## A Better Approach: Parallelization
+## A Better Approach: Parallelization[](#a-better-approach-parallelization)
 
 Instead of cramming everything into one request, you can split the task into multiple parallel requests. Each request focuses on evaluating the part for a single material type with specialized criteria.
 
@@ -41,7 +41,7 @@ Here's how it works:
 
 The final step sends all the individual analysis results back to Claude with a request to compare them and make a final material recommendation.
 
-## How Parallelization Workflows Work
+## How Parallelization Workflows Work[](#how-parallelization-workflows-work)
 
 The parallelization pattern follows a simple structure:
 
@@ -52,7 +52,7 @@ The parallelization pattern follows a simple structure:
 * **Aggregate the results together** - Combine the specialized analyses into a final decision
 * **The parallelized sub-tasks don't need to be identical** - Each can have a specialized prompt, set of tools, or evaluation criteria
 
-## Benefits of This Approach
+## Benefits of This Approach[](#benefits-of-this-approach)
 
 Parallelization workflows offer several key advantages:
 
@@ -64,7 +64,7 @@ Parallelization workflows offer several key advantages:
 
 **Improved reliability:** By breaking down the complex task, you reduce the cognitive load on the AI model and get more consistent, reliable results.
 
-## When to Use Parallelization
+## When to Use Parallelization[](#when-to-use-parallelization)
 
 This pattern works well when you have a complex decision that can be broken down into independent evaluations. Look for situations where you're asking an AI to consider multiple criteria, compare several options, or make decisions that involve different domains of expertise.
 

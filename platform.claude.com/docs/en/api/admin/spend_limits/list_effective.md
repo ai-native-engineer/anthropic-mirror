@@ -14,15 +14,29 @@ Paginates by member, so a member's periods never split across pages.
 
 - `limit: optional number`
 
+  Maximum number of members per page. A member's period rows never split across pages, so a page may carry more rows than this. Defaults to `20`.
+
   default: 20, maximum: 1000, minimum: 1
 
 - `page: optional string`
 
-- `period: optional array of string`
+  Opaque cursor from a previous response's `next_page` field.
+
+- `period: optional array of "daily" or "monthly" or "weekly"`
+
+  Restrict the report to these limit periods. Omit to return one row per period each member resolves a spend limit for.
 
   maxItems: 3
 
+  - `"daily"`
+
+  - `"monthly"`
+
+  - `"weekly"`
+
 - `user_ids: optional array of string`
+
+  Restrict the report to these members, by tagged user ID (`user_...`). At most 100 entries.
 
   maxItems: 100
 
@@ -38,17 +52,27 @@ Paginates by member, so a member's periods never split across pages.
 
     - `deleted: boolean`
 
+      True only when the underlying account has been deleted.
+
       default: false
 
     - `email_address: string or null`
 
+      The user's email address. Null when the account is unavailable or has been deleted.
+
     - `name: string or null`
 
+      The user's current display name. Null when the account is unavailable, has been deleted, or has no name set.
+
     - `type: "user_actor"`
+
+      Actor type. Always `user_actor`.
 
       default: user_actor
 
     - `user_id: string`
+
+      Tagged ID of the user.
 
   - `amount: string or null`
 
@@ -59,6 +83,8 @@ Paginates by member, so a member's periods never split across pages.
     ISO 4217 code of the organization's billing currency; the unit for `amount` and `period_to_date_spend`.
 
   - `period: "daily" or "monthly" or "weekly"`
+
+    Period this row's effective limit and spend are reported for.
 
     - `"daily"`
 
@@ -72,21 +98,35 @@ Paginates by member, so a member's periods never split across pages.
 
   - `scope: object`
 
+    Scope selecting a single member of the organization.
+
     - `type: "user"`
+
+      Scope type. Always `user` for this scope.
 
       default: user
 
     - `user_id: string`
 
+      Tagged ID of the member the spend limit applies to.
+
   - `source: object or object or object or 2 more`
+
+    Scope selecting a single member of the organization.
 
     - `User object`
 
+      Scope selecting a single member of the organization.
+
       - `type: "user"`
+
+        Scope type. Always `user` for this scope.
 
         default: user
 
       - `user_id: string`
+
+        Tagged ID of the member the spend limit applies to.
 
     - `SeatTier object`
 
@@ -141,7 +181,7 @@ curl https://api.anthropic.com/v1/organizations/spend_limits/effective \
         "email_address": "email_address",
         "name": "name",
         "type": "user_actor",
-        "user_id": "user_id"
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
       },
       "amount": "50000",
       "currency": "USD",
@@ -149,11 +189,11 @@ curl https://api.anthropic.com/v1/organizations/spend_limits/effective \
       "period_to_date_spend": "12050.5",
       "scope": {
         "type": "user",
-        "user_id": "user_id"
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
       },
       "source": {
         "type": "user",
-        "user_id": "user_id"
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
       },
       "spend_limit_id": "spend_limit_id"
     }

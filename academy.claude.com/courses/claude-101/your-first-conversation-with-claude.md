@@ -17,7 +17,7 @@ In this lessonBy the end, you’ll be able to
 * Upload files and images to provide Claude with additional context
 * Use follow-up messages to iterate and refine Claude's responses
 
-## Video: Getting started with Claude.ai
+## Video: Getting started with Claude.ai[](#video-getting-started-with-claudeai)
 
 Getting started with Claude.ai
 
@@ -49,7 +49,7 @@ Working with Claude, you have a great partner and a powerful intelligent collabo
 
 *This video was published in December 2025. The "Use style" menu it shows has since been deprecated.*
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Claude is a powerful, intelligent collaborator that amplifies your capabilities across all of your work. Claude brings AI intelligence, but you bring the context and expertise that makes the work meaningful.
 * The best approach when speaking to Claude is like you would a coworker—naturally, concisely, and conversationally.
@@ -57,13 +57,13 @@ Working with Claude, you have a great partner and a powerful intelligent collabo
 * When you upload relevant documents or background information into a chat, Claude considers that content in its response—think of it as a shortcut so Claude can understand what your needs are.
 * The real power of Claude comes with continued and frequent communication, not just one-off prompts.
 
-## Starting your first conversation
+## Starting your first conversation[](#starting-your-first-conversation)
 
 When you open Claude.ai, you'll see a clean interface with a text input area at the bottom of the screen.
 
 Your prompts can range from simple questions (like brainstorming code names for a new feature) to complex requests to co-create files.
 
-## Writing effective prompts
+## Writing effective prompts[](#writing-effective-prompts)
 
 All interactions with Claude begin with a prompt, and these prompts, combined with other context, impact Claude's response. The best approach when speaking to Claude is like you would a coworker—naturally, concisely, and conversationally.
 
@@ -73,7 +73,7 @@ But you may ask, what is a good prompt? Before your next conversation with Claud
 2. **Defining the task:** What action do you want Claude to take? Do you want Claude to write, analyze, build, or something else?
 3. **Specifying rules:** What's the style or tone you want Claude to use? Are there examples that you can attach to show Claude what you're looking for?
 
-### Putting it together
+### Putting it together[](#putting-it-together)
 
 Here's an example prompt that uses all three elements:
 
@@ -103,7 +103,7 @@ format we need.
 
 [Take our free AI Fluency course(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations) to learn how all four competencies work together to enable efficient, effective, ethical, and safe AI use.
 
-## Adding context
+## Adding context[](#adding-context)
 
 Uploads, connectors, and custom preferences offer ways to give Claude even more context about your work.
 
@@ -124,7 +124,7 @@ If you'd like Claude to consider specific preferences in every response, go
 to Settings > General > 'What personal preferences should Claude consider?'
 to set preferences that apply to every conversation.
 
-## Iterating on Claude's responses
+## Iterating on Claude's responses[](#iterating-on-claudes-responses)
 
 Conversations with Claude are meant to be iterative. Chaining bite-sized prompts together allows for a natural dialogue where you guide the conversation based on Claude's replies.
 
@@ -142,7 +142,7 @@ You can also click the pencil icon on any of your messages to edit and
 resubmit your prompt — useful when you want to refine your request rather
 than add a new message.
 
-## Personalizing Claude
+## Personalizing Claude[](#personalizing-claude)
 
 There are two features that help Claude work better for you over time to increase the power of your prompts.
 
@@ -150,11 +150,11 @@ There are two features that help Claude work better for you over time to increas
 
 **Skills** are reusable sets of instructions that teach Claude how to approach specific tasks and workflows. They can encode your preferences for everything from how you write and the output formats you want to the specific processes you follow, the expertise you want applied, or how you like different types of work handled. Claude applies them automatically whenever they're relevant. Lesson 7, Working with skills, shows you how to enable and create them; for a quick overview, visit the [Anthropic Help Center(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills).
 
-## Put it into practice
+## Put it into practice[](#put-it-into-practice)
 
 Before moving on, try prompting Claude with a question or task. If you need an idea to get started, feel free to explore our [use-case gallery(opens in new tab)](https://academy.claude.com/all?kind=use-case).
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore how to give Claude direction—adjusting its tone, format, and approach to match exactly what you need.
 

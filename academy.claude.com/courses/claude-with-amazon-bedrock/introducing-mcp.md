@@ -16,7 +16,7 @@ Model Context Protocol (MCP) is a communication layer that provides Claude with 
 
 When you first encounter MCP, you'll see diagrams showing the basic architecture: an MCP Client (your server) connects to MCP Servers that contain tools, prompts, and resources. Each MCP Server acts as an interface to outside services like GitHub, AWS, or databases.
 
-## The Problem MCP Solves
+## The Problem MCP Solves[](#the-problem-mcp-solves)
 
 Let's say you're building a chat interface where users can ask Claude about their GitHub data - questions like "What open pull requests are there across all my repositories?" To handle this without MCP, you'd need to create tools for every GitHub operation you want to support.
 
@@ -28,7 +28,7 @@ GitHub has massive functionality - repositories, pull requests, issues, projects
 
 This creates a lot of code that you have to write, test, and maintain. That's where MCP comes in.
 
-## How MCP Works
+## How MCP Works[](#how-mcp-works)
 
 MCP shifts the burden of tool definitions and execution from your server to dedicated MCP Servers. Instead of writing all those GitHub tools yourself, you connect to a GitHub MCP Server that already has them implemented.
 
@@ -38,19 +38,19 @@ The MCP Server acts as a wrapper around the outside service, providing pre-built
 
 ![](https://academy.claude.com/assets/media/6007c0bb43df548f5718d979f8f3edf520d95cd5d9cd10924de5c1d115d0a274.png)
 
-## Common Questions
+## Common Questions[](#common-questions)
 
-### Who authors MCP Servers?
+### Who authors MCP Servers?[](#who-authors-mcp-servers)
 
 Anyone can create an MCP Server implementation. Often, service providers themselves will make their own official implementations. For example, AWS might release an official MCP Server with tools for their various services.
 
-### How is this different from calling APIs directly?
+### How is this different from calling APIs directly?[](#how-is-this-different-from-calling-apis-directly)
 
 When you call a service's API directly, you still have to write the tool schemas and function implementations yourself. MCP Servers provide those tool schemas and functions already defined for you, saving you development time.
 
 ![](https://academy.claude.com/assets/media/69d10ad78e4bc7d024d6956b7dd7ddab90e68b004434f998c62d4e5a5fbc3da9.png)
 
-### Isn't MCP just the same as tool use?
+### Isn't MCP just the same as tool use?[](#isnt-mcp-just-the-same-as-tool-use)
 
 This is a common misconception. MCP Servers and tool use are complementary but different concepts. Tool use is about Claude calling functions to accomplish tasks. MCP is about who provides those functions - instead of you writing them, someone else has already implemented them in an MCP Server.
 

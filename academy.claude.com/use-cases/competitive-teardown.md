@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-i8lzizck.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-m3smq5zq.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Product Management plugin ships with `/competitive-brief` and other market-analysis skills as a starting point, already structured to build a matrix and score gaps. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Product ManagementWrite feature specs, plan roadmaps, and synthesize user resear
 
 Show all 8 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -62,7 +62,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (your product overview doc, last quarter's positioning one-pager, any competitor screenshots or pricing PDFs you've already collected) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the matrix and gap brief back to it. If you refresh this every quarter, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from that folder so your competitor list, instructions, and memory stay attached.
 
@@ -78,15 +78,15 @@ northwind-onboarding-01.pngOptionalApr 18, 2026356 KB
 
 In Cowork’s chat bar:Product / competitive / q2
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Build a competitive teardown of Acme and Northwind against us. Browse their product, docs, changelog, pricing page, and recent reviews, and produce a feature and positioning matrix. Call out where we clearly win, where we're exposed, and everything they shipped last quarter that we haven't answered.
 
 Product / competitive / q2Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -104,7 +104,7 @@ Prompt
 
 **Ask what still needs a response.** "Everything they shipped last quarter that we haven't answered" turns the changelog into a backlog conversation, separate from the evergreen positioning.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -114,7 +114,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -124,9 +124,9 @@ Product / competitiveOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Refresh it every quarter
+### Refresh it every quarter[](#refresh-it-every-quarter)
 
 Competitors keep shipping after you've looked. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill re-browses the competitor set and rewrites the matrix on a weekly check.
 
@@ -142,7 +142,7 @@ Runs `/competitive-brief` against the standing competitor set and writes the ref
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/competitive-brief` now carries your competitor set, your matrix taxonomy, and your scoring language. Share it so PMs, marketers, and sellers all read the market against the same grid, and the "where are we exposed" conversation starts from one source of truth.
 
@@ -150,7 +150,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/competitive-brief` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your competitor set and scoring baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

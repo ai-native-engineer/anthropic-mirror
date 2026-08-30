@@ -10,6 +10,8 @@ Quiz 1 of 1 · AI Fluency for pK–12 EducatorsCourse Quiz
 
 Quiz6 min
 
+You've reached the final quiz for AI Fluency for pK–12 Educators. Its 8 questions revisit what AI Fluency means and where generative AI falls short, what each of the 4Ds looks like in everyday classroom and school scenarios, and how to protect student data when you use AI tools. A score of 80% or higher passes. Once you pass, select **Create your completion badge** to add it to your account, where you can view it and share a verifiable link.
+
 [Previous lessonClosure and enrichment](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/closure-and-enrichment)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-for-k-12-educators/badge)
 
 Quiz 1 of 1 · AI Fluency for pK–12 EducatorsCourse Quiz

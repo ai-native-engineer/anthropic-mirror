@@ -17,7 +17,7 @@ to the smartest one, your API bill will surprise you. Pick the cheapest one,
 and the output might not hold up. Each model has different trade-offs, and
 picking the right one affects both **quality** and **cost**.
 
-## The model tiers
+## The model tiers[](#the-model-tiers)
 
 Anthropic currently offers four model tiers, and you choose between them with the `model` parameter in your API call.
 
@@ -36,7 +36,7 @@ your latency and token numbers will differ.*
 
 ![Three cards comparing the Claude model tiers: Haiku (fastest, lowest cost, for classification and routing), Sonnet (capable and fast, for most production work), and Opus (most intelligent, highest cost, for deep reasoning and complex analysis)](https://academy.claude.com/assets/media/ee696666d9ca0b3bb8944eb4764fc2c9c97ec6eec6ad632e462e97459d16f9a2.png)
 
-## Start with a simple evaluation
+## Start with a simple evaluation[](#start-with-a-simple-evaluation)
 
 Before you write production code, set up a simple **evaluation**: a set of example inputs that you run through each model and score against what good output means for your use case. You don't need anything fancy — 20 or 30 representative examples from your actual workload is enough to start.
 
@@ -46,7 +46,7 @@ Then work your way up the tiers:
 2. If it doesn't, step up to **Sonnet**.
 3. Only reach for **Opus** when the task needs it.
 
-## Comparing the tiers side by side
+## Comparing the tiers side by side[](#comparing-the-tiers-side-by-side)
 
 Let's see the difference between the tiers, not just talk about it. We'll send the same prompt through all three models and watch the latency and token counts:
 
@@ -75,7 +75,7 @@ Run it and you'll see three models and three sets of numbers. **Opus** takes the
 
 And that's the whole point: **the right model is the cheapest one whose output you'd actually ship.** For a definition, Haiku is plenty. For drafting a regulatory response, you'd run the same comparison and probably end up on Opus. The eval is the same shape every single time.
 
-## Routing different work to different models
+## Routing different work to different models[](#routing-different-work-to-different-models)
 
 In a real app, you'd route different kinds of work to different models inside the same endpoint. Take an operations dashboard with a document processing route:
 
@@ -85,7 +85,7 @@ In a real app, you'd route different kinds of work to different models inside th
 
 One queue, three models, picked per task.
 
-## Recap
+## Recap[](#recap)
 
 * Anthropic offers four model tiers: **Fable** for the highest available capability, **Opus** for hard problems, **Sonnet** for daily work, and **Haiku** for volume.
 * Set up a simple evaluation — 20 or 30 representative examples from your real workload — before writing production code.

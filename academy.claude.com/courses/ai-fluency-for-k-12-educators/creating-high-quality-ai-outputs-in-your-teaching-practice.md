@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Use Description skills to guide AI in creating differentiated instructional materials
 * Use Discernment skills to evaluate AI-generated materials for accuracy, reading level, and alignment to your learning objectives
 
-## Creating high quality AI outputs in your teaching practice
+## Creating high quality AI outputs in your teaching practice[](#creating-high-quality-ai-outputs-in-your-teaching-practice)
 
 Creating high quality AI outputs · 10 min
 
@@ -48,7 +48,7 @@ Up front, you tell AI your students read below grade level and need key vocabula
 
 DescriptionDiscernment
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Effective Description provides specific context.** The more you share about you, your students' needs, and your teaching habits, the better.
 * **Discernment isn't optional.** Evaluate outputs when accuracy matters—flag claims to verify or ask for citations.
@@ -56,7 +56,7 @@ DescriptionDiscernment
 * **AI accelerates, but doesn't replace expertise.** You're still the decision-maker.
 * **Upload past materials.** Your unit plans, rubrics, or strong examples help AI match your voice and rigor.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Differentiated materials challenge
 
@@ -78,12 +78,12 @@ Apply Description and Discernment to create a piece of differentiated instructio
 
 *Stretch goal:* Build your revised material into a student-facing-quality product (lesson guide, center, project, worksheet) with clear directions, objectives, scaffolds, and a check for understanding—running the Description-Discernment loop until it's something you'd stand behind.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did giving AI rich context about your students and goals change its output, compared to a generic request?
 * What's one discernment check you'll always run before putting an AI-made material in front of students?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll put Delegation and Diligence into practice with a data-analysis scenario. This includes how to decide what AI should touch, how to protect student information, and how to validate results before you trust them.
 

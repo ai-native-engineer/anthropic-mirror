@@ -174,6 +174,30 @@ Customer stories
 
 Inside the startups and founders using Claude. See what they shipped, and what it gave back.
 
+[View story](https://claude.com/customers/evenup)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5e5b97ed26f0736cd8ef5b_evenup_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5e5b9a67ae5f64f19fc17e_evenup_dark.svg)
+
+EvenUp cuts document drafting from 15 hours to 15 minutes with Claude
+
+EvenUp
+
+Startup
+
+North America
+
+August 26, 2026
+
+Claude Platform
+
+Claude Enterprise
+
+Claude Code
+
+Legal
+
+Claude Platform
+
 [View story](https://claude.com/customers/deepgram)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c544207da56365de9165_logo_deepgram-light-mode.png)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a84c5496d5290209c339478_logo_deepgram-dark-mode.png)
@@ -196,13 +220,13 @@ Software
 
 Claude Code
 
-[View story](https://claude.com/customers/vega-security)View story
+[View story](https://claude.com/customers/vega)View story
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b3a32e0823cc2246db_logo_vega-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7cd9b694804d6ccb090f8f_logo_vega-dark-mode.svg)
 
 Vega's cyber defense platform returns 67% of analysts' time with Claude
 
-Vega Security
+Vega
 
 Startup
 
@@ -281,28 +305,6 @@ Claude Platform
 Claude Code
 
 Legal
-
-Claude Platform
-
-[View story](https://claude.com/customers/dust)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28a7bdb02b70485884e51e_logo_dust-light-mode.svg)![Dust logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c026e65569d372201cc547_Frame%20(5).svg)
-
-Dust enables agents to go deeper at lower cost with Claude
-
-Dust
-
-Startup
-
-Europe
-
-June 30, 2026
-
-Claude Platform
-
-Claude Code
-
-Software
 
 Claude Platform
 

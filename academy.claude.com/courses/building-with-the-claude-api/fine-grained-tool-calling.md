@@ -12,7 +12,7 @@ Lesson 2915 min
 
 When you combine tool use with streaming in Claude, you get real-time updates as the AI generates tool arguments. This creates a more responsive user experience, but there are some important details to understand about how it works behind the scenes.
 
-## Basic Tool Streaming
+## Basic Tool Streaming[](#basic-tool-streaming)
 
 With streaming enabled, Claude sends back different types of events as it processes your request. You're already familiar with events like `ContentBlockDelta` for regular text generation. For tool use, you'll also need to handle a new event type called `InputJsonEvent`.
 
@@ -38,7 +38,7 @@ for chunk in stream:
 
 ![](https://academy.claude.com/assets/media/9d672ffb05b98edeaa68f0fc2602f422e34cb20c57d12b85da784e0bab5fe2ba.png)
 
-## How JSON Validation Works
+## How JSON Validation Works[](#how-json-validation-works)
 
 Here's where things get interesting. The Anthropic API doesn't immediately send you every chunk as Claude generates it. Instead, it buffers chunks and validates them first.
 
@@ -71,7 +71,7 @@ This validation process explains why you see delays followed by bursts of text, 
 
 ![](https://academy.claude.com/assets/media/1a9a0fe5d50b398470a49ab69ceb09704550d9d506564747395eaeea81b84798.png)
 
-## Fine-Grained Tool Calling
+## Fine-Grained Tool Calling[](#fine-grained-tool-calling)
 
 If you need faster, more granular streaming - perhaps to show users immediate updates or start processing partial results quickly - you can enable fine-grained tool calling.
 
@@ -98,7 +98,7 @@ run_conversation(
 
 With fine-grained tool calling, you might receive a `word_count` value much earlier in the stream, without waiting for the entire `meta` object to be completed.
 
-## Handling Invalid JSON
+## Handling Invalid JSON[](#handling-invalid-json)
 
 When using fine-grained tool calling, Claude might generate invalid JSON like `"word_count": undefined` instead of a proper number. Your application needs to handle these cases gracefully:
 
@@ -114,7 +114,7 @@ except json.JSONDecodeError:
 
 Without fine-grained tool calling, the API's validation would catch this error and potentially wrap problematic values in strings, which might not match your expected schema.
 
-## When to Use Fine-Grained Tool Calling
+## When to Use Fine-Grained Tool Calling[](#when-to-use-fine-grained-tool-calling)
 
 Consider enabling fine-grained tool calling when:
 

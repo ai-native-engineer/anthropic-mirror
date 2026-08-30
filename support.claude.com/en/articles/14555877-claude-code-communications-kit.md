@@ -8,8 +8,6 @@ Three parts, in the order you’ll need them. **Part 1** is your launch announce
 
 **Treat everything in this kit as draft copy, not finished copy.** Rewrite each message in your org’s voice, swap the example tasks for real bugs and modules from your own codebase, and replace the [bracketed placeholders] before sending. The announcements that actually drive adoption are the ones that read like someone at your company wrote them.
 
----
-
 ## Part 1: Launch communications
 
 One announcement in two formats, plus two optional variants. Pick whichever fits your rollout and rewrite it from there.
@@ -75,8 +73,6 @@ After launch, DM the two or three people who are most active in `#claude-code`.
 |  |
 | --- |
 | Hey [name] — your `#claude-code` posts are doing more for adoption than my announcement did. A couple of people told me your [thread / screenshot] was why they actually tried it.    Want to make that semi-official? Low lift — mostly keep posting what you’re posting, plus first crack at new features and a direct line to the Anthropic team. I can share a short playbook for that if you’re in. |
-
----
 
 ## Part 2: Tips and tricks campaign
 
@@ -236,8 +232,6 @@ Copy the message body from each table below directly into Slack or Teams. Replac
 | --- |
 | ✅ **Tip: The 4 habits that separate “tried it once” from “use it daily”**    Most people who bounce off Claude Code skipped one of these. Most people who stick did all four in week one.  1. Start in plan mode for anything touching multiple files. 2. Run `/init` early — context compounds. 3. Review diffs before committing — Claude can be confidently wrong. 4. Verify changes that touch critical paths; treat it like a sharp junior, not an oracle.  **Try it now:** if you’ve only done one or two of these, pick the one you’re missing and do it on your next task. Post what changed in `#claude-code`.    📖 **[Best practices](https://code.claude.com/docs/en/best-practices)** |
 
----
-
 ## Part 3: Quick reference
 
 ### 3.1 FAQ responses
@@ -267,8 +261,6 @@ One-line Slack replies for the questions you’ll get asked most.
 | Open a PR | *“fix [issue], write a conventional commit, and open a PR with a summary”* |
 | Make a skill | *“make me a /ship skill that runs tests and lint before commit”* |
 | Debug a stack trace | *“here’s the stack trace — find the root cause, don’t just paper over it”* |
-
----
 
 ## Appendix: Verified links reference
 

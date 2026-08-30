@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-h6intrnq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ijzy6x76.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Human Resources plugin ships with `/org-planning` and other org-health skills as a starting point, already structured to cluster open text, weight by frequency, and draft an action plan. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ Human ResourcesStreamline people operations — recruiting, onboarding, performa
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -64,7 +64,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the raw survey CSV, the org roster for segmentation, last cycle's brief) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the People brief and action plan back to it. If you run engagement each quarter, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the parent engagement folder so prior cycles and your anonymization rules stay attached.
 
@@ -78,15 +78,15 @@ q1-people-brief.docxJan 28, 202652 KB
 
 In Cowork’s chat bar:People / engagement-Q2
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Theme the open-text survey responses, segment by team and tenure where the data allows, and separate loud-minority comments from broad signal. Output a one-page People brief: the top three themes, two or three supporting quotes per theme, and a draft 30-day action plan for each. Never attribute a quote to an individual.
 
 People / engagement-Q2Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -104,7 +104,7 @@ Source
 
 **Let the working folder supply context.** The raw export and the org roster sit in the working folder, so team and tenure cuts come from your real structure and the brief is saved next to the source data.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -114,7 +114,7 @@ Practice
 
 **Ask it to flag uncertainty.** Add "flag anything you're not confident about" so you know where to look first when you review the draft.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -124,9 +124,9 @@ People / engagement-Q2Open in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it every survey cycle
+### Run it every survey cycle[](#run-it-every-survey-cycle)
 
 Surveys close on the same cadence each quarter. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs against the newest export and writes the brief and action plan to that quarter's folder.
 
@@ -142,7 +142,7 @@ Runs `/org-planning` on the newest export in People/engagement and writes the on
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/org-planning` now carries your anonymization rules, your segment thresholds, and your action-plan format. Share it so HRBPs across the org produce the same shape of brief, and leaders see consistent readouts whether the survey ran in Lattice, CultureAmp, or a Google Form.
 
@@ -150,7 +150,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/org-planning` → **Share** and pick your People partners (or your whole workspace, if your admin allows). They get the skill with your privacy rules and format baked in, so they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

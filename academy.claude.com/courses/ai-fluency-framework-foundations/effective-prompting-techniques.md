@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Identify common patterns that lead to successful AI interactions
 * Troubleshoot and refine prompts when AI responses don't meet your needs
 
-## Effective Prompting Techniques
+## Effective Prompting Techniques[](#effective-prompting-techniques)
 
 Effective Prompting Techniques
+
+SummaryTranscript
 
 This video explores practical skills for crafting effective prompts when
 working with AI assistants like Claude. We explain that prompt engineering
@@ -32,7 +34,7 @@ AI's role or tone. We also share troubleshooting strategies for when
 responses aren't quite right and highlight common patterns that lead to
 successful interactions.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Effective prompting combines clear communication principles with AI-specific techniques
 * Six foundational prompting techniques:
@@ -46,9 +48,9 @@ successful interactions.
 * Successful prompting is iterative (and perhaps also collaborative with the AI!). Expect to refine your approach based on results
 * Common successful patterns include providing clear task overviews, format specifications, explicit constraints, and relevant background information
 
-## Exercises
+## Exercises[](#exercises)
 
-### Reflection
+### Reflection[](#reflection)
 
 Before moving on, take a moment to consider:
 
@@ -58,7 +60,7 @@ Before moving on, take a moment to consider:
 
 If you like, revisit Bad Prompt Makeover from the previous lesson to give these prompting principles a workout.
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, we'll explore Discernment, the third core AI Fluency competency. Both this Deep Dive and the lesson preceding it focused on how to communicate effectively with AI and how to practice good Description. Discernment addresses the equally important challenge of thoughtfully evaluating what AI produces in response—the other half of the conversation!
 

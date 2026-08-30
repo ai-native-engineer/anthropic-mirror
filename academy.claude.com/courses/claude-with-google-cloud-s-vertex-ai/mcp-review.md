@@ -14,13 +14,13 @@ Now that we've built our MCP server, let's review the three core primitives and 
 
 ![](https://academy.claude.com/assets/media/bc7ee5fac91b20fa74fcc27bb9255bc41c9fb9c50a15ae60e3bfccc7a1cfad3e.png)
 
-## Tools: Model-Controlled
+## Tools: Model-Controlled[](#tools-model-controlled)
 
 Tools are controlled entirely by Claude. The AI model decides when to call these functions, and the results are used directly by Claude to accomplish tasks.
 
 Use tools when you want to give Claude additional capabilities. For example, if you ask Claude to calculate the square root of 3 using JavaScript, Claude will automatically decide to use a JavaScript execution tool to provide an accurate answer.
 
-## Resources: App-Controlled
+## Resources: App-Controlled[](#resources-app-controlled)
 
 Resources are controlled by your application code. Your app decides when to fetch resource data and how to use it, typically for UI purposes or to add context to conversations.
 
@@ -32,7 +32,7 @@ Use resources when you need to get data into your app. Common examples include:
 
 In our project, we used resources to fetch autocomplete suggestions and to augment prompts with additional context.
 
-## Prompts: User-Controlled
+## Prompts: User-Controlled[](#prompts-user-controlled)
 
 Prompts are triggered by user actions. Users decide when to run these predefined workflows through UI interactions like button clicks, menu selections, or slash commands.
 
@@ -42,7 +42,7 @@ Use prompts for workflows that users should be able to trigger on demand. These 
 * Common task templates
 * Specialized workflows optimized for specific use cases
 
-## Real-World Examples
+## Real-World Examples[](#real-world-examples)
 
 You can see all three primitives in action on Claude's official interface. The conversation starter buttons below the chat input are examples of prompts - user-controlled workflows that begin predefined interactions.
 
@@ -54,7 +54,7 @@ When you ask Claude to perform calculations or execute code, you're seeing tools
 
 ![](https://academy.claude.com/assets/media/776ea69dbffaa14beef39f1eb2d94c67da5c13766343ae92bbe1d4ab636103fe.png)
 
-## Choosing the Right Primitive
+## Choosing the Right Primitive[](#choosing-the-right-primitive)
 
 Here's a quick decision guide:
 

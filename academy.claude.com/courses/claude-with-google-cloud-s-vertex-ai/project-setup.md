@@ -12,7 +12,7 @@ Lesson 517 min
 
 We're going to build a CLI-based chatbot that demonstrates how MCP clients and servers work together. This hands-on project will give you practical experience with both sides of the MCP architecture.
 
-## What We're Building
+## What We're Building[](#what-were-building)
 
 Our chatbot will allow users to interact with a collection of documents through natural language. The system consists of two main components:
 
@@ -28,7 +28,7 @@ The server will expose two tools to Claude:
 
 All documents are stored in memory for simplicity - they include files like document.pdf, spreadsheet.xlsx, report.txt, and spec.md.
 
-## Important Architecture Note
+## Important Architecture Note[](#important-architecture-note)
 
 In real-world projects, you typically implement either an MCP client or an MCP server, not both. You might build:
 
@@ -39,11 +39,11 @@ In real-world projects, you typically implement either an MCP client or an MCP s
 
 We're building both components in this project purely for educational purposes - to understand how they communicate and work together.
 
-## Project Setup
+## Project Setup[](#project-setup)
 
 Download the CLI\_project.zip file attached to this video and extract it to your preferred development directory. Open your code editor in the project folder.
 
-## Configuration
+## Configuration[](#configuration)
 
 The project includes a README.md file with detailed setup instructions. You'll need to:
 
@@ -60,7 +60,7 @@ bash
 ANTHROPIC_API_KEY="your-api-key-here"
 ```
 
-## Running the Project
+## Running the Project[](#running-the-project)
 
 Once setup is complete, navigate to your project directory in the terminal and run:
 

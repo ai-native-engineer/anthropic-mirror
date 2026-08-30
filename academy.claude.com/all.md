@@ -10,7 +10,7 @@ AllCoursesTutorialsUse cases
 
 ProductAll
 
-289 resources
+292 resources
 
 [## AI Capabilities and Limitations
 
@@ -20,7 +20,11 @@ Course·13 lessons · 1 quiz·3.5 hr](https://academy.claude.com/courses/ai-capa
 
 This course empowers builders to develop AI fluency — increasing impact and efficiency while staying true to what it means to own the full arc from problem to shipped solution.
 
-Course·9 lessons · 1 quiz·3 hr](https://academy.claude.com/courses/ai-fluency-for-builders)[## AI Fluency for educators
+Course·9 lessons · 1 quiz·3 hr](https://academy.claude.com/courses/ai-fluency-for-builders)[## AI Fluency for Creative Work
+
+This course empowers creative professionals to develop AI fluency, making intentional, analysis-driven decisions about AI use in their creative practice while protecting what makes their work theirs.
+
+Course·8 lessons · 1 quiz·5 hr](https://academy.claude.com/courses/ai-fluency-for-creative-work)[## AI Fluency for educators
 
 Helps faculty, instructional designers, and education leaders apply the 4D AI Fluency framework to course design, learning materials, and teaching practice.
 
@@ -60,7 +64,7 @@ Course·13 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/claude-
 
 An agentic coding tool that lives in your terminal. Learn what Claude Code is, how it works, and the core workflows for getting real work done with it.
 
-Course·12 lessons · 1 quiz·1 hr](https://academy.claude.com/courses/claude-code-101)[## Claude Code in Action
+Course·12 lessons · 1 quiz·1.5 hr](https://academy.claude.com/courses/claude-code-101)[## Claude Code in Action
 
 Run long, hands-off Claude Code sessions you can trust: steer, configure, automate, and verify
 
@@ -76,7 +80,11 @@ Course·65 lessons · 8 quizzes·8 hr](https://academy.claude.com/courses/claude
 
 Working with Anthropic models through Google Cloud's Vertex AI: setup, prompting, tool use, RAG, agents, and production deployment patterns.
 
-Course·66 lessons · 9 quizzes·8.5 hr](https://academy.claude.com/courses/claude-with-google-cloud-s-vertex-ai)[## Introduction to agent skills
+Course·66 lessons · 9 quizzes·8.5 hr](https://academy.claude.com/courses/claude-with-google-cloud-s-vertex-ai)[## Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout
+
+Make the five decisions that shape how Claude works for your organization — Structure & Identity, Access, Governance, Spend, Visibility — and record them in the rollout plan you keep.
+
+Course·14 lessons · 1 quiz·2.5 hr](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)[## Introduction to agent skills
 
 Build, configure, and share skills in Claude Code — reusable markdown instructions that Claude applies automatically to matching tasks. Covers creating your first skill through team distribution and troubleshooting.
 
@@ -100,16 +108,4 @@ Course·11 lessons · 1 quiz·1.5 hr](https://academy.claude.com/courses/model-c
 
 Equips academic faculty and instructional designers to teach and assess AI fluency in instructor-led settings. Builds on the 4D AI Fluency Framework with strategies for assessment, assignment design, and discipline-specific application.
 
-Course·7 lessons · 1 quiz·4.5 hr](https://academy.claude.com/courses/teaching-ai-fluency)[![](https://academy.claude.com/assets/v1/thumbnail.light-mtc5a1pi.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ha2dvss7.png)
-
-## Account research
-
-A one-page brief on what changed and where you fit.
-
-Use case·Sales·10 min](https://academy.claude.com/use-cases/account-research-brief)[![](https://academy.claude.com/assets/v1/thumbnail.light-kb8jxxpj.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lt8ltc3p.png)
-
-## Account tracking
-
-Account health in green/yellow/red with this week's two moves.
-
-Use case·Sales·10 min](https://academy.claude.com/use-cases/account-tracking)Load more
+Course·7 lessons · 1 quiz·4.5 hr](https://academy.claude.com/courses/teaching-ai-fluency)Load more

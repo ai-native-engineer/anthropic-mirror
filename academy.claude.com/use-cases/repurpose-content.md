@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-f5u6vtsc.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-0bz1039p.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Marketing plugin holds skills for content and campaign work as a starting point, describe the task and the relevant one runs. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -38,7 +38,7 @@ MarketingCreate content, plan campaigns, and analyze performance across marketin
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -70,7 +70,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (transcript, slides, attendee questions, your brand-voice guide) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the drafts back to it. If you'll do this after every webinar, [create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from the parent Webinars folder so instructions, memory, and scheduled runs stay attached.
 
@@ -86,15 +86,15 @@ brand-voice-guide.pdfOptionalJan 14, 2026412 KB
 
 In Cowork’s chat bar:Webinars / apr-platform-overview
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Draft a blog post, a LinkedIn thread, and three short social posts from this webinar. Match the voice of our recent HubSpot posts, and lead each piece with the strongest point from the talk rather than a recap of the agenda.
 
 Webinars / apr-platform-overviewOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -108,7 +108,7 @@ Cowork
 
 **Drafts save back to the same folder.** Cowork reads the transcript and slides where they sit and writes each draft back as its own file alongside them, review locally, then publish from wherever you normally do.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -118,7 +118,7 @@ Practice
 
 **Ask for options.** Add "draft three versions with different angles" and pick the one that works best, or mix the best lines.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -128,9 +128,9 @@ WebinarsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 Webinars run on a calendar, and the repurposed drafts should land the morning after. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill runs against the newest transcript automatically.
 
@@ -146,7 +146,7 @@ Runs `/draft-content` against the newest transcript in Webinars and writes the b
 
 Every **Friday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized `/draft-content` now carries your brand's word counts, structure, and voice references. Share it so every content writer starts from the same baseline, no one re-derives the house style.
 
@@ -154,7 +154,7 @@ Share the skill
 
 In Cowork, open **Skills** → `/draft-content` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your formats and voice rules baked in, they don't repeat Steps 1-3.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

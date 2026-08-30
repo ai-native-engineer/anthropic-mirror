@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-fxf6oslq.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-lntba6wn.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Product Management plugin ships with `/write-spec` and other spec-writing skills as a starting point, already structured to interview you on the problem and produce a sectioned PRD. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -30,7 +30,7 @@ Product Management7 skills to write specs, synthesize research, run competitive 
 
 Show all 8 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -58,7 +58,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (your org's PRD template, a recent PRD you like the depth of, any research notes on the problem) into one folder on your machine, then point Cowork at it. Cowork reads from it and writes the new PRD back to it.
 
@@ -72,15 +72,15 @@ saved-views-research-notes.mdOptionalApr 14, 202622 KB
 
 In Cowork’s chat bar:Product / prds
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Write a PRD for the saved-views problem. Interview me first about the problem, who hits it, the constraints, and how we'd measure success. Then draft it in prd-template.docx, call out the goals and non-goals, match the depth of PRD-bulk-export.docx, and flag every open question for design review.
 
 Product / prdsOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -102,7 +102,7 @@ Prompt
 
 **Give open questions a named owner.** "For design review" means each unresolved item gets a clear next owner instead of sitting in a list nobody picks up.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 What Cowork gives you back is mostly determined by what you put in. A real template, one PRD you like, and honest interview answers move the draft further than any rewording of the prompt, so invest there first.
 
@@ -116,7 +116,7 @@ Practice
 
 **Check the goals and open questions before it goes to review.** Read the draft's goals and non-goals against what you said in the interview, and confirm every flagged open question is one you actually left open. Cowork fills gaps with reasonable guesses, and unchecked guesses are what design review catches. Fix what you didn't decide, then send it.
 
-## Going forward
+## Going forward[](#going-forward)
 
 ### Now in your Cowork
 

@@ -10,8 +10,6 @@ The champion role consists of three behaviors that reinforce one another: sharin
 
 Use whatever fits your team and set aside whatever does not. Nothing here is a checklist you are expected to complete; it is a set of patterns that have worked across many engineering organizations.
 
----
-
 ## Phase 1: The champion role
 
 ### What a champion does
@@ -40,8 +38,6 @@ It is worth setting expectations with yourself and with your lead. The activitie
 | Answering questions in a shared channel | About 20 minutes | Answer publicly once, then link back to that answer when the question recurs. |
 | Hosting a weekly show-and-tell thread | About 5 minutes | You post the opening prompt; the team supplies the content. |
 | Optional pairing or walkthroughs | 0–30 minutes | Reserve this for colleagues who are genuinely blocked, and offer the **[Quickstart](https://code.claude.com/docs/en/quickstart)** link before scheduling time. |
-
----
 
 ## Phase 2: Share what you discover
 
@@ -85,8 +81,6 @@ The following are illustrations of tone and length rather than templates to copy
 
 *Plan mode is the reason I am comfortable using this on code that matters. Press Shift+Tab until you see “plan”; it lays out exactly which files it intends to touch before changing anything.*
 
----
-
 ## Phase 3: Be the person people ask
 
 Once you have shared a few examples, questions will follow. This is where the champion role has the greatest leverage, because a good answer to one person frequently unblocks several others who are watching the same channel.
@@ -117,8 +111,6 @@ The table below covers the questions champions are asked most frequently, along 
 | “It does not understand our codebase conventions.” | Suggest running `/init` to generate a `CLAUDE.md` file, then adding the team’s conventions, test commands, and any directories that should be avoided. | **[CLAUDE.md documentation](https://code.claude.com/docs/en/memory)** |
 | “Is this just autocomplete?” | Offer a brief demonstration in which Claude explains an unfamiliar file, traces a bug across services, or drafts a migration plan — tasks that require reasoning across the repository rather than completing a single line. | A two-minute live demonstration |
 | “What about security and data handling?” | Refer this question to your administrator. Your organization’s deployment and data-handling policy is already configured, and champions should not improvise this answer. | **[Security](https://code.claude.com/docs/en/security)** · **[Data usage](https://code.claude.com/docs/en/data-usage)** |
-
----
 
 ## Phase 4: Grow the circle
 
@@ -151,8 +143,6 @@ If a loose plan is helpful, the sequence below reflects what tends to work acros
 
 You are the warm introduction rather than the onboarding program. When a colleague moves past “should I try this” into “how do I become effective with it,” point them to the official **[Quickstart](https://code.claude.com/docs/en/quickstart)** and **[Common workflows](https://code.claude.com/docs/en/common-workflows)** pages. They contain short sections covering the features that are genuinely useful but difficult to discover on your own.
 
----
-
 ## Phase 5: Responding to common concerns
 
 Healthy skepticism is to be expected; engineers should be cautious about new tools. The most effective response is rarely to argue the general case. Instead, acknowledge the concern, offer a brief reframe, and propose one concrete demonstration on the person’s own code. Most concerns are resolved by a single successful experience.
@@ -165,8 +155,6 @@ Healthy skepticism is to be expected; engineers should be cautious about new too
 | “It will make junior engineers weaker.” | Used well, it is an effective explainer. Encourage junior engineers to ask Claude to explain a file and its call sites before asking it to change anything. | Run “Explain @file and where it is called from” together. |
 | “I tried it once and it hallucinated.” | This is usually a context problem rather than a model problem. @-mentioning the relevant files, running `/init`, and providing the actual error output typically resolves it. | Re-run their original prompt with proper @-context. |
 | “We do not have time to learn another tool.” | Claude Code is a terminal command rather than a platform. If it does not return value within the first session, it is reasonable to set it aside. | A two-minute install followed by one real bug. |
-
----
 
 ## Appendix: Quick-reference sheet
 
@@ -182,8 +170,6 @@ The techniques below are the ones that most reliably move someone from a first t
 | Stay informed during long tasks | Configure a Stop hook to receive a desktop notification when a long-running task completes. |
 | Recover from an incorrect result | Rather than rephrasing the request, paste the failing test or stack trace back to Claude and ask it to address that specific failure. |
 | Keep edits surgical | Ask for a diff, or specify “only change X.” Claude respects scope when scope is stated. |
-
----
 
 ## Appendix: Resource directory
 

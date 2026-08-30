@@ -16,7 +16,7 @@ Claude now works alongside your team, under its own account, in the places you a
 
 This guide covers how to set up your channels, write a task that goes well, and move from giving Claude Tag tasks to handing it work that runs on its own.
 
-### What makes this Claude different
+### What makes this Claude different[](#what-makes-this-claude-different)
 
 You may have used Claude in a chat box, or have automations running in your workspace that each handle a specific job. This Claude is different in a few ways:
 
@@ -25,7 +25,7 @@ You may have used Claude in a chat box, or have automations running in your work
 * **It works where your context already is:** Claude reads the channel's history to understand your work, so most of the briefing you'd normally give to Claude is already done. When a specific doc, thread, or past decision matters, name it and Claude reads it from your workspace. In a channel that's devoted to one kind of work, Claude starts becoming a specialist.
 * **It learns the channel and gets better at the job:** corrections and preferences you give to Claude stick. When a result comes back, tell it what you liked or what you'd change, and it saves that for the channel going forward. The Claude in your channel becomes more tuned to your preferences and gets better at your type of work over time.
 
-## Tips while using Claude Tag in your workspace
+## Tips while using Claude Tag in your workspace[](#tips-while-using-claude-tag-in-your-workspace)
 
 1. **Learn what Claude has access to**
 
@@ -53,9 +53,9 @@ By default, Claude only responds when someone tags it. It doesn't act on its own
 
 **Have it follow up on its own:** Tell Claude what to watch out for or monitor. Claude can check back on its own to bring updates when they matter. For example, Claude can watch for new information that might affect a decision or alert you about a forgotten action item.
 
-## Working with Claude Tag on a task
+## Working with Claude Tag on a task[](#working-with-claude-tag-on-a-task)
 
-### Step 1: Pick the task
+### Step 1: Pick the task[](#step-1-pick-the-task)
 
 Set yourself up for success by thinking through what you want, what Claude can access, and how you'll know if it worked.
 
@@ -65,21 +65,21 @@ Set yourself up for success by thinking through what you want, what Claude can a
 
 *For examples, see [use cases of what Claude Tag can do(opens in new tab)](https://academy.claude.com/tutorials/tasks-to-try-with-claude-tag-in-your-workspace).*
 
-### Step 2: Write the request
+### Step 2: Write the request[](#step-2-write-the-request)
 
 Brief Claude the way you'd brief a capable new teammate. State your goal clearly and explain why it matters. Guide Claude to the right place, by mentioning the threads, docs, or tools you want it to focus on. Ask Claude to link its sources. Leave the steps to Claude. It can read the channel, search the workspace, and use whatever tools are connected.
 
-### Step 3: Let Claude work
+### Step 3: Let Claude work[](#step-3-let-claude-work)
 
 Claude reacts to your message, posts a short note that it's started, and keeps a checklist updated in the thread. It keeps working without you, and if you're working in a channel, anyone in it can jump in to add context or adjust Claude's plan.
 
 Editing a message you already sent has no effect; send a new reply instead. Each top-level message starts a new task for Claude. Keep separate tasks in different threads, but remember that Claude's [channel memory(opens in new tab)](https://claude.com/docs/claude-tag/users/memory) applies everywhere.
 
-### Step 4: Review the result
+### Step 4: Review the result[](#step-4-review-the-result)
 
 Read Claude's work before you use it, in proportion to what's at stake: skim a summary, read carefully anything going to a customer or changing a system. When something's wrong, say what specifically and ask for the revision in the thread. For anything analytical, ask Claude to take a second pass looking for errors in its first answer. If the same miss keeps happening, open Claude's session to see the steps it took, then tell Claude what to do differently. Claude remembers the correction for the channel, so the next person doesn't hit it.
 
-## Giving Claude Tag more responsibility over time
+## Giving Claude Tag more responsibility over time[](#giving-claude-tag-more-responsibility-over-time)
 
 To get started, tag Claude in a channel where real work happens and ask it something a teammate would normally answer. If you want a low-stakes place to try things first, make a channel just for that (naming it “your name” and “Claude” works). And if you're not sure what to ask, ask Claude what it can help with where you are.
 
@@ -89,7 +89,7 @@ Once Claude is reliably doing a few things, the next step is widening its respon
 * **Let Claude improve itself:** at the end of the day, ask it to look back over the channel's threads and write down what it would do differently. Claude finds real improvements when it has time set aside to look; it just doesn't do that on its own unless you ask. After a miss, do the same thing and have Claude save what it learns.
 * **Ask Claude what's been missed:** once in a while, ask Claude what's been raised repeatedly across the channels it's in that nobody's answered, or what looks stalled. Because it can read across its channels, it can see the gaps no single person is looking at.
 
-## What makes this possible
+## What makes this possible[](#what-makes-this-possible)
 
 A few things run underneath all of the above, and they're worth knowing because they're what makes it safe to hand Claude real work.
 
@@ -97,13 +97,13 @@ A few things run underneath all of the above, and they're worth knowing because 
 * **Its access is set per channel:** your admin decides what Claude can reach in each channel, and being added to a channel is what gives it reach there. That's why the same Claude can open pull requests in an engineering channel and only read the wiki in another. [Security and data handling(opens in new tab)](https://claude.com/docs/claude-tag/concepts/security-and-data) covers how its work is kept separate from everything else.
 * **Memory belongs to the channel:** [what Claude remembers(opens in new tab)](https://claude.com/docs/claude-tag/users/memory) is kept with the channel and workspace, not with any one person. Anyone on the team can ask Claude what it remembers there, add to it, or tell it to forget something that's out of date.
 
-## If you already use Claude somewhere else
+## If you already use Claude somewhere else[](#if-you-already-use-claude-somewhere-else)
 
 **Coming from claude.ai:** You can stop collecting all the context yourself. You don't need to paste in the background or re-explain the project each time. Name the thread, the doc, or the channel, and let Claude read it there. And where an answer in chat might hand the work back to you, with Claude Tag, it can take the next step itself, like opening the draft PR, filing the ticket, or tagging in a teammate, and report back in the thread.
 
 **Coming from the earlier Claude app for Slack:** Claude Tag works under its own account with the access your admin sets per channel, remembers corrections for the channel, and takes on multi-step tasks rather than single replies. The [FAQ covers the differences(opens in new tab)](https://support.claude.com/en/articles/15594475-what-is-claude-tag), and the Help Center covers [what happens to the earlier app(opens in new tab)](https://support.claude.com/en/articles/11506255-get-started-with-claude-in-slack).
 
-## Learn more
+## Learn more[](#learn-more)
 
 * [How Claude Tag works(opens in new tab)](https://claude.com/docs/claude-tag/concepts/how-it-works): memory, identity, and what Claude can access in each place.
 * [Get started(opens in new tab)](https://claude.com/docs/claude-tag/users/getting-started) and [Good habits(opens in new tab)](https://claude.com/docs/claude-tag/users/good-habits): the basics, and how to write tasks that are easy to check.

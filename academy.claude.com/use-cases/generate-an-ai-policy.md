@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Generate an AI policy result](https://academy.claude.com/assets/v1/generate-an-ai-policy-b0u0aek1.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude's ability to research regulatory requirements and nonprofit-specific considerations, combined with your knowledge of your organization's mission and values, lets you create comprehensive AI governance policies without expensive consultants.
 
@@ -74,11 +74,11 @@ I need a comprehensive policy document (Word) and a simpler version for our webs
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Provide your existing organizational policies and connect relevant tools so Claude creates governance that fits seamlessly into your current infrastructure and aligns with your values.
 
-### Required context
+### Required context[](#required-context)
 
 Start by uploading any existing policies that should inform the AI governance framework - your data privacy policy, code of ethics, whistleblower policy, or donor bill of rights. These help Claude understand your organization's existing commitments and language.
 
@@ -97,7 +97,7 @@ Organizational Code of Ethics and Values StatementPDF
 
 Data Privacy and Security PolicyPDF
 
-### Optional context
+### Optional context[](#optional-context)
 
 Make sure [web search(opens in new tab)](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) is enabled to help Claude gather relevant context about nonprofit AI governance best practices, common policy frameworks, and sector-specific considerations before drafting your customized policy.
 
@@ -105,7 +105,7 @@ Make sure [web search(opens in new tab)](https://support.claude.com/en/articles/
 
 Web Search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude develops a complete AI governance system with two professional deliverables that work together.
 
@@ -119,11 +119,11 @@ The policy includes the following sections: Governance Framework, Data Privacy &
 
 The implementation workbook includes: use case requests, risk assessment, training tracker, vendor evaluation, compliance monitoring, and exception logs.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Develop staff training materials
+### Develop staff training materials[](#develop-staff-training-materials)
 
 Provide staff with a high level understanding of the AI policy and pull out information that is most important to them.
 
@@ -131,7 +131,7 @@ Create training slides and handouts covering: policy highlights, practical examp
 
 Open in Claude
 
-### Add board presentation deck
+### Add board presentation deck[](#add-board-presentation-deck)
 
 Create a PowerPoint presentation to introduce this policy to the board.
 
@@ -139,7 +139,7 @@ Create a PowerPoint presentation I can use to introduce this policy to our board
 
 Open in Claude
 
-### Develop donor communication strategy
+### Develop donor communication strategy[](#develop-donor-communication-strategy)
 
 Draft messaging for donors explaining your approach to AI.
 
@@ -147,29 +147,29 @@ Help me draft messaging for donors explaining our approach to AI - emphasizing d
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Review jurisdiction-specific legal requirements
+### Review jurisdiction-specific legal requirements[](#review-jurisdiction-specific-legal-requirements)
 
 This policy template addresses common considerations like HIPAA for health information, but legal compliance varies significantly by location. Ask Claude to research regulations specific to your state or country: "What AI-related regulations apply to nonprofits in [your state/region]?" Then have legal counsel review the policy to ensure it meets your jurisdiction's requirements before board adoption.
 
-### Iterate the policy for your specific concerns
+### Iterate the policy for your specific concerns[](#iterate-the-policy-for-your-specific-concerns)
 
 This creates a comprehensive foundation, but you know your organization's unique risks. After reviewing, ask Claude to strengthen specific sections: "Add more detail about volunteer use of AI tools" or "Expand the section on handling images of minors" or "Include specific language about our advocacy work and AI-generated content."
 
-### Create role-specific policy summaries
+### Create role-specific policy summaries[](#create-role-specific-policy-summaries)
 
 Different staff need different levels of detail. Ask Claude to create condensed versions for specific roles: "Create a one-page summary for program staff focused on beneficiary data protection" or "Draft guidelines for development team covering donor communications and prospect research." This makes the policy more actionable.
 
-### Build in policy review triggers
+### Build in policy review triggers[](#build-in-policy-review-triggers)
 
 The AI landscape changes rapidly. The policy includes an annual review schedule, but also add triggers for interim updates: when adopting new AI tools, after policy violations, when regulations change, or based on sector guidance. Ask Claude to add a "Policy Amendment Process" section if you want to formalize this.
 
-### Start with approved use cases before restrictions
+### Start with approved use cases before restrictions[](#start-with-approved-use-cases-before-restrictions)
 
 When presenting to staff, lead with what they can do with AI tools (donor communications, grant research, administrative tasks) before covering restrictions. This frames the policy as enabling responsible use rather than just limiting behavior. Claude can help you reorder sections if the default structure feels too restrictive.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Create a framework that protects your mission, respects your community, and enables your team to use AI responsibly and effectively.
 

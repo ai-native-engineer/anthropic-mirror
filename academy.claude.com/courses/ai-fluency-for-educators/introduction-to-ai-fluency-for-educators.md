@@ -16,9 +16,11 @@ In this lessonBy the end, you’ll be able to
 * Create a reusable teaching context document that establishes shared understanding with AI
 * Articulate your pedagogical values and constraints for more effective AI collaboration
 
-## Introduction to AI Fluency for Educators
+## Introduction to AI Fluency for Educators[](#introduction-to-ai-fluency-for-educators)
 
 Introduction to AI Fluency for Educators · 4 min
+
+SummaryTranscript
 
 This video introduces how the AI Fluency Framework applies specifically to
 educators. We explore how the 4Ds (Delegation, Description, Discernment,
@@ -32,13 +34,13 @@ Fluency in education matters now: Students are already using AI, employers
 expect AI fluency, and we have the timely opportunity to model thoughtful
 engagement with these technologies.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The 4D Framework can help educators build genuine thinking partnerships with AI on the foundation of pedagogical integrity
 * Context-building is essential as AI becomes more helpful when it understands your specific situation, values, and constraints
 * AI Fluency for educators means enhancing rather than replacing human expertise and judgment in teaching and learning
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Building a shared teaching vision
 
@@ -92,12 +94,12 @@ Take your time. The goal is a back-and-forth conversation that surfaces importan
 * Review it together and add anything missing and/or make corrections
 * Request a format that's easy to copy and reuse
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * What aspects of your teaching practice were hardest to articulate?
 * What became clearer to you through this process?
 
-## What's next
+## What's next[](#whats-next)
 
 The next lesson will cover a quick review of the 4D framework — Delegation, Description, Discernment, and Diligence. If you've already taken the AI Fluency: Framework & Foundations course, and feel comfortable with this content, you can skip the next lesson!
 

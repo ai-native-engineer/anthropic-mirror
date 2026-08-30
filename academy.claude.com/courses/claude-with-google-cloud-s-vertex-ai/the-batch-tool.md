@@ -12,7 +12,7 @@ Lesson 3010 min
 
 When working with Claude's tool calling capabilities, you might notice that Claude can include multiple tool use blocks in a single assistant message. This allows Claude to run several tools in parallel rather than making separate requests for each one. However, getting Claude to actually do this consistently can be challenging in practice.
 
-## The Problem with Multiple Tool Calls
+## The Problem with Multiple Tool Calls[](#the-problem-with-multiple-tool-calls)
 
 Let's say you ask Claude to set two reminders for the same date. Theoretically, Claude should be able to send back a single response containing two tool use blocks - one for each reminder. But in reality, Claude often sends separate responses instead.
 
@@ -22,7 +22,7 @@ What typically happens is Claude makes the first tool call, waits for the result
 
 ![](https://academy.claude.com/assets/media/60d1ad0ae8bef517444c482e9cea4a799882bd621eef455fd68cb9bbf76e207c.png)
 
-## The Batch Tool Solution
+## The Batch Tool Solution[](#the-batch-tool-solution)
 
 The solution is to implement a "batch tool" - a special tool that accepts a list of other tool calls to execute simultaneously. This is essentially a workaround that tricks Claude into making multiple tool calls at once.
 
@@ -35,7 +35,7 @@ Here's how it works:
 * Your code processes this list and executes each tool call
 * You return the combined results back to Claude
 
-## Implementing the Batch Tool Schema
+## Implementing the Batch Tool Schema[](#implementing-the-batch-tool-schema)
 
 The batch tool schema defines how Claude should structure its requests when it wants to run multiple tools:
 
@@ -70,7 +70,7 @@ batch_tool_schema = {
 }
 ```
 
-## Processing Batch Tool Calls
+## Processing Batch Tool Calls[](#processing-batch-tool-calls)
 
 When Claude uses the batch tool, you need to process the list of invocations and execute each one. Here's the implementation:
 
@@ -110,7 +110,7 @@ def run_tool(tool_name, tool_input):
         return run_batch(**tool_input)
 ```
 
-## Results
+## Results[](#results)
 
 With the batch tool implemented, Claude is much more likely to group related operations together. Instead of making separate requests for each reminder, Claude will use the batch tool to set both reminders simultaneously.
 

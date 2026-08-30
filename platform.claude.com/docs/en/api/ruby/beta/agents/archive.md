@@ -1,19 +1,14 @@
 <!-- source: https://platform.claude.com/docs/en/api/ruby/beta/agents/archive -->
 
----
-title: Archive Agent
-url: https://platform.claude.com/docs/en/api/ruby/beta/agents/archive
----
-
-## Archive Agent
+# Archive Agent
 
 `beta.agents.archive(agent_id, **kwargs) -> BetaManagedAgentsAgent`
 
-**post** `/v1/agents/{agent_id}/archive`
+**POST** `/v1/agents/{agent_id}/archive`
 
 Archive Agent
 
-### Parameters
+## Parameters
 
 - `agent_id: String`
 
@@ -23,7 +18,7 @@ Archive Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 31 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -93,7 +88,21 @@ Archive Agent
 
     - `:"mid-conversation-tool-changes-2026-07-01"`
 
-### Returns
+    - `:"compact-2026-01-12"`
+
+    - `:"computer-use-2025-11-24"`
+
+    - `:"mcp-tunnels-2026-06-22"`
+
+    - `:"structured-outputs-2025-11-13"`
+
+    - `:"task-budgets-2026-03-13"`
+
+    - `:"thinking-display-updates-2026-08-18"`
+
+    - `:"ce-user-management-2026-07-13"`
+
+## Returns
 
 - `class BetaManagedAgentsAgent`
 
@@ -105,9 +114,13 @@ Archive Agent
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `created_at: Time`
 
     A timestamp in RFC 3339 format
+
+    format: date-time
 
   - `description: String`
 
@@ -116,8 +129,6 @@ Archive Agent
     - `name: String`
 
     - `type: :url`
-
-      - `:url`
 
     - `url: String`
 
@@ -203,15 +214,11 @@ Archive Agent
 
         - `type: :low`
 
-          - `:low`
-
       - `class BetaManagedAgentsEffortMedium`
 
         Medium effort. Balances latency and reasoning depth.
 
         - `type: :medium`
-
-          - `:medium`
 
       - `class BetaManagedAgentsEffortHigh`
 
@@ -219,23 +226,17 @@ Archive Agent
 
         - `type: :high`
 
-          - `:high`
-
       - `class BetaManagedAgentsEffortXhigh`
 
         Extra-high effort. Not all models accept this level.
 
         - `type: :xhigh`
 
-          - `:xhigh`
-
       - `class BetaManagedAgentsEffortMax`
 
         Maximum effort. Favors reasoning depth over latency.
 
         - `type: :max`
-
-          - `:max`
 
     - `inference_geo: String`
 
@@ -265,9 +266,9 @@ Archive Agent
 
         - `type: :agent`
 
-          - `:agent`
-
         - `version: Integer`
+
+          format: int32
 
       - `class BetaManagedAgentsAdvisor`
 
@@ -279,11 +280,7 @@ Archive Agent
 
         - `type: :advisor`
 
-          - `:advisor`
-
     - `type: :coordinator`
-
-      - `:coordinator`
 
   - `name: String`
 
@@ -297,8 +294,6 @@ Archive Agent
 
       - `type: :anthropic`
 
-        - `:anthropic`
-
       - `version: String`
 
     - `class BetaManagedAgentsCustomSkill`
@@ -308,8 +303,6 @@ Archive Agent
       - `skill_id: String`
 
       - `type: :custom`
-
-        - `:custom`
 
       - `version: String`
 
@@ -329,8 +322,6 @@ Archive Agent
 
           - `name: :bash`
 
-            - `:bash`
-
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
@@ -341,19 +332,13 @@ Archive Agent
 
               - `type: :always_allow`
 
-                - `:always_allow`
-
             - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
               - `type: :always_ask`
 
-                - `:always_ask`
-
           - `type: :bash`
-
-            - `:bash`
 
         - `class BetaManagedAgentsEditToolConfig`
 
@@ -362,8 +347,6 @@ Archive Agent
           - `enabled: bool`
 
           - `name: :edit`
-
-            - `:edit`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -379,8 +362,6 @@ Archive Agent
 
           - `type: :edit`
 
-            - `:edit`
-
         - `class BetaManagedAgentsReadToolConfig`
 
           Configuration for the read tool.
@@ -388,8 +369,6 @@ Archive Agent
           - `enabled: bool`
 
           - `name: :read`
-
-            - `:read`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -405,8 +384,6 @@ Archive Agent
 
           - `type: :read`
 
-            - `:read`
-
         - `class BetaManagedAgentsWriteToolConfig`
 
           Configuration for the write tool.
@@ -414,8 +391,6 @@ Archive Agent
           - `enabled: bool`
 
           - `name: :write`
-
-            - `:write`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -431,8 +406,6 @@ Archive Agent
 
           - `type: :write`
 
-            - `:write`
-
         - `class BetaManagedAgentsGlobToolConfig`
 
           Configuration for the glob tool.
@@ -440,8 +413,6 @@ Archive Agent
           - `enabled: bool`
 
           - `name: :glob`
-
-            - `:glob`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -457,8 +428,6 @@ Archive Agent
 
           - `type: :glob`
 
-            - `:glob`
-
         - `class BetaManagedAgentsGrepToolConfig`
 
           Configuration for the grep tool.
@@ -466,8 +435,6 @@ Archive Agent
           - `enabled: bool`
 
           - `name: :grep`
-
-            - `:grep`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -483,8 +450,6 @@ Archive Agent
 
           - `type: :grep`
 
-            - `:grep`
-
         - `class BetaManagedAgentsWebFetchToolConfig`
 
           Configuration for the web_fetch tool.
@@ -492,8 +457,6 @@ Archive Agent
           - `enabled: bool`
 
           - `name: :web_fetch`
-
-            - `:web_fetch`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -509,13 +472,13 @@ Archive Agent
 
           - `type: :web_fetch`
 
-            - `:web_fetch`
-
           - `allowed_domains: Array[String]`
 
           - `blocked_domains: Array[String]`
 
           - `max_content_tokens: Integer`
+
+            format: int32
 
         - `class BetaManagedAgentsWebSearchToolConfig`
 
@@ -524,8 +487,6 @@ Archive Agent
           - `enabled: bool`
 
           - `name: :web_search`
-
-            - `:web_search`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
@@ -541,8 +502,6 @@ Archive Agent
 
           - `type: :web_search`
 
-            - `:web_search`
-
           - `allowed_domains: Array[String]`
 
           - `blocked_domains: Array[String]`
@@ -555,11 +514,11 @@ Archive Agent
 
               Location precision. Only "approximate" is supported.
 
-              - `:approximate`
-
             - `city: String`
 
               City name.
+
+              minLength: 1, maxLength: 255
 
             - `country: String`
 
@@ -569,9 +528,13 @@ Archive Agent
 
               Region or state name.
 
+              minLength: 1, maxLength: 255
+
             - `timezone: String`
 
               IANA timezone identifier, e.g. "America/Los_Angeles".
+
+              minLength: 1, maxLength: 255
 
       - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
@@ -592,8 +555,6 @@ Archive Agent
             Tool calls require user confirmation before execution.
 
       - `type: :agent_toolset_20260401`
-
-        - `:agent_toolset_20260401`
 
     - `class BetaManagedAgentsMCPToolset`
 
@@ -637,8 +598,6 @@ Archive Agent
 
       - `type: :mcp_toolset`
 
-        - `:mcp_toolset`
-
     - `class BetaManagedAgentsCustomTool`
 
       A custom tool as returned in API responses.
@@ -651,8 +610,6 @@ Archive Agent
 
         - `type: :object`
 
-          - `:object`
-
         - `properties: Hash[Symbol, untyped]`
 
         - `required: Array[String]`
@@ -661,21 +618,21 @@ Archive Agent
 
       - `type: :custom`
 
-        - `:custom`
-
   - `type: :agent`
-
-    - `:agent`
 
   - `updated_at: Time`
 
     A timestamp in RFC 3339 format
 
+    format: date-time
+
   - `version: Integer`
 
     The agent's current version. Starts at 1 and increments when the agent is modified.
 
-### Example
+    format: int32
+
+## Example
 
 ```ruby
 require "anthropic"
@@ -687,7 +644,7 @@ beta_managed_agents_agent = anthropic.beta.agents.archive("agent_011CZkYpogX7uDK
 puts(beta_managed_agents_agent)
 ```
 
-#### Response
+### Response (200)
 
 ```json
 {

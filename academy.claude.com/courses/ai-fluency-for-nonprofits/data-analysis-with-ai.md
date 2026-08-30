@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Apply Description and Discernment to identify patterns in your data while recognizing AI's limitations
 * Build confidence in AI-assisted analysis by testing against data you already understand
 
-## Data analysis with AI
+## Data analysis with AI[](#data-analysis-with-ai)
 
 Data analysis with AI · 7 min
 
@@ -31,7 +31,7 @@ The video demonstrates how to build confidence through testing, identify
 capability gaps, and develop an approach you can apply to new data with
 confidence.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Test AI against data you already understand**: Before trusting AI with new analysis, validate it using past data where you know the correct results. If AI can match your known results with the right guidance, you can confidently use it for similar future tasks
 * **Use Discernment to identify gaps in AI's reasoning**: As you test, note where AI misses important context and what additional Description you need to provide
@@ -39,7 +39,7 @@ confidence.
 * **AI can help even if you're not data-savvy**: If you're not comfortable with data analysis yourself, AI can help brainstorm solutions, write Excel formulas, and reformat messy data—just keep asking for clarifications so you understand the process
 * **Validation builds confidence but doesn't eliminate responsibility**: You're still accountable for checking that results make sense and being transparent about AI's role
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2Exercise 3
 
@@ -75,12 +75,12 @@ Evaluate AI's analysis:
 
 **Stretch goal**: Use AI to audit how your messaging compares with your organization's stated mission and values, find discrepancies, and create a messaging guide from the analysis.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did testing AI against data you already understood change your confidence in using it for new analysis?
 * What gaps or limitations did you identify that will shape how you delegate data analysis tasks in the future?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll look at workflow automation—how to apply these same principles when AI handles routine tasks on your behalf, freeing up your time for higher-impact work.
 

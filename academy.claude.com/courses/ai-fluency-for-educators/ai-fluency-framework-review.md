@@ -15,9 +15,11 @@ In this lessonBy the end, you’ll be able to
 * Define what AI Fluency means
 * Define each of the 4Ds —Delegation, Description, Discernment, and Diligence
 
-## AI Fluency Framework review
+## AI Fluency Framework review[](#ai-fluency-framework-review)
 
 AI Fluency Framework review · 13 min
+
+SummaryTranscript
 
 This video introduces the 4D Framework—Delegation, Description, Discernment,
 and Diligence—as the foundation of AI Fluency. It emphasizes that AI Fluency
@@ -33,7 +35,7 @@ from a tool into a thinking partner.
 
 This video is just an introduction to the framework, for the full breakdown, check out our [AI Fluency: Framework & Foundations course(opens in new tab)](https://academy.claude.com/courses/ai-fluency-framework-foundations).
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * The 4Ds work together to create genuine AI Fluency
 * Augmentation (working with AI to enhance our work) is more powerful than automation (AI simply doing work for you)
@@ -41,7 +43,7 @@ This video is just an introduction to the framework, for the full breakdown, che
 * Each D has three sub-components that address different aspects of AI interaction
 * These skills remain relevant regardless of how AI technology evolves
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll apply AI Fluency to course design and learning outcomes. You'll learn to use AI as a collaborative partner for identifying essential content, mapping learning journeys, and articulating clear objectives—all while maintaining your pedagogical vision and expertise at the center of the process.
 

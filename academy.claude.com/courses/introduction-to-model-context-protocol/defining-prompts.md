@@ -14,7 +14,7 @@ Prompts in MCP servers let you define pre-built, high-quality instructions that 
 
 ![Diagram of an MCP client connecting to two MCP servers, each exposing Tools, Resources, and Prompts — with Prompts highlighted — in front of outside services](https://academy.claude.com/assets/media/2dfd2f9fcdfea8424d36b8323f892460291128c6cd96e7953011584e59cf4fb8.png)
 
-## Why Use Prompts?
+## Why Use Prompts?[](#why-use-prompts)
 
 Here's the key insight: users can already ask Claude to do most tasks directly. For example, a user could type "reformat the report.pdf in markdown" and get decent results. But they'll get much better results if you provide a thoroughly tested, specialized prompt that handles edge cases and follows best practices.
 
@@ -22,7 +22,7 @@ As the MCP server author, you can spend time crafting, testing, and evaluating p
 
 ![Side-by-side comparison of the short prompt a user would write — "Convert report.pdf to markdown" — versus the much longer, thoroughly evaluated prompt an MCP server author can provide instead](https://academy.claude.com/assets/media/6ab55d7162ceb856be527d35317b17f5327a2e76d36ee4590d61c7f7292787a1.png)
 
-## Building a Format Command
+## Building a Format Command[](#building-a-format-command)
 
 Let's implement a practical example: a format command that converts documents to markdown. Users will type `/format doc_id` and get back a professionally formatted markdown version of their document.
 
@@ -33,7 +33,7 @@ The workflow looks like this:
 * Claude uses your pre-built prompt to read and reformat the document
 * The result is clean markdown with proper headers, lists, and formatting
 
-## Defining Prompts
+## Defining Prompts[](#defining-prompts)
 
 Prompts use a similar decorator pattern to tools and resources:
 
@@ -66,7 +66,7 @@ Use the 'edit_document' tool to edit the document. After the document has been r
 
 The function returns a list of messages that get sent directly to Claude. You can include multiple user and assistant messages to create more complex conversation flows.
 
-## Testing Your Prompts
+## Testing Your Prompts[](#testing-your-prompts)
 
 Use the MCP Inspector to test your prompts before deploying them:
 
@@ -74,7 +74,7 @@ Use the MCP Inspector to test your prompts before deploying them:
 
 The inspector shows you exactly what messages will be sent to Claude, including how variables get interpolated into your prompt template. This lets you verify the prompt looks correct before users start relying on it.
 
-## Key Benefits
+## Key Benefits[](#key-benefits)
 
 * **Consistency** - Users get reliable results every time
 * **Expertise** - You can encode domain knowledge into prompts

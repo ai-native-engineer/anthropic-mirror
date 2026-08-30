@@ -1,7 +1,9 @@
 # anthropic-ai (YouTube)
 
-영상 172개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 175개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [Model Hardware Standard: AI operating physical equipment](anthropic-ai/260828-model-hardware-standard-ai-operating-physical-equipment.md) — 2026-08-28
+- [AI models can now help run physical science experiments](anthropic-ai/260827-ai-models-can-now-help-run-physical-science-experiments.md) — 2026-08-27
 - [How Icelanders are thinking about AI](anthropic-ai/260810-how-icelanders-are-thinking-about-ai.md) — 2026-08-10
 - [The different levels of how Claude thinks](anthropic-ai/260706-the-different-levels-of-how-claude-thinks.md) — 2026-07-06
 - [Introducing Claude Fable 5](anthropic-ai/260609-introducing-claude-fable-5.md) — 2026-06-09
@@ -145,6 +147,7 @@
 - [Long inputs, multi-step output with Claude](anthropic-ai/230823-long-inputs-multi-step-output-with-claude.md) — 2023-08-23 (자막없음)
 - [Inside our first Anthropic Hackathon, San Francisco](anthropic-ai/230823-inside-our-first-anthropic-hackathon-san-francisco.md) — 2023-08-23
 - [Quick tips for Claude: Long context file uploads](anthropic-ai/230823-quick-tips-for-claude-long-context-file-uploads.md) — 2023-08-23 (자막없음)
+- [We're building a way for AI models to connect to any device and run real experiments.](anthropic-ai/260827-we-re-building-a-way-for-ai-models-to-connect-to-any-device.md) — 2026-08-27
 - [Claude on Mars](anthropic-ai/260130-claude-on-mars.md) — 2026-01-30 (자막없음)
 - [AI's limited self-knowledge](anthropic-ai/260108-ai-s-limited-self-knowledge.md) — 2026-01-08
 - [What does it take to be an AI whisperer?](anthropic-ai/251215-what-does-it-take-to-be-an-ai-whisperer.md) — 2025-12-15

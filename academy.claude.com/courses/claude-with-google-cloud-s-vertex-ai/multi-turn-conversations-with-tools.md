@@ -16,7 +16,7 @@ When building applications with multiple tools, you need to handle scenarios whe
 
 This creates a multi-turn conversation pattern where Claude makes multiple tool requests before providing a final answer. Your application needs to handle this automatically.
 
-## The Multi-Turn Tool Pattern
+## The Multi-Turn Tool Pattern[](#the-multi-turn-tool-pattern)
 
 Here's what happens behind the scenes when Claude needs multiple tools:
 
@@ -29,7 +29,7 @@ Here's what happens behind the scenes when Claude needs multiple tools:
 
 ![](https://academy.claude.com/assets/media/1af13eec2b4e2fa09cd63b9b1ab3c8efb4728b9c2581a26eb81fc924d9c2badd.png)
 
-## Building a Conversation Loop
+## Building a Conversation Loop[](#building-a-conversation-loop)
 
 To handle this pattern, you need a conversation loop that continues until Claude stops requesting tools:
 
@@ -54,11 +54,11 @@ def run_conversation(messages):
 
 ![](https://academy.claude.com/assets/media/f34e1f4fc8abec6af3ca66152b6ac22212d7fbc4c5602ce84c69f75f86c959e4.png)
 
-## Refactoring Helper Functions
+## Refactoring Helper Functions[](#refactoring-helper-functions)
 
 Before implementing the conversation loop, you need to update your helper functions to handle multiple message blocks properly.
 
-### Updating Message Handlers
+### Updating Message Handlers[](#updating-message-handlers)
 
 Your `add_user_message` and `add_assistant_message` functions currently assume they're always working with plain text. Update them to handle full message objects:
 
@@ -77,7 +77,7 @@ def add_user_message(messages, message):
 
 This allows you to pass in either a string, a list of blocks, or a complete message object.
 
-### Updating the Chat Function
+### Updating the Chat Function[](#updating-the-chat-function)
 
 Modify your chat function to accept a list of tools and return the full message instead of just text:
 
@@ -103,7 +103,7 @@ def chat(messages, system=None, temperature=1.0, stop_sequences=[], tools=None):
     return message
 ```
 
-### Extracting Text from Messages
+### Extracting Text from Messages[](#extracting-text-from-messages)
 
 Since the chat function now returns full messages instead of just text, add a helper to extract text when needed:
 
@@ -118,7 +118,7 @@ def text_from_message(message):
 
 This function finds all text blocks in a message and joins them together, which is useful when you need to display the final response to users.
 
-## Why These Changes Matter
+## Why These Changes Matter[](#why-these-changes-matter)
 
 These refactoring steps prepare your code for the reality of tool-enabled conversations:
 

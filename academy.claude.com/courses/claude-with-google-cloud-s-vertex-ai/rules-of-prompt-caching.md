@@ -16,7 +16,7 @@ Prompt caching in Claude works by storing the computational work done on message
 
 The process follows a simple pattern: your initial request will write to the cache, and follow-up requests can read from the cache. The cache lives for 5 minutes, so this feature is only useful if you're repeatedly sending the same content - but this happens extremely frequently in real applications.
 
-## Cache Breakpoints
+## Cache Breakpoints[](#cache-breakpoints)
 
 Work done on messages is not cached automatically. We have to manually add a 'cache breakpoint' to a block. Work done for everything before the breakpoint will be cached, and the cache will only be used on follow-up requests if the content up to and including the breakpoint is identical.
 
@@ -48,7 +48,7 @@ user_message = {
 }
 ```
 
-## How Cache Breakpoints Work
+## How Cache Breakpoints Work[](#how-cache-breakpoints-work)
 
 Cache breakpoints span messages and can cache assistant messages too. When you place a breakpoint, everything up to that point gets cached. Remember, content must be identical to use the cache!
 
@@ -58,7 +58,7 @@ In a follow-up request, Claude reads the previously processed work from the cach
 
 ![](https://academy.claude.com/assets/media/98248c8f00b28be277042501f40d864c9d14092cd7b0fe29267526cb76010b26.png)
 
-## Breakpoint Location
+## Breakpoint Location[](#breakpoint-location)
 
 You're not restricted to text blocks! You can add cache breakpoints to system prompts and tool definitions. These are actually the most common caching opportunities since they rarely change between requests.
 
@@ -87,7 +87,7 @@ system = [
 ]
 ```
 
-## Cache Ordering
+## Cache Ordering[](#cache-ordering)
 
 Behind the scenes, tools, system prompts, and messages get joined together in that specific order when fed into Claude. This affects how your cache breakpoints work.
 
@@ -95,7 +95,7 @@ Behind the scenes, tools, system prompts, and messages get joined together in th
 
 You can add up to four cache breakpoints total. If you place a breakpoint on your last tool, everything up to that tool gets cached, but the system prompt and messages won't be. This gives you fine-grained control over what gets cached based on what changes in your application.
 
-## Minimum Content Length
+## Minimum Content Length[](#minimum-content-length)
 
 Content must be at least 1024 tokens long to be cached (sum of all messages/blocks you're trying to cache). A simple "Hi there!" message won't meet this threshold, but if you duplicate that text 500 times, you'll have enough tokens to cache.
 

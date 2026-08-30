@@ -12,7 +12,7 @@ Lesson 462 min
 
 Prompt caching is a feature that speeds up Claude's responses and reduces the cost of text generation by reusing computational work from previous requests. Instead of throwing away all the processing work after each request, Claude can save and reuse it when you send similar content again.
 
-## How Claude Normally Processes Requests
+## How Claude Normally Processes Requests[](#how-claude-normally-processes-requests)
 
 To understand prompt caching, let's first look at what happens during a typical request without caching enabled.
 
@@ -31,7 +31,7 @@ When you send a message to Claude, it doesn't immediately start generating a res
 
 After sending you the response, Claude discards all this computational work. Everything gets thrown away, and Claude declares itself ready for the next request.
 
-## The Problem with Repeated Content
+## The Problem with Repeated Content[](#the-problem-with-repeated-content)
 
 Here's where things get inefficient. Imagine you're having a conversation with Claude, so your follow-up request includes:
 
@@ -45,7 +45,7 @@ Here's where things get inefficient. Imagine you're having a conversation with C
 
 Claude has to reprocess that original message all over again, even though it just analyzed the exact same content moments earlier. As Claude might think: "I just processed that message and threw away all the work I did. I could have reused it!"
 
-## How Prompt Caching Solves This
+## How Prompt Caching Solves This[](#how-prompt-caching-solves-this)
 
 Prompt caching changes this wasteful process. Instead of discarding the preprocessing work, Claude saves it in a cache.
 
@@ -60,7 +60,7 @@ Here's how it works:
 
 The cache acts like a lookup table: "If I ever see this message again, I'll reuse this work I already did."
 
-## Key Benefits and Limitations
+## Key Benefits and Limitations[](#key-benefits-and-limitations)
 
 ![](https://academy.claude.com/assets/media/5f97d3d94b77e04e07b60802a35f57d2d4743ee22174320bbd4feb24875b68ee.png)
 

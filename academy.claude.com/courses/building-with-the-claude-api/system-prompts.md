@@ -14,7 +14,7 @@ System prompts are a powerful way to customize how Claude responds to user input
 
 ![](https://academy.claude.com/assets/media/0118ce8922f623441ea2d64984febb0aa8224932b3f8dafabc41999b06c5e189.png)
 
-## Why System Prompts Matter
+## Why System Prompts Matter[](#why-system-prompts-matter)
 
 Consider building a math tutor chatbot. When a student asks "How do I solve 5x + 2 = 3 for x?", you want Claude to act like a real tutor, not just spit out the answer. A good math tutor should:
 
@@ -27,7 +27,7 @@ You definitely don't want Claude to:
 * Immediately give direct answers
 * Tell students to just use a calculator
 
-## How System Prompts Work
+## How System Prompts Work[](#how-system-prompts-work)
 
 ![](https://academy.claude.com/assets/media/ad3b9ae04c6d043380c590fe8251279fc6664c44f784fade1efdb2a4b728969f.png)
 
@@ -56,13 +56,13 @@ client.messages.create(
 )
 ```
 
-## Seeing the Difference
+## Seeing the Difference[](#seeing-the-difference)
 
 Without a system prompt, Claude gives a complete step-by-step solution immediately. This might be helpful, but it doesn't encourage the student to think through the problem themselves.
 
 With the math tutor system prompt, Claude's response changes dramatically. Instead of providing the full solution, Claude asks guiding questions like "What do you think would be a good first step to isolate x? Consider what operation we might need to perform on both sides to start moving terms around."
 
-## Building a Flexible Chat Function
+## Building a Flexible Chat Function[](#building-a-flexible-chat-function)
 
 Rather than hard-coding system prompts, you can make your chat function more reusable by accepting system prompts as parameters:
 

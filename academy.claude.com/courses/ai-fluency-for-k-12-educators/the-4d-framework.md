@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Explain how the AI Fluency Framework (4Ds) can be applied to your work
 * Define each of the 4Ds: Delegation, Description, Discernment, and Diligence
 
-## Introducing the 4D Framework for AI Fluency
+## Introducing the 4D Framework for AI Fluency[](#introducing-the-4d-framework-for-ai-fluency)
 
 Introducing the 4D Framework for AI Fluency · 7 min
 
@@ -26,7 +26,7 @@ and Diligence, and explains how each competency applies to the daily work of
 pk–12 educators. You'll see how the framework maps to tasks you already do,
 from lesson planning to parent communication.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **The Delegation-Diligence loop** guides higher-level decisions about when to use AI.
   + **Delegation** involves deciding what work should be done by humans versus AI.
@@ -36,7 +36,7 @@ from lesson planning to parent communication.
   + **Discernment** means critically evaluating AI's work.
 * **You already do this.** Description is very similar to the skills used in lesson planning (defining outputs, steps, success criteria). Discernment is very similar to evaluating student work and curriculum materials. These skills transfer directly, just with a new collaborator.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Build your context document
 
@@ -51,12 +51,12 @@ You'll use this document to give AI context about you throughout the course, exp
 3. **Ask AI to synthesize.** Have it create a short, reusable context document that leads with your core values, then your role, students, and goals. Review it, fix what's wrong, and save it where you'll find it again—you'll reuse and expand it throughout the course.
 4. **Tag it to the 4Ds.** Skim your finished document and mark which of your values, concerns, or goals map to Delegation, Description, Discernment, or Diligence.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Were you surprised by which competency showed up most in your document? What does that tell you about your current relationship with AI?
 * The 4Ds build on skills you already use as a teacher. Which comes most naturally, and which will take the most intention with AI?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll dive deeper into AI's capabilities and limits to establish a foundation for the remaining lessons.
 

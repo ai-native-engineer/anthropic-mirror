@@ -20,7 +20,7 @@ Download File
 
 ## Returns
 
-- `unnamed_schema_4: file path`
+- `unnamed_schema_1: file path`
 
 ## Example
 

@@ -17,9 +17,11 @@ In this lessonBy the end, you’ll be able to
 * Build coherent course structures through AI collaboration
 * Maintain pedagogical integrity while leveraging AI capabilities
 
-## Applying AI Fluency to course design and learning outcomes
+## Applying AI Fluency to course design and learning outcomes[](#applying-ai-fluency-to-course-design-and-learning-outcomes)
 
 Applying AI Fluency to course design and learning outcomes · 10 min
+
+SummaryTranscript
 
 This video demonstrates how to apply the AI Fluency Framework to course and
 lesson design. We explore how building rich, shared context transforms AI
@@ -36,14 +38,14 @@ responsibility while documenting your collaborative process. The video
 emphasizes that this isn't about outsourcing decisions but about creating
 genuine cognitive partnership.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * Context-building transforms generic AI into a teaching and thinking partner who understands your approach, vision and needs
 * Each of the 4Ds plays a specific role in course design collaboration
 * The goal is enhancement, not just efficiency. We want better teaching and learning, not just faster planning
 * Your pedagogical and subject matter expertise guides the entire process
 
-## Exercises
+## Exercises[](#exercises)
 
 ### Complete Course Design Workflow
 
@@ -113,7 +115,7 @@ Work through relevant course elements, applying Discernment throughout and revis
 * Create a brief statement about AI's role in your planning
 * Consider how you might share this process with students or colleagues
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore creating learning materials and assignments with AI. You'll discover how the context you've built makes material creation more coherent and effective, from lecture slides to assessments, while addressing the challenge of maintaining academic integrity when students also have access to AI.
 

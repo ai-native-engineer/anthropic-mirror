@@ -14,7 +14,7 @@ We're going to build a CLI-based chatbot to better understand how MCP clients an
 
 When the setup is done, you should be able to do two things: say what the client does and what the server does, and tell whether a reply came through a tool or straight from the model.
 
-## What We're Building
+## What We're Building[](#what-were-building)
 
 Our chatbot will allow users to interact with a collection of documents through a command-line interface. The system consists of two main components:
 
@@ -25,7 +25,7 @@ Our chatbot will allow users to interact with a collection of documents through 
 
 The server will provide two essential tools: one for reading document contents and another for updating them. All documents will be stored in memory for simplicity - no database required.
 
-## Important Architecture Note
+## Important Architecture Note[](#important-architecture-note)
 
 In real-world projects, you typically implement either an MCP client or an MCP server, not both. You might create:
 
@@ -36,7 +36,7 @@ In real-world projects, you typically implement either an MCP client or an MCP s
 
 We're building both components in this project purely for educational purposes - to understand how they communicate and work together.
 
-## Project Setup
+## Project Setup[](#project-setup)
 
 Download the `cli_project.zip` file attached to this lesson and extract it to your preferred development directory. Open your code editor in the project folder.
 
@@ -46,7 +46,7 @@ The project includes a comprehensive README file with setup instructions. Follow
 2. Install dependencies using either UV (recommended) or pip
 3. Run the starter application to verify everything works
 
-## Running the Application
+## Running the Application[](#running-the-application)
 
 Navigate to your project directory in the terminal. You'll see the main project files including `main.py`, `mcp_client.py`, and `mcp_server.py`.
 
@@ -70,7 +70,7 @@ Then type a second question, something like "what do the documents say?". Whatev
 
 The habit behind this check: match how carefully you verify to the cost of being wrong. A broken setup here costs you every later lesson built on top of it; checking costs two questions.
 
-## A check worth keeping
+## A check worth keeping[](#a-check-worth-keeping)
 
 The behavior to carry beyond this project: every time you add a new layer to an API project, whether a tool, a data source, or an MCP server, ask the running system one question whose answer you already know before you build the next layer. A baseline you have verified is the only baseline you can debug against.
 

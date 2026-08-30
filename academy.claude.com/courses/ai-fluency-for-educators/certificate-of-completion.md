@@ -10,6 +10,8 @@ Quiz 1 of 1 · AI Fluency for educatorsCourse quiz
 
 Quiz5 min
 
+You've reached the final quiz for AI Fluency for educators. Its 6 questions revisit the 4D Framework, how it applies to course design and learning objectives, and its role in developing assessments and learning materials with AI. A score of 80% or higher passes. Once you pass, select **Create your completion badge** to add it to your account, where you can view it and share a verifiable link.
+
 [Previous lessonApplying AI Fluency to learning materials and assignments](https://academy.claude.com/courses/ai-fluency-for-educators/applying-ai-fluency-to-learning-materials-and-assignments)[Up nextCompletion badge](https://academy.claude.com/courses/ai-fluency-for-educators/badge)
 
 Quiz 1 of 1 · AI Fluency for educatorsCourse quiz

@@ -16,7 +16,7 @@ Try in ClaudeCopy prompt
 
 ![Build interactive diagram tools result](https://academy.claude.com/assets/v1/build-interactive-diagram-tools-dbg1inft.png)[Open artifact](https://claude.ai/public/artifacts/f83ae1ec-6136-4b37-a502-4405235ebb05)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude can build interactive tools that let you engage with material directly, whether that's anatomy, chemistry diagrams, or historical timelines. The precision of your prompt shapes the sophistication of the result.
 
@@ -34,15 +34,15 @@ Add tabbed information panels, physical-feeling sound feedback, and content rich
 
 Open in Claude
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 The prompt above supplies its own context: the data source (the anatomogram package with its UBERON IDs), the interaction model (hover, click, tabbed body systems), and the design standard (premium medical reference, warm colors, serif headings). Claude builds from exactly what you pin down, so each of those choices shows up in the result.
 
-### Required context
+### Required context[](#required-context)
 
 Artifacts are standalone, interactive outputs that Claude creates in a dedicated window alongside your conversation. When you ask for an interactive tool like this anatomy explorer, Claude typically builds it as an artifact automatically, rendered and ready to use.
 
-### Optional context
+### Optional context[](#optional-context)
 
 For complex multi-component apps, turn on [Extended Thinking(opens in new tab)](https://support.claude.com/en/articles/10574485-using-extended-thinking) so Claude can plan architecture before building.
 
@@ -50,7 +50,7 @@ For complex multi-component apps, turn on [Extended Thinking(opens in new tab)](
 
 Extended Thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking)
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude builds a fully functional React application with the visual design, interaction patterns, and educational content you specified, ready to use immediately in the artifact viewer.
 
@@ -78,11 +78,11 @@ Subtle audio feedback on hover and selection. Soft clicks and tones that feel ph
 
 Warm beige background, terracotta and slate accents, no harsh colors. Playfair Display for headings, Inter for body text, IBM Plex Mono for data. Generous whitespace, no visual clutter.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Add self-testing
+### Add self-testing[](#add-self-testing)
 
 Layer in more functionality, like an active learning mode that reinforces retention.
 
@@ -90,7 +90,7 @@ Add a quiz mode where I'm shown a description or function and have to identify t
 
 Open in Claude
 
-### Add advanced features
+### Add advanced features[](#add-advanced-features)
 
 Ask Claude to expand anatomical detail where you want more granularity.
 
@@ -98,7 +98,7 @@ Add more body systems to the diagram. Also make the brain view more detailed.
 
 Open in Claude
 
-### Generate companion materials from the same session
+### Generate companion materials from the same session[](#generate-companion-materials-from-the-same-session)
 
 Continue learning from different mediums. The app and study materials can share a source of truth.
 
@@ -106,29 +106,29 @@ From the anatomical data in this explorer, generate a printable PDF study guide 
 
 Open in Claude
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Paste errors directly into chat
+### Paste errors directly into chat[](#paste-errors-directly-into-chat)
 
 When something breaks, like a structure that won't highlight or a system tab that stops filtering, paste the error message or describe what you're seeing. Claude can trace the logic and identify the issue so you don't need to debug the code yourself.
 
-### Long sessions compound rather than drift
+### Long sessions compound rather than drift[](#long-sessions-compound-rather-than-drift)
 
 Opus 4.5 maintains your design decisions and technical context across extended conversations. Your tenth iteration still remembers your original aesthetic requirements, technical constraints, and every refinement in between. You can plan for sustained building sessions rather than trying to specify everything upfront.
 
-### Include known troubleshooting upfront
+### Include known troubleshooting upfront[](#include-known-troubleshooting-upfront)
 
 If you've hit quirks before—from previous Claude sessions or your own debugging—mention them in the prompt. This example notes that the anatomogram SVGs render invisible by default and that UBERON IDs get stripped during optimization. Without those notes, Claude writes working code that produces a blank screen, then spends iterations diagnosing.
 
-### Spot-check the panels before you study from them
+### Spot-check the panels before you study from them[](#spot-check-the-panels-before-you-study-from-them)
 
 The anatomogram package supplies the accurate illustrations, but Claude writes the text in the information panels: each structure's function, clinical relevance, and quick facts. Before relying on the explorer as a study tool, click through a few structures and compare what the panels say against your textbook or lecture notes. Flag anything that doesn't match and ask Claude to correct it.
 
-### Add sources to make it yours
+### Add sources to make it yours[](#add-sources-to-make-it-yours)
 
 Opus 4.5's context window handles substantial material. If you have a textbook chapter, lecture notes, or syllabus you want the app to cover, paste the whole thing rather than summarizing. Claude extracts structure and prioritizes content more effectively from complete sources than from your condensed version.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Pick something you've been meaning to understand. Claude builds the tool; you do the learning.
 

@@ -15,7 +15,7 @@ In this lessonBy the end, you’ll be able to
 * Apply Description skills to craft clear, context-rich prompts that guide AI to create or improve written materials aligned with your nonprofit's mission and audience needs
 * Apply Discernment skills to evaluate AI-generated written materials for accuracy, appropriateness, and alignment with your organizational values and communication standards
 
-## Writing with AI
+## Writing with AI[](#writing-with-ai)
 
 Writing with AI · 7 min
 
@@ -29,7 +29,7 @@ how to provide rich context through uploaded documents, guide AI's approach
 with specific instructions, and iterate through discernment to create a
 proposal he can stand behind.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Upload past successful work** to help AI understand your organization's voice and approach—this saves time and improves authenticity
 * **Inject the details AI can't know**: your track record, partnerships, staff expertise, and actual community relationships
@@ -38,7 +38,7 @@ proposal he can stand behind.
 * **Build a cognitive environment**: The back-and-forth between human and AI helps align the tool to your specific needs over time
 * **Own the final result**: When you submit work created with AI assistance, you should be able to stand behind every word because you applied discernment throughout
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2
 
@@ -74,12 +74,12 @@ Share your prompt with AI and review the draft. Apply Discernment:
 
 **Stretch goal**: Iterate on your prompt with specific feedback about tone or framing issues you identified, then compare the two versions to see how description improvements affected output quality.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How did uploading past work or providing detailed context change the quality of AI's writing output?
 * What strategies will you use to maintain your organization's authentic voice when writing with AI?
 
-## What's next
+## What's next[](#whats-next)
 
 In the next lesson, we'll explore AI Privacy in an attempt to better understand what happens to the data you share with AI.
 

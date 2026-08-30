@@ -25,8 +25,6 @@ Claude can help you:
 * **Contacts:** Claude does not have direct access to your contacts.
 * **Health:** Available on Pro and Max plans only. Requires Android 14 or later and Health Connect. Currently limited to users in the US. Claude can read health data but cannot write or modify entries in Health Connect.
 
----
-
 ## How Claude helps you take action
 
 When Claude determines that using one of these features would be helpful, it will automatically offer to help. You'll see a card or prompt within your conversation that lets you review and take action with Claude’s help.
@@ -85,8 +83,6 @@ When Claude determines that using one of these features would be helpful, it wil
 * "Set an alarm for 7 AM tomorrow."
 * "Start a 20-minute timer for my workout."
 
----
-
 ## Access and analyze your health data
 
 **Note:** Health features are available in beta on Pro and Max plans only, require Android 14 or later, and are limited to users in the US.
@@ -112,7 +108,7 @@ With your permission, Claude can read the following types of data from Health Co
 * **Sleep:** Total sleep time, sleep stages, and time in bed
 * **Nutrition:** Calories consumed, macronutrients, hydration, and micronutrients (if tracked)
 
-**Note:** Our **[memory feature](https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context#h_c1c0b33879)** is designed to prevent Claude from using sensitive health information in future conversations.
+**Note:** By default, Claude doesn't save health information to memory. If you turn on **Include sensitive topics in memory**, Claude may remember health-related context from your conversations. Learn more about **[sensitive topics in memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context#h_6fe1d0e66f)**.
 
 ### How to use health features
 
@@ -143,8 +139,6 @@ Tap on chart elements to see more details about specific data points.
 
 Be specific about what type of action you want Claude to take and include all relevant details like recipients, dates, times, and durations in your request. For alarms, specify AM/PM and any recurring days you need. For timers, mention what the timer is for to help with labeling. Always review content in the destination app before sending or saving.
 
----
-
 ## What data can Claude access?
 
 Claude only accesses the data necessary for each specific request:
@@ -169,13 +163,11 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1787622300&signature=c50bb9c8cd91b6c03a8e061311aa02cb3571d0d7a0121f1fd636b50e7ab0bbde&req=dScnEcp7nIdeXfMW1HO4zQe5GliJ2Sf3S5x65TIld%2FAnhsHuOXbbttbZ1SIL%0AehqJ85fPWa2LNra005I%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1787622300&signature=c50bb9c8cd91b6c03a8e061311aa02cb3571d0d7a0121f1fd636b50e7ab0bbde&req=dScnEcp7nIdeXfMW1HO4zQe5GliJ2Sf3S5x65TIld%2FAnhsHuOXbbttbZ1SIL%0AehqJ85fPWa2LNra005I%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1788033600&signature=7c34cdb653e24db5fc36ec1ef21bdeac57ef84be9649231fea006b8b746982d6&req=dScnEcp7nIdeXfMW1HO4zQe5GleP2CbyS5x65TIld%2FBaRharx7QnKu36N6%2Bw%0AF%2FOPRrjm8bWhUZbyESo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1788033600&signature=7c34cdb653e24db5fc36ec1ef21bdeac57ef84be9649231fea006b8b746982d6&req=dScnEcp7nIdeXfMW1HO4zQe5GleP2CbyS5x65TIld%2FBaRharx7QnKu36N6%2Bw%0AF%2FOPRrjm8bWhUZbyESo%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 
 Health Connect permissions are managed separately from other app permissions. When Claude requests health access, you'll see the Health Connect permissions screen where you can choose exactly which data types to share. You can modify these permissions at any time by going to Settings > Apps > Health Connect > App permissions > Claude.
-
----
 
 ## Troubleshooting
 

@@ -8,7 +8,7 @@ Claude Corps is a fully funded, 12-month paid fellowship that places early-caree
 
 ## Timing Update
 
-## All organizations that applied for Cohort 1 will hear back on August 31st. Thank you for your patience as we review all applications.
+## Due to the extraordinary volume of applications received, all organizations that applied for Cohort 1 will hear back on August 31st. Thank you for your patience as we review all applications.
 
 ## About Claude Corps
 

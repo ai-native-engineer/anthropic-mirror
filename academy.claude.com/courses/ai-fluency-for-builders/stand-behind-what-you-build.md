@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Identify the technical realities that surface at ship time and build feedback loops that catch them
 * Make the call: ship it, fix it, or stop it
 
-## Diligence & sharing your work
+## Diligence & sharing your work[](#diligence-sharing-your-work)
 
 Diligence & sharing your work · 3 min
 
@@ -27,7 +27,7 @@ realities AI won’t warn you about, why tests become your safety net the
 moment something is live, and the underrated skill of deprecating your own
 work.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **You own the outcome, not the output.** “AI wrote it” explains nothing and excuses nothing.
 * **Shipping has its own technical vocabulary** (migrations, versioning, rate limits, feature flags) that AI will not surface unless you ask.
@@ -35,7 +35,7 @@ work.
 * **Prototype freely, ship selectively.** Cheap code creates value only when paired with honest evaluation.
 * **Access is a design decision.** Check who your assumptions exclude before you call something shipped.
 
-## Exercise
+## Exercise[](#exercise)
 
 ### Ship the Clinic app
 
@@ -49,12 +49,12 @@ Once you’ve worked through these, deploy your app or host it as a prototype, s
 * **Responsibility** — Could this output be misread or misused? Have you been transparent about AI’s role?
 * **Feedback loop** — How will you know if it’s working after it ships?
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * How has your thinking about AI integration changed from the beginning of this course?
 * What’s one thing you’ll do differently in your work with AI based on what you’ve learned?
 
-## What's next
+## What's next[](#whats-next)
 
 You’ve built, evaluated, and shipped the Clinic Wait Time Checker. In the final lesson, you’ll bring the full 4D Framework together and leave with a real task already in motion.
 

@@ -1,34 +1,33 @@
 <!-- source: https://platform.claude.com/docs/en/api/admin/cost_report -->
 
----
-title: Cost Report
-url: https://platform.claude.com/docs/en/api/admin/cost_report
----
-
 # Cost Report
 
 ## Get Cost Report
 
-**get** `/v1/organizations/cost_report`
+**GET** `/v1/organizations/cost_report`
 
 Get Cost Report
 
-### Query Parameters
+### Query parameters
 
 - `starting_at: string`
 
   Time buckets that start on or after this RFC 3339 timestamp will be returned.
   Each time bucket will be snapped to the start of the minute/hour/day in UTC.
 
+  format: date-time
+
 - `bucket_width: optional "1d"`
 
   Time granularity of the response data.
 
-  - `"1d"`
+  default: 1d
 
 - `ending_at: optional string`
 
   Time buckets that end before this RFC 3339 timestamp will be returned.
+
+  format: date-time
 
 - `group_by: optional array of "description" or "workspace_id"`
 
@@ -42,11 +41,13 @@ Get Cost Report
 
   Maximum number of time buckets to return in the response.
 
+  default: 7, maximum: 31, minimum: 1
+
 - `page: optional string`
 
   Optionally set to the `next_page` token from the previous response.
 
-### Header Parameters
+### Headers
 
 - `"anthropic-beta": optional array of string`
 
@@ -56,9 +57,9 @@ Get Cost Report
 
 ### Returns
 
-- `CostReport object { data, has_more, next_page }`
+- `CostReport object`
 
-  - `data: array of object { ending_at, results, starting_at }`
+  - `data: array of object`
 
     List of time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no costs (their `results` list is empty). A page holds at most `limit` buckets.
 
@@ -66,7 +67,9 @@ Get Cost Report
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
-    - `results: array of object { amount, context_window, cost_type, 7 more }`
+      format: date-time
+
+    - `results: array of object`
 
       List of cost items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
 
@@ -147,6 +150,8 @@ Get Cost Report
 
       Start of the time bucket (inclusive) in RFC 3339 format.
 
+      format: date-time
+
   - `has_more: boolean`
 
     Indicates if there are more results.
@@ -157,13 +162,13 @@ Get Cost Report
 
 ### Example
 
-```http
+```bash
 curl https://api.anthropic.com/v1/organizations/cost_report \
     -H 'anthropic-version: 2023-06-01' \
     -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
-#### Response
+#### Response (200)
 
 ```json
 {
@@ -176,9 +181,9 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
           "context_window": "0-200k",
           "cost_type": "tokens",
           "currency": "USD",
-          "description": "Claude Sonnet 4 Usage - Input Tokens",
+          "description": "Claude Opus 5 Usage - Input Tokens",
           "inference_geo": "global",
-          "model": "claude-opus-4-6",
+          "model": "claude-opus-5",
           "service_tier": "standard",
           "token_type": "uncached_input_tokens",
           "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
@@ -192,13 +197,13 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
 }
 ```
 
-## Domain Types
+## Domain types
 
 ### Cost Report
 
-- `CostReport object { data, has_more, next_page }`
+- `CostReport object`
 
-  - `data: array of object { ending_at, results, starting_at }`
+  - `data: array of object`
 
     List of time buckets for this page, oldest first: one per `bucket_width` interval, including intervals with no costs (their `results` list is empty). A page holds at most `limit` buckets.
 
@@ -206,7 +211,9 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
-    - `results: array of object { amount, context_window, cost_type, 7 more }`
+      format: date-time
+
+    - `results: array of object`
 
       List of cost items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
 
@@ -286,6 +293,8 @@ curl https://api.anthropic.com/v1/organizations/cost_report \
     - `starting_at: string`
 
       Start of the time bucket (inclusive) in RFC 3339 format.
+
+      format: date-time
 
   - `has_more: boolean`
 

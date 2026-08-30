@@ -12,7 +12,7 @@ Structured learning paths with video lessons and assessments to help you master 
 
 13 lessons · 1 quiz·2.5 hr·Completion badge](https://academy.claude.com/courses/claude-101)[### Claude Code 101
 
-12 lessons · 1 quiz·1 hr·Completion badge](https://academy.claude.com/courses/claude-code-101)[### Introduction to Claude Cowork
+12 lessons · 1 quiz·1.5 hr·Completion badge](https://academy.claude.com/courses/claude-code-101)[### Introduction to Claude Cowork
 
 14 lessons · 1 quiz·2.5 hr·Completion badge](https://academy.claude.com/courses/introduction-to-claude-cowork)[### Claude Platform 101
 
@@ -28,9 +28,13 @@ Structured learning paths with video lessons and assessments to help you master 
 
 11 lessons · 1 quiz·1.5 hr·Completion badge](https://academy.claude.com/courses/model-context-protocol-advanced-topics)[### Introduction to subagents
 
-4 lessons·45 min](https://academy.claude.com/courses/introduction-to-subagents)[### Introduction to agent skills
+4 lessons·45 min](https://academy.claude.com/courses/introduction-to-subagents)[### The AI-Native SDLC Playbook
 
-6 lessons·1 hr](https://academy.claude.com/courses/introduction-to-agent-skills)
+14 lessons·1 hr](https://academy.claude.com/courses/ai-native-sdlc-playbook)[### Introduction to agent skills
+
+6 lessons·1 hr](https://academy.claude.com/courses/introduction-to-agent-skills)[### Deploying Claude Enterprise with Confidence: The five decisions that shape your rollout
+
+14 lessons · 1 quiz·2.5 hr·Completion badge](https://academy.claude.com/courses/deploying-claude-enterprise-with-confidence)
 
 ## Become AI fluent
 
@@ -44,7 +48,7 @@ Structured learning paths with video lessons and assessments to help you master 
 
 ### AI Fluency, for your world
 
-[For builders9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-builders)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[For pK–12 educators10 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)[For pK–12 Train the Trainer4 lessons](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer)[For nonprofits9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits)[For small businesses9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses)[For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)
+[For builders9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-builders)[For creative work8 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-creative-work)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[For pK–12 educators10 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)[For pK–12 Train the Trainer4 lessons](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer)[For nonprofits9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits)[For small businesses9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses)[For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)
 
 ## Build with the API
 

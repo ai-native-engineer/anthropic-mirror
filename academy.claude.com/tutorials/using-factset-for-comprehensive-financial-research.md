@@ -18,9 +18,9 @@ The FactSet integration is currently in early access; contact the FactSet team f
 
 The FactSet integration provides Claude with access to institutional-grade financial data and analytics used by investment professionals worldwide. This article explains how to set up and use FactSet data for financial analysis, including global pricing data, fundamental financials, analyst estimates, M&A transactions, ownership data, and executive information.
 
-## What This Integration Provides
+## What This Integration Provides[](#what-this-integration-provides)
 
-### Capabilities
+### Capabilities[](#capabilities)
 
 The FactSet integration enables Claude to access multiple categories of financial and market data:
 
@@ -33,7 +33,7 @@ The FactSet integration enables Claude to access multiple categories of financia
 * **Executive and Board Information**: Leadership profiles, compensation data, employment history, and governance statistics.
 * **Corporate Events Calendar**: Earnings announcements, investor conferences, and other scheduled corporate events.
 
-## How Claude Uses FactSet Data
+## How Claude Uses FactSet Data[](#how-claude-uses-factset-data)
 
 Claude applies FactSet's data to support comprehensive analysis:
 
@@ -43,9 +43,9 @@ Claude applies FactSet's data to support comprehensive analysis:
 * **Network Mapping**: Creates relationship maps showing competitive dynamics and ownership structures.
 * **Multi-Period Comparisons**: Retrieves standardized metrics across companies for accurate peer analysis.
 
-## Setting up the FactSet integration
+## Setting up the FactSet integration[](#setting-up-the-factset-integration)
 
-### For Organization Owners
+### For Organization Owners[](#for-organization-owners)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors).
 2. Scroll down and click “Add custom connector" at the bottom of the list.
@@ -53,13 +53,13 @@ Claude applies FactSet's data to support comprehensive analysis:
 4. Name the integration (e.g., "FactSet")
 5. Click "Add"
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Comprehensive Equity Research
+### Comprehensive Equity Research[](#comprehensive-equity-research)
 
 Using FactSet, create a complete analysis of Apple (AAPL) including 5-year price performance with total returns, latest quarterly fundamentals versus prior year, consensus estimates for next fiscal year, and recent insider transaction activity. Compare key metrics to Microsoft and Google as peer benchmarks.
 
@@ -71,7 +71,7 @@ This request uses multiple FactSet datasets to build a complete equity research 
 
 **Tip**: FactSet's standardized fundamentals enable true apples-to-apples comparisons across companies, even when they use different accounting presentations.
 
-### M&A Activity Analysis
+### M&A Activity Analysis[](#ma-activity-analysis)
 
 Retrieve all M&A deals in the software sector over the past 24 months where deal value exceeded $1 billion. Include buyer, target, deal value, and completion status. Then identify which acquirers have been most active and their typical deal sizes.
 
@@ -83,7 +83,7 @@ M&A analysis through FactSet shows consolidation patterns and strategic prioriti
 
 **Note**: Deal data includes both completed and pending transactions, with status indicators showing which deals closed successfully versus those that were terminated.
 
-### Earnings Surprise Analysis
+### Earnings Surprise Analysis[](#earnings-surprise-analysis)
 
 For the last 8 quarters, show me Netflix's reported EPS versus consensus estimates, calculating the surprise percentage and direction. Include the stock's price reaction in the 3 days following each announcement to understand how the market responded to surprises.
 
@@ -95,7 +95,7 @@ Earnings surprise analysis combines FactSet's expectations data with actual repo
 
 **Key benefit**: Combines estimate data with price reactions for complete surprise impact analysis, showing not just the surprise but how the market interpreted it.
 
-### Ownership and Insider Tracking
+### Ownership and Insider Tracking[](#ownership-and-insider-tracking)
 
 Show me the top 20 institutional holders of Tesla, their current positions, and changes over the last quarter. Also pull any insider transactions over $1 million in the past 6 months, noting whether executives were buying or selling.
 
@@ -107,7 +107,7 @@ Claude retrieves institutional holdings data showing position sizes and changes 
 
 **Note**: Ownership data typically has a quarterly lag due to filing requirements, so positions shown may not reflect current holdings.
 
-### Supply Chain Risk Assessment
+### Supply Chain Risk Assessment[](#supply-chain-risk-assessment)
 
 Map NVIDIA's key suppliers, customers, and partners from FactSet's relationship data. Identify any concentration risks where a single relationship represents significant revenue exposure. Cross-reference with recent 10-K risk disclosures.
 
@@ -119,7 +119,7 @@ Supply chain analysis through FactSet can show dependencies that may not be appa
 
 **Key consideration**: Relationship data comes from disclosed sources and may not capture all partnerships, particularly those below materiality thresholds.
 
-## Tips for Using FactSet
+## Tips for Using FactSet[](#tips-for-using-factset)
 
 * Specify exact data types needed to avoid overwhelming results
 * Use date ranges to manage data volume, especially for daily pricing data

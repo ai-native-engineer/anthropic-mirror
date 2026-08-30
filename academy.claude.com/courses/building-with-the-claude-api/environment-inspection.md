@@ -12,7 +12,7 @@ Lesson 662 min
 
 When building AI agents, one crucial concept often gets overlooked: environment inspection. Claude operates blindly - it needs to be able to observe and understand the results of its actions to work effectively.
 
-## Why Environment Inspection Matters
+## Why Environment Inspection Matters[](#why-environment-inspection-matters)
 
 Think about how Claude works with computer use. Every time Claude performs an action like typing text or clicking a button, it immediately receives a screenshot to understand what happened. This isn't just a nice-to-have feature - it's essential.
 
@@ -20,7 +20,7 @@ Think about how Claude works with computer use. Every time Claude performs an ac
 
 From Claude's perspective, clicking a button could navigate to a new page, open a menu, or trigger any number of changes. Without being able to see the results, Claude has no way to understand whether its action succeeded or what the new state of the environment looks like.
 
-## Reading Before Writing
+## Reading Before Writing[](#reading-before-writing)
 
 This same principle applies to file operations. Before Claude can modify any file, it needs to understand the current contents. This might seem obvious, but it's a pattern you should always follow when building agents.
 
@@ -28,7 +28,7 @@ This same principle applies to file operations. Before Claude can modify any fil
 
 In the example above, when asked to add a new route to a Python file, Claude first reads the existing code to understand the current structure. Only then can it safely make the requested changes without breaking existing functionality.
 
-## System Prompts for Environment Inspection
+## System Prompts for Environment Inspection[](#system-prompts-for-environment-inspection)
 
 You can guide Claude to inspect its environment through system prompts. For complex tasks like video generation, this becomes especially important.
 
@@ -46,7 +46,7 @@ You might include system prompt instructions like:
 * Use FFmpeg to extract screenshots from the video at regular intervals to visually inspect the output
 * Compare the generated content against the original requirements
 
-## Benefits of Environment Inspection
+## Benefits of Environment Inspection[](#benefits-of-environment-inspection)
 
 When Claude can inspect its environment, several things improve:
 
@@ -55,7 +55,7 @@ When Claude can inspect its environment, several things improve:
 * **Quality assurance** - Output can be verified before considering a task complete
 * **Adaptive behavior** - Claude can adjust its approach based on what it observes
 
-## Practical Implementation
+## Practical Implementation[](#practical-implementation)
 
 When designing your own agents, always ask: "How will Claude know if this action worked?" Whether you're working with files, APIs, or user interfaces, provide tools and instructions that let Claude observe the results of its actions.
 

@@ -16,7 +16,7 @@ When you need Claude to generate structured data like JSON, Python code, or bull
 
 Consider building a web app that generates AWS EventBridge rules. Users enter a description, click generate, and expect to see clean JSON they can immediately copy and use. If Claude returns the JSON wrapped in markdown code blocks with explanatory text, users can't simply copy the entire response - they have to manually select just the JSON portion.
 
-## The Problem with Default Responses
+## The Problem with Default Responses[](#the-problem-with-default-responses)
 
 By default, Claude tends to format structured output like this:
 
@@ -36,7 +36,7 @@ This rule captures EC2 instance state changes when instances start running or st
 
 While this is great for documentation, it's problematic when you need just the JSON for programmatic use.
 
-## The Solution: Assistant Message Prefilling + Stop Sequences
+## The Solution: Assistant Message Prefilling + Stop Sequences[](#the-solution-assistant-message-prefilling-stop-sequences)
 
 You can combine assistant message prefilling with stop sequences to get exactly the content you want. Here's how it works:
 
@@ -58,13 +58,13 @@ This technique works by:
 
 ![](https://academy.claude.com/assets/media/f4aba84385c9911549de9816e5ce81c6e82c762274c9651b743ce48c9fff8fd3.png)
 
-## How It Works Behind the Scenes
+## How It Works Behind the Scenes[](#how-it-works-behind-the-scenes)
 
 When Claude receives your request, it sees the prefilled assistant message and assumes it already started writing the JSON code block. Instead of adding its own header and opening delimiter, Claude jumps straight to generating the actual JSON content.
 
 When Claude finishes the JSON and naturally wants to close the markdown code block with ```` ``` ````, the stop sequence immediately halts generation and returns the response. You get just the JSON content with no extra formatting.
 
-## Processing the Results
+## Processing the Results[](#processing-the-results)
 
 The returned text might contain some newline characters, but you can easily clean this up:
 
@@ -80,7 +80,7 @@ parsed_data = json.loads(text.strip())
 clean_text = text.strip()
 ```
 
-## Beyond JSON
+## Beyond JSON[](#beyond-json)
 
 This technique isn't limited to JSON generation. You can use it for any structured data where you want just the content without Claude's natural tendency to add explanatory text:
 

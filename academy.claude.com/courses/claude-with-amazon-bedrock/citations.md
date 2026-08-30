@@ -12,7 +12,7 @@ Lesson 454 min
 
 When working with PDFs in Claude, one of the biggest challenges is trust. Users often have to take it on faith that the AI is correctly interpreting the document contents. Claude's citations feature directly addresses this problem by showing exactly where information comes from in your source documents.
 
-## Enabling Citations
+## Enabling Citations[](#enabling-citations)
 
 To enable citations in your PDF processing, you need to add a single parameter to your document configuration:
 
@@ -44,7 +44,7 @@ response = chat(messages)
 
 The key addition is `"citations": {"enabled": True}` in the document dictionary. This tells Claude to track where it finds information and include citation data in its response.
 
-## Understanding Citation Responses
+## Understanding Citation Responses[](#understanding-citation-responses)
 
 When citations are enabled, Claude's response structure changes significantly. Instead of just returning text, you get multiple parts:
 
@@ -53,7 +53,7 @@ When citations are enabled, Claude's response structure changes significantly. I
 
 The citations content includes detailed information about where Claude found supporting evidence for each statement, including the specific document, page numbers, and even the exact text that influenced its response.
 
-## Why Citations Matter
+## Why Citations Matter[](#why-citations-matter)
 
 Citations provide several key benefits for PDF-based applications:
 

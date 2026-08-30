@@ -33,7 +33,7 @@ When you first open the updated version of Claude Desktop, you'll see a prompt t
 
 Once enabled, double-tapping Option will open a text box where you can type your message and start a new chat. You can also click "New chat" to see your five most recent conversations.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1787621400&signature=8d382f353a5f8b86f58e2553645892e87ba3173ab0d3cc43e55910cd0503ef20&req=dSguFcl2lYJZXPMW1HO4zWggD9lXpJ2eRC8c%2FcM5c2KgXnwCmlo7teLKNonx%0AVnbz6zVbRucYPNCPzn8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1787621400&signature=8d382f353a5f8b86f58e2553645892e87ba3173ab0d3cc43e55910cd0503ef20&req=dSguFcl2lYJZXPMW1HO4zWggD9lXpJ2eRC8c%2FcM5c2KgXnwCmlo7teLKNonx%0AVnbz6zVbRucYPNCPzn8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1788033600&signature=cd56b580b915e92355cec54b9fbc78e0de07f934b4ebad6a9d52804e543e56c2&req=dSguFcl2lYJZXPMW1HO4zWggD9ZRpZ%2BcRC8c%2FcM5c2LX1Mu3PB3k1x0AmDbz%0ADmvovRnUEPvpNqSh8Hc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1788033600&signature=cd56b580b915e92355cec54b9fbc78e0de07f934b4ebad6a9d52804e543e56c2&req=dSguFcl2lYJZXPMW1HO4zWggD9ZRpZ%2BcRC8c%2FcM5c2LX1Mu3PB3k1x0AmDbz%0ADmvovRnUEPvpNqSh8Hc%3D%0A)
 
 ### Enable the voice shortcut (optional)
 
@@ -137,7 +137,7 @@ Yes. You can disable quick entry shortcuts at any time in Settings > General > D
 You can customize the quick access shortcut to use Option + Space or create a custom keyboard shortcut that doesn't conflict with your other applications. The voice shortcut can only use Caps Lock or be disabled.
 
 * [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
-* [Use dictation on Claude Mobile](https://support.claude.com/en/articles/10065434-use-dictation-on-claude-mobile)
 * [Use Claude app intents, shortcuts, and widgets on iOS](https://support.claude.com/en/articles/10263469-use-claude-app-intents-shortcuts-and-widgets-on-ios)
 * [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
+* [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
 * [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)

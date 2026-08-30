@@ -43,8 +43,6 @@ Claude's memory is designed to focus on work-related topics to enhance its effec
 
 To view your memory exactly how Claude sees it, go to **[Settings > Capabilities](https://claude.ai/settings/capabilities)** and click “View and edit your memory.” Alternatively, you can access memory directly in a chat with Claude by asking it, "Write out your memories of me verbatim, exactly as they appear in your memory." You can save this exported memory as a backup or bring it to another AI service by copying and pasting it into a local file on your computer.
 
----
-
 ## Information for legacy memory users
 
 **Important:** We are gradually introducing an improved experience for memory from chats. The sections below only apply to people who have the legacy memory experience and see **Memory** in **[Settings > Capabilities](https://claude.ai/settings/capabilities)**. If you see **[Settings > Memory](https://claude.ai/new#settings/customize-memory)**, you’re using the new memory experience and the sections above apply to you.
@@ -86,6 +84,6 @@ To view your memory exactly how Claude sees it, go to **[Settings > Capabilities
 
 * [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)
 * [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
+* [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
 * [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
-* [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

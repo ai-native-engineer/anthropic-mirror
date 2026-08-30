@@ -20,7 +20,7 @@ These Skills are in research preview and available exclusively to Claude for Fin
 
 A comps table, a DCF model, and an earnings update each follow a structure your team already expects, and rebuilding that structure takes time that belongs to the analysis itself. These Skills carry the structure so your effort goes to the judgment calls. Decide what a good output looks like before you start: a clear bar for format and content lets you evaluate the result instead of reacting to it. If you’re looking for information about Skills in general, see [What are Skills?(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills)
 
-## Prerequisites
+## Prerequisites[](#prerequisites)
 
 **For admins (Enterprise plans):** Owners must first enable both **Code execution and file creation** and **Skills** in [Admin settings > Skills(opens in new tab)](https://claude.ai/admin-settings/skills). Both toggles live on that page, and members won’t see Skills until both are on.
 
@@ -34,7 +34,7 @@ A comps table, a DCF model, and an earnings update each follow a structure your 
 
 Read more about [using Skills in Claude(opens in new tab)](https://support.claude.com/en/articles/12512180-using-skills-in-claude).
 
-## Comps analysis with public/private peers
+## Comps analysis with public/private peers[](#comps-analysis-with-publicprivate-peers)
 
 This Skill generates peer benchmarking tables with valuation multiples and operating metrics that auto-refresh with live data.
 
@@ -51,7 +51,7 @@ This Skill generates peer benchmarking tables with valuation multiples and opera
 * Excel spreadsheet with peer company financial data and valuation multiples
 * Written analysis documenting peer selection rationale and key insights
 
-## Discounted Cash Flow (DCF) modeling
+## Discounted Cash Flow (DCF) modeling[](#discounted-cash-flow-dcf-modeling)
 
 This Skill builds discounted cash flow models with proper WACC calculations, scenario toggles, and sensitivity tables.
 
@@ -69,7 +69,7 @@ This Skill builds discounted cash flow models with proper WACC calculations, sce
 * Sensitivity analysis showing impact of key assumptions
 * Executive summary with valuation range and key drivers
 
-## Initiating coverage research
+## Initiating coverage research[](#initiating-coverage-research)
 
 This Skill helps conduct comprehensive company research for initiating coverage, including business model analysis, competitive positioning, and financial performance review.
 
@@ -88,7 +88,7 @@ This Skill helps conduct comprehensive company research for initiating coverage,
 * Detailed financial model with projections and valuation analysis
 * Executive summary presentation for investment committee review
 
-## Strip profile/business overview creation
+## Strip profile/business overview creation[](#strip-profilebusiness-overview-creation)
 
 This Skill creates concise 1-2 page company summaries for pitch books and buyer lists with key metrics and investment highlights.
 
@@ -105,7 +105,7 @@ This Skill creates concise 1-2 page company summaries for pitch books and buyer 
 * Business overview document with key metrics and positioning
 * Investment thesis summary with growth drivers and risks
 
-## Due diligence data pack creation
+## Due diligence data pack creation[](#due-diligence-data-pack-creation)
 
 This Skill processes data room documents into structured Excel data packs with financials, customer lists, and contract terms.
 
@@ -121,7 +121,7 @@ This Skill processes data room documents into structured Excel data packs with f
 * Executive summary highlighting key investment metrics
 * Normalized data for comps analysis and modeling
 
-## Earnings Analysis
+## Earnings Analysis[](#earnings-analysis)
 
 This Skill creates professional equity research earnings update reports analyzing quarterly results for companies already under coverage.
 
@@ -133,7 +133,7 @@ This Skill creates professional equity research earnings update reports analyzin
 * Investor presentations (Daloopa, Aiera)
 * Public company fundamentals (FactSet/CapIQ/Daloopa)
 
-## How to use these Skills
+## How to use these Skills[](#how-to-use-these-skills)
 
 Claude for Financial Services Skills work automatically when relevant to your task. You don’t need to explicitly invoke them—Claude determines when each Skill is needed based on your request.
 
@@ -141,7 +141,7 @@ For example, if you ask Claude to “Create a DCF model for Company XYZ,” Clau
 
 To guarantee Claude uses the skill, you are also welcome to explicitly instruct Claude to use the skill. For example, append “please use DCF skill” to the prompt.
 
-### Practice: run one Skill on a company you know
+### Practice: run one Skill on a company you know[](#practice-run-one-skill-on-a-company-you-know)
 
 Pick a company you cover or know well and ask for a comps analysis. Name the skill and spell out the shape of the output, since the spreadsheet has to fit how your team reads it:
 
@@ -151,7 +151,7 @@ Open in Claude
 
 When the spreadsheet comes back, check it the way you would check a first draft from a new analyst. Trace two or three of the multiples back to the underlying fundamentals, and read the peer selection rationale against the set you would have chosen yourself. Expect to adjust the first pass: a peer you would swap out or an assumption you would set differently is normal, because the Skill produces the draft and the judgment stays yours. If something doesn’t tie out, point it out and ask Claude to revise.
 
-## Best Practices
+## Best Practices[](#best-practices)
 
 * **Be specific about your requirements:** Clearly state the company name, analysis type, and any specific parameters you need.
 * **Provide context:** Share relevant details like industry, time period, or specific metrics you want to focus on.
@@ -160,7 +160,7 @@ When the spreadsheet comes back, check it the way you would check a first draft 
 
 One habit carries beyond these six Skills: whenever a deliverable has to fit an existing workflow, name the skill you want and the format the output needs in the same prompt, then trace the numbers that matter back to their sources before the output leaves your desk.
 
-## Learn more about Skills
+## Learn more about Skills[](#learn-more-about-skills)
 
 * [What are Skills?(opens in new tab)](https://support.claude.com/en/articles/12512176-what-are-skills)
 * [Using Skills in Claude(opens in new tab)](https://support.claude.com/en/articles/12512180-using-skills-in-claude)

@@ -12,7 +12,7 @@ Lesson 623 min
 
 Chaining workflows might seem obvious at first, but they're actually one of the most useful patterns you'll encounter when working with Claude. This approach becomes especially valuable when dealing with complex tasks or when Claude isn't consistently following all your constraints.
 
-## What is Chaining?
+## What is Chaining?[](#what-is-chaining)
 
 A chaining workflow breaks down one large task into smaller, sequential subtasks. Instead of asking Claude to handle everything at once, you split the work across multiple focused requests.
 
@@ -37,7 +37,7 @@ The key benefits of this approach:
 
 ![](https://academy.claude.com/assets/media/0fb97ecea57ebd4a5222cf32e91dc5c153ab1df022531938d13e4c05c9ca5010.png)
 
-## The Real-World Problem Chaining Solves
+## The Real-World Problem Chaining Solves[](#the-real-world-problem-chaining-solves)
 
 Here's where chaining becomes invaluable: dealing with constraint violations in complex prompts.
 
@@ -49,7 +49,7 @@ Over time, your prompt grows into a long list of "DO NOT" instructions. But no m
 
 ![](https://academy.claude.com/assets/media/0e81d5ce6ea37505c008b538270162054e94e54a535c00d0a8e829bac6eda857.png)
 
-## The Chaining Solution
+## The Chaining Solution[](#the-chaining-solution)
 
 Instead of fighting this in one massive prompt, use a two-step chaining approach:
 
@@ -66,7 +66,7 @@ This approach works because it allows Claude to focus on one specific aspect at 
 
 ![](https://academy.claude.com/assets/media/0fb97ecea57ebd4a5222cf32e91dc5c153ab1df022531938d13e4c05c9ca5010.png)
 
-## When to Use Chaining
+## When to Use Chaining[](#when-to-use-chaining)
 
 Chaining workflows are particularly useful when:
 

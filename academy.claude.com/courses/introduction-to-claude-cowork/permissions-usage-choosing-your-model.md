@@ -16,11 +16,11 @@ In this lessonBy the end, you’ll be able to
 * Write prompts that don't leave room for the wrong action
 * Recognize the moments when "stop and think" matters more than speed
 
-## Your part in working safely with Cowork
+## Your part in working safely with Cowork[](#your-part-in-working-safely-with-cowork)
 
 You already know from Lesson 2 that Claude always asks before deleting, and — in the default permission mode — before sending or sharing too. That's the floor. This lesson is what *you* bring on top — the pre-emptive moves that keep an autonomous tool with file, app, and connector access from doing something you didn't intend.
 
-## Set up so mistakes can't reach what matters
+## Set up so mistakes can't reach what matters[](#set-up-so-mistakes-cant-reach-what-matters)
 
 The single highest-leverage move is the folder you point Claude at. It's the boundary for what Claude can read, write, and (with your confirmation) delete.
 
@@ -28,7 +28,7 @@ The single highest-leverage move is the folder you point Claude at. It's the bou
 * **Back up anything irreplaceable before you start.** If a file matters and a fresh copy can't be regenerated — old client deliverables, contracts you can't get re-issued, anything you'd be sorry to lose — make sure a copy lives somewhere Cowork can't reach. Cloud backup, a separate folder, a drive that isn't connected. Claude won't delete without asking, but the cost of clicking through the wrong confirmation is the cost of the file.
 * **Test new workflows on copies first.** For example if you're building a scheduled task that'll run every Friday, the first run goes against a copy of the data. Once you've seen it behave, point it at the live folder.
 
-## Write prompts that leave no room for the wrong action
+## Write prompts that leave no room for the wrong action[](#write-prompts-that-leave-no-room-for-the-wrong-action)
 
 How you ask matters as much as what folder you point at.
 
@@ -36,7 +36,7 @@ How you ask matters as much as what folder you point at.
 * **Name the bounds in the prompt.** *"Only the 3 most recently updated files in this folder."* *"Only contracts that closed in Q3."* *"Don't message anyone — draft only."* This narrows what Cowork is doing and gives you a clear line for spotting drift.
 * **Use scheduled tasks for drafts initially.** Scheduled tasks run while you're not watching. Until you're confident that the task runs the way you need it to, prompt it to draft for your review rather than send on your behalf.
 
-## In the moment: the three checks that catch the rest
+## In the moment: the three checks that catch the rest[](#in-the-moment-the-three-checks-that-catch-the-rest)
 
 **Read the plan once it has been made.** When Claude starts a task, it lays out what it's going to do in the progress tab. Skim it. Consider: does the plan make sense? are the steps in the right order? is it using the right sources? Redirect as necessary.
 
@@ -44,7 +44,7 @@ How you ask matters as much as what folder you point at.
 
 **Approve confirmation prompts deliberately.** Stay in “Ask before acting” for anything that sends, posts, or shares — and when a confirmation prompt does appear, read it. Most mistakes don't happen because the safeguards failed; they happen because someone clicked through a confirmation that wasn't quite the action they intended. The dialog exists because the action matters — treat it that way.
 
-## When Cowork isn't the right tool
+## When Cowork isn't the right tool[](#when-cowork-isnt-the-right-tool)
 
 A short list:
 
@@ -52,11 +52,11 @@ A short list:
 * **Anything you wouldn't trust a smart, quick colleague to do unsupervised.** Sending the legal doc to a counterparty, posting the public announcement, pushing a customer-facing change. Claude can prepare; you ship.
 * **Highly sensitive personal data** outside the boundary your IT team has explicitly approved.
 
-## Go deeper
+## Go deeper[](#go-deeper)
 
 [Use Claude Cowork safely(opens in new tab)](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely) is a valuable resource for learning what to do — and not to do — when working with Claude in Cowork. It covers the rest of what warrants more thought so that you understand the built-in guardrails and what you remain responsible for as Claude acts on your behalf.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 Review the interactive below to get a sense for how to work safely with Cowork.
 
@@ -65,7 +65,7 @@ As you think about the tasks *you're* going to hand to Cowork:
 * Which folder would you point Claude at — and is there anything inside it that shouldn't be reachable, or anything irreplaceable that needs to be backed up first?
 * Is there a destructive verb in the prompt you'd write that you'd want to be more specific about?
 
-## What’s next
+## What’s next[](#whats-next)
 
 In the next lesson, you'll learn how to make sure the skills and plugins you build actually behave — using lightweight evals to check their output before you rely on them or share them with anyone else.
 

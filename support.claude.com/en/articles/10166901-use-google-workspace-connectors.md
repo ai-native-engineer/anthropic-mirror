@@ -39,8 +39,6 @@ For Team and Enterprise plans, an Owner or Primary Owner must enable these conne
 
 **Note:** Claude extracts text content only from Google Drive files. Images embedded in documents are not processed.
 
----
-
 ## How to use the connectors
 
 Ask Claude a question that requires access to your Gmail, Calendar, or Drive. Claude automatically detects which tools it needs and uses them to respond. By default, each action Claude takes on your behalf requires your explicit approval. On Team and Enterprise plans, owners decide whether members can allow certain actions to run without asking each time.
@@ -76,8 +74,6 @@ You can enable or disable specific connectors from below the chat interface:
 2. Hover over "Connectors."
 3. Toggle individual connectors on or off.
 
----
-
 ## Privacy and data handling
 
 * You must authenticate directly with your Google account before using these connectors.
@@ -95,8 +91,6 @@ You can enable or disable specific connectors from below the chat interface:
 
 During authentication, Google's OAuth screen mentions email sending permissions. Claude can send, reply to, and forward emails, but only does so with your explicit approval by default. On Team and Enterprise plans, owners decide whether members can allow these actions to run without asking each time.
 
----
-
 ## Current limitations
 
 * Attachment content is not directly accessible through Gmail (metadata only).
@@ -104,8 +98,6 @@ During authentication, Google's OAuth screen mentions email sending permissions.
 * Complex queries may require multiple API calls.
 * Rate limits apply per Google's API quotas.
 * Performance may vary for large mailboxes.
-
----
 
 ## Troubleshooting
 
@@ -130,8 +122,6 @@ If your organization uses Google Workspace and the connectors aren't working (yo
 3. Click "Add app," then select "OAuth App Name."
 4. Search for "Claude" and set it as "Trusted."
 5. Wait approximately 15 minutes for Google's policy to propagate, then try connecting again.
-
----
 
 ## Frequently asked questions
 
@@ -163,6 +153,6 @@ Browse all available connectors in the **[Connectors Directory](https://claude.a
 
 * [Use connectors to extend Claude's capabilities](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities)
 * [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
+* [Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-set-up-the-microsoft-365-connector)
 * [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
-* [MCP connectors](https://support.claude.com/en/articles/14503689-mcp-connectors)
 * [Restrict verified-domain connectors to your Enterprise](https://support.claude.com/en/articles/15402193-restrict-verified-domain-connectors-to-your-enterprise)

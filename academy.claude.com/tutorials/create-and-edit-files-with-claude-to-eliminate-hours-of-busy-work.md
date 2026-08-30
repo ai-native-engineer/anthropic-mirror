@@ -22,7 +22,7 @@ This guide will explore what’s possible with file creation, to get you started
 
 If you're using a Team or Enterprise plan, see [Configuring network access(opens in new tab)](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_fa8fada4af) for additional information about code execution and file creation security.
 
-## File creation offers a different way to work with Claude
+## File creation offers a different way to work with Claude[](#file-creation-offers-a-different-way-to-work-with-claude)
 
 Claude can now create and work directly with the documents that drive your business and return them back to you for further edits. This means you can:
 
@@ -36,7 +36,7 @@ After you’re done iterating with Claude, just open the file in Drive or hit Do
 
 ![](https://academy.claude.com/assets/media/49b51ecae122a91c5da354851880c8d9832159a0c6e916b2d77fa9b43fbd55e5.png)
 
-## How this saves you time
+## How this saves you time[](#how-this-saves-you-time)
 
 File creation combines AI’s ability to handle massive amounts of information with the tools we actually use to do our jobs. It’s like having an assistant that can:
 
@@ -46,27 +46,27 @@ File creation combines AI’s ability to handle massive amounts of information w
 4. **Create multiple related documents** — Building a report, presentation, and spreadsheet that all tell the same story with consistent data
 5. **Standardize inconsistent information** — Cleaning data with different formats, merging duplicate entries, or normalizing naming conventions
 
-## See file creation at work
+## See file creation at work[](#see-file-creation-at-work)
 
 Check out the examples below for a better sense of how you might work with Claude to accelerate your document analysis and creation.
 
-### 1) Creating a report from survey data
+### 1) Creating a report from survey data[](#1-creating-a-report-from-survey-data)
 
 Claude reads complex datasets and produces multiple coordinated outputs that tell a consistent story. Watch how a single CSV with hundreds of survey responses transforms into three deliverables: a PowerPoint presentation with key findings and visualizations, a detailed PDF report with executive summary and recommendations, and an Excel workbook with organized raw data and analysis tabs. Each file maintains professional formatting and opens directly in Office or Google Workspace.
 
-### 2) Batch editing across multiple file types
+### 2) Batch editing across multiple file types[](#2-batch-editing-across-multiple-file-types)
 
 Claude understands context when making edits across different document formats. This demo shows intelligent find-and-replace that knows when "Acme Inc." should stay formal in legal sections while becoming "Acme" elsewhere, converts "Customer Success" to "Customer Experience" except in job titles, and updates Euro prices to USD with proper calculations while preserving historical data. Your Word docs, PDFs, Excel sheets, and PowerPoints maintain their original formatting while getting updated in one pass.
 
-### 3) Building a dynamic financial model
+### 3) Building a dynamic financial model[](#3-building-a-dynamic-financial-model)
 
 Claude can look up real market data and build it directly into working spreadsheet models. In this demo, a property owner trying to decide between listing a short term or long term rental gets both the research and the analysis in one go. Claude finds current rental rates, occupancy trends, and local regulations online, then creates a multi-sheet model that uses these real numbers in its calculations. When you change any input, all the formulas update automatically. You get a financial tool and analysis based on what's actually happening in the market right now.
 
-### 4) Consolidate scattered inputs into spreadsheets
+### 4) Consolidate scattered inputs into spreadsheets[](#4-consolidate-scattered-inputs-into-spreadsheets)
 
 Claude combines information from different file types into native workbooks with live formulas and formatting. In this demo, meeting notes (text file) and an existing tracker (CSV) merge into a sophisticated multi-sheet Excel file. Open the output directly in Excel and everything remains fully editable—change any value and watch dependent calculations update, add new data that automatically inherits formatting rules, or expand the analysis with your own additions.
 
-## The power of Claude, working in your files
+## The power of Claude, working in your files[](#the-power-of-claude-working-in-your-files)
 
 Simple file manipulation is just the beginning — the real power of file creation emerges when you start to combine Claude’s analytical and coding capabilities with the context of your work. This might look like:
 

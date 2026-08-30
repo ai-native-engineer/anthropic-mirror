@@ -16,7 +16,7 @@ In this lessonBy the end, you’ll be able to
 * Diagnose common failure patterns (hallucinated citations, long-conversation drift, confidently wrong math, agreeable bad premises) by identifying which properties are at play
 * Apply a targeted fix based on which property is the limiting factor
 
-## Diagnosing AI failures
+## Diagnosing AI failures[](#diagnosing-ai-failures)
 
 When Properties Collide · 3 min
 
@@ -26,9 +26,9 @@ The four properties don't operate in isolation. Most real failures are two of
 them intersecting. Once you can name which two, you know which fix to reach
 for.
 
-## Two properties meeting: diagnosing what went wrong
+## Two properties meeting: diagnosing what went wrong[](#two-properties-meeting-diagnosing-what-went-wrong)
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * **Real-world failures are usually two properties interacting**, not one.
 * **Diagnostic pairs to recognize:**
@@ -37,7 +37,7 @@ for.
 * **Naming the properties at play** points you straight to the fix: verify specifics, re-supply context, offload to code execution, or invite pushback.
 * **This diagnostic move is Discernment applied.** You evaluate better when you know what kind of wrong you're looking at.
 
-## Exercises
+## Exercises[](#exercises)
 
 ### The Failure Diagnosis
 
@@ -51,12 +51,12 @@ Think back across your experience with AI (including what you've observed during
 
 Now look at your Lesson 1 task list with all its accumulated annotations (property tags from Lesson 2, verification scores from Lesson 4, knowledge flags from Lesson 5, context needs from Lesson 6, goal statements from Lesson 7). For the tasks that gave you the most trouble, name which two properties were colliding. Write the diagnosis next to each one.
 
-## Lesson reflection
+## Lesson reflection[](#lesson-reflection)
 
 * Did naming the property pair change what fix you'd reach for? Before this course, would you have tried a different (less effective) fix?
 * Which property pairing do you think you'll encounter most often in your day-to-day work?
 
-## What's next
+## What's next[](#whats-next)
 
 In the final lesson, we consolidate what you've built, connect it back to the 4D Framework as a complete system, and point you to where to go deeper.
 

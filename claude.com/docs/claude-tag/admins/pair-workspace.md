@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-[1 · Pair workspace](https://claude.com/docs/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/docs/claude-tag/admins/add-connections)[3 · Spend limit](https://claude.com/docs/docs/claude-tag/admins/set-spend-limit)[4 · See it work](https://claude.com/docs/docs/claude-tag/admins/test-it)
+[1 · Pair workspace](https://claude.com/docs/docs/claude-tag/admins/pair-workspace)[2 · Give access](https://claude.com/docs/docs/claude-tag/admins/add-connections)[3 · Connect GitHub](https://claude.com/docs/docs/claude-tag/admins/configure-github)[4 · Spend limit](https://claude.com/docs/docs/claude-tag/admins/set-spend-limit)[5 · See it work](https://claude.com/docs/docs/claude-tag/admins/test-it)
 
 Role you needOwner in your Claude organization, plus a Slack workspace admin to install the app and generate the pairing code. These can be the same person or two people.
 

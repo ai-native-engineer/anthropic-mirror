@@ -7,8 +7,6 @@ Before you start, make sure you're familiar with:
 * **[Manage groups and group spend limits on Enterprise plans](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)** — how to create and manage groups
 * **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)** — how custom roles and capabilities work
 
----
-
 ## Before you begin
 
 You'll need Owner or Primary Owner access to your Enterprise organization, or a custom role with Identity & Access set to Manage.
@@ -28,8 +26,6 @@ You'll need Owner or Primary Owner access to your Enterprise organization, or a 
 **Decide how you'll create groups.** You can create groups manually in Claude, or sync them from your identity provider (IdP) via SCIM. You can also use both methods simultaneously. If you plan to use IdP groups from Okta, Entra ID, or another provider, make sure SCIM directory sync is configured. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
 
 **Add the connectors you plan to govern.** Connector permissions only cover connectors that an Owner or Primary Owner has already added under **Organization settings > Connectors** and connected with admin credentials. Review your organization-wide tool policy there as well, since role grants narrow within it and can’t widen past it. See **[Use connectors to extend Claude’s capabilities](https://support.claude.com/en/articles/11176164-)**.
-
----
 
 ## Planning your role structure
 
@@ -53,8 +49,6 @@ Create roles that map to departments: "Engineering" with chat, Cowork, Claude Co
 
 Create roles that delegate parts of administration without granting the Owner role. A custom role with admin permissions does not need any user capabilities, and vice versa. You could create a "Finance" role that grants Billing access but no chat or Claude Code capability, or an "Engineering Lead" role that grants Claude Code plus Analytics view access. Learn more **[about admin permissions for custom roles](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans#h_536123d968)**.
 
----
-
 ## Step 1: Audit your current settings
 
 1. Review which features are currently enabled or disabled at the organization level in **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
@@ -65,8 +59,6 @@ Create roles that delegate parts of administration without granting the Owner ro
 Remember: any feature you want to control per-group must be **enabled** at the organization level. If a feature is toggled off at the organization level, no custom role can grant access to it.
 
 **Important:** Unlike members with the User role, members assigned to custom roles don't automatically inherit organization-enabled capabilities. Every capability a "Custom" role member needs must be explicitly granted by a custom role assigned to one of their groups.
-
----
 
 ## Step 2: Create custom roles
 
@@ -84,8 +76,6 @@ Create your custom roles before enabling any features or migrating members. This
 Role changes may take up to 15 minutes to take effect. Members may need to refresh their browser to see updated access.
 
 See **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)** for details on available capabilities, admin permissions, and connectors.
-
----
 
 ## Step 3: Configure admin permissions (optional)
 
@@ -112,8 +102,6 @@ Within an area, you grant all of View or all of Manage. You can't grant or restr
 ### **Verify enforcement**
 
 Verify admin permissions after you’ve migrated members to "Custom" roles (Step 7). See **Step 11: Verify and monitor**.
-
----
 
 ## Step 4: Configure connector permissions (optional)
 
@@ -174,8 +162,6 @@ Verify connector permissions after you’ve migrated members to "Custom" roles (
 
 **Note:** Whether members can set "Always allow" on write-capable connector tools in Cowork is additionally controlled by the organization setting **Allow "Always allow" for connector tools**, which is off by default. Role grants can't override it. Learn more about the **[Cowork approval setting for write tools](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans#h_1bd1fa754d)**.
 
----
-
 ## Step 5: Configure model access (optional)
 
 Set model access on each role to control which Claude models the role can use, cap the maximum effort level per model, and choose the model new conversations start on. This step is optional; if you don't configure it, new roles can use every model that's enabled at the organization level, at any effort level, and start on the organization default model.
@@ -200,8 +186,6 @@ Under **Default model**, optionally select the model new conversations start on 
 
 Verify model access after you've migrated members to "Custom" roles. See **Step 11: Verify and monitor**.
 
----
-
 ## Step 6: Create groups and assign roles
 
 1. Navigate to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
@@ -217,8 +201,6 @@ If you request to move an organization from one parent to another (this is rare 
 
 **Important:** If your organization uses Invite only or JIT provisioning, you can only use manually created groups for RBAC. SCIM-synced groups aren't supported in these modes.
 
----
-
 ## Step 7: Verify group and role assignments
 
 Before migrating members to custom roles, confirm that every member you plan to migrate is in at least one group assigned to a custom role. Members who are migrated without group or role coverage will lose access to all governed features.
@@ -227,8 +209,6 @@ Before migrating members to custom roles, confirm that every member you plan to 
 2. Use the Role and Group filters to identify members who aren't assigned to any group.
 3. Alternatively, click "Export CSV" to download the full member list with role and group columns for review.
 4. Add any unassigned members to the appropriate groups before continuing.
-
----
 
 ## Step 8: Migrate members to custom roles
 
@@ -272,8 +252,6 @@ Whichever path you use, we recommend migrating in stages:
 3. If something isn't right, switch the affected members back to their previous role while you adjust.
 4. Expand to more members once you've confirmed the setup works.
 
----
-
 ## Step 9: Enable features at the organization level
 
 Only enable organization-level features after roles, groups, and member migration are complete. This ensures custom role capabilities are already in place, with no window where unauthorized members could access a feature.
@@ -284,8 +262,6 @@ For any feature you want to control per-group:
 2. Enable the feature at the organization level.
 
 Enabling a feature at the organization level doesn't mean everyone gets it—custom role permissions are already in place to control who can use it. Think of the organization-level toggle as making the feature "available for role-based assignment" rather than "on for everyone."
-
----
 
 ## Step 10: Apply a group spend limit (usage-based orgs only)
 
@@ -304,8 +280,6 @@ Note the following precedence rules:
 * Org-wide limits remain the hard ceiling.
 
 Membership changes take effect automatically—users inherit or lose limits as soon as their group membership changes. Relevant only for usage-based billing orgs.
-
----
 
 ## Step 11: Verify and monitor
 
@@ -332,8 +306,6 @@ Membership changes take effect automatically—users inherit or lose limits as s
 * **In a conversation:** ask the member to switch to a disabled model. It shouldn't be listed, and in Claude Code CLI, /model <disabled-model> returns an error.
 
 Role changes may take up to 15 minutes to take effect across the platform. Members may need to refresh their browser to see updated access.
-
----
 
 ## Using SCIM with role-based capabilities
 
@@ -365,8 +337,6 @@ This pulls your IdP groups into Claude so they can be assigned to custom roles.
 * To revoke access, remove them from the IdP group. On the next sync, the permission is removed.
 * Click “SCIM sync” in the Groups section to force an immediate sync rather than waiting for the next scheduled sync.
 
----
-
 ## Rollback plan
 
 If you notice your role structure is misconfigured after migration:
@@ -377,8 +347,6 @@ If you notice your role structure is misconfigured after migration:
 4. Adjust roles and groups as needed, then re-migrate.
 
 If you enabled group mappings during setup and lost admin access, follow the recovery steps in **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning#h_74979446b3)** under "I lost Admin/Owner access after enabling group mappings."
-
----
 
 ## Frequently asked questions
 

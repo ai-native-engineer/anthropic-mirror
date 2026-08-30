@@ -14,7 +14,7 @@ Now that we've built our MCP server, let's recap the three core server primitive
 
 ![](https://academy.claude.com/assets/media/bc7ee5fac91b20fa74fcc27bb9255bc41c9fb9c50a15ae60e3bfccc7a1cfad3e.png)
 
-## Tools: Model-Controlled
+## Tools: Model-Controlled[](#tools-model-controlled)
 
 Tools are controlled entirely by Claude. The AI model decides when to call these functions, and the results are used directly by Claude to accomplish tasks.
 
@@ -24,7 +24,7 @@ Use tools when you want to give Claude additional capabilities. For example, if 
 
 The decision to use the tool was 100% model-controlled - Claude recognized it needed to execute code and chose the appropriate tool without any prompting from the application or user.
 
-## Resources: App-Controlled
+## Resources: App-Controlled[](#resources-app-controlled)
 
 Resources are controlled by your application code. Your app decides when to fetch resource data and how to use it, typically for UI purposes or to add context to conversations.
 
@@ -36,13 +36,13 @@ Use resources when you need to get data into your app. Common examples include:
 
 In Claude's web interface, the "Add from Google Drive" feature demonstrates this perfectly. The application fetches a list of available documents and displays them in the UI, then injects the selected document's content into the chat context.
 
-## Prompts: User-Controlled
+## Prompts: User-Controlled[](#prompts-user-controlled)
 
 Prompts are controlled by users. They decide when to trigger these predefined workflows through direct actions like clicking buttons, selecting menu options, or using slash commands.
 
 Use prompts when you want to implement predefined workflows that users can easily access. In Claude's interface, you'll see workflow buttons below the chat input that let users quickly start common tasks like writing, learning, or coding.
 
-## Choosing the Right Primitive
+## Choosing the Right Primitive[](#choosing-the-right-primitive)
 
 When building your MCP server, think about who needs to control each piece of functionality:
 

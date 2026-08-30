@@ -18,9 +18,9 @@ The Aiera integration provides Claude with access to earnings calls, SEC filings
 
 The Aiera integration relies upon Claude’s ability to use [remote connectors(opens in new tab)](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
 
-## What This Integration Provides
+## What This Integration Provides[](#what-this-integration-provides)
 
-### Capabilities
+### Capabilities[](#capabilities)
 
 The Aiera integration enables Claude to access comprehensive earnings intelligence and corporate communications in real-time.
 
@@ -32,7 +32,7 @@ The Aiera integration enables Claude to access comprehensive earnings intelligen
 * **Source-Linked Transcripts:** Every insight includes direct links to original source documents and transcripts, providing complete transparency and enabling verification of quoted material.
 * **Flexible Search Parameters:** Query by company ticker, watchlist, market index, sector, or custom search terms. Paginate through large result sets and filter by event type for precise discovery.
 
-## How Claude Uses Aiera Data
+## How Claude Uses Aiera Data[](#how-claude-uses-aiera-data)
 
 Claude applies Aiera’s intelligence platform to support real-time market analysis and due diligence workflows.
 
@@ -43,11 +43,11 @@ Claude applies Aiera’s intelligence platform to support real-time market analy
 * **Filing Monitoring:** Track 8-K filings for material events like management changes, acquisitions, or contract wins. Monitor 10-Q/10-K filings for MD&A sections discussing business outlook and risk factors.
 * **Event-Driven Research:** When news breaks or markets move, quickly pull relevant corporate communications to understand company positioning and official statements on developing situations.
 
-## Setting Up Aiera Integration
+## Setting Up Aiera Integration[](#setting-up-aiera-integration)
 
 Technical details of the Aiera Integration can be found in Aiera’s MCP Server Documentation. You will need to contact Aiera to obtain API access credentials for the MCP server.
 
-### For Organization Owners
+### For Organization Owners[](#for-organization-owners)
 
 1. Navigate to [Admin settings > Connectors(opens in new tab)](https://claude.ai/admin-settings/connectors).
 2. Click “Add custom connector.”
@@ -55,15 +55,15 @@ Technical details of the Aiera Integration can be found in Aiera’s MCP Server 
 4. Name the integration (e.g., “Aiera MCP”)
 5. Click “Add”
 
-### For Individual Users
+### For Individual Users[](#for-individual-users)
 
 Learn about [finding and connecting tools(opens in new tab)](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory).
 
 **Note:** The Aiera connector also includes access to Third Bridge events. See [this section(opens in new tab)](https://rest.aiera.com/docs/mcp#third-bridge) of the Aiera MCP documentation for more information.
 
-## Common Use Cases
+## Common Use Cases[](#common-use-cases)
 
-### Post-Earnings Deep Dive
+### Post-Earnings Deep Dive[](#post-earnings-deep-dive)
 
 Example input prompt:
 
@@ -75,7 +75,7 @@ Open in Claude
 
 **Typical timeframe:** Most valuable within 24-48 hours of earnings when transcripts are fresh and before consensus views form.
 
-### Analyst Question Tracking
+### Analyst Question Tracking[](#analyst-question-tracking)
 
 Example input prompt:
 
@@ -87,7 +87,7 @@ Open in Claude
 
 **Tip:** Track 2-4 quarters to identify developing themes versus one-time questions.
 
-### Management Commentary Search
+### Management Commentary Search[](#management-commentary-search)
 
 Example input prompt:
 
@@ -99,7 +99,7 @@ Open in Claude
 
 **Works well with:** 3-6 quarters of transcripts to establish patterns and identify inflection points.
 
-### Cross-Company Theme Analysis
+### Cross-Company Theme Analysis[](#cross-company-theme-analysis)
 
 Example input prompt:
 
@@ -111,7 +111,7 @@ Open in Claude
 
 **Note:** Combine with sector filters to focus analysis on relevant industry groups.
 
-## Upcoming Events Planning
+## Upcoming Events Planning[](#upcoming-events-planning)
 
 Example input prompt:
 
@@ -123,7 +123,7 @@ Open in Claude
 
 **Key benefit:** Get ahead of events rather than reacting after the fact.
 
-### 8-K Material Event Monitoring
+### 8-K Material Event Monitoring[](#8-k-material-event-monitoring)
 
 Example input prompt:
 
@@ -135,7 +135,7 @@ Open in Claude
 
 **Why it matters:** 8-Ks often contain market-moving information disclosed outside earnings cycles.
 
-### Expert Insight Supplementation
+### Expert Insight Supplementation[](#expert-insight-supplementation)
 
 Example input prompt:
 
@@ -147,7 +147,7 @@ Open in Claude
 
 **Works well with:** Combining expert insights with company earnings commentary for comprehensive sector views.
 
-## Tips for Using Aiera
+## Tips for Using Aiera[](#tips-for-using-aiera)
 
 * Use specific Bloomberg tickers (NFLX US, AAPL US) for precise company identification
 * Define clear date ranges to focus on relevant time periods

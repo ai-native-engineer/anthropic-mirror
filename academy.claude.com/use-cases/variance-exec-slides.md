@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-n5jhkjz7.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-nsl4c005.png)
 
-## Set up
+## Set up[](#set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Finance plugin ships with `/financial-statements` and seven other close-week skills as a starting point, it already knows how to read a variance table and frame it for an exec audience. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ FinanceStreamline finance and accounting workflows, from journal entries and rec
 
 Show all 7 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -66,7 +66,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (the variance workbook, last quarter's deck, the list of known one-timers) into one folder and point Cowork at it. Cowork reads from it and writes the .pptx back to it. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from your board-prep folder so the materiality threshold, the slide template, and the CFO's preferred phrasing stay attached.
 
@@ -80,15 +80,15 @@ known-one-timers.mdApr 3, 20262 KB
 
 In Cowork’s chat bar:FY26-Close / Board-prep / March
 
-## The prompt
+## The prompt[](#the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Build the three exec slides from the March variance workbook: a headline page with result vs plan, a drivers page with top movers above our materiality threshold and the known one-timers called out, and an outlook page with what carries into Q2. Match last quarter's deck layout and write the .pptx to the close folder.
 
 FY26-Close / Board-prep / MarchOpen in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -106,7 +106,7 @@ Source
 
 **Store recurring values in project instructions.** Materiality lives in the project instructions, so "above our threshold" means your number, every month.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -116,7 +116,7 @@ Practice
 
 **Ask for the speaker notes.** Add "put the supporting detail in the notes pane, not on the slide" so the page stays clean and the backup is one click away.
 
-## Make Cowork work for you
+## Make Cowork work for you[](#make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -126,9 +126,9 @@ FY26-Close / Board-prepOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## Make it repeatable
+## Make it repeatable[](#make-it-repeatable)
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 Board prep is due the same week every quarter. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill builds the three pages from whatever variance workbook is newest.
 
@@ -144,7 +144,7 @@ Builds the headline / drivers / outlook .pptx from the newest variance workbook 
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## Share with your teammates
+## Share with your teammates[](#share-with-your-teammates)
 
 Your customized skill now carries your three-slide structure, your materiality line, and your CFO's preferred framing. Share it so every business unit's pages arrive looking like one deck, not five.
 
@@ -152,7 +152,7 @@ Share the skill
 
 In Cowork, open **Skills** → your saved skill → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your instructions baked in, they don't repeat Steps 1-3.
 
-## What changes for board prep
+## What changes for board prep[](#what-changes-for-board-prep)
 
 The exec slides are generated from your variance workbook in your own template, with the numbers charted and the commentary written — ready to review instead of build.
 

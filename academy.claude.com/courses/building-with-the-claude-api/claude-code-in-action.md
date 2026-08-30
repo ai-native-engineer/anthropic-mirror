@@ -14,7 +14,7 @@ Claude Code isn't just a tool for writing code - it's designed to work alongside
 
 ![](https://academy.claude.com/assets/media/75870c12a77b65c49c1dca513d3185f6c6b4ef834ec50693930c42ec9e6b22c7.jpg)
 
-## The /init Command
+## The /init Command[](#the-init-command)
 
 When you start working with Claude Code on a project, the first thing you'll want to do is run the `/init` command. This tells Claude to scan your entire codebase and understand your project's structure, dependencies, coding style, and architecture.
 
@@ -32,25 +32,25 @@ When running `/init`, you can add special directions for areas you want Claude t
 
 You can also quickly add notes to your CLAUDE.md file using the `#` command. For example, typing `# Always use descriptive variable names` will prompt you to add this guideline to your project, local, or user memory.
 
-## Common Workflows
+## Common Workflows[](#common-workflows)
 
 Claude works best when you approach it as an effort multiplier. The more context and structure you provide, the better results you'll get. Here's the most effective workflow:
 
 ![](https://academy.claude.com/assets/media/36bb6cefda973951d74b6802cbf419dcf534e0a4670600726efbd6c377a26b6d.jpg)
 
-### Step 1: Feed Context into Claude
+### Step 1: Feed Context into Claude[](#step-1-feed-context-into-claude)
 
 Before asking Claude to build something, identify files in your codebase that are relevant to the feature you want to create. Ask Claude to read and analyze these files first. This gives Claude examples of your coding patterns and existing functionality it can build upon.
 
-### Step 2: Tell Claude to Plan a Solution
+### Step 2: Tell Claude to Plan a Solution[](#step-2-tell-claude-to-plan-a-solution)
 
 Instead of jumping straight to implementation, ask Claude to think through the problem and create a plan. Tell Claude specifically not to write any code yet - just focus on the approach and steps needed.
 
-### Step 3: Ask Claude to Implement the Solution
+### Step 3: Ask Claude to Implement the Solution[](#step-3-ask-claude-to-implement-the-solution)
 
 Once you have a solid plan, ask Claude to implement it. Claude will write code based on the context and planning work you've already done together.
 
-## Test-Driven Development Workflow
+## Test-Driven Development Workflow[](#test-driven-development-workflow)
 
 For even better results, you can use a test-driven approach:
 
@@ -63,7 +63,7 @@ For even better results, you can use a test-driven approach:
 
 This approach often produces more robust code because Claude has clear success criteria to work toward.
 
-## Practical Example
+## Practical Example[](#practical-example)
 
 Here's how these workflows look in practice. Let's say you want to add a document conversion tool to an existing project:
 
@@ -90,7 +90,7 @@ Here's how these workflows look in practice. Let's say you want to add a documen
 
 Claude will then create the function, update the necessary files, write tests, and even run the test suite to verify everything works correctly.
 
-## Additional Commands
+## Additional Commands[](#additional-commands)
 
 Claude Code includes several helpful commands:
 

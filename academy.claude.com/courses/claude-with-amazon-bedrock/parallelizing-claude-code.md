@@ -12,7 +12,7 @@ Lesson 613 min
 
 Running multiple instances of Claude Code in parallel is one of the biggest productivity gains you can achieve. Since Claude is lightweight, you can easily spin up several copies, assign each a different task, and have them work simultaneously. This effectively gives you a team of virtual software engineers working on your project.
 
-## The Challenge: File Conflicts
+## The Challenge: File Conflicts[](#the-challenge-file-conflicts)
 
 The main problem with parallel instances is that they might try to modify the same files at the same time. This can lead to conflicting or invalid code since each instance isn't aware of what the others are doing.
 
@@ -22,7 +22,7 @@ The solution is to give each Claude instance its own separate workspace. Each in
 
 ![](https://academy.claude.com/assets/media/3a6bb5b1df65e93091dcc1a1787b12d88c05df95497c7e0b46f802eeaeb89095.png)
 
-## Git Worktrees
+## Git Worktrees[](#git-worktrees)
 
 Git worktrees are perfect for this workflow. If your project is already managed by Git, you can use worktrees immediately. They're like an extension of Git's branching functionality that lets you create complete copies of your project in separate directories on your machine.
 
@@ -36,7 +36,7 @@ Once each Claude instance finishes its feature, you commit the work and merge it
 
 ![](https://academy.claude.com/assets/media/ad6aa49fddf47e8f7a267db97aaa4913d12c95fea4812cfcabc0514fa5acce73.png)
 
-## Automating Worktree Creation
+## Automating Worktree Creation[](#automating-worktree-creation)
 
 This might sound complicated to manage, but you can delegate the entire workflow to Claude Code itself. You can write a prompt that asks Claude to:
 
@@ -46,7 +46,7 @@ This might sound complicated to manage, but you can delegate the entire workflow
 
 ![](https://academy.claude.com/assets/media/8b857191538aca7ffc5a0a7ba8b5b63ae23497444cdadbf0ede58756341b4218.png)
 
-## Custom Commands
+## Custom Commands[](#custom-commands)
 
 Rather than copying and pasting long prompts every time, you can create custom slash commands in Claude Code. Add a `.md` file to `.claude/commands` to create a custom command.
 
@@ -57,7 +57,7 @@ The custom command can reference `$ARGUMENTS`, which gets replaced with whatever
 * `/project:create_worktree feature_a` creates a worktree named "feature\_a"
 * `/project:create_worktree develop` creates a worktree named "develop"
 
-## Parallel Development in Action
+## Parallel Development in Action[](#parallel-development-in-action)
 
 Here's how the complete workflow looks in practice. You can create multiple worktrees for different features:
 
@@ -72,7 +72,7 @@ Each Claude instance works on its assigned task:
 
 ![](https://academy.claude.com/assets/media/7100def75d32908917a6793170501668a72d5131b39e71549ccfb6b06c97e079.png)
 
-## Merging Changes
+## Merging Changes[](#merging-changes)
 
 When the features are complete, you can automate the merge process too. Create another custom command that tells Claude to:
 
@@ -86,7 +86,7 @@ When the features are complete, you can automate the merge process too. Create a
 
 Claude can even resolve merge conflicts automatically based on its understanding of the changes made in each branch.
 
-## Results
+## Results[](#results)
 
 This approach scales to as many parallel instances as you can manage. Instead of working on features sequentially, you can have multiple Claude instances developing different parts of your project simultaneously. It's like having your own team of developers, each working in their own isolated environment before bringing their work together.
 

@@ -16,7 +16,7 @@ Claude includes a built-in web search tool that lets it search the internet for 
 
 ![](https://academy.claude.com/assets/media/f1edc5de25d4a7012a5234100ec3f4c0b7e19dff55beb5188ab2fd847eecba51.png)
 
-## Setting Up the Web Search Tool
+## Setting Up the Web Search Tool[](#setting-up-the-web-search-tool)
 
 To use the web search tool, you create a schema object with these required fields:
 
@@ -32,7 +32,7 @@ web_search_schema = {
 
 The `max_uses` field limits how many searches Claude can perform. Claude might do follow-up searches based on initial results, so this prevents excessive API calls. A single search returns multiple results, but Claude may decide additional searches are needed.
 
-## How the Response Works
+## How the Response Works[](#how-the-response-works)
 
 When Claude uses the web search tool, the response contains several types of blocks:
 
@@ -46,7 +46,7 @@ When Claude uses the web search tool, the response contains several types of blo
 
 The response structure lets you see exactly what Claude searched for and which sources it found. Citations include the specific text Claude used to support its answers, along with the source URLs.
 
-## Restricting Search Domains
+## Restricting Search Domains[](#restricting-search-domains)
 
 You can limit searches to specific domains using the `allowed_domains` field. This is particularly useful when you want reliable, authoritative sources:
 
@@ -65,7 +65,7 @@ For example, when asking about medical or exercise advice, restricting to domain
 
 ![](https://academy.claude.com/assets/media/e9e7159ab9e9897fde75dba1dd0c89e889aa76e43600922c6e132d4701e7e4ef.png)
 
-## Rendering Search Results
+## Rendering Search Results[](#rendering-search-results)
 
 The different block types in the response are designed for specific UI rendering:
 
@@ -77,7 +77,7 @@ The different block types in the response are designed for specific UI rendering
 
 This structure helps users understand how Claude arrived at its answers and provides transparency about the sources being used. The citation format makes it clear which specific information came from which sources, building trust in the AI's responses.
 
-## Practical Usage
+## Practical Usage[](#practical-usage)
 
 The web search tool works best for:
 

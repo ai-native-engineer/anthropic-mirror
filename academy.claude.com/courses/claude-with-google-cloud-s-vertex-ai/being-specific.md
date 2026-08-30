@@ -16,11 +16,11 @@ Think about it this way: if you ask Claude to "write a short story about a chara
 
 ![](https://academy.claude.com/assets/media/369e6e634eb42154aaf3f7556b6a44d2a40762bf7e657cf5798953211f0236c3.png)
 
-## Two Types of Guidelines
+## Two Types of Guidelines[](#two-types-of-guidelines)
 
 There are two main approaches to being specific in your prompts, and you'll often see them used together in professional applications.
 
-### Quality Guidelines
+### Quality Guidelines[](#quality-guidelines)
 
 The first type focuses on listing qualities that your output should have. These guidelines control attributes like:
 
@@ -28,7 +28,7 @@ The first type focuses on listing qualities that your output should have. These 
 * Structural requirements (include a clear action that reveals the character's talent)
 * Content specifications (include at least one supporting character)
 
-### Process Steps
+### Process Steps[](#process-steps)
 
 The second type provides specific steps for the model to follow. This approach makes Claude think through different options and considerations before generating the final response. For example:
 
@@ -39,7 +39,7 @@ The second type provides specific steps for the model to follow. This approach m
 
 ![](https://academy.claude.com/assets/media/559eb8d6c6972037d53b153f4d4982147cd2500c28b50a44607ba101d31a0afa.png)
 
-## Real-World Results
+## Real-World Results[](#real-world-results)
 
 The impact of being specific can be dramatic. In testing a meal planning prompt, adding guidelines improved the evaluation score from 3.92 to 7.86 - more than doubling the quality of the output. Here's what that looked like in practice:
 
@@ -60,7 +60,7 @@ Guidelines:
 6. Keep budget-friendly if mentioned
 ```
 
-## When to Use Each Approach
+## When to Use Each Approach[](#when-to-use-each-approach)
 
 Quality guidelines work well for almost any prompt you write. They're your baseline for ensuring consistent, useful output.
 

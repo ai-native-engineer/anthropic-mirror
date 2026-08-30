@@ -1628,13 +1628,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Literal["enabled"]`
 
-    - `display: Optional[Literal["summarized", "omitted"]]`
+    - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
       - `"summarized"`
 
       - `"omitted"`
+
+      - `"updates"`
 
   - `class BetaThinkingConfigDisabled: …`
 
@@ -1644,13 +1646,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Literal["adaptive"]`
 
-    - `display: Optional[Literal["summarized", "omitted"]]`
+    - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
       - `"summarized"`
 
       - `"omitted"`
+
+      - `"updates"`
 
 - `tool_choice: Optional[BetaToolChoiceParam]`
 
@@ -3597,7 +3601,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 31 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -3667,17 +3671,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `"mid-conversation-tool-changes-2026-07-01"`
 
+    - `"compact-2026-01-12"`
+
+    - `"computer-use-2025-11-24"`
+
+    - `"mcp-tunnels-2026-06-22"`
+
+    - `"structured-outputs-2025-11-13"`
+
+    - `"task-budgets-2026-03-13"`
+
+    - `"thinking-display-updates-2026-08-18"`
+
+    - `"ce-user-management-2026-07-13"`
+
 - `user_profile_id: Optional[str]`
 
   The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
-
-- `output_format: Optional[BetaJSONOutputFormatParam]`
-
-  **Deprecated**
-
-  Deprecated: Use `output_config.format` instead. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-
-  A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
 ## Returns
 

@@ -14,9 +14,9 @@ Try in CoworkCopy prompt
 
 ![](https://academy.claude.com/assets/v1/thumbnail.light-om42hzcu.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-mj4bkeih.png)
 
-## 1. Set up
+## 1. Set up[](#1-set-up)
 
-### Try a plugin
+### Try a plugin[](#try-a-plugin)
 
 The Sales plugin ships with `/pipeline-review` and other account-health skills as a starting point, already structured to score a book of business and flag what's at risk. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
@@ -34,7 +34,7 @@ SalesProspect, craft outreach, and build deal strategy faster. Prep for calls, m
 
 Show all 9 skills
 
-### Connect your tools
+### Connect your tools[](#connect-your-tools)
 
 Claude Cowork is more powerful when it works directly with your systems. You control permissions and access. [Learn about tool access(opens in new tab)](https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access).
 
@@ -66,7 +66,7 @@ Browse all connectors[Open in Cowork](https://claude.ai/desktop/customize/connec
 
 **Want to try this task before setting anything up?** Add your files to a working folder, point Cowork at the folder, and start with the prompt.
 
-### Set your working folder
+### Set your working folder[](#set-your-working-folder)
 
 Drag the files you'll use (a CRM export of the renewal book, a product-usage CSV, last quarter's QBR notes) into one folder and point Cowork at it. Cowork reads from it and writes the risk audit and the artifact link back to it. [Create a Cowork project(opens in new tab)](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork) from your renewal folder so your scoring rubric and the exec-commitment tracker stay attached.
 
@@ -80,9 +80,9 @@ exec-commitments-open.mdApr 20, 20264 KB
 
 In Cowork’s chat bar:Renewals / FY26-Q3
 
-## 2. The prompt
+## 2. The prompt[](#2-the-prompt)
 
-### Copy this into Claude Cowork
+### Copy this into Claude Cowork[](#copy-this-into-claude-cowork)
 
 Audit my Q3 renewal book. For every account renewing in the next 90 days,
 score renewal risk red/yellow/green based on product-usage
@@ -92,7 +92,7 @@ live artifact I can share with leadership.
 
 Renewals / FY26-Q3Open in Cowork
 
-### Why this works
+### Why this works[](#why-this-works)
 
 Prompt
 
@@ -115,7 +115,7 @@ Source
 **Pull from the authoritative source.** The renewal date, ARR, and owner come
 from Salesforce, so the audit and the forecast agree.
 
-### Get a better draft
+### Get a better draft[](#get-a-better-draft)
 
 Practice
 
@@ -127,7 +127,7 @@ Practice
 **Ask for next actions.** Add "for every red, suggest the next action and who
 runs it" so the audit is also the save plan.
 
-## 3. Make Cowork work for you
+## 3. Make Cowork work for you[](#3-make-cowork-work-for-you)
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
@@ -138,9 +138,9 @@ RenewalsOpen in Cowork
 
 **Tip:** tell Claude to edit the skill for you.
 
-## 4. Make it repeatable
+## 4. Make it repeatable[](#4-make-it-repeatable)
 
-### Make it a live artifact
+### Make it a live artifact[](#make-it-a-live-artifact)
 
 A spreadsheet is a snapshot. Ask Cowork to publish the audit as a live artifact and leadership opens one link that refreshes from CRM, with filters for segment, owner, and risk.
 
@@ -149,7 +149,7 @@ filterable by segment and owner, and refresh it nightly from Salesforce.
 
 Renewals / FY26-Q3Open in Cowork
 
-### Run it on a schedule
+### Run it on a schedule[](#run-it-on-a-schedule)
 
 Risk moves week to week. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill rescores the book and refreshes the artifact before your Monday forecast call.
 
@@ -168,7 +168,7 @@ refreshes the live artifact, and DMs new reds.
 
 Every **Mondays at 7:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
-## 5. Share with your teammates
+## 5. Share with your teammates[](#5-share-with-your-teammates)
 
 Your customized skill now carries your scoring rubric, your usage thresholds, and your save-play library. Share it so every CSM and AE in the segment runs the same audit and the forecast call argues about action, not definitions.
 
@@ -178,7 +178,7 @@ In Cowork, open **Skills** → your saved skill → **Share** and pick your
 teammates (or your whole workspace, if your admin allows). They get the skill
 with your instructions baked in, they don't repeat Steps 1-3.
 
-## What changes for the renewal motion
+## What changes for the renewal motion[](#what-changes-for-the-renewal-motion)
 
 Every account in your renewal window has a risk score, the signal behind it, and an owner, in one shared view that stays current. You work the at-risk list instead of building it.
 

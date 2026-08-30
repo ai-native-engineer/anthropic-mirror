@@ -16,7 +16,7 @@ Get Claude in ChromeCopy prompt
 
 ![Log sales calls to your CRM result](https://academy.claude.com/assets/v1/log-sales-calls-to-your-crm-j8g34vm9.png)
 
-## 1. Describe the task
+## 1. Describe the task[](#1-describe-the-task)
 
 Claude reads your Google Calendar, finds each meeting's attendees in Salesforce, and drafts activity logs. You provide notes on what was discussed and review everything before Claude creates the records.
 
@@ -35,15 +35,15 @@ Log my calls from today in Salesforce.
 
 Copy prompt
 
-## 2. Give Claude context
+## 2. Give Claude context[](#2-give-claude-context)
 
 Claude uses browser use to work across your calendar and CRM through your existing browser sessions. If you're logged into Google Calendar and Salesforce, Claude can read your meetings, look up contacts, and create activity records. No API configuration or IT tickets required.
 
-### Required context
+### Required context[](#required-context)
 
 Log into Google Calendar and Salesforce in Chrome before starting. Claude navigates between them using your existing sessions.
 
-## 3. What Claude creates
+## 3. What Claude creates[](#3-what-claude-creates)
 
 Claude shows what it found on your calendar, matches attendees to Salesforce contacts, and drafts activity logs for your review.
 
@@ -110,11 +110,11 @@ No contact found matching the attendee email ([alex@newco.io(opens in new tab)](
 
 Once you confirm and give me the remaining summaries, I'll show the complete batch for final review.
 
-## 4. Follow up prompts
+## 4. Follow up prompts[](#4-follow-up-prompts)
 
 Continue the conversation with Claude to refine, expand, or explore further.
 
-### Update opportunity stages
+### Update opportunity stages[](#update-opportunity-stages)
 
 While logging activities, update the opportunity records based on what you learned.
 
@@ -122,7 +122,7 @@ For Acme Corp, move the opportunity to "Demo Scheduled" and update the close dat
 
 Copy prompt
 
-### Catch up on the week
+### Catch up on the week[](#catch-up-on-the-week)
 
 Process multiple days of calls at once before a pipeline review.
 
@@ -130,7 +130,7 @@ I've fallen behind on logging. Can you do this for all my external meetings from
 
 Copy prompt
 
-### Create missing contacts
+### Create missing contacts[](#create-missing-contacts)
 
 Add new contacts when attendees don't exist in Salesforce yet. Claude can create them and link the activity in one step.
 
@@ -138,21 +138,21 @@ Go ahead and create a contact for Alex at NewCo. His title is Director of Partne
 
 Copy prompt
 
-## 5. Tricks, tips, and troubleshooting
+## 5. Tricks, tips, and troubleshooting[](#5-tricks-tips-and-troubleshooting)
 
-### Drag Calendar and Salesforce into the same tab group
+### Drag Calendar and Salesforce into the same tab group[](#drag-calendar-and-salesforce-into-the-same-tab-group)
 
 For cross-app workflows, drag both Google Calendar and Salesforce into Claude's tab group. You'll see a tab group highlighting the tabs Claude can access. Now Claude can read calendar attendees and look up Salesforce contacts simultaneously—no tab switching. Before visiting new sites, Claude asks for permission. You can grant site-level permissions for websites you trust, allowing Claude to work without repeated approvals on those specific domains.
 
-### Permissions before taking actions
+### Permissions before taking actions[](#permissions-before-taking-actions)
 
 Before clicking "send," "publish," "post," "submit," or similar action buttons, Claude asks for approval. This includes sending emails, posting to social media, submitting forms, or messaging others on your behalf.
 
-### Save your workflow as a shortcut
+### Save your workflow as a shortcut[](#save-your-workflow-as-a-shortcut)
 
 Once you have an activity log format that works, save the prompt as a shortcut by clicking on the shortcut icon below a successful prompt. You can also set a schedule for when you want the workflow to run next. Alternatively, manually trigger the workflow, by typing "/" and selecting the shortcut.
 
-## 6. Ready to try for yourself?
+## 6. Ready to try for yourself?[](#6-ready-to-try-for-yourself)
 
 Claude in Chrome is available to all paid plan users. Install the extension, log into Google Calendar and Salesforce, and ask Claude to log today's calls. It works with your existing browser sessions—no integrations to configure.
 

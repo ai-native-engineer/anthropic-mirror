@@ -8,7 +8,7 @@
 
 [Skip to main content](#content-area)
 
-Claude Tag runs the same engine as Claude Code. When you tag `@Claude` in Slack with a task, a session starts in a sandbox that Anthropic hosts and your organization configures, not on your machine. That sandbox is the same managed compute behind [Claude Code on the web](https://code.claude.com/docs/en/web-quickstart), described in [Compute and the sandbox](https://claude.com/docs/claude-tag/concepts/security-and-data#compute-and-the-sandbox).
+Claude Tag runs the same engine as Claude Code. When you tag `@Claude` in Slack with a task, a session starts in a sandbox that your organization configures, not on your machine. That sandbox is the same infrastructure that runs [Claude Code on the web](https://code.claude.com/docs/en/web-quickstart), described in [Compute and the sandbox](https://claude.com/docs/claude-tag/concepts/security-and-data#compute-and-the-sandbox).
 If you use Claude Code on the web, a session works the way a web session does, from a fresh clone of your repository rather than from files on your machine. The configuration you checked into that repository, such as `CLAUDE.md`, hooks, and skills, applies in the session as it does in a web session.
 If you run Claude Code in your terminal, the settings on your own machine don’t reach a session, because the session runs in the sandbox and can’t read your machine. For most of those settings, an admin sets a channel-wide counterpart instead, and a few have no counterpart at all. This page shows what happens when a session starts, which admin settings replace your local ones, and how Slack threads map to sessions.
 
@@ -25,7 +25,7 @@ A session begins with a fresh sandbox and no repository checked out. Your reposi
 
 ###  How hooks run in the sandbox
 
-Hooks run inside the sandbox, and every session runs on the same standard sandbox image, no matter which repository it clones. If a hook calls a command that the image doesn’t include, add an install step for it to the repository’s `CLAUDE.md`, as described in [Install project dependencies](https://claude.com/docs/claude-tag/admins/configure-github#install-project-dependencies).
+Hooks run inside the sandbox. If a hook calls a command the sandbox doesn’t include, ask an admin to add it to the setup script of the [environment the channel’s sessions run on](https://claude.com/docs/claude-tag/admins/customize#configure-the-environment-for-a-scope). For a command only one repository needs, add an install step to that repository’s `CLAUDE.md`, as described in [Install project dependencies](https://claude.com/docs/claude-tag/admins/configure-github#install-project-dependencies).
 
 ##  Local settings versus admin settings
 
@@ -42,8 +42,9 @@ The table shows what takes the place of each setting from your machine. Where a 
 | Effort level | Not configurable. Sessions run at the model’s default effort. |
 | MCP servers in `.mcp.json` | Not loaded, even when `.mcp.json` is checked into the repository. A session reaches external services only through the [connections an admin set for the channel](https://claude.com/docs/claude-tag/admins/add-connections), and each connection holds that service’s credentials. |
 | Secrets and API keys in your environment | An admin provisions them as channel connections. The raw key never enters the sandbox. It is [added to requests at the network layer](https://claude.com/docs/claude-tag/concepts/agent-identity#agent-proxy). |
-| Environment variables and a personal `settings.json` | No counterpart. Every session runs on the same standard sandbox image, so there is no per-person environment to customize. Put non-secret setup in `CLAUDE.md` as [install steps](https://claude.com/docs/claude-tag/admins/configure-github#install-project-dependencies), and ask an admin to add secrets as connections. |
-| A setup script for your workspace | No counterpart. Use `CLAUDE.md` install steps instead. |
+| Environment variables | An admin sets them on the [environment the channel’s sessions run on](https://claude.com/docs/claude-tag/admins/customize#configure-the-environment-for-a-scope), and every session in the channel reads them. There is no per-person environment to customize. The values are readable in every session on the environment, so ask an admin to add secrets as connections instead. |
+| A personal `settings.json` | Not loaded. |
+| A setup script for your workspace | An admin sets a setup script on the [environment the channel’s sessions run on](https://claude.com/docs/claude-tag/admins/customize#configure-the-environment-for-a-scope), and what it installs is in place when each session in the channel starts. For setup that belongs to one repository, use `CLAUDE.md` [install steps](https://claude.com/docs/claude-tag/admins/configure-github#install-project-dependencies) instead. |
 | Permission prompts | Sessions run in auto mode, where Claude’s permission checker reviews each action and can stop it. An admin pre-approves routine actions with [auto mode allow rules](https://claude.com/docs/claude-tag/admins/customize#auto-mode-allow-rules) instead of you approving in the moment. |
 
 To change what a session can reach, ask an admin to [add a connection](https://claude.com/docs/claude-tag/admins/add-connections). The change applies to every session in the channel.

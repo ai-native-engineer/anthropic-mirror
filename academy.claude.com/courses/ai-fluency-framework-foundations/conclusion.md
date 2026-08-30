@@ -15,9 +15,11 @@ In this lessonBy the end, you’ll be able to
 * Consolidate key learnings from the course
 * Connect AI Fluency to your continuing development
 
-## Video: Conclusion
+## Video: Conclusion[](#video-conclusion)
 
 Conclusion · 6 min
+
+SummaryTranscript
 
 This concluding video revisits the AI Fluency Framework and brings together
 the key concepts explored throughout the course. We recap the four core
@@ -31,7 +33,7 @@ We close with a reminder that AI systems are powerful but not magical
 solutions; they're only as useful and safe as we enable them to be through
 our thoughtful engagement.
 
-## Key takeaways
+## Key takeaways[](#key-takeaways)
 
 * AI Fluency develops through intentional practice of the four core competencies
 * Delegation emphasizes that our expertise and judgment remain the foundation of effective AI collaboration
@@ -41,7 +43,7 @@ our thoughtful engagement.
 * The most powerful outcomes emerge when humans and AI build on each other's strengths
 * The framework is designed to remain relevant as AI systems continue to evolve
 
-## Exercises
+## Exercises[](#exercises)
 
 Exercise 1Exercise 2
 
@@ -56,11 +58,11 @@ Suggested conversation starters:
 * “Help me identify which of the 4D competencies I seem to understand well and which I might need to develop further, based on our conversation.”
 * “Here’s [some exercise you did in this course]. Let’s analyze it to improve my competencies.”
 
-### Reflection
+### Reflection[](#reflection)
 
 The exercises above serve as the reflection component for this lesson. Through them, you'll have the opportunity to consolidate your learning and connect it to your ongoing development.
 
-## What’s next
+## What’s next[](#whats-next)
 
 Congratulations on completing the AI Fluency: Framework and Foundations course! This is just the beginning of your AI Fluency journey. As AI technologies continue to evolve, the competencies you've developed in Delegation, Description, Discernment, and Diligence, will provide a lasting framework to guide your work with these systems.
 

@@ -16,7 +16,7 @@ Watch
 
 This guide is designed to be used alongside the [Anthropic Education Report: The AI Fluency Index(opens in new tab)](https://www.anthropic.com/research/AI-fluency-index). It works for teams of any size, whether you're a leadership group exploring AI skills development, a faculty team discussing implications for your institution, or a professional learning community reflecting on how you collaborate with AI at work.
 
-## Set the stage
+## Set the stage[](#set-the-stage)
 
 Each section below includes a brief summary of a key topic, followed by discussion prompts. You don't need to cover every section or every question. Choose what's most relevant to your group.
 
@@ -26,21 +26,21 @@ Each section below includes a brief summary of a key topic, followed by discussi
 * Have participants read or skim [the report(opens in new tab)](https://www.anthropic.com/research/AI-fluency-index) in advance.
 * Select 2 to 3 discussion sections and one optional activity.
 
-## Topic 1: What your team is already doing well
+## Topic 1: What your team is already doing well[](#topic-1-what-your-team-is-already-doing-well)
 
 The data shows that most people already demonstrate a number of fluency behaviors naturally. Roughly 86% of conversations include iteration and refinement. About half include goal clarification. Around 41% include examples of what good output looks like. These are real skills, and it’s likely many people on your team are already doing them.
 
-### Discussion prompts
+### Discussion prompts[](#discussion-prompts)
 
 **1.** Looking at the behavioral prevalence chart in the report, which fluency behaviors do you think are strongest on your team? Which would you guess are weakest?
 
 **2.** The most common behavior is iteration and refinement. When you think about how your team uses AI, do people tend to iterate and push back on initial responses, or accept the first output? What drives that behavior?
 
-## Topic 2: The iteration effect
+## Topic 2: The iteration effect[](#topic-2-the-iteration-effect)
 
 Iteration and refinement is the single strongest correlate of every other fluency behavior in the data. Conversations with iteration show substantially higher rates across the board: +23.6pp for clarifying goals, +22.6pp for providing examples, +17.1pp for identifying missing context, +16.3pp for specifying format, and +14.7pp for questioning reasoning.
 
-### Discussion prompts
+### Discussion prompts[](#discussion-prompts-2)
 
 **1.** The report shows that iteration is correlated with more fluency behaviors but can't yet prove causation. What do you think explains this relationship? Could it be that more complex tasks naturally require both iteration and more fluency skills?
 
@@ -48,7 +48,7 @@ Iteration and refinement is the single strongest correlate of every other fluenc
 
 **3.** If you were designing a team norm or practice to encourage more iteration, what would it look like? What would a "good" follow-up message look like compared to a less effective one?
 
-## Topic 3: The artifact effect
+## Topic 3: The artifact effect[](#topic-3-the-artifact-effect)
 
 When AI produces polished outputs, users put more effort into directing the work up front but become less likely to evaluate what they get back. The report calls this the artifact effect.
 
@@ -56,7 +56,7 @@ The data shows higher rates of directive behaviors in artifact conversations: +1
 
 The report offers several possible explanations as this data is correlative, not causal. Polished outputs may signal "done" even when they shouldn't. Artifact tasks may involve less factual precision than other work. Or users may be evaluating outputs through other channels, like running code or sharing drafts with colleagues, rather than within the conversation itself.
 
-### Discussion prompts
+### Discussion prompts[](#discussion-prompts-3)
 
 **1.** Have you ever accepted an AI-generated output because it looked polished, only to discover problems later? What happened?
 
@@ -64,11 +64,11 @@ The report offers several possible explanations as this data is correlative, not
 
 **3.** The report argues that as AI models produce increasingly polished-looking outputs, the ability to critically evaluate those outputs will become more valuable. What would help people on your team maintain a critical eye when outputs look finished?
 
-## Topic 4: Cultivating AI fluency in your organization
+## Topic 4: Cultivating AI fluency in your organization[](#topic-4-cultivating-ai-fluency-in-your-organization)
 
 The research points to three areas where many users could strengthen their skills: staying in the conversation (iterating), questioning polished outputs, and setting the terms of collaboration.
 
-### Discussion prompts
+### Discussion prompts[](#discussion-prompts-4)
 
 **1.** Of the three recommendations from the report (iterate more, question polished outputs, set the terms of collaboration), which feels most actionable for your team right now? Which would be hardest to adopt, and why?
 
@@ -78,23 +78,23 @@ The research points to three areas where many users could strengthen their skill
 
 **4.** If you could focus on building one AI fluency skill across your organization in the next quarter, which would it be? What's one concrete step you could take to get started?
 
-## Optional activities
+## Optional activities[](#optional-activities)
 
 These hands-on exercises can extend the discussion into practice. Choose one based on your group's interests and available time.
 
-### The iteration challenge (15 minutes)
+### The iteration challenge (15 minutes)[](#the-iteration-challenge-15-minutes)
 
 Each participant opens a conversation with Claude on a task relevant to their work. After receiving the first response, they must send at least three follow-up messages that refine, push back, or redirect before considering the output complete. Afterward, discuss: how did the output change? What would you have missed if you'd stopped at the first response?
 
-### Spot the gap (15 minutes)
+### Spot the gap (15 minutes)[](#spot-the-gap-15-minutes)
 
 Have Claude generate an artifact (a document, a piece of code, an analysis) on a topic your group knows well. Review the output together and identify what looks right but may be wrong, what's missing, and what assumptions went unchecked. Use this to ground the conversation about evaluation skills.
 
-### Set the terms (10 minutes)
+### Set the terms (10 minutes)[](#set-the-terms-10-minutes)
 
 Each participant writes a short "collaboration preamble" that they would use at the beginning of important AI conversations: how they want the model to interact with them, what kind of pushback they want, what they expect the model to flag. Share and compare approaches across the group.
 
-## Further reading
+## Further reading[](#further-reading)
 
 These resources provide additional context for the findings in the AI Fluency Index.
 

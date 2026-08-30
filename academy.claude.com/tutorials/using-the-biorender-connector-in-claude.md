@@ -18,7 +18,7 @@ The BioRender integration searches BioRender’s extensive scientific figure tem
 
 The BioRender integration relies upon Claude's ability to [use remote connectors(opens in new tab)](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
 
-## What this integration provides
+## What this integration provides[](#what-this-integration-provides)
 
 This integration allows you to search BioRender’s extensive library of vetted scientific figures to quickly find scientifically-accurate content for your presentations, posters, grant proposal figures, journal graphical abstracts and more. Simply describe your needs and receive recommended scientific icons, figures and templates in return.
 
@@ -28,7 +28,7 @@ This integration provides access to BioRender’s scientific Icons and Template,
 * Professionally designed figure templates for meetings, presentations, research posters, grant applications, publications, patience material, internal workflows, etc.
 * Regularly updated visual assets curated by world class medical illustrators
 
-## Who can access the BioRender integration
+## Who can access the BioRender integration[](#who-can-access-the-biorender-integration)
 
 * The BioRender integration is available to all BioRender users with an active account.
 * Users must log in using their BioRender credentials to authenticate the connection.
@@ -40,7 +40,7 @@ This integration provides access to BioRender’s scientific Icons and Template,
 
 More details on accessing the integration can be found in [BioRender’s MCP Server Documentation(opens in new tab)](https://help.biorender.com/hc/en-gb/articles/30870978672157-How-to-use-the-BioRender-MCP-connector).
 
-## Setting up the BioRender integration
+## Setting up the BioRender integration[](#setting-up-the-biorender-integration)
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -66,7 +66,7 @@ Learn about [finding and connecting tools(opens in new tab)](https://support.cla
 
 Technical details of the BioRender integration can be found in [BioRender’s MCP Server Documentation(opens in new tab)](https://help.biorender.com/hc/en-gb/articles/30870978672157-How-to-use-the-BioRender-MCP-connector).
 
-## Common use cases
+## Common use cases[](#common-use-cases)
 
 * **Grant proposal figures** - describe your research or experimental design and get relevant template and icon suggestions to create clear proposal figures for reviewers
 

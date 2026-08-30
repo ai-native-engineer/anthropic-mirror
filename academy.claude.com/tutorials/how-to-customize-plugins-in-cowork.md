@@ -22,7 +22,7 @@ If you're new to Cowork, [`/setup-cowork`](claude://cowork/new?q=%2Fsetup-cowork
 
 Admins managing plugins for an organization, see [Manage Cowork plugins for your organization(opens in new tab)](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization).
 
-## Start a customize session
+## Start a customize session[](#start-a-customize-session)
 
 *In the sidebar, open* ***`Customize`*** *›* [***`Plugins`***(opens in new tab)](https://claude.ai/desktop/customize/plugins)*, select the plugin, and click* ***`Customize`****.*
 
@@ -30,7 +30,7 @@ Cowork opens a session with the plugin loaded. Claude looks through your connect
 
 The questions depend on the plugin and what's already in your workspace, so treat the session as a conversation — answer what's asked, and add anything else Claude should know about how your team works.
 
-### What to give Claude
+### What to give Claude[](#what-to-give-claude)
 
 Claude will ask which tools you use, and leave room for anything else. The tool answers wire the plugin to the right connectors; the *anything else* is where you describe how your team actually works.
 
@@ -38,19 +38,19 @@ Claude will ask which tools you use, and leave room for anything else. The tool 
 * **How your team works.** The defaults and standards a new teammate would need to know — what you call things, what counts as done, when something gets escalated. The role examples below show what this looks like for each plugin.
 * **Reference documents.** Point Claude at examples of finished work — last quarter's close package, a brand guide, a redline that landed, your memo template. Claude reads them and writes the relevant patterns into the plugin's skills, so future output matches your formats.
 
-### Review what Claude built
+### Review what Claude built[](#review-what-claude-built)
 
 When the session finishes, Claude shows a summary of what changed and opens the plugin's files alongside the conversation. A plugin is a folder of plain-text instruction files, and you can click through any of them to read exactly what a skill will do.
 
 *Click* **`Save plugin`** *to install it.* From here, editing is the same as customizing: open a session with the plugin and tell Claude what to change.
 
-### Keep improving it
+### Keep improving it[](#keep-improving-it)
 
 You don't need to cover everything in the first pass. Run a skill, and when you spot something to adjust — a step to add, a format to match more closely — tell Claude in the same session: `add this to the plugin so it's right next time`. The change is written back to the skill file.
 
 *To see what's still generic, start another* ***`Customize`*** *session and ask: what placeholders are left in this plugin?*
 
-## Examples by role
+## Examples by role[](#examples-by-role)
 
 Each role below shows the same three inputs — tools, how the team works, reference documents — and what the plugin's skills do once they're in place.
 
@@ -106,7 +106,7 @@ Each role below shows the same three inputs — tools, how the team works, refer
 * `/campaign-plan` now builds briefs for your audiences and channels.
 * `/draft-content` now writes in your voice for your formats.
 
-## Share with your team
+## Share with your team[](#share-with-your-team)
 
 The customize session ends with a packaged `.plugin` file you can pass around.
 
@@ -114,13 +114,13 @@ The customize session ends with a packaged `.plugin` file you can pass around.
 * **Host on GitHub** — push the plugin folder to a repo; teammates install from the URL and get updates when you push.
 * **Hand it to your admin** — an admin can provision the plugin to a group from **`Organization settings`** *›* **`Plugins`**, so everyone in that department gets the same pre-configured version. See [Manage Cowork plugins for your organization(opens in new tab)](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization).
 
-## Things to note
+## Things to note[](#things-to-note)
 
 * Plugins run in Cowork on the desktop app. The customize session edits files on your machine, so it isn't available in browser or mobile.
 * Plugins can come from a few places: Anthropic's pre-built set, ones you install or build, and ones your organization provisions. The first two are yours to edit; organization-provisioned plugins are managed by your admin and re-sync over local changes.
 * Skills and connectors also exist outside plugins. A standalone skill you add from **`Customize`** *›* **`Skills`** is available in every session, with or without a plugin.
 
-## Learn more
+## Learn more[](#learn-more)
 
 * [**Customize Cowork for the work you do**(opens in new tab)](https://academy.claude.com/tutorials/customize-claude-cowork) — connectors, skills, instructions, and plugins together.
 * [**Get started in Cowork in three steps**(opens in new tab)](https://academy.claude.com/tutorials/get-started-in-claude-cowork-in-three-steps) — install your first plugin with `/setup-cowork`.

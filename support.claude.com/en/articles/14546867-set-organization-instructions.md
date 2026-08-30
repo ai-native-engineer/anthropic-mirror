@@ -32,8 +32,6 @@ You need at least an Admin role to configure organization instructions.
 
 To remove instructions entirely, clear the text area and click “Save.”
 
----
-
 ## Best practices
 
 **Keep instructions concise and clear.** Organization instructions are included in every message sent by everyone in your organization, so shorter instructions help keep conversations efficient. Aim for direct, specific guidance rather than lengthy explanations.
@@ -50,8 +48,6 @@ To remove instructions entirely, clear the text area and click “Save.”
 
 **Review and update regularly.** As your organization’s needs change, revisit your instructions to make sure they’re still relevant. Removing outdated instructions keeps Claude’s responses focused.
 
----
-
 ## Example instructions
 
 **Team identity.** “Address the team as the Acme Platform team. When users ask about ‘our product,’ they mean Acme Cloud.”
@@ -62,7 +58,7 @@ To remove instructions entirely, clear the text area and click “Save.”
 
 **Domain context.** “Our team works in healthcare claims processing. When users mention ‘claims,’ they’re referring to insurance claims, not legal claims.”
 
-**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3c544e7c5d5f5159125f5351) rather than giving specific policy advice.”
+**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#eb8399ab8a88868ec5888486) rather than giving specific policy advice.”
 
 **Data handling reminders.** “Don’t include customer names, account numbers, or other personally identifiable information in responses or generated artifacts.”
 
