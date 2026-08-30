@@ -20,6 +20,7 @@ OCR_MARKER = "anthropic-mirror-ocr-v1"
 def ensure_runtime() -> None:
     try:
         import pikepdf  # noqa: F401
+
         return
     except ImportError:
         pass
@@ -53,11 +54,28 @@ def is_current(path: Path) -> bool:
         return False
 
 
+def ocr_mode(path: Path) -> str:
+    """`--redo-ocr` refuses PDFs with a user fillable form; those take `--skip-text`.
+
+    spartan: --skip-text leaves an image-only page inside a form PDF unrecognised.
+    Switch to a page-level split if a form PDF ever ships scanned pages.
+    """
+    import pikepdf
+
+    with pikepdf.open(path) as pdf:
+        form = pdf.Root.get("/AcroForm")
+        if form is not None and len(form.get("/Fields", [])) > 0:
+            return "--skip-text"
+    return "--redo-ocr"
+
+
 def add_text_layer(path: Path) -> None:
     import pikepdf
 
     mode = stat.S_IMODE(path.stat().st_mode)
-    fd, temporary_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".pdf", dir=path.parent)
+    fd, temporary_name = tempfile.mkstemp(
+        prefix=f".{path.name}.", suffix=".pdf", dir=path.parent
+    )
     os.close(fd)
     temporary = Path(temporary_name)
     try:
@@ -66,7 +84,7 @@ def add_text_layer(path: Path) -> None:
                 "ocrmypdf",
                 "--ocr-engine",
                 "appleocr",
-                "--redo-ocr",
+                ocr_mode(path),
                 "--appleocr-recognition-mode",
                 "accurate",
                 "--output-type",
@@ -136,13 +154,32 @@ def self_test() -> None:
         ).stdout
         assert "HELLO" in text and "2026" in text, text
         assert is_current(pdf)
+
+        # 입력 양식 PDF는 --redo-ocr가 거부한다. 한 파일 때문에 파이프라인이 죽었던 회귀.
+        import pikepdf
+
+        form = root / "form.pdf"
+        with pikepdf.open(pdf) as doc:
+            field = doc.make_indirect(
+                pikepdf.Dictionary(FT=pikepdf.Name("/Tx"), T=pikepdf.String("name"))
+            )
+            doc.Root.AcroForm = doc.make_indirect(
+                pikepdf.Dictionary(Fields=pikepdf.Array([field]))
+            )
+            doc.save(form)
+        assert ocr_mode(form) == "--skip-text"
+        assert ocr_mode(pdf) == "--redo-ocr"
+        add_text_layer(form)
+        assert is_current(form)
     print("self-test ok")
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", nargs="?", default=".")
-    parser.add_argument("--asset", action="append", default=[], help="process one repo-relative PDF")
+    parser.add_argument(
+        "--asset", action="append", default=[], help="process one repo-relative PDF"
+    )
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--self-test", action="store_true")
@@ -156,7 +193,9 @@ def main() -> int:
     root = Path(args.root).resolve()
     pdfs = [root / path for path in args.asset] if args.asset else discover(root)
     if any(path.suffix.lower() != ".pdf" for path in pdfs):
-        raise RuntimeError("bitmap images cannot contain a selectable text layer; use a PDF container")
+        raise RuntimeError(
+            "bitmap images cannot contain a selectable text layer; use a PDF container"
+        )
     if args.check:
         return check(root, pdfs)
 
