@@ -17,9 +17,11 @@ Team and Enterprise plan admins can enable this organization-wide by following t
 1. Go to **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
 2. Find the **Claude Design** toggle under **Anthropic Labs** and switch it on.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1788033600&signature=ca5505f63e24a64802ee3eab1fa79d01ad5bee44468932fe784e8ee99a66f8fa&req=diIvH8t6nYFdXPMW1HO4zahp3eoIGuUjDIPtKBLQ9H9gMxHaYW9hADQHdVfn%0AQPIbkaPVxayvP7h6sh8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1788033600&signature=ca5505f63e24a64802ee3eab1fa79d01ad5bee44468932fe784e8ee99a66f8fa&req=diIvH8t6nYFdXPMW1HO4zahp3eoIGuUjDIPtKBLQ9H9gMxHaYW9hADQHdVfn%0AQPIbkaPVxayvP7h6sh8%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1788654600&signature=47aefe4c65d3fdbfc47ca67d56f44ae36f48215c3235b2dceda3c38edd876a09&req=diIvH8t6nYFdXPMW1HO4zahp3eoOHOIjDIPtKBLQ9H9YQpNQEfWDjuzm1wpX%0AA%2Bd2iwUdroHYTOn9n00%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1788654600&signature=47aefe4c65d3fdbfc47ca67d56f44ae36f48215c3235b2dceda3c38edd876a09&req=diIvH8t6nYFdXPMW1HO4zahp3eoOHOIjDIPtKBLQ9H9YQpNQEfWDjuzm1wpX%0AA%2Bd2iwUdroHYTOn9n00%3D%0A)
 
 ##
+
+---
 
 ## The design system: why it comes first
 
@@ -39,6 +41,8 @@ For best results, we recommend pulling in designers across both brand and produc
 4. Validate that Claude generates designs consistent with your brand.
 
 Any member with Claude Design access can create and edit design systems. On the Enterprise plan, you can restrict who can publish design systems, set the organization default, and delete design systems.
+
+---
 
 ## Restrict who can manage design systems
 
@@ -76,6 +80,8 @@ Permission changes can take up to 15 minutes to apply, and members may need to r
 * **Ask the member to check.** In admin settings, they'll see only the sections their permissions cover.
 * **Review as an Owner.** Check the member's groups on the **Members** page, then review those groups' roles on the **Roles** page.
 
+---
+
 ## Recommended rollout phases
 
 A phased rollout lets you validate your design system and build internal expertise before broad adoption. You can control access to Claude Design in accordance with each rollout phase using **[custom roles](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
@@ -111,6 +117,8 @@ A phased rollout lets you validate your design system and build internal experti
 * Establish a feedback channel for design system improvements.
 * Share examples of creative uses of Claude Design internally to help foster creativity.
 
+---
+
 ## What your team can do with Claude Design
 
 Once set up, your team can use Claude Design to:
@@ -125,6 +133,8 @@ We have more tutorials available here:
 
 * **[Using Claude Design for prototypes and UX](http://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)**
 * **[Using Claude Design for presentations and slide decks](http://claude.com/resources/tutorials/using-claude-design-for-presentations-and-slide-decks)**
+
+---
 
 ## Monitor usage
 
@@ -147,11 +157,15 @@ Claude Design project previews run inside a sandboxed iframe on a separate conte
 ​
 Access to a preview is controlled by signed tokens—short-lived passes that prove someone's allowed in. Claude re-checks these tokens against your sharing permissions every time someone opens the preview, so when you remove someone's access, they're locked out right away.
 
+---
+
 ## Third-party platform availability
 
 Claude Design is currently available only through the web interface at claude.ai/design.
 
 If your organization requires Claude Design through your existing cloud provider agreements, reach out to your Anthropic contact or our **[Sales team](https://claude.com/contact-sales)**.
+
+---
 
 ## Usage and billing
 
@@ -159,6 +173,8 @@ Claude Design usage counts toward each member's existing usage limits, shared wi
 
 * **Team and seat-based Enterprise plans:** Claude Design draws from each member's seat usage limits, including both session and weekly limits. Admins can purchase **[usage credits](https://support.claude.com/en/articles/12005970-manage-extra-usage-for-team-and-seat-based-enterprise-plans)** for members who need more capacity.
 * **Usage-based Enterprise plans:** Claude Design usage bills from your organization's consumption at standard API rates, like every other surface. Organization, group, and per-user spend limits apply.
+
+---
 
 ## Frequently asked questions
 
@@ -190,8 +206,8 @@ There are no strict limits, but we recommend the phased approach outlined above 
 
 Claude Design currently supports export to HTML bundles, PPTX, PDF, and hand-off to Claude Code or the following partners: Adobe, Base44, Canva, Gamma, Lovable, Miro, Replit, Vercel, or Wix. Reach out to your Anthropic Contact or our **[Sales team](https://claude.com/contact-sales)** if there’s a specific format or destination you need.
 
-* [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
-* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
+* [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
 * [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)

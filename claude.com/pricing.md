@@ -1,60 +1,8 @@
 <!-- source: https://claude.com/pricing -->
 
-[Next](#)Next
-
-Results
-
-#### Recommended: The Team plan
-
-You'll get the features you need with costs you can predict.
-
-Start over
-
-[Start over](#)Start over
-
-Get Team plan
-
-[Get Team plan](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994/upgrade)Get Team plan
-
-Results
-
-#### Recommended: ‍The Enterprise plan (self-serve)
-
-You need enterprise security features, but want to move fast. You can get started today without contacting sales.
-
-Start over
-
-[Start over](#)Start over
-
-Get Enterprise plan
-
-[Get Enterprise plan](http://claude.ai/create/enterprise)Get Enterprise plan
-
-Results
-
-#### Recommended: ‍The Enterprise plan (sales-assisted)
-
-You need a tailored approach and enterprise security features on a traditional Enterprise plan. Our team can help you get started.
-
-Start over
-
-[Start over](#)Start over
-
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Oops! Something went wrong while submitting the form.
-
 # Pricing
 
-Individual
-
-Team & Enterprise
-
-API
-
-Active
+IndividualTeam & EnterpriseAPI
 
 ### Free
 
@@ -64,9 +12,7 @@ $0
 
 Free for everyone
 
-Try Claude
-
-[Try Claude](https://claude.ai/login?plan=free)Try Claude
+[Try Claude](https://claude.ai/login?plan=free)
 
 * Chat on web, iOS, Android, and on your desktop
 * Generate code and visualize data
@@ -87,9 +33,7 @@ $17
 
 Per month with annual subscription discount ($200 billed up front). $20 if billed monthly.
 
-Try Claude
-
-[Try Claude](https://claude.ai/login?plan=pro)Try Claude
+[Try Claude](https://claude.ai/login?plan=pro)
 
 Everything in Free, plus:
 
@@ -99,7 +43,6 @@ Everything in Free, plus:
 * Includes Claude Design
 * Includes Claude Science
 * Access to unlimited projects to organize chats and documents
-* Access to Research
 * Ability to use more Claude models
 * Claude for Microsoft 365
 
@@ -111,9 +54,7 @@ From $100
 
 Per month
 
-Try Claude
-
-[Try Claude](https://claude.ai/login?plan=max)Try Claude
+[Try Claude](https://claude.ai/login?plan=max)
 
 Everything in Pro, plus:
 
@@ -132,81 +73,72 @@ Search
 
 Free
 
-Try Claude
-
-[Try Claude](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994)Try Claude
+[Try Claude](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994)
 
 Pro
 
-Try Claude
-
-[Try Claude](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994)Try Claude
+[Try Claude](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994)
 
 Max 5x
 
-Try Claude
-
-[Try Claude](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994)Try Claude
+[Try Claude](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994)
 
 Max 20x
 
-Try Claude
-
-[Try Claude](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994)Try Claude
+[Try Claude](https://claude.ai/redirect/website.v1.7e047257-6763-4812-8a7b-5bcbe8589994)
 
 ### Features and capabilities
 
 | Features | Free | Pro | Max 5x | Max 20x |
 | --- | --- | --- | --- | --- |
-| Chat on web, iOS, Android and Desktop |  |  |  |  |
-| Claude Code |  |  |  |  |
-| Claude Cowork |  |  |  |  |
-| Claude Design |  |  |  |  |
-| Claude Science |  |  |  |  |
-| @Claude |  |  |  |  |
-| Ability to search the web |  |  |  |  |
-| Desktop extensions |  |  |  |  |
-| Voice mode |  |  |  |  |
-| Incognito chats |  |  |  |  |
-| User preferences |  |  |  |  |
-| Artifacts |  |  |  |  |
-| Projects |  |  |  |  |
-| Project sharing and collaboration |  |  |  |  |
-| Create and edit files with code execution |  |  |  |  |
-| Research |  |  |  |  |
-| Memory |  |  |  |  |
-| Skills |  |  |  |  |
-| Connectors |  |  |  |  |
-| Web search |  |  |  |  |
-| Enterprise search |  |  |  |  |
-| Claude in Chrome |  |  |  |  |
-| Claude for Microsoft 365 |  |  |  |  |
-| Claude for Microsoft Outlook |  |  |  |  |
+| Chat on web, iOS, Android and Desktop | Yes | Yes | Yes | Yes |
+| Claude Code | No | Yes | Yes | Yes |
+| Claude CoworkMore information | No | Yes | Yes | Yes |
+| Claude Design | No | Yes | Yes | Yes |
+| Claude Science | No | Yes | Yes | Yes |
+| @Claude | No | No | No | No |
+| Ability to search the web | Yes | Yes | Yes | Yes |
+| Desktop extensions | Yes | Yes | Yes | Yes |
+| Voice mode | Yes | Yes | Yes | Yes |
+| Incognito chatsMore information | Yes | Yes | Yes | Yes |
+| User preferences | Yes | Yes | Yes | Yes |
+| ArtifactsMore information | Yes | Yes | Yes | Yes |
+| Projects | No | Yes | Yes | Yes |
+| Project sharing and collaboration | No | No | No | No |
+| Create and edit files with code executionMore information | Yes | Yes | Yes | Yes |
+| Memory | Yes | Yes | Yes | Yes |
+| SkillsMore information | Yes | Yes | Yes | Yes |
+| ConnectorsMore information | Yes | Yes | Yes | Yes |
+| Web search | Yes | Yes | Yes | Yes |
+| Enterprise searchMore information | No | No | No | No |
+| Claude in Chrome | No | Yes | Yes | Yes |
+| Claude for Microsoft 365 | No | Yes | Yes | Yes |
+| Claude for Microsoft Outlook | No | Yes | Yes | Yes |
 
 ### Security and administration
 
 | Features | Free | Pro | Max 5x | Max 20x |
 | --- | --- | --- | --- | --- |
-| Single sign-on (SSO) and domain capture |  |  |  |  |
-| Central billing and administration |  |  |  |  |
-| Admin controls for remote and local connectors |  |  |  |  |
-| Enterprise deployment for the Claude desktop app |  |  |  |  |
-| Role-based access |  |  |  |  |
-| System for Cross-domain Identity Management (SCIM) |  |  |  |  |
-| Audit logs |  |  |  |  |
-| Usage analytics |  |  |  |  |
-| Compliance API |  |  |  |  |
-| HIPAA-ready offering |  |  |  |  |
-| Custom data retention controls |  |  |  |  |
-| Organization wide skills deployment |  |  |  |  |
+| Single sign-on (SSO) and domain capture | No | No | No | No |
+| Central billing and administration | No | No | No | No |
+| Admin controls for remote and local connectors | No | No | No | No |
+| Enterprise deployment for the Claude desktop app | No | No | No | No |
+| Role-based access | No | No | No | No |
+| System for Cross-domain Identity Management (SCIM) | No | No | No | No |
+| Audit logs | No | No | No | No |
+| Usage analytics | No | No | No | No |
+| Compliance API | No | No | No | No |
+| HIPAA-ready offering | No | No | No | No |
+| Custom data retention controls | No | No | No | No |
+| Organization wide skills deployment | No | No | No | No |
 
 ### Payment options
 
 | Features | Free | Pro | Max 5x | Max 20x |
 | --- | --- | --- | --- | --- |
-| Credit card | n/a |  |  |  |
-| ACH |  |  |  |  |
-| Invoicing / net terms |  |  |  |  |
+| Credit card | n/a | Yes | Yes | Yes |
+| ACH | No | No | No | No |
+| Invoicing / net terms | No | No | No | No |
 | Billing cycle | n/a | Monthly and annual | Monthly and annual | Monthly and annual |
 | Adding seats midterm | n/a | n/a | n/a | n/a |
 
@@ -214,23 +146,21 @@ Try Claude
 
 | Features | Free | Pro | Max 5x | Max 20x |
 | --- | --- | --- | --- | --- |
-| Fable |  | Usage credits | 50% of weekly limits\* | 50% of weekly limits\* |
-| Opus |  |  |  |  |
-| Sonnet |  |  |  |  |
-| Haiku |  |  |  |  |
-| Context window | 200k | 200k | 200k | 200k |
-| Usage credits |  |  |  |  |
-| Priority access at high traffic times |  |  |  |  |
-| User and organizational level spend controls |  |  |  |  |
-| Model training | Opt-out | Opt-out | Opt-out | Opt-out |
+| FableMore information | No | Usage credits | 50% of weekly limits\* | 50% of weekly limits\* |
+| Opus | No | Yes | Yes | Yes |
+| Sonnet | Yes | Yes | Yes | Yes |
+| Haiku | Yes | Yes | Yes | Yes |
+| Context windowMore information | 200k | 200k | 200k | 200k |
+| Usage creditsMore information | No | Yes | Yes | Yes |
+| Priority access at high traffic times | No | No | Yes | Yes |
+| User and organizational level spend controls | No | No | No | No |
+| Model trainingMore information | Opt-out | Opt-out | Opt-out | Opt-out |
 
 ### Team
 
 For teams of 2 to 150
 
-Get Team plan
-
-[Get Team plan](https://claude.ai/upgrade?initialPlanType=team)Get Team plan
+[Get Team plan](https://claude.ai/upgrade?initialPlanType=team)
 
 Standard seat
 
@@ -264,13 +194,7 @@ Per seat / month if billed annually. $125 if billed monthly.
 
 For large businesses operating at scale
 
-Get Enterprise plan
-
-[Get Enterprise plan](http://claude.ai/create/enterprise)Get Enterprise plan
-
-Chat with buying specialist
-
-[Chat with buying specialist](https://claude.ai/buying-specialist)Chat with buying specialist
+[Get Enterprise plan](https://claude.ai/create/enterprise)[Chat with buying specialist](https://claude.ai/buying-specialist)
 
 Seat price + usage at API rates
 
@@ -293,25 +217,21 @@ All Team plan features, plus:
 
 [Usage limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Price and plans are subject to change at Anthropic's discretion.
 
-Education plan
+### Education plan
 
 Get a comprehensive university‐wide plan for an institution, including its students, faculty, and staff.
 
-Learn more
+[Learn more](https://claude.com/solutions/education)
 
-[Learn more](https://claude.com/solutions/education)Learn more
+* Student and faculty access
 
-Student and faculty access
+  Comprehensive access for all university members at discounted rates
+* Academic research and learning mode
 
-Comprehensive access for all university members at discounted rates
+  Dedicated API credits and educational features for student learning
+* Training and enablement
 
-Academic research and learning mode
-
-Dedicated API credits and educational features for student learning
-
-Training and enablement
-
-Resources for successful adoption across your institution
+  Resources for successful adoption across your institution
 
 ## Compare features across plans
 
@@ -319,146 +239,132 @@ Search
 
 Team
 
-Create plan
-
-[Create plan](https://claude.ai/upgrade?initialPlanType=team)Create plan
+[Create plan](https://claude.ai/upgrade?initialPlanType=team)
 
 Enterprise (self-serve)
 
-Create plan
-
-[Create plan](http://claude.ai/create/enterprise)Create plan
+[Create plan](https://claude.ai/create/enterprise)
 
 Enterprise (sales-assisted)
 
-Contact sales
-
-[Contact sales](https://claude.com/contact-sales)Contact sales
+[Contact sales](https://claude.com/contact-sales)
 
 ### Features and capabilities
 
 | Features | Team | Enterprise (self-serve) | Enterprise (sales-assisted) |
 | --- | --- | --- | --- |
-| Chat on web, iOS, Android and Desktop |  |  |  |
-| Claude Code |  |  |  |
-| Claude Cowork |  |  |  |
-| Claude Design |  |  |  |
-| Claude Science |  |  |  |
-| @Claude |  |  |  |
-| Claude Security |  |  |  |
-| Ability to search the web |  |  |  |
-| Desktop extensions |  |  |  |
-| Voice mode |  |  |  |
-| Incognito chats |  |  |  |
-| User preferences |  |  |  |
-| Artifacts |  |  |  |
-| Projects |  |  |  |
-| Project sharing and collaboration |  |  |  |
-| Create and edit files with code execution |  |  |  |
-| Research |  |  |  |
-| Memory |  |  |  |
-| Skills |  |  |  |
-| Connectors |  |  |  |
-| Web search |  |  |  |
-| Enterprise search |  |  |  |
-| Claude in Chrome |  |  |  |
-| Claude for Microsoft 365 |  |  |  |
-| Claude for Microsoft Outlook |  |  |  |
+| Chat on web, iOS, Android and Desktop | Yes | Yes | Yes |
+| Claude Code | Yes | Yes | Yes |
+| Claude CoworkMore information | Yes | Yes | Yes |
+| Claude DesignMore information | Yes | Yes | Yes |
+| Claude Science | Yes | Yes | Yes |
+| @Claude | Yes | Yes | Yes |
+| Claude SecurityMore information | No | Yes | Yes |
+| Ability to search the web | Yes | Yes | Yes |
+| Desktop extensions | Yes | Yes | Yes |
+| Voice mode | Yes | Yes | Yes |
+| Incognito chatsMore information | Yes | Yes | Yes |
+| User preferences | Yes | Yes | Yes |
+| ArtifactsMore information | Yes | Yes | Yes |
+| Projects | Yes | Yes | Yes |
+| Project sharing and collaboration | Yes | Yes | Yes |
+| Create and edit files with code executionMore information | Yes | Yes | Yes |
+| Research | Yes | Yes | Yes |
+| Memory | Yes | Yes | Yes |
+| SkillsMore information | Yes | Yes | Yes |
+| ConnectorsMore information | Yes | Yes | Yes |
+| Web search | Yes | Yes | Yes |
+| Enterprise searchMore information | Yes | Yes | Yes |
+| Claude in Chrome | Yes | Yes | Yes |
+| Claude for Microsoft 365 | Yes | Yes | Yes |
+| Claude for Microsoft Outlook | Yes | Yes | Yes |
 
 ### Security and administration
 
 | Features | Team | Enterprise (self-serve) | Enterprise (sales-assisted) |
 | --- | --- | --- | --- |
-| Single sign-on (SSO) |  |  |  |
-| Domain verification |  |  |  |
-| Restrict org creation |  |  |  |
-| Migrate accounts using your domains |  |  |  |
-| Central billing and administration |  |  |  |
-| Admin controls for remote and local connectors |  |  |  |
-| Enterprise deployment for the Claude desktop app |  |  |  |
-| Usage analytics |  |  |  |
-| Organization wide skills deployment |  |  |  |
-| Domain capture |  |  |  |
-| Role-based access |  |  |  |
-| System for Cross-domain Identity Management (SCIM) |  |  |  |
-| Audit logs |  |  |  |
-| Compliance API |  |  |  |
-| Custom data retention controls |  |  |  |
-| Set org instructions |  |  |  |
-| HIPAA-ready offering |  |  |  |
-| Inference hooks |  |  |  |
+| Single sign-on (SSO) | Yes | Yes | Yes |
+| Domain verification | Yes | Yes | Yes |
+| Restrict org creationMore information | Yes | Yes | Yes |
+| Migrate accounts using your domainsMore information | No | Yes | Yes |
+| Central billing and administration | Yes | Yes | Yes |
+| Admin controls for remote and local connectors | Yes | Yes | Yes |
+| Enterprise deployment for the Claude desktop app | Yes | Yes | Yes |
+| Usage analytics | Yes | Yes | Yes |
+| Organization wide skills deployment | Yes | Yes | Yes |
+| Domain capture | No | Yes | Yes |
+| Role-based access | No | Yes | Yes |
+| System for Cross-domain Identity Management (SCIM) | No | Yes | Yes |
+| Audit logs | No | Yes | Yes |
+| Compliance API | No | Yes | Yes |
+| Custom data retention controls | No | Yes | Yes |
+| Set org instructionsMore information | Yes | Yes | Yes |
+| HIPAA-ready offering | No | Yes | Yes |
+| Inference hooks | No | Yes | Yes |
 
 ### Payment options
 
 | Features | Team | Enterprise (self-serve) | Enterprise (sales-assisted) |
 | --- | --- | --- | --- |
-| Credit card |  |  |  |
-| ACH |  |  |  |
-| Invoicing / net terms |  |  |  |
+| Credit card | Yes | Yes | Yes |
+| ACH | No | Yes | Yes |
+| Invoicing / net terms | No | No | Yes |
 | Billing cycle | Monthly and annual | Annual | Annual |
-| Adding seats midterm |  |  |  |
+| Adding seats midterm | Yes | Yes | Yes |
 
 ### Partnership
 
 | Features | Team | Enterprise (self-serve) | Enterprise (sales-assisted) |
 | --- | --- | --- | --- |
-| AWS Marketplace availability |  |  |  |
-| Consultation |  |  |  |
-| Tiered incentives on committed spend |  |  |  |
-| Trials |  |  |  |
-| Customer success support at certain spend thresholds |  |  |  |
+| AWS Marketplace availability | No | No | Yes |
+| Consultation | No | No | Yes |
+| Tiered incentives on committed spend | No | No | Yes |
+| Trials | No | No | Yes |
+| Customer success support at certain spend thresholds | No | No | Yes |
 
 ### Models and usage
 
 | Features | Team | Enterprise (self-serve) | Enterprise (sales-assisted) |
 | --- | --- | --- | --- |
-| Fable |  |  |  |
-| Opus |  |  |  |
-| Sonnet |  |  |  |
-| Haiku |  |  |  |
-| Context window | 200k | 500k  on default model | 500k  on default model |
-| Extra usage |  | n/a | n/a |
-| Priority access at high traffic times |  |  |  |
-| User and organizational level spend controls |  |  |  |
-| Model training | None by default | None by default | None by default |
+| Fable | No | Yes | Yes |
+| Opus | Yes | Yes | Yes |
+| Sonnet | Yes | Yes | Yes |
+| Haiku | Yes | Yes | Yes |
+| Context windowMore information | 200k | 500kon default model | 500kon default model |
+| Extra usageMore information | Yes | n/a | n/a |
+| Priority access at high traffic times | Yes | Yes | Yes |
+| User and organizational level spend controls | Yes | Yes | Yes |
+| Model trainingMore information | None by default | None by default | None by default |
 
-Latest models
+## Latest models
 
-Contact sales
+[Contact sales](https://claude.com/contact-sales)[Start building (opens in new tab)](https://platform.claude.com/)
 
-[Contact sales](https://claude.com/contact-sales)Contact sales
-
-Start building
-
-[Start building](https://platform.claude.com/)Start building
-
-Save 50% with batch processing.
-
-[Learn more](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Save 50% with batch processing. [Learn more](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
 
 Batch processing
 
-### Fable 5
+### Fable 5.1
 
 Next generation intelligence for long-running agents
 
 Input
 
-$10 / MTok
+$10 / MTok
 
 Output
 
-$50 / MTok
+$50 / MTok
 
 Prompt caching
 
-Write
-
-$12.50 / MTok
-
 Read
 
-$1 / MTok
+$0.25 / MTok
+
+Write
+
+$12.50 / MTok
 
 ### Opus 5
 
@@ -466,21 +372,21 @@ Ideal for complex agentic coding and enterprise work
 
 Input
 
-$5 / MTok
+$5 / MTok
 
 Output
 
-$25 / MTok
+$25 / MTok
 
 Prompt caching
 
-Write
-
-$6.25 / MTok
-
 Read
 
-$0.50 / MTok
+$0.50 / MTok
+
+Write
+
+$6.25 / MTok
 
 ### Sonnet 5
 
@@ -488,21 +394,21 @@ High-performance model for coding and agents
 
 Input
 
-$2 / MTok
+$2 / MTok
 
 Output
 
-$10 / MTok
+$10 / MTok
 
 Prompt caching
 
-Write
-
-$2.50 / MTok
-
 Read
 
-$0.20 / MTok
+$0.20 / MTok
+
+Write
+
+$2.50 / MTok
 
 ### Haiku 4.5
 
@@ -510,42 +416,37 @@ Fastest, most cost-efficient model
 
 Input
 
-$1 / MTok
+$1 / MTok
 
 Output
 
-$5 / MTok
+$5 / MTok
 
 Prompt caching
 
-Write
-
-$1.25 / MTok
-
 Read
 
-$0.10 / MTok
+$0.10 / MTok
 
-**For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens.** [**Learn more**](https://platform.claude.com/docs/en/build-with-claude/data-residency)**.**
+Write
+
+$1.25 / MTok
+
+For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens. [Learn more](https://platform.claude.com/docs/en/build-with-claude/data-residency).
 
 Get up to 2.5x faster speeds with fast mode for Opus 5 at 2x standard pricing. [Learn more](https://platform.claude.com/docs/en/about-claude/pricing#fast-mode-pricing).
 
-Prompt caching pricing reflects 5-minute TTL. Learn about [extended prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#1-hour-cache-duration).
+Prompt caching pricing reflects 5-minute TTL. Learn about [extended prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching#1-hour-cache-duration).
 
-Explore detailed pricing
+[Explore detailed pricing (opens in new tab)](https://platform.claude.com/docs/en/about-claude/pricing)
 
-[Explore detailed pricing](https://platform.claude.com/docs/en/about-claude/pricing)Explore detailed pricing
+## Pricing for Claude Platform features
 
-Pricing for Claude Platform features
+Get more out of Claude with advanced features and capabilities.
 
-Get more out of Claude with advanced
-features and capabilities.
+[Learn more (opens in new tab)](https://platform.claude.com/docs/en/about-claude/pricing#specific-tool-pricing)
 
-Learn more
-
-[Learn more](https://platform.claude.com/docs/en/about-claude/pricing#specific-tool-pricing)Learn more
-
-#### Managed Agents
+### Managed Agents
 
 Build and deploy agents at scale with a suite of composable APIs. Standard token rates apply.
 
@@ -553,77 +454,80 @@ Cost
 
 $0.08 per session-hour for active runtime
 
-#### Web search
+### Web search
 
 Give Claude access to the latest information from the web. Doesn’t include input and output tokens required to process requests.
 
 Cost
 
 $10 / 1K searches
-‍
 
-Code execution
+### Code execution
 
 Run Python code in a sandboxed environment for advanced data analysis. 50 free hours of usage daily per organization.
 
 Additional hours
 
 $0.05 per hour per container
-‍
 
-Service tiers
+### Service tiers
 
 Balance availability, performance, and predictable costs based on your needs.
 
-Learn more
+[Learn more (opens in new tab)](https://platform.claude.com/docs/en/api/service-tiers)[Contact sales](https://claude.com/contact-sales)
 
-[Learn more](https://platform.claude.com/docs/en/api/service-tiers)Learn more
+* Standard
 
-Contact sales
+  Default tier for both piloting and scaling everyday use cases
+* Batch
 
-[Contact sales](https://claude.com/contact-sales)Contact sales
+  For asynchronous workloads that can be processed together for better efficiency
 
-Standard
+## Legacy models
 
-Default tier for both piloting and scaling everyday use cases
+[Learn more (opens in new tab)](https://platform.claude.com/docs/en/about-claude/models/overview)[Explore detailed pricing (opens in new tab)](https://platform.claude.com/docs/en/about-claude/pricing)
 
-Batch
+### Fable 5
 
-For asynchronous workloads that can be processed together for better efficiency
+Input
 
-Legacy models
+$10 / MTok
 
-Learn more
+Output
 
-[Learn more](https://platform.claude.com/docs/en/about-claude/models/overview)Learn more
+$50 / MTok
 
-Explore detailed pricing
+Prompt caching
 
-[Explore detailed pricing](https://platform.claude.com/docs/en/about-claude/pricing)Explore detailed pricing
+Read
+
+$1 / MTok
+
+Write
+
+$12.50 / MTok
 
 ### Opus 4.8
 
 Input
 
-$5 / MTok
+$5 / MTok
 
 Output
 
-$25 / MTok
+$25 / MTok
 
 Prompt caching
 
-Write
-
-$6.25 / MTok
-
 Read
 
-$0.50 / MTok
+$0.50 / MTok
 
-Save 50% with batch processing.
+Write
 
-[Learn more](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+$6.25 / MTok
+
+Save 50% with batch processing. [Learn more](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
 
 Batch processing
 
@@ -631,169 +535,159 @@ Batch processing
 
 Input
 
-$3 / MTok
+$3 / MTok
 
 Output
 
-$15 / MTok
+$15 / MTok
 
 Prompt caching
 
-Write
-
-$3.75 / MTok
-
 Read
 
-$0.30 / MTok
+$0.30 / MTok
+
+Write
+
+$3.75 / MTok
 
 ### Opus 4.7
 
 Input
 
-$5 / MTok
+$5 / MTok
 
 Output
 
-$25 / MTok
+$25 / MTok
 
 Prompt caching
 
-Write
-
-$6.25 / MTok
-
 Read
 
-$0.50 / MTok
+$0.50 / MTok
+
+Write
+
+$6.25 / MTok
 
 ### Opus 4.6
 
 Input
 
-$5 / MTok
+$5 / MTok
 
 Output
 
-$25 / MTok
+$25 / MTok
 
 Prompt caching
 
-Write
-
-$6.25 / MTok
-
 Read
 
-$0.50 / MTok
+$0.50 / MTok
+
+Write
+
+$6.25 / MTok
 
 ### Sonnet 4.5
 
 Input
 
-$3 / MTok
+$3 / MTok
 
 Output
 
-$15 / MTok
+$15 / MTok
 
 Prompt caching
 
-Write
-
-$3.75 / MTok
-
 Read
 
-$0.30 / MTok
+$0.30 / MTok
+
+Write
+
+$3.75 / MTok
 
 ### Opus 4.5
 
 Input
 
-$5 / MTok
+$5 / MTok
 
 Output
 
-$25 / MTok
+$25 / MTok
 
 Prompt caching
 
-Write
-
-$6.25 / MTok
-
 Read
 
-$0.50 / MTok
+$0.50 / MTok
+
+Write
+
+$6.25 / MTok
 
 ### Opus 4.1
 
 Input
 
-$15 / MTok
+$15 / MTok
 
 Output
 
-$75 / MTok
+$75 / MTok
 
 Prompt caching
 
-Write
-
-$18.75 / MTok
-
 Read
 
-$1.50 / MTok
+$1.50 / MTok
 
-Prompt caching pricing reflects 5-minute TTL. Learn about [extended prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pricing).
+Write
+
+$18.75 / MTok
+
+Prompt caching pricing reflects 5-minute TTL. Learn about [extended prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pricing).
 
 ## FAQ
 
-Plans and usage
-
-Billing and payments
-
-Managing your plan
-
-Active
+Plans and usageBilling and paymentsManaging your plan
 
 ### Plans and usage
 
-### What do I get with Claude Pro?
+#### What do I get with Claude Pro?
 
 The [Pro plan](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan) gives you everything in a Free plan with more usage and the full set of Claude capabilities. That includes Claude Code, Claude Cowork, Claude Design, along with projects to organize your chats and documents, access to more Claude models, and Claude for Microsoft 365. You can choose a monthly or annual subscription.
 
-### How is Claude Max different from Pro?
+#### How is Claude Max different from Pro?
 
 The [Max plan](https://support.claude.com/en/articles/11049741-what-is-the-max-plan) is built for people who work with Claude throughout the day and want longer, uninterrupted sessions. You get everything in Pro, plus more usage: choose from 5x or 20x the usage of Pro per 5-hour session. Max also gives you higher output limits. Both options are billed monthly. See the cards above for current pricing.
 
-### What are the usage limits on each plan, and what happens when I hit them?
+#### What are the usage limits on each plan, and what happens when I hit them?
 
 Every plan has [usage limits](https://support.claude.com/en/articles/9797557-usage-limit-best-practices) that reset on a rolling five-hour session window, and paid plans add weekly limits on top. Your activity across Claude on web, desktop, mobile, and Claude Code all draws from the same pool. How much you can do depends on the length and complexity of your conversations, the model you choose, and the features you use, so there's no fixed message count. Free covers everyday questions. Pro gives you at least 5x more usage per 5-hour session than Free. Max gives you 5x or 20x more usage per 5-hour session than Pro. On Team plans, Standard seats give more than Pro and Premium seats give 5x more than Standard. To manage capacity and make sure all users have fair access, we may limit your usage in other ways, such as weekly and monthly caps or model and feature usage, at our discretion. When you reach a limit, you can wait for it to reset, move to a higher plan, or, on paid plans, turn on [usage credits](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans) to keep working at standard API rates. You can see where you stand anytime in [Settings > Usage](https://claude.ai/settings/usage).
 
-### Is Claude Code included in my plan?
+#### Is Claude Code included in my plan?
 
 [Claude Code](https://claude.com/product/claude-code) is included in all paid plans. It shares the same usage limits as the rest of your plan, so your work in the terminal and your chats draw from one pool. For heavy coding sessions, you can also switch to pay-as-you-go API credits through a [Console account](https://platform.claude.com/).
 
-### How much does the Claude Enterprise plan cost?
+#### How much does the Claude Enterprise plan cost?
 
 The [Claude Enterprise plan](https://claude.com/solutions/enterprise) is built for large businesses operating at scale. Pricing is $20 per seat per month plus usage billed at API rates, so cost scales with the models and tasks your team runs. Enterprise is billed annually and includes everything in Team plus advanced security and admin controls, including SCIM, audit logs, custom data retention, and role-based access. You can get started self-serve or [contact sales](https://claude.com/contact-sales) for a tailored quote.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ### Billing and payments
 
-### Can I pay annually? Does it cost less than if I pay monthly?
+#### Can I pay annually? Does it cost less than if I pay monthly?
 
 Yes, annual plans are designed to cost less than monthly subscriptions. Annual subscriptions are available for Pro and Team plans. Enterprise plans are only available as annual subscriptions.
 
 When you choose to pay annually, you're billed once up front for the year. If you're already on a monthly plan, you can switch to annual in [Settings > Billing](https://claude.ai/settings/billing), and any unused time is credited toward your first annual invoice. See the steps for [Pro](https://support.claude.com/en/articles/10185996-how-to-change-your-pro-plan-from-monthly-to-annual-billing) and [Team](https://support.claude.com/en/articles/12083917-change-your-team-plan-from-monthly-to-annual-billing).
 
-### Does Claude offer refunds?
+#### Does Claude offer refunds?
 
 Payments are generally non-refundable, except where our [Consumer Terms of Service](https://www.anthropic.com/legal/consumer-terms) say otherwise or where local law requires it.
 
@@ -805,13 +699,9 @@ Customers outside of Europe can follow this process to [request a refund](https:
 
 If you're in the European Economic Area and the United Kingdom, and within your 14-day withdrawal period, you can request a refund directly in the app.
 
-[Prev](#)Prev
-
-[Next](#)Next
-
 ### Managing your plan
 
-### How do I upgrade, downgrade, or switch between plans?
+#### How do I upgrade, downgrade, or switch between plans?
 
 You can change your plan any time in Settings.
 
@@ -826,7 +716,7 @@ In some upgrades (for example Pro Annual to Max 5x Monthly), your remaining valu
 
 Downgrades take effect at the end of your current billing period, and your chats, projects, and files stay with your account whichever plan you're on.
 
-### How do I cancel my Claude subscription?
+#### How do I cancel my Claude subscription?
 
 You can cancel anytime, and your plan stays active until the end of your current billing period. To avoid the next charge, cancel at least 24 hours before your renewal date.
 
@@ -837,6 +727,4 @@ You can cancel anytime, and your plan stays active until the end of your current
 
 Canceling doesn't delete your data. Your chats, projects, and files stay with your account, though some features aren't available on the Free plan. For Pro and Max, your account moves to the Free plan once the period ends. For step-by-step help, see [how to cancel a Pro or Max plan](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription) or [cancel a Team plan](https://support.claude.com/en/articles/9267323-cancel-your-organization-s-team-plan-subscription).
 
-[Prev](#)Prev
-
-[Next](#)Next
+Plans & Pricing | Claude by Anthropic

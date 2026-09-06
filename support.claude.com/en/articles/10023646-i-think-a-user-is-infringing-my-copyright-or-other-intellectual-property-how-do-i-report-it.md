@@ -21,4 +21,4 @@ Written claims concerning copyright infringement must contain the following info
 * A statement by you that you have a good-faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law; and
 * A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner’s behalf.
 
-For questions, please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#147079777554757a607c667b647d773a777b79) or call (415) 326-6303.
+For questions, please email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#70141d131130111e0418021f0019135e131f1d) or call (415) 326-6303.

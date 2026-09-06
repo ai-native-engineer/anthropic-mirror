@@ -52,6 +52,8 @@ After migration, you’ll sign in to Claude using your organization’s single s
 
 If you chose to merge, your conversations, projects, and files will be waiting in your new Enterprise account.
 
+---
+
 ## Frequently asked questions
 
 ### Can I undo a merge?

@@ -208,6 +208,18 @@ Enterprise AI
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
+Aug 20, 2026
+
+### The Claude Code guide for startups
+
+Claude Code
+
+[The Claude Code guide for startups](#)The Claude Code guide for startups
+
+[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
 Aug 21, 2026
 
 ### The AI-Native SDLC playbook
@@ -229,18 +241,6 @@ Enterprise AI
 [Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
 
 [Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22727482c9ba6a02e71_1576ae23eaf481f33bd36ab468171cc69d12361a-1000x1000.svg)
-
-Aug 25, 2026
-
-### Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-Enterprise AI
-
-[Bain & Company joins the Claude Partner Network as a Global Premier partner](#)Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-[Bain & Company joins the Claude Partner Network as a Global Premier partner](https://claude.com/blog/bain-company-joins-the-claude-partner-network-as-a-global-premier-partner)Bain & Company joins the Claude Partner Network as a Global Premier partner
 
 ## Transform how your organization operates with Claude
 

@@ -24,6 +24,26 @@ Oops! Something went wrong while submitting the form.
 
 Code
 
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a99c801ec508497ad69193b_cursor-com-logo.png)
+
+### Cursor
+
+AI coding platform for the full Software Development Lifecycle.
+
+Code](https://claude.com/platform/marketplace/cursor)
+
+Code
+
+[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a95ec26cc5bf0c1849752db_crowdstrike.png)
+
+### CrowdStrike® Charlotte AI™
+
+Accelerate outcomes with autonomous intelligence fueled by world-class expertise
+
+Code](https://claude.com/platform/marketplace/crowdstrike-r-charlotte-ai)
+
+Code
+
 [![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a92037562db4c7eac16f805_factory-rotor-white-on-black%20-%20Sarah%20Malek.png)
 
 ### Factory
@@ -121,26 +141,6 @@ Code
 Turn AI-generated code into production-ready software with CodeRabbit's collaborative platform for engineering teams.
 
 Code](https://claude.com/platform/marketplace/coderabbit)
-
-Legal
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39835b19f740216d890a93_legora-square.svg)
-
-### Legora
-
-Run matters end to end, across jurisdictions and languages.
-
-Legal](https://claude.com/platform/marketplace/legora)
-
-Code
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3984c1836542601e94736a_Augment%20Code.jpg)
-
-### Augment
-
-The agent platform for engineering orgs, with expert agents on every stage of the lifecycle.
-
-Code](https://claude.com/platform/marketplace/augment)
 
 [Load more](https://claude.com/platform/marketplace?032e8f4b_page=2)
 

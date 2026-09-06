@@ -47,6 +47,8 @@ anthropic-allowed-org-ids{K-1}: <org-uuid>,<org-uuid>,...
 * Your proxy must send every declared slot. If you set `;n=3`, all three headers must be present on the request.
 * Configure your proxy to overwrite these headers on every request rather than add them only if absent.
 
+---
+
 ## Configuration steps
 
 ### 1. Find your organization UUID
@@ -83,6 +85,8 @@ curl https://api.anthropic.com/v1/messages \
   -d '{"model":"claude-sonnet-4-6","max_tokens":1024,"messages":
  [{"role":"user","content":"Hello"}]}'
 ```
+
+---
 
 ## Error responses
 

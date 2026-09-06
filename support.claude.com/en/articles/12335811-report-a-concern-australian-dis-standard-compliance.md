@@ -22,8 +22,8 @@ We are committed to our users’ safety across our products. We provide users wi
 
 If you wish to refer a matter to the eSafety Commissioner, please follow the instructions provided here: **[Report online harm](https://www.esafety.gov.au/report)**.
 
-* [Report, block, and remove content from Claude](https://support.claude.com/en/articles/7996906-report-block-and-remove-content-from-claude)
 * [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
-* [Report, block, and remove content from Claude](https://support.claude.com/en/articles/10684638-report-block-and-remove-content-from-claude)
 * [Can I use my Outputs to train an AI model?](https://support.claude.com/en/articles/12326764-can-i-use-my-outputs-to-train-an-ai-model)
+* [Crisis Helpline Support in Claude](https://support.claude.com/en/articles/13171706-crisis-helpline-support-in-claude)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
+* [Child safety guidance for developers](https://support.claude.com/en/articles/15591275-child-safety-guidance-for-developers)

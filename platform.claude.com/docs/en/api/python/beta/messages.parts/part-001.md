@@ -1305,12 +1305,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+            - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+              - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+              - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
               - `claude-sonnet-5` - High-performance model for coding and agents
               - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
               - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -1326,6 +1328,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
               - `claude-sonnet-4-5` - High-performance model for agents and coding
               - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+              - `"claude-fable-5-1"`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `"claude-mythos-5-1"`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `"claude-sonnet-5"`
 
@@ -1406,6 +1416,36 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `"assistant"`
 
     - `"system"`
+
+  - `clear_at: Optional[Literal["next_user_message", "never"]]`
+
+    How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+    - `"next_user_message"`
+
+    - `"never"`
+
+  - `output_config: Optional[BetaSystemMessageOutputConfig]`
+
+    Per-message output configuration on a role:"system" input message.
+
+    Fields here apply per-turn; `format` remains top-level only. An
+    empty `{}` is accepted on a message that carries content; a message
+    with neither content nor output_config fields is rejected.
+
+    - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+      All possible effort levels.
+
+      - `"low"`
+
+      - `"medium"`
+
+      - `"high"`
+
+      - `"xhigh"`
+
+      - `"max"`
 
 - `model: ModelParam`
 
@@ -1709,6 +1749,24 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["enabled"]`
 
+        - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+          Controls for block binding: what happens when a thinking block this
+          request sends back fails the conversation check. Every field is optional;
+          an empty object means every default.
+
+          - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+            What happens when a thinking block in `messages` fails the conversation
+            check: it was created in a different conversation, or the messages before
+            it have changed since. `"error"` (the default) fails the request with a
+            400 error. `"drop_block"` removes the failing blocks and the request
+            proceeds; the model no longer sees the dropped reasoning.
+
+            - `"error"`
+
+            - `"drop_block"`
+
         - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
           Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -1726,6 +1784,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `class BetaThinkingConfigAdaptive: …`
 
         - `type: Literal["adaptive"]`
+
+        - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+          Controls for block binding: what happens when a thinking block this
+          request sends back fails the conversation check. Every field is optional;
+          an empty object means every default.
 
         - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -2227,16 +2291,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     from its schema.
 
     - `type: Literal["browser_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -2863,16 +2917,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     via `configs.zoom.enabled`.
 
     - `type: Literal["computer_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -3792,7 +3836,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -3875,6 +3919,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 - `user_profile_id: Optional[str]`
 
@@ -4805,12 +4855,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+          - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+            - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
             - `claude-sonnet-5` - High-performance model for coding and agents
             - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
             - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -4826,6 +4878,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
             - `claude-sonnet-4-5` - High-performance model for agents and coding
             - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `"claude-mythos-5-1"`
+
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
 
             - `"claude-sonnet-5"`
 
@@ -5570,6 +5630,60 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `"fast"`
 
+  - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+    Changes the API made to the request's input before showing it to the model:
+    one entry per change, in request order. Today the only entry type is
+    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+    block from the request's `messages` that was removed from the prompt instead
+    of being shown to the model because it failed a binding check. More entry
+    types may be added over time; ignore types you do not recognize.
+
+    Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+    every such response from a model that supports extended thinking, as `[]`
+    when nothing was changed; without the beta, blocks are removed all the same
+    but nothing is reported. Removed blocks contribute nothing to
+    `usage.input_tokens`. When streaming, the array is final in `message_start`;
+    the final `message_delta` event carries it only when a server-side model
+    fallback happened mid-stream, in which case it holds the serving model's
+    entries and replaces the one in `message_start`.
+
+    - `path: str`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `"model_binding_mismatch"`
+
+      - `"prefix_binding_mismatch"`
+
+      - `"organization_binding_mismatch"`
+
+      - `"end_user_binding_mismatch"`
+
+    - `type: Literal["thinking_dropped"]`
+
+      Always `thinking_dropped` for this entry type.
+
+      default: thinking_dropped
+
 - `BetaRawMessageStreamEvent`
 
   - `class BetaRawMessageStartEvent: …`
@@ -5666,6 +5780,52 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `server_tool_use: Optional[BetaServerToolUsage]`
 
         The number of server tool requests.
+
+    - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+      Changes the API made to the request's input before showing it to the model:
+      one entry per change, in request order. Today the only entry type is
+      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+      block from the request's `messages` that was removed from the prompt instead
+      of being shown to the model because it failed a binding check. More entry
+      types may be added over time; ignore types you do not recognize.
+
+      Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+      every such response from a model that supports extended thinking, as `[]`
+      when nothing was changed; without the beta, blocks are removed all the same
+      but nothing is reported. Removed blocks contribute nothing to
+      `usage.input_tokens`. When streaming, the array is final in `message_start`;
+      the final `message_delta` event carries it only when a server-side model
+      fallback happened mid-stream, in which case it holds the serving model's
+      entries and replaces the one in `message_start`.
+
+      - `path: str`
+
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `type: Literal["thinking_dropped"]`
+
+        Always `thinking_dropped` for this entry type.
+
+        default: thinking_dropped
 
   - `class BetaRawMessageStopEvent: …`
 
@@ -5935,7 +6095,7 @@ print(beta_message.id)
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5",
+        "model": "claude-fable-5-1",
         "output_tokens": 0,
         "type": "message"
       }
@@ -5950,7 +6110,14 @@ print(beta_message.id)
     },
     "service_tier": "standard",
     "speed": "standard"
-  }
+  },
+  "input_transformations": [
+    {
+      "path": "path",
+      "reason": "model_binding_mismatch",
+      "type": "thinking_dropped"
+    }
+  ]
 }
 ```
 
@@ -7242,12 +7409,14 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+            - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+              - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+              - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
               - `claude-sonnet-5` - High-performance model for coding and agents
               - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
               - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -7263,6 +7432,14 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
               - `claude-sonnet-4-5` - High-performance model for agents and coding
               - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+              - `"claude-fable-5-1"`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `"claude-mythos-5-1"`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `"claude-sonnet-5"`
 
@@ -7343,6 +7520,36 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `"assistant"`
 
     - `"system"`
+
+  - `clear_at: Optional[Literal["next_user_message", "never"]]`
+
+    How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+    - `"next_user_message"`
+
+    - `"never"`
+
+  - `output_config: Optional[BetaSystemMessageOutputConfig]`
+
+    Per-message output configuration on a role:"system" input message.
+
+    Fields here apply per-turn; `format` remains top-level only. An
+    empty `{}` is accepted on a message that carries content; a message
+    with neither content nor output_config fields is rejected.
+
+    - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+      All possible effort levels.
+
+      - `"low"`
+
+      - `"medium"`
+
+      - `"high"`
+
+      - `"xhigh"`
+
+      - `"max"`
 
 - `model: ModelParam`
 
@@ -7582,6 +7789,24 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Literal["enabled"]`
 
+    - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
+
+      - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+        What happens when a thinking block in `messages` fails the conversation
+        check: it was created in a different conversation, or the messages before
+        it have changed since. `"error"` (the default) fails the request with a
+        400 error. `"drop_block"` removes the failing blocks and the request
+        proceeds; the model no longer sees the dropped reasoning.
+
+        - `"error"`
+
+        - `"drop_block"`
+
     - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -7599,6 +7824,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `class BetaThinkingConfigAdaptive: …`
 
     - `type: Literal["adaptive"]`
+
+    - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
 
     - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -7990,16 +8221,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     from its schema.
 
     - `type: Literal["browser_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -8626,16 +8847,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     via `configs.zoom.enabled`.
 
     - `type: Literal["computer_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -9555,7 +9766,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -9638,6 +9849,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 - `user_profile_id: Optional[str]`
 
@@ -9741,12 +9958,14 @@ print(beta_message_tokens_count.context_management)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+    - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -9762,6 +9981,14 @@ print(beta_message_tokens_count.context_management)
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
       - `"claude-sonnet-5"`
 
@@ -9899,12 +10126,14 @@ print(beta_message_tokens_count.context_management)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+    - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -9920,6 +10149,14 @@ print(beta_message_tokens_count.context_management)
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
       - `"claude-sonnet-5"`
 
@@ -11267,16 +11504,6 @@ print(beta_message_tokens_count.context_management)
   from its schema.
 
   - `type: Literal["browser_toolset_20260801"]`
-
-  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
 
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -13707,16 +13934,6 @@ print(beta_message_tokens_count.context_management)
 
   - `type: Literal["computer_toolset_20260801"]`
 
-  - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-    - `"direct"`
-
-    - `"code_execution_20250825"`
-
-    - `"code_execution_20260120"`
-
-    - `"code_execution_20260521"`
-
   - `cache_control: Optional[BetaCacheControlEphemeral]`
 
     Create a cache control breakpoint at this content block.
@@ -15222,12 +15439,14 @@ print(beta_message_tokens_count.context_management)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+        - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -15243,6 +15462,14 @@ print(beta_message_tokens_count.context_management)
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `"claude-sonnet-5"`
 
@@ -16575,12 +16802,14 @@ print(beta_message_tokens_count.context_management)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+        - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -16596,6 +16825,14 @@ print(beta_message_tokens_count.context_management)
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `"claude-sonnet-5"`
 
@@ -17447,12 +17684,14 @@ print(beta_message_tokens_count.context_management)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+      - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -17468,6 +17707,14 @@ print(beta_message_tokens_count.context_management)
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
         - `"claude-sonnet-5"`
 
@@ -17605,12 +17852,14 @@ print(beta_message_tokens_count.context_management)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+      - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -17626,6 +17875,14 @@ print(beta_message_tokens_count.context_management)
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
         - `"claude-sonnet-5"`
 
@@ -17874,12 +18131,14 @@ print(beta_message_tokens_count.context_management)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+    - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -17895,6 +18154,14 @@ print(beta_message_tokens_count.context_management)
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
       - `"claude-sonnet-5"`
 
@@ -17970,12 +18237,14 @@ print(beta_message_tokens_count.context_management)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+    - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -17991,6 +18260,14 @@ print(beta_message_tokens_count.context_management)
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
       - `"claude-sonnet-5"`
 
@@ -18105,12 +18382,14 @@ print(beta_message_tokens_count.context_management)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+    - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -18126,6 +18405,14 @@ print(beta_message_tokens_count.context_management)
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
       - `"claude-sonnet-5"`
 
@@ -18218,12 +18505,14 @@ print(beta_message_tokens_count.context_management)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+    - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -18239,6 +18528,14 @@ print(beta_message_tokens_count.context_management)
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
       - `"claude-sonnet-5"`
 
@@ -18374,6 +18671,24 @@ print(beta_message_tokens_count.context_management)
 
       - `type: Literal["enabled"]`
 
+      - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+        Controls for block binding: what happens when a thinking block this
+        request sends back fails the conversation check. Every field is optional;
+        an empty object means every default.
+
+        - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+          What happens when a thinking block in `messages` fails the conversation
+          check: it was created in a different conversation, or the messages before
+          it have changed since. `"error"` (the default) fails the request with a
+          400 error. `"drop_block"` removes the failing blocks and the request
+          proceeds; the model no longer sees the dropped reasoning.
+
+          - `"error"`
+
+          - `"drop_block"`
+
       - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
         Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -18391,6 +18706,12 @@ print(beta_message_tokens_count.context_management)
     - `class BetaThinkingConfigAdaptive: …`
 
       - `type: Literal["adaptive"]`
+
+      - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+        Controls for block binding: what happens when a thinking block this
+        request sends back fails the conversation check. Every field is optional;
+        an empty object means every default.
 
       - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -18456,12 +18777,14 @@ print(beta_message_tokens_count.context_management)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+      - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -18477,6 +18800,14 @@ print(beta_message_tokens_count.context_management)
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
         - `"claude-sonnet-5"`
 
@@ -18612,6 +18943,24 @@ print(beta_message_tokens_count.context_management)
 
         - `type: Literal["enabled"]`
 
+        - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+          Controls for block binding: what happens when a thinking block this
+          request sends back fails the conversation check. Every field is optional;
+          an empty object means every default.
+
+          - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+            What happens when a thinking block in `messages` fails the conversation
+            check: it was created in a different conversation, or the messages before
+            it have changed since. `"error"` (the default) fails the request with a
+            400 error. `"drop_block"` removes the failing blocks and the request
+            proceeds; the model no longer sees the dropped reasoning.
+
+            - `"error"`
+
+            - `"drop_block"`
+
         - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
           Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -18629,6 +18978,12 @@ print(beta_message_tokens_count.context_management)
       - `class BetaThinkingConfigAdaptive: …`
 
         - `type: Literal["adaptive"]`
+
+        - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+          Controls for block binding: what happens when a thinking block this
+          request sends back fails the conversation check. Every field is optional;
+          an empty object means every default.
 
         - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -18831,12 +19186,14 @@ print(beta_message_tokens_count.context_management)
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+      - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+        - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -18852,6 +19209,14 @@ print(beta_message_tokens_count.context_management)
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `"claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
 
         - `"claude-sonnet-5"`
 
@@ -20569,12 +20934,14 @@ print(beta_message_tokens_count.context_management)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+          - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+            - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
             - `claude-sonnet-5` - High-performance model for coding and agents
             - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
             - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -20590,6 +20957,14 @@ print(beta_message_tokens_count.context_management)
             - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
             - `claude-sonnet-4-5` - High-performance model for agents and coding
             - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `"claude-mythos-5-1"`
+
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
 
             - `"claude-sonnet-5"`
 
@@ -21334,6 +21709,60 @@ print(beta_message_tokens_count.context_management)
 
       - `"fast"`
 
+  - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+    Changes the API made to the request's input before showing it to the model:
+    one entry per change, in request order. Today the only entry type is
+    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+    block from the request's `messages` that was removed from the prompt instead
+    of being shown to the model because it failed a binding check. More entry
+    types may be added over time; ignore types you do not recognize.
+
+    Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+    every such response from a model that supports extended thinking, as `[]`
+    when nothing was changed; without the beta, blocks are removed all the same
+    but nothing is reported. Removed blocks contribute nothing to
+    `usage.input_tokens`. When streaming, the array is final in `message_start`;
+    the final `message_delta` event carries it only when a server-side model
+    fallback happened mid-stream, in which case it holds the serving model's
+    entries and replaces the one in `message_start`.
+
+    - `path: str`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `"model_binding_mismatch"`
+
+      - `"prefix_binding_mismatch"`
+
+      - `"organization_binding_mismatch"`
+
+      - `"end_user_binding_mismatch"`
+
+    - `type: Literal["thinking_dropped"]`
+
+      Always `thinking_dropped` for this entry type.
+
+      default: thinking_dropped
+
 ### Beta Message Delta Usage
 
 - `class BetaMessageDeltaUsage: …`
@@ -21484,12 +21913,14 @@ print(beta_message_tokens_count.context_management)
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+        - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+          - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -21505,6 +21936,14 @@ print(beta_message_tokens_count.context_management)
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `"claude-sonnet-5"`
 
@@ -21799,12 +22238,14 @@ print(beta_message_tokens_count.context_management)
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+    - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+      - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -21820,6 +22261,14 @@ print(beta_message_tokens_count.context_management)
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `"claude-mythos-5-1"`
+
+        Our most capable model for cybersecurity and biology research, available through trusted access programs
 
       - `"claude-sonnet-5"`
 
@@ -23122,12 +23571,14 @@ print(beta_message_tokens_count.context_management)
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+            - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+              - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+              - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
               - `claude-sonnet-5` - High-performance model for coding and agents
               - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
               - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -23143,6 +23594,14 @@ print(beta_message_tokens_count.context_management)
               - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
               - `claude-sonnet-4-5` - High-performance model for agents and coding
               - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+              - `"claude-fable-5-1"`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `"claude-mythos-5-1"`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `"claude-sonnet-5"`
 
@@ -23223,6 +23682,36 @@ print(beta_message_tokens_count.context_management)
     - `"assistant"`
 
     - `"system"`
+
+  - `clear_at: Optional[Literal["next_user_message", "never"]]`
+
+    How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+    - `"next_user_message"`
+
+    - `"never"`
+
+  - `output_config: Optional[BetaSystemMessageOutputConfig]`
+
+    Per-message output configuration on a role:"system" input message.
+
+    Fields here apply per-turn; `format` remains top-level only. An
+    empty `{}` is accepted on a message that carries content; a message
+    with neither content nor output_config fields is rejected.
+
+    - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+      All possible effort levels.
+
+      - `"low"`
+
+      - `"medium"`
+
+      - `"high"`
+
+      - `"xhigh"`
+
+      - `"max"`
 
 ### Beta Message Tokens Count
 
@@ -24575,12 +25064,14 @@ print(beta_message_tokens_count.context_management)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+          - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+            - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
             - `claude-sonnet-5` - High-performance model for coding and agents
             - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
             - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -24596,6 +25087,14 @@ print(beta_message_tokens_count.context_management)
             - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
             - `claude-sonnet-4-5` - High-performance model for agents and coding
             - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `"claude-mythos-5-1"`
+
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
 
             - `"claude-sonnet-5"`
 
@@ -25088,12 +25587,14 @@ print(beta_message_tokens_count.context_management)
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+          - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+            - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
             - `claude-sonnet-5` - High-performance model for coding and agents
             - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
             - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -25109,6 +25610,14 @@ print(beta_message_tokens_count.context_management)
             - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
             - `claude-sonnet-4-5` - High-performance model for agents and coding
             - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `"claude-mythos-5-1"`
+
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
 
             - `"claude-sonnet-5"`
 
@@ -25356,6 +25865,60 @@ print(beta_message_tokens_count.context_management)
         The number of web search tool requests.
 
         default: 0, minimum: 0
+
+  - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+    Changes the API made to the request's input before showing it to the model:
+    one entry per change, in request order. Today the only entry type is
+    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+    block from the request's `messages` that was removed from the prompt instead
+    of being shown to the model because it failed a binding check. More entry
+    types may be added over time; ignore types you do not recognize.
+
+    Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+    every such response from a model that supports extended thinking, as `[]`
+    when nothing was changed; without the beta, blocks are removed all the same
+    but nothing is reported. Removed blocks contribute nothing to
+    `usage.input_tokens`. When streaming, the array is final in `message_start`;
+    the final `message_delta` event carries it only when a server-side model
+    fallback happened mid-stream, in which case it holds the serving model's
+    entries and replaces the one in `message_start`.
+
+    - `path: str`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `"model_binding_mismatch"`
+
+      - `"prefix_binding_mismatch"`
+
+      - `"organization_binding_mismatch"`
+
+      - `"end_user_binding_mismatch"`
+
+    - `type: Literal["thinking_dropped"]`
+
+      Always `thinking_dropped` for this entry type.
+
+      default: thinking_dropped
 
 ### Beta Raw Message Start Event
 
@@ -26284,12 +26847,14 @@ print(beta_message_tokens_count.context_management)
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+            - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+              - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+              - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
               - `claude-sonnet-5` - High-performance model for coding and agents
               - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
               - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -26305,6 +26870,14 @@ print(beta_message_tokens_count.context_management)
               - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
               - `claude-sonnet-4-5` - High-performance model for agents and coding
               - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+              - `"claude-fable-5-1"`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `"claude-mythos-5-1"`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `"claude-sonnet-5"`
 
@@ -27048,6 +27621,60 @@ print(beta_message_tokens_count.context_management)
         - `"standard"`
 
         - `"fast"`
+
+    - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+      Changes the API made to the request's input before showing it to the model:
+      one entry per change, in request order. Today the only entry type is
+      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+      block from the request's `messages` that was removed from the prompt instead
+      of being shown to the model because it failed a binding check. More entry
+      types may be added over time; ignore types you do not recognize.
+
+      Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+      every such response from a model that supports extended thinking, as `[]`
+      when nothing was changed; without the beta, blocks are removed all the same
+      but nothing is reported. Removed blocks contribute nothing to
+      `usage.input_tokens`. When streaming, the array is final in `message_start`;
+      the final `message_delta` event carries it only when a server-side model
+      fallback happened mid-stream, in which case it holds the serving model's
+      entries and replaces the one in `message_start`.
+
+      - `path: str`
+
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+        - `"model_binding_mismatch"`
+
+        - `"prefix_binding_mismatch"`
+
+        - `"organization_binding_mismatch"`
+
+        - `"end_user_binding_mismatch"`
+
+      - `type: Literal["thinking_dropped"]`
+
+        Always `thinking_dropped` for this entry type.
+
+        default: thinking_dropped
 
   - `type: Literal["message_start"]`
 
@@ -27990,12 +28617,14 @@ print(beta_message_tokens_count.context_management)
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-              - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+              - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
                 - `claude-sonnet-5` - High-performance model for coding and agents
                 - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
                 - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -28011,6 +28640,14 @@ print(beta_message_tokens_count.context_management)
                 - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
                 - `claude-sonnet-4-5` - High-performance model for agents and coding
                 - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+                - `"claude-fable-5-1"`
+
+                  Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-mythos-5-1"`
+
+                  Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                 - `"claude-sonnet-5"`
 
@@ -28755,6 +29392,60 @@ print(beta_message_tokens_count.context_management)
 
           - `"fast"`
 
+      - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+        Changes the API made to the request's input before showing it to the model:
+        one entry per change, in request order. Today the only entry type is
+        `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+        block from the request's `messages` that was removed from the prompt instead
+        of being shown to the model because it failed a binding check. More entry
+        types may be added over time; ignore types you do not recognize.
+
+        Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+        every such response from a model that supports extended thinking, as `[]`
+        when nothing was changed; without the beta, blocks are removed all the same
+        but nothing is reported. Removed blocks contribute nothing to
+        `usage.input_tokens`. When streaming, the array is final in `message_start`;
+        the final `message_delta` event carries it only when a server-side model
+        fallback happened mid-stream, in which case it holds the serving model's
+        entries and replaces the one in `message_start`.
+
+        - `path: str`
+
+          Where the removed block was in your request, as `messages.{i}.content.{j}`:
+          `i` indexes the `messages` array you sent and `j` that message's `content`
+          array — the same form error messages use.
+
+        - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+          Which binding check removed the block: `model_binding_mismatch` — it was
+          created by a model whose reasoning the requested model may not read;
+          `prefix_binding_mismatch` — the conversation before it differs from the
+          conversation it was created in (the rest of that turn's consecutive thinking
+          blocks are removed with it, each with this reason);
+          `organization_binding_mismatch` — it was created under a different
+          organization (an Anthropic organization, AWS account or Google Cloud project)
+          and this organization is not one of its additional organizations;
+          `end_user_binding_mismatch` — it was created for a different end user, or
+          was removed by the consumer-organization binding. A block that would fail
+          several checks reports one reason, in this order of precedence:
+          `organization_binding_mismatch`, `end_user_binding_mismatch`,
+          `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+          - `"model_binding_mismatch"`
+
+          - `"prefix_binding_mismatch"`
+
+          - `"organization_binding_mismatch"`
+
+          - `"end_user_binding_mismatch"`
+
+        - `type: Literal["thinking_dropped"]`
+
+          Always `thinking_dropped` for this entry type.
+
+          default: thinking_dropped
+
     - `type: Literal["message_start"]`
 
       default: message_start
@@ -28845,6 +29536,52 @@ print(beta_message_tokens_count.context_management)
       - `server_tool_use: Optional[BetaServerToolUsage]`
 
         The number of server tool requests.
+
+    - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+      Changes the API made to the request's input before showing it to the model:
+      one entry per change, in request order. Today the only entry type is
+      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+      block from the request's `messages` that was removed from the prompt instead
+      of being shown to the model because it failed a binding check. More entry
+      types may be added over time; ignore types you do not recognize.
+
+      Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+      every such response from a model that supports extended thinking, as `[]`
+      when nothing was changed; without the beta, blocks are removed all the same
+      but nothing is reported. Removed blocks contribute nothing to
+      `usage.input_tokens`. When streaming, the array is final in `message_start`;
+      the final `message_delta` event carries it only when a server-side model
+      fallback happened mid-stream, in which case it holds the serving model's
+      entries and replaces the one in `message_start`.
+
+      - `path: str`
+
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `type: Literal["thinking_dropped"]`
+
+        Always `thinking_dropped` for this entry type.
+
+        default: thinking_dropped
 
   - `class BetaRawMessageStopEvent: …`
 
@@ -30139,6 +30876,30 @@ print(beta_message_tokens_count.context_management)
 
   - `"model_context_window_exceeded"`
 
+### Beta System Message Output Config
+
+- `class BetaSystemMessageOutputConfig: …`
+
+  Per-message output configuration on a role:"system" input message.
+
+  Fields here apply per-turn; `format` remains top-level only. An
+  empty `{}` is accepted on a message that carries content; a message
+  with neither content nor output_config fields is rejected.
+
+  - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+    All possible effort levels.
+
+    - `"low"`
+
+    - `"medium"`
+
+    - `"high"`
+
+    - `"xhigh"`
+
+    - `"max"`
+
 ### Beta Text Block
 
 - `class BetaTextBlock: …`
@@ -31035,6 +31796,26 @@ print(beta_message_tokens_count.context_management)
 
     default: thinking
 
+### Beta Thinking Block Binding
+
+- `class BetaThinkingBlockBinding: …`
+
+  Controls for block binding: what happens when a thinking block this
+  request sends back fails the conversation check. Every field is optional;
+  an empty object means every default.
+
+  - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+    What happens when a thinking block in `messages` fails the conversation
+    check: it was created in a different conversation, or the messages before
+    it have changed since. `"error"` (the default) fails the request with a
+    400 error. `"drop_block"` removes the failing blocks and the request
+    proceeds; the model no longer sees the dropped reasoning.
+
+    - `"error"`
+
+    - `"drop_block"`
+
 ### Beta Thinking Block Param
 
 - `class BetaThinkingBlockParam: …`
@@ -31056,6 +31837,24 @@ print(beta_message_tokens_count.context_management)
 - `class BetaThinkingConfigAdaptive: …`
 
   - `type: Literal["adaptive"]`
+
+  - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+    Controls for block binding: what happens when a thinking block this
+    request sends back fails the conversation check. Every field is optional;
+    an empty object means every default.
+
+    - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+      What happens when a thinking block in `messages` fails the conversation
+      check: it was created in a different conversation, or the messages before
+      it have changed since. `"error"` (the default) fails the request with a
+      400 error. `"drop_block"` removes the failing blocks and the request
+      proceeds; the model no longer sees the dropped reasoning.
+
+      - `"error"`
+
+      - `"drop_block"`
 
   - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -31088,6 +31887,24 @@ print(beta_message_tokens_count.context_management)
     minimum: 1024
 
   - `type: Literal["enabled"]`
+
+  - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+    Controls for block binding: what happens when a thinking block this
+    request sends back fails the conversation check. Every field is optional;
+    an empty object means every default.
+
+    - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+      What happens when a thinking block in `messages` fails the conversation
+      check: it was created in a different conversation, or the messages before
+      it have changed since. `"error"` (the default) fails the request with a
+      400 error. `"drop_block"` removes the failing blocks and the request
+      proceeds; the model no longer sees the dropped reasoning.
+
+      - `"error"`
+
+      - `"drop_block"`
 
   - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -31123,6 +31940,24 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["enabled"]`
 
+    - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
+
+      - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+        What happens when a thinking block in `messages` fails the conversation
+        check: it was created in a different conversation, or the messages before
+        it have changed since. `"error"` (the default) fails the request with a
+        400 error. `"drop_block"` removes the failing blocks and the request
+        proceeds; the model no longer sees the dropped reasoning.
+
+        - `"error"`
+
+        - `"drop_block"`
+
     - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -31140,6 +31975,12 @@ print(beta_message_tokens_count.context_management)
   - `class BetaThinkingConfigAdaptive: …`
 
     - `type: Literal["adaptive"]`
+
+    - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
 
     - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -31166,6 +32007,60 @@ print(beta_message_tokens_count.context_management)
   - `type: Literal["thinking_delta"]`
 
     default: thinking_delta
+
+### Beta Thinking Dropped Input Transformation
+
+- `class BetaThinkingDroppedInputTransformation: …`
+
+  - `path: str`
+
+    Where the removed block was in your request, as `messages.{i}.content.{j}`:
+    `i` indexes the `messages` array you sent and `j` that message's `content`
+    array — the same form error messages use.
+
+  - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+    Which binding check removed the block: `model_binding_mismatch` — it was
+    created by a model whose reasoning the requested model may not read;
+    `prefix_binding_mismatch` — the conversation before it differs from the
+    conversation it was created in (the rest of that turn's consecutive thinking
+    blocks are removed with it, each with this reason);
+    `organization_binding_mismatch` — it was created under a different
+    organization (an Anthropic organization, AWS account or Google Cloud project)
+    and this organization is not one of its additional organizations;
+    `end_user_binding_mismatch` — it was created for a different end user, or
+    was removed by the consumer-organization binding. A block that would fail
+    several checks reports one reason, in this order of precedence:
+    `organization_binding_mismatch`, `end_user_binding_mismatch`,
+    `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+    - `"model_binding_mismatch"`
+
+    - `"prefix_binding_mismatch"`
+
+    - `"organization_binding_mismatch"`
+
+    - `"end_user_binding_mismatch"`
+
+  - `type: Literal["thinking_dropped"]`
+
+    Always `thinking_dropped` for this entry type.
+
+    default: thinking_dropped
+
+### Beta Thinking Prefix Mismatch Behavior
+
+- `Literal["error", "drop_block"]`
+
+  What happens when a thinking block in `messages` fails the conversation
+  check: it was created in a different conversation, or the messages before
+  it have changed since. `"error"` (the default) fails the request with a
+  400 error. `"drop_block"` removes the failing blocks and the request
+  proceeds; the model no longer sees the dropped reasoning.
+
+  - `"error"`
+
+  - `"drop_block"`
 
 ### Beta Thinking Turns
 
@@ -33092,16 +33987,6 @@ print(beta_message_tokens_count.context_management)
 
     - `type: Literal["browser_toolset_20260801"]`
 
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
       Create a cache control breakpoint at this content block.
@@ -33234,1337 +34119,3 @@ print(beta_message_tokens_count.context_management)
         - `enabled: Optional[bool]`
 
           Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_click: Optional[BetaBrowserLeftClickConfig]`
-
-        `left_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_click_drag: Optional[BetaBrowserLeftClickDragConfig]`
-
-        `left_click_drag`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_mouse_down: Optional[BetaBrowserLeftMouseDownConfig]`
-
-        `left_mouse_down`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_mouse_up: Optional[BetaBrowserLeftMouseUpConfig]`
-
-        `left_mouse_up`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `list_tabs: Optional[BetaBrowserListTabsConfig]`
-
-        `list_tabs`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `middle_click: Optional[BetaBrowserMiddleClickConfig]`
-
-        `middle_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `mouse_move: Optional[BetaBrowserMouseMoveConfig]`
-
-        `mouse_move`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `navigate: Optional[BetaBrowserNavigateConfig]`
-
-        `navigate`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `new_tab: Optional[BetaBrowserNewTabConfig]`
-
-        `new_tab`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `read_console: Optional[BetaBrowserReadConsoleConfig]`
-
-        `read_console`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `read_network: Optional[BetaBrowserReadNetworkConfig]`
-
-        `read_network`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `read_page: Optional[BetaBrowserReadPageConfig]`
-
-        `read_page`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `right_click: Optional[BetaBrowserRightClickConfig]`
-
-        `right_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `screenshot: Optional[BetaBrowserScreenshotConfig]`
-
-        `screenshot`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `scroll: Optional[BetaBrowserScrollConfig]`
-
-        `scroll`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `scroll_to: Optional[BetaBrowserScrollToConfig]`
-
-        `scroll_to`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `switch_tab: Optional[BetaBrowserSwitchTabConfig]`
-
-        `switch_tab`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `triple_click: Optional[BetaBrowserTripleClickConfig]`
-
-        `triple_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `type: Optional[BetaBrowserTypeConfig]`
-
-        `type`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `wait: Optional[BetaBrowserWaitConfig]`
-
-        `wait`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `zoom: Optional[BetaBrowserZoomConfig]`
-
-        `zoom`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-  - `class BetaToolComputerUse20241022: …`
-
-    - `display_height_px: int`
-
-      The height of the display in pixels.
-
-      minimum: 1
-
-    - `display_width_px: int`
-
-      The width of the display in pixels.
-
-      minimum: 1
-
-    - `name: Literal["computer"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["computer_20241022"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `display_number: Optional[int]`
-
-      The X11 display number (e.g. 0, 1) for the display.
-
-      minimum: 0
-
-    - `input_examples: Optional[List[Dict[str, object]]]`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaMemoryTool20250818: …`
-
-    - `name: Literal["memory"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["memory_20250818"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: Optional[List[Dict[str, object]]]`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaToolComputerUse20250124: …`
-
-    - `display_height_px: int`
-
-      The height of the display in pixels.
-
-      minimum: 1
-
-    - `display_width_px: int`
-
-      The width of the display in pixels.
-
-      minimum: 1
-
-    - `name: Literal["computer"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["computer_20250124"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `display_number: Optional[int]`
-
-      The X11 display number (e.g. 0, 1) for the display.
-
-      minimum: 0
-
-    - `input_examples: Optional[List[Dict[str, object]]]`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaToolTextEditor20241022: …`
-
-    - `name: Literal["str_replace_editor"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["text_editor_20241022"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: Optional[List[Dict[str, object]]]`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaToolComputerUse20251124: …`
-
-    - `display_height_px: int`
-
-      The height of the display in pixels.
-
-      minimum: 1
-
-    - `display_width_px: int`
-
-      The width of the display in pixels.
-
-      minimum: 1
-
-    - `name: Literal["computer"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["computer_20251124"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `display_number: Optional[int]`
-
-      The X11 display number (e.g. 0, 1) for the display.
-
-      minimum: 0
-
-    - `enable_zoom: Optional[bool]`
-
-      Whether to enable an action to take a zoomed-in screenshot of the screen.
-
-    - `input_examples: Optional[List[Dict[str, object]]]`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaComputerToolset20260801: …`
-
-    The computer toolset: a single `tools[]` entry (carrying no
-    `name`) that declares the computer tool family. The model is
-    served the family's tool with any members disabled via `configs`
-    removed from its schema. Every member is enabled by default, zoom
-    included. The single-tool options `display_number` and
-    `enable_zoom` are not fields of a toolset entry — it carries only
-    `type`, `configs`, and `cache_control`; zoom is controlled
-    via `configs.zoom.enabled`.
-
-    - `type: Literal["computer_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `configs: Optional[BetaComputerToolsetConfigs]`
-
-      Per-member configuration for `computer_toolset_20260801`: one
-      optional field per member tool, keyed by the member name — the same
-      name the member's `tool_use` blocks carry. Every member is an
-      accepted key, and a member's defaults apply wherever its key is
-      absent. Unknown keys are rejected: the field set is this toolset
-      version's complete member set.
-
-      - `cursor_position: Optional[BetaComputerCursorPositionConfig]`
-
-        `cursor_position`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `double_click: Optional[BetaComputerDoubleClickConfig]`
-
-        `double_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `hold_key: Optional[BetaComputerHoldKeyConfig]`
-
-        `hold_key`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `key: Optional[BetaComputerKeyConfig]`
-
-        `key`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_click: Optional[BetaComputerLeftClickConfig]`
-
-        `left_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_click_drag: Optional[BetaComputerLeftClickDragConfig]`
-
-        `left_click_drag`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_mouse_down: Optional[BetaComputerLeftMouseDownConfig]`
-
-        `left_mouse_down`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `left_mouse_up: Optional[BetaComputerLeftMouseUpConfig]`
-
-        `left_mouse_up`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `middle_click: Optional[BetaComputerMiddleClickConfig]`
-
-        `middle_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `mouse_move: Optional[BetaComputerMouseMoveConfig]`
-
-        `mouse_move`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `right_click: Optional[BetaComputerRightClickConfig]`
-
-        `right_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `screenshot: Optional[BetaComputerScreenshotConfig]`
-
-        `screenshot`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `scroll: Optional[BetaComputerScrollConfig]`
-
-        `scroll`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `triple_click: Optional[BetaComputerTripleClickConfig]`
-
-        `triple_click`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `type: Optional[BetaComputerTypeConfig]`
-
-        `type`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `wait: Optional[BetaComputerWaitConfig]`
-
-        `wait`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-      - `zoom: Optional[BetaComputerZoomConfig]`
-
-        `zoom`'s config overrides.
-
-        - `defer_loading: Optional[bool]`
-
-          Defer loading for this member. Must resolve to the same value on every enabled member of the toolset.
-
-        - `enabled: Optional[bool]`
-
-          Whether this member is offered to the model. Default is per member, per the toolset's documentation. A member whose enabled resolves false is withheld from the served schema.
-
-  - `class BetaToolTextEditor20250124: …`
-
-    - `name: Literal["str_replace_editor"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["text_editor_20250124"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: Optional[List[Dict[str, object]]]`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaToolTextEditor20250429: …`
-
-    - `name: Literal["str_replace_based_edit_tool"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["text_editor_20250429"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: Optional[List[Dict[str, object]]]`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaToolTextEditor20250728: …`
-
-    - `name: Literal["str_replace_based_edit_tool"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["text_editor_20250728"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `input_examples: Optional[List[Dict[str, object]]]`
-
-    - `max_characters: Optional[int]`
-
-      Maximum number of characters to display when viewing a file. If not specified, defaults to displaying the full file.
-
-      minimum: 1
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaWebSearchTool20250305: …`
-
-    - `name: Literal["web_search"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["web_search_20250305"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: Optional[List[str]]`
-
-      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-    - `blocked_domains: Optional[List[str]]`
-
-      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_uses: Optional[int]`
-
-      Maximum number of times the tool can be used in the API request.
-
-      exclusiveMinimum: 0
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `user_location: Optional[BetaUserLocation]`
-
-      Parameters for the user's location. Used to provide more relevant search results.
-
-      - `type: Literal["approximate"]`
-
-      - `city: Optional[str]`
-
-        The city of the user.
-
-        maxLength: 255, minLength: 1
-
-      - `country: Optional[str]`
-
-        The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-        maxLength: 2, minLength: 2
-
-      - `region: Optional[str]`
-
-        The region of the user.
-
-        maxLength: 255, minLength: 1
-
-      - `timezone: Optional[str]`
-
-        The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
-        maxLength: 255, minLength: 1
-
-  - `class BetaWebFetchTool20250910: …`
-
-    - `name: Literal["web_fetch"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["web_fetch_20250910"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: Optional[List[str]]`
-
-      List of domains to allow fetching from
-
-    - `blocked_domains: Optional[List[str]]`
-
-      List of domains to block fetching from
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `citations: Optional[BetaCitationsConfigParam]`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-      - `enabled: Optional[bool]`
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_content_tokens: Optional[int]`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      exclusiveMinimum: 0
-
-    - `max_uses: Optional[int]`
-
-      Maximum number of times the tool can be used in the API request.
-
-      exclusiveMinimum: 0
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaWebSearchTool20260209: …`
-
-    - `name: Literal["web_search"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["web_search_20260209"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: Optional[List[str]]`
-
-      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-    - `blocked_domains: Optional[List[str]]`
-
-      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_uses: Optional[int]`
-
-      Maximum number of times the tool can be used in the API request.
-
-      exclusiveMinimum: 0
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `user_location: Optional[BetaUserLocation]`
-
-      Parameters for the user's location. Used to provide more relevant search results.
-
-  - `class BetaWebFetchTool20260209: …`
-
-    - `name: Literal["web_fetch"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["web_fetch_20260209"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: Optional[List[str]]`
-
-      List of domains to allow fetching from
-
-    - `blocked_domains: Optional[List[str]]`
-
-      List of domains to block fetching from
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `citations: Optional[BetaCitationsConfigParam]`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_content_tokens: Optional[int]`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      exclusiveMinimum: 0
-
-    - `max_uses: Optional[int]`
-
-      Maximum number of times the tool can be used in the API request.
-
-      exclusiveMinimum: 0
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-  - `class BetaWebFetchTool20260309: …`
-
-    Web fetch tool with use_cache parameter for bypassing cached content.
-
-    - `name: Literal["web_fetch"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["web_fetch_20260309"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: Optional[List[str]]`
-
-      List of domains to allow fetching from
-
-    - `blocked_domains: Optional[List[str]]`
-
-      List of domains to block fetching from
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `citations: Optional[BetaCitationsConfigParam]`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_content_tokens: Optional[int]`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      exclusiveMinimum: 0
-
-    - `max_uses: Optional[int]`
-
-      Maximum number of times the tool can be used in the API request.
-
-      exclusiveMinimum: 0
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `use_cache: Optional[bool]`
-
-      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-  - `class BetaWebSearchTool20260318: …`
-
-    - `name: Literal["web_search"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["web_search_20260318"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: Optional[List[str]]`
-
-      If provided, only these domains will be included in results. Cannot be used alongside `blocked_domains`.
-
-    - `blocked_domains: Optional[List[str]]`
-
-      If provided, these domains will never appear in results. Cannot be used alongside `allowed_domains`.
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_uses: Optional[int]`
-
-      Maximum number of times the tool can be used in the API request.
-
-      exclusiveMinimum: 0
-
-    - `response_inclusion: Optional[Literal["full", "excluded"]]`
-
-      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-      - `"full"`
-
-      - `"excluded"`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `user_location: Optional[BetaUserLocation]`
-
-      Parameters for the user's location. Used to provide more relevant search results.
-
-  - `class BetaWebFetchTool20260318: …`
-
-    - `name: Literal["web_fetch"]`
-
-      Name of the tool.
-
-      This is how the tool will be called by the model and in `tool_use` blocks.
-
-    - `type: Literal["web_fetch_20260318"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
-
-    - `allowed_domains: Optional[List[str]]`
-
-      List of domains to allow fetching from
-
-    - `blocked_domains: Optional[List[str]]`
-
-      List of domains to block fetching from
-
-    - `cache_control: Optional[BetaCacheControlEphemeral]`
-
-      Create a cache control breakpoint at this content block.
-
-    - `citations: Optional[BetaCitationsConfigParam]`
-
-      Citations configuration for fetched documents. Citations are disabled by default.
-
-    - `defer_loading: Optional[bool]`
-
-      If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
-
-    - `max_content_tokens: Optional[int]`
-
-      Maximum number of tokens used by including web page text content in the context. The limit is approximate and does not apply to binary content such as PDFs.
-
-      exclusiveMinimum: 0
-
-    - `max_uses: Optional[int]`
-
-      Maximum number of times the tool can be used in the API request.
-
-      exclusiveMinimum: 0
-
-    - `response_inclusion: Optional[Literal["full", "excluded"]]`
-
-      How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
-
-      - `"full"`
-
-      - `"excluded"`
-
-    - `strict: Optional[bool]`
-
-      When true, guarantees schema validation on tool names and inputs
-
-    - `use_cache: Optional[bool]`
-
-      Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
-
-  - `class BetaAdvisorTool20260301: …`
-
-    - `model: Model`
-
-      The model that will complete your prompt.
-
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
-
-        The model that will complete your prompt.
-
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `claude-sonnet-5` - High-performance model for coding and agents
-        - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-        - `claude-mythos-5` - Most capable model for cybersecurity and biology research
-        - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-        - `claude-mythos-preview` - Deprecated: Will reach end-of-life on June 30, 2026. Please migrate to claude-mythos-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
-        - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-6` - Best combination of speed and intelligence
-        - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-        - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-        - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-        - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-        - `claude-sonnet-4-5` - High-performance model for agents and coding
-        - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
-
-        - `"claude-sonnet-5"`
-
-          High-performance model for coding and agents
-
-        - `"claude-fable-5"`
-
-          Next generation of intelligence for the hardest knowledge work and coding problems
-
-        - `"claude-mythos-5"`
-
-          Most capable model for cybersecurity and biology research
-
-        - `"claude-opus-5"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `"claude-opus-4-8"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `"claude-opus-4-7"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `"claude-mythos-preview"`
-
-          New class of intelligence, strongest in coding and cybersecurity
-
-        - `"claude-opus-4-6"`
-
-          Powerful intelligence for long-running agents and coding
-
-        - `"claude-sonnet-4-6"`
-
-          Best combination of speed and intelligence
-
-        - `"claude-haiku-4-5"`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-haiku-4-5-20251001"`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-opus-4-5"`
-
-          Powerful intelligence for long-running agents and coding

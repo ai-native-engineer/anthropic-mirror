@@ -12,89 +12,137 @@ See developer docs
 
 [See developer docs](https://platform.claude.com/docs)See developer docs
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bce42081e89a8bec1f_logo_cursor-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bafffa19b5e3366ebc_logo_cursor-dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3465ab2398c17d0176_logo_spacex-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3841222d7122838bde_logo_spacex-dark.svg)
 
-"Claude Fable 5 is the state of the art model on CursorBench. It's opened up a class of long-horizon problems that were out of reach for earlier models."
+“Claude Fable 5.1 is the most capable model we've run on CursorBench 3.2, scoring 73.4% at max effort. We found it especially skilled at verifying its own work, allowing it to take on difficult coding tasks from start to finish.”
 
-Michael Truell, CEO and Co-founder
+Sualeh Asif, Director of ML
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
 
-"Claude Fable 5 is the highest-scoring model on FrontierBench, Cognition's frontier coding eval. It excels at long-horizon reasoning and generalizes to unfamiliar tools out of the box."
+“We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
 
-Scott Wu, CEO
+Walden Yan, Co-Founder and CPO
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8c287936531790c85c4_box_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8bdc1ea299a1a768655_box_dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59ea3_6a2ecc7a1372de816bc282aa_RedHat_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd40339475e271c59e88_6a2ecc7a028e2d7625286222_RedHat_dark.svg)
 
-“Claude Opus 5 delivers the industry intelligence and accuracy that is essential for the analysis of specialized enterprise content. Box found that Opus 5 outperforms Opus 4.8 by 8% and delivers notable performance gains in the data analysis (11% improvement) and due diligence (17% improvement) workflows that technology, healthcare, and public sector organizations rely on daily.”
+“As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.”
 
-Ben Kus, CTO
+Josh Boyer, Distinguished Engineer
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa863c8a450480170023_Factory_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aa8cfc7e786bb0781067_Factory_dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96f6bed278f6dc72354ded_logo_jane-street-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96f6c27fd4047711cdc188_logo_jane-street-dark.svg)
 
-“Claude Opus 5’s judgment is what stands out. Handing off a PR, it doesn’t rush to publish: it verifies the branches, checks the template, and thinks through test implications so the handoff is clean. The older models tended to jump ahead and get caught on our checks.”
+“In internal benchmarks, Claude Fable 5.1 solves more of our coding problems than Fable 5 or Opus 5, and achieves state of the art on trading intuition. While prior models became hard to follow the longer they worked, Fable 5.1 remains readable over long, multi-step tasks.”
 
-Zimu Li, Member of Technical Staff
+Craig Falls, Head of Quantitative Research
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa0bf394e27bc7f62380_logo_samaya-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa11765e512f5ac1ed9a_logo_samaya-dark.svg)
 
-"On ViBench, our end-to-end vibe-coding benchmark, Claude Fable 5 is the highest-performing model we've tested — nearly saturating our base use cases and building apps in less time with fewer tokens."
+“We evaluate models and systems on real-world investor workflows. On FrontierFinance, our latest finance benchmark, Claude Fable 5.1 shows a clear gain over Fable 5, with a 55.9% rubric score compared to 49.2%. The gain comes from its ability to dig harder into grounded, authoritative sources: on one earnings question, it went straight to the call transcript and captured the exact figures management cited, where other models leaned on secondary coverage.”
 
-Michele Catasta, President & Head of AI
+Yuhao Zhang, Research Lead
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aedd1d4ccaa7aaecee72_zapier_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aed89af0a9a659d820f0_zapier_dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a276efd30d797636373e936_logo_crosby-legal-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a276f22ffe36ff8dedff1ca_logo_crosby-legal-dark.svg)
 
-“Claude Opus 5 topped Zapier’s AutomationBench leaderboard without spending more tokens than prior Claude models. It took a raw account-health workbook and ran a full churn-prevention sequence end to end: flagging at-risk accounts, alerting the right owner, and summarizing for retention ops. Previous models didn’t pass; Opus 5 hit 100%.”
+“Compared to Fable 5, Claude Fable 5.1 was a massive improvement on RedlineBench, our contract redlining benchmark, improving from 47.9 to 57.0. Most of the gain came on first-turn quality, where it doubled the previous score, with substantial gains on counterparty acceptance as well. Its edits were also more concise, with smaller changes on average to the documents.”
 
-Wade Foster, CEO
+Raymond Lin, Member of Technical Staff
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a185746b1e4c275dd8cd47b_logo_genspark_sidebar_dark.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1857471fdaacf23f5598bc_logo_genspark_sidebar_light.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9368f2bd228e7080695d_logo_shopify-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da936caa7913237c0589f4_logo_shopify-dark.svg)
 
-"Claude Fable 5 came out #1 on our evals, winning head-to-head against every model we tested. It was significantly stronger on the hardest tasks in the set — UI design and game coding."
+“Claude Fable 5.1 is more comfortable with long, unattended work than Fable 5. I've had workflows run for a long stretch without losing the plot: it keeps its own records, reprioritizes as things change, and picks up where it left off.”
 
-Kay Zhu, Co-founder & CTO
+Ben Lafferty, Senior Staff Engineer
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c024045f129ad1fd87a3d7_Group.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c0240a3029ad76b17b6e21_Clip%20path%20group.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a277c3714419cc7f58a9342_logo_rogo-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a277c483b67dd0f46bcdb09_logo_rogo-dark.svg)
 
-“Claude Opus 5 is a clear step up in performance on legal agent work compared to prior Opus models, and we saw the biggest gains in practice areas like corporate governance and arbitration. We were also impressed with Opus 5’s ability to maintain quality at lower reasoning levels, achieving similar performance while generating 26% fewer tokens on average compared to Opus 4.8 at max reasoning.”
+“On our internal Finance benchmark, Claude Fable 5.1 matches Fable 5 on accuracy while using 20% fewer tokens. We also saw big gains in slide generation, with Fable 5.1 showing improvements in explaining complex data in simpler English and translating it into more banker-grade visuals.”
 
-Niko Grupen, Head of Applied Research
+Alex Wang, Applied AI
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae12c8fde8379f187f2b_Stubhub_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae0ce20f30193a817bb3_Stubhub_dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a17890e390d07357c12beba_logo_browserbase-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a17891ccfcb6c4d6dcb3ce0_logo_browserbase-dark.svg)
 
-“The decision to choose Claude was entirely data-driven. We tested multiple model providers side by side, and Claude consistently delivered the best results for case resolution rates and customer satisfaction scores.”
+“On our hardest browser-agent benchmark, Claude Fable 5.1 completed 82% of tasks in about ten minutes each, against 74% for Opus 5 and 57% for Fable 5, while using fewer tokens than either. It feels stronger than Fable 5 in every dimension we test. It also did exactly the right amount of work: never crossed a critical stop point across hundreds of measured tasks.”
 
-Read story
+Miguel Gonzalez, Technical Lead
 
-[Read story](https://claude.com/customers/stubhub)Read story
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4898064ee45d6186056ab_Frame.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c4897e0ac296b8c65e5713_Frame-1.svg)
 
-Timothy Addison, Engineering Org Chief of Staff
+“Claude Fable 5.1 is a leading model for our incident investigation evals, which use real production incidents to assess how effectively our agent, Bits Investigation, can produce root cause analyses. We evaluate our agent's output against root causes identified by our engineers. In these evaluations, it has demonstrated stronger reasoning than Opus 5 and has successfully diagnosed the most complex production incidents we've tested.”
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68ba1577e91d8296653388ca_Group%202055245285.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a186e574d077d020536326e_thomson_reuters_logo_white.svg)
+Daniel Shan, Staff Engineer
 
-“The partnership with Anthropic has been exceptional—their guidance and support have helped our engineering teams maximize the models.”
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9cbcc543d1002a3d3de9_logo_igentai-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9cc83d1d0e7f5216bb24_logo_igentai-dark.svg)
 
-Read story
+“On the hardest problems we work on, Claude Fable 5.1 separates strongly from any other model we've tried. On a grand challenge-tier problem we've used as a testbed for 18 months, it actually produced material progress. Rather than being trapped in stamp collecting, it made clear white-space connections I have yet to see elsewhere. It also optimized a compute kernel that Fable 5 had tapped out on by about 35%.”
 
-[Read story](https://claude.com/customers/thomson-reuters)Read story
+Sean Ward, Co-founder and CEO
 
-Joel Hron, CTO
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eb7889a5de1e97d78de39b_Frame.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69eb7889a5de1e97d78de39b_Frame.svg)
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e00d3d23a6405ccacc5a9b_logo_balyasny-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e00d5ab84a10161c27ce2e_logo_balyasny-dark.svg)
+“Across our evaluation sets, our judges preferred Claude Fable 5.1's answers roughly two to one over Fable 5 on everyday knowledge questions, high-intent research, and drafting and artifact work, all with improved response grounding over Fable. These results have made Fable 5.1 our go-to recommendation wherever Fable 5 was previously the choice.”
 
-"Claude Fable 5 is the strongest finance-first model we've tested, both on general finance and reasoning. It's a notable step up."
+Nilesh Dalvi, Engineering Lead
 
-Damian Miraglia, Principal Engineer, Applied AI
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad18cefcc0f38fff4e04_Plaid_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad129d3cb836048d2f6b_Plaid_dark.svg)
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab502bc6f647706fcb9f_Intercom_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ab481a800b9e0c386290_Intercom_dark.svg)
+“We had a change that touched more than eight services across three codebases. Claude Fable 5.1 mapped the whole workflow end to end, in extremely fine detail, from the incoming service call down to the individual function and the database tables and rows, and it was accurate all the way down. We appreciated the opportunity to test the model and provide feedback, helping us prepare for a new frontier where we can increasingly rely on these tools to take on bolder initiatives.”
 
-“With Claude, we’re not just automating customer service—we’re elevating it to truly human quality. This lets support teams think more strategically about customer experience and what makes interactions genuinely valuable.”
+Aditya Gupta, Staff Software Engineer
 
-Read story
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f3a87453ecfe9d53a39_Hebbia-light-theme.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f3d5a2f38a808068b47_Hebbia-dark-theme.svg)
 
-[Read story](https://www.claude.com/customers/intercom)Read story
+“On our PowerPoint eval, Claude Fable 5.1 produced the best decks of any model we've tested, both in slide craft and in fully answering our research topic. That same completeness showed up in our Citations eval, where it had the best fact recall over financial documents. And on complex, multi-part questions, it's the first model we've seen answer every part.”
 
-Fergal Reid, VP of AI
+Aabhas Sharma, CTO
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a94f6f82b1f84f489887_Canva_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a94baddb6685c1e5410d_Canva_dark.svg)
+
+“The standout in Claude Fable 5.1 is the writing: more understandable, more meaningful, and it follows our writing guidance better. In blind tests against Fable 5, I preferred its writing and output. And in Canva Code it built a rhythm game with real music and on-beat gameplay matched to the level it generated, something no other model we tested delivered.”
+
+Danny Wu, Head of AI
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad6788c7a1b711a85623_Ramp_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad62e2f100f80635f7a7_Ramp_dark.svg)
+
+“For anything research, greenfield or long-horizon, I would absolutely use Claude Fable 5.1 as the orchestrator. One unattended 38-hour run on a machine learning problem diagnosed a prior result as a label artifact, made the correction, kicked off six parallel experiments that ran overnight, and returned with a result and next steps. Given an open-ended prompt to find the highest-leverage problem nobody owned, it surfaced an unowned alert tied to a production outage, pulled the logs and prescribed the fix.”
+
+Dwight Temple, Sr. Machine Learning Engineer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8f5833964b86f792d52_block_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a8f18c96a87aa8c7e1ac_block_dark.svg)
+
+“Claude Fable 5.1 is very smart. On our 30-day simulated run-a-business eval, where the model gets full access to simulated Square tools, customers, employees and vendors, it was far more efficient per token than Opus 5. We plan to use it to work through our most complex scenarios, the kind that used to take days of whiteboarding, so our engineering teams can keep moving fast.”
+
+Willem Avé, Global Head of Product
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5faa6352b26bf7542cb9b_logo_rakuten-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5fab610bf0d091b541153_logo_rakuten-dark.svg)
+
+“We asked Claude Fable 5.1 to review a clinical research project for Rakuten Medical that three other frontier models had signed off on. It found a gap none of them had seen and insisted on testing it further. It then proposed a completely new hypothesis, turning a dataset we had written off into a new research direction in one afternoon. It's the first time a frontier model like Claude has empowered us to explore new research in this way.”
+
+Felix Giovanni Virgo, Principal AI Engineer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a277ae1d93e492e2712d6ea_logo_imc-market-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a277af2569e1d04fc9a4149_logo_imc-market-Dark.svg)
+
+“On our research suite, Claude Fable 5.1 set new best scores. On one task it came up with a novel solution along a completely different axis than we'd seen from other models or from human researchers in the past, which took its results well above the previous plateau. It's better at creative problem solving and getting that flash of insight you need to solve a difficult problem.”
+
+Marquis Wong, Principal AI Engineer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96f7648ffdf9cb45d5bff0_logo_every-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96f76b9088f84fc6df1a52_logo_every-dark.svg)
+
+“It's friendly Fable. Fable-level intelligence, Opus-level price, Sonnet-speed. In our tests it was about twice as fast as Opus 5 and used half as many tokens, so for anyone used to using Opus as their daily driver it's an obvious upgrade.”
+
+Dan Shipper, CEO
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c489b8966cebb45401e741_Frame.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c489b6439ef9129f4ecb8f_Frame-1.svg)
+
+“Claude Fable 5.1 built a complex prototype in about three days. It did initial research across all of our services code and documentation to produce a novel and extensible design. It then ran for hours unattended, with strong verification loops, to implement the entire prototype. I would wake up in the morning to the next phase finished, with a full visual walkthrough of what it built and clear evidence of its success.”
+
+Ron Sanzone, Staff Software Engineer
+
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96f6793ccb0a3f01c5f944_logo_millenium-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96f67f341fccd5fb1ec019_logo_millenium-dark.svg)
+
+“A particular piece of code had an extremely rare crash, about one in a million runs, that nobody on our team had explained in four to five years. Every model I tried, including Fable 5, missed it. Claude Fable 5.1 was the first to find it. It disassembled an external vendor library, matched it against the core dump, and traced the crash to a bug in that library. The time it would have taken to conduct that analysis is hard to justify.”
+
+Damien, Senior Portfolio Manager
 
 [Prev](#)Prev
 
@@ -151,7 +199,7 @@ Save 50% with batch processing.
 
 Batch processing
 
-### Fable 5
+### Fable 5.1
 
 Next generation intelligence for long-running agents
 
@@ -165,13 +213,13 @@ $50 / MTok
 
 Prompt caching
 
+Read
+
+$0.25 / MTok
+
 Write
 
 $12.50 / MTok
-
-Read
-
-$1.00 / MTok
 
 ### Opus 5
 
@@ -187,13 +235,13 @@ $25 / MTok
 
 Prompt caching
 
-Write
-
-$6.25 / MTok
-
 Read
 
 $0.50 / MTok
+
+Write
+
+$6.25 / MTok
 
 ### Sonnet 5
 
@@ -209,13 +257,13 @@ $10 / MTok
 
 Prompt caching
 
-Write
-
-$2.50 / MTok
-
 Read
 
 $0.20 / MTok
+
+Write
+
+$2.50 / MTok
 
 ### Haiku 4.5
 
@@ -231,13 +279,13 @@ $5 / MTok
 
 Prompt caching
 
-Write
-
-$1.25 / MTok
-
 Read
 
 $0.10 / MTok
+
+Write
+
+$1.25 / MTok
 
 **For workloads that need to run in the US, US-only inference is available at 1.1x pricing for input and output tokens.** [**Learn more**](https://platform.claude.com/docs/en/build-with-claude/data-residency)**.**
 

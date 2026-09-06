@@ -26,7 +26,7 @@ India ranks second among all countries by share of total Claude.ai use, trailing
 
 Use is concentrated in a small number of highly economically active states. Maharashtra, Tamil Nadu, Karnataka, and Delhi together account for over half of India’s total Claude.ai use. This pattern closely mirrors India’s IT sector geography and urban economic output.
 
-![](https://www-cdn.anthropic.com/images/4zrzovbb/website/7f4c4e52c56518a6f8b0a22dccfc321b726f4590-2370x2301.png)
+![](https://www-cdn.anthropic.com/images/4zrzovbb/website/df4ed71d5837fa58b8978750ded39b1256de29a3-1600x1617.png)
 
 **Figure 2.** Share of India's Claude.ai use by state. Map shows each state’s share of India’s total Claude.ai use. Top states: Maharashtra (15.5%), Tamil Nadu (13.2%), Karnataka (12.7%), Delhi (10.5%). Gray regions indicate insufficient data. November 2025 data. Shapefile for the map from Natural Earth.
 
@@ -102,6 +102,12 @@ Copy
 
 Sally Aldous, Jake Eaton, Ria Strasser Galvis, Hanah Ho, Maxim Massenkoff, Peter McCrory, Jared Mueller, Emily Pastewka, Sarah Pollack, Nitarshan Rajkumar, David Saunders, Alexandra Sanderford, Kim Withee.
 
+### Formalizing Fermat's Last Theorem
+
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+
+[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+
 ### Automated researchers can reliably mitigate alignment failures
 
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
@@ -113,9 +119,3 @@ We had Claude autonomously train models to improve their performance on several 
 Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
 
 [Read more](https://www.anthropic.com/research/enabling-independent-research)
-
-### How Claude is accelerating protein design and analytical chemistry
-
-In this post, we share two results that show how Claude can help life scientists increase the pace of their research.
-
-[Read more](https://www.anthropic.com/research/Claude-accelerates-protein-design)

@@ -100,6 +100,12 @@ Create Skill
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `List<String> files`
 
     Files to upload for the skill.
@@ -168,7 +174,7 @@ Create Skill
 
       - `PLUGIN("plugin")`
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill"`
 
     Object type.
 
@@ -342,6 +348,12 @@ List Skills
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 ### Returns
 
 - `class BetaSkill:`
@@ -398,7 +410,7 @@ List Skills
 
       - `PLUGIN("plugin")`
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill"`
 
     Object type.
 
@@ -556,6 +568,12 @@ Get Skill
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 ### Returns
 
 - `class BetaSkill:`
@@ -612,7 +630,7 @@ Get Skill
 
       - `PLUGIN("plugin")`
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill"`
 
     Object type.
 
@@ -765,6 +783,12 @@ Delete Skill
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 ### Returns
 
 - `class BetaDeletedSkill:`
@@ -775,7 +799,7 @@ Delete Skill
 
     The format and length of IDs may change over time.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill_deleted"`
 
     Deleted object type.
 
@@ -823,7 +847,7 @@ public final class Main {
 
     The format and length of IDs may change over time.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill_deleted"`
 
     Deleted object type.
 
@@ -885,7 +909,7 @@ public final class Main {
 
       - `PLUGIN("plugin")`
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill"`
 
     Object type.
 
@@ -1026,6 +1050,12 @@ Create Skill Version
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `List<String> files`
 
     Files to upload for the skill.
@@ -1066,7 +1096,7 @@ Create Skill Version
 
     The format and length of IDs may change over time.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill_version"`
 
     Object type.
 
@@ -1227,6 +1257,12 @@ List Skill Versions
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaSkillVersion:`
@@ -1261,7 +1297,7 @@ List Skill Versions
 
     The format and length of IDs may change over time.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill_version"`
 
     Object type.
 
@@ -1416,6 +1452,12 @@ Download a skill version's content as a zip archive.
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Example
 
 ```java
@@ -1551,6 +1593,12 @@ Get Skill Version
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaSkillVersion:`
@@ -1585,7 +1633,7 @@ Get Skill Version
 
     The format and length of IDs may change over time.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill_version"`
 
     Object type.
 
@@ -1739,6 +1787,12 @@ Delete Skill Version
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaDeletedSkillVersion:`
@@ -1748,7 +1802,7 @@ Delete Skill Version
     Unique identifier for this Skill Version. The id addresses the version in
     paths and pins it in references.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "skill_version_deleted"`
 
     Deleted object type.
 

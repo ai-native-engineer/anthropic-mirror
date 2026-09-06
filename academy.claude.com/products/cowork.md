@@ -16,7 +16,7 @@ Your org
 
 # Claude Cowork
 
-Learn to hand off whole tasks and get polished deliverables back, for yourself and your team.
+Hand off work you can steer anywhere. Brief Claude on a task, step away, and come back to results you can trust.
 
 ## Start here
 

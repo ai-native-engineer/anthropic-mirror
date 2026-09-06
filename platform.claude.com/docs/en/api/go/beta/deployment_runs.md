@@ -40,11 +40,11 @@ List Deployment Runs
 
   - `DeploymentID param.Field[string] Optional`
 
-    Query param: Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent deployment_id returns 200 with empty data.
+    Query param: Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent `deployment_id` returns 200 with empty data.
 
   - `HasError param.Field[bool] Optional`
 
-    Query param: Filter: true for runs with non-null error, false for runs with non-null session_id. Omit for all.
+    Query param: Filter: true for runs with non-null `error`, false for runs with non-null `session_id`. Omit for all.
 
   - `Limit param.Field[int64] Optional`
 
@@ -54,7 +54,7 @@ List Deployment Runs
 
   - `Page param.Field[string] Optional`
 
-    Query param: Opaque pagination cursor. Pass next_page from the previous response. Invalid or expired cursors return 400.
+    Query param: Opaque pagination cursor. Pass `next_page` from the previous response. Invalid or expired cursors return 400.
 
   - `TriggerType param.Field[BetaManagedAgentsTriggerType] Optional`
 
@@ -149,6 +149,12 @@ List Deployment Runs
       - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
       - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
 ### Returns
 
@@ -348,7 +354,7 @@ List Deployment Runs
 
   - `SessionID string`
 
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
   - `TriggerContext BetaManagedAgentsTriggerContextUnion`
 
@@ -533,6 +539,12 @@ Get Deployment Run
 
       - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
 ### Returns
 
 - `type BetaManagedAgentsDeploymentRun struct{…}`
@@ -731,7 +743,7 @@ Get Deployment Run
 
   - `SessionID string`
 
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
   - `TriggerContext BetaManagedAgentsTriggerContextUnion`
 
@@ -1023,7 +1035,7 @@ func main() {
 
   - `SessionID string`
 
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
   - `TriggerContext BetaManagedAgentsTriggerContextUnion`
 

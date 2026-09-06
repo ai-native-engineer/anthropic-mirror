@@ -58,7 +58,7 @@ Let's start by installing the required packages and setting up our environment:
 
 # install packages
 
-!pip install anthropic pypdf pandas matplotlib numpy rouge-score nltk seaborn --quiet
+%pip install anthropic pypdf pandas matplotlib numpy rouge-score nltk seaborn --quiet
 
 import re
 

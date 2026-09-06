@@ -18,6 +18,8 @@ The ACS URL, Entity ID, and SCIM credentials referenced below are provided in th
 
 Start the SSO setup flow there and keep it open alongside your Ping admin console as you work through the steps below.
 
+---
+
 ## PingOne setup
 
 ### Step 1 — Create an application connection
@@ -47,6 +49,8 @@ Start the SSO setup flow there and keep it open alongside your Ping admin consol
 1. Under **Populations**, assign the user population that should access Claude.
 2. Enable the application and click "Save."
 
+---
+
 ## PingFederate setup
 
 PingFederate configurations vary significantly by version and deployment. The general approach is:
@@ -57,6 +61,8 @@ PingFederate configurations vary significantly by version and deployment. The ge
 4. For SCIM (Enterprise plans and eligible Console organizations only), configure an outbound provisioning channel targeting the SCIM endpoint from the WorkOS setup flow.
 
 Contact **[our Support team](https://support.claude.com/en/articles/9015913)** for PingFederate-specific guidance.
+
+---
 
 ## Need help?
 

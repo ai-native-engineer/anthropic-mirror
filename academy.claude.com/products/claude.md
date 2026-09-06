@@ -16,7 +16,7 @@ Your org
 
 # Claude.ai
 
-Learn to think through problems, draft documents, and analyze data in conversation with Claude.
+Your thinking partner for big ambitions: work through a problem, pressure-test a draft, or make sense of a dataset in conversation.
 
 ## Start here
 

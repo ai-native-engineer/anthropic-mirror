@@ -2,6 +2,8 @@
 
 **Goal:** In about 15 minutes, you will install Claude Code, sign in, and complete your first AI-assisted change. This guide covers only what is needed on day one; links to deeper material appear at the end.
 
+---
+
 ## Step 1: Install Claude Code (2 minutes)
 
 Pick the command that matches your machine and paste it into a terminal.
@@ -22,6 +24,8 @@ Verify the installation:
 claude --version
 ```
 
+---
+
 ## Step 2: Sign in (2 minutes)
 
 How you authenticate depends on how your organization has provisioned access. Pick one of the following:
@@ -36,6 +40,8 @@ How you authenticate depends on how your organization has provisioned access. Pi
 
 If you are unsure which method applies, check with your administrator or try `/login` first, which is the default for most organizations.
 
+---
+
 ## Step 3: Open a project (1 minute)
 
 ```
@@ -43,6 +49,8 @@ cd path/to/your/project claude
 ```
 
 Claude Code reads your files on demand, so there is nothing to upload or attach. Simply start it from inside the repository you want to work on.
+
+---
 
 ## Step 4: Understand the one safety rule (1 minute)
 
@@ -53,6 +61,8 @@ Claude will **always ask before changing a file or running a command.** When it 
 * **No** — reject the change and explain why.
 
 You can press **Shift+Tab** at any time to cycle between modes (Plan → Accept Edits → default). If a change produces an unexpected result, your git history remains untouched until you commit, so `git checkout` will undo it.
+
+---
 
 ## Step 5: Five things to try first
 
@@ -98,6 +108,8 @@ Stage my changes and write a commit message that follows our existing style.
 
 *Why this is useful:* Claude can run `git` on your behalf (with approval) and will match your repository's existing commit conventions.
 
+---
+
 ## Step 6: Before you finish for the day
 
 Run this once per project:
@@ -107,6 +119,8 @@ Run this once per project:
 ```
 
 This generates a `CLAUDE.md` file at your project root that captures your codebase's conventions. Claude reads it automatically at the start of every session, so future responses will already be tailored to your project. It is the single highest-value setup step you can take.
+
+---
 
 ## Next steps
 

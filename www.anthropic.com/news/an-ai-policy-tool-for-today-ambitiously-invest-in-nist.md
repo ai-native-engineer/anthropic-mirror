@@ -45,3 +45,5 @@ This proposal builds on our past advocacy for a more well-resourced NIST, includ
 *This blog post follows a policy memo we wrote that looks at past funding patterns and some specific proposals for what NIST might build with more resourcing. As Congress considers appropriations for FY 2024, we urge it to consider additional funding of NIST.*
 
 *View the [memo here](https://www-cdn.anthropic.com/c429f993f5a3a5ea1808414df6e67fcb8d36ca86/Anthropic_NIST_v3.pdf).*
+
+An AI Policy Tool for Today: Ambitiously Invest in NIST \ Anthropic

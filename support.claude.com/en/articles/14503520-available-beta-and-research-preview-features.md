@@ -22,6 +22,8 @@ When you use a beta or research preview feature, keep the following in mind:
 * **Performance and reliability may vary.** These features haven't gone through the same level of polish as generally available features.
 * **Not every feature graduates.** Some beta and research preview features become a permanent part of Claude. Others don't, and we sometimes remove features that don't work out.
 
+---
+
 ## Current beta and research preview features
 
 This table below lists the beta and research preview features currently available across our products; click on the feature name to learn more.
@@ -39,6 +41,8 @@ This table below lists the beta and research preview features currently availabl
 | **[GitHub integration](https://support.claude.com/en/articles/10167454-using-the-github-integration)** | Integrations | Beta |
 
 **Note:** Availability varies by plan. Check each linked article to confirm which plans support the feature.
+
+---
 
 ## Share feedback
 

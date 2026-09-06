@@ -91,7 +91,7 @@ Ensure the following environment variables are set:
 
 %%capture
 
-!pip install --upgrade anthropic voyageai cohere elasticsearch pandas numpy
+%pip install --upgrade anthropic voyageai cohere elasticsearch pandas numpy
 
 We define our model names up front to make it easier to change models as new models are released
 

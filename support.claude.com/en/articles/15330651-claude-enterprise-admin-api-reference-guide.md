@@ -84,6 +84,8 @@ Error bodies have the shape:
 
 `error.type` is a status-dependent discriminator: `invalid_request_error` (400), `authentication_error` (401), `permission_error` (403), `not_found_error` (404), `rate_limit_error` (429), `api_error` (500). `request_id` is always present and is the value to quote when contacting support. The Validations table under each endpoint lists the specific messages.
 
+---
+
 ## Concepts
 
 ### The spend limit hierarchy
@@ -136,6 +138,8 @@ Both `approved` and `denied` are terminal. A member has at most one `pending` re
 Approving via `POST …/approve` writes the same per-user spend limit row that `POST /v1/organizations/spend_limits` writes. Setting a spend limit directly does *not* transition a pending request. Use the approve endpoint to resolve a request.
 
 By default, Anthropic emails the member when their request is approved or denied. Pass `suppress_notification: true` on approve or deny to suppress that email (for example, when your own system notifies the member).
+
+---
 
 ## The SpendLimit object
 
@@ -244,6 +248,8 @@ A computed per-member report row: the member's effective limit, where it came fr
 | `email_address` | string or null | Present on `user_actor`. The user's email; `null` if the account has been deleted. |
 | `scoped_api_key_id` | string | Present on `scoped_api_key_actor`. Prefixed `apikey_`. |
 
+---
+
 ## Spend limits
 
 ### 1. List effective spend limits
@@ -313,6 +319,8 @@ curl "https://api.anthropic.com/v1/organizations/spend_limits/effective?limit=20
 | Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
 | Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
 
+---
+
 ### 2. Get a spend limit
 
 ```
@@ -349,6 +357,8 @@ curl "https://api.anthropic.com/v1/organizations/spend_limits/spl_01AbCdEfGhIjKl
 | `spend_limit_id` not found in this organization | 404 |  |
 | Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
 | Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+
+---
 
 ### 3. Set a spend limit
 
@@ -414,6 +424,8 @@ curl -X POST "https://api.anthropic.com/v1/organizations/spend_limits" \
 | Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
 | Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
 
+---
+
 ### 4. Remove a spend limit
 
 ```
@@ -455,6 +467,8 @@ curl -X DELETE "https://api.anthropic.com/v1/organizations/spend_limits/spl_01Rs
 | `spend_limit_id` is a seat-tier, group, or organization row | 400 | `Only per-user spend limits can be deleted via this endpoint.` |
 | Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
 | Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+
+---
 
 ## Spend limit increase requests
 
@@ -539,6 +553,8 @@ curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests?s
 | Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
 | Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
 
+---
+
 ### 6. Get an increase request
 
 ```
@@ -576,6 +592,8 @@ curl "https://api.anthropic.com/v1/organizations/spend_limit_increase_requests/s
 | Requester is no longer a member of this organization | 404 |  |
 | Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
 | Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+
+---
 
 ### 7. Approve an increase request
 
@@ -661,6 +679,8 @@ curl -X POST "https://api.anthropic.com/v1/organizations/spend_limit_increase_re
 | `period` is not `"monthly"` | 400 | `period: not yet supported` |
 | Organization is not on an Enterprise plan | 400 | `this endpoint is not supported for this organization type` |
 | Usage credit billing not enabled | 400 | `overage billing is not enabled for this organization` |
+
+---
 
 ### 8. Deny an increase request
 

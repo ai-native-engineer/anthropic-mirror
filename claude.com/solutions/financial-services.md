@@ -344,7 +344,7 @@ Integrate Claude’s AI directly into bespoke trading platforms, risk systems, K
 
 Learn more
 
-[Learn more](https://claude.com/platform/api)Learn more
+[Learn more](https://claude.com/platform/api-v2)Learn more
 
 Webinar
 

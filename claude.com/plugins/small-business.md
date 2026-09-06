@@ -24,7 +24,7 @@ Use `/plan-payroll` to forecast cash and chase overdue invoices, `/close-month` 
 
 Underneath the 15 commands are 15 building-block skills that activate automatically: cash-flow forecasting, margin analysis, lead triage, invoice chasing, contract review, customer sentiment, tax prep, and a hiring packet builder.
 
-Connect QuickBooks, PayPal, and HubSpot for the best experience, then add Canva, DocuSign, Gmail/Outlook, Slack, Stripe, or Square as you go — most workflows degrade gracefully when a connector isn't available. Run `/smb-onboard` to get started.
+Connect QuickBooks, PayPal, and HubSpot for the best experience, then add Canva, Docusign, Gmail/Outlook, Slack, Stripe, or Square as you go — most workflows degrade gracefully when a connector isn't available. Run `/smb-onboard` to get started.
 
 ## Related plugins
 

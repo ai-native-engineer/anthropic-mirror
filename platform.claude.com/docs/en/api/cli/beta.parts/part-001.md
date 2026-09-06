@@ -936,7 +936,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -1981,11 +1981,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `"claude-sonnet-5"`
 
@@ -2051,7 +2059,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
           The model that will complete your prompt.
 
@@ -2184,11 +2192,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: "unavailable"`
 
-  - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+  - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+    - `"claude-fable-5-1"`
+
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `"claude-mythos-5-1"`
+
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
 
     - `"claude-sonnet-5"`
 
@@ -2553,11 +2569,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `"claude-sonnet-5"`
 
@@ -2715,11 +2739,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `"claude-sonnet-5"`
 
@@ -2834,11 +2866,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `"claude-sonnet-5"`
 
@@ -2972,6 +3012,58 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `"fast"`
 
+  - `input_transformations: optional array of BetaThinkingDroppedInputTransformation`
+
+    Changes the API made to the request's input before showing it to the model:
+    one entry per change, in request order. Today the only entry type is
+    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+    block from the request's `messages` that was removed from the prompt instead
+    of being shown to the model because it failed a binding check. More entry
+    types may be added over time; ignore types you do not recognize.
+
+    Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+    every such response from a model that supports extended thinking, as `[]`
+    when nothing was changed; without the beta, blocks are removed all the same
+    but nothing is reported. Removed blocks contribute nothing to
+    `usage.input_tokens`. When streaming, the array is final in `message_start`;
+    the final `message_delta` event carries it only when a server-side model
+    fallback happened mid-stream, in which case it holds the serving model's
+    entries and replaces the one in `message_start`.
+
+    - `path: string`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `"model_binding_mismatch"`
+
+      - `"prefix_binding_mismatch"`
+
+      - `"organization_binding_mismatch"`
+
+      - `"end_user_binding_mismatch"`
+
+    - `type: "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
+
 - `beta_raw_message_stream_event: BetaRawMessageStartEvent or BetaRawMessageDeltaEvent or BetaRawMessageStopEvent or 3 more`
 
   - `beta_raw_message_start_event: object`
@@ -3028,7 +3120,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         Response envelope for request-level diagnostics. Present (possibly
         null) whenever the caller supplied `diagnostics` on the request.
 
-      - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+      - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
         The model that will complete your prompt.
 
@@ -3083,6 +3175,24 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
         For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
         Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
+
+      - `input_transformations: optional array of BetaThinkingDroppedInputTransformation`
+
+        Changes the API made to the request's input before showing it to the model:
+        one entry per change, in request order. Today the only entry type is
+        `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+        block from the request's `messages` that was removed from the prompt instead
+        of being shown to the model because it failed a binding check. More entry
+        types may be added over time; ignore types you do not recognize.
+
+        Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+        every such response from a model that supports extended thinking, as `[]`
+        when nothing was changed; without the beta, blocks are removed all the same
+        but nothing is reported. Removed blocks contribute nothing to
+        `usage.input_tokens`. When streaming, the array is final in `message_start`;
+        the final `message_delta` event carries it only when a server-side model
+        fallback happened mid-stream, in which case it holds the serving model's
+        entries and replaces the one in `message_start`.
 
     - `type: "message_start"`
 
@@ -3320,6 +3430,50 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The number of web search tool requests.
 
           minimum: 0
+
+    - `input_transformations: optional array of BetaThinkingDroppedInputTransformation`
+
+      Changes the API made to the request's input before showing it to the model:
+      one entry per change, in request order. Today the only entry type is
+      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+      block from the request's `messages` that was removed from the prompt instead
+      of being shown to the model because it failed a binding check. More entry
+      types may be added over time; ignore types you do not recognize.
+
+      Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+      every such response from a model that supports extended thinking, as `[]`
+      when nothing was changed; without the beta, blocks are removed all the same
+      but nothing is reported. Removed blocks contribute nothing to
+      `usage.input_tokens`. When streaming, the array is final in `message_start`;
+      the final `message_delta` event carries it only when a server-side model
+      fallback happened mid-stream, in which case it holds the serving model's
+      entries and replaces the one in `message_start`.
+
+      - `path: string`
+
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
+
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `type: "thinking_dropped"`
+
+        Always `thinking_dropped` for this entry type.
 
   - `beta_raw_message_stop_event: object`
 
@@ -3855,7 +4009,7 @@ ant beta:messages create \
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5",
+        "model": "claude-fable-5-1",
         "output_tokens": 0,
         "type": "message"
       }
@@ -3870,7 +4024,14 @@ ant beta:messages create \
     },
     "service_tier": "standard",
     "speed": "standard"
-  }
+  },
+  "input_transformations": [
+    {
+      "path": "path",
+      "reason": "model_binding_mismatch",
+      "type": "thinking_dropped"
+    }
+  ]
 }
 ```
 
@@ -3939,7 +4100,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+- `--model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -5659,11 +5820,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The model whose output ends at this point — the model that declined at this hop. When the declining hop is the requested model, its `model` echoes the top-level `model` string the caller sent (alias or canonical); when the declining hop is a fallback model, its `model` is that model's canonical id.
 
-              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-fable-5-1"`
+
+                  Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-mythos-5-1"`
+
+                  Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                 - `"claude-sonnet-5"`
 
@@ -5729,7 +5898,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The fallback model producing the content that follows this block. Its `model` is always the canonical id.
 
-              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
@@ -5862,11 +6031,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `type: "unavailable"`
 
-        - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+        - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `"claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `"claude-sonnet-5"`
 
@@ -6231,11 +6408,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-fable-5-1"`
+
+                  Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-mythos-5-1"`
+
+                  Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                 - `"claude-sonnet-5"`
 
@@ -6393,11 +6578,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-fable-5-1"`
+
+                  Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-mythos-5-1"`
+
+                  Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                 - `"claude-sonnet-5"`
 
@@ -6512,11 +6705,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `model: "claude-sonnet-5" or "claude-fable-5" or "claude-mythos-5" or 12 more or string`
+              - `model: "claude-fable-5-1" or "claude-mythos-5-1" or "claude-sonnet-5" or 14 more or string`
 
                 The model that will complete your prompt.
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                - `"claude-fable-5-1"`
+
+                  Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `"claude-mythos-5-1"`
+
+                  Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                 - `"claude-sonnet-5"`
 
@@ -6649,6 +6850,58 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `"standard"`
 
             - `"fast"`
+
+        - `input_transformations: optional array of BetaThinkingDroppedInputTransformation`
+
+          Changes the API made to the request's input before showing it to the model:
+          one entry per change, in request order. Today the only entry type is
+          `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+          block from the request's `messages` that was removed from the prompt instead
+          of being shown to the model because it failed a binding check. More entry
+          types may be added over time; ignore types you do not recognize.
+
+          Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+          every such response from a model that supports extended thinking, as `[]`
+          when nothing was changed; without the beta, blocks are removed all the same
+          but nothing is reported. Removed blocks contribute nothing to
+          `usage.input_tokens`. When streaming, the array is final in `message_start`;
+          the final `message_delta` event carries it only when a server-side model
+          fallback happened mid-stream, in which case it holds the serving model's
+          entries and replaces the one in `message_start`.
+
+          - `path: string`
+
+            Where the removed block was in your request, as `messages.{i}.content.{j}`:
+            `i` indexes the `messages` array you sent and `j` that message's `content`
+            array — the same form error messages use.
+
+          - `reason: "model_binding_mismatch" or "prefix_binding_mismatch" or "organization_binding_mismatch" or "end_user_binding_mismatch"`
+
+            Which binding check removed the block: `model_binding_mismatch` — it was
+            created by a model whose reasoning the requested model may not read;
+            `prefix_binding_mismatch` — the conversation before it differs from the
+            conversation it was created in (the rest of that turn's consecutive thinking
+            blocks are removed with it, each with this reason);
+            `organization_binding_mismatch` — it was created under a different
+            organization (an Anthropic organization, AWS account or Google Cloud project)
+            and this organization is not one of its additional organizations;
+            `end_user_binding_mismatch` — it was created for a different end user, or
+            was removed by the consumer-organization binding. A block that would fail
+            several checks reports one reason, in this order of precedence:
+            `organization_binding_mismatch`, `end_user_binding_mismatch`,
+            `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+            - `"model_binding_mismatch"`
+
+            - `"prefix_binding_mismatch"`
+
+            - `"organization_binding_mismatch"`
+
+            - `"end_user_binding_mismatch"`
+
+          - `type: "thinking_dropped"`
+
+            Always `thinking_dropped` for this entry type.
 
       - `type: "succeeded"`
 
@@ -6828,11 +7081,15 @@ Create Agent
 
     Model identifier and configuration.
 
-    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+    - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `"claude-sonnet-5"`
 
@@ -7480,11 +7737,15 @@ List Agents
 
       Model identifier and configuration.
 
-      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -8119,11 +8380,15 @@ Get Agent
 
     Model identifier and configuration.
 
-    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+    - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `"claude-sonnet-5"`
 
@@ -8792,11 +9057,15 @@ Update Agent
 
     Model identifier and configuration.
 
-    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+    - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `"claude-sonnet-5"`
 
@@ -9417,11 +9686,15 @@ Archive Agent
 
     Model identifier and configuration.
 
-    - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+    - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `"claude-sonnet-5"`
 
@@ -10058,11 +10331,15 @@ List Agent Versions
 
       Model identifier and configuration.
 
-      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -12874,11 +13151,15 @@ Create Session
 
       Model identifier and configuration.
 
-      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -13006,7 +13287,7 @@ Create Session
 
             Model identifier and configuration.
 
-            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
               The model that will power your agent.
 
@@ -13444,7 +13725,7 @@ Create Session
 
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: string`
 
@@ -13458,7 +13739,7 @@ Create Session
 
     - `explanation: string`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: number`
 
@@ -13586,7 +13867,7 @@ Create Session
 
     - `active_seconds: optional number`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -13917,7 +14198,7 @@ List Sessions
 
 - `--agent-version: optional number`
 
-  Query param: Filter by agent version. Only applies when agent_id is also set.
+  Query param: Filter by agent version. Only applies when `agent_id` is also set.
 
   format: int32
 
@@ -13961,11 +14242,11 @@ List Sessions
 
 - `--memory-store-id: optional string`
 
-  Query param: Filter sessions whose resources contain a memory_store with this memory store ID.
+  Query param: Filter sessions whose resources contain a `memory_store` with this memory store ID.
 
 - `--order: optional "asc" or "desc"`
 
-  Query param: Sort direction for results, ordered by created_at. Defaults to desc (newest first).
+  Query param: Sort direction for results, ordered by `created_at`. Defaults to `desc` (newest first).
 
 - `--page: optional string`
 
@@ -14011,11 +14292,15 @@ List Sessions
 
         Model identifier and configuration.
 
-        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -14143,7 +14428,7 @@ List Sessions
 
               Model identifier and configuration.
 
-              - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+              - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
                 The model that will power your agent.
 
@@ -14581,7 +14866,7 @@ List Sessions
 
     - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
-      Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+      Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
       - `completed_at: string`
 
@@ -14595,7 +14880,7 @@ List Sessions
 
       - `explanation: string`
 
-        Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+        Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
       - `iteration: number`
 
@@ -14723,7 +15008,7 @@ List Sessions
 
       - `active_seconds: optional number`
 
-        Cumulative time in seconds the session spent in running status. Excludes idle time.
+        Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
         format: double
 
@@ -15096,11 +15381,15 @@ Get Session
 
       Model identifier and configuration.
 
-      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -15228,7 +15517,7 @@ Get Session
 
             Model identifier and configuration.
 
-            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
               The model that will power your agent.
 
@@ -15666,7 +15955,7 @@ Get Session
 
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: string`
 
@@ -15680,7 +15969,7 @@ Get Session
 
     - `explanation: string`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: number`
 
@@ -15808,7 +16097,7 @@ Get Session
 
     - `active_seconds: optional number`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -16190,11 +16479,15 @@ Update Session
 
       Model identifier and configuration.
 
-      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -16322,7 +16615,7 @@ Update Session
 
             Model identifier and configuration.
 
-            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
               The model that will power your agent.
 
@@ -16760,7 +17053,7 @@ Update Session
 
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: string`
 
@@ -16774,7 +17067,7 @@ Update Session
 
     - `explanation: string`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: number`
 
@@ -16902,7 +17195,7 @@ Update Session
 
     - `active_seconds: optional number`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -17307,11 +17600,15 @@ Archive Session
 
       Model identifier and configuration.
 
-      - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+      - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -17439,7 +17736,7 @@ Archive Session
 
             Model identifier and configuration.
 
-            - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+            - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
               The model that will power your agent.
 
@@ -17877,7 +18174,7 @@ Archive Session
 
   - `outcome_evaluations: array of BetaManagedAgentsOutcomeEvaluationResource`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: string`
 
@@ -17891,7 +18188,7 @@ Archive Session
 
     - `explanation: string`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: number`
 
@@ -18019,7 +18316,7 @@ Archive Session
 
     - `active_seconds: optional number`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -18381,11 +18678,11 @@ List Events
 
 - `--order: optional "asc" or "desc"`
 
-  Query param: Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
+  Query param: Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
 
 - `--page: optional string`
 
-  Query param: Opaque pagination cursor from a previous response's next_page.
+  Query param: Opaque pagination cursor from a previous response's `next_page`.
 
 - `--type: optional array of string`
 
@@ -19893,11 +20190,15 @@ List Events
 
           Model identifier and configuration.
 
-          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+          - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
             - `"claude-sonnet-5"`
 
@@ -20025,7 +20326,7 @@ List Events
 
                 Model identifier and configuration.
 
-                - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+                - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
                   The model that will power your agent.
 
@@ -22636,11 +22937,15 @@ Stream Events
 
         Model identifier and configuration.
 
-        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -22768,7 +23073,7 @@ Stream Events
 
               Model identifier and configuration.
 
-              - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+              - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
                 The model that will power your agent.
 
@@ -23663,7 +23968,7 @@ List Session Resources
 
 - `--page: optional string`
 
-  Query param: Opaque cursor from a previous response's next_page field.
+  Query param: Opaque cursor from a previous response's `next_page` field.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -24216,7 +24521,7 @@ List Session Threads
 
 - `--page: optional string`
 
-  Query param: Opaque pagination cursor from a previous response's next_page. Forward-only.
+  Query param: Opaque pagination cursor from a previous response's `next_page`. Forward-only.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -24260,11 +24565,15 @@ List Session Threads
 
           Model identifier and configuration.
 
-          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+          - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
             - `"claude-sonnet-5"`
 
@@ -25012,11 +25321,15 @@ Get Session Thread
 
         Model identifier and configuration.
 
-        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -25756,11 +26069,15 @@ Archive Session Thread
 
         Model identifier and configuration.
 
-        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -27976,11 +28293,15 @@ List Session Thread Events
 
           Model identifier and configuration.
 
-          - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+          - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
             - `"claude-sonnet-5"`
 
@@ -28108,7 +28429,7 @@ List Session Thread Events
 
                 Model identifier and configuration.
 
-                - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+                - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
                   The model that will power your agent.
 
@@ -30216,11 +30537,15 @@ Stream Session Thread Events
 
         Model identifier and configuration.
 
-        - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+        - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -30348,7 +30673,7 @@ Stream Session Thread Events
 
               Model identifier and configuration.
 
-              - `id: "claude-sonnet-5" or "claude-fable-5" or "claude-opus-5" or 10 more or string`
+              - `id: "claude-fable-5-1" or "claude-sonnet-5" or "claude-fable-5" or 11 more or string`
 
                 The model that will power your agent.
 
@@ -31837,7 +32162,7 @@ List Deployments
 
 - `--status: optional "active" or "paused"`
 
-  Query param: Filter by status: active or paused. Omit for both. To include archived deployments, use include_archived instead; the two cannot be combined.
+  Query param: Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -34535,7 +34860,7 @@ Run Deployment Now
 
   - `session_id: string`
 
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
   - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
 
@@ -35850,11 +36175,11 @@ List Deployment Runs
 
 - `--deployment-id: optional string`
 
-  Query param: Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent deployment_id returns 200 with empty data.
+  Query param: Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent `deployment_id` returns 200 with empty data.
 
 - `--has-error: optional boolean`
 
-  Query param: Filter: true for runs with non-null error, false for runs with non-null session_id. Omit for all.
+  Query param: Filter: true for runs with non-null `error`, false for runs with non-null `session_id`. Omit for all.
 
 - `--limit: optional number`
 
@@ -35864,7 +36189,7 @@ List Deployment Runs
 
 - `--page: optional string`
 
-  Query param: Opaque pagination cursor. Pass next_page from the previous response. Invalid or expired cursors return 400.
+  Query param: Opaque pagination cursor. Pass `next_page` from the previous response. Invalid or expired cursors return 400.
 
 - `--trigger-type: optional "schedule" or "manual"`
 
@@ -35878,7 +36203,7 @@ List Deployment Runs
 
 - `BetaManagedAgentsListDeploymentRunsData: object`
 
-  Paginated list of deployment runs. Sorted by created_at descending (most recent first).
+  Paginated list of deployment runs. Sorted by `created_at` descending (most recent first).
 
   - `data: array of BetaManagedAgentsDeploymentRun`
 
@@ -36076,7 +36401,7 @@ List Deployment Runs
 
     - `session_id: string`
 
-      Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+      Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
     - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
 
@@ -36359,7 +36684,7 @@ Get Deployment Run
 
   - `session_id: string`
 
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
   - `trigger_context: BetaManagedAgentsScheduleTriggerContext or BetaManagedAgentsManualTriggerContext`
 
@@ -36502,739 +36827,3 @@ ant beta:vaults create \
     "environment": "production"
   },
   "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-### List Vaults
-
-`$ ant beta:vaults list`
-
-**GET** `/v1/vaults`
-
-List Vaults
-
-#### Parameters
-
-- `--include-archived: optional boolean`
-
-  Query param: Whether to include archived vaults in the results.
-
-- `--limit: optional number`
-
-  Query param: Maximum number of vaults to return per page. Defaults to 20, maximum 100.
-
-  format: int32
-
-- `--page: optional string`
-
-  Query param: Opaque pagination token from a previous `list_vaults` response.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `BetaManagedAgentsListVaultsResponse: object`
-
-  Response containing a paginated list of vaults.
-
-  - `data: optional array of BetaManagedAgentsVault`
-
-    List of vaults.
-
-    - `id: string`
-
-      Unique identifier for the vault.
-
-    - `archived_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `created_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `display_name: string`
-
-      Human-readable name for the vault.
-
-    - `metadata: map[string]`
-
-      Arbitrary key-value metadata attached to the vault.
-
-    - `type: "vault"`
-
-    - `updated_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `next_page: optional string`
-
-    Pagination token for the next page, or null if no more results.
-
-#### Example
-
-```bash
-ant beta:vaults list \
-  --api-key my-anthropic-api-key
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-      "archived_at": null,
-      "created_at": "2026-03-15T10:00:00Z",
-      "display_name": "Example vault",
-      "metadata": {
-        "environment": "production"
-      },
-      "type": "vault",
-      "updated_at": "2026-03-15T10:00:00Z"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Get Vault
-
-`$ ant beta:vaults retrieve`
-
-**GET** `/v1/vaults/{vault_id}`
-
-Get Vault
-
-#### Parameters
-
-- `--vault-id: string`
-
-  Path parameter vault_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_vault: object`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```bash
-ant beta:vaults retrieve \
-  --api-key my-anthropic-api-key \
-  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-### Update Vault
-
-`$ ant beta:vaults update`
-
-**POST** `/v1/vaults/{vault_id}`
-
-Update Vault
-
-#### Parameters
-
-- `--vault-id: string`
-
-  Path param: Path parameter vault_id
-
-- `--display-name: optional string`
-
-  Body param: Updated human-readable name for the vault. 1-255 characters.
-
-  minLength: 1, maxLength: 255
-
-- `--metadata: optional map[string]`
-
-  Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_vault: object`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```bash
-ant beta:vaults update \
-  --api-key my-anthropic-api-key \
-  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-### Delete Vault
-
-`$ ant beta:vaults delete`
-
-**DELETE** `/v1/vaults/{vault_id}`
-
-Delete Vault
-
-#### Parameters
-
-- `--vault-id: string`
-
-  Path parameter vault_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_deleted_vault: object`
-
-  Confirmation of a deleted vault.
-
-  - `id: string`
-
-    Unique identifier of the deleted vault.
-
-  - `type: "vault_deleted"`
-
-#### Example
-
-```bash
-ant beta:vaults delete \
-  --api-key my-anthropic-api-key \
-  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "type": "vault_deleted"
-}
-```
-
-### Archive Vault
-
-`$ ant beta:vaults archive`
-
-**POST** `/v1/vaults/{vault_id}/archive`
-
-Archive Vault
-
-#### Parameters
-
-- `--vault-id: string`
-
-  Path parameter vault_id
-
-- `--beta: optional array of AnthropicBeta`
-
-  Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_vault: object`
-
-  A vault that stores credentials for use by agents during sessions.
-
-  - `id: string`
-
-    Unique identifier for the vault.
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `display_name: string`
-
-    Human-readable name for the vault.
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the vault.
-
-  - `type: "vault"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-#### Example
-
-```bash
-ant beta:vaults archive \
-  --api-key my-anthropic-api-key \
-  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "archived_at": null,
-  "created_at": "2026-03-15T10:00:00Z",
-  "display_name": "Example vault",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault",
-  "updated_at": "2026-03-15T10:00:00Z"
-}
-```
-
-## Beta › Vaults › Credentials
-
-### Create Credential
-
-`$ ant beta:vaults:credentials create`
-
-**POST** `/v1/vaults/{vault_id}/credentials`
-
-Create Credential
-
-#### Parameters
-
-- `--vault-id: string`
-
-  Path param: Path parameter vault_id
-
-- `--auth: BetaManagedAgentsMCPOAuthCreateParams or BetaManagedAgentsStaticBearerCreateParams or BetaManagedAgentsEnvironmentVariableCreateParams`
-
-  Body param: Authentication details for creating a credential.
-
-- `--display-name: optional string`
-
-  Body param: Human-readable name for the credential. Up to 255 characters.
-
-  maxLength: 255
-
-- `--metadata: optional map[string]`
-
-  Body param: Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `beta_managed_agents_credential: object`
-
-  A credential stored in a vault. Sensitive fields are never returned in responses.
-
-  - `id: string`
-
-    Unique identifier for the credential.
-
-  - `archived_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-    Authentication details for a credential.
-
-    - `beta_managed_agents_mcp_oauth_auth_response: object`
-
-      OAuth credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "mcp_oauth"`
-
-      - `expires_at: optional string`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `refresh: optional object`
-
-        OAuth refresh token configuration returned in credential responses.
-
-        - `client_id: string`
-
-          OAuth client ID.
-
-        - `token_endpoint: string`
-
-          Token endpoint URL used to refresh the access token.
-
-        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-          Token endpoint requires no client authentication.
-
-          - `beta_managed_agents_token_endpoint_auth_none_response: object`
-
-            Token endpoint requires no client authentication.
-
-            - `type: "none"`
-
-          - `beta_managed_agents_token_endpoint_auth_basic_response: object`
-
-            Token endpoint uses HTTP Basic authentication with client credentials.
-
-            - `type: "client_secret_basic"`
-
-          - `beta_managed_agents_token_endpoint_auth_post_response: object`
-
-            Token endpoint uses POST body authentication with client credentials.
-
-            - `type: "client_secret_post"`
-
-        - `resource: optional string`
-
-          OAuth resource indicator.
-
-        - `scope: optional string`
-
-          OAuth scope for the refresh request.
-
-    - `beta_managed_agents_static_bearer_auth_response: object`
-
-      Static bearer token credential details for an MCP server.
-
-      - `mcp_server_url: string`
-
-        URL of the MCP server this credential authenticates against.
-
-      - `type: "static_bearer"`
-
-    - `beta_managed_agents_environment_variable_auth_response: object`
-
-      Environment variable credential details. The secret value is never returned.
-
-      - `injection_location: object`
-
-        Where in the outbound request the secret value is substituted.
-
-        - `body: boolean`
-
-          Whether the placeholder is substituted in the request body.
-
-        - `header: boolean`
-
-          Whether the placeholder is substituted in request header values.
-
-      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
-
-        Outbound hosts the secret value is substituted on.
-
-        - `beta_managed_agents_unrestricted_credential_networking_response: object`
-
-          The secret is substituted on any host the session's Environment network policy permits egress to.
-
-          - `type: "unrestricted"`
-
-        - `beta_managed_agents_limited_credential_networking_response: object`
-
-          The secret is substituted only on requests to the listed hosts.
-
-          - `allowed_hosts: array of string`
-
-            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
-
-          - `type: "limited"`
-
-      - `secret_name: string`
-
-        Name of the environment variable.
-
-      - `type: "environment_variable"`
-
-  - `created_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `metadata: map[string]`
-
-    Arbitrary key-value metadata attached to the credential.
-
-  - `type: "vault_credential"`
-
-  - `updated_at: string`
-
-    A timestamp in RFC 3339 format
-
-    format: date-time
-
-  - `vault_id: string`
-
-    Identifier of the vault this credential belongs to.
-
-  - `display_name: optional string`
-
-    Human-readable name for the credential.
-
-#### Example
-
-```bash
-ant beta:vaults:credentials create \
-  --api-key my-anthropic-api-key \
-  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
-  --auth '{token: bearer_exampletoken, mcp_server_url: https://example-server.modelcontextprotocol.io/sse, type: static_bearer}'
-```
-
-##### Response (200)
-
-```json
-{
-  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
-  "archived_at": null,
-  "auth": {
-    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
-    "type": "static_bearer"
-  },
-  "created_at": "2026-03-15T10:00:00Z",
-  "metadata": {
-    "environment": "production"
-  },
-  "type": "vault_credential",
-  "updated_at": "2026-03-15T10:00:00Z",
-  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
-  "display_name": "Example credential"
-}
-```
-
-### List Credentials
-
-`$ ant beta:vaults:credentials list`
-
-**GET** `/v1/vaults/{vault_id}/credentials`
-
-List Credentials
-
-#### Parameters
-
-- `--vault-id: string`
-
-  Path param: Path parameter vault_id
-
-- `--include-archived: optional boolean`
-
-  Query param: Whether to include archived credentials in the results.
-
-- `--limit: optional number`
-
-  Query param: Maximum number of credentials to return per page. Defaults to 20, maximum 100.
-
-  format: int32
-
-- `--page: optional string`
-
-  Query param: Opaque pagination token from a previous `list_credentials` response.
-
-- `--beta: optional array of AnthropicBeta`
-
-  Header param: Optional header to specify the beta version(s) you want to use.
-
-#### Returns
-
-- `BetaManagedAgentsListCredentialsResponse: object`
-
-  Response containing a paginated list of credentials.
-
-  - `data: optional array of BetaManagedAgentsCredential`
-
-    List of credentials.
-
-    - `id: string`
-
-      Unique identifier for the credential.
-
-    - `archived_at: string`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
-
-      Authentication details for a credential.
-
-      - `beta_managed_agents_mcp_oauth_auth_response: object`
-
-        OAuth credential details for an MCP server.
-
-        - `mcp_server_url: string`
-
-          URL of the MCP server this credential authenticates against.
-
-        - `type: "mcp_oauth"`
-
-        - `expires_at: optional string`
-
-          A timestamp in RFC 3339 format
-
-          format: date-time
-
-        - `refresh: optional object`
-
-          OAuth refresh token configuration returned in credential responses.
-
-          - `client_id: string`
-
-            OAuth client ID.
-
-          - `token_endpoint: string`
-
-            Token endpoint URL used to refresh the access token.
-
-          - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
-
-            Token endpoint requires no client authentication.
-
-            - `beta_managed_agents_token_endpoint_auth_none_response: object`
-
-              Token endpoint requires no client authentication.
-
-              - `type: "none"`
-
-            - `beta_managed_agents_token_endpoint_auth_basic_response: object`
-
-              Token endpoint uses HTTP Basic authentication with client credentials.
-
-              - `type: "client_secret_basic"`
-
-            - `beta_managed_agents_token_endpoint_auth_post_response: object`
-
-              Token endpoint uses POST body authentication with client credentials.
-
-              - `type: "client_secret_post"`
-
-          - `resource: optional string`
-
-            OAuth resource indicator.
-
-          - `scope: optional string`
-
-            OAuth scope for the refresh request.

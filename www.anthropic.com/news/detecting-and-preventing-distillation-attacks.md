@@ -90,3 +90,5 @@ We continue to invest heavily in defenses that make such distillation attacks ha
 * **Countermeasures**. We are developing Product, API and model-level safeguards designed to reduce the efficacy of model outputs for illicit distillation, without degrading the experience for legitimate customers.
 
 But no company can solve this alone. As we noted above, distillation attacks at this scale require a coordinated response across the AI industry, cloud providers, and policymakers. We are publishing this to make the evidence available to everyone with a stake in the outcome.
+
+Detecting and preventing distillation attacks \ Anthropic

@@ -20,6 +20,8 @@ In this lessonBy the end, you’ll be able to
 
 Discernment for code · 5 min
 
+SummaryTranscript
+
 When AI can spin up a working product in minutes, “working” stops being the
 bar. You’ll learn where AI-built products typically fail, the technical
 blind spots that surface in production but not in development, and how to

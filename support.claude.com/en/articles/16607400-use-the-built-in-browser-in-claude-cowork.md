@@ -48,6 +48,8 @@ If you choose the built-in browser as your preferred browser, tasks started on w
 
 If your preferred browser isn't available, Claude tells you and continues with the other one. If you ask for a specific browser by name and it isn't available, Claude tells you and asks before using the other one.
 
+---
+
 ## Safety
 
 The built-in browser runs the same safeguards as Claude in Chrome:
@@ -61,6 +63,8 @@ Any AI agent that acts in a browser can be targeted by prompt injection, where i
 Learn more in **[Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428)** and **[Use Claude Cowork safely](https://support.claude.com/en/articles/13364135)**.
 
 **Important:** We strongly advise against using the built-in browser or Claude in Chrome to manage or take actions involving sensitive information, such as financial accounts, medical information, or other people's personal data.
+
+---
 
 ## On Team and Enterprise plans
 

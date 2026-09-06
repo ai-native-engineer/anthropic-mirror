@@ -6,11 +6,7 @@ Please note, we reserve the right to suspend users who frequently provide manife
 
 ## How to report safety issues
 
-We welcome reports concerning safety issues so that we can enhance the safety and harmlessness of our models. We would also like to hear from you if you identify our safety mechanisms causing any user experience issues. Please report such issues to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#295c5a4c5b5a484f4c5d506948475d415b4659404a074a4644) with enough detail for us to replicate the issue.
-
-### Help us improve AI safety by reporting universal jailbreaks
-
-This [form](https://docs.google.com/forms/d/1bjD-H30kVJAbIHnFXKzFcSjkUNjE-mwRHSF7R2uSjYM/edit) allows you to submit universal jailbreaks for ASL-3 uses of concern (meaning elicit information related to biological threats) that you've identified. Universal jailbreaks are techniques that allow users to consistently bypass safety measures across multiple harmful queries. Thank you very much for helping us to keep Anthropic safe.
+We welcome reports concerning safety issues so that we can enhance the safety and harmlessness of our models. We would also like to hear from you if you identify our safety mechanisms causing any user experience issues. Please report such issues to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#c0b5b3a5b2b3a1a6a5b4b980a1aeb4a8b2afb0a9a3eea3afad) with enough detail for us to replicate the issue.
 
 ## How to block or remove content
 
@@ -23,7 +19,7 @@ This [form](https://docs.google.com/forms/d/1bjD-H30kVJAbIHnFXKzFcSjkUNjE-mwRHSF
 | `noindex` tag | Applicable: all content types    The `noindex` robots meta tag is a rule that tells our partners not to index your content so that they don’t send it to us in response to your web search query. Your content can still be linked to and visited through other web pages, or directly visited by users with a link, but the content will not appear in Claude outputs that use web search. |
 | Disallow crawling with robots.txt | Applicable: images and video    Our search partners only index images and videos that their bots are allowed to crawl. To prevent them from accessing your media files, use robots.txt rules to block the files. |
 | Disallow Anthropic’s Bots | Applicable: all content types    Follow the instructions [here](https://privacy.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler). |
-| Block access to a URL already appearing in Claude outputs | Applicable: all content types    Submit a request to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#7d0a181f0f180e0811090e120d091208093d1c1309150f120d141e531e1210), including information necessary to prove you own the URL, which can be: an [ICANN registration](https://www.icann.org/resources/pages/register-domain-name-2017-06-20-en), [WHOIS lookup result](https://whois.domaintools.com/), domain registration payment receipt, SSL certificate, or use of a domain-specific email address. |
+| Block access to a URL already appearing in Claude outputs | Applicable: all content types    Submit a request to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#dfa8babdadbaacaab3abacb0afabb0aaab9fbeb1abb7adb0afb6bcf1bcb0b2), including information necessary to prove you own the URL, which can be: an [ICANN registration](https://www.icann.org/resources/pages/register-domain-name-2017-06-20-en), [WHOIS lookup result](https://whois.domaintools.com/), domain registration payment receipt, SSL certificate, or use of a domain-specific email address. |
 
 ### Block or remove content from shared Claude content
 
@@ -38,8 +34,8 @@ This [form](https://docs.google.com/forms/d/1bjD-H30kVJAbIHnFXKzFcSjkUNjE-mwRHSF
 | --- | --- |
 | Report content | Applicable: all content types    If you believe content violates Anthropic’s usage policies or local laws and should be removed or restricted, you can report it through [this form](https://claude.com/form/anthropic-content-reporting).    For copyright and trademark disputes, please follow the instructions [here](https://support.anthropic.com/en/articles/10023646-i-think-a-user-is-infringing-my-copyright-or-other-intellectual-property-how-do-i-report-it). |
 
+* [Claude is providing incorrect or misleading responses. What’s going on?](https://support.claude.com/en/articles/8525154-claude-is-providing-incorrect-or-misleading-responses-what-s-going-on)
 * [Does Anthropic crawl data from the web, and how can site owners block the crawler?](https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler)
-* [What is the External Researcher Access Program?](https://support.claude.com/en/articles/9125743-what-is-the-external-researcher-access-program)
+* [Why am I receiving an 'Output blocked by content filtering policy' error?](https://support.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error)
 * [Report, block, and remove content from Claude](https://support.claude.com/en/articles/10684638-report-block-and-remove-content-from-claude)
-* [Model Safety Bug Bounty Program](https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program)
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)

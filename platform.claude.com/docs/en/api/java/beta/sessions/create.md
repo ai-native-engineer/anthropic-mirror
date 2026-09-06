@@ -98,6 +98,12 @@ Create Session
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Agent agent`
 
     Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
@@ -161,6 +167,10 @@ Create Session
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
@@ -348,7 +358,7 @@ Create Session
 
               Configuration override for the bash tool.
 
-              - `JsonValue name constant`
+              - `JsonValue name = "bash"`
 
                 Must be "bash".
 
@@ -378,7 +388,7 @@ Create Session
 
               Configuration override for the edit tool.
 
-              - `JsonValue name constant`
+              - `JsonValue name = "edit"`
 
                 Must be "edit".
 
@@ -404,7 +414,7 @@ Create Session
 
               Configuration override for the read tool.
 
-              - `JsonValue name constant`
+              - `JsonValue name = "read"`
 
                 Must be "read".
 
@@ -430,7 +440,7 @@ Create Session
 
               Configuration override for the write tool.
 
-              - `JsonValue name constant`
+              - `JsonValue name = "write"`
 
                 Must be "write".
 
@@ -456,7 +466,7 @@ Create Session
 
               Configuration override for the glob tool.
 
-              - `JsonValue name constant`
+              - `JsonValue name = "glob"`
 
                 Must be "glob".
 
@@ -482,7 +492,7 @@ Create Session
 
               Configuration override for the grep tool.
 
-              - `JsonValue name constant`
+              - `JsonValue name = "grep"`
 
                 Must be "grep".
 
@@ -508,7 +518,7 @@ Create Session
 
               Configuration override for the web_fetch tool.
 
-              - `JsonValue name constant`
+              - `JsonValue name = "web_fetch"`
 
                 Must be "web_fetch".
 
@@ -548,7 +558,7 @@ Create Session
 
               Configuration override for the web_search tool.
 
-              - `JsonValue name constant`
+              - `JsonValue name = "web_search"`
 
                 Must be "web_search".
 
@@ -582,7 +592,7 @@ Create Session
 
                 Approximate user location for search result localization.
 
-                - `JsonValue type constant`
+                - `JsonValue type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -700,7 +710,7 @@ Create Session
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonValue type constant`
+            - `JsonValue type = "object"`
 
             - `Optional<Properties> properties`
 
@@ -1074,6 +1084,10 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
         - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
           High-performance model for coding and agents
@@ -1238,7 +1252,7 @@ Create Session
 
                   - `boolean enabled`
 
-                  - `JsonValue name constant`
+                  - `JsonValue name = "bash"`
 
                   - `PermissionPolicy permissionPolicy`
 
@@ -1256,7 +1270,7 @@ Create Session
 
                       - `Type type`
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "bash"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
@@ -1264,7 +1278,7 @@ Create Session
 
                   - `boolean enabled`
 
-                  - `JsonValue name constant`
+                  - `JsonValue name = "edit"`
 
                   - `PermissionPolicy permissionPolicy`
 
@@ -1278,7 +1292,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "edit"`
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
@@ -1286,7 +1300,7 @@ Create Session
 
                   - `boolean enabled`
 
-                  - `JsonValue name constant`
+                  - `JsonValue name = "read"`
 
                   - `PermissionPolicy permissionPolicy`
 
@@ -1300,7 +1314,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "read"`
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -1308,7 +1322,7 @@ Create Session
 
                   - `boolean enabled`
 
-                  - `JsonValue name constant`
+                  - `JsonValue name = "write"`
 
                   - `PermissionPolicy permissionPolicy`
 
@@ -1322,7 +1336,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "write"`
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -1330,7 +1344,7 @@ Create Session
 
                   - `boolean enabled`
 
-                  - `JsonValue name constant`
+                  - `JsonValue name = "glob"`
 
                   - `PermissionPolicy permissionPolicy`
 
@@ -1344,7 +1358,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "glob"`
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -1352,7 +1366,7 @@ Create Session
 
                   - `boolean enabled`
 
-                  - `JsonValue name constant`
+                  - `JsonValue name = "grep"`
 
                   - `PermissionPolicy permissionPolicy`
 
@@ -1366,7 +1380,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "grep"`
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -1374,7 +1388,7 @@ Create Session
 
                   - `boolean enabled`
 
-                  - `JsonValue name constant`
+                  - `JsonValue name = "web_fetch"`
 
                   - `PermissionPolicy permissionPolicy`
 
@@ -1388,7 +1402,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "web_fetch"`
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -1404,7 +1418,7 @@ Create Session
 
                   - `boolean enabled`
 
-                  - `JsonValue name constant`
+                  - `JsonValue name = "web_search"`
 
                   - `PermissionPolicy permissionPolicy`
 
@@ -1418,7 +1432,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "web_search"`
 
                   - `Optional<List<String>> allowedDomains`
 
@@ -1428,7 +1442,7 @@ Create Session
 
                     Approximate user location for search result localization.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "approximate"`
 
                       Location precision. Only "approximate" is supported.
 
@@ -1526,7 +1540,7 @@ Create Session
 
                 JSON Schema for custom tool input parameters.
 
-                - `JsonValue type constant`
+                - `JsonValue type = "object"`
 
                 - `Optional<Properties> properties`
 
@@ -1620,7 +1634,7 @@ Create Session
 
   - `List<BetaManagedAgentsOutcomeEvaluationResource> outcomeEvaluations`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `Optional<LocalDateTime> completedAt`
 
@@ -1634,7 +1648,7 @@ Create Session
 
     - `Optional<String> explanation`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `long iteration`
 
@@ -1762,7 +1776,7 @@ Create Session
 
     - `Optional<Double> activeSeconds`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 

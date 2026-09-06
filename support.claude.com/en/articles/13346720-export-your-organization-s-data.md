@@ -30,5 +30,5 @@ If you're an Enterprise Primary Owner looking to export audit logs, see **[How t
 * [Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
 * [Export your Claude data](https://support.claude.com/en/articles/9450526-export-your-claude-data)
 * [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)
-* [Authorize MCP connectors for your entire organization](https://support.claude.com/en/articles/15537633-authorize-mcp-connectors-for-your-entire-organization)

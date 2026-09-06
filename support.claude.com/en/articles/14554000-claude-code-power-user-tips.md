@@ -34,6 +34,8 @@ Everything else in this guide works on a stock Claude Code install. When in doub
 | Customizing Your Environment | Terminal, status line, voice, output styles |
 | SDK and Multi-Repo Work | `--bare`, `--add-dir`, forking, setup scripts |
 
+---
+
 ## Working in parallel
 
 ### Run multiple sessions at once
@@ -52,9 +54,11 @@ Subagents can also run in isolated worktrees, which is especially powerful for l
 
 ```
 # .claude/agents/worktree-worker.md
+---
 name: worktree-worker
 model: haiku
 isolation: worktree
+---
 ```
 
 Then prompt naturally: *“Migrate all sync IO to async. Batch the changes and launch 10 parallel agents with worktree isolation. Each agent should test its changes end to end, then put up a PR.”*
@@ -66,6 +70,8 @@ The `/batch` command interviews you about a migration, then fans the work out to
 ```
 > /batch migrate src/ from JavaScript to TypeScript
 ```
+
+---
 
 ## Planning before building
 
@@ -89,6 +95,8 @@ Claude Code team’s reasoning: *“It’s the best coding model I’ve ever use
 
 Run /effort to choose your effort level. The available levels are **low** (fewer tokens, faster), **medium**, **high** (more tokens, more intelligence), **xhigh**, **max**, and **auto** (Claude chooses per request). The default is **high** on Team, Enterprise, and direct API access, and **medium** on other plans. The Claude Code team uses high for everything. For complex coding and agentic work, switch to xhigh for deeper reasoning than high without the full token cost of max. Switch to max for hard debugging or architecture decisions where you want Claude to reason for as long as it needs. Max burns through usage limits faster, so activate it per session.
 
+---
+
 ## Prompting effectively
 
 Don’t accept the first solution—push Claude to do better. A few prompts that work well:
@@ -107,6 +115,8 @@ While Claude is actively working, use `/btw` to ask a quick question without int
 > /btw what does the retry logic do?
 ```
 
+---
+
 ## Learning with Claude
 
 Claude Code isn’t just for writing code—it’s a powerful learning tool when you configure it to explain and teach.
@@ -115,6 +125,8 @@ Claude Code isn’t just for writing code—it’s a powerful learning tool when
 * **Generate visual HTML presentations** explaining unfamiliar code.
 * **Ask for ASCII diagrams** of new protocols and codebases.
 * **Build a spaced-repetition skill:** explain your understanding, Claude asks follow-ups to fill gaps.
+
+---
 
 ## CLAUDE.md and memory
 
@@ -146,6 +158,8 @@ The naming maps to how REM sleep consolidates short-term memory into long-term s
 
 One engineer on the team tells Claude to maintain a notes directory for every task and project, updated after every PR — then points `CLAUDE.md` at it.
 
+---
+
 ## Verification — the #1 Tip
 
 Giving Claude a way to verify its work will markedly improve the quality of the final result. If Claude can close the feedback loop on its own, it will iterate until the output is right.
@@ -169,6 +183,8 @@ Append `/simplify` to any prompt after making changes. It runs parallel agents t
 ```
 > hey claude make this code change then run /simplify
 ```
+
+---
 
 ## Commands, skills, and subagents
 
@@ -210,6 +226,8 @@ Custom agents are a powerful primitive that often gets overlooked. Define a new 
 
 When a PR opens, Claude can dispatch a team of agents that each focus on a different concern — logic errors, security issues, performance regressions — and post inline comments. The Anthropic team built this for themselves first; code output per engineer increased significantly and reviews were the bottleneck.
 
+---
+
 ## Hooks
 
 Hooks let you deterministically run logic at points in the agent lifecycle. Ask Claude to add a hook to get started.
@@ -236,6 +254,8 @@ Example `PostToolUse` hook for auto-formatting:
   }
 ]
 ```
+
+---
 
 ## Permissions and safety
 
@@ -267,6 +287,8 @@ For very long-running tasks, ensure Claude can work uninterrupted. Recommended a
 
 For sandboxed environments, use `--permission-mode=dontAsk` or `--dangerously-skip-permissions` to avoid blocks.
 
+---
+
 ## Scheduled and recurring tasks
 
 ### /loop for local recurring tasks
@@ -286,6 +308,8 @@ Unlike `/loop`, scheduled jobs run in the **cloud** — they keep working even w
 ```
 
 **Note:** Experiment with turning your most common workflows into a skill + a loop. It’s powerful.
+
+---
 
 ## Mobile and remote control
 
@@ -307,6 +331,8 @@ You can also enable **“Enable Remote Control for all sessions”** in `/config
 
 Dispatch is a secure remote control for the Claude Desktop app. It can use your MCPs, browser, and computer with your permission—useful for catching up on Slack and emails, managing files, and doing things on your laptop when you’re away from it.
 
+---
+
 ## Tool integrations (MCP)
 
 Connect Claude to your existing tools so it can search Slack, run BigQuery, grab Sentry logs, and more. Add MCP servers via claude mcp add or the "mcpServers" block in settings.json — see **[code.claude.com/docs/en/mcp](https://code.claude.com/docs/en/mcp)** for configuration.
@@ -322,6 +348,8 @@ Enable the Slack MCP, paste a bug thread into Claude, and just say **“fix”**
 ### Plugins
 
 Plugins bundle LSPs (available for every major language), MCPs, skills, agents, and custom hooks. Install from the official Anthropic plugin marketplace, or stand up an internal marketplace for your organization—then check the marketplace reference into `settings.json` so it’s auto-added for every developer. Run `/plugin` to get started.
+
+---
 
 ## Customizing your environment
 
@@ -362,6 +390,8 @@ Claude Code is built to work great out of the box, but when you do customize, **
 
 **By the numbers:** dozens of settings and environment variables—see the **[settings reference](https://code.claude.com/docs/en/settings)**. Use the `"env"` field in `settings.json` to avoid wrapper scripts.
 
+---
+
 ## SDK and multi-repo work
 
 ### --bare for Faster SDK Startup
@@ -389,6 +419,8 @@ To branch off an existing session, run `/branch` from inside it, or `claude --re
 
 In Claude Code on web and desktop, add a **setup script** that runs before each new cloud session—install dependencies, configure settings, set environment variables. The script is skipped on resume.
 
+---
+
 ## Appendix: Quick reference
 
 |  |  |
@@ -406,6 +438,8 @@ In Claude Code on web and desktop, add a **setup script** that runs before each 
 | Customization | `/statusline`, `/color`, `/voice`, `/keybindings`, `/config` |
 | SDK & multi-repo | `--bare`, `--add-dir`, `/branch` |
 
+---
+
 ## Appendix: Related articles
 
 |  |  |
@@ -419,7 +453,7 @@ In Claude Code on web and desktop, add a **setup script** that runs before each 
 Claude Code ships frequently. Verify version-specific details against **[code.claude.com/docs](https://code.claude.com/docs)** before distributing internally.
 
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
-* [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
+* [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)
 * [Claude Code communications kit](https://support.claude.com/en/articles/14555877-claude-code-communications-kit)

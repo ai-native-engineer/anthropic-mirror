@@ -1141,6 +1141,18 @@ Enterprise AI
 
 [How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Aug 20, 2026
+
+### The Claude Code guide for startups
+
+Claude Code
+
+[The Claude Code guide for startups](#)The Claude Code guide for startups
+
+[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
 Aug 11, 2026
@@ -1164,18 +1176,6 @@ Enterprise AI
 [Bain & Company joins the Claude Partner Network as a Global Premier partner](#)Bain & Company joins the Claude Partner Network as a Global Premier partner
 
 [Bain & Company joins the Claude Partner Network as a Global Premier partner](https://claude.com/blog/bain-company-joins-the-claude-partner-network-as-a-global-premier-partner)Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d226ca443e2e05990c00_83d7d2fe412ceb4dfe627f0d5f3d64aff1a3f5db-1000x1000.svg)
-
-Aug 24, 2026
-
-### How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
-
-Claude Code
-
-[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](#)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
-
-[How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep](https://claude.com/blog/how-an-anthropic-field-marketer-uses-claude-code-to-send-weekly-personalized-updates-to-every-sales-rep)How an Anthropic field marketer uses Claude Code to send weekly personalized updates to every sales rep
 
 ## Transform how your organization operates with Claude
 

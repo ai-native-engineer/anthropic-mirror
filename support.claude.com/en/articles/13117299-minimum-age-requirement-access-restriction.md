@@ -18,7 +18,7 @@ Anthropic does not have access to your app store account information and cannot 
 Your age information is managed through your Google account or Apple Account. If your account is part of a family group (such as Google Family Link or Apple Family Sharing), your age may have been set by a parent or guardian when the account was created. You may need to work with them to review or update your account information.
 
 * [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
-* [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
+* [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
 * [Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)
 * [Request a refund for a paid Claude plan](https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan)
 * [Age assurance on Claude](https://support.claude.com/en/articles/15171100-age-assurance-on-claude)

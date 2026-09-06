@@ -18,21 +18,21 @@ Try in CoworkCopy prompt
 
 ### Try a plugin[](#try-a-plugin)
 
-The Engineering plugin ships with `/code-review` as a starting point, already structured to gather a report's shipped work and frame it against a career ladder. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
+The Human Resources plugin ships with `/performance-review` as a starting point, already structured to gather a report's work for the period and draft the review against your framework. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
-Engineering9 skills for postmortems, design docs, on-call handoffs, and cost reviews
+Human ResourcesStreamline people operations — recruiting, onboarding, performance reviews, compensation analysis, and policy guidance. Maintain compliance and keep your team running smoothly.
 
-[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=engineering)
+[Add](https://claude.ai/desktop/customize/plugins/new?marketplace=github.com%2Fanthropics%2Fknowledge-work-plugins&plugin=human-resources)
 
-`/code-review`Gather a report's shipped work and draft the review against your career framework
+`/performance-review`Structure a performance review with self-assessment, manager template, and calibration prep.
 
-[Run](claude://cowork/new?q=%2Fcode-review)
+[Run](claude://cowork/new?q=%2Fperformance-review)
 
-`/standup`Compile a report's PRs, reviews, and incidents into an evidence packet
+`/people-report`Generate headcount, attrition, diversity, or org health reports.
 
-[Run](claude://cowork/new?q=%2Fstandup)
+[Run](claude://cowork/new?q=%2Fpeople-report)
 
-Show all 10 skills
+Show all 9 skills
 
 ### Connect your tools[](#connect-your-tools)
 
@@ -122,7 +122,7 @@ Practice
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
-Make what we've done in this task so far into a skill, or edit the /code-review skill with my feedback.
+Make what we've done in this task so far into a skill, or edit the /performance-review skill with my feedback.
 
 ReviewsOpen in Cowork
 
@@ -134,7 +134,7 @@ ReviewsOpen in Cowork
 
 The evidence packet should be ready before review season opens. Type `/schedule` or open **Scheduled** in the Cowork sidebar, and the customized skill builds the drafts as soon as the quarter folder appears.
 
-**/schedule** Every Monday at 9am, if a new quarter folder exists under Reviews, run /code-review for everyone in team-roster.md and write each draft to Reviews/<quarter>/<name>.md.
+**/schedule** Every Monday at 9am, if a new quarter folder exists under Reviews, run /performance-review for everyone in team-roster.md and write each draft to Reviews/<quarter>/<name>.md.
 
 ReviewsOpen in Cowork
 
@@ -142,17 +142,17 @@ Scheduled taskActive
 
 Quarterly review drafts
 
-When a new quarter folder appears, runs `/code-review` for each report against GitHub, Linear, and Slack and writes evidence-linked drafts to the cycle folder.
+When a new quarter folder appears, runs `/performance-review` for each report against GitHub, Linear, and Slack and writes evidence-linked drafts to the cycle folder.
 
 Every **Monday at 9:00am**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates[](#share-with-your-teammates)
 
-Your customized `/code-review` now carries your career framework, your evidence sources, and your tone. Share it so every manager in the org drafts against the same ladder, and calibration compares apples to apples.
+Your customized `/performance-review` now carries your career framework, your evidence sources, and your tone. Share it so every manager in the org drafts against the same ladder, and calibration compares apples to apples.
 
 Share the skill
 
-In Cowork, open **Skills** → `/code-review` → **Share** and pick your peer managers (or your whole workspace, if your admin allows). They get the skill with your framework baked in, so they don't repeat Steps 1-3.
+In Cowork, open **Skills** → `/performance-review` → **Share** and pick your peer managers (or your whole workspace, if your admin allows). They get the skill with your framework baked in, so they don't repeat Steps 1-3.
 
 ## What changes for review season[](#what-changes-for-review-season)
 

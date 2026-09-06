@@ -20,6 +20,8 @@ In this lessonBy the end, you’ll be able to
 
 Looking forward · 4 min
 
+SummaryTranscript
+
 This closing video brings together everything you've learned across the
 course and challenges you to put it into practice immediately with real
 work that's already waiting for you.

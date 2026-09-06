@@ -2,6 +2,8 @@
 
 This page collects the vocabulary, commands, and keyboard shortcuts that are worth committing to muscle memory. Keep it open in a browser tab (or printed beside your keyboard) during your first few weeks with Claude Code. Most of the friction new users hit comes from not knowing a command already exists for what they are trying to do, so a quick scan here before reaching for a workaround usually pays off.
 
+---
+
 ## Glossary
 
 |  |  |
@@ -20,6 +22,8 @@ This page collects the vocabulary, commands, and keyboard shortcuts that are wor
 | **Hook** | A shell command that runs automatically at a defined point in Claude's lifecycle, such as before a tool runs, after an edit, or on session start. Hooks are commonly used for auto-formatting, linting, or blocking unsafe commands. |
 | **Skill** | A packaged set of instructions and helper files that teaches Claude a specific workflow, such as generating a PDF report, scaffolding a component, or following a deploy runbook. Skills are invoked with / like built-in commands and can also load automatically when relevant. |
 | **Command** | Any input starting with /. Built-in commands control the session (see the table below); custom ones are skills your team defines in `.claude/skills/<name>/SKILL.md` (the legacy `.claude/commands/` path still works). |
+
+---
 
 ## Commands
 
@@ -58,6 +62,8 @@ Type `/` on an empty prompt to see every command available in your setup, includ
 | `/login` / `/logout` | Authenticate, switch accounts, or sign out. |
 | `/exit` | Quit the CLI. Alias: `/quit`. |
 
+---
+
 ## Keyboard shortcuts
 
 |  |  |
@@ -76,7 +82,7 @@ Type `/` on an empty prompt to see every command available in your setup, includ
 
 Shortcuts vary slightly by terminal and IDE. Press **`?`** inside a session for the exact list in your environment.
 
-* [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Claude Code: Common developer use cases](https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases)
 * [Claude Code power user tips](https://support.claude.com/en/articles/14554000-claude-code-power-user-tips)
 * [Claude Code user FAQ](https://support.claude.com/en/articles/14554922-claude-code-user-faq)

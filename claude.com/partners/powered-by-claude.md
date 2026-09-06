@@ -10,7 +10,7 @@ A curated list of businesses that use Claude to build better, faster, and safer.
 
 Build with Claude
 
-[Build with Claude](https://claude.com/platform/api)Build with Claude
+[Build with Claude](https://claude.com/platform/api-v2)Build with Claude
 
 Thank you! Your submission has been received!
 
@@ -571,6 +571,16 @@ Vanta integrates with Claude via the Model Context Protocol to provide a natural
 Cybersecurity
 
 [See solution](https://www.vanta.com/)
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a451ef104342d131f95adb1_Workato_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a451ef3b97d50cc14b9f880_Workato_dark.svg)
+
+Workato is the leading enterprise orchestration platform, connecting thousands of applications so businesses can automate workflows, integrate systems, and safely deploy AI agents to take real action with enterprise-grade governance, security, and control built in from the start.
+
+Data and analytics
+
+Business intelligence
+
+[See solution](https://www.workato.com)
 
 ![Zapier logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aedd1d4ccaa7aaecee72_zapier_light.svg)![Zapier logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5aed89af0a9a659d820f0_zapier_dark.svg)
 

@@ -15,6 +15,8 @@ Anthropic may designate certain models as "Covered Models" when their capabiliti
 |  |  |  |  |
 | --- | --- | --- | --- |
 | **Model** | **Designation date** | **Status** | **Availability** |
+| Claude Mythos 5.1 | August 31, 2026 | Limited availability | Limited access (approved partners) |
+| Claude Fable 5.1 | August 31, 2026 | Generally available | Claude applications, Claude Platform, Amazon Bedrock, Google Cloud Agent Platform, Microsoft Foundry |
 | Claude Mythos 5 | June 9, 2026 | Limited availability | Limited access (approved partners) |
 | Claude Fable 5 | June 9, 2026 | Generally available | Claude applications, Claude Platform, Amazon Bedrock, Google Cloud Agent Platform, Microsoft Foundry |
 
@@ -22,7 +24,7 @@ Anthropic may designate certain models as "Covered Models" when their capabiliti
 
 ## Policies that apply to Covered Models
 
-The following policies apply to every Covered Model listed above, on every platform where it is available (Claude apps, Claude Platform, Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Foundry).
+The following policies apply to every Covered Model listed above, on every platform where it is available (Claude apps, Claude Platform, Amazon Bedrock, Google Cloud Agent Platform, and Microsoft Foundry).
 
 ### Data retention
 
@@ -47,8 +49,18 @@ The following policies apply to every Covered Model listed above, on every platf
 * **Enablement.** Contact your Anthropic account team to inquire about limited-availability models or grants or our security and privacy controls.
 * **BAA customers.** If your organization uses Anthropic’s HIPAA-ready services under a Business Associate Agreement (BAA), see **[Covered Models under Anthropic’s BAA](https://support.claude.com/en/articles/15455031)** for which configurations can access Covered Models as Eligible Services.
 
-* [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
-* [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)
-* [HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)
+## Zero data retention and Enterprise Frontier Safeguards
+
+All commercial customers can use Claude Fable 5 and Fable 5.1 today under the standard policies described above. For organizations whose privacy or regulatory obligations make Anthropic-held data retention difficult, we are introducing **[Enterprise Frontier Safeguards](https://www.anthropic.com/news/enterprise-frontier-safeguards)** (EFS), which combines automated safety monitoring with the option to keep retained monitoring data in cloud infrastructure the customer controls. EFS will roll out in phases beginning in fall 2026.
+
+To make the transition smooth, eligible customers will receive the option to use ZDR with Fable 5 and Fable 5.1 for their own internal business applications. This arrangement is available for a limited time, and intended to be a transition to EFS. Anthropic or your cloud provider will contact eligible organizations directly; you can also request consideration using **[this form](https://claude.com/form/enterprise-frontier-safeguards)**.
+
+Certain products built on Claude may extend the option to use ZDR with these models to their own eligible business customers under terms agreed with Anthropic, and we are working to broaden product support over time.
+
+This arrangement affects only the retention and review of stored data. The Usage Policy, real-time safety classifiers, and Anthropic's enforcement systems continue to apply to all traffic, and Anthropic may modify or withdraw the arrangement, including in response to misuse.
+
+* [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
+* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
+* [Turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)

@@ -8,7 +8,7 @@
 
 List the permissions an RBAC Role grants.
 
-The RBAC Roles API is in beta and available to Claude Enterprise organizations only. Requests must send the `ce-user-management-2026-07-13` value in the `anthropic-beta` header.
+The RBAC Roles API is available to Claude Enterprise organizations only.
 
 ### Path parameters
 
@@ -29,14 +29,6 @@ The RBAC Roles API is in beta and available to Claude Enterprise organizations o
 - `page: optional string`
 
   Optionally set to the `next_page` token from the previous response.
-
-### Headers
-
-- `"anthropic-beta": optional array of string`
-
-  Optional header to specify the beta version(s) you want to use.
-
-  To use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.
 
 ### Returns
 
@@ -165,7 +157,7 @@ The RBAC Roles API is in beta and available to Claude Enterprise organizations o
 ```bash
 curl https://api.anthropic.com/v1/organizations/rbac_roles/$ROLE_ID/permissions \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN"
 ```
 
 #### Response (200)

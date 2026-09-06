@@ -14,6 +14,8 @@ Claude Cowork is available on paid plans (Pro, Max, Team, Enterprise). Availabil
 
 On web and mobile, Claude Cowork sessions run in Anthropic's cloud.
 
+---
+
 ## Where Cowork runs
 
 During the beta, Cowork sessions can run in two places:
@@ -79,11 +81,15 @@ Plugins are included with Cowork and controlled by the same admin toggle—there
 
 For details on what members can do with plugins, see **[Use plugins in Cowork](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork)**.
 
+---
+
 ## Projects
 
 Projects in Cowork let users organize tasks into dedicated workspaces with their own files, links, instructions, and memory. Projects are available to all Cowork users. There are no separate admin controls for projects, so owners cannot restrict project creation at the organization level at this time.
 
 Projects are available wherever members use Cowork. Projects tied to a local folder support Cowork sessions on desktop only. For local sessions, project data is stored on the user's computer; for sessions in the cloud, projects are saved with the member's Claude account. For full details, see **[Organize your tasks with projects in Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-cowork).**
+
+---
 
 ## Manage plugins for your organization
 
@@ -96,9 +102,13 @@ Owners can create plugin marketplaces to distribute curated plugins across their
 
 On Enterprise plans, admins can also override these preferences for specific groups—for example, auto-installing a plugin for one team while hiding it from everyone else. For details, see **[Manage Cowork plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)**.
 
+---
+
 ## Company branding
 
 Cowork now surfaces your organization's branding, including a redesigned home screen tailored to your team. Team and Enterprise owners can configure branding within **Organization settings**.
+
+---
 
 ## Compliance and monitoring
 
@@ -119,6 +129,8 @@ For sessions in the cloud, your sessions and files are saved to your Claude acco
 The Cowork toggle is organization-wide—either all members have access or none do. On Enterprise plans, admins who need per-team control can use **[groups and custom roles](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)** to selectively enable Cowork or grant the "Run Cowork in the cloud" capability to specific users or teams. Team plans don't have access to these controls, so Cowork remains all-or-nothing.
 
 Within Cowork, admins have more granular control over plugins. You can set per-plugin installation preferences to control which plugins are auto-installed, available for self-service, or hidden from your organization's catalog. On Enterprise plans, these preferences can also be customized per group. See **[Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)** for details.
+
+---
 
 ## Security considerations
 

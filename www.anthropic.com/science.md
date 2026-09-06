@@ -6,13 +6,15 @@ Using AI to increase the pace of scientific progress is a core part of Anthropic
 
 Science
 
-## Learning more about Claude's mathematical capabilities
+## Formalizing Fermat's Last Theorem
 
-An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.
+Claude produced the first complete computer-checked proof of Fermat's Last Theorem. It worked largely autonomously over 11 days, writing the proof in the Lean programming language. We describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
 
-[Read more](https://www.anthropic.com/research/riemann-zeta)
+[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 
-![Learning more about Claude's mathematical capabilities](https://www-cdn.anthropic.com/images/4zrzovbb/website/ca772f1b34e5b58e38694538f017d63f5dd196d9-1200x630.jpg)
+[](https://cdn.sanity.io/files/4zrzovbb/website/6d5e1a90507ea4171510b907134139bf716b7d15.mp4)
+
+Time progression of FLT formalization
 
 ## Publications
 
@@ -20,6 +22,9 @@ Search
 
 DateCategoryTitle
 
+* [Sep 4, 2026Science
+
+  Formalizing Fermat's Last Theorem](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 * [Aug 18, 2026Science
 
   How Claude is accelerating protein design and analytical chemistry](https://www.anthropic.com/research/Claude-accelerates-protein-design)

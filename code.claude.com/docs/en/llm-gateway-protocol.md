@@ -1,12 +1,12 @@
 <!-- source: https://code.claude.com/docs/en/llm-gateway-protocol -->
 
-# Gateway protocol reference
+# Claude Code gateway compatibility guide
 
-> The API contract between Claude Code and an LLM gateway: endpoints, headers and body fields to forward, feature degradation when fields are stripped, attribution headers for cost tracking, and model discovery.
+> Keep an LLM gateway compatible with Claude Code: the endpoints it calls, the headers and body fields to forward, and what breaks when they're stripped.
 
 This page documents the requests Claude Code sends to a gateway, including the endpoints it calls, the headers and body fields the gateway must forward, and which features stop working when it doesn't. It is written for operators configuring a gateway product to work with Claude Code.
 
-A running [Claude apps gateway](/docs/en/claude-apps-gateway) serves a machine-readable version of this contract at `GET /protocol`, covering the same forwarding requirements plus the Claude apps gateway-specific endpoints for SSO sign-in, managed-settings delivery, and telemetry. Claude apps gateway runs from the same `claude` binary as the CLI, so the [Claude apps gateway quickstart](/docs/en/claude-apps-gateway#quickstart) is the shortest path to a running instance you can fetch the spec from.
+The [Claude apps gateway](/docs/en/claude-apps-gateway), Anthropic's self-hosted gateway, serves its own endpoint reference at `GET /protocol`, covering that gateway's sign-in, inference, managed settings, model discovery, and telemetry endpoints. It is a separate document from this guide.
 
 <Note>
   * To roll out an existing or third-party gateway for your organization, see [Roll out an LLM gateway](/docs/en/llm-gateway-rollout)
@@ -54,7 +54,9 @@ The [fast mode](/docs/en/fast-mode) availability check never appears in gateway 
 
 ### Streaming
 
-Inference responses must stream. Claude Code consumes server-sent events as they arrive, so a gateway that buffers complete responses before relaying them stalls the client.
+Stream inference responses. Claude Code reads the stream as it arrives, so if your gateway buffers complete responses before relaying them, Claude Code stalls.
+
+When the client speaks the Amazon Bedrock format, relay the `InvokeModelWithResponseStream` response body and its `Content-Type: application/vnd.amazon.eventstream` header unmodified, and don't convert the stream to server-sent events. See [Streaming errors behind a gateway or proxy](/docs/en/amazon-bedrock#streaming-errors-behind-a-gateway-or-proxy).
 
 Forward keep-alive pings as well. On connections through `ANTHROPIC_BASE_URL` or `ANTHROPIC_AWS_BASE_URL`, Claude Code counts every byte your gateway relays, including SSE `ping` events and comment lines, and aborts a stream that goes silent for 300 seconds by default. The upstream's pings are the only traffic during long thinking pauses, so if your gateway strips or buffers them, Claude Code aborts the stream during those pauses; [Automatic retries](/docs/en/errors#automatic-retries) covers what an aborted stream reports based on how far the response had progressed. An upstream that sends no pings at all, such as Amazon Bedrock's binary event-stream, leaves those pauses with nothing to forward. When translating from such an upstream, emit your own `ping` events during silent gaps. Gateways reached through `ANTHROPIC_BEDROCK_BASE_URL`, `ANTHROPIC_VERTEX_BASE_URL`, or `ANTHROPIC_FOUNDRY_BASE_URL` aren't wrapped by this byte-level watchdog, even when they relay the Anthropic Messages format; there, a [5-minute idle timeout](/docs/en/env-vars) aborts a silent stream instead, and on `ANTHROPIC_BEDROCK_BASE_URL` connections you can add the byte watchdog with [`CLAUDE_ENABLE_BYTE_WATCHDOG_BEDROCK`](/docs/en/env-vars).
 
@@ -163,7 +165,8 @@ Discovery applies only to the Anthropic Messages format. It doesn't run when:
 
 * Any `CLAUDE_CODE_USE_*` provider variable is set, even if `ANTHROPIC_BASE_URL` is also set
 * `ANTHROPIC_BASE_URL` is unset or points at `api.anthropic.com`
-* Nonessential traffic is disabled, through [`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`](/docs/en/env-vars) or organization policy
+
+Discovery still runs when [nonessential traffic is turned off](/docs/en/llm-gateway-connect#turn-off-traffic-outside-the-gateway-path), because the request goes only to your gateway. Before v2.1.257, discovery didn't run while nonessential traffic was turned off.
 
 ### Request and response
 
@@ -174,16 +177,20 @@ Claude Code sends the discovery request with both credential headers below and o
 * `Authorization`: `ANTHROPIC_AUTH_TOKEN` as a bearer token, otherwise the [`apiKeyHelper`](/docs/en/llm-gateway-connect#rotate-credentials-with-apikeyhelper) value as a bearer token. In that case Claude Code waits for the helper to return before sending the request.
 * `x-api-key`: the API key Claude Code resolved, such as `ANTHROPIC_API_KEY`. When a helper value is the only credential, this header carries it too, so the value arrives in both headers.
 
-Claude Code also sends any headers from `ANTHROPIC_CUSTOM_HEADERS`.
+Claude Code also sends any headers from `ANTHROPIC_CUSTOM_HEADERS`. When a custom header has a non-empty value, Claude Code sends it in place of a built-in header of the same name, matching names case-insensitively.
 
-When neither credential header's value resolves, Claude Code skips discovery and writes a `[gatewayDiscovery] skipped` line to the debug log of a `claude --debug` session.
+When neither credential header's value resolves, Claude Code skips discovery and writes a `[gatewayDiscovery] skipped` line to the debug log of a `claude --debug` session. If you supply a credential only through `ANTHROPIC_CUSTOM_HEADERS`, Claude Code still skips discovery.
 
-Claude Code reads `id` and the optional `display_name` from each entry in the response's `data` array:
+Claude Code reads `id`, the optional `display_name`, and the optional `description` from each entry in the response's `data` array:
 
 ```json theme={null}
 {
   "data": [
-    { "id": "claude-sonnet-4-6", "display_name": "Claude Sonnet 4.6" },
+    {
+      "id": "claude-sonnet-4-6",
+      "display_name": "Claude Sonnet 4.6",
+      "description": "Default model for everyday coding tasks"
+    },
     { "id": "claude-opus-4-8" }
   ]
 }
@@ -193,9 +200,14 @@ Claude Code keeps an entry when its `id` contains `claude` or `anthropic` anywhe
 
 ### Picker entries and caching
 
-The picker is the interactive model list that opens when a developer runs `/model` in Claude Code. Each discovered entry is labeled "From gateway" and uses `display_name` when provided. The [`availableModels` managed setting](/docs/en/settings-reference#availablemodels) bounds what discovery can add.
+The picker is the interactive model list that opens when a developer runs `/model` in Claude Code. Each discovered entry uses `display_name` as its name when the gateway sends one, and the model's `id` otherwise. Discovery adds only models that the [`availableModels` managed setting](/docs/en/settings-reference#availablemodels) allows.
 
-A discovered ID is skipped when it exactly matches a row already in the picker, or when both the discovered and existing IDs resolve to [Fable](/docs/en/model-config#work-with-fable-5). A discovered explicit ID is also folded into a built-in entry when both resolve to the same model. Built-in rows are keyed on aliases such as `sonnet`, so a discovered explicit ID of the model the alias currently resolves to, such as `claude-sonnet-5`, collapses into the `sonnet` row, while an ID the alias doesn't resolve to, such as `claude-sonnet-4-6`, still adds its own "From gateway" row alongside the built-in entry. Before v2.1.197, Claude Code didn't fold explicit IDs into built-in entries, so a discovered ID such as `claude-sonnet-5` added its own "From gateway" row alongside the `sonnet` row.
+Each entry also shows the model's `description`, collapsed to one line. An entry without a `description` reads "From gateway" instead. Before v2.1.257, every discovered entry read "From gateway".
+
+A discovered ID doesn't get its own row when it matches a row already in the picker:
+
+* Same ID: the discovered ID exactly matches an existing row's ID, or the two IDs are spellings of the same [Fable](/docs/en/model-config#work-with-fable) version.
+* Same model as a built-in alias: when a discovered explicit ID names the model that a built-in alias currently resolves to, the picker shows only the alias row. For example, while `sonnet` resolves to `claude-sonnet-5`, a discovered `claude-sonnet-5` collapses into the `sonnet` row, and a discovered `claude-sonnet-4-6` still gets its own row. Before v2.1.197, Claude Code didn't fold these IDs into built-in rows, so `claude-sonnet-5` also got its own "From gateway" row.
 
 Results are cached to `~/.claude/cache/gateway-models.json`, or `%USERPROFILE%\.claude\cache\gateway-models.json` on Windows, and refreshed on each startup. If you set [`CLAUDE_CONFIG_DIR`](/docs/en/env-vars), the cache lives under that directory instead. If the request fails or the gateway doesn't implement `/v1/models`, the picker falls back to the cached list from the previous startup or to the built-in model list. If your gateway serves Claude models under aliases that don't match the discovery filter, developers can add those aliases manually with the [model configuration](/docs/en/model-config) variables.
 
@@ -205,7 +217,7 @@ For the rest of the gateway documentation set and the underlying API references:
 
 * [Gateway overview](/docs/en/gateways): what a gateway is and how to choose between Claude apps gateway and another product
 * [Other LLM gateways](/docs/en/llm-gateway): how to roll out a gateway your organization runs and how it interacts with claude.ai subscriptions
-* [Roll out an LLM gateway for your organization](/docs/en/llm-gateway-rollout): the admin checklist that uses this contract
+* [Roll out an LLM gateway for your organization](/docs/en/llm-gateway-rollout): the admin checklist that uses this guide
 * [Connect Claude Code to an LLM gateway](/docs/en/llm-gateway-connect): per-developer configuration and the troubleshooting table
 * [Beta headers reference](https://platform.claude.com/docs/en/api/beta-headers): the current set of `anthropic-beta` values
 * [Messages API](https://platform.claude.com/docs/en/api/messages): the API format an Anthropic-format gateway implements

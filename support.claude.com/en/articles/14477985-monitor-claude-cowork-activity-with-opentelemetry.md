@@ -4,6 +4,8 @@ This article explains how to use OpenTelemetry (OTel) to monitor Claude Cowork a
 
 OpenTelemetry monitoring for Claude Cowork is available on Team and Enterprise plans. It covers Cowork sessions that run in the cloud (on desktop, web, and mobile) as well as local desktop sessions. Monitoring sessions in the cloud requires Claude Desktop version 1.22209.3 or later, and monitoring local desktop sessions requires Claude Desktop version 1.1.4173 or later.
 
+---
+
 ## What you can monitor
 
 When you connect Claude Cowork to an OpenTelemetry collector, Cowork streams events covering:
@@ -18,6 +20,8 @@ When you connect Claude Cowork to an OpenTelemetry collector, Cowork streams eve
 A shared `prompt.id` attribute links every event triggered by a single user prompt, so you can reconstruct everything Claude did in response to one input.
 
 For the full list of event types and attributes, see the **[Cowork monitoring reference](https://claude.com/docs/cowork/monitoring#events)** in our Claude Docs.
+
+---
 
 ## When to use OpenTelemetry
 
@@ -34,6 +38,8 @@ Cowork's OpenTelemetry output works with any standard OTel collector. Common des
 
 You can route events to multiple destinations at once by configuring your collector accordingly.
 
+---
+
 ## Set up OpenTelemetry monitoring
 
 To configure Cowork to export events to your collector:
@@ -46,6 +52,8 @@ To configure Cowork to export events to your collector:
 
 Events begin flowing to your collector immediately. Authentication headers are encrypted at rest on Anthropic servers.
 
+---
+
 ## Security and privacy considerations
 
 A few things to be aware of before you turn on OpenTelemetry export:
@@ -54,6 +62,8 @@ A few things to be aware of before you turn on OpenTelemetry export:
 * **Tool parameters may include sensitive values.** File paths, command arguments, and other tool inputs are exported in the tool\_parameters field. Plan your retention and access policies accordingly.
 * **User email addresses are included in event attributes.** If this is a concern, filter or redact at the collector.
 * **Events are only exported when an admin configures an OTLP endpoint.** No data flows by default.
+
+---
 
 ## Joining OpenTelemetry data with the Compliance API
 

@@ -18,7 +18,7 @@ from anthropic import Anthropic
 
 client = Anthropic()
 
-MODEL\_NAME = "claude-opus-4-1"
+MODEL\_NAME = "claude-opus-4-8"
 
 message = (
 

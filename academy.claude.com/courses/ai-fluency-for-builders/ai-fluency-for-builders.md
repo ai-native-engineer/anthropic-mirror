@@ -20,6 +20,8 @@ In this lessonBy the end, you’ll be able to
 
 Introduction to AI Fluency for builders · 4 min
 
+SummaryTranscript
+
 This video introduces builders — product people, designers, and makers — to
 the course, explains what AI Fluency actually means in practice, and
 previews the 4D Framework that will anchor every lesson that follows.

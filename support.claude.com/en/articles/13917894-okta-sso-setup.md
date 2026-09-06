@@ -18,6 +18,8 @@ The ACS URL, Entity ID, and SCIM credentials referenced below are provided in th
 
 Start the SSO setup flow there and keep it open alongside the Okta Admin console as you work through the steps below.
 
+---
+
 ## Step 1 — Create the Okta application
 
 1. In the Okta Admin console, go to **Applications → Applications → Create App Integration**.
@@ -28,6 +30,8 @@ Start the SSO setup flow there and keep it open alongside the Okta Admin console
 
 1. In the **Configure SAML** tab, enter: **Single sign-on URL (ACS URL)** from the WorkOS setup flow, **Audience URI (Entity ID)** from the WorkOS setup flow, **Name ID format:** EmailAddress, and **Application username:** Email.
 2. Under **Attribute Statements**, add an attribute named email with value user.email.
+
+   1. If you use group mappings (JIT or SCIM provisioning with **Enable group mappings** turned on), also add a Group Attribute Statement named "groups" with a filter that includes every Okta group you map to a Claude role or seat type. Without it, sign-ins arrive with no group information: users can’t be assigned a mapped role, and under JIT with group mappings, a user whose sign-in includes no mapped group is removed from the organization at their next login. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
 3. Download the **Identity Provider metadata** XML and upload it in the WorkOS setup flow when prompted.
 
 ## Step 3 — Enable SCIM provisioning
@@ -51,6 +55,8 @@ Start the SSO setup flow there and keep it open alongside the Okta Admin console
 
 1. If you enabled SCIM, check provisioning logs to confirm people were successfully created in Claude.
 2. Have a test user complete SSO and verify they land in your organization's workspace.
+
+---
 
 ## Need help?
 

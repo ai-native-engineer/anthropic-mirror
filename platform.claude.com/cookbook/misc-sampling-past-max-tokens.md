@@ -6,7 +6,7 @@ This notebook illustrates how to get Claude to give responses longer than the ma
 
 %%capture
 
-!pip install anthropic
+%pip install anthropic
 
 First, we'll prompt Claude by asking it to write something longer than 4096 tokens.
 

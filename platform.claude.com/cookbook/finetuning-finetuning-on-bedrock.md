@@ -12,7 +12,7 @@ In this notebook, we'll walk you through the process of finetuning Claude 3 Haik
 
 ##  Install Dependencies
 
-!pip install boto3
+%pip install boto3
 
 import boto3
 

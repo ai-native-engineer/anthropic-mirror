@@ -1,16 +1,20 @@
 <!-- source: https://claude.com/solutions/life-sciences -->
 
-AI adoption index
+Claude Team plan for scientists
 
 [Next](#)Next
 
-Learn your next steps for adopting AI in life sciences
+Putting Claude in the hands of more scientists
 
-Take the assessment
+Scientists at academic and nonprofit research institutions around the world can now get Claude at no cost to start.
 
-[Take the assessment](https://claude.com/solutions/life-sciences/ai-adoption-index)Take the assessment
+‍
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/699f650de5c2e793dcbd707e_og-claude-claude-marketplace.jpg)
+Learn more
+
+[Learn more](https://claude.com/programs/team-plan-for-scientists)Learn more
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a970e15253064fcb1cf2977_toast-team-plan-for-research-labs.avif)
 
 # Claude for Life Science Teams
 

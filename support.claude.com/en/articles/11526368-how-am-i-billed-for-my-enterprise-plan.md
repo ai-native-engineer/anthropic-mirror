@@ -10,6 +10,8 @@ How billing works depends on whether your organization is on a self-serve or sal
 * If your organization is on a seat-based plan with **Standard** and **Premium** seats, skip to the **[seat-based plans section](#h_3b87de90bd)**.
 * Chat-only seats and Standard/Premium seats are no longer available for new contracts—both legacy plan types are transitioning to the single Enterprise seat at their next renewal.
 
+---
+
 ## Seat fees
 
 All usage-based Enterprise plans (self-serve and sales-assisted) use the same seat pricing: **priced per user per month and billed annually**.
@@ -21,6 +23,8 @@ You're charged for the number of seats on your plan at the start of your annual 
 **Example:** Your annual plan starts January 1 with 50 seats. You are charged upfront for the seats. On April 1, you add 10 seats. You'll be charged immediately for the remaining months.
 
 **Note:** Seats cannot be removed mid-term on self-serve Enterprise plans. For step-by-step instructions on purchasing, adding, and managing seats, see **[Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchasing-and-managing-seats-on-enterprise-plans)**.
+
+---
 
 ## Usage billing and payment methods
 
@@ -55,7 +59,9 @@ Usage is **billed monthly in arrears** based on your organization's actual consu
 
 **Payment methods**
 
-Sales-assisted Enterprise organizations can pay by bank transfer (ACH or wire) or, for smaller invoices, by credit card. Invoices of $50,000 or more can only be paid by bank transfer (ACH or wire). The credit card option won't appear on the payment page for invoices at or above this amount. To pay a specific invoice by card, reach out to your Anthropic Contact to request an exception.
+Sales-assisted Enterprise organizations can pay by bank transfer (ACH or wire) or, for smaller invoices, by credit card. Invoices of $50,000 or more can only be paid by bank transfer (ACH or wire). The credit card option won't appear on the payment page for invoices at or above this amount.
+
+---
 
 ## How usage works across your team
 
@@ -70,6 +76,8 @@ Everyone's usage draws from the same credit balance. One person's heavy usage de
 ### Sales-assisted Enterprise
 
 There's no balance to deplete. Everyone's usage is metered and added to the same monthly invoice. One person's heavy usage doesn't block anyone else — it just increases what shows up on the bill. If you want a ceiling, set spend limits.
+
+---
 
 ## Spend limits
 
@@ -90,6 +98,8 @@ On **sales-assisted plans**, spend limits prevent usage from continuing past the
 
 **Owners can set limits to "unlimited,"** but consumption will still be billed. You cannot disable billing for usage—usage-based pricing is a core part of the Enterprise plan.
 
+---
+
 ## Monitoring usage and spend
 
 You can track your organization's usage and spending in a few places:
@@ -98,12 +108,16 @@ You can track your organization's usage and spending in a few places:
 * **Monthly invoices:** Detailed usage per user for the billing period (sales-assisted plans).
 * **Spend limit notifications:** Alerts when users or your organization approach configured spending thresholds.
 
+---
+
 ## What happens when usage stops
 
 If usage stops on your Enterprise plan, here's how Owners, Primary Owners, and custom roles with the **Billing** permission set to "Can manage" can resume:
 
 * **Self-serve plans:** If credits run out or a spend limit is reached, purchase additional credits or raise the spend limit from **[Organization](https://claude.ai/admin-settings/organization) [settings > Usage](https://claude.ai/admin-settings/usage)**.
 * **Sales-assisted plans:** If a spend limit is reached, you can raise the limit, or usage will resume at the start of the next billing period. Contact your account manager with questions.
+
+---
 
 ## Chat and Chat + Claude Code seats
 
@@ -115,9 +129,11 @@ Seat fees are billed annually. Usage billing works the same way as described in 
 
 ### Transition to the single Enterprise seat
 
-At your next contract renewal, your plan will automatically transition to the single Enterprise seat model. When that happens, all users — regardless of their current seat type — will move to the **Enterprise seat**. This seat includes Claude Code, Cowork, Chat and more.
+At your next contract renewal, your plan will automatically transition to the single Enterprise seat model. When that happens, all users—regardless of their current seat type—will move to the **Enterprise seat**. This seat includes Claude Code, Cowork, Chat and more.
 
 If you have questions about your upcoming renewal, reach out to your Anthropic Contact or **[our Sales team](https://claude.com/contact-sales)**.
+
+---
 
 ## Seat-based plans
 
@@ -134,7 +150,7 @@ On seat-based plans, usage credits are available to allow team members to contin
 At your next contract renewal, your plan will transition to the usage-based single Enterprise seat model described in this article. If you'd like to migrate before your renewal, reach out to your Anthropic Contact or **[our Sales team](https://claude.com/contact-sales)**.
 
 * [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
-* [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
+* [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Purchase and manage seats on Enterprise plans](https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans)
 * [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)

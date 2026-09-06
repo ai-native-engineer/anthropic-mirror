@@ -8,11 +8,13 @@ Groups let you organize members into logical collections—by team, department, 
 
 * **Set spend limits for groups**, so all members of a group share a per-user spend limit.
 * **Control member access through group memberships and custom roles**, so their capabilities and permissions are determined entirely by the groups they belong to. For additional details, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
-* **Let members share resources with a group**, so a project or skill shared with the group is available to everyone in it, and access follows membership as it changes. For details, see [**Manage project visibility and sharing**](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)and **[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)**.
+* **Let members share resources with a group**, so a project, skill, or plugin shared with the group is available to everyone in it, and access follows membership as it changes. For details, see [**Manage project visibility and sharing**](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)and **[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)**.
 
 Groups can be created manually or synced automatically from your identity provider via SCIM. Each organization can have up to 100 groups. There's no limit on how many groups a member can belong to, though belonging to more than 250 can slow performance.
 
 In addition to spend limits, Enterprise admins can use groups to control plugin access in Cowork. Each plugin in your organization's marketplace can have group-level overrides that determine whether it's available, pre-installed, required, or hidden for members of a specific group. For details, see **[Manage Cowork plugins for your organization](https://support.claude.com/en/articles/13837433-manage-cowork-plugins-for-your-organization)**.
+
+---
 
 ## Create a group
 
@@ -39,6 +41,8 @@ To change settings for several groups at once, select them with the checkboxes i
 
 Click the menu button to the right of any group and select "Delete." Deleting a group doesn't affect the custom roles that were assigned to it and doesn't remove any members from your organization. Deleting a group also removes its access to any projects shared with it. Members lose access to those projects unless they have access another way.
 
+---
+
 ## SCIM group sync
 
 If your organization uses SCIM directory sync, groups from your identity provider are automatically synced to Claude. SCIM groups appear with a sync indicator in the groups list.
@@ -49,14 +53,16 @@ To manually trigger a sync, click “SCIM Sync."
 
 **Note:** Claude supports direct group memberships only. If your identity provider nests groups inside other groups, those relationships are ignored when memberships are pushed via SCIM, and only direct members appear in Claude. Some providers flatten nested memberships before pushing them, which makes members of child groups appear as direct members. Check your provider's SCIM behavior to confirm.
 
+---
+
 ## Group visibility
 
-By default, groups appear only on admin surfaces. Visibility settings let you make a group discoverable to members so they can share resources (like projects and skills) with it. You set them in the **Visibility settings** section when creating or editing a group.
+By default, groups appear only on admin surfaces. Visibility settings let you make a group discoverable to members so they can share resources (like projects, skills, or plugins) with it. You set them in the **Visibility settings** section when creating or editing a group.
 
 There are three settings:
 
 * **Discover this group:** Members can find the group by name. This doesn't expose group members, spend limits, or role assignments.
-* **Share resources with this group:** Members can share resources, such as projects and skills, with the group.
+* **Share resources with this group:** Members can share resources, such as projects, skills, and plugins, with the group.
 * **See group members:** Members can see who belongs to the group, by name and email address.
 
 For each setting, select **Group members** to grant it to members of that group, or **Everyone** to grant it to everyone in your organization. Leave both unchecked to keep the setting off.
@@ -67,7 +73,7 @@ The **Visibility** column in the groups list shows each group's current state. N
 
 **Important:** Visibility settings are configured per organization. Groups, group membership, and SCIM sync are managed at the parent organization level and shared across child organizations, but visibility settings aren't. An admin changing visibility settings in one organization doesn't affect any other organization.
 
-### Remove a group's access to shared projects and skills
+### Remove a group's access to shared projects, skills, and plugins
 
 Turning off **Share resources with this group** blocks new shares. It doesn't revoke projects already shared with the group. To revoke those:
 
@@ -78,6 +84,8 @@ Turning off **Share resources with this group** blocks new shares. It doesn't re
 This revokes existing shares only. It doesn't block future sharing, so turn off **Share resources with this group** as well if you want both.
 
 **Note:** Removing a group's access runs in the background. For groups with more than 1000 shared projects, it can take several minutes or longer.
+
+---
 
 ## Control member access with custom roles
 
@@ -90,6 +98,10 @@ You can control individual members' feature access entirely through groups and c
 3. Select "Custom."
 
 Owners, Primary Owners, and custom roles with the **User Management** permission set to "Can manage" can change member roles. You can also assign “Custom” at scale by mapping an IdP group using **[group mappings](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
+
+**Important:** If your provisioning mode is SCIM directory sync and group mappings are enabled, each member’s role is set by your IdP group-to-role mapping and managed by the sync, not by the **Members** page. A role that was set to “Custom” before you enabled group mappings (or set another way) is recalculated on the next full sync and reverts to the mapped role. It works until that sync runs, and the reversion isn’t recorded in the audit log, so it can look like custom role permissions stopped applying for no reason.
+
+To keep a member on “Custom,” add them to an IdP group that’s mapped to the “Custom” role in **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**, then run a sync. See **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)** and **[How SCIM sync works for Enterprise organizations](https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations)**.
 
 ### Recommended setup
 
@@ -109,6 +121,8 @@ The member's effective permissions are now determined by their group memberships
 ### Invite new members
 
 When inviting a new member, Owners, Primary Owners, and custom roles with the **User Management** permission set to "Can manage" can select "Custom” as the role.The new member's access is determined by their group memberships after they join.
+
+---
 
 ## Group spend limits
 
@@ -144,8 +158,8 @@ When determining a member's effective spend limit, the system evaluates in this 
 2. **Group limit**—if the member has no individual limit, the system checks their group memberships. If the member belongs to multiple groups with spend limits, your **Multi-group spend limit** setting determines whether the higher or lower limit applies.
 3. **No limit**—if the member has no individual limit and belongs to no groups with spend limits, no spend limit is applied.
 
-* [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
 * [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
 * [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
+* [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
 * [Set up role-based permissions on Enterprise plans](https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans)
 * [How SCIM sync works for Enterprise organizations](https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations)

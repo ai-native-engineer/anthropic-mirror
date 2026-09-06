@@ -100,6 +100,12 @@ Update an existing environment's configuration.
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Optional<Config> config`
 
     Updated environment configuration
@@ -111,7 +117,7 @@ Update an existing environment's configuration.
       Fields default to null; on update, omitted fields preserve the
       existing value.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "cloud"`
 
         Environment type
 
@@ -123,7 +129,7 @@ Update an existing environment's configuration.
 
           Unrestricted network access.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "unrestricted"`
 
             Network policy type
 
@@ -134,7 +140,7 @@ Update an existing environment's configuration.
           Fields default to null; on update, omitted fields preserve the
           existing value.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "limited"`
 
             Network policy type
 
@@ -190,7 +196,7 @@ Update an existing environment's configuration.
 
       Request params for `self_hosted` environment configuration.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "self_hosted"`
 
         Environment type
 
@@ -248,7 +254,7 @@ Update an existing environment's configuration.
 
           Unrestricted network access.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "unrestricted"`
 
             Network policy type
 
@@ -268,7 +274,7 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "limited"`
 
             Network policy type
 
@@ -304,7 +310,7 @@ Update an existing environment's configuration.
 
           Package configuration type
 
-      - `JsonValue type constant`
+      - `JsonValue type = "cloud"`
 
         Environment type
 
@@ -312,7 +318,7 @@ Update an existing environment's configuration.
 
       Configuration for self-hosted environments.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "self_hosted"`
 
         Environment type
 
@@ -332,7 +338,7 @@ Update an existing environment's configuration.
 
     Human-readable name for the environment
 
-  - `JsonValue type constant`
+  - `JsonValue type = "environment"`
 
     The type of object (always 'environment')
 

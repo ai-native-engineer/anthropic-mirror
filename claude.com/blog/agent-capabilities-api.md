@@ -1888,6 +1888,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
+
+Sep 2, 2026
+
+### Building commerce agents with Claude
+
+Product announcements
+
+[Building commerce agents with Claude](#)Building commerce agents with Claude
+
+[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90479f5433ec75978f1e8a_Object-Apple.svg)
 
 Aug 28, 2026
@@ -1923,18 +1935,6 @@ Product announcements
 [Claude in Chrome is generally available](#) Claude in Chrome is generally available
 
 [Claude in Chrome is generally available](https://claude.com/blog/claude-in-chrome-generally-available) Claude in Chrome is generally available
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Aug 11, 2026
-
-### Compliance API coverage extends to Claude Cowork and Claude Code
-
-Enterprise AI
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
 
 ## Transform how your organization operates with Claude
 

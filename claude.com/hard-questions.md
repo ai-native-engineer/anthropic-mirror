@@ -37,5 +37,3 @@ Anthropic was born from hard questions. We address them through what we build, f
 [See our progress so far (opens in new tab)](https://www.anthropic.com/path-to-hope)
 
 [![](https://cdn.sanity.io/images/4zrzovbb/claude-com/b4ebe89edc118d0aab8c755afbf6a38ea6339b85-1920x1080.jpg)](https://cdn.sanity.io/files/4zrzovbb/claude-com/ab84f6971c24922701b06cdbf80f85af5cbabf4b.mp4)
-
-There's hope in hard questions | Claude

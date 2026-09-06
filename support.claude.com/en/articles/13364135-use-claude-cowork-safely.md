@@ -6,6 +6,8 @@ Claude Cowork is available for paid plans (Pro, Max, Team, Enterprise) on deskto
 
 On Max and Team plans, on Pro plans as the rollout reaches you, and on Enterprise plans where your admin has enabled it, you can also run a Cowork session directly in the Claude in Chrome side panel.
 
+---
+
 ## Understanding the risks
 
 **[Claude Cowork](https://claude.com/product/cowork)** has unique risks due to its agentic nature and internet access.
@@ -46,6 +48,8 @@ Cowork via mobile and web is captured in Compliance API. Learn more about **[ret
 
 Team and Enterprise owners can also stream Cowork events to your SIEM and observability tools through OpenTelemetry. For setup, supported events, and security considerations, see **[Monitor Cowork activity with OpenTelemetry](https://support.claude.com/en/articles/14477985-monitor-cowork-activity-with-opentelemetry)**.
 
+---
+
 ## Our safety measures
 
 We've implemented multiple layers of protection:
@@ -58,6 +62,8 @@ We've implemented multiple layers of protection:
 * **Computer use safeguards:** When Claude uses your computer, it asks for your permission before accessing each application. For full details, see **[Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542-computer-use-safety)**.
 
 **Important:** While we've enacted these safety measures to reduce risks, the chances of an attack are still non-zero. Always exercise caution when using Cowork.
+
+---
 
 ## Protect yourself from malicious attackers
 
@@ -133,7 +139,9 @@ If your organization manages your computer, note that connecting local folders m
 
 **10. Report suspicious behavior immediately**
 
-If Claude suddenly starts discussing unrelated topics, attempts to access unexpected resources, or requests sensitive information unprompted, stop the task and report it to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#473234223534262122333e072629332f3528372e246924282a) or use the in-app feedback button. Your reports help us improve our defenses.
+If Claude suddenly starts discussing unrelated topics, attempts to access unexpected resources, or requests sensitive information unprompted, stop the task and report it to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#6f1a1c0a1d1c0e090a1b162f0e011b071d001f060c410c0002) or use the in-app feedback button. Your reports help us improve our defenses.
+
+---
 
 ## Your responsibility
 

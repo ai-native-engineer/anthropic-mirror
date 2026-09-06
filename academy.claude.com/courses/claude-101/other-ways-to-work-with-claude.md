@@ -138,11 +138,13 @@ directly within your browser.
 
 Important note
 
-Claude in Chrome is currently in public beta. Anthropic recommends using it
-for low-risk tasks on trusted
-websites. The extension asks for permission before taking high-risk actions
-like purchasing or sharing personal data, and certain categories of websites
-(financial services, adult content) are blocked by default.
+Claude in Chrome is generally available. It's on by default on the Pro, Max,
+and Team plans, and on the Enterprise plan it's off by default until an org
+admin turns it on. It isn't available on the Free plan. Anthropic recommends
+using it for low-risk tasks on trusted websites. The extension asks for
+permission before taking high-risk actions like purchasing or sharing
+personal data, and certain categories of websites (financial services, adult
+content) are blocked by default.
 
 ---
 

@@ -13,6 +13,8 @@ The Max plan is designed for users who collaborate with Claude frequently and ne
 * **Access to Claude Code: [Use Claude Code](https://support.claude.com/en/articles/11145838)** for your terminal-based coding workflows with one unified subscription.
 * **Access to Cowork:** Hand off complex, multi-step tasks to Claude in Claude Desktop. See this article for more information: **[Get started with Claude Cowork](https://support.claude.com/en/articles/13345190)**.
 
+---
+
 ## How much does the Max plan cost?
 
 ### Pricing tiers
@@ -42,6 +44,8 @@ We do not offer standard discounted pricing any of our paid plans, including Max
 
 We occasionally run limited-time promotions, but we don't have any standing discounts available upon request. These promotional offers are typically announced through our official channels when available. If you're interested in potential future promotions, we recommend following our official social media accounts or signing up for our newsletter to be notified of any special offers. Our Support team cannot issue one-off discounts or coupons.
 
+---
+
 ## Does the Max plan have any usage limits?
 
 Yes. The Max plan offers substantially higher usage compared to our Pro plan and is available in two tiers:
@@ -56,8 +60,8 @@ In addition, to manage capacity and ensure fair access to all users, we may limi
 
 For more information about usage and length limits, refer to **[Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits)**. For guidance on using your Max capacity efficiently, we also have **[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)**.
 
+* [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
 * [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
 * [Choose a Claude plan](https://support.claude.com/en/articles/11049762-choose-a-claude-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
-* [Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)

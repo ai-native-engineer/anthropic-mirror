@@ -9,7 +9,7 @@ For our API users, we currently maintain three main resources:
 If you need to [contact our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support), you can do so by clicking on the message icon in the bottom right of our Help Center, or by clicking your initials in the lower left corner of your Claude Console account, then "Get help."
 
 * [How can I access the Claude API?](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)
+* [How do I pay for my Claude API usage?](https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage)
 * [How can I get higher rate limits on the Claude API?](https://support.claude.com/en/articles/10366389-how-can-i-get-higher-rate-limits-on-the-claude-api)
-* [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
 * [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)

@@ -19,3 +19,5 @@ Anthropic’s co-founder and CEO Dario Amodei met Maryland Governor Wes Moore th
 Anthropic’s commitment to responsible AI deployment, including rigorous safety testing, makes Claude uniquely suited for sensitive government applications like these. Anthropic is pleased to help Maryland translate its [AI governance principles](https://doit.maryland.gov/policies/ai/Pages/maryland-responsible-ai-policy.aspx) into tangible new initiatives that make public services more efficient, accessible, and responsive.
 
 Other public sector organizations interested in using Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+
+The State of Maryland partners with Anthropic to better serve residents \ Anthropic

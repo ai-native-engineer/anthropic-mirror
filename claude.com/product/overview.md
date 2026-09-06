@@ -4,13 +4,13 @@ Latest news
 
 [Next](#)Next
 
-## Claude Opus 5
+## Claude Fable 5.1
 
-A major leap for Opus in coding and knowledge work
+Our frontier model, sharper on the hardest problems and longest-running agents
 
 Learn more
 
-[Learn more](https://www.anthropic.com/claude/opus)Learn more
+[Learn more](https://www.anthropic.com/claude/fable)Learn more
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69e130b671817eddec5f2ec8_opus-4-7.webp)
 
@@ -1164,7 +1164,7 @@ Oops! Something went wrong while submitting the form.
 
 ## Claude models
 
-### Fable 5
+### Fable 5.1
 
 Next generation intelligence for knowledge work and coding
 
@@ -1173,6 +1173,16 @@ Days-long projects   •   Deep analysis   •   Fewer check-ins neede
 Model details
 
 [Model details](https://www.anthropic.com/claude/fable)Model details
+
+### Mythos 5.1
+
+Our most advanced intelligence, available to select partners
+
+Cybersecurity research   •   Scientific discovery   •   Expert-level analysis
+
+Model details
+
+[Model details](https://www.anthropic.com/claude/mythos)Model details
 
 ### Opus 5
 
@@ -1183,90 +1193,3 @@ Docs, slides, spreadsheets   •   Complex analysis   •   Deep resea
 Model details
 
 [Model details](https://www.anthropic.com/claude/opus)Model details
-
-### Sonnet 5
-
-Capable and versatile model, designed for the work you do every day
-
-Writing tasks   •   Fast analysis   •   Task automation
-
-Model details
-
-[Model details](https://www.anthropic.com/claude/sonnet)Model details
-
-### Haiku 4.5
-
-Fastest model, a lightweight version of our most powerful AI
-
-Quick answers   •   Everyday tasks  •   Web search
-
-Model details
-
-[Model details](https://www.anthropic.com/claude/haiku)Model details
-
-## Explore the
-latest releases
-
-[Claude Opus 5](https://www.anthropic.com/news/claude-opus-5)Claude Opus 5
-
-Claude Opus 5
-
-Announcement
-
-[Announcement](https://www.anthropic.com/news/claude-opus-5)Announcement
-
-[Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5)Claude Sonnet 5
-
-Claude Sonnet 5
-
-Announcement
-
-[Announcement](https://www.anthropic.com/news/claude-sonnet-5)Announcement
-
-[Claude Fable 5](https://www.anthropic.com/news/claude-fable-5-mythos-5)Claude Fable 5
-
-Claude Fable 5
-
-Announcement
-
-[Announcement](https://www.anthropic.com/news/claude-fable-5-mythos-5)Announcement
-
-[Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8)Claude Opus 4.8
-
-Claude Opus 4.8
-
-Announcement
-
-[Announcement](https://www.anthropic.com/news/claude-opus-4-8)Announcement
-
-[Claude Haiku 4.5](https://www.anthropic.com/news/claude-haiku-4-5)Claude Haiku 4.5
-
-Claude Haiku 4.5
-
-Announcement
-
-[Announcement](https://www.anthropic.com/news/claude-haiku-4-5)Announcement
-
-[Claude can now connect to your world](https://www.anthropic.com/news/integrations)Claude can now connect to your world
-
-Claude can now connect to your world
-
-Product
-
-[Product](https://www.anthropic.com/news/integrations)Product
-
-[Claude Code: Your code’s new collaborator](https://claude.com/product/claude-code)Claude Code: Your code’s new collaborator
-
-Claude Code: Your code’s new collaborator
-
-Product
-
-[Product](https://claude.com/product/claude-code)Product
-
-[Claude takes research to new places](https://www.anthropic.com/news/research)Claude takes research to new places
-
-Claude takes research to new places
-
-Research
-
-[Research](https://www.anthropic.com/news/research)Research

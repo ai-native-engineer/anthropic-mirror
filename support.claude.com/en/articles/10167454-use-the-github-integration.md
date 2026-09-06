@@ -31,6 +31,8 @@ Connect your GitHub repositories directly to Claude to provide comprehensive con
 * **Grant access yourself if you can**: You can choose between letting Claude access all repos or specific ones.
 * **Request access if you don't have the necessary permissions**: The administrators of your GitHub organization will receive an email notification about your request. Once they approve the request, you'll be able to sync and access the repository in Claude.
 
+---
+
 ## Best practices
 
 1. **Start small**: Begin by selecting a small subset of your codebase to analyze. This will help you get familiar with how Claude interprets and discusses your code.
@@ -38,6 +40,8 @@ Connect your GitHub repositories directly to Claude to provide comprehensive con
 3. **Combine with human expertise**: Use Claude's insights as a starting point for further investigation and discussion with your team. Please review Claude's work.
 4. **Thoughtful file selection**: When using "Configure files," be strategic about your selections. Include key files and directories that are central to your current task or project, but avoid selecting unnecessary files to keep within token limits and maintain focus.
 5. **Regular updates**: Remember to refresh your project's GitHub sync periodically to ensure Claude is working with the most up-to-date version of your codebase and especially before starting a new analysis or when you know there have been significant changes to your repo.
+
+---
 
 ## Troubleshooting
 
@@ -53,7 +57,9 @@ When Claude detects this state, the repository picker shows a banner prompting y
 
 **Important:** Disconnecting and reconnecting GitHub in your Claude settings won't fix this. A fresh connection doesn't automatically authorize organizations that require SSO, so you'll need to complete the authorization steps above.
 
-If your organization uses GitHub Enterprise Cloud with Enterprise Managed Users (EMU), the Claude app must also be approved at the enterprise level. Learn more in **[Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code#h_49cea7a027)**.
+If your organization uses GitHub Enterprise Cloud with Enterprise Managed Users (EMU), connect GitHub while you're signed in with your managed account and have an active SSO session. An organization owner can check the Claude app under Settings > Third-party Access > GitHub Apps in your GitHub organization, and confirm that it has access to the repositories you need and has no pending permission requests.
+
+---
 
 ## Frequently asked questions
 

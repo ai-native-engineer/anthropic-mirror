@@ -13,6 +13,8 @@ Use two powerful AI products in one simple subscription.
 * Use Claude for writing, research, analysis, and more—at work and at home.
 * Use Claude Code for your terminal-based coding workflows.
 
+---
+
 ## How to connect Claude Code to your Pro or Max plan
 
 1. **Ensure you have an active Pro or Max plan subscription**
@@ -45,6 +47,8 @@ Your Pro or Max plan also covers Claude Code in supported IDEs, including VS Cod
 
 To install and set up the extension for your IDE, see **[Platforms and integrations](https://code.claude.com/docs/en/platforms)** in our Claude Code Docs.
 
+---
+
 ## What happens when you hit usage limits
 
 Both Pro and Max plans offer usage limits that are shared across Claude and Claude Code, meaning all activity in both tools counts against the same usage limits. To help you monitor your usage, you will see warning messages about remaining capacity.
@@ -66,6 +70,8 @@ When you reach your usage limits, you can select from a few options based on you
 * Wait until your usage limits reset.
 
 For more details on efficient usage, refer to our **[Usage limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices)**.
+
+---
 
 ## Claude Code billing
 
@@ -120,4 +126,4 @@ Auto-reload functionality is managed within your Claude Console account, not thr
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)
-* [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)
+* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

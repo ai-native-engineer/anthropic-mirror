@@ -12,7 +12,7 @@ Browse
 
 # Claude Platform
 
-Learn to build Claude into your products with the API, Claude Console, and MCP.
+Build Claude into your products. Go from first call to production with the API, Claude Console, and MCP.
 
 ## Start here
 

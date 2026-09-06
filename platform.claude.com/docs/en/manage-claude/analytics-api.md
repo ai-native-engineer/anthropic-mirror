@@ -66,7 +66,7 @@ The Claude Enterprise Analytics API is available to Claude Enterprise organizati
   </Step>
 
   <Step title="Call the API">
-    Pass the key in the `x-api-key` header. Endpoints live under `https://api.anthropic.com/v1/organizations/analytics/`. For request examples, parameters, and response schemas, see the [Claude Enterprise Analytics API reference](https://platform.claude.com/docs/en/api/admin/analytics).
+    Pass the key in the `x-api-key` header and include the [`anthropic-version`](https://platform.claude.com/docs/en/api/versioning) header on every request. Endpoints live under `https://api.anthropic.com/v1/organizations/analytics/`. For request examples, parameters, and response schemas, see the [Claude Enterprise Analytics API reference](https://platform.claude.com/docs/en/api/admin/analytics).
   </Step>
 </Steps>
 
@@ -83,7 +83,7 @@ For endpoint details, parameters, and response schemas, see the [Claude Enterpri
 
 Claude Enterprise Analytics API data is available for dates on or after January 1, 2026.
 
-**Engagement and adoption endpoints** (user activity, summaries, projects, skills, connectors) return a per-day snapshot for the date you specify. Data for a given day is aggregated at 10:00 UTC the following day and is typically available with a 1-day lag. Exact freshness varies by query, so rather than assuming a fixed lag, check the error response: requesting a date that is not yet available returns a 400 error naming the most recent available day. If data is not available well past the typical lag, it usually indicates a data pipeline failure on Anthropic's side; contact support if the gap persists.
+**Engagement and adoption endpoints** (user activity, summaries, projects, skills, connectors) return a per-day snapshot for the date you specify. Data for a given day is typically available from about 17:00 UTC the following day (a 1-day lag); until then, the most recent available day is usually two days before the current UTC date. Data occasionally arrives later, and exact freshness varies by query, so rather than assuming a fixed time, check the error response: requesting a date that is not yet available returns a 400 error naming the most recent available day. If data is not available well past the typical lag, it usually indicates a data pipeline failure on Anthropic's side; contact support if the gap persists.
 
 **Cost and usage endpoints** follow a different freshness model. Data is typically available within four hours of the underlying usage but may take up to 24 hours. Values for a given date can be revised for up to 30 days as late events arrive and reconciliation runs. For invoicing-grade totals, query dates at least 30 days in the past.
 
@@ -108,6 +108,10 @@ Claude Enterprise Analytics API data is available for dates on or after January 
 **Amount fields are decimal strings in cents.** Currency amounts are returned as decimal strings such as `"41280.000000"` (which represents $412.80). To convert to dollars, parse as a decimal and divide by 100. Avoid binary floating-point parsing for values that may exceed several million dollars.
 
 **Rate limits apply at the organization level**, not per key, with a default of 60 requests per minute across all endpoints in this API. If that is not sufficient for your use case, contact your Anthropic account team to discuss adjusting the limit.
+
+## Versioning
+
+Send the `anthropic-version` header on every request; see [API versions](https://platform.claude.com/docs/en/api/versioning) for the available versions.
 
 ## Known limitations
 

@@ -9,11 +9,11 @@
 
 ### Anthropic Beta
 
-- `AnthropicBeta = String | :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+- `AnthropicBeta = String | :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -96,6 +96,12 @@
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 ### Beta API Error
 
@@ -345,7 +351,7 @@ The Models API response can be used to determine which models are available for 
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -428,6 +434,12 @@ The Models API response can be used to determine which models are available for 
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -683,7 +695,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -766,6 +778,12 @@ The Models API response can be used to determine information about a specific mo
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -2294,11 +2312,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 12 more`
+            - `Model = :"claude-fable-5-1" | :"claude-mythos-5-1" | :"claude-sonnet-5" | 14 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `:"claude-fable-5-1"`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `:"claude-mythos-5-1"`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `:"claude-sonnet-5"`
 
@@ -2379,6 +2405,36 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `:assistant`
 
     - `:system`
+
+  - `clear_at: :next_user_message | :never`
+
+    How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+    - `:next_user_message`
+
+    - `:never`
+
+  - `output_config: BetaSystemMessageOutputConfig`
+
+    Per-message output configuration on a role:"system" input message.
+
+    Fields here apply per-turn; `format` remains top-level only. An
+    empty `{}` is accepted on a message that carries content; a message
+    with neither content nor output_config fields is rejected.
+
+    - `effort: :low | :medium | :high | 2 more`
+
+      All possible effort levels.
+
+      - `:low`
+
+      - `:medium`
+
+      - `:high`
+
+      - `:xhigh`
+
+      - `:max`
 
 - `model: Model`
 
@@ -2682,6 +2738,24 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: :enabled`
 
+        - `block_binding: BetaThinkingBlockBinding`
+
+          Controls for block binding: what happens when a thinking block this
+          request sends back fails the conversation check. Every field is optional;
+          an empty object means every default.
+
+          - `prefix_mismatch_behavior: BetaThinkingPrefixMismatchBehavior`
+
+            What happens when a thinking block in `messages` fails the conversation
+            check: it was created in a different conversation, or the messages before
+            it have changed since. `"error"` (the default) fails the request with a
+            400 error. `"drop_block"` removes the failing blocks and the request
+            proceeds; the model no longer sees the dropped reasoning.
+
+            - `:error`
+
+            - `:drop_block`
+
         - `display_: :summarized | :omitted | :updates`
 
           Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -2699,6 +2773,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `class BetaThinkingConfigAdaptive`
 
         - `type: :adaptive`
+
+        - `block_binding: BetaThinkingBlockBinding`
+
+          Controls for block binding: what happens when a thinking block this
+          request sends back fails the conversation check. Every field is optional;
+          an empty object means every default.
 
         - `display_: :summarized | :omitted | :updates`
 
@@ -3200,16 +3280,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     from its schema.
 
     - `type: :browser_toolset_20260801`
-
-    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
-
-      - `:direct`
-
-      - `:code_execution_20250825`
-
-      - `:code_execution_20260120`
-
-      - `:code_execution_20260521`
 
     - `cache_control: BetaCacheControlEphemeral`
 
@@ -3836,16 +3906,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     via `configs.zoom.enabled`.
 
     - `type: :computer_toolset_20260801`
-
-    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
-
-      - `:direct`
-
-      - `:code_execution_20250825`
-
-      - `:code_execution_20260120`
-
-      - `:code_execution_20260521`
 
     - `cache_control: BetaCacheControlEphemeral`
 
@@ -4765,7 +4825,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -4848,6 +4908,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 - `user_profile_id: String`
 
@@ -5728,11 +5794,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 12 more`
+          - `Model = :"claude-fable-5-1" | :"claude-mythos-5-1" | :"claude-sonnet-5" | 14 more`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `:"claude-mythos-5-1"`
+
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
 
             - `:"claude-sonnet-5"`
 
@@ -6427,6 +6501,58 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `:fast`
 
+  - `input_transformations: Array[BetaThinkingDroppedInputTransformation]`
+
+    Changes the API made to the request's input before showing it to the model:
+    one entry per change, in request order. Today the only entry type is
+    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+    block from the request's `messages` that was removed from the prompt instead
+    of being shown to the model because it failed a binding check. More entry
+    types may be added over time; ignore types you do not recognize.
+
+    Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+    every such response from a model that supports extended thinking, as `[]`
+    when nothing was changed; without the beta, blocks are removed all the same
+    but nothing is reported. Removed blocks contribute nothing to
+    `usage.input_tokens`. When streaming, the array is final in `message_start`;
+    the final `message_delta` event carries it only when a server-side model
+    fallback happened mid-stream, in which case it holds the serving model's
+    entries and replaces the one in `message_start`.
+
+    - `path: String`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `reason: :model_binding_mismatch | :prefix_binding_mismatch | :organization_binding_mismatch | :end_user_binding_mismatch`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `:model_binding_mismatch`
+
+      - `:prefix_binding_mismatch`
+
+      - `:organization_binding_mismatch`
+
+      - `:end_user_binding_mismatch`
+
+    - `type: :thinking_dropped`
+
+      Always `thinking_dropped` for this entry type.
+
 - `BetaRawMessageStreamEvent = BetaRawMessageStartEvent | BetaRawMessageDeltaEvent | BetaRawMessageStopEvent | 3 more`
 
   - `class BetaRawMessageStartEvent`
@@ -6519,6 +6645,50 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `server_tool_use: BetaServerToolUsage`
 
         The number of server tool requests.
+
+    - `input_transformations: Array[BetaThinkingDroppedInputTransformation]`
+
+      Changes the API made to the request's input before showing it to the model:
+      one entry per change, in request order. Today the only entry type is
+      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+      block from the request's `messages` that was removed from the prompt instead
+      of being shown to the model because it failed a binding check. More entry
+      types may be added over time; ignore types you do not recognize.
+
+      Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+      every such response from a model that supports extended thinking, as `[]`
+      when nothing was changed; without the beta, blocks are removed all the same
+      but nothing is reported. Removed blocks contribute nothing to
+      `usage.input_tokens`. When streaming, the array is final in `message_start`;
+      the final `message_delta` event carries it only when a server-side model
+      fallback happened mid-stream, in which case it holds the serving model's
+      entries and replaces the one in `message_start`.
+
+      - `path: String`
+
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `reason: :model_binding_mismatch | :prefix_binding_mismatch | :organization_binding_mismatch | :end_user_binding_mismatch`
+
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `type: :thinking_dropped`
+
+        Always `thinking_dropped` for this entry type.
 
   - `class BetaRawMessageStopEvent`
 
@@ -6760,7 +6930,7 @@ puts(beta_message)
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5",
+        "model": "claude-fable-5-1",
         "output_tokens": 0,
         "type": "message"
       }
@@ -6775,7 +6945,14 @@ puts(beta_message)
     },
     "service_tier": "standard",
     "speed": "standard"
-  }
+  },
+  "input_transformations": [
+    {
+      "path": "path",
+      "reason": "model_binding_mismatch",
+      "type": "thinking_dropped"
+    }
+  ]
 }
 ```
 
@@ -8067,11 +8244,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 12 more`
+            - `Model = :"claude-fable-5-1" | :"claude-mythos-5-1" | :"claude-sonnet-5" | 14 more`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `:"claude-fable-5-1"`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `:"claude-mythos-5-1"`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `:"claude-sonnet-5"`
 
@@ -8152,6 +8337,36 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `:assistant`
 
     - `:system`
+
+  - `clear_at: :next_user_message | :never`
+
+    How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+    - `:next_user_message`
+
+    - `:never`
+
+  - `output_config: BetaSystemMessageOutputConfig`
+
+    Per-message output configuration on a role:"system" input message.
+
+    Fields here apply per-turn; `format` remains top-level only. An
+    empty `{}` is accepted on a message that carries content; a message
+    with neither content nor output_config fields is rejected.
+
+    - `effort: :low | :medium | :high | 2 more`
+
+      All possible effort levels.
+
+      - `:low`
+
+      - `:medium`
+
+      - `:high`
+
+      - `:xhigh`
+
+      - `:max`
 
 - `model: Model`
 
@@ -8391,6 +8606,24 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: :enabled`
 
+    - `block_binding: BetaThinkingBlockBinding`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
+
+      - `prefix_mismatch_behavior: BetaThinkingPrefixMismatchBehavior`
+
+        What happens when a thinking block in `messages` fails the conversation
+        check: it was created in a different conversation, or the messages before
+        it have changed since. `"error"` (the default) fails the request with a
+        400 error. `"drop_block"` removes the failing blocks and the request
+        proceeds; the model no longer sees the dropped reasoning.
+
+        - `:error`
+
+        - `:drop_block`
+
     - `display_: :summarized | :omitted | :updates`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -8408,6 +8641,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `class BetaThinkingConfigAdaptive`
 
     - `type: :adaptive`
+
+    - `block_binding: BetaThinkingBlockBinding`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
 
     - `display_: :summarized | :omitted | :updates`
 
@@ -8799,16 +9038,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     from its schema.
 
     - `type: :browser_toolset_20260801`
-
-    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
-
-      - `:direct`
-
-      - `:code_execution_20250825`
-
-      - `:code_execution_20260120`
-
-      - `:code_execution_20260521`
 
     - `cache_control: BetaCacheControlEphemeral`
 
@@ -9435,16 +9664,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     via `configs.zoom.enabled`.
 
     - `type: :computer_toolset_20260801`
-
-    - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
-
-      - `:direct`
-
-      - `:code_execution_20250825`
-
-      - `:code_execution_20260120`
-
-      - `:code_execution_20260521`
 
     - `cache_control: BetaCacheControlEphemeral`
 
@@ -10364,7 +10583,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -10447,6 +10666,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 - `user_profile_id: String`
 
@@ -11824,11 +12049,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 12 more`
+                - `Model = :"claude-fable-5-1" | :"claude-mythos-5-1" | :"claude-sonnet-5" | 14 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `:"claude-fable-5-1"`
+
+                    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                  - `:"claude-mythos-5-1"`
+
+                    Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                   - `:"claude-sonnet-5"`
 
@@ -11909,6 +12142,36 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `:assistant`
 
         - `:system`
+
+      - `clear_at: :next_user_message | :never`
+
+        How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+        - `:next_user_message`
+
+        - `:never`
+
+      - `output_config: BetaSystemMessageOutputConfig`
+
+        Per-message output configuration on a role:"system" input message.
+
+        Fields here apply per-turn; `format` remains top-level only. An
+        empty `{}` is accepted on a message that carries content; a message
+        with neither content nor output_config fields is rejected.
+
+        - `effort: :low | :medium | :high | 2 more`
+
+          All possible effort levels.
+
+          - `:low`
+
+          - `:medium`
+
+          - `:high`
+
+          - `:xhigh`
+
+          - `:max`
 
     - `model: Model`
 
@@ -12212,6 +12475,24 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: :enabled`
 
+            - `block_binding: BetaThinkingBlockBinding`
+
+              Controls for block binding: what happens when a thinking block this
+              request sends back fails the conversation check. Every field is optional;
+              an empty object means every default.
+
+              - `prefix_mismatch_behavior: BetaThinkingPrefixMismatchBehavior`
+
+                What happens when a thinking block in `messages` fails the conversation
+                check: it was created in a different conversation, or the messages before
+                it have changed since. `"error"` (the default) fails the request with a
+                400 error. `"drop_block"` removes the failing blocks and the request
+                proceeds; the model no longer sees the dropped reasoning.
+
+                - `:error`
+
+                - `:drop_block`
+
             - `display_: :summarized | :omitted | :updates`
 
               Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -12229,6 +12510,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `class BetaThinkingConfigAdaptive`
 
             - `type: :adaptive`
+
+            - `block_binding: BetaThinkingBlockBinding`
+
+              Controls for block binding: what happens when a thinking block this
+              request sends back fails the conversation check. Every field is optional;
+              an empty object means every default.
 
             - `display_: :summarized | :omitted | :updates`
 
@@ -12730,16 +13017,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         from its schema.
 
         - `type: :browser_toolset_20260801`
-
-        - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
-
-          - `:direct`
-
-          - `:code_execution_20250825`
-
-          - `:code_execution_20260120`
-
-          - `:code_execution_20260521`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -13366,16 +13643,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         via `configs.zoom.enabled`.
 
         - `type: :computer_toolset_20260801`
-
-        - `allowed_callers: Array[:direct | :code_execution_20250825 | :code_execution_20260120 | :code_execution_20260521]`
-
-          - `:direct`
-
-          - `:code_execution_20250825`
-
-          - `:code_execution_20260120`
-
-          - `:code_execution_20260521`
 
         - `cache_control: BetaCacheControlEphemeral`
 
@@ -14339,7 +14606,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -14422,6 +14689,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 - `user_profile_id: String`
 
@@ -14589,7 +14862,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -14672,6 +14945,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -14840,7 +15119,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -14923,6 +15202,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -15088,7 +15373,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -15171,6 +15456,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -15329,7 +15620,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -15412,6 +15703,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -15472,7 +15769,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -15555,6 +15852,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -16405,11 +16708,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `Model = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-mythos-5" | 12 more`
+                - `Model = :"claude-fable-5-1" | :"claude-mythos-5-1" | :"claude-sonnet-5" | 14 more`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+                  - `:"claude-fable-5-1"`
+
+                    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                  - `:"claude-mythos-5-1"`
+
+                    Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                   - `:"claude-sonnet-5"`
 
@@ -17104,6 +17415,58 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `:fast`
 
+        - `input_transformations: Array[BetaThinkingDroppedInputTransformation]`
+
+          Changes the API made to the request's input before showing it to the model:
+          one entry per change, in request order. Today the only entry type is
+          `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+          block from the request's `messages` that was removed from the prompt instead
+          of being shown to the model because it failed a binding check. More entry
+          types may be added over time; ignore types you do not recognize.
+
+          Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+          every such response from a model that supports extended thinking, as `[]`
+          when nothing was changed; without the beta, blocks are removed all the same
+          but nothing is reported. Removed blocks contribute nothing to
+          `usage.input_tokens`. When streaming, the array is final in `message_start`;
+          the final `message_delta` event carries it only when a server-side model
+          fallback happened mid-stream, in which case it holds the serving model's
+          entries and replaces the one in `message_start`.
+
+          - `path: String`
+
+            Where the removed block was in your request, as `messages.{i}.content.{j}`:
+            `i` indexes the `messages` array you sent and `j` that message's `content`
+            array — the same form error messages use.
+
+          - `reason: :model_binding_mismatch | :prefix_binding_mismatch | :organization_binding_mismatch | :end_user_binding_mismatch`
+
+            Which binding check removed the block: `model_binding_mismatch` — it was
+            created by a model whose reasoning the requested model may not read;
+            `prefix_binding_mismatch` — the conversation before it differs from the
+            conversation it was created in (the rest of that turn's consecutive thinking
+            blocks are removed with it, each with this reason);
+            `organization_binding_mismatch` — it was created under a different
+            organization (an Anthropic organization, AWS account or Google Cloud project)
+            and this organization is not one of its additional organizations;
+            `end_user_binding_mismatch` — it was created for a different end user, or
+            was removed by the consumer-organization binding. A block that would fail
+            several checks reports one reason, in this order of precedence:
+            `organization_binding_mismatch`, `end_user_binding_mismatch`,
+            `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+            - `:model_binding_mismatch`
+
+            - `:prefix_binding_mismatch`
+
+            - `:organization_binding_mismatch`
+
+            - `:end_user_binding_mismatch`
+
+          - `type: :thinking_dropped`
+
+            Always `thinking_dropped` for this entry type.
+
       - `type: :succeeded`
 
     - `class BetaMessageBatchErroredResult`
@@ -17208,17 +17571,21 @@ Create Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
-  - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
+  - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+    - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `:"claude-sonnet-5"`
 
@@ -17862,7 +18229,7 @@ Create Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -17946,6 +18313,12 @@ Create Agent
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
@@ -17988,11 +18361,15 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `:"claude-sonnet-5"`
 
@@ -18610,7 +18987,7 @@ List Agents
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -18694,6 +19071,12 @@ List Agents
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
@@ -18736,11 +19119,15 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `:"claude-sonnet-5"`
 
@@ -19342,7 +19729,7 @@ Get Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -19426,6 +19813,12 @@ Get Agent
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
@@ -19468,11 +19861,15 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `:"claude-sonnet-5"`
 
@@ -20089,17 +20486,21 @@ Update Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
-  - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
+  - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
 
     The model that will power your agent.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+    - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+      - `:"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `:"claude-sonnet-5"`
 
@@ -20721,7 +21122,7 @@ Update Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -20805,6 +21206,12 @@ Update Agent
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
@@ -20847,11 +21254,15 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `:"claude-sonnet-5"`
 
@@ -21442,7 +21853,7 @@ Archive Agent
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -21526,6 +21937,12 @@ Archive Agent
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
@@ -21568,11 +21985,15 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `:"claude-sonnet-5"`
 
@@ -22175,7 +22596,7 @@ List Agent Versions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -22259,6 +22680,12 @@ List Agent Versions
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent`
@@ -22301,11 +22728,15 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+        - `:"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `:"claude-sonnet-5"`
 
@@ -23019,7 +23450,7 @@ Create a new environment with the specified configuration.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -23102,6 +23533,12 @@ Create a new environment with the specified configuration.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -23324,7 +23761,7 @@ List environments with pagination support.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -23407,6 +23844,12 @@ List environments with pagination support.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -23622,7 +24065,7 @@ Retrieve a specific environment by ID.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -23705,6 +24148,12 @@ Retrieve a specific environment by ID.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -24033,7 +24482,7 @@ Update an existing environment's configuration.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -24116,6 +24565,12 @@ Update an existing environment's configuration.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -24326,7 +24781,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -24409,6 +24864,12 @@ Delete an environment by ID. Returns a confirmation of the deletion.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -24463,7 +24924,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -24546,6 +25007,12 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -24762,7 +25229,7 @@ Retrieve detailed information about a specific work item.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -24845,6 +25312,12 @@ Retrieve detailed information about a specific work item.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -24995,7 +25468,7 @@ Long poll for work items in the queue.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25078,6 +25551,12 @@ Long poll for work items in the queue.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 - `anthropic_worker_id: String`
 
@@ -25222,7 +25701,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25305,6 +25784,12 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -25453,7 +25938,7 @@ Record a heartbeat for a work item to maintain the lease.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25536,6 +26021,12 @@ Record a heartbeat for a work item to maintain the lease.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -25623,7 +26114,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25706,6 +26197,12 @@ Stop a work item, initiating graceful or forced shutdown.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -25854,7 +26351,7 @@ List work items in an environment.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -25937,6 +26434,12 @@ List work items in an environment.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -26086,7 +26589,7 @@ Update work item metadata with merge semantics.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -26169,6 +26672,12 @@ Update work item metadata with merge semantics.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -26309,7 +26818,7 @@ Get statistics about the work queue for an environment.
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -26392,6 +26901,12 @@ Get statistics about the work queue for an environment.
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -26515,17 +27030,21 @@ Create Session
 
       Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
-      - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more | String`
+      - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more | String`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `:"claude-sonnet-5"`
 
@@ -27427,7 +27946,7 @@ Create Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -27511,6 +28030,12 @@ Create Session
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
@@ -27545,11 +28070,15 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `:"claude-sonnet-5"`
 
@@ -28099,7 +28628,7 @@ Create Session
 
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Time`
 
@@ -28113,7 +28642,7 @@ Create Session
 
     - `explanation: String`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: Integer`
 
@@ -28241,7 +28770,7 @@ Create Session
 
     - `active_seconds: Float`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -28570,7 +29099,7 @@ List Sessions
 
 - `agent_version: Integer`
 
-  Filter by agent version. Only applies when agent_id is also set.
+  Filter by agent version. Only applies when `agent_id` is also set.
 
   format: int32
 
@@ -28614,11 +29143,11 @@ List Sessions
 
 - `memory_store_id: String`
 
-  Filter sessions whose resources contain a memory_store with this memory store ID.
+  Filter sessions whose resources contain a `memory_store` with this memory store ID.
 
 - `order: :asc | :desc`
 
-  Sort direction for results, ordered by created_at. Defaults to desc (newest first).
+  Sort direction for results, ordered by `created_at`. Defaults to `desc` (newest first).
 
   - `:asc`
 
@@ -28646,7 +29175,7 @@ List Sessions
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -28730,6 +29259,12 @@ List Sessions
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
@@ -28764,11 +29299,15 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `:"claude-sonnet-5"`
 
@@ -29318,7 +29857,7 @@ List Sessions
 
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Time`
 
@@ -29332,7 +29871,7 @@ List Sessions
 
     - `explanation: String`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: Integer`
 
@@ -29460,7 +29999,7 @@ List Sessions
 
     - `active_seconds: Float`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -29794,7 +30333,7 @@ Get Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -29878,6 +30417,12 @@ Get Session
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
@@ -29912,11 +30457,15 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `:"claude-sonnet-5"`
 
@@ -30466,7 +31015,7 @@ Get Session
 
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Time`
 
@@ -30480,7 +31029,7 @@ Get Session
 
     - `explanation: String`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: Integer`
 
@@ -30608,7 +31157,7 @@ Get Session
 
     - `active_seconds: Float`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -31374,7 +31923,7 @@ Update Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -31458,6 +32007,12 @@ Update Session
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
@@ -31492,11 +32047,15 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `:"claude-sonnet-5"`
 
@@ -32046,7 +32605,7 @@ Update Session
 
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Time`
 
@@ -32060,7 +32619,7 @@ Update Session
 
     - `explanation: String`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: Integer`
 
@@ -32188,7 +32747,7 @@ Update Session
 
     - `active_seconds: Float`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -32516,7 +33075,7 @@ Delete Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -32599,6 +33158,12 @@ Delete Session
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -32649,7 +33214,7 @@ Archive Session
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -32733,6 +33298,12 @@ Archive Session
 
     - `:"ce-user-management-2026-07-13"`
 
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession`
@@ -32767,11 +33338,15 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+        - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `:"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `:"claude-sonnet-5"`
 
@@ -33321,7 +33896,7 @@ Archive Session
 
   - `outcome_evaluations: Array[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Time`
 
@@ -33335,7 +33910,7 @@ Archive Session
 
     - `explanation: String`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: Integer`
 
@@ -33463,7 +34038,7 @@ Archive Session
 
     - `active_seconds: Float`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -33819,7 +34394,7 @@ List Events
 
 - `order: :asc | :desc`
 
-  Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
+  Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
 
   - `:asc`
 
@@ -33827,7 +34402,7 @@ List Events
 
 - `page: String`
 
-  Opaque pagination cursor from a previous response's next_page.
+  Opaque pagination cursor from a previous response's `next_page`.
 
 - `types: Array[String]`
 
@@ -33839,7 +34414,7 @@ List Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -33922,6 +34497,12 @@ List Events
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -35395,11 +35976,15 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `BetaManagedAgentsModel = :"claude-sonnet-5" | :"claude-fable-5" | :"claude-opus-5" | 10 more`
+          - `BetaManagedAgentsModel = :"claude-fable-5-1" | :"claude-sonnet-5" | :"claude-fable-5" | 11 more`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+            - `:"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
             - `:"claude-sonnet-5"`
 
@@ -36475,7 +37060,7 @@ Send Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`
 
     - `:"message-batches-2024-09-24"`
 
@@ -36558,6 +37143,12 @@ Send Events
     - `:"thinking-display-updates-2026-08-18"`
 
     - `:"ce-user-management-2026-07-13"`
+
+    - `:"mid-conversation-output-config-2026-07-01"`
+
+    - `:"thinking-binding-controls-2026-08-01"`
+
+    - `:"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -37066,874 +37657,4 @@ Stream Events
 
   - `String = String`
 
-  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 38 more`
-
-    - `:"message-batches-2024-09-24"`
-
-    - `:"prompt-caching-2024-07-31"`
-
-    - `:"computer-use-2024-10-22"`
-
-    - `:"computer-use-2025-01-24"`
-
-    - `:"pdfs-2024-09-25"`
-
-    - `:"token-counting-2024-11-01"`
-
-    - `:"token-efficient-tools-2025-02-19"`
-
-    - `:"output-128k-2025-02-19"`
-
-    - `:"files-api-2025-04-14"`
-
-    - `:"mcp-client-2025-04-04"`
-
-    - `:"mcp-client-2025-11-20"`
-
-    - `:"dev-full-thinking-2025-05-14"`
-
-    - `:"interleaved-thinking-2025-05-14"`
-
-    - `:"code-execution-2025-05-22"`
-
-    - `:"extended-cache-ttl-2025-04-11"`
-
-    - `:"context-1m-2025-08-07"`
-
-    - `:"context-management-2025-06-27"`
-
-    - `:"model-context-window-exceeded-2025-08-26"`
-
-    - `:"skills-2025-10-02"`
-
-    - `:"fast-mode-2026-02-01"`
-
-    - `:"output-300k-2026-03-24"`
-
-    - `:"user-profiles-2026-03-24"`
-
-    - `:"user-profiles-2026-08-18"`
-
-    - `:"advisor-tool-2026-03-01"`
-
-    - `:"managed-agents-2026-04-01"`
-
-    - `:"cache-diagnosis-2026-04-07"`
-
-    - `:"dreaming-2026-04-21"`
-
-    - `:"thinking-token-count-2026-05-13"`
-
-    - `:"server-side-fallback-2026-06-01"`
-
-    - `:"server-side-fallback-2026-07-01"`
-
-    - `:"fallback-credit-2026-06-01"`
-
-    - `:"fallback-credit-2026-07-01"`
-
-    - `:"agent-memory-2026-07-22"`
-
-    - `:"mid-conversation-tool-changes-2026-07-01"`
-
-    - `:"compact-2026-01-12"`
-
-    - `:"computer-use-2025-11-24"`
-
-    - `:"mcp-tunnels-2026-06-22"`
-
-    - `:"structured-outputs-2025-11-13"`
-
-    - `:"task-budgets-2026-03-13"`
-
-    - `:"thinking-display-updates-2026-08-18"`
-
-    - `:"ce-user-management-2026-07-13"`
-
-#### Returns
-
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
-
-  Server-sent event in the session stream.
-
-  - `class BetaManagedAgentsUserMessageEvent`
-
-    A user message event in the session conversation.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
-
-      Array of content blocks comprising the user message.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-        - `text: String`
-
-          The text content.
-
-          minLength: 1
-
-        - `type: :text`
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: String`
-
-              Base64-encoded image data.
-
-              minLength: 1
-
-            - `media_type: String`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              minLength: 1
-
-            - `type: :base64`
-
-          - `class BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: :url`
-
-            - `url: String`
-
-              URL of the image to fetch.
-
-              minLength: 1
-
-          - `class BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: String`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-            - `type: :file`
-
-        - `type: :image`
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: String`
-
-              Base64-encoded document data.
-
-              minLength: 1
-
-            - `media_type: String`
-
-              MIME type of the document (e.g., "application/pdf").
-
-              minLength: 1
-
-            - `type: :base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: String`
-
-              The plain text content.
-
-              minLength: 1
-
-            - `media_type: :"text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-            - `type: :text`
-
-          - `class BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: :url`
-
-            - `url: String`
-
-              URL of the document to fetch.
-
-              minLength: 1
-
-          - `class BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: String`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-            - `type: :file`
-
-        - `type: :document`
-
-        - `context: String`
-
-          Additional context about the document for the model.
-
-        - `title: String`
-
-          The title of the document.
-
-      - `class BetaManagedAgentsRedactedBlock`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `type: :redacted`
-
-    - `type: :"user.message"`
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `class BetaManagedAgentsUserInterruptEvent`
-
-    An interrupt event that pauses agent execution and returns control to the user.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `type: :"user.interrupt"`
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-  - `class BetaManagedAgentsUserToolConfirmationEvent`
-
-    A tool confirmation event that approves or denies a pending tool execution.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `result: :allow | :deny`
-
-      UserToolConfirmationResult enum
-
-      - `:allow`
-
-      - `:deny`
-
-    - `tool_use_id: String`
-
-      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: :"user.tool_confirmation"`
-
-    - `deny_message: String`
-
-      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-      maxLength: 10000
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-  - `class BetaManagedAgentsUserCustomToolResultEvent`
-
-    Event sent by the client providing the result of a custom tool execution.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `custom_tool_use_id: String`
-
-      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: :"user.custom_tool_result"`
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock`
-
-        A block containing a web search result.
-
-        - `citations: BetaManagedAgentsSearchResultCitations`
-
-          Citation settings for a search result.
-
-          - `enabled: bool`
-
-            Whether citations are enabled for this search result.
-
-        - `content: Array[BetaManagedAgentsSearchResultContent]`
-
-          Array of text content blocks from the search result.
-
-          - `text: String`
-
-            The text content.
-
-            minLength: 1
-
-          - `type: :text`
-
-        - `source: String`
-
-          The URL source of the search result.
-
-          minLength: 1
-
-        - `title: String`
-
-          The title of the search result.
-
-          minLength: 1
-
-        - `type: :search_result`
-
-    - `is_error: bool`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: String`
-
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-  - `class BetaManagedAgentsAgentCustomToolUseEvent`
-
-    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `input: Hash[Symbol, untyped]`
-
-      Input parameters for the tool call.
-
-    - `name: String`
-
-      Name of the custom tool being called.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.custom_tool_use"`
-
-    - `session_thread_id: String`
-
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
-
-  - `class BetaManagedAgentsAgentMessageEvent`
-
-    An agent response event in the session conversation.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsRedactedBlock]`
-
-      Array of text blocks comprising the agent response.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsRedactedBlock`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.message"`
-
-  - `class BetaManagedAgentsAgentThinkingEvent`
-
-    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.thinking"`
-
-  - `class BetaManagedAgentsAgentMCPToolUseEvent`
-
-    Event emitted when the agent invokes a tool provided by an MCP server.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `input: Hash[Symbol, untyped]`
-
-      Input parameters for the tool call.
-
-    - `mcp_server_name: String`
-
-      Name of the MCP server providing the tool.
-
-    - `name: String`
-
-      Name of the MCP tool being used.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.mcp_tool_use"`
-
-    - `evaluated_permission: :allow | :ask | :deny`
-
-      AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
-
-    - `session_thread_id: String`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `class BetaManagedAgentsAgentMCPToolResultEvent`
-
-    Event representing the result of an MCP tool execution.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `mcp_tool_use_id: String`
-
-      The id of the `agent.mcp_tool_use` event this result corresponds to.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.mcp_tool_result"`
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock`
-
-        A block containing a web search result.
-
-    - `is_error: bool`
-
-      Whether the tool execution resulted in an error.
-
-  - `class BetaManagedAgentsAgentToolUseEvent`
-
-    Event emitted when the agent invokes a built-in agent tool.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `input: Hash[Symbol, untyped]`
-
-      Input parameters for the tool call.
-
-    - `name: String`
-
-      Name of the agent tool being used.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.tool_use"`
-
-    - `evaluated_permission: :allow | :ask | :deny`
-
-      AgentEvaluatedPermission enum
-
-      - `:allow`
-
-      - `:ask`
-
-      - `:deny`
-
-    - `session_thread_id: String`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `class BetaManagedAgentsAgentToolResultEvent`
-
-    Event representing the result of an agent tool execution.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `tool_use_id: String`
-
-      The id of the `agent.tool_use` event this result corresponds to.
-
-    - `type: :"agent.tool_result"`
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock]`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock`
-
-        A block containing a web search result.
-
-    - `is_error: bool`
-
-      Whether the tool execution resulted in an error.
-
-  - `class BetaManagedAgentsAgentThreadMessageReceivedEvent`
-
-    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
-
-      Message content blocks.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsRedactedBlock`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `from_session_thread_id: String`
-
-      Public `sthr_` ID of the thread that sent the message.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.thread_message_received"`
-
-    - `from_agent_name: String`
-
-      Name of the callable agent this message came from. Absent when received from the primary agent.
-
-  - `class BetaManagedAgentsAgentThreadMessageSentEvent`
-
-    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `content: Array[BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsRedactedBlock]`
-
-      Message content blocks.
-
-      - `class BetaManagedAgentsTextBlock`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsRedactedBlock`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `to_session_thread_id: String`
-
-      Public `sthr_` ID of the thread the message was sent to.
-
-    - `type: :"agent.thread_message_sent"`
-
-    - `to_agent_name: String`
-
-      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-  - `class BetaManagedAgentsAgentThreadContextCompactedEvent`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `processed_at: Time`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: :"agent.thread_context_compacted"`
-
-  - `class BetaManagedAgentsSessionErrorEvent`
-
-    An error event indicating a problem occurred during session execution.
-
-    - `id: String`
-
-      Unique identifier for this event.
-
-    - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 5 more`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `class BetaManagedAgentsUnknownError`
-
-        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: :retrying`
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `type: :exhausted`
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-            - `type: :terminal`
-
-        - `type: :unknown_error`
-
-      - `class BetaManagedAgentsModelOverloadedError`
-
-        The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :model_overloaded_error`
-
-      - `class BetaManagedAgentsModelRateLimitedError`
-
-        The model request was rate-limited.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :model_rate_limited_error`
-
-      - `class BetaManagedAgentsModelRequestFailedError`
-
-        A model request failed for a reason other than overload or rate-limiting.
-
-        - `message: String`
-
-          Human-readable error description.
-
-        - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `type: :model_request_failed_error`
-
-      - `class BetaManagedAgentsMCPConnectionFailedError`
-
-        Failed to connect to an MCP server.
-
-        - `mcp_server_name: String`
-
-          Name of the MCP server that failed to connect.
-
-        - `message: String`
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 41 more`

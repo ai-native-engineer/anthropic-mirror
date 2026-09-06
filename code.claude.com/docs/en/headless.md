@@ -62,9 +62,13 @@ In bare mode Claude has access to the Bash, file read, and file edit tools. Pass
 
 ### Background tasks at exit
 
-If Claude starts a [background Bash task](/docs/en/tools-reference#bash-tool-behavior) during a `claude -p` run, for example a dev server or a watch build, that shell is terminated about five seconds after Claude has returned its final result and stdin has closed. The grace period lets a task that finishes right after the result still deliver its output. Before v2.1.163, a never-exiting background process would hold the `claude -p` invocation open indefinitely.
+If Claude starts a [background Bash task](/docs/en/tools-reference#bash-tool-behavior) during a `claude -p` run, for example a dev server or a watch build, that shell is terminated about five seconds after Claude has returned its final result and stdin has closed. The grace period lets a task that finishes right after the result still deliver its output.
 
-Background [subagents](/docs/en/sub-agents) and workflows are exempt from the five-second grace because their result is part of the final output, so `claude -p` waits for them to complete. From v2.1.182, that wait is capped at ten minutes by default so a stuck background agent cannot hold the process open indefinitely. Adjust the cap with [`CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS`](/docs/en/env-vars), or set it to `0` to wait without a limit.
+If Claude starts a background [subagent](/docs/en/sub-agents) or workflow, `claude -p` instead stays open until that work completes, because its result is part of the final output.
+
+By default the wait ends after 10 minutes of continuous idle waiting, so a stuck subagent or workflow can't hold the process open indefinitely. At that point Claude Code stops whatever is still running and drops its partial result. To change the limit, set [`CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS`](/docs/en/env-vars), or set it to `0` to wait without one.
+
+If Claude starts a [Monitor](/docs/en/tools-reference#monitor-tool) watch during a `claude -p` run, Claude Code waits for the watch until it times out or the ten-minute cap ends the wait, whichever comes first. While it waits, Claude keeps responding to what the watch reports. By default, a watch times out five minutes after Claude starts it.
 
 ### Stop a run with SIGTERM
 
@@ -187,19 +191,20 @@ When you enable either option, Claude Code forwards messages from [subagents at 
 
 #### Handle API retries
 
-When an API request fails with a retryable error, Claude Code emits a `system/api_retry` event before retrying. You can use this to surface retry progress or implement custom backoff logic.
+When an API request fails with a retryable error, Claude Code emits a `system/api_retry` event before retrying. On v2.1.246 or later, when a `401` or `403` rejects an [`apiKeyHelper`](/docs/en/settings-reference#apikeyhelper) credential, Claude Code makes the first two retries quietly with no event, then emits the event as usual from the third consecutive retry onward. The quiet retries still count toward `attempt`. You can use the event to show retry progress in your own interface.
 
-| Field            | Type            | Description                                                                                                                                                                                            |
-| ---------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `type`           | `"system"`      | message type                                                                                                                                                                                           |
-| `subtype`        | `"api_retry"`   | identifies this as a retry event                                                                                                                                                                       |
-| `attempt`        | integer         | current attempt number, starting at 1                                                                                                                                                                  |
-| `max_retries`    | integer         | total retries permitted                                                                                                                                                                                |
-| `retry_delay_ms` | integer         | milliseconds until the next attempt                                                                                                                                                                    |
-| `error_status`   | integer or null | HTTP status code, or `null` for connection errors with no HTTP response                                                                                                                                |
-| `error`          | string          | error category: `authentication_failed`, `oauth_org_not_allowed`, `billing_error`, `rate_limit`, `overloaded`, `invalid_request`, `model_not_found`, `server_error`, `max_output_tokens`, or `unknown` |
-| `uuid`           | string          | unique event identifier                                                                                                                                                                                |
-| `session_id`     | string          | session the event belongs to                                                                                                                                                                           |
+| Field            | Type             | Description                                                                                                                                                                                                                                                                                                                                                   |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`           | `"system"`       | message type                                                                                                                                                                                                                                                                                                                                                  |
+| `subtype`        | `"api_retry"`    | identifies this as a retry event                                                                                                                                                                                                                                                                                                                              |
+| `attempt`        | integer          | current attempt number, starting at 1                                                                                                                                                                                                                                                                                                                         |
+| `max_retries`    | integer          | total retries permitted                                                                                                                                                                                                                                                                                                                                       |
+| `retry_delay_ms` | integer          | milliseconds until the next attempt                                                                                                                                                                                                                                                                                                                           |
+| `error_status`   | integer or null  | HTTP status code, or `null` for connection errors with no HTTP response                                                                                                                                                                                                                                                                                       |
+| `no_response`    | object, optional | present only when the failed attempt got [no response headers in time](/docs/en/errors#no-response-from-api). `waited_ms` is how long that attempt waited and `retry_wait_ms` is how long the retry will wait. In these events, `max_retries` reflects the one retry this cause normally gets, not the session-wide budget. Requires Claude Code v2.1.261 or later |
+| `error`          | string           | error category: `authentication_failed`, `oauth_org_not_allowed`, `billing_error`, `rate_limit`, `overloaded`, `invalid_request`, `model_not_found`, `server_error`, `max_output_tokens`, or `unknown`                                                                                                                                                        |
+| `uuid`           | string           | unique event identifier                                                                                                                                                                                                                                                                                                                                       |
+| `session_id`     | string           | session the event belongs to                                                                                                                                                                                                                                                                                                                                  |
 
 #### Read session metadata
 
@@ -264,6 +269,26 @@ This example applies lint fixes with `acceptEdits` as the baseline:
 ```bash theme={null}
 claude -p "Apply the lint fixes" --permission-mode acceptEdits
 ```
+
+### Turn off permission prompts in unattended runs
+
+Pass `--permission-prompts none` when nobody is available to answer permission prompts, for example in a scheduled job. The flag matters most when your run has a permission host: an Agent SDK app with a [`canUseTool` callback](/docs/en/agent-sdk/user-input), or an MCP tool you pass with [`--permission-prompt-tool`](/docs/en/cli-reference#cli-flags). Without the flag, your run waits for that host to answer each permission request.
+
+With the flag, your run doesn't consult the host or wait on it. Anything that would prompt is denied unless a `PermissionRequest` hook allows it, Claude is told that nobody can approve the request and not to retry it, and the run continues. In a `-p` run with no host, these requests are denied either way, and the flag also tells Claude not to retry them. Permission rules, [`PermissionRequest` hooks](/docs/en/hooks#permissionrequest), and the permission mode you set still decide every call first; Claude Code denies only the requests that nothing else resolves.
+
+This example runs an unattended task in [auto mode](/docs/en/permission-modes#eliminate-prompts-with-auto-mode). The classifier reviews each action as usual, and Claude Code denies anything that would have fallen back to a prompt:
+
+```bash theme={null}
+claude -p "Update the dependency pins and run the tests" --permission-mode auto --permission-prompts none
+```
+
+With `--permission-prompts none`, Claude Code removes the tools that need an answer from a person, such as [`AskUserQuestion`](/docs/en/tools-reference#askuserquestion-tool-behavior), so Claude can't call them. Any [MCP elicitation request](/docs/en/mcp#respond-to-mcp-elicitation-requests) that no [`Elicitation` hook](/docs/en/hooks#elicitation) answers is cancelled.
+
+With `--output-format stream-json`, denials appear as `permission_denied` system messages, and the final result message lists them in `permission_denials`.
+
+<Note>
+  The `--permission-prompts` flag requires Claude Code v2.1.259 or later. Earlier versions reject it with an unknown-option error.
+</Note>
 
 ### Create a commit
 

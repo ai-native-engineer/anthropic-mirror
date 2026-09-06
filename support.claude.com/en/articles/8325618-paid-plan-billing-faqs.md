@@ -39,7 +39,7 @@ There's no separate option to remove a card, and updating to a new card replaces
 
 If you want to use a name other than the one tied to your payment method, check the "Use a different name on invoices" box when adding or updating your payment method in **[Settings > Billing](https://claude.ai/settings/billing)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1787722200&signature=822ced847ee76b06f6e6b4f9cf17c47214b9da5e0a8521445991443386c21415&req=dSklFMh6nIZXXPMW1HO4zVXW8GqsaTHOQoNvNFTb5cf%2FmjDuM1msVjB16zr2%0AdkdfZrLw5psvypEuTWc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1787722200&signature=822ced847ee76b06f6e6b4f9cf17c47214b9da5e0a8521445991443386c21415&req=dSklFMh6nIZXXPMW1HO4zVXW8GqsaTHOQoNvNFTb5cf%2FmjDuM1msVjB16zr2%0AdkdfZrLw5psvypEuTWc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1788654600&signature=147b6005fe826870dc36d29631da4d2392223384222d0385084be3b40992c8ce&req=dSklFMh6nIZXXPMW1HO4zVXW8GWtbjfKQoNvNFTb5cfIkmorJulSkkjCV7z9%0A1ZjaZw5bs%2BU4KNvCRK4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1788654600&signature=147b6005fe826870dc36d29631da4d2392223384222d0385084be3b40992c8ce&req=dSklFMh6nIZXXPMW1HO4zVXW8GWtbjfKQoNvNFTb5cfIkmorJulSkkjCV7z9%0A1ZjaZw5bs%2BU4KNvCRK4%3D%0A)
 
 ## How can I edit a paid invoice?
 
@@ -60,8 +60,8 @@ If you've paid for a Pro or Max plan but are not seeing this reflected in your a
 1. You've logged in with a different email. We recommend trying to sign in with any alternative emails you may have used to create your paid account.
 2. Your payment method failed and your account was downgraded. To check this, navigate to **[Settings > Billing](https://claude.ai/settings/billing)** to confirm your recent payment status and update your payment method or billing details if needed.
 
-* [Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription)
 * [Add or update your paid Claude account’s tax or VAT ID](https://support.claude.com/en/articles/9889408-add-or-update-your-paid-claude-account-s-tax-or-vat-id)
 * [How do I sign up for the Max plan?](https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan)
 * [Understanding your billing address and tax calculation](https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation)
+* [Team plan billing FAQs](https://support.claude.com/en/articles/12997503-team-plan-billing-faqs)
 * [Understanding your Pro or Max plan invoices](https://support.claude.com/en/articles/16607638-understanding-your-pro-or-max-plan-invoices)

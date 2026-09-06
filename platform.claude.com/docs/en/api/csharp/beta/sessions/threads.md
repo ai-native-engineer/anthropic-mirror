@@ -26,93 +26,99 @@ List Session Threads
 
   - `string page`
 
-    Query param: Opaque pagination cursor from a previous response's next_page. Forward-only.
+    Query param: Opaque pagination cursor from a previous response's `next_page`. Forward-only.
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 ### Returns
 
@@ -154,55 +160,59 @@ List Session Threads
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -248,9 +258,9 @@ List Session Threads
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-          - `Standard`
+          - `Standard("standard")`
 
-          - `Fast`
+          - `Fast("fast")`
 
       - `required string Name`
 
@@ -290,7 +300,7 @@ List Session Threads
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "bash"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -308,7 +318,7 @@ List Session Threads
 
                   - `required Type Type`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash"`
 
             - `class BetaManagedAgentsEditToolConfig:`
 
@@ -316,7 +326,7 @@ List Session Threads
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "edit"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -330,7 +340,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "edit"`
 
             - `class BetaManagedAgentsReadToolConfig:`
 
@@ -338,7 +348,7 @@ List Session Threads
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "read"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -352,7 +362,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "read"`
 
             - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -360,7 +370,7 @@ List Session Threads
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "write"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -374,7 +384,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "write"`
 
             - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -382,7 +392,7 @@ List Session Threads
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "glob"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -396,7 +406,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "glob"`
 
             - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -404,7 +414,7 @@ List Session Threads
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "grep"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -418,7 +428,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "grep"`
 
             - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -426,7 +436,7 @@ List Session Threads
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_fetch"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -440,7 +450,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch"`
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -456,7 +466,7 @@ List Session Threads
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_search"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -470,7 +480,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search"`
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -480,7 +490,7 @@ List Session Threads
 
                 Approximate user location for search result localization.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -578,7 +588,7 @@ List Session Threads
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "object"`
 
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -650,13 +660,13 @@ List Session Threads
 
     SessionThreadStatus enum
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required Type Type`
 
@@ -871,87 +881,93 @@ Get Session Thread
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 ### Returns
 
@@ -993,55 +1009,59 @@ Get Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -1087,9 +1107,9 @@ Get Session Thread
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-          - `Standard`
+          - `Standard("standard")`
 
-          - `Fast`
+          - `Fast("fast")`
 
       - `required string Name`
 
@@ -1129,7 +1149,7 @@ Get Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "bash"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1147,7 +1167,7 @@ Get Session Thread
 
                   - `required Type Type`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash"`
 
             - `class BetaManagedAgentsEditToolConfig:`
 
@@ -1155,7 +1175,7 @@ Get Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "edit"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1169,7 +1189,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "edit"`
 
             - `class BetaManagedAgentsReadToolConfig:`
 
@@ -1177,7 +1197,7 @@ Get Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "read"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1191,7 +1211,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "read"`
 
             - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -1199,7 +1219,7 @@ Get Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "write"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1213,7 +1233,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "write"`
 
             - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -1221,7 +1241,7 @@ Get Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "glob"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1235,7 +1255,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "glob"`
 
             - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -1243,7 +1263,7 @@ Get Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "grep"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1257,7 +1277,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "grep"`
 
             - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -1265,7 +1285,7 @@ Get Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_fetch"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1279,7 +1299,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch"`
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -1295,7 +1315,7 @@ Get Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_search"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1309,7 +1329,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search"`
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -1319,7 +1339,7 @@ Get Session Thread
 
                 Approximate user location for search result localization.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -1417,7 +1437,7 @@ Get Session Thread
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "object"`
 
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -1489,13 +1509,13 @@ Get Session Thread
 
     SessionThreadStatus enum
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required Type Type`
 
@@ -1704,87 +1724,93 @@ Archive Session Thread
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 ### Returns
 
@@ -1826,55 +1852,59 @@ Archive Session Thread
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -1920,9 +1950,9 @@ Archive Session Thread
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-          - `Standard`
+          - `Standard("standard")`
 
-          - `Fast`
+          - `Fast("fast")`
 
       - `required string Name`
 
@@ -1962,7 +1992,7 @@ Archive Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "bash"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -1980,7 +2010,7 @@ Archive Session Thread
 
                   - `required Type Type`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash"`
 
             - `class BetaManagedAgentsEditToolConfig:`
 
@@ -1988,7 +2018,7 @@ Archive Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "edit"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2002,7 +2032,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "edit"`
 
             - `class BetaManagedAgentsReadToolConfig:`
 
@@ -2010,7 +2040,7 @@ Archive Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "read"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2024,7 +2054,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "read"`
 
             - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -2032,7 +2062,7 @@ Archive Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "write"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2046,7 +2076,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "write"`
 
             - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -2054,7 +2084,7 @@ Archive Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "glob"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2068,7 +2098,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "glob"`
 
             - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -2076,7 +2106,7 @@ Archive Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "grep"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2090,7 +2120,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "grep"`
 
             - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -2098,7 +2128,7 @@ Archive Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_fetch"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2112,7 +2142,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch"`
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -2128,7 +2158,7 @@ Archive Session Thread
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_search"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2142,7 +2172,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search"`
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -2152,7 +2182,7 @@ Archive Session Thread
 
                 Approximate user location for search result localization.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -2250,7 +2280,7 @@ Archive Session Thread
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "object"`
 
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -2322,13 +2352,13 @@ Archive Session Thread
 
     SessionThreadStatus enum
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required Type Type`
 
@@ -2555,55 +2585,59 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -2649,9 +2683,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-          - `Standard`
+          - `Standard("standard")`
 
-          - `Fast`
+          - `Fast("fast")`
 
       - `required string Name`
 
@@ -2691,7 +2725,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "bash"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2709,7 +2743,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   - `required Type Type`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash"`
 
             - `class BetaManagedAgentsEditToolConfig:`
 
@@ -2717,7 +2751,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "edit"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2731,7 +2765,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "edit"`
 
             - `class BetaManagedAgentsReadToolConfig:`
 
@@ -2739,7 +2773,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "read"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2753,7 +2787,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "read"`
 
             - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -2761,7 +2795,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "write"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2775,7 +2809,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "write"`
 
             - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -2783,7 +2817,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "glob"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2797,7 +2831,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "glob"`
 
             - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -2805,7 +2839,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "grep"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2819,7 +2853,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "grep"`
 
             - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -2827,7 +2861,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_fetch"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2841,7 +2875,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch"`
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -2857,7 +2891,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
               - `required bool Enabled`
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_search"`
 
               - `required PermissionPolicy PermissionPolicy`
 
@@ -2871,7 +2905,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search"`
 
               - `IReadOnlyList<string> AllowedDomains`
 
@@ -2881,7 +2915,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                 Approximate user location for search result localization.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -2979,7 +3013,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "object"`
 
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -3051,13 +3085,13 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
     SessionThreadStatus enum
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required Type Type`
 
@@ -3169,13 +3203,13 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
   SessionThreadStatus enum
 
-  - `Running`
+  - `Running("running")`
 
-  - `Idle`
+  - `Idle("idle")`
 
-  - `Rescheduling`
+  - `Rescheduling("rescheduling")`
 
-  - `Terminated`
+  - `Terminated("terminated")`
 
 ### Beta Managed Agents Session Thread Usage
 
@@ -3455,9 +3489,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
       UserToolConfirmationResult enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `required string ToolUseID`
 
@@ -3667,11 +3701,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
       AgentEvaluatedPermission enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Ask`
+      - `Ask("ask")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `string? SessionThreadID`
 
@@ -3749,11 +3783,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
       AgentEvaluatedPermission enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Ask`
+      - `Ask("ask")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `string? SessionThreadID`
 
@@ -4373,9 +4407,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
@@ -4723,55 +4757,59 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -4817,9 +4855,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-          - `Standard`
+          - `Standard("standard")`
 
-          - `Fast`
+          - `Fast("fast")`
 
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -4887,7 +4925,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "bash"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -4905,7 +4943,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                         - `required Type Type`
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "bash"`
 
                   - `class BetaManagedAgentsEditToolConfig:`
 
@@ -4913,7 +4951,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "edit"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -4927,7 +4965,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "edit"`
 
                   - `class BetaManagedAgentsReadToolConfig:`
 
@@ -4935,7 +4973,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "read"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -4949,7 +4987,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "read"`
 
                   - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -4957,7 +4995,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "write"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -4971,7 +5009,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "write"`
 
                   - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -4979,7 +5017,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "glob"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -4993,7 +5031,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "glob"`
 
                   - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -5001,7 +5039,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "grep"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -5015,7 +5053,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "grep"`
 
                   - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -5023,7 +5061,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "web_fetch"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -5037,7 +5075,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "web_fetch"`
 
                     - `IReadOnlyList<string> AllowedDomains`
 
@@ -5053,7 +5091,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "web_search"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -5067,7 +5105,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "web_search"`
 
                     - `IReadOnlyList<string> AllowedDomains`
 
@@ -5077,7 +5115,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                       Approximate user location for search result localization.
 
-                      - `JsonElement Type constant`
+                      - `JsonElement Type = "approximate"`
 
                         Location precision. Only "approximate" is supported.
 
@@ -5175,7 +5213,7 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
                   JSON Schema for custom tool input parameters.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "object"`
 
                   - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -5459,87 +5497,93 @@ List Session Thread Events
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -5745,9 +5789,9 @@ List Session Thread Events
 
       UserToolConfirmationResult enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `required string ToolUseID`
 
@@ -5957,11 +6001,11 @@ List Session Thread Events
 
       AgentEvaluatedPermission enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Ask`
+      - `Ask("ask")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `string? SessionThreadID`
 
@@ -6039,11 +6083,11 @@ List Session Thread Events
 
       AgentEvaluatedPermission enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Ask`
+      - `Ask("ask")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `string? SessionThreadID`
 
@@ -6663,9 +6707,9 @@ List Session Thread Events
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
@@ -7013,55 +7057,59 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -7107,9 +7155,9 @@ List Session Thread Events
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-          - `Standard`
+          - `Standard("standard")`
 
-          - `Fast`
+          - `Fast("fast")`
 
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -7177,7 +7225,7 @@ List Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "bash"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -7195,7 +7243,7 @@ List Session Thread Events
 
                         - `required Type Type`
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "bash"`
 
                   - `class BetaManagedAgentsEditToolConfig:`
 
@@ -7203,7 +7251,7 @@ List Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "edit"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -7217,7 +7265,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "edit"`
 
                   - `class BetaManagedAgentsReadToolConfig:`
 
@@ -7225,7 +7273,7 @@ List Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "read"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -7239,7 +7287,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "read"`
 
                   - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -7247,7 +7295,7 @@ List Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "write"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -7261,7 +7309,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "write"`
 
                   - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -7269,7 +7317,7 @@ List Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "glob"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -7283,7 +7331,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "glob"`
 
                   - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -7291,7 +7339,7 @@ List Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "grep"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -7305,7 +7353,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "grep"`
 
                   - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -7313,7 +7361,7 @@ List Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "web_fetch"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -7327,7 +7375,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "web_fetch"`
 
                     - `IReadOnlyList<string> AllowedDomains`
 
@@ -7343,7 +7391,7 @@ List Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "web_search"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -7357,7 +7405,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "web_search"`
 
                     - `IReadOnlyList<string> AllowedDomains`
 
@@ -7367,7 +7415,7 @@ List Session Thread Events
 
                       Approximate user location for search result localization.
 
-                      - `JsonElement Type constant`
+                      - `JsonElement Type = "approximate"`
 
                         Location precision. Only "approximate" is supported.
 
@@ -7465,7 +7513,7 @@ List Session Thread Events
 
                   JSON Schema for custom tool input parameters.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "object"`
 
                   - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -7722,95 +7770,101 @@ Stream Session Thread Events
 
     Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
 
-    - `AgentMessage`
+    - `AgentMessage("agent.message")`
 
-    - `AgentThinking`
+    - `AgentThinking("agent.thinking")`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -8016,9 +8070,9 @@ Stream Session Thread Events
 
       UserToolConfirmationResult enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `required string ToolUseID`
 
@@ -8228,11 +8282,11 @@ Stream Session Thread Events
 
       AgentEvaluatedPermission enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Ask`
+      - `Ask("ask")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `string? SessionThreadID`
 
@@ -8310,11 +8364,11 @@ Stream Session Thread Events
 
       AgentEvaluatedPermission enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Ask`
+      - `Ask("ask")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `string? SessionThreadID`
 
@@ -8934,9 +8988,9 @@ Stream Session Thread Events
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
@@ -9284,55 +9338,59 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -9378,9 +9436,9 @@ Stream Session Thread Events
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-          - `Standard`
+          - `Standard("standard")`
 
-          - `Fast`
+          - `Fast("fast")`
 
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -9448,7 +9506,7 @@ Stream Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "bash"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -9466,7 +9524,7 @@ Stream Session Thread Events
 
                         - `required Type Type`
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "bash"`
 
                   - `class BetaManagedAgentsEditToolConfig:`
 
@@ -9474,7 +9532,7 @@ Stream Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "edit"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -9488,7 +9546,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "edit"`
 
                   - `class BetaManagedAgentsReadToolConfig:`
 
@@ -9496,7 +9554,7 @@ Stream Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "read"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -9510,7 +9568,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "read"`
 
                   - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -9518,7 +9576,7 @@ Stream Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "write"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -9532,7 +9590,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "write"`
 
                   - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -9540,7 +9598,7 @@ Stream Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "glob"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -9554,7 +9612,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "glob"`
 
                   - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -9562,7 +9620,7 @@ Stream Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "grep"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -9576,7 +9634,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "grep"`
 
                   - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -9584,7 +9642,7 @@ Stream Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "web_fetch"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -9598,7 +9656,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "web_fetch"`
 
                     - `IReadOnlyList<string> AllowedDomains`
 
@@ -9614,7 +9672,7 @@ Stream Session Thread Events
 
                     - `required bool Enabled`
 
-                    - `JsonElement Name constant`
+                    - `JsonElement Name = "web_search"`
 
                     - `required PermissionPolicy PermissionPolicy`
 
@@ -9628,7 +9686,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "web_search"`
 
                     - `IReadOnlyList<string> AllowedDomains`
 
@@ -9638,7 +9696,7 @@ Stream Session Thread Events
 
                       Approximate user location for search result localization.
 
-                      - `JsonElement Type constant`
+                      - `JsonElement Type = "approximate"`
 
                         Location precision. Only "approximate" is supported.
 
@@ -9736,7 +9794,7 @@ Stream Session Thread Events
 
                   JSON Schema for custom tool input parameters.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "object"`
 
                   - `IReadOnlyDictionary<string, JsonElement>? Properties`
 

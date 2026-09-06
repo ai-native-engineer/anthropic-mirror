@@ -4,6 +4,8 @@ If you're using Claude with a personal account (Free, Pro, or Max) tied to your 
 
 **Note:** Enterprise organizations that have turned on HIPAA readiness or customer-managed encryption keys (CMEK) can't receive data from a personal account. If your organization uses either, you won't be offered the option to bring your data with you, and a domain claim won't offer to merge your account. You can export your data first if you want a copy. Learn more about **[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973)** and **[customer-managed encryption keys](https://support.claude.com/en/articles/15505325)**.
 
+---
+
 ## What moves when you migrate
 
 Both paths move the same content for each person.
@@ -38,6 +40,10 @@ Both paths move the same content for each person.
 2. Save a copy of anything you've published as an artifact, since published artifacts won't be available afterward.
 3. Share any content you've sent out as a public link another way, because those links will break.
 4. Make a note of the apps you've connected so you can reconnect them.
+
+**Note:** After a migration, your chat list can take a little while to fill in. Searching by chat title works right away. The first time Claude searches your past chats in your new organization, it rebuilds its search index, so Claude might not find everything at first. If chats still seem to be missing, sign out, sign back in, and search again.
+
+---
 
 ## Voluntary migration
 
@@ -81,6 +87,8 @@ Owning the Team organization doesn't change where you start the migration. If yo
 
 If you subscribed to the Pro or Max plan through the Apple App Store, **Keep both accounts** is your only option. Apple doesn't allow third-party cancellation of App Store subscriptions, so we can't auto-cancel your iOS plan as part of the migration. If you'd rather move your work into the Team, **[cancel your iOS subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription#h_54384c9962)** through your Apple ID settings first, then start the migration from the reminder banner or **[Settings > Account](https://claude.ai/settings/account)**.
 
+---
+
 ## Domain claiming
 
 Domain claiming is supported on Claude Enterprise plans only.
@@ -89,13 +97,17 @@ Enterprise admins can claim all existing personal accounts on their organization
 
 For the full walkthrough of your options, deadlines, and what happens to your subscription, see **[Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)**.
 
+---
+
 ## Manage personal and organization accounts
 
 You may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1788035400&signature=7bb827a4e5dffd1d3f18409b0f2ea98f9530c59f3fe34bc2df5bb15039e77df2&req=diMmFMh3noJbXvMW1HO4zXhPndg2yxplufhmlOXMdYZlODtIOIPR4SfN2Zfj%0Ahw9ip4wxRl0c0PcbTnA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1788035400&signature=7bb827a4e5dffd1d3f18409b0f2ea98f9530c59f3fe34bc2df5bb15039e77df2&req=diMmFMh3noJbXvMW1HO4zXhPndg2yxplufhmlOXMdYZlODtIOIPR4SfN2Zfj%0Ahw9ip4wxRl0c0PcbTnA%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1788654600&signature=5a0dc295b58d8f9891d9c467ee86e7ab8b4249348b1000348c505f64b035ebd0&req=diMmFMh3noJbXvMW1HO4zXhPndgwzRtnufhmlOXMdYZlx%2BRRaFxZbLzjsZJz%0AY6JQmxj9SA1hHu3d3ws%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1788654600&signature=5a0dc295b58d8f9891d9c467ee86e7ab8b4249348b1000348c505f64b035ebd0&req=diMmFMh3noJbXvMW1HO4zXhPndgwzRtnufhmlOXMdYZlx%2BRRaFxZbLzjsZJz%0AY6JQmxj9SA1hHu3d3ws%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
+
+---
 
 ## Discontinue your personal account manually
 

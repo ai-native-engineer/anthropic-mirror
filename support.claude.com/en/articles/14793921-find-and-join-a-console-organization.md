@@ -29,6 +29,8 @@ Admins select how join requests are handled:
 * **Approve automatically:** People are added to the organization automatically when they ask to join. They can immediately access the workspaces and resources their role permits.
 * **Require admin approval:** An admin reviews and approves each join request individually. People aren’t added to the organization until an admin approves the request.
 
+---
+
 ## How to find and join an organization
 
 When someone signs up for the Console with a business email address that matches a discoverable organization, they’ll see the option to join during the signup flow. They can choose to join or continue with a personal account.
@@ -38,6 +40,8 @@ When someone signs up for the Console with a business email address that matches
 
 If multiple organizations share the same email domain and are all discoverable, the requester sees all of them and can choose which one to join.
 
+---
+
 ## Other ways to join an organization
 
 In addition to organization discovery, there are a few other ways to join a Console organization:
@@ -45,12 +49,14 @@ In addition to organization discovery, there are a few other ways to join a Cons
 * **Email invitation:** An Admin or existing member of the organization may send you an email invitation to join.
 * **Admin invitation:** An Admin can add you directly from **[Organization settings > Members](https://platform.claude.com/settings/members)**.
 
+---
+
 ## SSO and organization discovery
 
 Organization discovery isn’t available for Console organizations with single sign-on enabled. If your organization uses SSO, the feature doesn’t apply—your existing provisioning settings (including any just-in-time provisioning) remain unchanged. To enable organization discovery, SSO must be turned off first.
 
 * [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
-* [Manage members on Team and Enterprise plans](https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans)
 * [Find and join a Team or Enterprise organization](https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization)
 * [Join an organization via invite link](https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link)
-* [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
+* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)

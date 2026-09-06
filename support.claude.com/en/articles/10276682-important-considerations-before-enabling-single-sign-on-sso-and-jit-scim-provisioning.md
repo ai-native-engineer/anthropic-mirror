@@ -29,6 +29,8 @@ You'll need to check the parent organization dynamic depending on your plan:
 * **If you have a Claude Console organization and an existing Team or Enterprise plan:** Your Console organization may already be linked to your Team or Enterprise parent organization. Check if you can access **[platform.claude.com/settings/identity](http://platform.claude.com/settings/identity)**. If so, this indicates that the org is linked to the parent organization and SSO is already configured. If not, an Owner on your Team or Enterprise plan can initiate a merge to link your Console organization (see **[Merge organizations](#h_3bad8701c8)** below) to their parent organization and the existing SSO configuration.
 * **If you have a Claude Console organization without a Team or Enterprise plan:** **[Contact our Sales team](https://claude.com/contact-sales)** to request a parent organization for your Console account. Once we create your parent organization, you'll see the Identity settings page in Claude Console and can proceed with SSO setup.
 
+---
+
 ## Merge organizations
 
 Team or Enterprise organizations can invite other organizations to join an existing parent organization and share SSO configuration.
@@ -63,13 +65,19 @@ Approving a merge takes two steps, one on each side, and completes only after bo
 
 Once a Console organization is merged, it gains access to the **[Identity and access page](http://platform.claude.com/settings/identity)**, in the Organization settings, to configure SSO and provisioning settings.
 
+---
+
 ## Authentication
 
 You'll find settings you can use to configure SSO in the **Authentication** section. This is where you configure the primary SSO connection and policies that apply across multiple joined Claude or Console organizations.
 
+---
+
 ## Restrict new organization creation
 
 Once your organization's domains are verified, owners will see a **Restrict organization creation** toggle under **Security** on the Organization and access page. Toggle this on to prevent users from creating new Claude or Console organizations, including personal accounts, using any of your verified domains.
+
+---
 
 ## Provisioning options
 
@@ -86,6 +94,8 @@ Once SSO is configured, you can choose how users are provisioned to your organiz
 
 For detailed information on how each provisioning method works, see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
 
+---
+
 ## What happens to existing users when SSO is enabled
 
 After enabling SSO for your organization, there are two distinct scenarios to consider for users who have individual accounts associated with your verified company domain:
@@ -99,6 +109,8 @@ These users keep access to their existing Free/Pro/Team/Max accounts. They can t
 * **If "Require SSO for Claude" is NOT enabled:** These users can still access their existing accounts using the "Continue with email" option.
 * **If "Require SSO for Claude" IS enabled:** These users will be unable to access their existing Free/Pro/Team/Max accounts. Please note that these accounts are not deleted, but will be inaccessible as users are unable to log in via SSO.
 
+---
+
 ## How to view existing Claude / Console accounts associated with your verified domain
 
 To view or download information about your verified domains and their usage across Claude organizations:
@@ -106,6 +118,8 @@ To view or download information about your verified domains and their usage acro
 1. Navigate to the **Organization and access** section in Claude (**[claude.ai/admin-settings/organization](https://claude.ai/admin-settings/organization)**) or the **Identity and access** section in Console (**[platform.claude.com/settings/identity](http://platform.claude.com/settings/identity)**).
 2. Click “Domain memberships” in the **Domains** section.
 3. Review the information or download details in CSV or JSON format.
+
+---
 
 ## Recommended steps before implementing SSO
 
@@ -124,6 +138,8 @@ To view or download information about your verified domains and their usage acro
 
 Taking time to test, communicate, and plan before enabling domain verification and SSO will help ensure a successful transition and positive experience for your organization.
 
+---
+
 ## Next steps
 
 Once you've reviewed these considerations and completed any necessary prerequisite steps (such as merging organizations), proceed to **[Set up single sign-on (SSO)](https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso)** for detailed implementation instructions.
@@ -131,5 +147,5 @@ Once you've reviewed these considerations and completed any necessary prerequisi
 * [Set up single sign-on (SSO)](https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
 * [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
-* [OneLogin SSO setup](https://support.claude.com/en/articles/13917899-onelogin-sso-setup)

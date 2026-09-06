@@ -2,6 +2,1286 @@
 <!-- part of: https://platform.claude.com/docs/en/api/go/beta/messages -->
 
 <!-- chunk-start -->
+
+    Thinking blocks must be passed back unmodified and in their original order; a modified block results in a 400 `invalid_request_error`.
+
+  - `Thinking string`
+
+    The `thinking` text of this block as returned by the API.
+
+  - `Type Thinking`
+
+### Beta Thinking Config Adaptive
+
+- `type BetaThinkingConfigAdaptive struct{…}`
+
+  - `Type Adaptive`
+
+  - `BlockBinding BetaThinkingBlockBinding Optional`
+
+    Controls for block binding: what happens when a thinking block this
+    request sends back fails the conversation check. Every field is optional;
+    an empty object means every default.
+
+    - `PrefixMismatchBehavior BetaThinkingPrefixMismatchBehavior Optional`
+
+      What happens when a thinking block in `messages` fails the conversation
+      check: it was created in a different conversation, or the messages before
+      it have changed since. `"error"` (the default) fails the request with a
+      400 error. `"drop_block"` removes the failing blocks and the request
+      proceeds; the model no longer sees the dropped reasoning.
+
+      - `const BetaThinkingPrefixMismatchBehaviorError BetaThinkingPrefixMismatchBehavior = "error"`
+
+      - `const BetaThinkingPrefixMismatchBehaviorDropBlock BetaThinkingPrefixMismatchBehavior = "drop_block"`
+
+  - `Display BetaThinkingConfigAdaptiveDisplay Optional`
+
+    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+    - `const BetaThinkingConfigAdaptiveDisplaySummarized BetaThinkingConfigAdaptiveDisplay = "summarized"`
+
+    - `const BetaThinkingConfigAdaptiveDisplayOmitted BetaThinkingConfigAdaptiveDisplay = "omitted"`
+
+    - `const BetaThinkingConfigAdaptiveDisplayUpdates BetaThinkingConfigAdaptiveDisplay = "updates"`
+
+### Beta Thinking Config Disabled
+
+- `type BetaThinkingConfigDisabled struct{…}`
+
+  - `Type Disabled`
+
+### Beta Thinking Config Enabled
+
+- `type BetaThinkingConfigEnabled struct{…}`
+
+  - `BudgetTokens int64`
+
+    Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+    Must be ≥1024 and less than `max_tokens`.
+
+    See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+    minimum: 1024
+
+  - `Type Enabled`
+
+  - `BlockBinding BetaThinkingBlockBinding Optional`
+
+    Controls for block binding: what happens when a thinking block this
+    request sends back fails the conversation check. Every field is optional;
+    an empty object means every default.
+
+    - `PrefixMismatchBehavior BetaThinkingPrefixMismatchBehavior Optional`
+
+      What happens when a thinking block in `messages` fails the conversation
+      check: it was created in a different conversation, or the messages before
+      it have changed since. `"error"` (the default) fails the request with a
+      400 error. `"drop_block"` removes the failing blocks and the request
+      proceeds; the model no longer sees the dropped reasoning.
+
+      - `const BetaThinkingPrefixMismatchBehaviorError BetaThinkingPrefixMismatchBehavior = "error"`
+
+      - `const BetaThinkingPrefixMismatchBehaviorDropBlock BetaThinkingPrefixMismatchBehavior = "drop_block"`
+
+  - `Display BetaThinkingConfigEnabledDisplay Optional`
+
+    Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+    - `const BetaThinkingConfigEnabledDisplaySummarized BetaThinkingConfigEnabledDisplay = "summarized"`
+
+    - `const BetaThinkingConfigEnabledDisplayOmitted BetaThinkingConfigEnabledDisplay = "omitted"`
+
+    - `const BetaThinkingConfigEnabledDisplayUpdates BetaThinkingConfigEnabledDisplay = "updates"`
+
+### Beta Thinking Config Param
+
+- `type BetaThinkingConfigParamUnionResp interface{…}`
+
+  Configuration for enabling Claude's extended thinking.
+
+  When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
+
+  See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+  - `type BetaThinkingConfigEnabled struct{…}`
+
+    - `BudgetTokens int64`
+
+      Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
+
+      Must be ≥1024 and less than `max_tokens`.
+
+      See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking) for details.
+
+      minimum: 1024
+
+    - `Type Enabled`
+
+    - `BlockBinding BetaThinkingBlockBinding Optional`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
+
+      - `PrefixMismatchBehavior BetaThinkingPrefixMismatchBehavior Optional`
+
+        What happens when a thinking block in `messages` fails the conversation
+        check: it was created in a different conversation, or the messages before
+        it have changed since. `"error"` (the default) fails the request with a
+        400 error. `"drop_block"` removes the failing blocks and the request
+        proceeds; the model no longer sees the dropped reasoning.
+
+        - `const BetaThinkingPrefixMismatchBehaviorError BetaThinkingPrefixMismatchBehavior = "error"`
+
+        - `const BetaThinkingPrefixMismatchBehaviorDropBlock BetaThinkingPrefixMismatchBehavior = "drop_block"`
+
+    - `Display BetaThinkingConfigEnabledDisplay Optional`
+
+      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+      - `const BetaThinkingConfigEnabledDisplaySummarized BetaThinkingConfigEnabledDisplay = "summarized"`
+
+      - `const BetaThinkingConfigEnabledDisplayOmitted BetaThinkingConfigEnabledDisplay = "omitted"`
+
+      - `const BetaThinkingConfigEnabledDisplayUpdates BetaThinkingConfigEnabledDisplay = "updates"`
+
+  - `type BetaThinkingConfigDisabled struct{…}`
+
+    - `Type Disabled`
+
+  - `type BetaThinkingConfigAdaptive struct{…}`
+
+    - `Type Adaptive`
+
+    - `BlockBinding BetaThinkingBlockBinding Optional`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
+
+    - `Display BetaThinkingConfigAdaptiveDisplay Optional`
+
+      Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
+
+      - `const BetaThinkingConfigAdaptiveDisplaySummarized BetaThinkingConfigAdaptiveDisplay = "summarized"`
+
+      - `const BetaThinkingConfigAdaptiveDisplayOmitted BetaThinkingConfigAdaptiveDisplay = "omitted"`
+
+      - `const BetaThinkingConfigAdaptiveDisplayUpdates BetaThinkingConfigAdaptiveDisplay = "updates"`
+
+### Beta Thinking Delta
+
+- `type BetaThinkingDelta struct{…}`
+
+  - `EstimatedTokens int64`
+
+    Per-frame increment of a coarse, running estimate of the tokens this thinking block has produced so far. Present whenever the `thinking-token-count-2026-05-13` beta is set; `null` unless `thinking.display` resolves to `"omitted"` and a count is due this frame. Sum the increments across `thinking_delta` frames on this block for a progress indicator. Each increment is a non-negative multiple of a fixed quantum and the cadence is rate-limited, so this is a deliberately lossy display hint, not a billable count; `usage.output_tokens` remains authoritative.
+
+  - `Thinking string`
+
+    The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
+
+  - `Type ThinkingDelta`
+
+    default: thinking_delta
+
+### Beta Thinking Dropped Input Transformation
+
+- `type BetaThinkingDroppedInputTransformation struct{…}`
+
+  - `Path string`
+
+    Where the removed block was in your request, as `messages.{i}.content.{j}`:
+    `i` indexes the `messages` array you sent and `j` that message's `content`
+    array — the same form error messages use.
+
+  - `Reason BetaThinkingDroppedInputTransformationReason`
+
+    Which binding check removed the block: `model_binding_mismatch` — it was
+    created by a model whose reasoning the requested model may not read;
+    `prefix_binding_mismatch` — the conversation before it differs from the
+    conversation it was created in (the rest of that turn's consecutive thinking
+    blocks are removed with it, each with this reason);
+    `organization_binding_mismatch` — it was created under a different
+    organization (an Anthropic organization, AWS account or Google Cloud project)
+    and this organization is not one of its additional organizations;
+    `end_user_binding_mismatch` — it was created for a different end user, or
+    was removed by the consumer-organization binding. A block that would fail
+    several checks reports one reason, in this order of precedence:
+    `organization_binding_mismatch`, `end_user_binding_mismatch`,
+    `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+    - `const BetaThinkingDroppedInputTransformationReasonModelBindingMismatch BetaThinkingDroppedInputTransformationReason = "model_binding_mismatch"`
+
+    - `const BetaThinkingDroppedInputTransformationReasonPrefixBindingMismatch BetaThinkingDroppedInputTransformationReason = "prefix_binding_mismatch"`
+
+    - `const BetaThinkingDroppedInputTransformationReasonOrganizationBindingMismatch BetaThinkingDroppedInputTransformationReason = "organization_binding_mismatch"`
+
+    - `const BetaThinkingDroppedInputTransformationReasonEndUserBindingMismatch BetaThinkingDroppedInputTransformationReason = "end_user_binding_mismatch"`
+
+  - `Type ThinkingDropped`
+
+    Always `thinking_dropped` for this entry type.
+
+    default: thinking_dropped
+
+### Beta Thinking Prefix Mismatch Behavior
+
+- `type BetaThinkingPrefixMismatchBehavior string`
+
+  What happens when a thinking block in `messages` fails the conversation
+  check: it was created in a different conversation, or the messages before
+  it have changed since. `"error"` (the default) fails the request with a
+  400 error. `"drop_block"` removes the failing blocks and the request
+  proceeds; the model no longer sees the dropped reasoning.
+
+  - `const BetaThinkingPrefixMismatchBehaviorError BetaThinkingPrefixMismatchBehavior = "error"`
+
+  - `const BetaThinkingPrefixMismatchBehaviorDropBlock BetaThinkingPrefixMismatchBehavior = "drop_block"`
+
+### Beta Thinking Turns
+
+- `type BetaThinkingTurns struct{…}`
+
+  - `Type ThinkingTurns`
+
+  - `Value int64`
+
+    minimum: 1
+
+### Beta Token Task Budget
+
+- `type BetaTokenTaskBudget struct{…}`
+
+  User-configurable total token budget across contexts.
+
+  - `Total int64`
+
+    Total token budget across all contexts in the session.
+
+    minimum: 1024
+
+  - `Type Tokens`
+
+    The budget type. Currently only 'tokens' is supported.
+
+  - `Remaining int64 Optional`
+
+    Remaining tokens in the budget. Use this to track usage across contexts when implementing compaction client-side. Defaults to total if not provided.
+
+    minimum: 0
+
+### Beta Tool
+
+- `type BetaTool struct{…}`
+
+  - `InputSchema BetaToolInputSchema`
+
+    [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
+
+    This defines the shape of the `input` that your tool accepts and that the model will produce.
+
+    - `Type Object`
+
+    - `Properties map[string, any] Optional`
+
+    - `Required []string Optional`
+
+  - `Name string`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+    maxLength: 128, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+  - `AllowedCallers []string Optional`
+
+    - `const BetaToolAllowedCallerDirect BetaToolAllowedCaller = "direct"`
+
+    - `const BetaToolAllowedCallerCodeExecution20250825 BetaToolAllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolAllowedCallerCodeExecution20260120 BetaToolAllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolAllowedCallerCodeExecution20260521 BetaToolAllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral Optional`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+    - `TTL BetaCacheControlEphemeralTTL Optional`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool Optional`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `Description string Optional`
+
+    Description of what this tool does.
+
+    Tool descriptions should be as detailed as possible. The more information that the model has about what the tool is and how to use it, the better it will perform. You can use natural language descriptions to reinforce important aspects of the tool input JSON schema.
+
+  - `EagerInputStreaming bool Optional`
+
+    Enable eager input streaming for this tool. When true, tool input parameters will be streamed incrementally as they are generated, and types will be inferred on-the-fly rather than buffering the full JSON output. When false, streaming is disabled for this tool even if the fine-grained-tool-streaming beta is active. When null (default), uses the default behavior based on beta headers.
+
+  - `InputExamples []map[string, any] Optional`
+
+  - `Strict bool Optional`
+
+    When true, guarantees schema validation on tool names and inputs
+
+  - `Type BetaToolType Optional`
+
+### Beta Tool Bash 20241022
+
+- `type BetaToolBash20241022 struct{…}`
+
+  - `Name Bash`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `Type Bash20241022`
+
+  - `AllowedCallers []string Optional`
+
+    - `const BetaToolBash20241022AllowedCallerDirect BetaToolBash20241022AllowedCaller = "direct"`
+
+    - `const BetaToolBash20241022AllowedCallerCodeExecution20250825 BetaToolBash20241022AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolBash20241022AllowedCallerCodeExecution20260120 BetaToolBash20241022AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolBash20241022AllowedCallerCodeExecution20260521 BetaToolBash20241022AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral Optional`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+    - `TTL BetaCacheControlEphemeralTTL Optional`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool Optional`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `InputExamples []map[string, any] Optional`
+
+  - `Strict bool Optional`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Bash 20250124
+
+- `type BetaToolBash20250124 struct{…}`
+
+  - `Name Bash`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `Type Bash20250124`
+
+  - `AllowedCallers []string Optional`
+
+    - `const BetaToolBash20250124AllowedCallerDirect BetaToolBash20250124AllowedCaller = "direct"`
+
+    - `const BetaToolBash20250124AllowedCallerCodeExecution20250825 BetaToolBash20250124AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolBash20250124AllowedCallerCodeExecution20260120 BetaToolBash20250124AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolBash20250124AllowedCallerCodeExecution20260521 BetaToolBash20250124AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral Optional`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+    - `TTL BetaCacheControlEphemeralTTL Optional`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool Optional`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `InputExamples []map[string, any] Optional`
+
+  - `Strict bool Optional`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Change MCP Tool Reference
+
+- `type BetaToolChangeMCPToolReference struct{…}`
+
+  Reference to a single MCP tool by its server and remote name — the
+  same `server_name`/`name` pair `mcp_tool_use` carries.
+
+  - `Name string`
+
+  - `ServerName string`
+
+  - `Type MCPToolReference`
+
+### Beta Tool Change MCP Toolset Reference
+
+- `type BetaToolChangeMCPToolsetReference struct{…}`
+
+  Reference to every tool in the named MCP server's toolset.
+
+  - `ServerName string`
+
+  - `Type MCPToolsetReference`
+
+### Beta Tool Change Tool Reference
+
+- `type BetaToolChangeToolReference struct{…}`
+
+  Reference to a single tool the caller declared directly in
+  `tools[]`. Does not accept the composed `{server}_{name}` form the
+  server assigns to MCP-resolved tools — use `mcp_tool_reference` or
+  `mcp_toolset_reference` for those.
+
+  - `Name string`
+
+    pattern: ^[a-zA-Z0-9_-]{1,128}$
+
+  - `Type ToolReference`
+
+### Beta Tool Choice
+
+- `type BetaToolChoiceUnion interface{…}`
+
+  How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
+
+  - `type BetaToolChoiceAuto struct{…}`
+
+    The model will automatically decide whether to use tools.
+
+    - `Type Auto`
+
+    - `DisableParallelToolUse bool Optional`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+  - `type BetaToolChoiceAny struct{…}`
+
+    The model will use any available tools.
+
+    - `Type Any`
+
+    - `DisableParallelToolUse bool Optional`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `type BetaToolChoiceTool struct{…}`
+
+    The model will use the specified tool with `tool_choice.name`.
+
+    - `Name string`
+
+      The name of the tool to use.
+
+    - `Type Tool`
+
+    - `DisableParallelToolUse bool Optional`
+
+      Whether to disable parallel tool use.
+
+      Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+  - `type BetaToolChoiceNone struct{…}`
+
+    The model will not be allowed to use tools.
+
+    - `Type None`
+
+### Beta Tool Choice Any
+
+- `type BetaToolChoiceAny struct{…}`
+
+  The model will use any available tools.
+
+  - `Type Any`
+
+  - `DisableParallelToolUse bool Optional`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+### Beta Tool Choice Auto
+
+- `type BetaToolChoiceAuto struct{…}`
+
+  The model will automatically decide whether to use tools.
+
+  - `Type Auto`
+
+  - `DisableParallelToolUse bool Optional`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output at most one tool use.
+
+### Beta Tool Choice None
+
+- `type BetaToolChoiceNone struct{…}`
+
+  The model will not be allowed to use tools.
+
+  - `Type None`
+
+### Beta Tool Choice Tool
+
+- `type BetaToolChoiceTool struct{…}`
+
+  The model will use the specified tool with `tool_choice.name`.
+
+  - `Name string`
+
+    The name of the tool to use.
+
+  - `Type Tool`
+
+  - `DisableParallelToolUse bool Optional`
+
+    Whether to disable parallel tool use.
+
+    Defaults to `false`. If set to `true`, the model will output exactly one tool use.
+
+### Beta Tool Computer Use 20241022
+
+- `type BetaToolComputerUse20241022 struct{…}`
+
+  - `DisplayHeightPx int64`
+
+    The height of the display in pixels.
+
+    minimum: 1
+
+  - `DisplayWidthPx int64`
+
+    The width of the display in pixels.
+
+    minimum: 1
+
+  - `Name Computer`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `Type Computer20241022`
+
+  - `AllowedCallers []string Optional`
+
+    - `const BetaToolComputerUse20241022AllowedCallerDirect BetaToolComputerUse20241022AllowedCaller = "direct"`
+
+    - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20250825 BetaToolComputerUse20241022AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260120 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20260521 BetaToolComputerUse20241022AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral Optional`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+    - `TTL BetaCacheControlEphemeralTTL Optional`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool Optional`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `DisplayNumber int64 Optional`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
+
+  - `InputExamples []map[string, any] Optional`
+
+  - `Strict bool Optional`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Computer Use 20250124
+
+- `type BetaToolComputerUse20250124 struct{…}`
+
+  - `DisplayHeightPx int64`
+
+    The height of the display in pixels.
+
+    minimum: 1
+
+  - `DisplayWidthPx int64`
+
+    The width of the display in pixels.
+
+    minimum: 1
+
+  - `Name Computer`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `Type Computer20250124`
+
+  - `AllowedCallers []string Optional`
+
+    - `const BetaToolComputerUse20250124AllowedCallerDirect BetaToolComputerUse20250124AllowedCaller = "direct"`
+
+    - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20250825 BetaToolComputerUse20250124AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260120 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20260521 BetaToolComputerUse20250124AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral Optional`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+    - `TTL BetaCacheControlEphemeralTTL Optional`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool Optional`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `DisplayNumber int64 Optional`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
+
+  - `InputExamples []map[string, any] Optional`
+
+  - `Strict bool Optional`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Computer Use 20251124
+
+- `type BetaToolComputerUse20251124 struct{…}`
+
+  - `DisplayHeightPx int64`
+
+    The height of the display in pixels.
+
+    minimum: 1
+
+  - `DisplayWidthPx int64`
+
+    The width of the display in pixels.
+
+    minimum: 1
+
+  - `Name Computer`
+
+    Name of the tool.
+
+    This is how the tool will be called by the model and in `tool_use` blocks.
+
+  - `Type Computer20251124`
+
+  - `AllowedCallers []string Optional`
+
+    - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
+
+    - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
+
+    - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260120 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260120"`
+
+    - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20260521 BetaToolComputerUse20251124AllowedCaller = "code_execution_20260521"`
+
+  - `CacheControl BetaCacheControlEphemeral Optional`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+    - `TTL BetaCacheControlEphemeralTTL Optional`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `DeferLoading bool Optional`
+
+    If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
+
+  - `DisplayNumber int64 Optional`
+
+    The X11 display number (e.g. 0, 1) for the display.
+
+    minimum: 0
+
+  - `EnableZoom bool Optional`
+
+    Whether to enable an action to take a zoomed-in screenshot of the screen.
+
+  - `InputExamples []map[string, any] Optional`
+
+  - `Strict bool Optional`
+
+    When true, guarantees schema validation on tool names and inputs
+
+### Beta Tool Reference Block
+
+- `type BetaToolReferenceBlock struct{…}`
+
+  - `ToolName string`
+
+    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+  - `Type ToolReference`
+
+    default: tool_reference
+
+### Beta Tool Reference Block Param
+
+- `type BetaToolReferenceBlockParamResp struct{…}`
+
+  Tool reference block that can be included in tool_result content.
+
+  - `ToolName string`
+
+    maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+  - `Type ToolReference`
+
+  - `CacheControl BetaCacheControlEphemeral Optional`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+    - `TTL BetaCacheControlEphemeralTTL Optional`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+### Beta Tool Result Block Param
+
+- `type BetaToolResultBlockParamResp struct{…}`
+
+  - `ToolUseID string`
+
+    pattern: ^[a-zA-Z0-9_-]+$
+
+  - `Type ToolResult`
+
+  - `CacheControl BetaCacheControlEphemeral Optional`
+
+    Create a cache control breakpoint at this content block.
+
+    - `Type Ephemeral`
+
+    - `TTL BetaCacheControlEphemeralTTL Optional`
+
+      The time-to-live for the cache control breakpoint.
+
+      This may be one the following values:
+
+      - `5m`: 5 minutes
+      - `1h`: 1 hour
+
+      Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
+
+      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
+
+      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+
+  - `Content []BetaToolResultBlockParamContentUnionResp Optional`
+
+    - `[]BetaToolResultBlockParamContentUnionResp`
+
+      - `type BetaTextBlockParamResp struct{…}`
+
+        - `Text string`
+
+          minLength: 1
+
+        - `Type Text`
+
+        - `CacheControl BetaCacheControlEphemeral Optional`
+
+          Create a cache control breakpoint at this content block.
+
+        - `Citations []BetaTextCitationParamUnionResp Optional`
+
+          - `type BetaCitationCharLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+            - `DocumentIndex int64`
+
+              minimum: 0
+
+            - `DocumentTitle string`
+
+              maxLength: 500, minLength: 1
+
+            - `EndCharIndex int64`
+
+            - `StartCharIndex int64`
+
+              minimum: 0
+
+            - `Type CharLocation`
+
+          - `type BetaCitationPageLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+            - `DocumentIndex int64`
+
+              minimum: 0
+
+            - `DocumentTitle string`
+
+              maxLength: 500, minLength: 1
+
+            - `EndPageNumber int64`
+
+            - `StartPageNumber int64`
+
+              minimum: 1
+
+            - `Type PageLocation`
+
+          - `type BetaCitationContentBlockLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+              The full text of the cited block range, concatenated.
+
+              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+            - `DocumentIndex int64`
+
+              minimum: 0
+
+            - `DocumentTitle string`
+
+              maxLength: 500, minLength: 1
+
+            - `EndBlockIndex int64`
+
+              Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+            - `StartBlockIndex int64`
+
+              0-based index of the first cited block in the source's `content` array.
+
+              minimum: 0
+
+            - `Type ContentBlockLocation`
+
+          - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+            - `EncryptedIndex string`
+
+            - `Title string`
+
+              maxLength: 512, minLength: 1
+
+            - `Type WebSearchResultLocation`
+
+            - `URL string`
+
+              minLength: 1
+
+          - `type BetaCitationSearchResultLocationParamResp struct{…}`
+
+            - `CitedText string`
+
+              The full text of the cited block range, concatenated.
+
+              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
+
+            - `EndBlockIndex int64`
+
+              Exclusive 0-based end index of the cited block range in the source's `content` array.
+
+              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
+
+            - `SearchResultIndex int64`
+
+              0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
+
+              Counted separately from `document_index`; server-side web search results are not included in this count.
+
+              minimum: 0
+
+            - `Source string`
+
+            - `StartBlockIndex int64`
+
+              0-based index of the first cited block in the source's `content` array.
+
+              minimum: 0
+
+            - `Title string`
+
+            - `Type SearchResultLocation`
+
+      - `type BetaImageBlockParamResp struct{…}`
+
+        - `Source BetaImageBlockParamSourceUnionResp`
+
+          - `type BetaBase64ImageSource struct{…}`
+
+            - `Data string`
+
+              format: byte
+
+            - `MediaType BetaBase64ImageSourceMediaType`
+
+              - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
+
+              - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
+
+              - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
+
+              - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
+
+            - `Type Base64`
+
+          - `type BetaURLImageSource struct{…}`
+
+            - `Type URL`
+
+            - `URL string`
+
+          - `type BetaFileImageSource struct{…}`
+
+            - `FileID string`
+
+            - `Type File`
+
+        - `Type Image`
+
+        - `CacheControl BetaCacheControlEphemeral Optional`
+
+          Create a cache control breakpoint at this content block.
+
+        - `Transformations BetaImageTransformationsParamResp Optional`
+
+          Configures the transformations the server applies to this image before the model observes it. Each key names a condition the server transforms images for; its value selects the transformation applied. Omitted keys keep their default behavior, and an empty object is equivalent to omitting the field.
+
+          - `OversizedImage BetaImageTransformationsParamOversizedImage Optional`
+
+            What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
+
+            - `const BetaImageTransformationsParamOversizedImageDownsize BetaImageTransformationsParamOversizedImage = "downsize"`
+
+            - `const BetaImageTransformationsParamOversizedImageError BetaImageTransformationsParamOversizedImage = "error"`
+
+      - `type BetaSearchResultBlockParamResp struct{…}`
+
+        - `Content []BetaTextBlockParamResp`
+
+          - `Text string`
+
+            minLength: 1
+
+          - `Type Text`
+
+          - `CacheControl BetaCacheControlEphemeral Optional`
+
+            Create a cache control breakpoint at this content block.
+
+          - `Citations []BetaTextCitationParamUnionResp Optional`
+
+        - `Source string`
+
+        - `Title string`
+
+        - `Type SearchResult`
+
+        - `CacheControl BetaCacheControlEphemeral Optional`
+
+          Create a cache control breakpoint at this content block.
+
+        - `Citations BetaCitationsConfigParamResp Optional`
+
+          - `Enabled bool Optional`
+
+      - `type BetaRequestDocumentBlock struct{…}`
+
+        - `Source BetaRequestDocumentBlockSourceUnion`
+
+          - `type BetaBase64PDFSource struct{…}`
+
+            - `Data string`
+
+              format: byte
+
+            - `MediaType ApplicationPDF`
+
+            - `Type Base64`
+
+          - `type BetaPlainTextSource struct{…}`
+
+            - `Data string`
+
+            - `MediaType TextPlain`
+
+            - `Type Text`
+
+          - `type BetaContentBlockSource struct{…}`
+
+            - `Content BetaContentBlockSourceContentUnion`
+
+              - `string`
+
+              - `[]BetaContentBlockSourceContentUnion`
+
+                - `type BetaTextBlockParamResp struct{…}`
+
+                - `type BetaImageBlockParamResp struct{…}`
+
+            - `Type Content`
+
+          - `type BetaURLPDFSource struct{…}`
+
+            - `Type URL`
+
+            - `URL string`
+
+          - `type BetaFileDocumentSource struct{…}`
+
+            - `FileID string`
+
+            - `Type File`
+
+        - `Type Document`
+
+        - `CacheControl BetaCacheControlEphemeral Optional`
+
+          Create a cache control breakpoint at this content block.
+
+        - `Citations BetaCitationsConfigParamResp Optional`
+
+        - `Context string Optional`
+
+          minLength: 1
+
+        - `Title string Optional`
+
+          maxLength: 500, minLength: 1
+
+      - `type BetaToolReferenceBlockParamResp struct{…}`
+
+        Tool reference block that can be included in tool_result content.
+
+        - `ToolName string`
+
+          maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
+
+        - `Type ToolReference`
+
+        - `CacheControl BetaCacheControlEphemeral Optional`
+
+          Create a cache control breakpoint at this content block.
+
+      - `type BetaBrowserStateBlockParamResp struct{…}`
+
+        The caller's browser state after a browser toolset member call —
+        the full inventory of open tabs, which tab is active, and any side
+        effects (tabs opened, download state changes) the call produced.
+
+        At most one per `tool_result`, only on a non-error result answering a
+        browser toolset member `tool_use`. The server renders the
+        model-visible text from it; the model never sees the raw fields.
+
+        - `Tabs []BetaBrowserStateTabEntry`
+
+          All tabs open in the browser after this call — the full inventory, not a delta. May be empty. Whenever non-empty, exactly one entry carries `active: true`.
+
+          maxItems: 100
+
+          - `TabID string`
+
+            The caller-assigned identifier for this tab, unique within the inventory.
+
+            maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `Title string`
+
+            The title of the page the tab is showing. May be empty.
+
+            maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `URL string`
+
+            The URL of the page the tab is showing. May be empty.
+
+            maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `Active bool Optional`
+
+            Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
+
+        - `Type BrowserState`
+
+        - `CacheControl BetaCacheControlEphemeral Optional`
+
+          Create a cache control breakpoint at this content block.
+
+        - `StateChanges []BetaBrowserStateChangeUnion Optional`
+
+          Tabs opened and download state changes during this call. "Nothing to report" is expressed by omitting the field, never by an empty list.
+
+          maxItems: 200, minItems: 1
+
+          - `type BetaBrowserStateChangeTabOpened struct{…}`
+
+            A tab this call's execution opened that remains open at its end —
+            the creation delta of the `tabs` inventory, not an event log.
+
+            Carries only the `tab_id`; the tab's `title` and `url` live on its
+            `tabs` entry, which must include the same `tab_id`. A tab opened
+            during a failed call gets no deferred `tab_opened`; it simply appears
+            in the next result's `tabs` inventory.
+
+            - `TabID string`
+
+              The `tab_id` of the opened tab, present in `tabs`.
+
+              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `Type TabOpened`
+
+          - `type BetaBrowserStateChangeDownloadStarted struct{…}`
+
+            A file download that started during this call.
+
+            - `DownloadID string`
+
+              The caller-assigned identifier for this download, stable across the state changes reporting it.
+
+              maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+            - `Type DownloadStarted`
+
+            - `URL string`
+
+              The final post-redirect URL the download was served from.
+
+              maxLength: 4096, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
+
+          - `type BetaBrowserStateChangeDownloadCompleted struct{…}`
+
+            A file download that finished during this call, reported with the
+            same `download_id` as its `download_started` — or without a prior
+            `download_started`, when the download finished during the call that
             started it (at most one state change per `download_id` per result).
 
             - `DownloadID string`
@@ -884,16 +2164,6 @@
 
     - `Type BrowserToolset20260801`
 
-    - `AllowedCallers []string Optional`
-
-      - `const BetaBrowserToolset20260801AllowedCallerDirect BetaBrowserToolset20260801AllowedCaller = "direct"`
-
-      - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20250825 BetaBrowserToolset20260801AllowedCaller = "code_execution_20250825"`
-
-      - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260120 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260120"`
-
-      - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260521 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260521"`
-
     - `CacheControl BetaCacheControlEphemeral Optional`
 
       Create a cache control breakpoint at this content block.
@@ -1519,16 +2789,6 @@
     via `configs.zoom.enabled`.
 
     - `Type ComputerToolset20260801`
-
-    - `AllowedCallers []string Optional`
-
-      - `const BetaComputerToolset20260801AllowedCallerDirect BetaComputerToolset20260801AllowedCaller = "direct"`
-
-      - `const BetaComputerToolset20260801AllowedCallerCodeExecution20250825 BetaComputerToolset20260801AllowedCaller = "code_execution_20250825"`
-
-      - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260120 BetaComputerToolset20260801AllowedCaller = "code_execution_20260120"`
-
-      - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260521 BetaComputerToolset20260801AllowedCaller = "code_execution_20260521"`
 
     - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -2297,6 +3557,14 @@
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
+
+          Our most capable model for cybersecurity and biology research, available through trusted access programs
+
         - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
           High-performance model for coding and agents
@@ -2834,6 +4102,14 @@
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
@@ -6278,6 +7554,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                    - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
+
+                      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                    - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
+
+                      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
                     - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
                       High-performance model for coding and agents
@@ -6357,6 +7641,36 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `const BetaMessageParamRoleAssistant BetaMessageParamRole = "assistant"`
 
           - `const BetaMessageParamRoleSystem BetaMessageParamRole = "system"`
+
+        - `ClearAt BetaMessageParamClearAt Optional`
+
+          How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+          - `const BetaMessageParamClearAtNextUserMessage BetaMessageParamClearAt = "next_user_message"`
+
+          - `const BetaMessageParamClearAtNever BetaMessageParamClearAt = "never"`
+
+        - `OutputConfig BetaSystemMessageOutputConfig Optional`
+
+          Per-message output configuration on a role:"system" input message.
+
+          Fields here apply per-turn; `format` remains top-level only. An
+          empty `{}` is accepted on a message that carries content; a message
+          with neither content nor output_config fields is rejected.
+
+          - `Effort BetaSystemMessageOutputConfigEffort Optional`
+
+            All possible effort levels.
+
+            - `const BetaSystemMessageOutputConfigEffortLow BetaSystemMessageOutputConfigEffort = "low"`
+
+            - `const BetaSystemMessageOutputConfigEffortMedium BetaSystemMessageOutputConfigEffort = "medium"`
+
+            - `const BetaSystemMessageOutputConfigEffortHigh BetaSystemMessageOutputConfigEffort = "high"`
+
+            - `const BetaSystemMessageOutputConfigEffortXhigh BetaSystemMessageOutputConfigEffort = "xhigh"`
+
+            - `const BetaSystemMessageOutputConfigEffortMax BetaSystemMessageOutputConfigEffort = "max"`
 
       - `Model Model`
 
@@ -6660,6 +7974,24 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `Type Enabled`
 
+              - `BlockBinding BetaThinkingBlockBinding Optional`
+
+                Controls for block binding: what happens when a thinking block this
+                request sends back fails the conversation check. Every field is optional;
+                an empty object means every default.
+
+                - `PrefixMismatchBehavior BetaThinkingPrefixMismatchBehavior Optional`
+
+                  What happens when a thinking block in `messages` fails the conversation
+                  check: it was created in a different conversation, or the messages before
+                  it have changed since. `"error"` (the default) fails the request with a
+                  400 error. `"drop_block"` removes the failing blocks and the request
+                  proceeds; the model no longer sees the dropped reasoning.
+
+                  - `const BetaThinkingPrefixMismatchBehaviorError BetaThinkingPrefixMismatchBehavior = "error"`
+
+                  - `const BetaThinkingPrefixMismatchBehaviorDropBlock BetaThinkingPrefixMismatchBehavior = "drop_block"`
+
               - `Display BetaThinkingConfigEnabledDisplay Optional`
 
                 Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -6677,6 +8009,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `type BetaThinkingConfigAdaptive struct{…}`
 
               - `Type Adaptive`
+
+              - `BlockBinding BetaThinkingBlockBinding Optional`
+
+                Controls for block binding: what happens when a thinking block this
+                request sends back fails the conversation check. Every field is optional;
+                an empty object means every default.
 
               - `Display BetaThinkingConfigAdaptiveDisplay Optional`
 
@@ -7176,16 +8514,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           from its schema.
 
           - `Type BrowserToolset20260801`
-
-          - `AllowedCallers []string Optional`
-
-            - `const BetaBrowserToolset20260801AllowedCallerDirect BetaBrowserToolset20260801AllowedCaller = "direct"`
-
-            - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20250825 BetaBrowserToolset20260801AllowedCaller = "code_execution_20250825"`
-
-            - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260120 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260120"`
-
-            - `const BetaBrowserToolset20260801AllowedCallerCodeExecution20260521 BetaBrowserToolset20260801AllowedCaller = "code_execution_20260521"`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -7812,16 +9140,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           via `configs.zoom.enabled`.
 
           - `Type ComputerToolset20260801`
-
-          - `AllowedCallers []string Optional`
-
-            - `const BetaComputerToolset20260801AllowedCallerDirect BetaComputerToolset20260801AllowedCaller = "direct"`
-
-            - `const BetaComputerToolset20260801AllowedCallerCodeExecution20250825 BetaComputerToolset20260801AllowedCaller = "code_execution_20250825"`
-
-            - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260120 BetaComputerToolset20260801AllowedCaller = "code_execution_20260120"`
-
-            - `const BetaComputerToolset20260801AllowedCallerCodeExecution20260521 BetaComputerToolset20260801AllowedCaller = "code_execution_20260521"`
 
           - `CacheControl BetaCacheControlEphemeral Optional`
 
@@ -8869,6 +10187,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
   - `UserProfileID param.Field[string] Optional`
 
     Header param: The user profile ID to attribute the requests in this batch to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header. Applies to every request in the batch; an individual request whose `user_profile_id` body field conflicts with this header is errored.
@@ -9155,6 +10479,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `type BetaMessageBatch struct{…}`
@@ -9437,6 +10767,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `type BetaMessageBatch struct{…}`
@@ -9712,6 +11048,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `type BetaMessageBatch struct{…}`
@@ -9984,6 +11326,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
       - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
 
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `type BetaDeletedMessageBatch struct{…}`
@@ -10147,6 +11495,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
       - `const AnthropicBetaThinkingDisplayUpdates2026_08_18 AnthropicBeta = "thinking-display-updates-2026-08-18"`
 
       - `const AnthropicBetaCEUserManagement2026_07_13 AnthropicBeta = "ce-user-management-2026-07-13"`
+
+      - `const AnthropicBetaMidConversationOutputConfig2026_07_01 AnthropicBeta = "mid-conversation-output-config-2026-07-01"`
+
+      - `const AnthropicBetaThinkingBindingControls2026_08_01 AnthropicBeta = "thinking-binding-controls-2026-08-01"`
+
+      - `const AnthropicBetaMidConversationSystemClearAt2026_08_21 AnthropicBeta = "mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -11097,6 +12451,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                  - `const ModelClaudeFable5_1 Model = "claude-fable-5-1"`
+
+                    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                  - `const ModelClaudeMythos5_1 Model = "claude-mythos-5-1"`
+
+                    Our most capable model for cybersecurity and biology research, available through trusted access programs
+
                   - `const ModelClaudeSonnet5 Model = "claude-sonnet-5"`
 
                     High-performance model for coding and agents
@@ -11827,6 +13189,60 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
             - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
             - `const BetaUsageSpeedFast BetaUsageSpeed = "fast"`
+
+        - `InputTransformations []BetaThinkingDroppedInputTransformation Optional`
+
+          Changes the API made to the request's input before showing it to the model:
+          one entry per change, in request order. Today the only entry type is
+          `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+          block from the request's `messages` that was removed from the prompt instead
+          of being shown to the model because it failed a binding check. More entry
+          types may be added over time; ignore types you do not recognize.
+
+          Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+          every such response from a model that supports extended thinking, as `[]`
+          when nothing was changed; without the beta, blocks are removed all the same
+          but nothing is reported. Removed blocks contribute nothing to
+          `usage.input_tokens`. When streaming, the array is final in `message_start`;
+          the final `message_delta` event carries it only when a server-side model
+          fallback happened mid-stream, in which case it holds the serving model's
+          entries and replaces the one in `message_start`.
+
+          - `Path string`
+
+            Where the removed block was in your request, as `messages.{i}.content.{j}`:
+            `i` indexes the `messages` array you sent and `j` that message's `content`
+            array — the same form error messages use.
+
+          - `Reason BetaThinkingDroppedInputTransformationReason`
+
+            Which binding check removed the block: `model_binding_mismatch` — it was
+            created by a model whose reasoning the requested model may not read;
+            `prefix_binding_mismatch` — the conversation before it differs from the
+            conversation it was created in (the rest of that turn's consecutive thinking
+            blocks are removed with it, each with this reason);
+            `organization_binding_mismatch` — it was created under a different
+            organization (an Anthropic organization, AWS account or Google Cloud project)
+            and this organization is not one of its additional organizations;
+            `end_user_binding_mismatch` — it was created for a different end user, or
+            was removed by the consumer-organization binding. A block that would fail
+            several checks reports one reason, in this order of precedence:
+            `organization_binding_mismatch`, `end_user_binding_mismatch`,
+            `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+            - `const BetaThinkingDroppedInputTransformationReasonModelBindingMismatch BetaThinkingDroppedInputTransformationReason = "model_binding_mismatch"`
+
+            - `const BetaThinkingDroppedInputTransformationReasonPrefixBindingMismatch BetaThinkingDroppedInputTransformationReason = "prefix_binding_mismatch"`
+
+            - `const BetaThinkingDroppedInputTransformationReasonOrganizationBindingMismatch BetaThinkingDroppedInputTransformationReason = "organization_binding_mismatch"`
+
+            - `const BetaThinkingDroppedInputTransformationReasonEndUserBindingMismatch BetaThinkingDroppedInputTransformationReason = "end_user_binding_mismatch"`
+
+          - `Type ThinkingDropped`
+
+            Always `thinking_dropped` for this entry type.
+
+            default: thinking_dropped
 
       - `Type Succeeded`
 

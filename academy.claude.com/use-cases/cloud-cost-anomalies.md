@@ -40,6 +40,8 @@ Claude Cowork is more powerful when it works directly with your systems. You con
 
 Navigate to **Customize → Connectors** in Cowork to set up.
 
+![](https://academy.claude.com/assets/v1/snowflake-f7euzg40.svg)
+
 Snowflake
 
 Query the cost-and-usage tables in the warehouse so the anomaly report runs against the same data Finance sees.

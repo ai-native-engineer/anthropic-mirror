@@ -31,3 +31,5 @@ This partnership directly addresses these challenges. Cognizant is deploying Cla
 Cognizant plans to engage clients through workshops, reference patterns, and platform integrations using Claude to help teams identify high-value use cases and move them into production.
 
 **Getting started:** Visit [this page](https://www.cognizant.com/us/en/engineering-ai-for-impact) and get in touch with a Cognizant client partner.
+
+Cognizant will make Claude available to 350,000 employees, accelerating enterprise AI adoption and internal transformation \ Anthropic

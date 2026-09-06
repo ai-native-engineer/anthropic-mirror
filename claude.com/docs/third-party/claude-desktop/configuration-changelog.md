@@ -10,6 +10,106 @@
 
 Configuration keys by Claude Desktop release. Each section lists keys added in that release, with the MDM key name (for plist/registry deployment) and the equivalent JSON shape (for local-file or bootstrap remote configuration).
 
+v1.46388.4
+
+2026-09-05
+
+No configuration changes in this release.
+
+v1.46388.3
+
+2026-09-04
+
+No configuration changes in this release.
+
+v1.46388.2
+
+2026-09-04
+
+No configuration changes in this release.
+
+v1.46388.1
+
+2026-09-04
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`sshClientPath`](https://claude.com/docs/third-party/claude-desktop/configuration#sshclientpath) · Beta | `string` | SSH client program |
+| [`configRecheckIntervalMinutes`](https://claude.com/docs/third-party/claude-desktop/configuration#configrecheckintervalminutes) | `integer` | Configuration re-check interval |
+| [`disableBypassPermissionsMode`](https://claude.com/docs/third-party/claude-desktop/configuration#disablebypasspermissionsmode) | `boolean` | Disable bypass permissions mode |
+| [`blockReadsOutsideWorkingDirectories`](https://claude.com/docs/third-party/claude-desktop/configuration#blockreadsoutsideworkingdirectories) | `boolean` | Block reads outside working directories |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "codeSurface": {
+    "sshClientPath": "<string>"
+  },
+  "lifecycle": {
+    "configRecheckIntervalMinutes": "<integer>"
+  },
+  "workspace": {
+    "disableBypassPermissionsMode": "<boolean>",
+    "blockReadsOutsideWorkingDirectories": "<boolean>"
+  }
+}
+```
+
+**Changed:**
+
+* **Breaking:** `relaunchEnforcementHours` moved in the nested served format from `bootstrap.relaunchEnforcementHours` to `lifecycle.relaunchEnforcementHours` (beside the new `lifecycle.configRecheckIntervalMinutes`). This release no longer reads the old path and earlier releases do not read the new one, so move the value under `lifecycle`; the MDM / flat key name `relaunchEnforcementHours` is unchanged. The key can now also be set from device management (availability MDM and served), and the default when no tier sets it is 24 hours (was 1).
+
+v1.44121.4
+
+2026-09-02
+
+No configuration changes in this release.
+
+v1.44121.2
+
+2026-09-02
+
+No configuration changes in this release.
+
+v1.44121.1
+
+2026-09-02
+
+| MDM key | Type | Description |
+| --- | --- | --- |
+| [`inferenceStreamIdleTimeoutSec`](https://claude.com/docs/third-party/claude-desktop/configuration#inferencestreamidletimeoutsec) | `integer` | Stream idle timeout |
+| [`egressProxyUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#egressproxyurl) | `string` | Proxy server URL |
+| [`egressProxyPacUrl`](https://claude.com/docs/third-party/claude-desktop/configuration#egressproxypacurl) | `string` | Proxy auto-config (PAC) URL |
+| [`claudeAiImport.automatic3pImport`](https://claude.com/docs/third-party/claude-desktop/configuration#claudeaiimport) | `boolean` | New subfield (beta): when `true` and `deploymentOrganizationUuid` is set, the app copies this computer’s earlier third-party sessions stored before an organization ID was configured into that organization’s session store, once per device and in the background; independent of `enabled` (default `false`). |
+
+**JSON (e.g. for non-MDM users or Bootstrap):**
+
+```
+{
+  "inference": {
+    "streamIdleTimeoutSec": "<integer>"
+  },
+  "workspace": {
+    "egressProxyUrl": "<string>",
+    "egressProxyPacUrl": "<string>"
+  },
+  "claudeAiImport": {
+    "automatic3pImport": "<boolean>"
+  }
+}
+```
+
+`egressProxyUrl` and `egressProxyPacUrl` are read from device management or a local configuration file only; a value served by a bootstrap URL is not applied.**Changed:**
+
+* **Breaking:** `inferenceModelPricingMultiplier` and `inferenceModelPricing` no longer turn on the Usage page’s cost estimate by themselves; they apply only while `inferenceModelPricingEnabled` is `true` and are ignored otherwise. A configuration that sets either without `inferenceModelPricingEnabled: true` now shows token counts only; add that key to keep the estimate.
+
+v1.40609.1
+
+2026-08-30
+
+No configuration changes in this release.
+
 v1.40609.0
 
 2026-08-27
@@ -645,7 +745,7 @@ v1.12603.0
 
 v1.10628.0
 
-2026-06-03
+2026-06-02
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -683,7 +783,7 @@ v1.10628.0
 
 v1.9659.0
 
-2026-06-02
+2026-05-27
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -701,7 +801,7 @@ v1.9659.0
 
 v1.9255.0
 
-2026-05-27
+2026-05-26
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -727,7 +827,7 @@ v1.9255.0
 
 v1.8555.0
 
-2026-05-25
+2026-05-21
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -774,7 +874,7 @@ v1.8089.0
 
 v1.7196.0
 
-2026-05-16
+2026-05-12
 
 | MDM key | Type | Description |
 | --- | --- | --- |
@@ -812,7 +912,7 @@ v1.6889.0
 
 v1.6259.0
 
-2026-05-06
+2026-05-05
 
 | MDM key | Type | Description |
 | --- | --- | --- |

@@ -87,8 +87,8 @@ MHS began as a collaboration between Alek Kemeny on Anthropic’s [Beneficial De
 
 We thank everyone who has contributed to this work so far, including, but not limited to, Aaron Boswell, Ben Arthur, Boaz Mohar, Gagan Bhat, Mark Kittisopikul, Nadine Yasser, Nick Purcell, Takashi Kawase, and Virginie Ruetten. We look forward to moving MHS forward with our industry partners and, soon, with the open-source community.
 
-### How Claude’s text watermark works
+### Expanding our support for scientists
 
-In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether it affects Claude’s outputs, and why we’re making this change.
+Starting today, 10,000 scientists around the world can get Claude at no cost to start. Verified principal investigators qualify for a Claude Team subscription plan and then add their research team to Standard seats for free, or Premium seats for $15 per month, for up to a year.
 
-[Read more](https://www.anthropic.com/news/claude-text-watermark)
+[Read more](https://www.anthropic.com/news/expanding-support-for-scientists)

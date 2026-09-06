@@ -459,7 +459,7 @@ Integrate Claude directly into your CLM, matter management, or e-discovery syste
 
 Learn more
 
-[Learn more](https://claude.com/platform/api)Learn more
+[Learn more](https://claude.com/platform/api-v2)Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6998e8defaa12a843a37084c_docusign.jpeg)
 

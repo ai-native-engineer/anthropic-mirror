@@ -17,6 +17,8 @@ Each use case below includes when to use it, an example prompt, and the expected
 
 Use cases are ordered roughly by how early most developers encounter them. Select the one that matches your current task.
 
+---
+
 ## Use cases
 
 ### 1. Fix a failing test

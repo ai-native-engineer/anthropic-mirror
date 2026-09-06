@@ -73,3 +73,5 @@ In speaking with these labs, a common theme emerged: the usefulness of the tools
 As tools advance and AI models continue to grow more intelligent, we’re continuing to watch and learn from how scientific discovery develops along with them.
 
 *For more detail on the expanded Claude for Life Sciences capabilities, [see here](https://claude.com/solutions/life-sciences), and our [tutorials here](https://claude.com/resources/tutorials-category/life-sciences). We’re also continuing to accept [applications](https://docs.google.com/forms/d/e/1FAIpQLSfwDGfVg2lHJ0cc0oF_ilEnjvr_r4_paYi7VLlr5cLNXASdvA/viewform) to our AI for Science program. Applications will be reviewed by our team, including subject matter experts in relevant fields.*
+
+How scientists are using Claude to accelerate research and discovery \ Anthropic

@@ -6,7 +6,7 @@
 
 # Repurpose content across channels
 
-Social threads, email copy, and PowerPoint, Word, and Excel deliverables from one blog post.
+A blog post, a LinkedIn thread, and short social posts from one webinar, each in your voice.
 
 10 minMarketingClaude Cowork
 

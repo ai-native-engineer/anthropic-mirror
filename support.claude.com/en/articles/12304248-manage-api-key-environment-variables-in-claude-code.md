@@ -144,7 +144,7 @@ Windows (permanent): Delete the variable from System Environment Variables setti
 If you have any questions, please **[contact our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)**.
 
 * [API Key Best Practices: Keeping Your Keys Safe and Secure](https://support.claude.com/en/articles/9767949-api-key-best-practices-keeping-your-keys-safe-and-secure)
-* [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
+* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
 * [Your first day in Claude Code](https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code)
 * [Troubleshoot Claude Code installation and authentication](https://support.claude.com/en/articles/14552646-troubleshoot-claude-code-installation-and-authentication)

@@ -40,12 +40,16 @@ This is the main practical difference from artifacts: artifacts are persistent a
 
 Custom visuals aren’t photos or illustrations. Claude builds them using HTML—the same building blocks as web pages—so they’re interactive and specific to your question rather than static images.
 
+---
+
 ## Limitations
 
 * Custom visuals are available in chats on Claude web and desktop apps only. They don’t render on Claude for iOS or Claude for Android.
 * If you share a chat, the visual renders for the recipient on web and desktop only and they must be logged in to view.
 * Visuals aren't saved automatically. To keep one, use one of the options described above.
 * This feature is in beta. Visual quality and complexity will vary, and Claude may not always choose to generate a visual when you expect one.
+
+---
 
 ## Tips
 
@@ -54,8 +58,8 @@ Custom visuals aren’t photos or illustrations. Claude builds them using HTML�
 * **Personalize your visuals.** If you tell Claude “make all my visualizations pink”, Claude will remember.
 * **Iterate in the conversation.** You can ask Claude to adjust a visual the same way you’d ask it to revise text—“make the chart show monthly instead of yearly” or “add a third option to the comparison.”
 
-* [Can Claude produce images?](https://support.claude.com/en/articles/9002504-can-claude-produce-images)
+* [What are artifacts and how do I use them?](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them)
 * [Use interactive connectors in Claude](https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude)
 * [Visual and interactive content](https://support.claude.com/en/articles/13641943-visual-and-interactive-content)
-* [Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork)
+* [Use artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249-use-artifacts-in-claude-cowork)
 * [Use analytics chat to ask Claude about usage](https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage)

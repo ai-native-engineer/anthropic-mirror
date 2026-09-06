@@ -6,15 +6,15 @@ In this notebook, we show how to use Anthropic MultiModal LLM class/abstraction 
 
 ####  Installation
 
-!pip install llama-index
+%pip install llama-index
 
-!pip install llama-index-multi-modal-llms-anthropic
+%pip install llama-index-multi-modal-llms-anthropic
 
-!pip install llama-index-embeddings-huggingface
+%pip install llama-index-embeddings-huggingface
 
-!pip install llama-index-vector-stores-qdrant
+%pip install llama-index-vector-stores-qdrant
 
-!pip install matplotlib
+%pip install matplotlib
 
 ####  Setup API key
 

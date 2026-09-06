@@ -3,6 +3,2090 @@
 
 <!-- chunk-start -->
 
+          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
+
+          - `class BetaManagedAgentsEffortLow:`
+
+            Low effort. Favors latency over reasoning depth.
+
+            - `Type type`
+
+          - `class BetaManagedAgentsEffortMedium:`
+
+            Medium effort. Balances latency and reasoning depth.
+
+            - `Type type`
+
+          - `class BetaManagedAgentsEffortHigh:`
+
+            High effort. Favors reasoning depth.
+
+            - `Type type`
+
+          - `class BetaManagedAgentsEffortXhigh:`
+
+            Extra-high effort. Not all models accept this level.
+
+            - `Type type`
+
+          - `class BetaManagedAgentsEffortMax:`
+
+            Maximum effort. Favors reasoning depth over latency.
+
+            - `Type type`
+
+        - `Optional<String> inferenceGeo`
+
+          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
+
+        - `Optional<Speed> speed`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+
+          - `STANDARD("standard")`
+
+          - `FAST("fast")`
+
+      - `Optional<BetaManagedAgentsSessionMultiagentCoordinator> multiagent`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+
+        - `List<Agent> agents`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+
+          - `class BetaManagedAgentsSessionThreadAgent:`
+
+            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
+
+            - `String id`
+
+            - `Optional<String> description`
+
+            - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
+
+              - `String name`
+
+              - `Type type`
+
+              - `String url`
+
+            - `BetaManagedAgentsModelConfig model`
+
+              Model identifier and configuration.
+
+            - `String name`
+
+            - `List<Skill> skills`
+
+              - `class BetaManagedAgentsAnthropicSkill:`
+
+                A resolved Anthropic-managed skill.
+
+                - `String skillId`
+
+                - `Type type`
+
+                - `String version`
+
+              - `class BetaManagedAgentsCustomSkill:`
+
+                A resolved user-created custom skill.
+
+                - `String skillId`
+
+                - `Type type`
+
+                - `String version`
+
+            - `Optional<String> system`
+
+            - `List<Tool> tools`
+
+              - `class BetaManagedAgentsAgentToolset20260401:`
+
+                - `List<BetaManagedAgentsAgentToolConfig> configs`
+
+                  - `class BetaManagedAgentsBashToolConfig:`
+
+                    Configuration for the bash tool.
+
+                    - `boolean enabled`
+
+                    - `JsonValue name = "bash"`
+
+                    - `PermissionPolicy permissionPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                        - `Type type`
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                        Tool calls require user confirmation before execution.
+
+                        - `Type type`
+
+                    - `JsonValue type = "bash"`
+
+                  - `class BetaManagedAgentsEditToolConfig:`
+
+                    Configuration for the edit tool.
+
+                    - `boolean enabled`
+
+                    - `JsonValue name = "edit"`
+
+                    - `PermissionPolicy permissionPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `JsonValue type = "edit"`
+
+                  - `class BetaManagedAgentsReadToolConfig:`
+
+                    Configuration for the read tool.
+
+                    - `boolean enabled`
+
+                    - `JsonValue name = "read"`
+
+                    - `PermissionPolicy permissionPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `JsonValue type = "read"`
+
+                  - `class BetaManagedAgentsWriteToolConfig:`
+
+                    Configuration for the write tool.
+
+                    - `boolean enabled`
+
+                    - `JsonValue name = "write"`
+
+                    - `PermissionPolicy permissionPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `JsonValue type = "write"`
+
+                  - `class BetaManagedAgentsGlobToolConfig:`
+
+                    Configuration for the glob tool.
+
+                    - `boolean enabled`
+
+                    - `JsonValue name = "glob"`
+
+                    - `PermissionPolicy permissionPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `JsonValue type = "glob"`
+
+                  - `class BetaManagedAgentsGrepToolConfig:`
+
+                    Configuration for the grep tool.
+
+                    - `boolean enabled`
+
+                    - `JsonValue name = "grep"`
+
+                    - `PermissionPolicy permissionPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `JsonValue type = "grep"`
+
+                  - `class BetaManagedAgentsWebFetchToolConfig:`
+
+                    Configuration for the web_fetch tool.
+
+                    - `boolean enabled`
+
+                    - `JsonValue name = "web_fetch"`
+
+                    - `PermissionPolicy permissionPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `JsonValue type = "web_fetch"`
+
+                    - `Optional<List<String>> allowedDomains`
+
+                    - `Optional<List<String>> blockedDomains`
+
+                    - `Optional<Long> maxContentTokens`
+
+                      format: int32
+
+                  - `class BetaManagedAgentsWebSearchToolConfig:`
+
+                    Configuration for the web_search tool.
+
+                    - `boolean enabled`
+
+                    - `JsonValue name = "web_search"`
+
+                    - `PermissionPolicy permissionPolicy`
+
+                      Permission policy for tool execution.
+
+                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                        Tool calls are automatically approved without user confirmation.
+
+                      - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                        Tool calls require user confirmation before execution.
+
+                    - `JsonValue type = "web_search"`
+
+                    - `Optional<List<String>> allowedDomains`
+
+                    - `Optional<List<String>> blockedDomains`
+
+                    - `Optional<BetaManagedAgentsUserLocation> userLocation`
+
+                      Approximate user location for search result localization.
+
+                      - `JsonValue type = "approximate"`
+
+                        Location precision. Only "approximate" is supported.
+
+                      - `Optional<String> city`
+
+                        City name.
+
+                        minLength: 1, maxLength: 255
+
+                      - `Optional<String> country`
+
+                        Two-letter ISO 3166-1 country code, uppercase.
+
+                      - `Optional<String> region`
+
+                        Region or state name.
+
+                        minLength: 1, maxLength: 255
+
+                      - `Optional<String> timezone`
+
+                        IANA timezone identifier, e.g. "America/Los_Angeles".
+
+                        minLength: 1, maxLength: 255
+
+                - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
+
+                  Resolved default configuration for agent tools.
+
+                  - `boolean enabled`
+
+                  - `PermissionPolicy permissionPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `Type type`
+
+              - `class BetaManagedAgentsMcpToolset:`
+
+                - `List<BetaManagedAgentsMcpToolConfig> configs`
+
+                  - `boolean enabled`
+
+                  - `String name`
+
+                  - `PermissionPolicy permissionPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
+
+                  Resolved default configuration for all tools from an MCP server.
+
+                  - `boolean enabled`
+
+                  - `PermissionPolicy permissionPolicy`
+
+                    Permission policy for tool execution.
+
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `String mcpServerName`
+
+                - `Type type`
+
+              - `class BetaManagedAgentsCustomTool:`
+
+                A custom tool as returned in API responses.
+
+                - `String description`
+
+                - `BetaManagedAgentsCustomToolInputSchema inputSchema`
+
+                  JSON Schema for custom tool input parameters.
+
+                  - `JsonValue type = "object"`
+
+                  - `Optional<Properties> properties`
+
+                  - `Optional<List<String>> required`
+
+                - `String name`
+
+                - `Type type`
+
+            - `Type type`
+
+            - `long version`
+
+              format: int32
+
+          - `class BetaManagedAgentsAdvisor:`
+
+            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
+
+            - `String model`
+
+              The advisor model id.
+
+            - `Type type`
+
+        - `Type type`
+
+      - `String name`
+
+      - `List<Skill> skills`
+
+        - `class BetaManagedAgentsAnthropicSkill:`
+
+          A resolved Anthropic-managed skill.
+
+        - `class BetaManagedAgentsCustomSkill:`
+
+          A resolved user-created custom skill.
+
+      - `Optional<String> system`
+
+      - `List<Tool> tools`
+
+        - `class BetaManagedAgentsAgentToolset20260401:`
+
+        - `class BetaManagedAgentsMcpToolset:`
+
+        - `class BetaManagedAgentsCustomTool:`
+
+          A custom tool as returned in API responses.
+
+      - `Type type`
+
+      - `long version`
+
+        format: int32
+
+    - `Optional<BetaManagedAgentsBudgetLimit> budget`
+
+      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+      - `BetaMonetaryAmount maxListCost`
+
+        A monetary amount in a specific currency.
+
+        - `String amount`
+
+          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
+
+        - `BetaCurrency currency`
+
+          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
+
+      - `Type type`
+
+    - `Optional<Metadata> metadata`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `Optional<String> title`
+
+      The session's new title. Present only when the update changed it.
+
+  - `class BetaManagedAgentsSystemMessageEvent:`
+
+    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+    - `String id`
+
+      Unique identifier for this event.
+
+    - `List<BetaManagedAgentsSystemContentBlock> content`
+
+      System content blocks. Text-only.
+
+      - `String text`
+
+        The text content.
+
+        minLength: 1
+
+      - `Type type`
+
+    - `Type type`
+
+    - `Optional<LocalDateTime> processedAt`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+  - `class BetaManagedAgentsSessionUsageEvent:`
+
+    Periodic snapshot of the session's cumulative usage and tracked list cost.
+
+    - `String id`
+
+      Unique identifier for this event.
+
+    - `LocalDateTime processedAt`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `Type type`
+
+    - `BetaManagedAgentsSessionUsageSnapshot usage`
+
+      Point-in-time snapshot of a session's cumulative usage.
+
+      - `Optional<Double> activeSeconds`
+
+        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
+
+        format: double
+
+      - `Optional<BetaManagedAgentsCacheCreationUsage> cacheCreation`
+
+        Prompt-cache creation token usage broken down by cache lifetime.
+
+        - `Optional<Long> ephemeral1hInputTokens`
+
+          Tokens used to create 1-hour ephemeral cache entries.
+
+          format: int32
+
+        - `Optional<Long> ephemeral5mInputTokens`
+
+          Tokens used to create 5-minute ephemeral cache entries.
+
+          format: int32
+
+      - `Optional<Long> cacheReadInputTokens`
+
+        Total tokens read from prompt cache.
+
+        format: int32
+
+      - `Optional<Long> inputTokens`
+
+        Total input tokens consumed across all turns.
+
+        format: int32
+
+      - `Optional<BetaMonetaryAmount> listCost`
+
+        A monetary amount in a specific currency.
+
+      - `Optional<Long> outputTokens`
+
+        Total output tokens generated across all turns.
+
+        format: int32
+
+      - `Optional<BetaManagedAgentsServerToolUsage> serverToolUse`
+
+        Cumulative count of server-executed tool invocations, broken down by tool.
+
+        - `Optional<Long> webFetchRequests`
+
+          Number of server-executed web fetch requests.
+
+          format: int32
+
+        - `Optional<Long> webSearchRequests`
+
+          Number of server-executed web search requests.
+
+          format: int32
+
+    - `Optional<BetaManagedAgentsBudgetLimit> budget`
+
+      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.sessions.events.EventListPage;
+import com.anthropic.models.beta.sessions.events.EventListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        EventListPage page = client.beta().sessions().events().list("sesn_011CZkZAtmR3yMPDzynEDxu7");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "content": [
+        {
+          "text": "Let me look up order #1234 for you.",
+          "type": "text"
+        }
+      ],
+      "processed_at": "2026-03-15T10:00:00Z",
+      "type": "agent.message"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+### Send Events
+
+`BetaManagedAgentsSendSessionEvents beta().sessions().events().send(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/sessions/{session_id}/events`
+
+Send Events
+
+#### Parameters
+
+- `EventSendParams params`
+
+  - `Optional<String> sessionId`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `List<BetaManagedAgentsEventParams> events`
+
+    Events to send to the `session`.
+
+    - `class BetaManagedAgentsUserMessageEventParams:`
+
+      Parameters for sending a user message to the session.
+
+      - `List<Content> content`
+
+        Array of content blocks for the user message.
+
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+          - `String text`
+
+            The text content.
+
+            minLength: 1
+
+          - `Type type`
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Source source`
+
+            Union type for image source variants.
+
+            - `class BetaManagedAgentsBase64ImageSource:`
+
+              Base64-encoded image data.
+
+              - `String data`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
+              - `String mediaType`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+                minLength: 1
+
+              - `Type type`
+
+            - `class BetaManagedAgentsUrlImageSource:`
+
+              Image referenced by URL.
+
+              - `Type type`
+
+              - `String url`
+
+                URL of the image to fetch.
+
+                minLength: 1
+
+            - `class BetaManagedAgentsFileImageSource:`
+
+              Image referenced by file ID.
+
+              - `String fileId`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+              - `Type type`
+
+          - `Type type`
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `Source source`
+
+            Union type for document source variants.
+
+            - `class BetaManagedAgentsBase64DocumentSource:`
+
+              Base64-encoded document data.
+
+              - `String data`
+
+                Base64-encoded document data.
+
+                minLength: 1
+
+              - `String mediaType`
+
+                MIME type of the document (e.g., "application/pdf").
+
+                minLength: 1
+
+              - `Type type`
+
+            - `class BetaManagedAgentsPlainTextDocumentSource:`
+
+              Plain text document content.
+
+              - `String data`
+
+                The plain text content.
+
+                minLength: 1
+
+              - `MediaType mediaType`
+
+                MIME type of the text content. Must be "text/plain".
+
+              - `Type type`
+
+            - `class BetaManagedAgentsUrlDocumentSource:`
+
+              Document referenced by URL.
+
+              - `Type type`
+
+              - `String url`
+
+                URL of the document to fetch.
+
+                minLength: 1
+
+            - `class BetaManagedAgentsFileDocumentSource:`
+
+              Document referenced by file ID.
+
+              - `String fileId`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+              - `Type type`
+
+          - `Type type`
+
+          - `Optional<String> context`
+
+            Additional context about the document for the model.
+
+          - `Optional<String> title`
+
+            The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock:`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `Type type`
+
+      - `Type type`
+
+    - `class BetaManagedAgentsUserInterruptEventParams:`
+
+      Parameters for sending an interrupt to pause the agent.
+
+      - `Type type`
+
+      - `Optional<String> sessionThreadId`
+
+        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+    - `class BetaManagedAgentsUserToolConfirmationEventParams:`
+
+      Parameters for confirming or denying a tool execution request.
+
+      - `Result result`
+
+        UserToolConfirmationResult enum
+
+        - `ALLOW("allow")`
+
+        - `DENY("deny")`
+
+      - `String toolUseId`
+
+        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+        minLength: 1, maxLength: 128
+
+      - `Type type`
+
+      - `Optional<String> denyMessage`
+
+        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+        maxLength: 10000
+
+    - `class BetaManagedAgentsUserCustomToolResultEventParams:`
+
+      Parameters for providing the result of a custom tool execution.
+
+      - `String customToolUseId`
+
+        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+        minLength: 1, maxLength: 128
+
+      - `Type type`
+
+      - `Optional<List<Content>> content`
+
+        The result content returned by the tool.
+
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+          - `BetaManagedAgentsSearchResultCitations citations`
+
+            Citation settings for a search result.
+
+            - `boolean enabled`
+
+              Whether citations are enabled for this search result.
+
+          - `List<BetaManagedAgentsSearchResultContent> content`
+
+            Array of text content blocks from the search result.
+
+            - `String text`
+
+              The text content.
+
+              minLength: 1
+
+            - `Type type`
+
+          - `String source`
+
+            The URL source of the search result.
+
+            minLength: 1
+
+          - `String title`
+
+            The title of the search result.
+
+            minLength: 1
+
+          - `Type type`
+
+      - `Optional<Boolean> isError`
+
+        Whether the tool execution resulted in an error.
+
+    - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
+
+      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
+
+      - `String description`
+
+        What the agent should produce. This is the task specification.
+
+      - `Rubric rubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `class BetaManagedAgentsFileRubricParams:`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `String fileId`
+
+            ID of the rubric file.
+
+          - `Type type`
+
+        - `class BetaManagedAgentsTextRubricParams:`
+
+          Rubric content provided inline as text.
+
+          - `String content`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
+
+            maxLength: 262144
+
+          - `Type type`
+
+      - `Type type`
+
+      - `Optional<Long> maxIterations`
+
+        Eval→revision cycles before giving up. Default 3, max 20.
+
+        format: int32
+
+    - `class BetaManagedAgentsUserToolResultEventParams:`
+
+      Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `String toolUseId`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+        minLength: 1, maxLength: 128
+
+      - `Type type`
+
+      - `Optional<List<Content>> content`
+
+        The result content returned by the tool.
+
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Optional<Boolean> isError`
+
+        Whether the tool execution resulted in an error.
+
+    - `class BetaManagedAgentsSystemMessageEventParams:`
+
+      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
+
+      - `List<BetaManagedAgentsSystemContentBlock> content`
+
+        System content blocks to append. Text-only.
+
+        - `String text`
+
+          The text content.
+
+          minLength: 1
+
+        - `Type type`
+
+      - `Type type`
+
+#### Returns
+
+- `class BetaManagedAgentsSendSessionEvents:`
+
+  Events that were successfully sent to the session.
+
+  - `Optional<List<Data>> data`
+
+    Sent events
+
+    - `class BetaManagedAgentsUserMessageEvent:`
+
+      A user message event in the session conversation.
+
+      - `String id`
+
+        Unique identifier for this event.
+
+      - `List<Content> content`
+
+        Array of content blocks comprising the user message.
+
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+          - `String text`
+
+            The text content.
+
+            minLength: 1
+
+          - `Type type`
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+          - `Source source`
+
+            Union type for image source variants.
+
+            - `class BetaManagedAgentsBase64ImageSource:`
+
+              Base64-encoded image data.
+
+              - `String data`
+
+                Base64-encoded image data.
+
+                minLength: 1
+
+              - `String mediaType`
+
+                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+                minLength: 1
+
+              - `Type type`
+
+            - `class BetaManagedAgentsUrlImageSource:`
+
+              Image referenced by URL.
+
+              - `Type type`
+
+              - `String url`
+
+                URL of the image to fetch.
+
+                minLength: 1
+
+            - `class BetaManagedAgentsFileImageSource:`
+
+              Image referenced by file ID.
+
+              - `String fileId`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+              - `Type type`
+
+          - `Type type`
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+          - `Source source`
+
+            Union type for document source variants.
+
+            - `class BetaManagedAgentsBase64DocumentSource:`
+
+              Base64-encoded document data.
+
+              - `String data`
+
+                Base64-encoded document data.
+
+                minLength: 1
+
+              - `String mediaType`
+
+                MIME type of the document (e.g., "application/pdf").
+
+                minLength: 1
+
+              - `Type type`
+
+            - `class BetaManagedAgentsPlainTextDocumentSource:`
+
+              Plain text document content.
+
+              - `String data`
+
+                The plain text content.
+
+                minLength: 1
+
+              - `MediaType mediaType`
+
+                MIME type of the text content. Must be "text/plain".
+
+              - `Type type`
+
+            - `class BetaManagedAgentsUrlDocumentSource:`
+
+              Document referenced by URL.
+
+              - `Type type`
+
+              - `String url`
+
+                URL of the document to fetch.
+
+                minLength: 1
+
+            - `class BetaManagedAgentsFileDocumentSource:`
+
+              Document referenced by file ID.
+
+              - `String fileId`
+
+                ID of a previously uploaded file.
+
+                minLength: 1
+
+              - `Type type`
+
+          - `Type type`
+
+          - `Optional<String> context`
+
+            Additional context about the document for the model.
+
+          - `Optional<String> title`
+
+            The title of the document.
+
+        - `class BetaManagedAgentsRedactedBlock:`
+
+          Placeholder for content withheld by Anthropic model policy.
+
+          - `Type type`
+
+      - `Type type`
+
+      - `Optional<LocalDateTime> processedAt`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+    - `class BetaManagedAgentsUserInterruptEvent:`
+
+      An interrupt event that pauses agent execution and returns control to the user.
+
+      - `String id`
+
+        Unique identifier for this event.
+
+      - `Type type`
+
+      - `Optional<LocalDateTime> processedAt`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `Optional<String> sessionThreadId`
+
+        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+    - `class BetaManagedAgentsUserToolConfirmationEvent:`
+
+      A tool confirmation event that approves or denies a pending tool execution.
+
+      - `String id`
+
+        Unique identifier for this event.
+
+      - `Result result`
+
+        UserToolConfirmationResult enum
+
+        - `ALLOW("allow")`
+
+        - `DENY("deny")`
+
+      - `String toolUseId`
+
+        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `Type type`
+
+      - `Optional<String> denyMessage`
+
+        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+        maxLength: 10000
+
+      - `Optional<LocalDateTime> processedAt`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `Optional<String> sessionThreadId`
+
+        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+
+    - `class BetaManagedAgentsUserCustomToolResultEvent:`
+
+      Event sent by the client providing the result of a custom tool execution.
+
+      - `String id`
+
+        Unique identifier for this event.
+
+      - `String customToolUseId`
+
+        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `Type type`
+
+      - `Optional<List<Content>> content`
+
+        The result content returned by the tool.
+
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+          - `BetaManagedAgentsSearchResultCitations citations`
+
+            Citation settings for a search result.
+
+            - `boolean enabled`
+
+              Whether citations are enabled for this search result.
+
+          - `List<BetaManagedAgentsSearchResultContent> content`
+
+            Array of text content blocks from the search result.
+
+            - `String text`
+
+              The text content.
+
+              minLength: 1
+
+            - `Type type`
+
+          - `String source`
+
+            The URL source of the search result.
+
+            minLength: 1
+
+          - `String title`
+
+            The title of the search result.
+
+            minLength: 1
+
+          - `Type type`
+
+      - `Optional<Boolean> isError`
+
+        Whether the tool execution resulted in an error.
+
+      - `Optional<LocalDateTime> processedAt`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `Optional<String> sessionThreadId`
+
+        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+
+    - `class BetaManagedAgentsUserDefineOutcomeEvent:`
+
+      Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
+
+      - `String id`
+
+        Unique identifier for this event.
+
+      - `String description`
+
+        What the agent should produce. Copied from the input event.
+
+      - `Optional<Long> maxIterations`
+
+        Evaluate-then-revise cycles before giving up. Default 3, max 20.
+
+        format: int32
+
+      - `String outcomeId`
+
+        Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
+
+      - `LocalDateTime processedAt`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `Rubric rubric`
+
+        Rubric for grading the quality of an outcome.
+
+        - `class BetaManagedAgentsFileRubric:`
+
+          Rubric referenced by a file uploaded via the Files API.
+
+          - `String fileId`
+
+            ID of the rubric file.
+
+          - `Type type`
+
+        - `class BetaManagedAgentsTextRubric:`
+
+          Rubric content provided inline as text.
+
+          - `String content`
+
+            Rubric content. Plain text or markdown — the grader treats it as freeform text.
+
+          - `Type type`
+
+      - `Type type`
+
+    - `class BetaManagedAgentsUserToolResultEvent:`
+
+      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+
+      - `String id`
+
+        Unique identifier for this event.
+
+      - `String toolUseId`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `Type type`
+
+      - `Optional<List<Content>> content`
+
+        The result content returned by the tool.
+
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Optional<Boolean> isError`
+
+        Whether the tool execution resulted in an error.
+
+      - `Optional<LocalDateTime> processedAt`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `Optional<String> sessionThreadId`
+
+        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
+    - `class BetaManagedAgentsSystemMessageEvent:`
+
+      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
+
+      - `String id`
+
+        Unique identifier for this event.
+
+      - `List<BetaManagedAgentsSystemContentBlock> content`
+
+        System content blocks. Text-only.
+
+        - `String text`
+
+          The text content.
+
+          minLength: 1
+
+        - `Type type`
+
+      - `Type type`
+
+      - `Optional<LocalDateTime> processedAt`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.sessions.events.BetaManagedAgentsSendSessionEvents;
+import com.anthropic.models.beta.sessions.events.BetaManagedAgentsTextBlock;
+import com.anthropic.models.beta.sessions.events.BetaManagedAgentsUserMessageEventParams;
+import com.anthropic.models.beta.sessions.events.EventSendParams;
+import java.util.List;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        EventSendParams params = EventSendParams.builder()
+            .sessionId("sesn_011CZkZAtmR3yMPDzynEDxu7")
+            .addUserMessageEvent(List.of(BetaManagedAgentsUserMessageEventParams.Content.ofText(BetaManagedAgentsTextBlock.builder()
+                .text("Where is my order #1234?")
+                .type(BetaManagedAgentsTextBlock.Type.TEXT)
+                .build())))
+            .build();
+        BetaManagedAgentsSendSessionEvents betaManagedAgentsSendSessionEvents = client.beta().sessions().events().send(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    }
+  ]
+}
+```
+
+### Stream Events
+
+`BetaManagedAgentsStreamSessionEvents beta().sessions().events().streamStreaming(params = EventStreamParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/sessions/{session_id}/events/stream`
+
+Stream Events
+
+#### Parameters
+
+- `EventStreamParams params`
+
+  - `Optional<String> sessionId`
+
+  - `Optional<List<BetaManagedAgentsDeltaType>> eventDeltas`
+
+    When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
+
+    - `AGENT_MESSAGE("agent.message")`
+
+    - `AGENT_THINKING("agent.thinking")`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaManagedAgentsStreamSessionEvents: union`
+
+  Server-sent event in the session stream.
+
+  - `class BetaManagedAgentsUserMessageEvent:`
+
+    A user message event in the session conversation.
+
+    - `String id`
+
+      Unique identifier for this event.
+
+    - `List<Content> content`
+
+      Array of content blocks comprising the user message.
+
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+        - `String text`
+
+          The text content.
+
+          minLength: 1
+
+        - `Type type`
+
+      - `class BetaManagedAgentsImageBlock:`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+        - `Source source`
+
+          Union type for image source variants.
+
+          - `class BetaManagedAgentsBase64ImageSource:`
+
+            Base64-encoded image data.
+
+            - `String data`
+
+              Base64-encoded image data.
+
+              minLength: 1
+
+            - `String mediaType`
+
+              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+              minLength: 1
+
+            - `Type type`
+
+          - `class BetaManagedAgentsUrlImageSource:`
+
+            Image referenced by URL.
+
+            - `Type type`
+
+            - `String url`
+
+              URL of the image to fetch.
+
+              minLength: 1
+
+          - `class BetaManagedAgentsFileImageSource:`
+
+            Image referenced by file ID.
+
+            - `String fileId`
+
+              ID of a previously uploaded file.
+
+              minLength: 1
+
+            - `Type type`
+
+        - `Type type`
+
+      - `class BetaManagedAgentsDocumentBlock:`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `Source source`
+
+          Union type for document source variants.
+
+          - `class BetaManagedAgentsBase64DocumentSource:`
+
+            Base64-encoded document data.
+
+            - `String data`
+
+              Base64-encoded document data.
+
+              minLength: 1
+
+            - `String mediaType`
+
+              MIME type of the document (e.g., "application/pdf").
+
+              minLength: 1
+
+            - `Type type`
+
+          - `class BetaManagedAgentsPlainTextDocumentSource:`
+
+            Plain text document content.
+
+            - `String data`
+
+              The plain text content.
+
+              minLength: 1
+
+            - `MediaType mediaType`
+
+              MIME type of the text content. Must be "text/plain".
+
+            - `Type type`
+
+          - `class BetaManagedAgentsUrlDocumentSource:`
+
+            Document referenced by URL.
+
+            - `Type type`
+
+            - `String url`
+
+              URL of the document to fetch.
+
+              minLength: 1
+
+          - `class BetaManagedAgentsFileDocumentSource:`
+
+            Document referenced by file ID.
+
+            - `String fileId`
+
+              ID of a previously uploaded file.
+
+              minLength: 1
+
+            - `Type type`
+
+        - `Type type`
+
+        - `Optional<String> context`
+
+          Additional context about the document for the model.
+
+        - `Optional<String> title`
+
+          The title of the document.
+
+      - `class BetaManagedAgentsRedactedBlock:`
+
+        Placeholder for content withheld by Anthropic model policy.
+
+        - `Type type`
+
+    - `Type type`
+
+    - `Optional<LocalDateTime> processedAt`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+  - `class BetaManagedAgentsUserInterruptEvent:`
+
+    An interrupt event that pauses agent execution and returns control to the user.
+
+    - `String id`
+
+      Unique identifier for this event.
+
+    - `Type type`
+
+    - `Optional<LocalDateTime> processedAt`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `Optional<String> sessionThreadId`
+
+      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
+
+  - `class BetaManagedAgentsUserToolConfirmationEvent:`
+
+    A tool confirmation event that approves or denies a pending tool execution.
+
+    - `String id`
+
+      Unique identifier for this event.
+
+    - `Result result`
+
+      UserToolConfirmationResult enum
+
+      - `ALLOW("allow")`
+
+      - `DENY("deny")`
+
+    - `String toolUseId`
+
+      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `Type type`
+
+    - `Optional<String> denyMessage`
+
+      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
+
+      maxLength: 10000
+
+    - `Optional<LocalDateTime> processedAt`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `Optional<String> sessionThreadId`
+
+      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
+
+  - `class BetaManagedAgentsUserCustomToolResultEvent:`
+
+    Event sent by the client providing the result of a custom tool execution.
+
+    - `String id`
+
+      Unique identifier for this event.
+
+    - `String customToolUseId`
+
+      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `Type type`
+
+    - `Optional<List<Content>> content`
+
+      The result content returned by the tool.
+
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock:`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock:`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock:`
+
+        A block containing a web search result.
+
+        - `BetaManagedAgentsSearchResultCitations citations`
+
+          Citation settings for a search result.
+
+          - `boolean enabled`
+
+            Whether citations are enabled for this search result.
+
+        - `List<BetaManagedAgentsSearchResultContent> content`
+
+          Array of text content blocks from the search result.
+
+          - `String text`
+
+            The text content.
+
+            minLength: 1
+
+          - `Type type`
+
+        - `String source`
+
+          The URL source of the search result.
+
+          minLength: 1
+
+        - `String title`
+
+          The title of the search result.
+
+          minLength: 1
+
+        - `Type type`
+
+    - `Optional<Boolean> isError`
+
+      Whether the tool execution resulted in an error.
+
+    - `Optional<LocalDateTime> processedAt`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `Optional<String> sessionThreadId`
+
+      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
+
+  - `class BetaManagedAgentsAgentCustomToolUseEvent:`
+
+    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
+
+    - `String id`
+
+      Unique identifier for this event.
+
+    - `Input input`
+
+      Input parameters for the tool call.
+
+    - `String name`
+
+      Name of the custom tool being called.
+
+    - `LocalDateTime processedAt`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `Type type`
+
+    - `Optional<String> sessionThreadId`
+
+      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
+
+  - `class BetaManagedAgentsAgentMessageEvent:`
+
+    An agent response event in the session conversation.
+
+    - `String id`
+
+      Unique identifier for this event.
+
+    - `List<Content> content`
+
+      Array of text blocks comprising the agent response.
+
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsRedactedBlock:`
+
         Placeholder for content withheld by Anthropic model policy.
 
     - `LocalDateTime processedAt`
@@ -1117,6 +3201,10 @@
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
             High-performance model for coding and agents
@@ -1281,7 +3369,7 @@
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "bash"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -1299,7 +3387,7 @@
 
                         - `Type type`
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "bash"`
 
                   - `class BetaManagedAgentsEditToolConfig:`
 
@@ -1307,7 +3395,7 @@
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "edit"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -1321,7 +3409,7 @@
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "edit"`
 
                   - `class BetaManagedAgentsReadToolConfig:`
 
@@ -1329,7 +3417,7 @@
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "read"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -1343,7 +3431,7 @@
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "read"`
 
                   - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -1351,7 +3439,7 @@
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "write"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -1365,7 +3453,7 @@
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "write"`
 
                   - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -1373,7 +3461,7 @@
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "glob"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -1387,7 +3475,7 @@
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "glob"`
 
                   - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -1395,7 +3483,7 @@
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "grep"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -1409,7 +3497,7 @@
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "grep"`
 
                   - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -1417,7 +3505,7 @@
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "web_fetch"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -1431,7 +3519,7 @@
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "web_fetch"`
 
                     - `Optional<List<String>> allowedDomains`
 
@@ -1447,7 +3535,7 @@
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "web_search"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -1461,7 +3549,7 @@
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "web_search"`
 
                     - `Optional<List<String>> allowedDomains`
 
@@ -1471,7 +3559,7 @@
 
                       Approximate user location for search result localization.
 
-                      - `JsonValue type constant`
+                      - `JsonValue type = "approximate"`
 
                         Location precision. Only "approximate" is supported.
 
@@ -1569,7 +3657,7 @@
 
                   JSON Schema for custom tool input parameters.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "object"`
 
                   - `Optional<Properties> properties`
 
@@ -1947,6 +4035,26 @@ Add Session Resource
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `BetaManagedAgentsFileResourceParams betaManagedAgentsFileResourceParams`
 
     Mount a file uploaded via the Files API into the session.
@@ -2039,7 +4147,7 @@ List Session Resources
 
   - `Optional<String> page`
 
-    Opaque cursor from a previous response's next_page field.
+    Opaque cursor from a previous response's `next_page` field.
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -2112,6 +4220,26 @@ List Session Resources
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -2360,6 +4488,26 @@ Get Session Resource
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class ResourceRetrieveResponse: union`
@@ -2597,6 +4745,26 @@ Update Session Resource
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `String authorizationToken`
 
@@ -2843,6 +5011,26 @@ Delete Session Resource
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeleteSessionResource:`
@@ -2911,7 +5099,7 @@ List Session Threads
 
   - `Optional<String> page`
 
-    Opaque pagination cursor from a previous response's next_page. Forward-only.
+    Opaque pagination cursor from a previous response's `next_page`. Forward-only.
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -2985,6 +5173,26 @@ List Session Threads
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsSessionThread:`
@@ -2997,7 +5205,7 @@ List Session Threads
 
   - `Agent agent`
 
-    A session-resolved multiagent roster entry.
+    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
     - `class BetaManagedAgentsSessionThreadAgent:`
 
@@ -3024,6 +5232,10 @@ List Session Threads
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
@@ -3161,7 +5373,7 @@ List Session Threads
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "bash"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -3179,7 +5391,7 @@ List Session Threads
 
                   - `Type type`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "bash"`
 
             - `class BetaManagedAgentsEditToolConfig:`
 
@@ -3187,7 +5399,7 @@ List Session Threads
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "edit"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -3201,7 +5413,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "edit"`
 
             - `class BetaManagedAgentsReadToolConfig:`
 
@@ -3209,7 +5421,7 @@ List Session Threads
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "read"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -3223,7 +5435,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "read"`
 
             - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -3231,7 +5443,7 @@ List Session Threads
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "write"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -3245,7 +5457,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "write"`
 
             - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -3253,7 +5465,7 @@ List Session Threads
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "glob"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -3267,7 +5479,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "glob"`
 
             - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -3275,7 +5487,7 @@ List Session Threads
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "grep"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -3289,7 +5501,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "grep"`
 
             - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -3297,7 +5509,7 @@ List Session Threads
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "web_fetch"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -3311,7 +5523,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_fetch"`
 
               - `Optional<List<String>> allowedDomains`
 
@@ -3327,7 +5539,7 @@ List Session Threads
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "web_search"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -3341,7 +5553,7 @@ List Session Threads
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_search"`
 
               - `Optional<List<String>> allowedDomains`
 
@@ -3351,7 +5563,7 @@ List Session Threads
 
                 Approximate user location for search result localization.
 
-                - `JsonValue type constant`
+                - `JsonValue type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -3449,7 +5661,7 @@ List Session Threads
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonValue type constant`
+            - `JsonValue type = "object"`
 
             - `Optional<Properties> properties`
 
@@ -3812,6 +6024,26 @@ Get Session Thread
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsSessionThread:`
@@ -3824,7 +6056,7 @@ Get Session Thread
 
   - `Agent agent`
 
-    A session-resolved multiagent roster entry.
+    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
     - `class BetaManagedAgentsSessionThreadAgent:`
 
@@ -3851,6 +6083,10 @@ Get Session Thread
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
@@ -3988,7 +6224,7 @@ Get Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "bash"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4006,7 +6242,7 @@ Get Session Thread
 
                   - `Type type`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "bash"`
 
             - `class BetaManagedAgentsEditToolConfig:`
 
@@ -4014,7 +6250,7 @@ Get Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "edit"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4028,7 +6264,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "edit"`
 
             - `class BetaManagedAgentsReadToolConfig:`
 
@@ -4036,7 +6272,7 @@ Get Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "read"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4050,7 +6286,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "read"`
 
             - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -4058,7 +6294,7 @@ Get Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "write"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4072,7 +6308,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "write"`
 
             - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -4080,7 +6316,7 @@ Get Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "glob"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4094,7 +6330,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "glob"`
 
             - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -4102,7 +6338,7 @@ Get Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "grep"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4116,7 +6352,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "grep"`
 
             - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -4124,7 +6360,7 @@ Get Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "web_fetch"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4138,7 +6374,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_fetch"`
 
               - `Optional<List<String>> allowedDomains`
 
@@ -4154,7 +6390,7 @@ Get Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "web_search"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4168,7 +6404,7 @@ Get Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_search"`
 
               - `Optional<List<String>> allowedDomains`
 
@@ -4178,7 +6414,7 @@ Get Session Thread
 
                 Approximate user location for search result localization.
 
-                - `JsonValue type constant`
+                - `JsonValue type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -4276,7 +6512,7 @@ Get Session Thread
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonValue type constant`
+            - `JsonValue type = "object"`
 
             - `Optional<Properties> properties`
 
@@ -4638,6 +6874,26 @@ Archive Session Thread
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsSessionThread:`
@@ -4650,7 +6906,7 @@ Archive Session Thread
 
   - `Agent agent`
 
-    A session-resolved multiagent roster entry.
+    The resolved agent a session thread runs: a saved-agent snapshot, the platform advisor entry, or an inline-defined (ephemeral) agent snapshot.
 
     - `class BetaManagedAgentsSessionThreadAgent:`
 
@@ -4677,6 +6933,10 @@ Archive Session Thread
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
@@ -4814,7 +7074,7 @@ Archive Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "bash"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4832,7 +7092,7 @@ Archive Session Thread
 
                   - `Type type`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "bash"`
 
             - `class BetaManagedAgentsEditToolConfig:`
 
@@ -4840,7 +7100,7 @@ Archive Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "edit"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4854,7 +7114,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "edit"`
 
             - `class BetaManagedAgentsReadToolConfig:`
 
@@ -4862,7 +7122,7 @@ Archive Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "read"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4876,7 +7136,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "read"`
 
             - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -4884,7 +7144,7 @@ Archive Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "write"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4898,7 +7158,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "write"`
 
             - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -4906,7 +7166,7 @@ Archive Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "glob"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4920,7 +7180,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "glob"`
 
             - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -4928,7 +7188,7 @@ Archive Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "grep"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4942,7 +7202,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "grep"`
 
             - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -4950,7 +7210,7 @@ Archive Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "web_fetch"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4964,7 +7224,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_fetch"`
 
               - `Optional<List<String>> allowedDomains`
 
@@ -4980,7 +7240,7 @@ Archive Session Thread
 
               - `boolean enabled`
 
-              - `JsonValue name constant`
+              - `JsonValue name = "web_search"`
 
               - `PermissionPolicy permissionPolicy`
 
@@ -4994,7 +7254,7 @@ Archive Session Thread
 
                   Tool calls require user confirmation before execution.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_search"`
 
               - `Optional<List<String>> allowedDomains`
 
@@ -5004,7 +7264,7 @@ Archive Session Thread
 
                 Approximate user location for search result localization.
 
-                - `JsonValue type constant`
+                - `JsonValue type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -5102,7 +7362,7 @@ Archive Session Thread
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonValue type constant`
+            - `JsonValue type = "object"`
 
             - `Optional<Properties> properties`
 
@@ -5475,6 +7735,26 @@ List Session Thread Events
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -6948,6 +9228,10 @@ List Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
             High-performance model for coding and agents
@@ -7112,7 +9396,7 @@ List Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "bash"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -7130,7 +9414,7 @@ List Session Thread Events
 
                         - `Type type`
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "bash"`
 
                   - `class BetaManagedAgentsEditToolConfig:`
 
@@ -7138,7 +9422,7 @@ List Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "edit"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -7152,7 +9436,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "edit"`
 
                   - `class BetaManagedAgentsReadToolConfig:`
 
@@ -7160,7 +9444,7 @@ List Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "read"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -7174,7 +9458,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "read"`
 
                   - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -7182,7 +9466,7 @@ List Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "write"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -7196,7 +9480,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "write"`
 
                   - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -7204,7 +9488,7 @@ List Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "glob"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -7218,7 +9502,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "glob"`
 
                   - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -7226,7 +9510,7 @@ List Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "grep"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -7240,7 +9524,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "grep"`
 
                   - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -7248,7 +9532,7 @@ List Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "web_fetch"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -7262,7 +9546,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "web_fetch"`
 
                     - `Optional<List<String>> allowedDomains`
 
@@ -7278,7 +9562,7 @@ List Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "web_search"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -7292,7 +9576,7 @@ List Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "web_search"`
 
                     - `Optional<List<String>> allowedDomains`
 
@@ -7302,7 +9586,7 @@ List Session Thread Events
 
                       Approximate user location for search result localization.
 
-                      - `JsonValue type constant`
+                      - `JsonValue type = "approximate"`
 
                         Location precision. Only "approximate" is supported.
 
@@ -7400,7 +9684,7 @@ List Session Thread Events
 
                   JSON Schema for custom tool input parameters.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "object"`
 
                   - `Optional<Properties> properties`
 
@@ -7737,6 +10021,26 @@ Stream Session Thread Events
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -9210,6 +11514,10 @@ Stream Session Thread Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
             High-performance model for coding and agents
@@ -9374,7 +11682,7 @@ Stream Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "bash"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -9392,7 +11700,7 @@ Stream Session Thread Events
 
                         - `Type type`
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "bash"`
 
                   - `class BetaManagedAgentsEditToolConfig:`
 
@@ -9400,7 +11708,7 @@ Stream Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "edit"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -9414,7 +11722,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "edit"`
 
                   - `class BetaManagedAgentsReadToolConfig:`
 
@@ -9422,7 +11730,7 @@ Stream Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "read"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -9436,7 +11744,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "read"`
 
                   - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -9444,7 +11752,7 @@ Stream Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "write"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -9458,7 +11766,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "write"`
 
                   - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -9466,7 +11774,7 @@ Stream Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "glob"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -9480,7 +11788,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "glob"`
 
                   - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -9488,7 +11796,7 @@ Stream Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "grep"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -9502,7 +11810,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "grep"`
 
                   - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -9510,7 +11818,7 @@ Stream Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "web_fetch"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -9524,7 +11832,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "web_fetch"`
 
                     - `Optional<List<String>> allowedDomains`
 
@@ -9540,7 +11848,7 @@ Stream Session Thread Events
 
                     - `boolean enabled`
 
-                    - `JsonValue name constant`
+                    - `JsonValue name = "web_search"`
 
                     - `PermissionPolicy permissionPolicy`
 
@@ -9554,7 +11862,7 @@ Stream Session Thread Events
 
                         Tool calls require user confirmation before execution.
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "web_search"`
 
                     - `Optional<List<String>> allowedDomains`
 
@@ -9564,7 +11872,7 @@ Stream Session Thread Events
 
                       Approximate user location for search result localization.
 
-                      - `JsonValue type constant`
+                      - `JsonValue type = "approximate"`
 
                         Location precision. Only "approximate" is supported.
 
@@ -9662,7 +11970,7 @@ Stream Session Thread Events
 
                   JSON Schema for custom tool input parameters.
 
-                  - `JsonValue type constant`
+                  - `JsonValue type = "object"`
 
                   - `Optional<Properties> properties`
 
@@ -10041,6 +12349,26 @@ Create Deployment
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `Agent agent`
 
@@ -11074,7 +13402,7 @@ List Deployments
 
   - `Optional<BetaManagedAgentsDeploymentStatus> status`
 
-    Filter by status: active or paused. Omit for both. To include archived deployments, use include_archived instead; the two cannot be combined.
+    Filter by status: `active` or `paused`. Omit for both. To include archived deployments, use `include_archived` instead; the two cannot be combined.
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -11147,6 +13475,26 @@ List Deployments
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -11843,6 +14191,26 @@ Get Deployment
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeployment:`
@@ -12532,6 +14900,26 @@ Update Deployment
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `Optional<Agent> agent`
 
@@ -13595,6 +15983,26 @@ Archive Deployment
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeployment:`
@@ -14285,6 +16693,26 @@ Run Deployment Now
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeploymentRun:`
@@ -14483,7 +16911,7 @@ Run Deployment Now
 
   - `Optional<String> sessionId`
 
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
@@ -14640,6 +17068,26 @@ Pause Deployment
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -15331,6 +17779,26 @@ Unpause Deployment
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeployment:`
@@ -15975,11 +18443,11 @@ List Deployment Runs
 
   - `Optional<String> deploymentId`
 
-    Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent deployment_id returns 200 with empty data.
+    Filter to a specific deployment. Omit to list across all deployments in the workspace. Filtering by a non-existent `deployment_id` returns 200 with empty data.
 
   - `Optional<Boolean> hasError`
 
-    Filter: true for runs with non-null error, false for runs with non-null session_id. Omit for all.
+    Filter: true for runs with non-null `error`, false for runs with non-null `session_id`. Omit for all.
 
   - `Optional<Long> limit`
 
@@ -15989,7 +18457,7 @@ List Deployment Runs
 
   - `Optional<String> page`
 
-    Opaque pagination cursor. Pass next_page from the previous response. Invalid or expired cursors return 400.
+    Opaque pagination cursor. Pass `next_page` from the previous response. Invalid or expired cursors return 400.
 
   - `Optional<BetaManagedAgentsTriggerType> triggerType`
 
@@ -16066,6 +18534,26 @@ List Deployment Runs
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -16265,7 +18753,7 @@ List Deployment Runs
 
   - `Optional<String> sessionId`
 
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
@@ -16428,6 +18916,26 @@ Get Deployment Run
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeploymentRun:`
@@ -16626,7 +19134,7 @@ Get Deployment Run
 
   - `Optional<String> sessionId`
 
-    Populated on success. Null on creation failure. Exactly one of session_id or error is non-null.
+    Populated on success. Null on creation failure. Exactly one of `session_id` or `error` is non-null.
 
   - `BetaManagedAgentsTriggerContext triggerContext`
 
@@ -16783,6 +19291,26 @@ Create Vault
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `String displayName`
 
@@ -16970,6 +19498,26 @@ List Vaults
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsVault:`
@@ -17136,6 +19684,26 @@ Get Vault
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsVault:`
@@ -17296,6 +19864,26 @@ Update Vault
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `Optional<String> displayName`
 
@@ -17468,6 +20056,26 @@ Delete Vault
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeletedVault:`
@@ -17595,6 +20203,26 @@ Archive Vault
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -17758,6 +20386,26 @@ Create Credential
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `Auth auth`
 
@@ -18240,6 +20888,26 @@ List Credentials
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsCredential:`
@@ -18531,6 +21199,26 @@ Get Credential
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsCredential:`
@@ -18820,6 +21508,26 @@ Update Credential
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `Optional<Auth> auth`
 
@@ -19243,6 +21951,26 @@ Delete Credential
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeletedCredential:`
@@ -19376,6 +22104,26 @@ Archive Credential
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -19667,6 +22415,26 @@ Validate Credential
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsCredentialValidation:`
@@ -19895,6 +22663,26 @@ Create a memory store
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `String name`
 
     Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
@@ -20104,6 +22892,26 @@ List memory stores
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsMemoryStore:`
@@ -20275,6 +23083,26 @@ Retrieve a memory store
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsMemoryStore:`
@@ -20440,6 +23268,26 @@ Update a memory store
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `Optional<String> description`
 
@@ -20623,6 +23471,26 @@ Delete a memory store
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeletedMemoryStore:`
@@ -20750,6 +23618,26 @@ Archive a memory store
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -20923,13 +23811,33 @@ Create a memory
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Optional<String> content`
 
     UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
 
   - `String path`
 
-    Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive.
+    Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive.
 
     minLength: 2, maxLength: 1024
 
@@ -20965,7 +23873,7 @@ Create a memory
 
   - `String memoryVersionId`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `String path`
 
@@ -21136,6 +24044,26 @@ List memories
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsMemoryListItem: union`
@@ -21172,7 +24100,7 @@ List memories
 
     - `String memoryVersionId`
 
-      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+      ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
     - `String path`
 
@@ -21335,6 +24263,26 @@ Retrieve a memory
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsMemory:`
@@ -21367,7 +24315,7 @@ Retrieve a memory
 
   - `String memoryVersionId`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `String path`
 
@@ -21519,13 +24467,33 @@ Update a memory
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Optional<String> content`
 
     New UTF-8 text content for the memory. Maximum 100 kB (102,400 bytes). Omit to leave the content unchanged (e.g., for a rename-only update).
 
   - `Optional<String> path`
 
-    New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
+    New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
 
     minLength: 2, maxLength: 1024
 
@@ -21565,7 +24533,7 @@ Update a memory
 
   - `String memoryVersionId`
 
-    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the full history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
+    ID of the `memory_version` representing this memory's current content (a `memver_...` value). This is the authoritative head pointer; `memory_version` objects do not carry an `is_latest` flag, so compare against this field instead. Enumerate the history via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
 
   - `String path`
 
@@ -21717,11 +24685,31 @@ Delete a memory
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsDeletedMemory:`
 
-  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
+  Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). Deleting a memory does not erase its version history: its versions remain listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) while they are retained (each version is kept for at least the version retention period after it was written, unless the store itself is deleted).
 
   - `String id`
 
@@ -21897,11 +24885,31 @@ List memory versions
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsMemoryVersion:`
 
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
 
   - `String id`
 
@@ -21915,7 +24923,7 @@ List memory versions
 
   - `String memoryId`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `String memoryStoreId`
 
@@ -21997,7 +25005,7 @@ List memory versions
 
         minLength: 1
 
-      - `JsonValue type constant`
+      - `JsonValue type = "service_account_actor"`
 
   - `Optional<String> path`
 
@@ -22157,11 +25165,31 @@ Retrieve a memory version
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsMemoryVersion:`
 
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
 
   - `String id`
 
@@ -22175,7 +25203,7 @@ Retrieve a memory version
 
   - `String memoryId`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `String memoryStoreId`
 
@@ -22257,7 +25285,7 @@ Retrieve a memory version
 
         minLength: 1
 
-      - `JsonValue type constant`
+      - `JsonValue type = "service_account_actor"`
 
   - `Optional<String> path`
 
@@ -22412,11 +25440,31 @@ Redact a memory version
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaManagedAgentsMemoryVersion:`
 
-  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
+  A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and are not deleted with the memory; each version is retained for at least the version retention period after it was written, unless the store itself is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
 
   - `String id`
 
@@ -22430,7 +25478,7 @@ Redact a memory version
 
   - `String memoryId`
 
-    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the full lineage including the `deleted` row.
+    ID of the memory this version snapshots (a `mem_...` value). Remains valid after the memory is deleted; pass it as `memory_id` to [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) to retrieve the memory's retained versions, including the `deleted` row while the lineage is retained.
 
   - `String memoryStoreId`
 
@@ -22512,7 +25560,7 @@ Redact a memory version
 
         minLength: 1
 
-      - `JsonValue type constant`
+      - `JsonValue type = "service_account_actor"`
 
   - `Optional<String> path`
 
@@ -22665,11 +25713,37 @@ Upload File
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `String file`
 
     The file to upload
 
     format: binary
+
+  - `Optional<Long> expiresInSeconds`
+
+    Seconds from upload until the file expires and its bytes become permanently unavailable. Must be between 3600 (one hour) and 7776000 (ninety days).
+
+    minimum: 3600, maximum: 7776000
 
 #### Returns
 
@@ -22705,7 +25779,7 @@ Upload File
 
     minimum: 0
 
-  - `JsonValue type constant`
+  - `JsonValue type = "file"`
 
     Object type.
 
@@ -22715,6 +25789,12 @@ Upload File
 
     Whether the file can be downloaded.
 
+  - `Optional<LocalDateTime> expiresAt`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
+    format: date-time
+
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
@@ -22723,7 +25803,7 @@ Upload File
 
       The ID of the scoping resource (e.g., the session ID).
 
-    - `JsonValue type constant`
+    - `JsonValue type = "session"`
 
       The type of scope (e.g., `"session"`).
 
@@ -22763,6 +25843,7 @@ public final class Main {
   "size_bytes": 102400,
   "type": "file",
   "downloadable": false,
+  "expires_at": "2025-05-15T18:37:24.100435Z",
   "scope": {
     "id": "id",
     "type": "session"
@@ -22782,13 +25863,9 @@ List Files
 
 - `FileListParams params`
 
-  - `Optional<String> afterId`
+  - `Optional<List<String>> ids`
 
-    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
-
-  - `Optional<String> beforeId`
-
-    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+    Restrict the result set to Files whose `id` is in this list. At most 100 entries (after de-duplication). Mutually exclusive with `page` and `limit`. When supplied, the response is always a single page (`next_page` is null). IDs that do not resolve to a visible File — including deleted Files — are silently omitted.
 
   - `Optional<Long> limit`
 
@@ -22797,6 +25874,10 @@ List Files
     Defaults to `20`. Ranges from `1` to `1000`.
 
     maximum: 1000, minimum: 1
+
+  - `Optional<String> page`
+
+    Opaque page cursor returned in a prior list response's `next_page`. Prefixed `page_`.
 
   - `Optional<String> scopeId`
 
@@ -22874,6 +25955,26 @@ List Files
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaFileMetadata:`
@@ -22908,7 +26009,7 @@ List Files
 
     minimum: 0
 
-  - `JsonValue type constant`
+  - `JsonValue type = "file"`
 
     Object type.
 
@@ -22918,6 +26019,12 @@ List Files
 
     Whether the file can be downloaded.
 
+  - `Optional<LocalDateTime> expiresAt`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
+    format: date-time
+
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
@@ -22926,7 +26033,7 @@ List Files
 
       The ID of the scoping resource (e.g., the session ID).
 
-    - `JsonValue type constant`
+    - `JsonValue type = "session"`
 
       The type of scope (e.g., `"session"`).
 
@@ -22964,15 +26071,14 @@ public final class Main {
       "size_bytes": 102400,
       "type": "file",
       "downloadable": false,
+      "expires_at": "2025-05-15T18:37:24.100435Z",
       "scope": {
         "id": "id",
         "type": "session"
       }
     }
   ],
-  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
-  "has_more": true,
-  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+  "next_page": "next_page"
 }
 ```
 
@@ -23063,6 +26169,26 @@ Download File
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Example
 
@@ -23173,6 +26299,26 @@ Get File Metadata
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaFileMetadata:`
@@ -23207,7 +26353,7 @@ Get File Metadata
 
     minimum: 0
 
-  - `JsonValue type constant`
+  - `JsonValue type = "file"`
 
     Object type.
 
@@ -23217,6 +26363,12 @@ Get File Metadata
 
     Whether the file can be downloaded.
 
+  - `Optional<LocalDateTime> expiresAt`
+
+    RFC 3339 datetime string representing when the file will expire and become unavailable for download. Null if the file does not expire. For files uploaded with `expires_in_seconds`, this is the upload time plus that value.
+
+    format: date-time
+
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
@@ -23225,7 +26377,7 @@ Get File Metadata
 
       The ID of the scoping resource (e.g., the session ID).
 
-    - `JsonValue type constant`
+    - `JsonValue type = "session"`
 
       The type of scope (e.g., `"session"`).
 
@@ -23261,6 +26413,7 @@ public final class Main {
   "size_bytes": 102400,
   "type": "file",
   "downloadable": false,
+  "expires_at": "2025-05-15T18:37:24.100435Z",
   "scope": {
     "id": "id",
     "type": "session"
@@ -23356,6 +26509,26 @@ Delete File
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaDeletedFile:`
@@ -23404,7 +26577,7 @@ public final class Main {
 
 ### Create Skill
 
-`SkillCreateResponse beta().skills().create(params, requestOptions = RequestOptions.none())`
+`BetaSkill beta().skills().create(params, requestOptions = RequestOptions.none())`
 
 **POST** `/v1/skills`
 
@@ -23486,21 +26659,41 @@ Create Skill
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `List<String> files`
 
     Files to upload for the skill.
 
     All files must be in the same top-level directory and must include a SKILL.md file at the root of that directory.
 
-  - `Optional<String> displayTitle`
+  - `Optional<String> displayName`
 
-    Display title for the skill.
-
-    This is a human-readable label that is not included in the prompt sent to the model.
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
 
 #### Returns
 
-- `class SkillCreateResponse:`
+- `class BetaSkill:`
 
   - `String id`
 
@@ -23508,40 +26701,63 @@ Create Skill
 
     The format and length of IDs may change over time.
 
-  - `String createdAt`
+  - `LocalDateTime createdAt`
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `Optional<String> displayTitle`
+    format: date-time
 
-    Display title for the skill.
+  - `String displayName`
 
-    This is a human-readable label that is not included in the prompt sent to the model.
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
 
-  - `Optional<String> latestVersion`
+  - `String latestVersionId`
 
-    The latest version identifier for the skill.
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
 
-    This represents the most recent version of the skill that has been created.
+  - `BetaSkillSource source`
 
-  - `String source`
+    Where the Skill comes from.
 
-    Source of the skill.
+    Possible values:
 
-    This may be one of the following values:
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
 
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `Type type`
 
-  - `String type`
+      Where the Skill comes from.
+
+      Possible values:
+
+      * `"custom"`: authored by the platform user; private to their workspace
+      * `"anthropic"`: published by Anthropic; shared and read-only
+      * `"anthropic_example"`: Anthropic-published sample Skill
+      * `"plugin"`: resolved from an installed plugin
+
+      - `CUSTOM("custom")`
+
+      - `ANTHROPIC("anthropic")`
+
+      - `ANTHROPIC_EXAMPLE("anthropic_example")`
+
+      - `PLUGIN("plugin")`
+
+  - `JsonValue type = "skill"`
 
     Object type.
 
     For Skills, this is always `"skill"`.
 
-  - `String updatedAt`
+  - `LocalDateTime updatedAt`
 
     ISO 8601 timestamp of when the skill was last updated.
+
+    format: date-time
 
 #### Example
 
@@ -23550,8 +26766,8 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.skills.BetaSkill;
 import com.anthropic.models.beta.skills.SkillCreateParams;
-import com.anthropic.models.beta.skills.SkillCreateResponse;
 import java.io.ByteArrayInputStream;
 
 public final class Main {
@@ -23563,7 +26779,7 @@ public final class Main {
         SkillCreateParams params = SkillCreateParams.builder()
             .addFile(new ByteArrayInputStream("Example data".getBytes()))
             .build();
-        SkillCreateResponse skill = client.beta().skills().create(params);
+        BetaSkill betaSkill = client.beta().skills().create(params);
     }
 }
 ```
@@ -23574,10 +26790,12 @@ public final class Main {
 {
   "id": "skill_01JAbcdefghijklmnopqrstuvw",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "display_title": "My Custom Skill",
-  "latest_version": "1759178010641129",
-  "source": "custom",
-  "type": "type",
+  "display_name": "display_name",
+  "latest_version_id": "latest_version_id",
+  "source": {
+    "type": "custom"
+  },
+  "type": "skill",
   "updated_at": "2024-10-30T23:58:27.427722Z"
 }
 ```
@@ -23598,7 +26816,9 @@ List Skills
 
     Number of results to return per page.
 
-    Maximum value is 100. Defaults to 20.
+    Ranges from `1` to `1000`. Defaults to `20`.
+
+    minimum: 1, maximum: 1000
 
   - `Optional<String> page`
 
@@ -23687,9 +26907,29 @@ List Skills
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
-- `class SkillListResponse:`
+- `class BetaSkill:`
 
   - `String id`
 
@@ -23697,40 +26937,63 @@ List Skills
 
     The format and length of IDs may change over time.
 
-  - `String createdAt`
+  - `LocalDateTime createdAt`
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `Optional<String> displayTitle`
+    format: date-time
 
-    Display title for the skill.
+  - `String displayName`
 
-    This is a human-readable label that is not included in the prompt sent to the model.
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
 
-  - `Optional<String> latestVersion`
+  - `String latestVersionId`
 
-    The latest version identifier for the skill.
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
 
-    This represents the most recent version of the skill that has been created.
+  - `BetaSkillSource source`
 
-  - `String source`
+    Where the Skill comes from.
 
-    Source of the skill.
+    Possible values:
 
-    This may be one of the following values:
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
 
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `Type type`
 
-  - `String type`
+      Where the Skill comes from.
+
+      Possible values:
+
+      * `"custom"`: authored by the platform user; private to their workspace
+      * `"anthropic"`: published by Anthropic; shared and read-only
+      * `"anthropic_example"`: Anthropic-published sample Skill
+      * `"plugin"`: resolved from an installed plugin
+
+      - `CUSTOM("custom")`
+
+      - `ANTHROPIC("anthropic")`
+
+      - `ANTHROPIC_EXAMPLE("anthropic_example")`
+
+      - `PLUGIN("plugin")`
+
+  - `JsonValue type = "skill"`
 
     Object type.
 
     For Skills, this is always `"skill"`.
 
-  - `String updatedAt`
+  - `LocalDateTime updatedAt`
 
     ISO 8601 timestamp of when the skill was last updated.
+
+    format: date-time
 
 #### Example
 
@@ -23761,21 +27024,22 @@ public final class Main {
     {
       "id": "skill_01JAbcdefghijklmnopqrstuvw",
       "created_at": "2024-10-30T23:58:27.427722Z",
-      "display_title": "My Custom Skill",
-      "latest_version": "1759178010641129",
-      "source": "custom",
-      "type": "type",
+      "display_name": "display_name",
+      "latest_version_id": "latest_version_id",
+      "source": {
+        "type": "custom"
+      },
+      "type": "skill",
       "updated_at": "2024-10-30T23:58:27.427722Z"
     }
   ],
-  "has_more": true,
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "next_page"
 }
 ```
 
 ### Get Skill
 
-`SkillRetrieveResponse beta().skills().retrieve(params = SkillRetrieveParams.none(), requestOptions = RequestOptions.none())`
+`BetaSkill beta().skills().retrieve(params = SkillRetrieveParams.none(), requestOptions = RequestOptions.none())`
 
 **GET** `/v1/skills/{skill_id}`
 
@@ -23863,9 +27127,29 @@ Get Skill
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
-- `class SkillRetrieveResponse:`
+- `class BetaSkill:`
 
   - `String id`
 
@@ -23873,40 +27157,63 @@ Get Skill
 
     The format and length of IDs may change over time.
 
-  - `String createdAt`
+  - `LocalDateTime createdAt`
 
     ISO 8601 timestamp of when the skill was created.
 
-  - `Optional<String> displayTitle`
+    format: date-time
 
-    Display title for the skill.
+  - `String displayName`
 
-    This is a human-readable label that is not included in the prompt sent to the model.
+    Human-readable, single-line label for the Skill. Maximum 255 characters.
+    Always set: derived from the SKILL.md frontmatter `name` when omitted at
+    creation. Not unique.
 
-  - `Optional<String> latestVersion`
+  - `String latestVersionId`
 
-    The latest version identifier for the skill.
+    ID of the newest Skill Version — what `latest` references resolve to. Always set: a Skill holds at least one version.
 
-    This represents the most recent version of the skill that has been created.
+  - `BetaSkillSource source`
 
-  - `String source`
+    Where the Skill comes from.
 
-    Source of the skill.
+    Possible values:
 
-    This may be one of the following values:
+    * `"custom"`: authored by the platform user; private to their workspace
+    * `"anthropic"`: published by Anthropic; shared and read-only
+    * `"anthropic_example"`: Anthropic-published sample Skill
+    * `"plugin"`: resolved from an installed plugin
 
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `Type type`
 
-  - `String type`
+      Where the Skill comes from.
+
+      Possible values:
+
+      * `"custom"`: authored by the platform user; private to their workspace
+      * `"anthropic"`: published by Anthropic; shared and read-only
+      * `"anthropic_example"`: Anthropic-published sample Skill
+      * `"plugin"`: resolved from an installed plugin
+
+      - `CUSTOM("custom")`
+
+      - `ANTHROPIC("anthropic")`
+
+      - `ANTHROPIC_EXAMPLE("anthropic_example")`
+
+      - `PLUGIN("plugin")`
+
+  - `JsonValue type = "skill"`
 
     Object type.
 
     For Skills, this is always `"skill"`.
 
-  - `String updatedAt`
+  - `LocalDateTime updatedAt`
 
     ISO 8601 timestamp of when the skill was last updated.
+
+    format: date-time
 
 #### Example
 
@@ -23915,8 +27222,8 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.skills.BetaSkill;
 import com.anthropic.models.beta.skills.SkillRetrieveParams;
-import com.anthropic.models.beta.skills.SkillRetrieveResponse;
 
 public final class Main {
     private Main() {}
@@ -23924,7 +27231,7 @@ public final class Main {
     public static void main(String[] args) {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
-        SkillRetrieveResponse skill = client.beta().skills().retrieve("skill_id");
+        BetaSkill betaSkill = client.beta().skills().retrieve("skill_id");
     }
 }
 ```
@@ -23935,17 +27242,19 @@ public final class Main {
 {
   "id": "skill_01JAbcdefghijklmnopqrstuvw",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "display_title": "My Custom Skill",
-  "latest_version": "1759178010641129",
-  "source": "custom",
-  "type": "type",
+  "display_name": "display_name",
+  "latest_version_id": "latest_version_id",
+  "source": {
+    "type": "custom"
+  },
+  "type": "skill",
   "updated_at": "2024-10-30T23:58:27.427722Z"
 }
 ```
 
 ### Delete Skill
 
-`SkillDeleteResponse beta().skills().delete(params = SkillDeleteParams.none(), requestOptions = RequestOptions.none())`
+`BetaDeletedSkill beta().skills().delete(params = SkillDeleteParams.none(), requestOptions = RequestOptions.none())`
 
 **DELETE** `/v1/skills/{skill_id}`
 
@@ -24033,9 +27342,29 @@ Delete Skill
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
-- `class SkillDeleteResponse:`
+- `class BetaDeletedSkill:`
 
   - `String id`
 
@@ -24043,7 +27372,7 @@ Delete Skill
 
     The format and length of IDs may change over time.
 
-  - `String type`
+  - `JsonValue type = "skill_deleted"`
 
     Deleted object type.
 
@@ -24056,8 +27385,8 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.skills.BetaDeletedSkill;
 import com.anthropic.models.beta.skills.SkillDeleteParams;
-import com.anthropic.models.beta.skills.SkillDeleteResponse;
 
 public final class Main {
     private Main() {}
@@ -24065,7 +27394,7 @@ public final class Main {
     public static void main(String[] args) {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
-        SkillDeleteResponse skill = client.beta().skills().delete("skill_id");
+        BetaDeletedSkill betaDeletedSkill = client.beta().skills().delete("skill_id");
     }
 }
 ```
@@ -24075,7 +27404,7 @@ public final class Main {
 ```json
 {
   "id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type"
+  "type": "skill_deleted"
 }
 ```
 
@@ -24083,7 +27412,7 @@ public final class Main {
 
 ### Create Skill Version
 
-`VersionCreateResponse beta().skills().versions().create(params, requestOptions = RequestOptions.none())`
+`BetaSkillVersion beta().skills().versions().create(params, requestOptions = RequestOptions.none())`
 
 **POST** `/v1/skills/{skill_id}/versions`
 
@@ -24171,6 +27500,26 @@ Create Skill Version
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `List<String> files`
 
     Files to upload for the skill.
@@ -24179,17 +27528,18 @@ Create Skill Version
 
 #### Returns
 
-- `class VersionCreateResponse:`
+- `class BetaSkillVersion:`
 
   - `String id`
 
-    Unique identifier for the skill version.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    The format and length of IDs may change over time.
+  - `LocalDateTime createdAt`
 
-  - `String createdAt`
+    ISO 8601 timestamp of when the skill was created.
 
-    ISO 8601 timestamp of when the skill version was created.
+    format: date-time
 
   - `String description`
 
@@ -24197,33 +27547,24 @@ Create Skill Version
 
     This is extracted from the SKILL.md file in the skill upload.
 
-  - `String directory`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
   - `String name`
 
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
   - `String skillId`
 
-    Identifier for the skill that this version belongs to.
+    Unique identifier for the skill.
 
-  - `String type`
+    The format and length of IDs may change over time.
+
+  - `JsonValue type = "skill_version"`
 
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
-
-  - `String version`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 #### Example
 
@@ -24232,8 +27573,8 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.skills.versions.BetaSkillVersion;
 import com.anthropic.models.beta.skills.versions.VersionCreateParams;
-import com.anthropic.models.beta.skills.versions.VersionCreateResponse;
 import java.io.ByteArrayInputStream;
 
 public final class Main {
@@ -24246,7 +27587,7 @@ public final class Main {
             .skillId("skill_id")
             .addFile(new ByteArrayInputStream("Example data".getBytes()))
             .build();
-        VersionCreateResponse version = client.beta().skills().versions().create(params);
+        BetaSkillVersion betaSkillVersion = client.beta().skills().versions().create(params);
     }
 }
 ```
@@ -24255,14 +27596,12 @@ public final class Main {
 
 ```json
 {
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "id": "id",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
+  "description": "description",
+  "name": "name",
   "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
+  "type": "skill_version"
 }
 ```
 
@@ -24286,9 +27625,11 @@ List Skill Versions
 
   - `Optional<Long> limit`
 
-    Number of items to return per page.
+    Number of results to return per page.
 
-    Defaults to `20`. Ranges from `1` to `1000`.
+    Ranges from `1` to `1000`. Defaults to `20`.
+
+    minimum: 1, maximum: 1000
 
   - `Optional<String> page`
 
@@ -24366,19 +27707,40 @@ List Skill Versions
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
-- `class VersionListResponse:`
+- `class BetaSkillVersion:`
 
   - `String id`
 
-    Unique identifier for the skill version.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    The format and length of IDs may change over time.
+  - `LocalDateTime createdAt`
 
-  - `String createdAt`
+    ISO 8601 timestamp of when the skill was created.
 
-    ISO 8601 timestamp of when the skill version was created.
+    format: date-time
 
   - `String description`
 
@@ -24386,33 +27748,24 @@ List Skill Versions
 
     This is extracted from the SKILL.md file in the skill upload.
 
-  - `String directory`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
   - `String name`
 
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
   - `String skillId`
 
-    Identifier for the skill that this version belongs to.
+    Unique identifier for the skill.
 
-  - `String type`
+    The format and length of IDs may change over time.
+
+  - `JsonValue type = "skill_version"`
 
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
-
-  - `String version`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 #### Example
 
@@ -24441,18 +27794,15 @@ public final class Main {
 {
   "data": [
     {
-      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "id": "id",
       "created_at": "2024-10-30T23:58:27.427722Z",
-      "description": "A custom skill for doing something useful",
-      "directory": "my-skill",
-      "name": "my-skill",
+      "description": "description",
+      "name": "name",
       "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-      "type": "type",
-      "version": "1759178010641129"
+      "type": "skill_version"
     }
   ],
-  "has_more": true,
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+  "next_page": "next_page"
 }
 ```
 
@@ -24476,9 +27826,9 @@ Download a skill version's content as a zip archive.
 
   - `Optional<String> version`
 
-    Version identifier for the skill.
+    Identifies the skill version by its version ID.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+    Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -24551,6 +27901,26 @@ Download a skill version's content as a zip archive.
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Example
 
@@ -24579,7 +27949,7 @@ public final class Main {
 
 ### Get Skill Version
 
-`VersionRetrieveResponse beta().skills().versions().retrieve(params, requestOptions = RequestOptions.none())`
+`BetaSkillVersion beta().skills().versions().retrieve(params, requestOptions = RequestOptions.none())`
 
 **GET** `/v1/skills/{skill_id}/versions/{version}`
 
@@ -24597,9 +27967,9 @@ Get Skill Version
 
   - `Optional<String> version`
 
-    Version identifier for the skill.
+    Identifies the skill version: a version ID, or the literal `latest` for the skill's most recent version.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+    Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -24673,19 +28043,40 @@ Get Skill Version
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
-- `class VersionRetrieveResponse:`
+- `class BetaSkillVersion:`
 
   - `String id`
 
-    Unique identifier for the skill version.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    The format and length of IDs may change over time.
+  - `LocalDateTime createdAt`
 
-  - `String createdAt`
+    ISO 8601 timestamp of when the skill was created.
 
-    ISO 8601 timestamp of when the skill version was created.
+    format: date-time
 
   - `String description`
 
@@ -24693,33 +28084,24 @@ Get Skill Version
 
     This is extracted from the SKILL.md file in the skill upload.
 
-  - `String directory`
-
-    Directory name of the skill version.
-
-    This is the top-level directory name that was extracted from the uploaded files.
-
   - `String name`
 
-    Human-readable name of the skill version.
-
-    This is extracted from the SKILL.md file in the skill upload.
+    The Skill's immutable kebab-case slug, set at creation from the first
+    upload's SKILL.md frontmatter `name` (or its enclosing directory). Every
+    later upload must resolve to the same value. Also the top-level directory
+    of the Skill's mounted files and the base name of a downloaded archive.
 
   - `String skillId`
 
-    Identifier for the skill that this version belongs to.
+    Unique identifier for the skill.
 
-  - `String type`
+    The format and length of IDs may change over time.
+
+  - `JsonValue type = "skill_version"`
 
     Object type.
 
     For Skill Versions, this is always `"skill_version"`.
-
-  - `String version`
-
-    Version identifier for the skill.
-
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 #### Example
 
@@ -24728,8 +28110,8 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.skills.versions.BetaSkillVersion;
 import com.anthropic.models.beta.skills.versions.VersionRetrieveParams;
-import com.anthropic.models.beta.skills.versions.VersionRetrieveResponse;
 
 public final class Main {
     private Main() {}
@@ -24741,7 +28123,7 @@ public final class Main {
             .skillId("skill_id")
             .version("version")
             .build();
-        VersionRetrieveResponse version = client.beta().skills().versions().retrieve(params);
+        BetaSkillVersion betaSkillVersion = client.beta().skills().versions().retrieve(params);
     }
 }
 ```
@@ -24750,20 +28132,18 @@ public final class Main {
 
 ```json
 {
-  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "id": "id",
   "created_at": "2024-10-30T23:58:27.427722Z",
-  "description": "A custom skill for doing something useful",
-  "directory": "my-skill",
-  "name": "my-skill",
+  "description": "description",
+  "name": "name",
   "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
-  "type": "type",
-  "version": "1759178010641129"
+  "type": "skill_version"
 }
 ```
 
 ### Delete Skill Version
 
-`VersionDeleteResponse beta().skills().versions().delete(params, requestOptions = RequestOptions.none())`
+`BetaDeletedSkillVersion beta().skills().versions().delete(params, requestOptions = RequestOptions.none())`
 
 **DELETE** `/v1/skills/{skill_id}/versions/{version}`
 
@@ -24781,9 +28161,9 @@ Delete Skill Version
 
   - `Optional<String> version`
 
-    Version identifier for the skill.
+    Identifies the skill version by its version ID.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+    Requests carrying the `skills-2025-10-02` beta header address versions by their Unix epoch timestamp instead (e.g., "1759178010641129").
 
   - `Optional<List<AnthropicBeta>> betas`
 
@@ -24857,17 +28237,36 @@ Delete Skill Version
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
-- `class VersionDeleteResponse:`
+- `class BetaDeletedSkillVersion:`
 
   - `String id`
 
-    Version identifier for the skill.
+    Unique identifier for this Skill Version. The id addresses the version in
+    paths and pins it in references.
 
-    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
-
-  - `String type`
+  - `JsonValue type = "skill_version_deleted"`
 
     Deleted object type.
 
@@ -24880,8 +28279,8 @@ package com.anthropic.example;
 
 import com.anthropic.client.AnthropicClient;
 import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.skills.versions.BetaDeletedSkillVersion;
 import com.anthropic.models.beta.skills.versions.VersionDeleteParams;
-import com.anthropic.models.beta.skills.versions.VersionDeleteResponse;
 
 public final class Main {
     private Main() {}
@@ -24893,7 +28292,7 @@ public final class Main {
             .skillId("skill_id")
             .version("version")
             .build();
-        VersionDeleteResponse version = client.beta().skills().versions().delete(params);
+        BetaDeletedSkillVersion betaDeletedSkillVersion = client.beta().skills().versions().delete(params);
     }
 }
 ```
@@ -24902,8 +28301,8 @@ public final class Main {
 
 ```json
 {
-  "id": "1759178010641129",
-  "type": "type"
+  "id": "id",
+  "type": "skill_version_deleted"
 }
 ```
 
@@ -24993,6 +28392,26 @@ Create User Profile
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Optional<AccessType> accessType`
 
     How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
@@ -25007,25 +28426,21 @@ Create User Profile
 
     minLength: 1, maxLength: 255
 
+  - `Optional<LocalDateTime> externalUserOnboardedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `Optional<Metadata> metadata`
 
     Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
 
   - `Optional<String> name`
 
-    Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a resold-to company (`relationship` `resold` / `access_type` `passthrough`), that company's name where known. Maximum 255 characters.
+    Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a company the platform resells Claude access to (`access_type` `passthrough`), that company's name where known. Maximum 255 characters.
 
     minLength: 1, maxLength: 255
-
-  - `Optional<Relationship> relationship`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `EXTERNAL("external")`
-
-    - `RESOLD("resold")`
-
-    - `INTERNAL("internal")`
 
 #### Returns
 
@@ -25081,19 +28496,15 @@ Create User Profile
 
     Platform's own identifier for this user. Not enforced unique.
 
+  - `Optional<LocalDateTime> externalUserOnboardedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `Optional<String> name`
 
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `Optional<Relationship> relationship`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `EXTERNAL("external")`
-
-    - `RESOLD("resold")`
-
-    - `INTERNAL("internal")`
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
 
 #### Example
 
@@ -25132,8 +28543,8 @@ public final class Main {
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
 }
 ```
 
@@ -25162,6 +28573,14 @@ List User Profiles
     - `ASC("asc")`
 
     - `DESC("desc")`
+
+  - `Optional<OrderBy> orderBy`
+
+    Query parameter for order_by
+
+    - `CREATED_AT("created_at")`
+
+    - `NAME("name")`
 
   - `Optional<String> page`
 
@@ -25239,6 +28658,26 @@ List User Profiles
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaUserProfile:`
@@ -25293,19 +28732,15 @@ List User Profiles
 
     Platform's own identifier for this user. Not enforced unique.
 
+  - `Optional<LocalDateTime> externalUserOnboardedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `Optional<String> name`
 
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `Optional<Relationship> relationship`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `EXTERNAL("external")`
-
-    - `RESOLD("resold")`
-
-    - `INTERNAL("internal")`
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
 
 #### Example
 
@@ -25346,8 +28781,8 @@ public final class Main {
       "updated_at": "2026-03-15T10:00:00Z",
       "access_type": "application",
       "external_id": "user_12345",
-      "name": "Example User",
-      "relationship": "external"
+      "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+      "name": "Example User"
     }
   ],
   "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
@@ -25440,6 +28875,26 @@ Get User Profile
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaUserProfile:`
@@ -25494,19 +28949,15 @@ Get User Profile
 
     Platform's own identifier for this user. Not enforced unique.
 
+  - `Optional<LocalDateTime> externalUserOnboardedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `Optional<String> name`
 
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `Optional<Relationship> relationship`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `EXTERNAL("external")`
-
-    - `RESOLD("resold")`
-
-    - `INTERNAL("internal")`
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
 
 #### Example
 
@@ -25545,8 +28996,8 @@ public final class Main {
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
 }
 ```
 
@@ -25636,6 +29087,26 @@ Update User Profile
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Optional<AccessType> accessType`
 
     How the platform uses the API on behalf of the entity this profile represents. `application`: the platform sells a product that uses the API behind the scenes, and the profile represents an individual end-user of that product. `passthrough`: the platform resells raw inference, and the profile identifies the resold-to company.
@@ -25650,6 +29121,12 @@ Update User Profile
 
     minLength: 1, maxLength: 255
 
+  - `Optional<LocalDateTime> externalUserOnboardedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `Optional<Metadata> metadata`
 
     Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
@@ -25659,16 +29136,6 @@ Update User Profile
     If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
 
     minLength: 1, maxLength: 255
-
-  - `Optional<Relationship> relationship`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `EXTERNAL("external")`
-
-    - `RESOLD("resold")`
-
-    - `INTERNAL("internal")`
 
 #### Returns
 
@@ -25724,19 +29191,15 @@ Update User Profile
 
     Platform's own identifier for this user. Not enforced unique.
 
+  - `Optional<LocalDateTime> externalUserOnboardedAt`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `Optional<String> name`
 
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `Optional<Relationship> relationship`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `EXTERNAL("external")`
-
-    - `RESOLD("resold")`
-
-    - `INTERNAL("internal")`
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
 
 #### Example
 
@@ -25775,8 +29238,8 @@ public final class Main {
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
 }
 ```
 
@@ -25865,6 +29328,26 @@ Create Enrollment URL
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -26000,6 +29483,26 @@ Create a Dream
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `List<BetaDreamInput> inputs`
 
@@ -26392,6 +29895,26 @@ List Dreams
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaDream:`
@@ -26694,6 +30217,26 @@ Get a Dream
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaDream:`
@@ -26991,6 +30534,26 @@ Cancel a Dream
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaDream:`
@@ -27287,6 +30850,26 @@ Archive a Dream
     - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -27587,6 +31170,26 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Optional<String> displayName`
 
     Optional human-readable name for the tunnel (1-255 characters).
@@ -27623,7 +31226,7 @@ Creates a tunnel. Creation allocates a fresh hostname and provisions the tunnel;
 
     Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel"`
 
 #### Example
 
@@ -27747,6 +31350,26 @@ Fetches a tunnel by ID.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaTunnel:`
@@ -27777,7 +31400,7 @@ Fetches a tunnel by ID.
 
     Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel"`
 
 #### Example
 
@@ -27913,6 +31536,26 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaTunnel:`
@@ -27943,7 +31586,7 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
 
     Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel"`
 
 #### Example
 
@@ -28072,6 +31715,26 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaTunnel:`
@@ -28102,7 +31765,7 @@ Archives a tunnel. Archival is irreversible: every non-archived certificate on t
 
     Anthropic-assigned hostname for the tunnel. MCP server URLs whose host is a subdomain of this value are routed through the tunnel. Globally unique and never reused, even after the tunnel is archived.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel"`
 
 #### Example
 
@@ -28226,6 +31889,26 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaTunnelToken:`
@@ -28240,7 +31923,7 @@ Reveals a tunnel's connector token. The value is fetched live on each call; Anth
 
     The connector token used to run the tunnel. Treat as a credential.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel_token"`
 
 #### Example
 
@@ -28361,6 +32044,26 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Optional<String> reason`
 
     Optional free-text reason for the rotation, recorded for audit.
@@ -28381,7 +32084,7 @@ Rotates a tunnel's connector token. Rotation invalidates the current token for n
 
     The connector token used to run the tunnel. Treat as a credential.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel_token"`
 
 #### Example
 
@@ -28504,6 +32207,26 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `String caCertificatePem`
 
     PEM-encoded X.509 CA certificate. Must contain exactly one certificate and no private-key material. Maximum 8KB.
@@ -28546,7 +32269,7 @@ Registers a public CA certificate on a tunnel. Anthropic verifies the gateway's 
 
     ID of the tunnel the certificate is registered against.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel_certificate"`
 
 #### Example
 
@@ -28677,6 +32400,26 @@ Fetches a tunnel certificate by ID.
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaTunnelCertificate:`
@@ -28713,7 +32456,7 @@ Fetches a tunnel certificate by ID.
 
     ID of the tunnel the certificate is registered against.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel_certificate"`
 
 #### Example
 
@@ -28856,6 +32599,26 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaTunnelCertificate:`
@@ -28892,7 +32655,7 @@ Lists the certificates registered on a tunnel. Archived certificates are exclude
 
     ID of the tunnel the certificate is registered against.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel_certificate"`
 
 #### Example
 
@@ -29024,6 +32787,26 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
     - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
 #### Returns
 
 - `class BetaTunnelCertificate:`
@@ -29060,7 +32843,7 @@ Archives a tunnel certificate, removing it from the set Anthropic trusts for the
 
     ID of the tunnel the certificate is registered against.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "tunnel_certificate"`
 
 #### Example
 
@@ -29100,3 +32883,4478 @@ public final class Main {
   "type": "tunnel_certificate"
 }
 ```
+
+## Beta › Organization
+
+### Get Current Organization
+
+`BetaOrganization beta().organization().retrieve(params = OrganizationRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/me`
+
+Retrieve information about the organization associated with the authenticated API key.
+
+#### Parameters
+
+- `OrganizationRetrieveParams params`
+
+#### Returns
+
+- `class BetaOrganization:`
+
+  - `String id`
+
+    ID of the Organization.
+
+    format: uuid
+
+  - `String name`
+
+    Name of the Organization.
+
+  - `JsonValue type = "organization"`
+
+    Object type.
+
+    For Organizations, this is always `"organization"`.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.BetaOrganization;
+import com.anthropic.models.beta.organization.OrganizationRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaOrganization betaOrganization = client.beta().organization().retrieve();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "12345678-1234-5678-1234-567812345678",
+  "name": "Organization Name",
+  "type": "organization"
+}
+```
+
+## Beta › Organization › API Keys
+
+### List API Keys
+
+`ApiKeyListPage beta().organization().apiKeys().list(params = ApiKeyListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/api_keys`
+
+List API Keys
+
+#### Parameters
+
+- `ApiKeyListParams params`
+
+  - `Optional<String> afterId`
+
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
+
+  - `Optional<String> beforeId`
+
+    ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately before this object.
+
+  - `Optional<String> createdByUserId`
+
+    Filter by the ID of the User who created the object.
+
+  - `Optional<Long> limit`
+
+    Number of items to return per page.
+
+    Defaults to `20`. Ranges from `1` to `1000`.
+
+    maximum: 1000, minimum: 1
+
+  - `Optional<Status> status`
+
+    Filter by API key status.
+
+    - `ACTIVE("active")`
+
+    - `ARCHIVED("archived")`
+
+    - `EXPIRED("expired")`
+
+    - `INACTIVE("inactive")`
+
+  - `Optional<String> workspaceId`
+
+    Filter by Workspace ID.
+
+#### Returns
+
+- `class BetaApiKey:`
+
+  - `String id`
+
+    ID of the API key.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `Optional<BetaApiKeyCreatedBy> createdBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `String id`
+
+      ID of the actor that created the object.
+
+    - `Type type`
+
+      Type of the actor that created the object.
+
+      - `SERVICE_ACCOUNT("service_account")`
+
+      - `USER("user")`
+
+  - `Optional<LocalDateTime> expiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `String name`
+
+    Name of the API key.
+
+  - `Optional<String> partialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `Optional<Principal> principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `class BetaApiKeyUserActor:`
+
+      - `JsonValue type = "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+      - `String userId`
+
+        ID of the User the API key acts as.
+
+    - `class BetaApiKeyServiceAccountActor:`
+
+      - `String serviceAccountId`
+
+        ID of the Service Account the API key acts as.
+
+      - `JsonValue type = "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+  - `Scope scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `class BetaApiKeyOrganizationScope:`
+
+      - `JsonValue type = "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+    - `class BetaApiKeyWorkspaceScope:`
+
+      - `JsonValue type = "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+      - `String workspaceId`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `Status status`
+
+    Status of the API key.
+
+    - `ACTIVE("active")`
+
+    - `ARCHIVED("archived")`
+
+    - `EXPIRED("expired")`
+
+    - `INACTIVE("inactive")`
+
+  - `JsonValue type = "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `Optional<String> workspaceId`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.apikeys.ApiKeyListPage;
+import com.anthropic.models.beta.organization.apikeys.ApiKeyListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        ApiKeyListPage page = client.beta().organization().apiKeys().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by": {
+        "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+        "type": "user"
+      },
+      "expires_at": "2024-10-30T23:58:27.427722Z",
+      "name": "Developer Key",
+      "partial_key_hint": "sk-ant-api03-R2D...igAA",
+      "principal": {
+        "type": "user_actor",
+        "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+      },
+      "scope": {
+        "type": "workspace",
+        "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+      },
+      "status": "active",
+      "type": "api_key",
+      "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+### Get API Key
+
+`BetaApiKey beta().organization().apiKeys().retrieve(params = ApiKeyRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/api_keys/{api_key_id}`
+
+Get API Key
+
+#### Parameters
+
+- `ApiKeyRetrieveParams params`
+
+  - `Optional<String> apiKeyId`
+
+    ID of the API key.
+
+#### Returns
+
+- `class BetaApiKey:`
+
+  - `String id`
+
+    ID of the API key.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `Optional<BetaApiKeyCreatedBy> createdBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `String id`
+
+      ID of the actor that created the object.
+
+    - `Type type`
+
+      Type of the actor that created the object.
+
+      - `SERVICE_ACCOUNT("service_account")`
+
+      - `USER("user")`
+
+  - `Optional<LocalDateTime> expiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `String name`
+
+    Name of the API key.
+
+  - `Optional<String> partialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `Optional<Principal> principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `class BetaApiKeyUserActor:`
+
+      - `JsonValue type = "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+      - `String userId`
+
+        ID of the User the API key acts as.
+
+    - `class BetaApiKeyServiceAccountActor:`
+
+      - `String serviceAccountId`
+
+        ID of the Service Account the API key acts as.
+
+      - `JsonValue type = "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+  - `Scope scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `class BetaApiKeyOrganizationScope:`
+
+      - `JsonValue type = "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+    - `class BetaApiKeyWorkspaceScope:`
+
+      - `JsonValue type = "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+      - `String workspaceId`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `Status status`
+
+    Status of the API key.
+
+    - `ACTIVE("active")`
+
+    - `ARCHIVED("archived")`
+
+    - `EXPIRED("expired")`
+
+    - `INACTIVE("inactive")`
+
+  - `JsonValue type = "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `Optional<String> workspaceId`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.apikeys.ApiKeyRetrieveParams;
+import com.anthropic.models.beta.organization.apikeys.BetaApiKey;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaApiKey betaApiKey = client.beta().organization().apiKeys().retrieve("api_key_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+### Update API Key
+
+`BetaApiKey beta().organization().apiKeys().update(params = ApiKeyUpdateParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/api_keys/{api_key_id}`
+
+Update API Key
+
+#### Parameters
+
+- `ApiKeyUpdateParams params`
+
+  - `Optional<String> apiKeyId`
+
+    ID of the API key.
+
+  - `Optional<String> name`
+
+    Name of the API key.
+
+    maxLength: 500, minLength: 1
+
+  - `Optional<Status> status`
+
+    Status of the API key.
+
+    - `ACTIVE("active")`
+
+    - `ARCHIVED("archived")`
+
+    - `INACTIVE("inactive")`
+
+#### Returns
+
+- `class BetaApiKey:`
+
+  - `String id`
+
+    ID of the API key.
+
+  - `LocalDateTime createdAt`
+
+    RFC 3339 datetime string indicating when the API Key was created.
+
+    format: date-time
+
+  - `Optional<BetaApiKeyCreatedBy> createdBy`
+
+    The ID and type of the actor that created the API key, or `null` when the
+    creator is not recorded (legacy, workload-identity-federated, or
+    system-created keys).
+
+    - `String id`
+
+      ID of the actor that created the object.
+
+    - `Type type`
+
+      Type of the actor that created the object.
+
+      - `SERVICE_ACCOUNT("service_account")`
+
+      - `USER("user")`
+
+  - `Optional<LocalDateTime> expiresAt`
+
+    RFC 3339 datetime string indicating when the API Key expires, or `null` if it never expires.
+
+    format: date-time
+
+  - `String name`
+
+    Name of the API key.
+
+  - `Optional<String> partialKeyHint`
+
+    Partially redacted hint for the API key.
+
+  - `Optional<Principal> principal`
+
+    The principal the API key acts as (a User or a Service Account), or `null` if the API key is not bound to a principal.
+
+    - `class BetaApiKeyUserActor:`
+
+      - `JsonValue type = "user_actor"`
+
+        Principal type. Always `"user_actor"` for a User.
+
+      - `String userId`
+
+        ID of the User the API key acts as.
+
+    - `class BetaApiKeyServiceAccountActor:`
+
+      - `String serviceAccountId`
+
+        ID of the Service Account the API key acts as.
+
+      - `JsonValue type = "service_account_actor"`
+
+        Principal type. Always `"service_account_actor"` for a Service Account.
+
+  - `Scope scope`
+
+    Where the API key belongs: its Workspace (`{"type": "workspace", "workspace_id": "wrkspc_..."}`, with the Workspace's real ID even when it is the organization's default Workspace), or the organization (`{"type": "organization"}`) for a principal-bound API key that has no Workspace.
+
+    - `class BetaApiKeyOrganizationScope:`
+
+      - `JsonValue type = "organization"`
+
+        Scope type. Always `"organization"`: the API key has no Workspace. Only a principal-bound API key can have this scope.
+
+    - `class BetaApiKeyWorkspaceScope:`
+
+      - `JsonValue type = "workspace"`
+
+        Scope type. Always `"workspace"`: the API key belongs to one Workspace.
+
+      - `String workspaceId`
+
+        ID of the Workspace the API key belongs to. Unlike the deprecated top-level `workspace_id`, this is the Workspace's real ID even for the organization's default Workspace.
+
+  - `Status status`
+
+    Status of the API key.
+
+    - `ACTIVE("active")`
+
+    - `ARCHIVED("archived")`
+
+    - `EXPIRED("expired")`
+
+    - `INACTIVE("inactive")`
+
+  - `JsonValue type = "api_key"`
+
+    Object type.
+
+    For API Keys, this is always `"api_key"`.
+
+  - `Optional<String> workspaceId`
+
+    **Deprecated**: Use `scope` instead. `workspace_id` is `null` both for an API key in the default Workspace and for a principal-bound API key that has no Workspace.
+
+    Deprecated: use `scope` instead. ID of the Workspace associated with the API key, or `null` if the API key belongs to the default Workspace. Also `null` for a principal-bound API key that has no Workspace; `scope` tells the two apart.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.apikeys.ApiKeyUpdateParams;
+import com.anthropic.models.beta.organization.apikeys.BetaApiKey;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaApiKey betaApiKey = client.beta().organization().apiKeys().update("api_key_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "principal": {
+    "type": "user_actor",
+    "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q"
+  },
+  "scope": {
+    "type": "workspace",
+    "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+  },
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
+## Beta › Organization › External Keys
+
+### Create External Key
+
+`BetaExternalKey beta().organization().externalKeys().create(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/external_keys`
+
+Create an external key config owned by the caller's organization.
+
+#### Parameters
+
+- `ExternalKeyCreateParams params`
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `String kmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `JsonValue type = "aws"`
+
+      - `Optional<String> region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `Optional<String> roleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `String keyName`
+
+        Full resource name of the Cloud KMS key.
+
+      - `JsonValue type = "gcp"`
+
+    - `class BetaAzureExternalKeyConfigParam:`
+
+      Azure Key Vault provider configuration.
+
+      - `String keyName`
+
+        Name of the key within the vault.
+
+      - `String tenantId`
+
+        Azure AD tenant ID.
+
+      - `JsonValue type = "azure"`
+
+      - `String vaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `Optional<String> clientId`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `Optional<String> displayName`
+
+    Human-friendly display name.
+
+    maxLength: 255, minLength: 1
+
+  - `Optional<Geo> geo`
+
+    Data residency geo. Only `us` is supported.
+
+    - `US("us")`
+
+#### Returns
+
+- `class BetaExternalKey:`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `String id`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `Attachment attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `class BetaExternalKeyAttachedAttachment:`
+
+      - `JsonValue type = "attached"`
+
+    - `class BetaExternalKeyUnattachedAttachment:`
+
+      - `JsonValue type = "unattached"`
+
+  - `LocalDateTime createdAt`
+
+    format: date-time
+
+  - `Optional<String> displayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `String geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `String kmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `JsonValue type = "aws"`
+
+      - `Optional<String> region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `Optional<String> roleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `String keyName`
+
+        Full resource name of the Cloud KMS key.
+
+      - `JsonValue type = "gcp"`
+
+    - `class BetaAzureExternalKeyConfig:`
+
+      - `String keyName`
+
+        Name of the key within the vault.
+
+      - `String tenantId`
+
+        Azure AD tenant ID.
+
+      - `JsonValue type = "azure"`
+
+      - `String vaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `Optional<String> clientId`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `JsonValue type = "external_key"`
+
+  - `LocalDateTime updatedAt`
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.externalkeys.BetaExternalKey;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyCreateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        ExternalKeyCreateParams params = ExternalKeyCreateParams.builder()
+            .awsProviderConfig("arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222")
+            .build();
+        BetaExternalKey betaExternalKey = client.beta().organization().externalKeys().create(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### List External Keys
+
+`ExternalKeyListPage beta().organization().externalKeys().list(params = ExternalKeyListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/external_keys`
+
+List external key configs in the caller's organization.
+
+Results are ordered by creation time (newest first). Use the
+`next_page` cursor from the response to fetch subsequent pages.
+
+#### Parameters
+
+- `ExternalKeyListParams params`
+
+  - `Optional<Long> limit`
+
+    Number of results per page.
+
+    maximum: 100, minimum: 1
+
+  - `Optional<String> page`
+
+    Opaque cursor from a previous response's `next_page`.
+
+#### Returns
+
+- `class BetaExternalKey:`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `String id`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `Attachment attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `class BetaExternalKeyAttachedAttachment:`
+
+      - `JsonValue type = "attached"`
+
+    - `class BetaExternalKeyUnattachedAttachment:`
+
+      - `JsonValue type = "unattached"`
+
+  - `LocalDateTime createdAt`
+
+    format: date-time
+
+  - `Optional<String> displayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `String geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `String kmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `JsonValue type = "aws"`
+
+      - `Optional<String> region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `Optional<String> roleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `String keyName`
+
+        Full resource name of the Cloud KMS key.
+
+      - `JsonValue type = "gcp"`
+
+    - `class BetaAzureExternalKeyConfig:`
+
+      - `String keyName`
+
+        Name of the key within the vault.
+
+      - `String tenantId`
+
+        Azure AD tenant ID.
+
+      - `JsonValue type = "azure"`
+
+      - `String vaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `Optional<String> clientId`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `JsonValue type = "external_key"`
+
+  - `LocalDateTime updatedAt`
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyListPage;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        ExternalKeyListPage page = client.beta().organization().externalKeys().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+      "attachment": {
+        "type": "attached"
+      },
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_name": "prod-us-key",
+      "geo": "us",
+      "provider_config": {
+        "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+        "type": "aws",
+        "region": "us-east-1",
+        "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+      },
+      "type": "external_key",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get External Key
+
+`BetaExternalKey beta().organization().externalKeys().retrieve(params = ExternalKeyRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/external_keys/{external_key_id}`
+
+Retrieve a single external key config in the caller's organization by ID.
+
+#### Parameters
+
+- `ExternalKeyRetrieveParams params`
+
+  - `Optional<String> externalKeyId`
+
+    ID of the External Key.
+
+    maxLength: 2048
+
+#### Returns
+
+- `class BetaExternalKey:`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `String id`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `Attachment attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `class BetaExternalKeyAttachedAttachment:`
+
+      - `JsonValue type = "attached"`
+
+    - `class BetaExternalKeyUnattachedAttachment:`
+
+      - `JsonValue type = "unattached"`
+
+  - `LocalDateTime createdAt`
+
+    format: date-time
+
+  - `Optional<String> displayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `String geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `String kmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `JsonValue type = "aws"`
+
+      - `Optional<String> region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `Optional<String> roleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `String keyName`
+
+        Full resource name of the Cloud KMS key.
+
+      - `JsonValue type = "gcp"`
+
+    - `class BetaAzureExternalKeyConfig:`
+
+      - `String keyName`
+
+        Name of the key within the vault.
+
+      - `String tenantId`
+
+        Azure AD tenant ID.
+
+      - `JsonValue type = "azure"`
+
+      - `String vaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `Optional<String> clientId`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `JsonValue type = "external_key"`
+
+  - `LocalDateTime updatedAt`
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.externalkeys.BetaExternalKey;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaExternalKey betaExternalKey = client.beta().organization().externalKeys().retrieve("external_key_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Update External Key
+
+`BetaExternalKey beta().organization().externalKeys().update(params = ExternalKeyUpdateParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/external_keys/{external_key_id}`
+
+Partially update an external key config. Omitted fields are left unchanged.
+
+`display_name` is always editable. `geo` and `provider_config` cannot
+be changed once any workspace references this config, because previously
+encrypted data requires the original key identity to decrypt.
+
+#### Parameters
+
+- `ExternalKeyUpdateParams params`
+
+  - `Optional<String> externalKeyId`
+
+    ID of the External Key.
+
+    maxLength: 2048
+
+  - `Optional<String> displayName`
+
+    Human-friendly display name.
+
+    maxLength: 255, minLength: 1
+
+  - `Optional<Geo> geo`
+
+    Data residency geo. Only `us` is supported.
+
+    - `US("us")`
+
+  - `Optional<ProviderConfig> providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `String kmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `JsonValue type = "aws"`
+
+      - `Optional<String> region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `Optional<String> roleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `String keyName`
+
+        Full resource name of the Cloud KMS key.
+
+      - `JsonValue type = "gcp"`
+
+    - `class BetaAzureExternalKeyConfigParam:`
+
+      Azure Key Vault provider configuration.
+
+      - `String keyName`
+
+        Name of the key within the vault.
+
+      - `String tenantId`
+
+        Azure AD tenant ID.
+
+      - `JsonValue type = "azure"`
+
+      - `String vaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `Optional<String> clientId`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+#### Returns
+
+- `class BetaExternalKey:`
+
+  CMEK external key config belonging to the caller's organization.
+
+  Configs are organization-scoped. Workspaces attach to a config; once any
+  workspace references it, the provider fields become effectively immutable
+  (existing encrypted data needs the config for decrypt).
+
+  - `String id`
+
+    Identifier of the external key config. A tagged ID prefixed `ekey_`, or — for organizations on the Claude Platform on AWS — the AWS KMS key ARN.
+
+  - `Attachment attachment`
+
+    Whether any workspace uses this config to encrypt its data — counting live and archived workspaces (an archived workspace's data remains encrypted under the config), excluding deleted ones. Only an attached config is used by the encryption path; an `unattached` config is inert and can be deleted.
+
+    - `class BetaExternalKeyAttachedAttachment:`
+
+      - `JsonValue type = "attached"`
+
+    - `class BetaExternalKeyUnattachedAttachment:`
+
+      - `JsonValue type = "unattached"`
+
+  - `LocalDateTime createdAt`
+
+    format: date-time
+
+  - `Optional<String> displayName`
+
+    Human-friendly display name. Null if none was set.
+
+  - `String geo`
+
+    Data residency geo. Selects which regional validator handles this key's encrypt/decrypt roundtrips.
+
+  - `ProviderConfig providerConfig`
+
+    KMS provider identity and auth coordinates.
+
+    - `class BetaAwsExternalKeyConfig:`
+
+      - `String kmsArn`
+
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
+
+        maxLength: 2048
+
+      - `JsonValue type = "aws"`
+
+      - `Optional<String> region`
+
+        AWS region. Derived from `kms_arn` if omitted.
+
+      - `Optional<String> roleArn`
+
+        **Deprecated**
+
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
+
+    - `class BetaGcpExternalKeyConfig:`
+
+      - `String keyName`
+
+        Full resource name of the Cloud KMS key.
+
+      - `JsonValue type = "gcp"`
+
+    - `class BetaAzureExternalKeyConfig:`
+
+      - `String keyName`
+
+        Name of the key within the vault.
+
+      - `String tenantId`
+
+        Azure AD tenant ID.
+
+      - `JsonValue type = "azure"`
+
+      - `String vaultUri`
+
+        Key Vault data-plane URI — `https://{vault-name}.vault.azure.net` or `https://{hsm-name}.managedhsm.azure.net`.
+
+      - `Optional<String> clientId`
+
+        Azure AD application (client) ID. Omit to use Anthropic's multitenant app. Provide only if using a single-tenant app registration in the customer's directory.
+
+  - `JsonValue type = "external_key"`
+
+  - `LocalDateTime updatedAt`
+
+    format: date-time
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.externalkeys.BetaExternalKey;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyUpdateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaExternalKey betaExternalKey = client.beta().organization().externalKeys().update("external_key_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01SDCCSbTxrXDpWc1phhtcfK",
+  "attachment": {
+    "type": "attached"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_name": "prod-us-key",
+  "geo": "us",
+  "provider_config": {
+    "kms_arn": "arn:aws:kms:us-east-1:111122223333:key/abcd1234-5678-90ab-cdef-000011112222",
+    "type": "aws",
+    "region": "us-east-1",
+    "role_arn": "arn:aws:iam::111122223333:role/anthropic-cmek"
+  },
+  "type": "external_key",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+### Delete External Key
+
+`ExternalKeyDeleteResponse beta().organization().externalKeys().delete(params = ExternalKeyDeleteParams.none(), requestOptions = RequestOptions.none())`
+
+**DELETE** `/v1/organizations/external_keys/{external_key_id}`
+
+Delete an external key config.
+
+The request is rejected if any workspace still references this config.
+
+#### Parameters
+
+- `ExternalKeyDeleteParams params`
+
+  - `Optional<String> externalKeyId`
+
+    ID of the External Key.
+
+    maxLength: 2048
+
+#### Returns
+
+- `class ExternalKeyDeleteResponse:`
+
+  - `String id`
+
+    ID of the deleted External Key.
+
+  - `JsonValue type = "external_key_deleted"`
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyDeleteParams;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyDeleteResponse;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        ExternalKeyDeleteResponse externalKey = client.beta().organization().externalKeys().delete("external_key_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "ekey_01AbCdEfGhIjKlMnOpQrStUv",
+  "type": "external_key_deleted"
+}
+```
+
+### Validate External Key
+
+`ExternalKeyValidateResponse beta().organization().externalKeys().validate(params = ExternalKeyValidateParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/external_keys/{external_key_id}/validate`
+
+Validate an external key config against the customer's KMS.
+
+Anthropic performs an encrypt/decrypt roundtrip against the configured
+KMS key and waits up to 30 seconds for the result. The response status is
+`success` if the roundtrip succeeded, or `failure` with an error
+message if it failed or timed out.
+
+#### Parameters
+
+- `ExternalKeyValidateParams params`
+
+  - `Optional<String> externalKeyId`
+
+    ID of the External Key.
+
+    maxLength: 2048
+
+#### Returns
+
+- `class ExternalKeyValidateResponse:`
+
+  Result of a validation roundtrip against the customer's KMS.
+
+  HTTP 200 for both outcomes — the operation completed; `status` says
+  whether the key works.
+
+  - `Optional<String> error`
+
+    Error message when status is `failure`. Null otherwise.
+
+  - `Status status`
+
+    `success` — encrypt/decrypt roundtrip succeeded. `failure` — the roundtrip failed or timed out; see `error`.
+
+    - `FAILURE("failure")`
+
+    - `SUCCESS("success")`
+
+  - `JsonValue type = "external_key_validation"`
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyValidateParams;
+import com.anthropic.models.beta.organization.externalkeys.ExternalKeyValidateResponse;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        ExternalKeyValidateResponse response = client.beta().organization().externalKeys().validate("external_key_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "error": "error",
+  "status": "failure",
+  "type": "external_key_validation"
+}
+```
+
+## Beta › Organization › Federation › Issuers
+
+### Create Federation Issuer
+
+`BetaFederationIssuer beta().organization().federation().issuers().create(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Register an OIDC issuer that Anthropic will trust for workload identity
+federation in your organization.
+
+The `jwks` field controls how the issuer's signing keys are obtained and
+takes one of three shapes selected by `type`: `discovery` (resolve keys
+through OIDC discovery), `explicit_url` (fetch keys from a fixed JWKS
+URL), or `inline` (provide a static key set). When `jwks.type` is
+`discovery` and no `discovery_base` is set, the issuer URL must be
+publicly reachable over HTTPS so Anthropic can fetch the discovery
+document; for `explicit_url` and `inline` modes the issuer URL is only
+matched as the JWT's `iss` claim and is not fetched.
+
+#### Parameters
+
+- `IssuerCreateParams params`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `String issuerUrl`
+
+    The `iss` claim value to match against.
+
+    minLength: 1
+
+  - `String name`
+
+    Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    maxLength: 255, minLength: 1
+
+  - `Optional<Boolean> checkJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Defaults to true. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `Optional<Jwks> jwks`
+
+    How signing keys are obtained. Defaults to OIDC discovery.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonValue type = "discovery"`
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `Optional<String> discoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonValue type = "explicit_url"`
+
+      - `String url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `List<Key> keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+      - `JsonValue type = "inline"`
+
+  - `Optional<Long> maxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Defaults to 3600 (1h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+    maximum: 176400, exclusiveMinimum: 0
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `String id`
+
+    Tagged ID of the federation issuer.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `boolean checkJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `LocalDateTime createdAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `Optional<String> createdByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `String issuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `Jwks jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonValue type = "discovery"`
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `Optional<String> discoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonValue type = "explicit_url"`
+
+      - `String url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `List<Key> keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+      - `JsonValue type = "inline"`
+
+  - `Optional<LocalDateTime> jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `long maxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `String name`
+
+    Admin-chosen slug identifier.
+
+  - `Optional<BetaFederationIssuerPollStatus> pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `long consecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `Optional<LocalDateTime> lastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `Optional<LocalDateTime> nextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `JsonValue type = "federation_issuer"`
+
+  - `LocalDateTime updatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `Optional<String> updatedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.federation.issuers.BetaFederationIssuer;
+import com.anthropic.models.beta.organization.federation.issuers.IssuerCreateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        IssuerCreateParams params = IssuerCreateParams.builder()
+            .issuerUrl("x")
+            .name("x")
+            .build();
+        BetaFederationIssuer betaFederationIssuer = client.beta().organization().federation().issuers().create(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### List Federation Issuers
+
+`IssuerListPage beta().organization().federation().issuers().list(params = IssuerListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List federation issuers in your organization.
+
+Archived issuers are excluded unless `include_archived=true`.
+
+#### Parameters
+
+- `IssuerListParams params`
+
+  - `Optional<Boolean> includeArchived`
+
+    Include archived resources. Defaults to false.
+
+  - `Optional<Long> limit`
+
+    Number of results per page.
+
+    maximum: 100, minimum: 1
+
+  - `Optional<String> page`
+
+    Opaque cursor from a previous response's `next_page`.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `String id`
+
+    Tagged ID of the federation issuer.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `boolean checkJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `LocalDateTime createdAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `Optional<String> createdByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `String issuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `Jwks jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonValue type = "discovery"`
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `Optional<String> discoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonValue type = "explicit_url"`
+
+      - `String url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `List<Key> keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+      - `JsonValue type = "inline"`
+
+  - `Optional<LocalDateTime> jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `long maxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `String name`
+
+    Admin-chosen slug identifier.
+
+  - `Optional<BetaFederationIssuerPollStatus> pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `long consecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `Optional<LocalDateTime> lastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `Optional<LocalDateTime> nextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `JsonValue type = "federation_issuer"`
+
+  - `LocalDateTime updatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `Optional<String> updatedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.federation.issuers.IssuerListPage;
+import com.anthropic.models.beta.organization.federation.issuers.IssuerListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        IssuerListPage page = client.beta().organization().federation().issuers().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "check_jti": true,
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "issuer_url": "https://token.actions.githubusercontent.com",
+      "jwks": {
+        "type": "discovery",
+        "ca_cert_pem": "ca_cert_pem",
+        "discovery_base": "discovery_base"
+      },
+      "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+      "max_jwt_lifetime_seconds": 0,
+      "name": "github-actions",
+      "poll_status": {
+        "consecutive_failures": 0,
+        "last_fetched_at": "2019-12-27T18:11:19.117Z",
+        "next_poll_at": "2019-12-27T18:11:19.117Z"
+      },
+      "type": "federation_issuer",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Federation Issuer
+
+`BetaFederationIssuer beta().organization().federation().issuers().retrieve(params = IssuerRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a federation issuer by its ID (`fdis_...`).
+
+#### Parameters
+
+- `IssuerRetrieveParams params`
+
+  - `Optional<String> federationIssuerId`
+
+    ID of the federation issuer.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `String id`
+
+    Tagged ID of the federation issuer.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `boolean checkJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `LocalDateTime createdAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `Optional<String> createdByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `String issuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `Jwks jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonValue type = "discovery"`
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `Optional<String> discoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonValue type = "explicit_url"`
+
+      - `String url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `List<Key> keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+      - `JsonValue type = "inline"`
+
+  - `Optional<LocalDateTime> jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `long maxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `String name`
+
+    Admin-chosen slug identifier.
+
+  - `Optional<BetaFederationIssuerPollStatus> pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `long consecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `Optional<LocalDateTime> lastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `Optional<LocalDateTime> nextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `JsonValue type = "federation_issuer"`
+
+  - `LocalDateTime updatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `Optional<String> updatedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.federation.issuers.BetaFederationIssuer;
+import com.anthropic.models.beta.organization.federation.issuers.IssuerRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaFederationIssuer betaFederationIssuer = client.beta().organization().federation().issuers().retrieve("federation_issuer_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Update Federation Issuer
+
+`BetaFederationIssuer beta().organization().federation().issuers().update(params = IssuerUpdateParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Partially update a federation issuer.
+
+Setting `jwks` replaces the full JWKS shape at once. Archived issuers
+cannot be updated; this returns 400. Create a new issuer instead.
+
+Updating an issuer that backs a rule with a scope outside
+`workspace:developer` or `workspace:inference` requires a Console
+session.
+
+#### Parameters
+
+- `IssuerUpdateParams params`
+
+  - `Optional<String> federationIssuerId`
+
+    ID of the federation issuer to update.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<Boolean> checkJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `Optional<String> issuerUrl`
+
+    Replaces the `iss` claim value to match against. For discovery-mode issuers without a `discovery_base`, this is also the URL Anthropic fetches the OIDC discovery document and signing keys from, so changing it repoints the JWKS source. Changing the issuer URL to a well-known shared platform is rejected while any live rule under this issuer would not constrain tenant identity.
+
+    minLength: 1
+
+  - `Optional<Jwks> jwks`
+
+    Replaces the entire JWKS configuration.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonValue type = "discovery"`
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `Optional<String> discoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonValue type = "explicit_url"`
+
+      - `String url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `List<Key> keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+      - `JsonValue type = "inline"`
+
+  - `Optional<Boolean> jwksPollingDisabled`
+
+    Only `false` is accepted, to re-enable polling after the system pauses it. Polling is paused automatically; sending `true` is rejected.
+
+  - `Optional<Long> maxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+    maximum: 176400, exclusiveMinimum: 0
+
+  - `Optional<String> name`
+
+    Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    maxLength: 255, minLength: 1
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `String id`
+
+    Tagged ID of the federation issuer.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `boolean checkJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `LocalDateTime createdAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `Optional<String> createdByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `String issuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `Jwks jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonValue type = "discovery"`
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `Optional<String> discoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonValue type = "explicit_url"`
+
+      - `String url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `List<Key> keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+      - `JsonValue type = "inline"`
+
+  - `Optional<LocalDateTime> jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `long maxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `String name`
+
+    Admin-chosen slug identifier.
+
+  - `Optional<BetaFederationIssuerPollStatus> pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `long consecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `Optional<LocalDateTime> lastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `Optional<LocalDateTime> nextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `JsonValue type = "federation_issuer"`
+
+  - `LocalDateTime updatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `Optional<String> updatedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.federation.issuers.BetaFederationIssuer;
+import com.anthropic.models.beta.organization.federation.issuers.IssuerUpdateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaFederationIssuer betaFederationIssuer = client.beta().organization().federation().issuers().update("federation_issuer_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+### Archive Federation Issuer
+
+`BetaFederationIssuer beta().organization().federation().issuers().archive(params = IssuerArchiveParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/federation_issuers/{federation_issuer_id}/archive`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Archive a federation issuer.
+
+Idempotent; re-archiving returns the issuer with its original
+`archived_at`. Rejected with 400 if any live (non-archived) federation
+rule still references the issuer; archive those rules first (a rule's
+issuer cannot be changed), or recreate them against another issuer.
+
+#### Parameters
+
+- `IssuerArchiveParams params`
+
+  - `Optional<String> federationIssuerId`
+
+    ID of the federation issuer to archive.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationIssuer:`
+
+  Registered external OIDC identity provider.
+
+  Records an external IdP the organization trusts for the RFC 7523
+  jwt-bearer grant. The `issuer_url` must match the JWT `iss` claim exactly.
+
+  - `String id`
+
+    Tagged ID of the federation issuer.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, all rules referencing this issuer reject token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this issuer.
+
+  - `boolean checkJti`
+
+    Whether the jwt-bearer exchange enforces JTI single-use (replay protection) for tokens from this issuer. Applies only to assertions carrying a `jti` claim; tokens without one are accepted without single-use enforcement.
+
+  - `LocalDateTime createdAt`
+
+    When this issuer was created.
+
+    format: date-time
+
+  - `Optional<String> createdByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this issuer.
+
+  - `String issuerUrl`
+
+    The `iss` claim value. Incoming JWTs must match exactly.
+
+  - `Jwks jwks`
+
+    How signing keys are obtained for signature verification.
+
+    - `class BetaJwksDiscovery:`
+
+      JWKS via the issuer's OIDC discovery document.
+
+      - `JsonValue type = "discovery"`
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+      - `Optional<String> discoveryBase`
+
+        Set when the discovery URL differs from `issuer_url`.
+
+    - `class BetaJwksExplicitUrl:`
+
+      JWKS fetched from a fixed endpoint.
+
+      - `JsonValue type = "explicit_url"`
+
+      - `String url`
+
+        JWKS endpoint.
+
+        minLength: 1
+
+      - `Optional<String> caCertPem`
+
+        Optional custom CA (PEM) for TLS verification of the JWKS fetch.
+
+        maxLength: 8192
+
+    - `class BetaJwksInline:`
+
+      JWKS supplied directly; no network fetch.
+
+      - `List<Key> keys`
+
+        Inline JWK objects.
+
+        minItems: 1
+
+      - `JsonValue type = "inline"`
+
+  - `Optional<LocalDateTime> jwksPollingDisabledAt`
+
+    If set, Anthropic's JWKS poller has paused polling for this issuer after repeated fetch failures. Re-enable by sending `jwks_polling_disabled: false` via the issuer update endpoint (POST) once the upstream JWKS endpoint is fixed. An OAuth caller cannot send this when the issuer backs a rule with any scope other than `workspace:developer` or `workspace:inference`; use a Console session.
+
+    format: date-time
+
+  - `long maxJwtLifetimeSeconds`
+
+    Maximum allowed iat→exp spread for assertions from this issuer (1-176400 seconds, i.e. up to 49h). Assertions must carry both `iat` and `exp`; a missing `iat` is rejected.
+
+  - `String name`
+
+    Admin-chosen slug identifier.
+
+  - `Optional<BetaFederationIssuerPollStatus> pollStatus`
+
+    Status of automatic JWKS polling for a federation issuer.
+
+    Anthropic periodically fetches the issuer's signing keys in the
+    background. These fields summarize the most recent fetches so the
+    health of the JWKS endpoint can be monitored.
+
+    - `long consecutiveFailures`
+
+      Consecutive fetch failures since the last success.
+
+    - `Optional<LocalDateTime> lastFetchedAt`
+
+      When the last successful fetch completed.
+
+      format: date-time
+
+    - `Optional<LocalDateTime> nextPollAt`
+
+      When the next fetch is scheduled. Null if paused.
+
+      format: date-time
+
+  - `JsonValue type = "federation_issuer"`
+
+  - `LocalDateTime updatedAt`
+
+    When this issuer was last updated.
+
+    format: date-time
+
+  - `Optional<String> updatedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this issuer.
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.federation.issuers.BetaFederationIssuer;
+import com.anthropic.models.beta.organization.federation.issuers.IssuerArchiveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaFederationIssuer betaFederationIssuer = client.beta().organization().federation().issuers().archive("federation_issuer_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdis_01SDCCSbTxrXDpWc1phhtcfK",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "check_jti": true,
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "issuer_url": "https://token.actions.githubusercontent.com",
+  "jwks": {
+    "type": "discovery",
+    "ca_cert_pem": "ca_cert_pem",
+    "discovery_base": "discovery_base"
+  },
+  "jwks_polling_disabled_at": "2019-12-27T18:11:19.117Z",
+  "max_jwt_lifetime_seconds": 0,
+  "name": "github-actions",
+  "poll_status": {
+    "consecutive_failures": 0,
+    "last_fetched_at": "2019-12-27T18:11:19.117Z",
+    "next_poll_at": "2019-12-27T18:11:19.117Z"
+  },
+  "type": "federation_issuer",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id"
+}
+```
+
+## Beta › Organization › Federation › Rules
+
+### Create Federation Rule
+
+`BetaFederationRule beta().organization().federation().rules().create(params, requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/federation_rules`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Create a federation rule owned by your organization.
+
+The referenced issuer and the target service account must already exist
+in the same organization; invalid references are rejected with a 400
+error. The workspace reference is validated. Membership is not checked
+at rule creation: token exchange resolves a single enabled workspace per
+call and is rejected unless the target service account is a member of
+that workspace (it is implicitly a member of the default workspace).
+Rules on well-known shared issuers (GitHub Actions, GitLab, Buildkite,
+Terraform Cloud, Google) must constrain tenant identity via an
+identity-bearing claim, a tenant-pinning subject prefix (such as
+`repo:YOUR_ORG/...`), or a CEL condition referencing one of those
+identity claims (e.g. `claims.repository_owner`). OAuth callers may only
+manage rules whose `oauth_scope` is `workspace:developer` or
+`workspace:inference`; other scopes require a Console session.
+
+#### Parameters
+
+- `RuleCreateParams params`
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `String issuerId`
+
+    Tagged ID of the federation issuer.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. At least one of `subject_prefix` (other than a wildcard-only value like `*`), `claims`, or `condition` is required; `audience` alone is not sufficient.
+
+  - `String name`
+
+    Slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    maxLength: 255, minLength: 1
+
+  - `String oauthScope`
+
+    Space-separated OAuth scopes. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+
+    minLength: 1
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+  - `Optional<Boolean> appliesToAllWorkspaces`
+
+    When true, enable this rule for every workspace in the org (including workspaces created later).
+
+  - `Optional<Attributes> attributes`
+
+    CEL expressions `{name: expr}` extracting named values from claims. Not yet supported; any non-empty value is rejected with 400.
+
+  - `Optional<String> description`
+
+    Optional free-text description.
+
+    maxLength: 2000
+
+  - `Optional<Long> tokenLifetimeSeconds`
+
+    Lifetime in seconds for access tokens minted via this rule (60-86400). Defaults to 3600 (1h). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+    maximum: 86400, minimum: 60
+
+  - `Optional<String> workspaceId`
+
+    Tagged ID of the workspace to enable this rule for. Required unless `applies_to_all_workspaces` is true. Additional workspaces can be added via the `/federation_rules/{federation_rule_id}/workspaces` sub-resource.
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `String id`
+
+    Tagged ID of the federation rule.
+
+  - `boolean appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `Optional<Attributes> attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `LocalDateTime createdAt`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `Optional<String> createdByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `Optional<String> description`
+
+    Optional free-text description.
+
+  - `String issuerId`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `Optional<String> issuerName`
+
+    Issuer's display name at read time.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `Optional<String> audience`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `Optional<Claims> claims`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `Optional<String> condition`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `Optional<String> subjectPrefix`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `String name`
+
+    Admin-chosen slug identifier.
+
+  - `String oauthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `String serviceAccountId`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `JsonValue type = "service_account"`
+
+    - `Optional<String> serviceAccountName`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `long tokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `JsonValue type = "federation_rule"`
+
+  - `LocalDateTime updatedAt`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `Optional<String> updatedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `Optional<String> workspaceId`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `List<String> workspaceIds`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.federation.rules.BetaFederationRule;
+import com.anthropic.models.beta.organization.federation.rules.BetaFederationRuleMatch;
+import com.anthropic.models.beta.organization.federation.rules.BetaServiceAccountTarget;
+import com.anthropic.models.beta.organization.federation.rules.RuleCreateParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        RuleCreateParams params = RuleCreateParams.builder()
+            .issuerId("issuer_id")
+            .match(BetaFederationRuleMatch.builder().build())
+            .name("x")
+            .oauthScope("x")
+            .target(BetaServiceAccountTarget.of("svac_01SDCCSbTxrXDpWc1phhtcfK"))
+            .build();
+        BetaFederationRule betaFederationRule = client.beta().organization().federation().rules().create(params);
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### List Federation Rules
+
+`RuleListPage beta().organization().federation().rules().list(params = RuleListParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/federation_rules`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+List federation rules in your organization.
+
+Optionally filter by issuer with `issuer_id`. Archived rules are excluded
+unless `include_archived=true`.
+
+#### Parameters
+
+- `RuleListParams params`
+
+  - `Optional<Boolean> includeArchived`
+
+    Include archived resources. Defaults to false.
+
+  - `Optional<String> issuerId`
+
+    Filter to rules referencing this federation issuer.
+
+  - `Optional<Long> limit`
+
+    Number of results per page.
+
+    maximum: 100, minimum: 1
+
+  - `Optional<String> page`
+
+    Opaque cursor from a previous response's `next_page`.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `String id`
+
+    Tagged ID of the federation rule.
+
+  - `boolean appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `Optional<Attributes> attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `LocalDateTime createdAt`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `Optional<String> createdByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `Optional<String> description`
+
+    Optional free-text description.
+
+  - `String issuerId`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `Optional<String> issuerName`
+
+    Issuer's display name at read time.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `Optional<String> audience`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `Optional<Claims> claims`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `Optional<String> condition`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `Optional<String> subjectPrefix`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `String name`
+
+    Admin-chosen slug identifier.
+
+  - `String oauthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `String serviceAccountId`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `JsonValue type = "service_account"`
+
+    - `Optional<String> serviceAccountName`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `long tokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `JsonValue type = "federation_rule"`
+
+  - `LocalDateTime updatedAt`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `Optional<String> updatedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `Optional<String> workspaceId`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `List<String> workspaceIds`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.federation.rules.RuleListPage;
+import com.anthropic.models.beta.organization.federation.rules.RuleListParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        RuleListPage page = client.beta().organization().federation().rules().list();
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+      "applies_to_all_workspaces": true,
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "archived_by_actor_id": "archived_by_actor_id",
+      "attributes": {
+        "foo": "string"
+      },
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "created_by_actor_id": "created_by_actor_id",
+      "description": "description",
+      "issuer_id": "issuer_id",
+      "issuer_name": "issuer_name",
+      "match": {
+        "audience": "audience",
+        "claims": {
+          "foo": "string"
+        },
+        "condition": "condition",
+        "subject_prefix": "subject_prefix"
+      },
+      "name": "prod-deploy-pipeline",
+      "oauth_scope": "oauth_scope",
+      "target": {
+        "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+        "type": "service_account",
+        "service_account_name": "service_account_name"
+      },
+      "token_lifetime_seconds": 0,
+      "type": "federation_rule",
+      "updated_at": "2024-10-30T23:58:27.427722Z",
+      "updated_by_actor_id": "updated_by_actor_id",
+      "workspace_id": "workspace_id",
+      "workspace_ids": [
+        "string"
+      ]
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+### Get Federation Rule
+
+`BetaFederationRule beta().organization().federation().rules().retrieve(params = RuleRetrieveParams.none(), requestOptions = RequestOptions.none())`
+
+**GET** `/v1/organizations/federation_rules/{federation_rule_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Retrieve a federation rule by its ID (`fdrl_...`).
+
+#### Parameters
+
+- `RuleRetrieveParams params`
+
+  - `Optional<String> federationRuleId`
+
+    ID of the federation rule.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `String id`
+
+    Tagged ID of the federation rule.
+
+  - `boolean appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that archived this rule.
+
+  - `Optional<Attributes> attributes`
+
+    CEL expressions extracting named values from claims. Not yet supported; always null.
+
+  - `LocalDateTime createdAt`
+
+    When this rule was created.
+
+    format: date-time
+
+  - `Optional<String> createdByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that created this rule.
+
+  - `Optional<String> description`
+
+    Optional free-text description.
+
+  - `String issuerId`
+
+    Tagged ID of the issuer whose tokens this rule accepts.
+
+  - `Optional<String> issuerName`
+
+    Issuer's display name at read time.
+
+  - `BetaFederationRuleMatch match`
+
+    Conditions the verified JWT must satisfy for this rule to apply. All populated matcher fields must pass.
+
+    - `Optional<String> audience`
+
+      Exact match against the `aud` claim (any element if array). When omitted, the JWT's `aud` must still equal Anthropic's expected audience for the issuer; setting this field overrides that default.
+
+      maxLength: 1024
+
+    - `Optional<Claims> claims`
+
+      Exact-match `{claim: value}` pairs against top-level claims. Only string-valued claims can be matched; use `condition` for non-string claims.
+
+    - `Optional<String> condition`
+
+      CEL expression over claims for logic the structural fields can't express. Must evaluate to a boolean and may reference only the `claims` variable; a constant-true expression (such as `true`) is rejected with 400.
+
+      maxLength: 4096
+
+    - `Optional<String> subjectPrefix`
+
+      Match the verified JWT `sub` claim. Exact match unless the value ends with `*`, in which case it is a prefix match. Example: `repo:my-org/my-repo:ref:refs/heads/main`.
+
+      maxLength: 1024
+
+  - `String name`
+
+    Admin-chosen slug identifier.
+
+  - `String oauthScope`
+
+    Space-separated OAuth scopes granted on the minted token.
+
+  - `BetaServiceAccountTarget target`
+
+    Identity that tokens minted via this rule act as. Currently always a `service_account` target.
+
+    - `String serviceAccountId`
+
+      Tagged ID of the service account to mint tokens for.
+
+    - `JsonValue type = "service_account"`
+
+    - `Optional<String> serviceAccountName`
+
+      Service account's display name at read time. Ignored on writes.
+
+  - `long tokenLifetimeSeconds`
+
+    Lifetime in seconds of access tokens minted via this rule. Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+  - `JsonValue type = "federation_rule"`
+
+  - `LocalDateTime updatedAt`
+
+    When this rule was last updated.
+
+    format: date-time
+
+  - `Optional<String> updatedByActorId`
+
+    Tagged ID (`user_`/`svac_`) of the actor that last updated this rule.
+
+  - `Optional<String> workspaceId`
+
+    Legacy single-workspace binding. Prefer `workspace_ids` and the `/federation_rules/{federation_rule_id}/workspaces` sub-resource for managing workspace enablement.
+
+  - `List<String> workspaceIds`
+
+    Tagged IDs of the workspaces this rule is enabled for. May be empty for older rules that only carry the legacy `workspace_id` binding. Ignored at exchange time when `applies_to_all_workspaces` is true (the list may still be non-empty).
+
+#### Example
+
+```java
+package com.anthropic.example;
+
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.beta.organization.federation.rules.BetaFederationRule;
+import com.anthropic.models.beta.organization.federation.rules.RuleRetrieveParams;
+
+public final class Main {
+    private Main() {}
+
+    public static void main(String[] args) {
+        AnthropicClient client = AnthropicOkHttpClient.fromEnv();
+
+        BetaFederationRule betaFederationRule = client.beta().organization().federation().rules().retrieve("federation_rule_id");
+    }
+}
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "fdrl_01SDCCSbTxrXDpWc1phhtcfK",
+  "applies_to_all_workspaces": true,
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "archived_by_actor_id": "archived_by_actor_id",
+  "attributes": {
+    "foo": "string"
+  },
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by_actor_id": "created_by_actor_id",
+  "description": "description",
+  "issuer_id": "issuer_id",
+  "issuer_name": "issuer_name",
+  "match": {
+    "audience": "audience",
+    "claims": {
+      "foo": "string"
+    },
+    "condition": "condition",
+    "subject_prefix": "subject_prefix"
+  },
+  "name": "prod-deploy-pipeline",
+  "oauth_scope": "oauth_scope",
+  "target": {
+    "service_account_id": "svac_01SDCCSbTxrXDpWc1phhtcfK",
+    "type": "service_account",
+    "service_account_name": "service_account_name"
+  },
+  "token_lifetime_seconds": 0,
+  "type": "federation_rule",
+  "updated_at": "2024-10-30T23:58:27.427722Z",
+  "updated_by_actor_id": "updated_by_actor_id",
+  "workspace_id": "workspace_id",
+  "workspace_ids": [
+    "string"
+  ]
+}
+```
+
+### Update Federation Rule
+
+`BetaFederationRule beta().organization().federation().rules().update(params = RuleUpdateParams.none(), requestOptions = RequestOptions.none())`
+
+**POST** `/v1/organizations/federation_rules/{federation_rule_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
+Partially update a federation rule.
+
+`issuer_id` is immutable. `match` and `target` are replaced as whole
+objects when set. Referenced service accounts and workspaces must exist
+in your organization; invalid references are rejected with a 400 error.
+Archived rules cannot be updated; this returns 400. Create a new rule
+instead. Rules on well-known shared issuers (GitHub Actions, GitLab,
+Buildkite, Terraform Cloud, Google) must constrain tenant identity via
+an identity-bearing claim, a tenant-pinning subject prefix (such as
+`repo:YOUR_ORG/...`), or a CEL condition referencing one of those
+identity claims (e.g. `claims.repository_owner`). On these issuers the
+requirement is re-checked on every update; if an existing rule's stored
+match does not yet constrain tenant identity, any update (even a rename
+or description change) must also supply a conforming `match` in the same
+request. OAuth callers may only manage rules whose `oauth_scope` is
+`workspace:developer` or `workspace:inference`; other scopes require a
+Console session.
+
+#### Parameters
+
+- `RuleUpdateParams params`
+
+  - `Optional<String> federationRuleId`
+
+    ID of the federation rule to update.
+
+  - `Optional<List<AnthropicBeta>> betas`
+
+    Optional header to specify the beta version(s) you want to use.
+
+    - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
+
+    - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
+
+    - `COMPUTER_USE_2024_10_22("computer-use-2024-10-22")`
+
+    - `COMPUTER_USE_2025_01_24("computer-use-2025-01-24")`
+
+    - `PDFS_2024_09_25("pdfs-2024-09-25")`
+
+    - `TOKEN_COUNTING_2024_11_01("token-counting-2024-11-01")`
+
+    - `TOKEN_EFFICIENT_TOOLS_2025_02_19("token-efficient-tools-2025-02-19")`
+
+    - `OUTPUT_128K_2025_02_19("output-128k-2025-02-19")`
+
+    - `FILES_API_2025_04_14("files-api-2025-04-14")`
+
+    - `MCP_CLIENT_2025_04_04("mcp-client-2025-04-04")`
+
+    - `MCP_CLIENT_2025_11_20("mcp-client-2025-11-20")`
+
+    - `DEV_FULL_THINKING_2025_05_14("dev-full-thinking-2025-05-14")`
+
+    - `INTERLEAVED_THINKING_2025_05_14("interleaved-thinking-2025-05-14")`
+
+    - `CODE_EXECUTION_2025_05_22("code-execution-2025-05-22")`
+
+    - `EXTENDED_CACHE_TTL_2025_04_11("extended-cache-ttl-2025-04-11")`
+
+    - `CONTEXT_1M_2025_08_07("context-1m-2025-08-07")`
+
+    - `CONTEXT_MANAGEMENT_2025_06_27("context-management-2025-06-27")`
+
+    - `MODEL_CONTEXT_WINDOW_EXCEEDED_2025_08_26("model-context-window-exceeded-2025-08-26")`
+
+    - `SKILLS_2025_10_02("skills-2025-10-02")`
+
+    - `FAST_MODE_2026_02_01("fast-mode-2026-02-01")`
+
+    - `OUTPUT_300K_2026_03_24("output-300k-2026-03-24")`
+
+    - `USER_PROFILES_2026_03_24("user-profiles-2026-03-24")`
+
+    - `USER_PROFILES_2026_08_18("user-profiles-2026-08-18")`
+
+    - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
+
+    - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `DREAMING_2026_04_21("dreaming-2026-04-21")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `SERVER_SIDE_FALLBACK_2026_06_01("server-side-fallback-2026-06-01")`
+
+    - `SERVER_SIDE_FALLBACK_2026_07_01("server-side-fallback-2026-07-01")`
+
+    - `FALLBACK_CREDIT_2026_06_01("fallback-credit-2026-06-01")`
+
+    - `FALLBACK_CREDIT_2026_07_01("fallback-credit-2026-07-01")`
+
+    - `AGENT_MEMORY_2026_07_22("agent-memory-2026-07-22")`
+
+    - `MID_CONVERSATION_TOOL_CHANGES_2026_07_01("mid-conversation-tool-changes-2026-07-01")`
+
+    - `COMPACT_2026_01_12("compact-2026-01-12")`
+
+    - `COMPUTER_USE_2025_11_24("computer-use-2025-11-24")`
+
+    - `MCP_TUNNELS_2026_06_22("mcp-tunnels-2026-06-22")`
+
+    - `STRUCTURED_OUTPUTS_2025_11_13("structured-outputs-2025-11-13")`
+
+    - `TASK_BUDGETS_2026_03_13("task-budgets-2026-03-13")`
+
+    - `THINKING_DISPLAY_UPDATES_2026_08_18("thinking-display-updates-2026-08-18")`
+
+    - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
+  - `Optional<Boolean> appliesToAllWorkspaces`
+
+    When true, enables this rule for every workspace in the org (including workspaces created later). Setting `false` is rejected with 400 if no workspace would remain enabled; a rule with only a legacy `workspace_id` binding continues to mint.
+
+  - `Optional<Attributes> attributes`
+
+    Replaces the CEL expressions `{name: expr}` extracting named values from claims. Send null to clear them. Not yet supported; any non-empty value is rejected with 400.
+
+  - `Optional<String> description`
+
+    Replaces the description. Omit to leave unchanged; send `null` to clear (the field is stored as an empty string).
+
+    maxLength: 2000
+
+  - `Optional<BetaFederationRuleMatch> match`
+
+    Does the incoming JWT qualify?
+
+    All populated fields must pass; omitted fields are skipped. At least one
+    of `subject_prefix` (other than a wildcard-only value like `*`), `claims`,
+    or `condition` is required; `audience` alone is not sufficient.
+
+  - `Optional<String> name`
+
+    Replaces the slug identifier (lowercase, digits, hyphens). Unique within the organization; a duplicate name returns 409.
+
+    maxLength: 255, minLength: 1
+
+  - `Optional<String> oauthScope`
+
+    Replaces the space-separated OAuth scopes granted on minted tokens. OAuth callers may only set `workspace:developer` or `workspace:inference`; other scopes (such as `org:admin`) require a Console session.
+
+    minLength: 1
+
+  - `Optional<BetaServiceAccountTarget> target`
+
+    Bind to a fixed service account by ID.
+
+  - `Optional<Long> tokenLifetimeSeconds`
+
+    Replaces the lifetime in seconds for access tokens minted via this rule (60-86400). Minted tokens are capped at `max(60, min(this value, 2 × remaining assertion validity))` seconds.
+
+    maximum: 86400, minimum: 60
+
+  - `Optional<String> workspaceId`
+
+    Replaces the existing single workspace enablement (the previous one is removed). Rejected with 400 if the rule is enabled for more than one workspace; use the `/federation_rules/{federation_rule_id}/workspaces` sub-resource instead.
+
+#### Returns
+
+- `class BetaFederationRule:`
+
+  Authorization rule binding an external OIDC identity to Anthropic.
+
+  Evaluates the match conditions and mints an OAuth access token for the
+  resolved target, scoped to a single workspace where the rule is enabled
+  (chosen by the caller at exchange time when the rule is enabled for more
+  than one). For rules enabled via `workspace_ids` or
+  `applies_to_all_workspaces`, the target service account must be a member
+  of that workspace (it is implicitly a member of the default workspace);
+  rules carrying only the legacy `workspace_id` binding do not enforce
+  this.
+
+  - `String id`
+
+    Tagged ID of the federation rule.
+
+  - `boolean appliesToAllWorkspaces`
+
+    When true, this rule is enabled for every workspace in the org (including ones created after the rule). `workspace_ids` is ignored at exchange time.
+
+  - `Optional<LocalDateTime> archivedAt`
+
+    If set, this rule is archived and rejects token exchange.
+
+    format: date-time
+
+  - `Optional<String> archivedByActorId`

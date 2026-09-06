@@ -47,20 +47,20 @@ First, install Anthropic's [client SDK](https://platform.claude.com/docs/en/cli-
   <Tab title="Java">
     <CodeGroup exclude="shell, python, typescript, csharp, go, php, ruby">
       ```groovy Gradle
-      implementation("com.anthropic:anthropic-java:2.58.0")
-      implementation("com.anthropic:anthropic-java-vertex:2.58.0")
+      implementation("com.anthropic:anthropic-java:2.60.0")
+      implementation("com.anthropic:anthropic-java-vertex:2.60.0")
       ```
 
       ```xml Maven
       <dependency>
           <groupId>com.anthropic</groupId>
           <artifactId>anthropic-java</artifactId>
-          <version>2.58.0</version>
+          <version>2.60.0</version>
       </dependency>
       <dependency>
           <groupId>com.anthropic</groupId>
           <artifactId>anthropic-java-vertex</artifactId>
-          <version>2.58.0</version>
+          <version>2.60.0</version>
       </dependency>
       ```
 
@@ -119,6 +119,7 @@ Lifecycle terms (Deprecated, Retired) are defined in [Model deprecations](https:
 
 | Model                        | Agent Platform API model ID |
 | ---------------------------- | --------------------------- |
+| Claude Fable 5.1             | claude-fable-5-1            |
 | Claude Fable 5               | claude-fable-5              |
 | Claude Opus 5                | claude-opus-5               |
 | Claude Opus 4.8              | claude-opus-4-8             |
@@ -367,7 +368,7 @@ For the full feature list with Google Cloud availability, see [Features overview
 
 ### Context window
 
-Claude Fable 5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 5, and Claude Sonnet 4.6 have a [1M-token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows) on Agent Platform. Other Claude models, including Sonnet 4.5 and Sonnet 4 (deprecated), have a 200k-token context window.
+Claude Fable 5.1, Claude Fable 5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 5, and Claude Sonnet 4.6 have a [1M-token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows) on Agent Platform. Other Claude models, including Sonnet 4.5 and Sonnet 4 (deprecated), have a 200k-token context window.
 
 Agent Platform limits request payloads to 30 MB. When sending large documents or many images, you might reach this limit before the token limit.
 

@@ -16,7 +16,7 @@ Your org
 
 # Claude Code
 
-Learn to build, debug, and ship with Claude Code in your terminal, IDE, and browser.
+Build software with Claude. Plan, write, debug and ship wherever you code.
 
 ## Start here
 

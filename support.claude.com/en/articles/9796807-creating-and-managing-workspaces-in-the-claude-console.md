@@ -119,6 +119,8 @@ Every organization has a default Workspace that cannot be renamed, archived, or 
 
 **Note:** You can view your default Workspace’s limits from the [Limits settings](https://platform.claude.com/settings/limits).
 
+---
+
 ## Creating a separate Console organization
 
 A single email address can create only one Console organization. If you've already created an organization with your email, signing up again routes you back to that organization instead of starting a new one. You can still be invited to other organizations and switch between them on the same email, but you can only create one yourself.
@@ -149,6 +151,6 @@ From **Settings > Organization**, the Primary Owner can:
 
 * [Cost and Usage Reporting in the Claude Console](https://support.claude.com/en/articles/9534590-cost-and-usage-reporting-in-the-claude-console)
 * [Claude Console roles and permissions](https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions)
-* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Inviting members to the Claude Console](https://support.claude.com/en/articles/13443764-inviting-members-to-the-claude-console)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)
+* [Assign a program to workspaces in Claude Console](https://support.claude.com/en/articles/16764810-assign-a-program-to-workspaces-in-claude-console)

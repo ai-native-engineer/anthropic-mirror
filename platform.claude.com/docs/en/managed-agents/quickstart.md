@@ -39,7 +39,7 @@ This guide walks you through creating an agent, setting up an environment, start
     For Linux environments, download the release binary directly.
 
     ```bash
-    VERSION=1.27.0
+    VERSION=1.29.0
     OS=$(uname -s | tr '[:upper:]' '[:lower:]')
     case $(uname -m) in
       x86_64) ARCH=amd64 ;;
@@ -90,7 +90,7 @@ ant --version
 
   <Tab title="Java">
     ```groovy Gradle
-    implementation("com.anthropic:anthropic-java:2.58.0")
+    implementation("com.anthropic:anthropic-java:2.60.0")
     ```
   </Tab>
 
@@ -165,19 +165,19 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       <MultiFileExample language="cli" label="CLI">
         ```bash CLI
-        AGENT_ID=$(ant beta:agents create --transform id --raw-output < coding-assistant.agent.yaml)
-
-        echo "Agent ID: $AGENT_ID"
+        ant apply coding-assistant.md
         ```
 
-        <File filename="coding-assistant.agent.yaml">
-          ```yaml
+        <File filename="coding-assistant.md">
+          ```markdown
+          ---
           name: Coding Assistant
-          model:
-            id: claude-opus-5
-          system: You are a helpful coding assistant. Write clean, well-documented code.
+          model: claude-opus-5
           tools:
             - type: agent_toolset_20260401
+          ---
+
+          You are a helpful coding assistant. Write clean, well-documented code.
           ```
         </File>
       </MultiFileExample>
@@ -338,7 +338,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
     The `agent_toolset_20260401` tool type enables the full set of pre-built agent tools (bash, file operations, web search, and more). See [Tools](https://platform.claude.com/docs/en/managed-agents/tools) for the complete list and per-tool configuration options.
 
-    Save the returned `agent.id`. You'll reference it in every session you create.
+    Save the returned `agent.id` (the CLI's [`ant apply`](https://platform.claude.com/docs/en/cli-sdks-libraries/cli/scripting#version-controlling-api-resources) prints it and records it in `claude-lock.json`). You'll reference it in every session you create.
   </Step>
 
   <Step title="Create an environment">
@@ -370,12 +370,10 @@ export ANTHROPIC_API_KEY="your-api-key-here"
 
       <MultiFileExample language="cli" label="CLI">
         ```bash CLI
-        ENVIRONMENT_ID=$(ant beta:environments create --transform id --raw-output < quickstart.environment.yaml)
-
-        echo "Environment ID: $ENVIRONMENT_ID"
+        ant apply environment.yaml
         ```
 
-        <File filename="quickstart.environment.yaml">
+        <File filename="environment.yaml">
           ```yaml
           name: quickstart-env
           config:
@@ -468,7 +466,7 @@ export ANTHROPIC_API_KEY="your-api-key-here"
       ```
     </CodeGroup>
 
-    Save the returned `environment.id`. You'll reference it in every session you create.
+    Save the returned `environment.id` (also in `claude-lock.json` if you used `ant apply`). You'll reference it in every session you create.
 
     <Tip>
       To run the sandbox on your own infrastructure instead of a cloud sandbox, see 

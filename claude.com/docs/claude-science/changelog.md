@@ -8,6 +8,14 @@
 
 [Skip to main content](#content-area)
 
+0.1.43
+
+August 31, 2026
+
+* On Linux, commands, notebook cells, and local connectors work again on systems with bubblewrap’s recent security update
+* Cloud storage in Settings (Amazon S3, S3-compatible services, and Google Cloud Storage with HMAC keys) now works behind a TLS-inspecting proxy such as Zscaler or Netskope, trusting the same corporate root certificate as sign-in and the Claude API
+* Various bug fixes and security improvements
+
 0.1.41
 
 August 27, 2026

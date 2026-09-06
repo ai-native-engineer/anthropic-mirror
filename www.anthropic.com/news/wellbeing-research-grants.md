@@ -29,9 +29,3 @@ In brief, we’re seeking evaluations that:
 * Validate their graders against real subject-matter experts.
 
 To learn more about the grant program and apply, [see our application form](https://docs.google.com/forms/d/e/1FAIpQLSfmUDtpfg-ztmQPkCbwx-VAe_urX48sthbqs8GmZUT9irRSDQ/viewform?usp=dialog). For more on building strong wellbeing evaluations and benchmarks, [read our guidance](https://www-cdn.anthropic.com/files/4zrzovbb/website/5ecb637cb206057cb93cf4a9e72e843fda5e9892.pdf). Applications are due by September 21; applicants who are selected to submit full proposals will be notified by October 5.
-
-### How Claude’s text watermark works
-
-In this article, we share answers to some of the questions we’ve received about how our chosen watermarking method works, whether it affects Claude’s outputs, and why we’re making this change.
-
-[Read more](https://www.anthropic.com/news/claude-text-watermark)

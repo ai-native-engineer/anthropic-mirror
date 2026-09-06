@@ -20,7 +20,7 @@ Tutorial·4 min](https://academy.claude.com/tutorials/get-started-in-claude-cowo
 
 The Claude desktop app gives you three ways to work with Claude: Chat, Claude Cowork, and Claude Code — from quick questions to complex research to building software.
 
-Tutorial·10 min](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)[![](https://academy.claude.com/assets/v1/thumbnail.light-lt9nrti0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ky864f9i.png)
+Tutorial·10 min](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)[![](https://academy.claude.com/assets/v1/thumbnail.light-bb0g5i6x.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j090lkdj.png)
 
 ### Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
 

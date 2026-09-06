@@ -4,7 +4,7 @@
 
 Aug 12, 2026
 
-[Download the report](https://www-cdn.anthropic.com/4ef47f859bc67be739a14f5d40b43927eecacdb6/WorkerRetraining.pdf)
+[Download the report](https://www-cdn.anthropic.com/169e4adceebbab066b91e0b45127d73cb2bda24b/WorkerRetraining.pdf)
 
 ![Reviewing the evidence on worker retraining programs](https://www-cdn.anthropic.com/images/4zrzovbb/website/f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
 
@@ -20,6 +20,30 @@ A small set of “sector programs”—programs that partner with employers in a
 
 Their central recommendation is to invest now in demonstrating, evaluating, and scaling the most promising programs, including through an effort to rapidly expand a leading program for a specific group of workers and rigorously measure the results. Our [Economic Futures Research Fund](https://www.anthropic.com/news/economic-futures-research-fund-agenda) is designed to fund investigations into questions like these.
 
+[Read the report here](https://cdn.sanity.io/files/4zrzovbb/website/169e4adceebbab066b91e0b45127d73cb2bda24b.pdf).
+
+## Citation
+
+```
+@techreport{roodman2026training,
+  author      = {Roodman, David and Massenkoff, Maxim},
+  title       = {An Evidence Review of Subsidized Job Training},
+  institution = {The Anthropic Institute},
+  type        = {Working Paper},
+  number      = {2026-01},
+  year        = {2026},
+  url         = {https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs}
+}
+```
+
+Copy
+
+### Formalizing Fermat's Last Theorem
+
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
+
+[Read more](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+
 ### Automated researchers can reliably mitigate alignment failures
 
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
@@ -31,9 +55,3 @@ We had Claude autonomously train models to improve their performance on several 
 Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
 
 [Read more](https://www.anthropic.com/research/enabling-independent-research)
-
-### How Claude is accelerating protein design and analytical chemistry
-
-In this post, we share two results that show how Claude can help life scientists increase the pace of their research.
-
-[Read more](https://www.anthropic.com/research/Claude-accelerates-protein-design)

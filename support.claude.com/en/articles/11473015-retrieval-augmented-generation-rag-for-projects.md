@@ -58,6 +58,8 @@ Group related documents in the same project to enable Claude to draw connections
 
 When asking questions, you can reference specific documents by name to help Claude focus its search.
 
+---
+
 ## Frequently asked questions
 
 ### Will having RAG enabled on my project affect response quality?

@@ -46,13 +46,13 @@ Salesforce
 
 Custom connector
 
-![](images/2ba03d1b12a8d596.svg)
+![](images/fce598a81466f954.svg)
 
-Intercom
+Zendesk
 
-Read open conversations and recent tickets so the health call reflects what support is actually seeing.
+Read open and recently solved tickets so the health call reflects what support is actually seeing.
 
-[Connect](https://claude.ai/desktop/directory/intercom)
+Custom connector
 
 ![](images/a3bfc5814bd6a3e2.svg)
 

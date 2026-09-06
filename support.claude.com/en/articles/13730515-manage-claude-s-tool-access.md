@@ -10,6 +10,8 @@ Each connector takes up space in a conversation. With a small number of connecte
 
 To address this, Claude supports three tool access modes that control when and how your connectors are loaded.
 
+---
+
 ## Tool access modes
 
 You can manage Claude’s access to your connectors per conversation using the **Tool access** setting in your chat.
@@ -26,6 +28,8 @@ Choose from three options:
   + Best for: Large connector libraries (10 or more), or when you're running into conversation length issues.
   + Trade-off: Claude may take an extra step to find the right connector before using it.
 
+---
+
 ## Which mode should I use?
 
 |  |  |
@@ -37,6 +41,8 @@ Choose from three options:
 | A specific connector needs to work every time without fail | Always available |
 | Conversations are hitting length limits | On demand |
 
+---
+
 ## How to change your tool access setting
 
 You can set your tool access mode per conversation by following these steps:
@@ -47,6 +53,8 @@ You can set your tool access mode per conversation by following these steps:
 4. Select your preferred mode from the three options.
 
 Your selection only applies to that conversation. You can change it at any time.
+
+---
 
 ## Frequently asked questions
 

@@ -4,17 +4,17 @@ To ensure we’re responsibly deploying covered models, **we are requiring limit
 
 This applies to Mythos-class models and future models with similar capabilities that we designate as **[covered models](https://support.claude.com/en/articles/15425695)**. For all other models, everything you use is unaffected and stays under the current terms.
 
-This policy, described below, goes into effect on June 9, 2026. For more information on the threat model for retained data and associated privacy controls, please see the corresponding **[technical white paper](https://trust.anthropic.com/resources?s=7ksqkied5hn0pocsj206m&name=[anthropic]-security-and-privacy-design-of-anthropic-data-retention-and-review)** on our Trust Center.
+This policy, described below, goes into effect on June 9, 2026.
 
 ## Who this applies to
 
 Consumer plans (Claude Free, Pro, and Max) across our web, desktop, and mobile apps—including Claude.ai and Claude Code—are unaffected by this update, since we already retain inputs and outputs on these surfaces. Learn more about **[how we retain data](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data)** for consumer plans.
 
-This change only applies to organizations that have set up workspaces with **[zero data retention](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)** (ZDR) in Claude Console, use Claude Code with ZDR in Claude Enterprise, or access Claude through AWS Bedrock, Google Cloud Agent Platform, or Microsoft Foundry with ZDR. The rest of this article applies only to these organizations.
+This change only applies to organizations that have set up workspaces with **[zero data retention](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)** (ZDR) in Claude Console, use Claude Code with ZDR in Claude Enterprise, or access Claude through AWS Bedrock, Google Cloud Agent Platform, or Microsoft Foundry with ZDR. Some of these organizations will receive notice that they are eligible to use Fable with ZDR, as described here: **[Zero data retention and Enterprise Frontier Safeguards](https://support.claude.com/en/articles/15425695-covered-models#h_077fc48764)**. The rest of this article applies only to the organizations with zero data retention and did not receive this notice.
 
 ## Why we’re doing this
 
-Claude Mythos 5 represents a substantial increase in model capabilities, some of which can be used for both benign and malicious purposes. Claude Fable 5 shares the same underlying model as Claude Mythos 5, but with additional safeguards, particularly in the cyber and bio domains. While these safeguards allow us to share this intelligence more broadly, we are taking a conservative approach that allows us to look for patterns of misuse with this class of model and future models we release that are similarly or more capable. Some attacks only become visible across multiple requests. **[Best-of-N jailbreaking](https://arxiv.org/abs/2412.03556)**, for example, sends hundreds of slight variations of a prompt in the hope that one will work. Larger patterns of misuse, such as **[state-sponsored espionage](https://www.anthropic.com/news/disrupting-AI-espionage)** or **[data extortion campaigns](https://www.anthropic.com/news/detecting-countering-misuse-aug-2025)**, only surface when our safeguards classifiers can zoom out across many requests. Detecting these threats requires temporarily retaining prompts and outputs so they can be analyzed together, rather than one at a time.
+Mythos-class models represent a substantial increase in model capabilities, some of which can be used for both benign and malicious purposes. Claude Fable 5 and Claude Fable 5.1 share the same underlying model as Claude Mythos 5 and Claude Mythos 5.1, but with additional safeguards, particularly in the cyber and bio domains. While these safeguards allow us to share this intelligence more broadly, we are taking a conservative approach that allows us to look for patterns of misuse with this class of model and future models we release that are similarly or more capable. Some attacks only become visible across multiple requests. **[Best-of-N jailbreaking](https://arxiv.org/abs/2412.03556)**, for example, sends hundreds of slight variations of a prompt in the hope that one will work. Larger patterns of misuse, such as **[state-sponsored espionage](https://www.anthropic.com/news/disrupting-AI-espionage)** or **[data extortion campaigns](https://www.anthropic.com/news/detecting-countering-misuse-aug-2025)**, only surface when our safeguards classifiers can zoom out across many requests. Detecting these threats requires temporarily retaining prompts and outputs so they can be analyzed together, rather than one at a time.
 
 ## How we protect your data
 
@@ -28,11 +28,11 @@ This change only applies to organizations that have set up workspaces with zero 
 
 ### If your developers use the Claude API
 
-* **Directly from Anthropic through Claude Platform:** Turn on retention for the workspaces where you want to use covered models in the developer console (**Workspace > Manage > Privacy Controls**). Your other ZDR-enabled workspaces keep ZDR. Refer to the **[Anthropic Trust Center for documentation](https://trust.anthropic.com/)**.
+* **Directly from Anthropic through Claude Platform:** Turn on retention for the workspaces where you want to use covered models in the developer console (**Workspace > Manage > Privacy Controls**). Your other ZDR-enabled workspaces keep ZDR. Learn how to **[turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)**, or refer to the **[Anthropic Trust Center for additional documentation](https://trust.anthropic.com/)**.
 * **Through Claude Platform on AWS:** Retention works the same way as the direct Claude API. It's configured at the workspace level, and retained data is handled by Anthropic under the same controls.
 * **Through Amazon Bedrock:** Retention will need to be enabled to access covered models, and retained data stays in AWS. Refer to AWS Bedrock’s **[documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html)**.
 * **Through Google Cloud's Agent Platform:** Retention will need to be enabled to access covered models, and retained data stays in GCP. Refer to Google Cloud's Agent Platform **[documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/fable-5)**.
-* **Through Claude in Azure Foundry:** Retention is configured for each Azure Subscription. If you have Zero Data Retention configured, then you will need to create and use a separate Azure Subscription to access these models.
+* **Through Claude in Azure Foundry:** Retention is configured for each Azure Subscription. If you have zero data retention configured, then you will need to create and use a separate Azure Subscription to access these models.
 
 ### If your team uses Claude Code
 
@@ -46,6 +46,6 @@ This change only applies to organizations that have set up workspaces with zero 
 
 * [Business Associate Agreements (BAA) for Commercial Customers](https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [Public Sector FAQs](https://support.claude.com/en/articles/13756069-public-sector-faqs)
-* [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Covered Models under a Business Associate Agreement (BAA)](https://support.claude.com/en/articles/15455031-covered-models-under-a-business-associate-agreement-baa)
+* [Turn on data retention for a Workspace in a zero data retention organization](https://support.claude.com/en/articles/16824617-turn-on-data-retention-for-a-workspace-in-a-zero-data-retention-organization)

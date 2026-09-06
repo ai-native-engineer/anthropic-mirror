@@ -6,7 +6,7 @@ Tag @Claude in. Get results back in the thread.
 
 Anyone in a channel can tag Claude into a problem and hand it work: reproduce a bug and open a pull request, turn a decision thread into a doc, assemble the state of a project. It posts a checklist in the thread as it goes, and the whole exchange stays visible to the channel.
 
-[I’m setting it up →](https://claude.com/docs/docs/claude-tag/admins/setup-overview)[Use it in your channel ↓](#put-claude-tag-to-work)
+[I’m setting it up →](https://claude.com/docs/claude-tag/admins/setup-overview)[Use it in your channel ↓](#put-claude-tag-to-work)
 
 # platform-eng38 members
 
@@ -41,13 +41,13 @@ Claude Tag works in Slack. You interact with it by writing in a Slack channel, t
 When Claude works on a task, it runs in an ephemeral sandbox, not on your computer. The sandbox is created when a conversation starts, holds any code or files Claude is working with, and is discarded when the conversation goes idle. See [how Claude Tag works](https://claude.com/docs/claude-tag/concepts/how-it-works) for the full lifecycle.
 You extend what Claude can reach, like your repositories, ticketing systems, data warehouses, and custom tools, through [connections](https://claude.com/docs/claude-tag/admins/add-connections), [plugins, and skills](https://claude.com/docs/claude-tag/admins/customize). An Owner configures these per scope (a channel, a workspace, or the whole organization), separately from any connectors an individual user has set up in their own claude.ai account.
 
-[For administratorsSet up Claude Tag![](https://mintcdn.com/claude-ai/5JFKyLlO7sHMMf5J/images/claude-tag/illustrations/Hand-Key.svg?fit=max&auto=format&n=5JFKyLlO7sHMMf5J&q=85&s=1b7a9675728f971bc7a4663c7f1ea599)](https://claude.com/docs/docs/claude-tag/admins/setup-overview)
+[For administratorsSet up Claude Tag![](https://mintcdn.com/claude-ai/5JFKyLlO7sHMMf5J/images/claude-tag/illustrations/Hand-Key.svg?fit=max&auto=format&n=5JFKyLlO7sHMMf5J&q=85&s=1b7a9675728f971bc7a4663c7f1ea599)](https://claude.com/docs/claude-tag/admins/setup-overview)
 
-[Where do I start?Pair your Slack workspace, connect the services Claude will work in, launch, and test that it works](https://claude.com/docs/docs/claude-tag/admins/setup-overview)[What can Claude Tag access?How admins set access per channel, and where credentials are stored](https://claude.com/docs/docs/claude-tag/concepts/agent-identity)[How do I connect each service?Credential types, allowed hosts, and what each connection lets Claude reach](https://claude.com/docs/docs/claude-tag/admins/add-connections)
+[Where do I start?Pair your Slack workspace, connect the services Claude will work in, launch, and test that it works](https://claude.com/docs/claude-tag/admins/setup-overview)[What can Claude Tag access?How admins set access per channel, and where credentials are stored](https://claude.com/docs/claude-tag/concepts/agent-identity)[How do I connect each service?Credential types, allowed hosts, and what each connection lets Claude reach](https://claude.com/docs/claude-tag/admins/add-connections)
 
 [For end usersPut Claude Tag to work![](https://mintcdn.com/claude-ai/5JFKyLlO7sHMMf5J/images/claude-tag/illustrations/Hand-NodePair.svg?fit=max&auto=format&n=5JFKyLlO7sHMMf5J&q=85&s=c64df4c6d27a6da752aa32c9e0622781)](#put-claude-tag-to-work)
 
-[How do I hand Claude Tag a task?Mention Claude in any channel it’s in, with nothing to install](https://claude.com/docs/docs/claude-tag/users/getting-started)[What is Claude Tag good at?Use cases for coding, data, incidents, and go-to-market](https://claude.com/docs/docs/claude-tag/users/use-cases)[How do I get good results?Good habits for scoping and reviewing work](https://claude.com/docs/docs/claude-tag/users/good-habits)[What does Claude Tag remember?Channel memory, what’s shared across the workspace, and who can see what](https://claude.com/docs/docs/claude-tag/users/memory)[Can Claude Tag run tasks on a schedule?Scheduled jobs, channel watching, and triggers](https://claude.com/docs/docs/claude-tag/users/proactivity)
+[How do I hand Claude Tag a task?Mention Claude in any channel it’s in, with nothing to install](https://claude.com/docs/claude-tag/users/getting-started)[What is Claude Tag good at?Use cases for coding, data, incidents, and go-to-market](https://claude.com/docs/claude-tag/users/use-cases)[How do I get good results?Good habits for scoping and reviewing work](https://claude.com/docs/claude-tag/users/good-habits)[What does Claude Tag remember?Channel memory, what’s shared across the workspace, and who can see what](https://claude.com/docs/claude-tag/users/memory)[Can Claude Tag run tasks on a schedule?Scheduled jobs, channel watching, and triggers](https://claude.com/docs/claude-tag/users/proactivity)
 
 ##  Billing and spend limits
 
@@ -95,7 +95,7 @@ Claude Tag starts with no access to your external systems. The services you conn
 
 Security review
 
-[Security and data handling](https://claude.com/docs/docs/claude-tag/concepts/security-and-data)
+[Security and data handling](https://claude.com/docs/claude-tag/concepts/security-and-data)
 
 The security model, what admins can and can’t restrict, audit trails, and network requirements.
 

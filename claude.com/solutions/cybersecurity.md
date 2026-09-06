@@ -66,7 +66,7 @@ In direct donations to OpenSSF, Alpha-Omega, and the Apache Software Foundation
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59ea6_6a2ecc79028e2d76252860cc_IBM_dark.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59e92_6a2ecc796792d9efdeb3d74e_Mastercard_dark.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96d51f43f5c41132ff29ed_mastercard-logo.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59e9d_6a2ecc7b329e9ce199aa2a0d_Verizon_dark.svg)
 
@@ -282,7 +282,7 @@ Ship defender tools and custom security agents with sandboxed execution, credent
 
 Start building
 
-[Start building](https://claude.com/platform/api)Start building
+[Start building](https://claude.com/platform/api-v2)Start building
 
 ![Palo Alto Networks](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf53e6bbf7c52e005a1176_palo-alto-ventures-light-mode.svg)![Palo Alto Networks](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf5812aa32ad62ff26a1a6_palo-alto-ventures-light-mode-1.svg)
 

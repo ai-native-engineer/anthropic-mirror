@@ -18,7 +18,7 @@ In this lessonBy the end, you’ll be able to
 
 ## What are artifacts?[](#what-are-artifacts)
 
-Artifacts are standalone, interactive outputs that Claude creates in a dedicated window alongside your conversation. Instead of getting a long block of code or text buried in the chat, you see your content rendered and ready to use—whether that's a working website, an interactive chart, or a document you can immediately download.
+Artifacts are standalone, interactive outputs that Claude creates in a dedicated window alongside your conversation. Instead of getting a long block of code or text buried in the chat, you see your content rendered and ready to use, whether that's a working website, an interactive chart, or a diagram you can refine.
 
 Claude automatically creates an artifact when content meets certain criteria:
 
@@ -38,7 +38,7 @@ Claude can create different types of artifacts, each suited to different needs:
 * **Mermaid diagrams:** Flowcharts, sequence diagrams, Gantt charts, org charts, and more. Describe the relationships you want to visualize, and Claude will create a diagram you can refine.
 * **React components:** Interactive UI elements with real functionality—calculators, dashboards, games, data visualizations. These aren't just mockups; they include actual logic and respond to user input.
 
-Word documents, Excel spreadsheets, PowerPoint presentations, and PDFs work differently. Claude creates those through a separate file creation capability, not as artifacts, and returns them to you as files you can download.
+Word documents, Excel spreadsheets, PowerPoint presentations, and PDFs are not artifacts. Claude produces those through its separate file creation capability and returns them as downloadable files rather than rendering them in the artifact window.
 
 ## Creating your first artifact[](#creating-your-first-artifact)
 

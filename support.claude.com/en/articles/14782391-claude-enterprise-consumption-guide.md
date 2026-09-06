@@ -4,11 +4,15 @@ Claude Enterprise gives your organization access to powerful AI across chat, Cla
 
 This guide walks Enterprise admins through the key levers available to control and optimize token consumption: setting spend caps, configuring role-based access controls, educating users, and choosing the right model and effort level for the right task.
 
+---
+
 ## Why consumption management matters
 
 Claude Enterprise is priced on a per-seat, usage-based model. Your org's consumption pool is shared across all users, and some surfaces—particularly Claude Code and Cowork—consume tokens at a significantly higher rate than standard chat.
 
 Admins who proactively configure spend limits and educate users can reduce waste and ensure that high-value use cases get the capacity they need.
+
+---
 
 ## Understanding token intensity across surfaces
 
@@ -24,6 +28,8 @@ Other surfaces also draw on your organization's usage and appear as separate pro
 **Admin tip: Set expectations with your team**
 
 Users running Claude Code or Cowork workflows may not realize how token-intensive their sessions are. A single Cowork task or Claude Code debug session can consume many more tokens than chat. Include this context in any user onboarding you send.
+
+---
 
 ## Role-based access controls
 
@@ -49,6 +55,8 @@ Once groups are configured:
 **Governance tip: Surface access as a first gate**
 
 Before worrying about token-level limits, make sure the right people have access to the right surfaces. Giving everyone Claude Code and Cowork access on day one is the fastest way to generate unexpected consumption. Roll out higher-intensity surfaces in waves, starting with the teams most likely to use them productively.
+
+---
 
 ## Set spend limits
 
@@ -81,6 +89,8 @@ User-level caps let you set consumption limits for individual accounts. These ar
 * Start conservatively. It's easier to increase a cap based on a user's request than to walk back an overage conversation.
 * Give power users (engineers, data scientists, researchers) higher or uncapped individual limits, but offset this by ensuring they use the right Claude model for the right task.
 * Monitor individual usage reports monthly to identify outliers—both users consistently hitting their cap (may need more) and users consuming very little (may not be activated yet).
+
+---
 
 ## Model selection guidance
 
@@ -151,6 +161,8 @@ Model access and effort restrictions are enforced across most Claude products, i
 
 **When in doubt, start with Sonnet.** You can always switch the model mid conversation to Opus if you need more depth.
 
+---
+
 ## Using organization instructions to shape user behavior
 
 Organization instructions let admins inject standing guidance into every Claude conversation across your organization—effectively giving Claude a system prompt that reflects your team's norms, best practices, and guardrails. This is a high-leverage tool for shifting user behavior without adding friction, because the guidance shows up in-product at the moment of use rather than in documentation users have to go find.
@@ -160,6 +172,8 @@ A few ways you can use organization instructions to manage consumption and usage
 * **Nudge-against token-intensive output formats**. If you've noticed proliferation of a particular artifact type (e.g., HTML dashboards being shared in cross-functional threads where a simpler format would do), you can instruct Claude to confirm with the user before generating one. This adds a lightweight check without removing the capability entirely.
 * **Point users to internal resources.** Reference your team's wiki, best-practices docs, or usage guidelines directly in the preference. Claude will surface them when relevant—steering users toward the right internal context instead of reinventing it each time.
 * **Reinforce model selection norms.** Remind Claude (and by extension, users) that Sonnet is the default and Opus is reserved for specific workflows. This complements user education without requiring everyone to internalize it up front.
+
+---
 
 ## Tracking usage and spend
 
@@ -209,6 +223,12 @@ For organizations managing limits across many groups, the **[Admin API](https://
 
 Spend-threshold alerts notify admins at 75% and 90% of an org-level spend limit, giving you time to raise the cap before anyone is blocked mid-task.
 
+### In-product surveys
+
+The analytics above tell you how much your team uses Claude; surveys tell you what they're doing with it and what's getting in their way. From **[Analytics > Surveys](https://claude.ai/analytics/surveys)**, admins can send users a short survey that appears in Cowork or chat at a natural break in their work. Pick the audience by group, set a window, and review aggregated results in the console, including response rate, a breakdown by surface and group, and a feed of written answers, with a CSV export per survey. Learn more about **[creating surveys for your organization](https://support.claude.com/en/articles/16764057)**.
+
+---
+
 ## End user education
 
 Technology controls will get you most of the way, but user behavior drives the rest. A team that understands how consumption works will make better choices independently—and surface fewer edge cases for you to troubleshoot.
@@ -242,7 +262,7 @@ When you onboard users, share the following:
 * **[Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)**
 
 * [How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)
-* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-manage-usage-credits-for-team-and-seat-based-enterprise-plans)
 * [View usage analytics for Team and Enterprise plans](https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
 * [Claude Code on Console to Enterprise migration](https://support.claude.com/en/articles/14128775-claude-code-on-console-to-enterprise-migration)

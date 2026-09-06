@@ -52,7 +52,7 @@ Descript makes video editing work like editing a document: users change the text
 
 ## The challenge
 
-Developer Platform
+Claude Platform
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5266ed232fd1354625a6_68c469d18f61fb5c21c81781_og-claude-api.jpeg)
 
@@ -62,7 +62,7 @@ Read more
 
 [Read more](https://claude.com/platform/api)Read more
 
-Developer Platform
+Claude Platform
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -74,7 +74,7 @@ Use the Claude API to create new user experiences, products, and ways to work wi
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-Developer Platform
+Claude Platform
 
 Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 

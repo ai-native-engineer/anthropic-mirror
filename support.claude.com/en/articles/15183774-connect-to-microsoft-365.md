@@ -118,6 +118,8 @@ Microsoft 365 stays under your control once connected. A few things to keep in m
 
 For the full list of permissions the integration requests, see **[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-)** or the **[Microsoft 365 connector security guide](https://support.claude.com/en/articles/12684923-)**.
 
+---
+
 ## Troubleshooting
 
 ### Authentication is failing
@@ -144,6 +146,8 @@ For the full list of permissions the integration requests, see **[Set up the Mic
 * Use exact phrases for better matching.
 * Break complex questions into simpler, more focused ones.
 * Double-check spelling of names, projects, or technical terms.
+
+---
 
 ## Frequently asked questions
 

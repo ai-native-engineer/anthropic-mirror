@@ -34,7 +34,7 @@ Course·9 lessons · 1 quiz·4 hr](https://academy.claude.com/courses/ai-fluency
 
 Same Claude, two ways of working. Chat is a conversation you steer turn by turn. Cowork is a delegation: you describe the goal, Claude works across your files and tools, and you come back to a finished result.
 
-Tutorial·5 min](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat)[![](https://academy.claude.com/assets/v1/thumbnail.light-lt9nrti0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ky864f9i.png)
+Tutorial·5 min](https://academy.claude.com/tutorials/choosing-between-claude-cowork-or-chat)[![](https://academy.claude.com/assets/v1/thumbnail.light-bb0g5i6x.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j090lkdj.png)
 
 ## Choosing the right Claude model: Haiku, Sonnet, Opus, or Fable
 

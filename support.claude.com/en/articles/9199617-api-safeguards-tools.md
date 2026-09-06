@@ -17,7 +17,7 @@ Whether you are just starting the process of setting up safeguards for your API 
 * Create customization frameworks that restrict end-user interactions with Claude to a limited set of prompts or only allow Claude to review a specific knowledge corpus that you already have, which will decrease the ability of users to engage in violative behavior.
 * Enable additional safety filters - free real-time moderation tooling built by Anthropic for helping detect potentially harmful prompts and managing real-time actions to reduce harm
 
-  + For more information about how to enable our additional safety filters, please reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#ccb9bfa9bebfadaaa9b8b58cada2b8a4bea3bca5afe2afa3a1).
+  + For more information about how to enable our additional safety filters, please reach out to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#572224322524363132232e173639233f2538273e347934383a).
 * *For Bedrock Customers:*
 
   + Activate your private S3 bucket in order to store prompts and completions for your own evaluation
@@ -34,5 +34,5 @@ Whether you are just starting the process of setting up safeguards for your API 
 * [Our Approach to User Safety](https://support.claude.com/en/articles/8106465-our-approach-to-user-safety)
 * [Safeguards warnings and appeals](https://support.claude.com/en/articles/8241253-safeguards-warnings-and-appeals)
 * [Responsible Use of Anthropic's Models: Guidelines for Organizations Serving Minors](https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors)
-* [Report a concern: Australian DIS Standard compliance](https://support.claude.com/en/articles/12335811-report-a-concern-australian-dis-standard-compliance)
 * [Real-time cyber safeguards on Claude Opus and Sonnet](https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude-opus-and-sonnet)
+* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)

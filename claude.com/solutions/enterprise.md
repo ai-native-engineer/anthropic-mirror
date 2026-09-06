@@ -12,7 +12,7 @@ Get Enterprise plan
 
 Build on Claude Platform
 
-[Build on Claude Platform](https://claude.com/platform/api)Build on Claude Platform
+[Build on Claude Platform](https://claude.com/platform/api-v2)Build on Claude Platform
 
 ## Trusted by the world’s leading organizations
 
@@ -192,7 +192,7 @@ Access the Claude API to power new experiences, ship production-grade agents, an
 
 Explore the platform
 
-[Explore the platform](https://claude.com/platform/api)Explore the platform
+[Explore the platform](https://claude.com/platform/api-v2)Explore the platform
 
 Results with Claude Code
 
@@ -633,7 +633,7 @@ Launch your own generative AI-enabled products with:
 
 Start building
 
-[Start building](https://claude.com/platform/api)Start building
+[Start building](https://claude.com/platform/api-v2)Start building
 
 ### Get extra support
 
@@ -819,7 +819,7 @@ Get Enterprise plan
 
 Build on Claude Platform
 
-[Build on Claude Platform](https://claude.com/platform/api)Build on Claude Platform
+[Build on Claude Platform](https://claude.com/platform/api-v2)Build on Claude Platform
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a3df6f37b772965a5c4_uber.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a4368d48e57ad911656_uber-1.svg)
 

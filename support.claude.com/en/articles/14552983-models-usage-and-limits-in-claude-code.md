@@ -2,6 +2,8 @@
 
 This guide explains which model you are using, how usage is metered, and how to keep long sessions within their context and usage limits.
 
+---
+
 ## How usage is metered
 
 How you signed in determines how usage is metered. Everything else about Claude Code behaves the same way regardless.
@@ -13,6 +15,8 @@ How you signed in determines how usage is metered. Everything else about Claude 
 | API key (Console, Bedrock, Vertex, or Microsoft Foundry) | Pay-as-you-go, billed per token to that cloud or Console account. | No hard stop; the account is charged for what it uses. |
 
 If you signed in with an Enterprise seat, you generally do not need to think about tokens until you reach a limit. If you are using an API key, the **`/cost`** command shows your running spend for the current session.
+
+---
 
 ## Choosing a model
 
@@ -26,6 +30,8 @@ You can change models mid-session without losing your conversation. A common pat
 
 **Note:** Exact model names, versions, and availability change over time. The `/model` command is always the source of truth for your account.
 
+---
+
 ## What actually consumes tokens
 
 Every turn sends three things to the model:
@@ -35,6 +41,8 @@ Every turn sends three things to the model:
 3. **Your new prompt.**
 
 Of these, the first item grows the fastest. A long debugging session in which Claude has read twenty files and produced fifteen diffs is carrying all of that on every subsequent message. This is where both cost and context limits originate.
+
+---
 
 ## Managing the context window
 
@@ -46,6 +54,8 @@ Two commands keep it under control:
 * **`/compact`** summarizes the conversation so far into a short recap, freeing up space while preserving the essential context. Use this when you are mid-task and need to keep going. Claude Code also auto-compacts when you get close to the limit, so you will rarely hit a hard wall.
 
 **Rule of thumb:** use `/clear` when starting a new task, and `/compact` when continuing a long one.
+
+---
 
 ## Five habits that stretch your usage furthest
 
@@ -85,11 +95,15 @@ A plan costs a few hundred tokens. A wrong 400-line diff that you revert and reg
 
 **Pro tip: plan with Opus, execute with Sonnet.** The highest-value use of Opus is writing the plan itself, where deeper reasoning actually pays off. Once a good plan exists, execution is mostly mechanical and Sonnet handles it at a fraction of the cost. This pattern is built in as `/model opusplan`, which uses Opus while planning and Sonnet for execution. Switching models doesn't clear the conversation, so Sonnet still sees everything Opus produced.
 
+---
+
 ## What to do when you reach a limit
 
 * **Enterprise seat users:** the message tells you when your window resets. In the meantime you can switch to a lighter model with `/model`, or, if your organization allows it, temporarily fall back to an API key.
 * **API key users:** there is no usage cap, but check `/cost` and your Console or cloud-provider dashboard if spend is a concern. Unexpectedly high numbers almost always trace back to very long sessions that were never cleared.
 * **Context window full** (which is different from a usage limit): run `/compact` to keep going, or `/clear` if the older history is no longer needed.
+
+---
 
 ## Quick reference
 
@@ -104,6 +118,6 @@ A plan costs a few hundred tokens. A wrong 400-line diff that you revert and reg
 
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
+* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
 * [Model availability in Claude for Government](https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government)
 * [Claude Code cheatsheet](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)

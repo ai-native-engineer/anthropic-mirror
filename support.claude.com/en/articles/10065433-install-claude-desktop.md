@@ -78,6 +78,8 @@ Verify the signing key fingerprint before trusting it:
 * Dictation isn't available.
 * Quick Entry, the global hotkey, works on X11. On native Wayland, it relies on your desktop's GlobalShortcuts portal.
 
+---
+
 ## Desktop extensions
 
 Desktop extensions transform how you connect Claude to your desktop applications and data. Similar to browser extensions, these secure, installable packages let you:
@@ -91,6 +93,8 @@ To explore desktop extensions, navigate to Settings > Extensions within the Clau
 **Note:** We’re building a directory of desktop extensions – if you’re a developer hoping to add an extension you built to the directory, complete our **[desktop extensions interest form](https://docs.google.com/forms/d/14_Dmcig4z8NeRMB_e7TOyrKzuZ88-BLYdLvS6LPhiZU/viewform?edit_requested=true)** to share more information with us.
 
 Read more about desktop extensions in our **[Getting Started with Local MCP Servers on Claude Desktop](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop)** article.
+
+---
 
 ## Claude Cowork
 
@@ -121,8 +125,8 @@ Cowork on Linux has its own setup requirements. Cowork runs your tasks in a virt
   + On arm64, run `qemu-system-arm qemu-efi-aarch64 virtiofsd` instead.
 * **About 25 GB of free disk space for the workspace image, and at least 8 GB of RAM.** The workspace uses 4 GB while it's running.
 
+* [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome)
 * [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
 * [Deploy Claude Desktop for Windows](https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows)
-* [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
 * [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

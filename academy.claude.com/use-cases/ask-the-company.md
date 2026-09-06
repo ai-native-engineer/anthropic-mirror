@@ -56,6 +56,8 @@ Read code, READMEs, and CODEOWNERS to answer "how does X work" and "who owns X."
 
 [Connect](https://claude.ai/desktop/directory/github)
 
+![](https://academy.claude.com/assets/v1/snowflake-f7euzg40.svg)
+
 SnowflakeOptional
 
 Query the warehouse for "how many" and "why did the metric move" questions.

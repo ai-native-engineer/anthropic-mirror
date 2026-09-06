@@ -12,13 +12,13 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
-Sep
+Oct
 
-23
+14
 
 -
 
-23
+14
 
 ,
 
@@ -32,19 +32,43 @@ Sep
 
 8:00 pm
 
-BST
+CEST
 
-### Claude Founder House London
+### Claude Founder House Stockholm
 
-A full day with the Anthropic team for the people shaping the next generation of AI companies. A morning for the UK's most ambitious founders, and an afternoon for the builders who ship.
+A full day with the Anthropic team for the people shaping the next generation of AI companies. A morning for the Nordics' most ambitious founders, and an afternoon for the builders who ship.
 
 Add to calendar
 
-[Learn more](https://www.anthropic.com/events/claude-founder-house-london)Learn more
+[Learn more](https://www.anthropic.com/events/claude-founder-house-stockholm)Learn more
 
 Learn more
 
 ![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/67ed7bd72914c76f710d86f7_Hands-NodesAngle.svg)
+
+![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
+
+![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
+
+Claude Founder House Stockholm
+
+・
+
+Startup
+
+Oct 14, 2026
+
+[Learn more about this event](https://www.anthropic.com/events/claude-founder-house-stockholm)
+
+Startup
+
+In-person
+
+past
+
+upcoming
+
+October 14, 2026
 
 ![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
 
@@ -270,30 +294,6 @@ upcoming
 
 May 6, 2026
 
-![](https://cdn.prod.website-files.com/plugins/Basic/assets/placeholder.60f9b1840c.svg)
-
-![North America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8a957c5ef54c77cb2_events-header_north-america.svg)![South America Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0393_events-header_south-america.svg)![Europe Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e87eae34fbb99cfb3b_events-header_europe.svg)![Middle East Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e882ac8a8bb8f677fd_events-header_middle-east.svg)![Asia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8bbafe8194cf059ca_events-header_asia.svg)![ Illustrated Map Africa](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e840a6776a7f4f0390_events-header_africa.svg)![Australia Illustrated Map](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/682558e8f55fd3be8776c2c1_events-header_australia.svg)
-
-The Briefing: Financial Services
-
-・
-
-Enterprise
-
-May 5, 2026
-
-[Learn more about this event](https://www.anthropic.com/events/the-briefing-financial-services-virtual-event)
-
-Enterprise
-
-Virtual
-
-past
-
-upcoming
-
-May 5, 2026
-
 [Show more](https://www.anthropic.com/events?939688b5_page=2)
 
 1 / 3
@@ -312,13 +312,49 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
+Claude Code: Advanced
+
+Recurring
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-workshop-advanced)
+
 Building your first workflow with Cowork
 
 Recurring
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/recurring-building-your-first-workflow-with-cowork)
 
-Enterprise Transformation with Claude on AWS: Three Paths to Production
+Claude Code: Foundations
+
+Recurring
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-foundations-series)
+
+Enterprise Readiness: A CISO's Guide to Deploying Claude
+
+Sep 18, 2026
+
+2026-09-18
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/enterprise-readiness-a-cisos-guide-to-deploying-claude)
+
+Scaling Claude with Cost Controls
+
+Sep 15, 2026
+
+2026-09-15
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/scaling-claude-with-cost-controls-sept-2026)
+
+Building Claude Commerce Agents
+
+Sep 10, 2026
+
+2026-09-10
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/building-claude-commerce-agents)
+
+Enterprise Transformation with Claude on AWS: Paths to Production
 
 Sep 16, 2026
 
@@ -333,46 +369,6 @@ Sep 10, 2026
 2026-09-10
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-maximizing-value)
-
-Claude in Microsoft Foundry: Tool Integrations in Practice
-
-Sep 3, 2026
-
-2026-09-03
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/claude-in-microsoft-foundry-tool-integrations-in-practice)
-
-Getting Started with Claude Design
-
-Sep 3, 2026
-
-2026-09-03
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/getting-started-with-claude-design)
-
-Rebroadcast: Claude on Google Cloud: Monitoring and Securing Agents at Scale
-
-Sep 1, 2026
-
-2026-09-01
-
-[Learn more about this webinar](#)
-
-How to control costs and show ROI for Claude Code on Google Cloud
-
-Sep 1, 2026
-
-2026-09-01
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/how-to-control-costs-and-show-roi-for-claude-code-on-google-cloud)
-
-Claude Science AMA: How to accelerate scientific discovery
-
-Aug 20, 2026
-
-2026-08-20
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/claude-science-ama-how-to-accelerate-scientific-discovery)
 
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 

@@ -2,6 +2,8 @@
 
 **Update June 15:** We're pausing the changes to Claude Agent SDK usage described below. For now, nothing has changed: Claude Agent SDK, `claude -p`, and third-party app usage still draw from your subscription's usage limits. The previously announced monthly credit, which would have been available to eligible claimants in connection with these changes, isn't available. We’re working to update the plan to better support how users build with Claude subscriptions. When we have an update, we'll share it before anything takes effect.
 
+---
+
 **The content below reflects the page before June 15. It's preserved for reference but is no longer taking effect on June 15.**
 
 Claude subscription plans are now eligible to receive a monthly Agent SDK credit. This credit covers Claude Agent SDK usage, the `claude -p` command, and third-party apps built on the Agent SDK. This article explains what the credit covers, how it works, and how to claim it.
@@ -29,6 +31,8 @@ To support Agent SDK use, eligible Pro, Max, Team, and Enterprise plan users can
 
 \*Members of seat-based Enterprise plans on Standard seats aren’t eligible to claim the Agent SDK monthly credit.
 
+---
+
 ## What the credit covers
 
 The Agent SDK monthly credit applies to:
@@ -45,6 +49,8 @@ The credit doesn’t apply to:
 * Claude Cowork
 * Other features that draw from usage credits
 
+---
+
 ## How the credit works
 
 **Per-user, not pooled.** Credits belong to individual accounts. They can’t be shared or pooled across teammates.
@@ -57,6 +63,8 @@ The credit doesn’t apply to:
 
 **Past the credit, usage moves to usage credits.** When your monthly credit runs out, additional Agent SDK usage flows to usage credits at standard API rates—but only if you've enabled usage credits. If usage credits aren't enabled, Agent SDK requests stop until your credit refreshes.
 
+---
+
 ## What stays the same
 
 This change doesn’t affect:
@@ -65,6 +73,8 @@ This change doesn’t affect:
 * **Interactive Claude Code.** Using Claude Code in the terminal or your IDE continues to use your subscription usage limits exactly as before.
 * **Claude conversations.** Web, desktop, and mobile chat continue to use subscription usage limits.
 * **API key users.** If you use the Agent SDK with an API key from the Claude Platform, nothing changes. Pay-as-you-go billing continues, and you don’t receive an Agent SDK monthly credit.
+
+---
 
 ## For Team and Enterprise admins
 
@@ -79,5 +89,5 @@ If you administer a Team or Enterprise account, here’s what to know:
 * [What is the Enterprise plan?](https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan)
 * [Use Claude Code with your Team or Enterprise plan](https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan)
 * [Claude Enterprise activation promo for Claude Code and Cowork](https://support.claude.com/en/articles/15282265-claude-enterprise-activation-promo-for-claude-code-and-cowork)
-* [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)
+* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)
 * [Claude Team plan for scientists](https://support.claude.com/en/articles/16634237-claude-team-plan-for-scientists)

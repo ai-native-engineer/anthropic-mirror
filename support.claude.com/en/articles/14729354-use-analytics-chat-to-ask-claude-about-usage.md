@@ -12,6 +12,8 @@ If you can already see the **All activity** view under Analytics, you have acces
 2. In the left sidebar, select “Analytics.”
 3. Click the “Analytics Chat” tab.
 
+---
+
 ## How it works
 
 Type a question, or select one of the suggested prompts below the input box. Claude matches your question to the closest supported query, runs it against your organization’s pre-aggregated usage data, and returns:
@@ -20,6 +22,8 @@ Type a question, or select one of the suggested prompts below the input box. Cla
 * A brief written summary calling out the key trend or numbers.
 
 You can follow up in the same conversation. Claude keeps context, so you can refine a result ("what about just last week?"), drill in ("break that down by product"), or pivot to a related metric without starting over.
+
+---
 
 ## What you can ask
 
@@ -67,6 +71,8 @@ Analytics chat answers questions across these areas.
 
 By default, results cover the **last 30 days**, but you can specify a different range in your question. For example: "show me daily spend since January 1."
 
+---
+
 ## Review the results
 
 ### The chart is the answer
@@ -81,20 +87,28 @@ Analytics chat reads from tables that are typically updated within one to two da
 
 Queries that list individual users (top spenders, inactive seats, least active users) return up to 20 users at a time.
 
+---
+
 ## Export and share results
 
 When Claude returns a chart, hover over it and click to download it. You can share the exported file with stakeholders who don't have access to the analytics dashboard.
+
+---
 
 ## Limitations
 
 * **Analytics questions only.** Analytics chat is scoped to your organization’s usage data. If you ask an unrelated question, Claude will suggest starting a regular conversation instead. Web search, file uploads, and connectors aren't available here.
 * **Your organization only.** Results are always scoped to the organization you’re signed into. Cross-organization comparisons aren’t available.
 
+---
+
 ## Tips
 
 * **Start with a suggested prompt.** The chips below the input show common starting points. Selecting one is the fastest way to see what's available, and you can refine from there.
 * **Ask follow-ups instead of starting over.** After any chart, "now compare that to last month" or "show me just Claude Code" will refine the result in place.
 * **Be specific about dates.** "Last 30 days" is the default; say "for March" or "year to date" to change the window.
+
+---
 
 ## Troubleshooting
 

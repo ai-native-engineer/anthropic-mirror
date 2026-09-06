@@ -28,7 +28,7 @@ We will also load the API keys from the environment and set our model name.
 
 %%capture
 
-!pip install -U anthropic voyageai pandas numpy matplotlib scikit-learn
+%pip install -U anthropic voyageai pandas numpy matplotlib scikit-learn
 
 # Setup our environment
 

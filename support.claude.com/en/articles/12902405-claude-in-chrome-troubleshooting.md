@@ -51,9 +51,13 @@ If you'd rather use the previous side panel, click the three dots in the upper r
 * If the Claude in Chrome toggle isn’t active in your desktop app Connector settings, restart or update Claude Desktop.
 * Restart or update Claude Code if the extension won’t connect to it.
 
+---
+
 ## Usage limits
 
 Usage limits apply across different interfaces, so using Claude in Chrome will count against the same plan limits that apply to Claude or Claude Code. Browser interactions are more compute-intensive than regular chats with Claude, so you can expect the extension to use more of your limit. With the long-running workflow capabilities, tasks can continue for extended periods, which may use more of your usage allocation. The Cowork side panel defaults to "Automatically approve" mode, which runs extra safety checks on each action and uses more of your usage limit than the other modes.
+
+---
 
 ## Give feedback
 
@@ -64,7 +68,7 @@ Your feedback directly shapes how we improve Claude's browser capabilities and s
 * **Thumbs up/down** on Claude's responses in the side panel.
 * **Report suspected prompt injection** if Claude behaves unexpectedly.
 
-  + **Email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#d4a1a7b1a6a7b5b2b1a0ad94b5baa0bca6bba4bdb7fab7bbb9)** to report any safety issues or unexpected behaviors.
+  + **Email [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3c494f594e4f5d5a5948457c5d5248544e534c555f125f5351)** to report any safety issues or unexpected behaviors.
 * **[Contact Support](https://support.claude.com/en/articles/9015913-how-to-get-support)** for technical issues or account problems.
 
 ### What we're learning

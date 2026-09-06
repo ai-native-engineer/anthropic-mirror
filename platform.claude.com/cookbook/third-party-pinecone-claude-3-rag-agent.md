@@ -16,7 +16,7 @@ In this example, we'll be building a RAG agent with LangChain v1. We will use Cl
 
 To begin, let's install the prerequisites:
 
-!pip install -qU \
+%pip install -qU \
 
 langchain==0.1.11 \
 
@@ -333,7 +333,7 @@ llm = ChatAnthropic(
 
 ANTHROPIC\_API\_KEY=ANTHROPIC\_API\_KEY,
 
-model\_name="claude-opus-4-1", # change "opus" -> "sonnet" for speed
+model\_name="claude-opus-4-8", # change "opus" -> "sonnet" for speed
 
 temperature=0.0,
 

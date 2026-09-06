@@ -43,6 +43,8 @@ After your org admin enables a connector, it appears in your personal settings.
 3. Complete the authentication flow—typically a one-time OAuth consent screen.
 4. The connector is now active in your chats. Claude will use it automatically when relevant, or you can reference it directly ("search my SharePoint for…").
 
+---
+
 ## Security and privacy
 
 ### How authentication works
@@ -62,6 +64,8 @@ User → Claude (in boundary) → MCP service(in boundary) → connected service
 Whether the **connected service** sits inside or outside the boundary depends on the connector. The catalog description for each connector states this explicitly. For example, the Microsoft 365 connector calls Microsoft Graph within your tenant; the Web Search connector calls a third-party search API outside the boundary under a zero-data-retention agreement.
 
 **Important:** Adding a connector does not change Claude for Government's FedRAMP authorization, but your agency's own ATO process may require you to evaluate the specific data-handling characteristics of each connector before enabling it.
+
+---
 
 ## Frequently asked questions
 

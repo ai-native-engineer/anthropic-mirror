@@ -40,10 +40,10 @@ This page covers `type: cloud` environments. To run sandboxes on your own infras
 
   <MultiFileExample language="cli" label="CLI">
     ```bash CLI
-    ant beta:environments create < python-dev.environment.yaml
+    ant apply environment.yaml
     ```
 
-    <File filename="python-dev.environment.yaml">
+    <File filename="environment.yaml">
       ```yaml
       name: python-dev
       config:
@@ -253,7 +253,7 @@ The `packages` field pre-installs packages into the sandbox before the agent sta
 
   <MultiFileExample language="cli" label="CLI">
     ```bash CLI
-    ant beta:environments create < environment.yaml
+    ant apply environment.yaml
     ```
 
     <File filename="environment.yaml">
@@ -431,7 +431,7 @@ The following example creates an environment with `limited` networking:
 
   <MultiFileExample language="cli" label="CLI">
     ```bash CLI
-    ant beta:environments create < environment.yaml
+    ant apply environment.yaml
     ```
 
     <File filename="environment.yaml">

@@ -20,6 +20,8 @@ In this lessonBy the end, you’ll be able to
 
 What is generative AI · 12 min
 
+SummaryTranscript
+
 This video covers how large language models like Claude are built and
 trained, and what that means for what they can — and can’t — reliably do
 when you put them to work in your business.

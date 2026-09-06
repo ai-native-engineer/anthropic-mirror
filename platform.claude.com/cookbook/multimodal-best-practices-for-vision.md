@@ -14,7 +14,7 @@ from IPython.display import Image
 
 client = Anthropic()
 
-MODEL\_NAME = "claude-opus-4-1"
+MODEL\_NAME = "claude-opus-4-8"
 
 def get\_base64\_encoded\_image(image\_path):
 

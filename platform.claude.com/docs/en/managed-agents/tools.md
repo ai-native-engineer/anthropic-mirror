@@ -696,11 +696,12 @@ If your sessions run in a self-hosted sandbox, the environment worker can [serve
 
   <MultiFileExample language="cli" label="CLI">
     ```bash CLI
-    ant beta:agents create < agent.yaml
+    ant apply agent.md
     ```
 
-    <File filename="agent.yaml">
-      ```yaml
+    <File filename="agent.md">
+      ```markdown
+      ---
       name: Weather Agent
       model: claude-opus-5
       tools:
@@ -716,6 +717,7 @@ If your sessions run in a self-hosted sandbox, the environment worker can [serve
                 description: City name
             required:
               - location
+      ---
       ```
     </File>
   </MultiFileExample>

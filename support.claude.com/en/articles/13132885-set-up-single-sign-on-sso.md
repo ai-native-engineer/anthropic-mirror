@@ -24,6 +24,8 @@ Please contact your organization's IT Administrator if you do not have permissio
 
 **Note:** WorkOS is Anthropic's provider for domain verification and SSO setup. More details can be found in **[Anthropic's Subprocessor List](https://trust.anthropic.com/subprocessors)**. You will be taken through a WorkOS setup flow when configuring SSO and provisioning features—find your Identity Provider in their **[Integration documentation](https://workos.com/docs/integrations)**.
 
+---
+
 ## Step 2: Verify your domain(s)
 
 Domain verification proves that you own your company's domain. Once verified, you can configure SSO for accounts with your company's domain.
@@ -36,13 +38,13 @@ You can verify multiple domains for a single organization, but all domains must 
 2. In the **Domains** section, click “Add or edit domains.”
 3. Enter the domain(s) you want to verify in the **Update organization email domains** modal and click the “+” button:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1788033600&signature=97d6ea1ec51f2a3ae1fa1d36b459f6a5b0fe0a5eb5f37758f97db8116ef30496&req=diQuHsF6noNXW%2FMW1HO4zSdmHnQ5%2BceKe3H0OpmIzWFedjSWiF%2Feg45vAXwR%0ARdRN%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1788033600&signature=97d6ea1ec51f2a3ae1fa1d36b459f6a5b0fe0a5eb5f37758f97db8116ef30496&req=diQuHsF6noNXW%2FMW1HO4zSdmHnQ5%2BceKe3H0OpmIzWFedjSWiF%2Feg45vAXwR%0ARdRN%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1788654600&signature=ef863932f5a1b06bd091e4808239249dd827a23bfe17f2b1ec0b6433ae279e7a&req=diQuHsF6noNXW%2FMW1HO4zSdmHnQ%2F%2F8CKe3H0OpmIzWHu2GZvxmLqwBsKTlQK%0A3yT7%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2498843282/561d5ceb1c3a5df75bdfee8bfc3f/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1788654600&signature=ef863932f5a1b06bd091e4808239249dd827a23bfe17f2b1ec0b6433ae279e7a&req=diQuHsF6noNXW%2FMW1HO4zSdmHnQ%2F%2F8CKe3H0OpmIzWHu2GZvxmLqwBsKTlQK%0A3yT7%0A)
 4. Click “Save” when you’re finished adding domains.
 5. The domain(s) you added will now appear in the **Domains** section; click “Verify” to the right of the domain(s) to begin the verification process.
 6. Enter your domain in the text box and click “Continue”:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1788033600&signature=5b922111123e5d4846e33fbf3712f0a25d30efc911440d46a4f0192d7f219d0b&req=diAjEcl6n4dcWfMW1HO4zWHctRWXlNKsyoyXAW0OlXras95w6Zsxr354HN4m%0A3Ywi%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1788033600&signature=5b922111123e5d4846e33fbf3712f0a25d30efc911440d46a4f0192d7f219d0b&req=diAjEcl6n4dcWfMW1HO4zWHctRWXlNKsyoyXAW0OlXras95w6Zsxr354HN4m%0A3Ywi%0A)
-7. The setup screen displays a TXT record. **Copy the full Value using the copy button**—it begins with `anthropic-domain-verification-` and is longer than what's visible in the box. In your DNS provider, add a TXT record with **Host/Name** set to `@` (the root of your domain) and **Value** set to the copied string. Add it alongside any existing TXT records; don't replace them. The value is case-sensitive, so paste it exactly.
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1788654600&signature=23b1e14addc5af010e27b2fbcc7c54ffd6299ed086fdfc55328828892440d86a&req=diAjEcl6n4dcWfMW1HO4zWHctRWRktWsyoyXAW0OlXqZ%2FmO37l0E59T7EMvR%0AQmrW%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1788654600&signature=23b1e14addc5af010e27b2fbcc7c54ffd6299ed086fdfc55328828892440d86a&req=diAjEcl6n4dcWfMW1HO4zWHctRWRktWsyoyXAW0OlXqZ%2FmO37l0E59T7EMvR%0AQmrW%0A)
+7. The setup screen displays a TXT record. **Copy the full Value using the copy button**—it begins with `anthropic-domain-verification-` and is longer than what's visible in the box. In your DNS provider, add a TXT record to your domain and **Value** set to the copied string. The domain must match exactly what you entered in the previous step, including any subdomains. Add it alongside any existing TXT records; don't replace them. The value is case-sensitive, so paste it exactly. Please refer to your DNS provider's documentation on this topic.
 
    1. **Important:** Save the TXT value before leaving the setup screen. Once the domain shows as Pending, the admin console doesn't display the value again. If you lose it, you'll need to remove and re-add the domain, which generates a new value.
 8. Wait 10 minutes for your DNS change to propagate.
@@ -61,9 +63,11 @@ Clicking "Refresh" re-checks your DNS; it won't show Verified until the publishe
 
 If the record is correct and propagated but the status still shows Pending, contact Support.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1788033600&signature=eaa57ce359ffc1d49b3dc69f11108ac0f6663c43448c10c44654c1c0b4223754&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSEAbHe%2FPM2D8ZcdgrhOXCLIRBL6DFo5cB6v%0Afr%2B6rXLIQ1IbbrMPtIQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1788033600&signature=eaa57ce359ffc1d49b3dc69f11108ac0f6663c43448c10c44654c1c0b4223754&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSEAbHe%2FPM2D8ZcdgrhOXCLIRBL6DFo5cB6v%0Afr%2B6rXLIQ1IbbrMPtIQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1788654600&signature=addd5c1a24570a6832b4f4164820530f2172187844a188f421a60860cbc50dbd&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSEGanC%2FPM2D8ZcdgrhGDgIzJtHM%2BsGJIeGc%0A82TeTlXHgIxj6MJ3S5g%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1788654600&signature=addd5c1a24570a6832b4f4164820530f2172187844a188f421a60860cbc50dbd&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSEGanC%2FPM2D8ZcdgrhGDgIzJtHM%2BsGJIeGc%0A82TeTlXHgIxj6MJ3S5g%3D%0A)
 
 **Note:** Once your domain is verified, you'll see a **Restrict organization creation** toggle under **Security** on the Organization and access organization settings page. Enable this if you want to prevent users from creating new Claude or Console organizations—including personal accounts—using your verified domains.
+
+---
 
 ## Step 3: Set up SSO with your Identity Provider
 
@@ -84,15 +88,19 @@ For IdP-specific setup instructions, see:
 * **[JumpCloud SAML](https://workos.com/docs/integrations/jumpcloud-saml)**
 * **[Duo SAML](https://workos.com/docs/integrations/duo-saml/4-enter-duo-saml-settings-in-your-workos-dashboard)**
 
+---
+
 ## Step 4: Choose to require SSO
 
 You can now choose to toggle on **Require SSO for Console** and/or **Require SSO for Claude,** on the **Organization and access** page, under the **Authentication** section:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1788033600&signature=78f2230e177773b94855d3c30fff60d113cfeed29d3d587b021aceb2820a2408&req=diMmFM93nYNfWfMW1HO4zdAICwehAX8MItXtKivx6ZG72pxWcBtNRRf%2B%2FGAO%0AIm0VMN8QFP56tZ%2Bjqlo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1788033600&signature=78f2230e177773b94855d3c30fff60d113cfeed29d3d587b021aceb2820a2408&req=diMmFM93nYNfWfMW1HO4zdAICwehAX8MItXtKivx6ZG72pxWcBtNRRf%2B%2FGAO%0AIm0VMN8QFP56tZ%2Bjqlo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1788654600&signature=96867d40fd4588c407b853e8e6af966f5a4c64b95c620a66ac5c08682b37e20c&req=diMmFM93nYNfWfMW1HO4zdAICwenB3gMItXtKivx6ZHQNIHTQU2LPM9q7L5M%0Ah0R13G5syxOwGr0oldE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1788654600&signature=96867d40fd4588c407b853e8e6af966f5a4c64b95c620a66ac5c08682b37e20c&req=diMmFM93nYNfWfMW1HO4zdAICwenB3gMItXtKivx6ZHQNIHTQU2LPM9q7L5M%0Ah0R13G5syxOwGr0oldE%3D%0A)
 
 When SSO is required, users must use the “Continue with SSO” option to log in to their Claude/Console accounts. When SSO is not required, they will have the option to choose “Continue with SSO” or “Continue with email.”
 
 Before you decide, review **[What happens to existing users when SSO is enabled](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning#h_644f467167)**.
+
+---
 
 ## Step 5: Choose your provisioning approach
 
@@ -112,6 +120,8 @@ For more control over provisioning, see **[Set up JIT or SCIM provisioning](http
 
 **Note:** We don't currently support IdP-initiated login for Claude Console organizations that share SSO settings with a Team or Enterprise plan organization. Users will be redirected to claude.ai with IdP-initiated login. As a workaround, if possible in your IdP, create a bookmark called "Claude Console" that links to platform.claude.com/login?sso=true to redirect users to Console for SP-initiated login.
 
+---
+
 ## Updating your SSO certificate
 
 When your Identity Provider's X.509 signing certificate expires or is rotated, you'll need to update it in Claude or Console to maintain SSO functionality.
@@ -125,11 +135,19 @@ When your Identity Provider's X.509 signing certificate expires or is rotated, y
 4. Update your certificate information and save your changes.
 5. Click "Test sign-in" on the same page to confirm everything is working.
 
+**Important:** If **Require SSO** is turned on and your certificate has already expired, no one in your organization can sign in to update it, because every sign-in option routes through SSO. **[Contact Support](https://support.claude.com/en/articles/9015913)** from an Owner’s or Primary Owner’s email address and we’ll help you regain access so an Owner can update the certificate. To avoid this, note your certificate’s expiry date in your Identity Provider and rotate it ahead of time.
+
+---
+
 ## Turning off SSO
 
 You can toggle **Require SSO for Claude** or **Require SSO for Console** off at any time. This will make SSO optional for all users.
 
 To fully disconnect SSO, click “Manage SSO” then “Reset connection.” This will end all users’ sessions and require them to sign back in via email login link.
+
+## Locked out of admin access?
+
+If none of your Owners or Admins can sign in (for example, after a certificate expiry, an Identity Provider change, or a group mapping that removed your administrators), contact Support from an Owner’s or Primary Owner’s email address. We’ll verify your ownership of the organization and help you regain access so you can correct the configuration.
 
 * [Important considerations before enabling single sign-on (SSO) and JIT/SCIM provisioning](https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning)
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)

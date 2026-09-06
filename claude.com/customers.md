@@ -88,6 +88,70 @@ Grid
 
 List
 
+[View story](https://claude.com/customers/carvana)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a97624449e9faa7a99adab9_logo_carvana-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a976247318d4486e007daf9_logo_carvana-dark-mode.svg)
+
+Carvana turns Slack alerts into production fixes with Claude Tag
+
+Carvana
+
+Large
+
+North America
+
+September 4, 2026
+
+Claude Tag
+
+Retail Services
+
+Claude Tag
+
+[View story](https://claude.com/customers/pictet)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a9764e6c4384719abc9607f_logo_pictet-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a9765021ece7880de851d99_logo_pictet-dark-mode.svg)
+
+Pictet turns weeks of work into hours with Claude Code
+
+Pictet
+
+Large
+
+Artefact
+
+EMEA
+
+September 2, 2026
+
+Claude Code
+
+Claude Cowork
+
+Financial services
+
+Claude Code
+
+[View story](https://claude.com/customers/dxc)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4c25fe933c0971c5213df2_DXC_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4c26026abdee7fedea0ab1_DXC_dark.svg)
+
+DXC brings Claude to the insurance backbone running billions of policies
+
+DXC
+
+Large
+
+North America
+
+September 1, 2026
+
+Claude Platform
+
+Insurance
+
+Claude Platform
+
 [View story](https://claude.com/customers/atlassian)View story
 
 ![Atlassian logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)![Atlassian logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a84a22074cc407a84848_Atlassian_light.svg)
@@ -350,68 +414,6 @@ Software
 
 Claude Code
 
-[View story](https://claude.com/customers/ramp-boris-office-hours)View story
-
-![Ramp logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad6788c7a1b711a85623_Ramp_light.svg)![Ramp logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad62e2f100f80635f7a7_Ramp_dark.svg)
-
-Office Hours: Building for the model that doesn't exist yet
-
-Ramp Boris Office Hours
-
-Large
-
-North America
-
-August 12, 2026
-
-Software
-
-Claude Code
-
-[View story](https://claude.com/customers/miro-qa)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a32e4d71f0791469e8be823_miro_light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a32e4d885a6b7820d8a4630_miro_dark.svg)
-
-How Miro's champions run their week with Claude Cowork
-
-Miro Q&A
-
-Large
-
-North America
-
-August 10, 2026
-
-Claude Cowork
-
-Claude Enterprise
-
-Software
-
-Claude Cowork
-
-[View story](https://claude.com/customers/cyera-qa)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755437bdd73dced6999628_logo_cyera2-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a755440205f26561ab3f47c_logo_cyera2-dark-mode.svg)
-
-Cyera on making Claude Cowork the front door to 40 tools
-
-Cyera Q&A
-
-Large
-
-North America
-
-August 7, 2026
-
-Claude Cowork
-
-Claude Enterprise
-
-Cybersecurity
-
-Claude Cowork
-
 [View more](https://claude.com/customers?fcdaa149_page=2)
 
 1 / 19
@@ -425,6 +427,70 @@ Product
 Location
 
 Partner
+
+[View story](https://claude.com/customers/carvana)View story
+
+### Carvana
+
+Industry
+
+Retail Services
+
+Company size
+
+Large
+
+Product
+
+Claude Tag
+
+Claude Tag
+
+Location
+
+North America
+
+Partner
+
+September 4, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/carvana)Read customer story
+
+[View story](https://claude.com/customers/pictet)View story
+
+### Pictet
+
+Industry
+
+Financial services
+
+Company size
+
+Large
+
+Product
+
+Claude Code
+
+Claude Cowork
+
+Claude Code
+
+Location
+
+EMEA
+
+Partner
+
+Artefact
+
+September 2, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/pictet)Read customer story
 
 [View story](https://claude.com/customers/atlassian)View story
 
@@ -459,6 +525,36 @@ August 28, 2026
 Read customer story
 
 [Read customer story](https://claude.com/customers/atlassian)Read customer story
+
+[View story](https://claude.com/customers/dxc)View story
+
+### DXC
+
+Industry
+
+Insurance
+
+Company size
+
+Large
+
+Product
+
+Claude Platform
+
+Claude Platform
+
+Location
+
+North America
+
+Partner
+
+September 1, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/dxc)Read customer story
 
 [View story](https://claude.com/customers/spellbook)View story
 
@@ -967,98 +1063,6 @@ August 4, 2026
 Read customer story
 
 [Read customer story](https://claude.com/customers/mercy-corps-qa)Read customer story
-
-[View story](https://claude.com/customers/mercy-corps)View story
-
-### Mercy Corps
-
-Industry
-
-Beneficial Deployments
-
-Company size
-
-Large
-
-Product
-
-Claude for Nonprofits
-
-Claude Enterprise
-
-Claude Enterprise
-
-Location
-
-North America
-
-Partner
-
-August 4, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/mercy-corps)Read customer story
-
-[View story](https://claude.com/customers/notability)View story
-
-### Notability
-
-Industry
-
-Software
-
-Company size
-
-Startup
-
-Product
-
-Claude Platform
-
-Claude Platform
-
-Location
-
-North America
-
-Partner
-
-August 3, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/notability)Read customer story
-
-[View story](https://claude.com/customers/caylent)View story
-
-### Caylent
-
-Industry
-
-Professional services
-
-Company size
-
-Medium
-
-Product
-
-Claude Platform
-
-Location
-
-North America
-
-Partner
-
-AWS
-
-July 17, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/caylent)Read customer story
 
 [See more](https://claude.com/customers?38d7aa68_page=2)
 

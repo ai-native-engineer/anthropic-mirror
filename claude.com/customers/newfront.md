@@ -136,4 +136,10 @@ Video caption
 
 ## Related stories
 
-No items found.
+[DXC brings Claude to the insurance backbone running billions of policies](https://claude.com/customers/dxc)DXC brings Claude to the insurance backbone running billions of policies
+
+DXC brings Claude to the insurance backbone running billions of policies
+
+Customer story
+
+[Customer story](https://claude.com/customers/dxc)Customer story

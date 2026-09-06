@@ -1,6 +1,6 @@
 <!-- source: https://alignment.anthropic.com/2026/automated-alignment-researchers/ -->
 
-# Automated Researchers Can Reliably Mitigate Alignment Failures
+# Automated Researchers Can Mitigate Well-Characterized Alignment Failures
 
 Chen Yueh-Han, Jiaxin Wen, Jan Hendrik Kirchner
 

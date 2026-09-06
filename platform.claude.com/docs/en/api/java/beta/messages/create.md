@@ -102,6 +102,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `Optional<String> userProfileId`
 
     The user profile ID to attribute this request to. Use when acting on behalf of a party other than your organization. Requires the `user-profiles` beta header.
@@ -181,13 +187,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minLength: 1
 
-          - `JsonValue type constant`
+          - `JsonValue type = "text"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
             Create a cache control breakpoint at this content block.
 
-            - `JsonValue type constant`
+            - `JsonValue type = "ephemeral"`
 
             - `Optional<Ttl> ttl`
 
@@ -224,7 +230,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonValue type constant`
+              - `JsonValue type = "char_location"`
 
             - `class BetaCitationPageLocationParam:`
 
@@ -244,7 +250,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-              - `JsonValue type constant`
+              - `JsonValue type = "page_location"`
 
             - `class BetaCitationContentBlockLocationParam:`
 
@@ -274,7 +280,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonValue type constant`
+              - `JsonValue type = "content_block_location"`
 
             - `class BetaCitationWebSearchResultLocationParam:`
 
@@ -286,7 +292,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 maxLength: 512, minLength: 1
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_search_result_location"`
 
               - `String url`
 
@@ -324,7 +330,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `Optional<String> title`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "search_result_location"`
 
         - `class BetaImageBlockParam:`
 
@@ -346,11 +352,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `IMAGE_WEBP("image/webp")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "base64"`
 
             - `class BetaUrlImageSource:`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "url"`
 
               - `String url`
 
@@ -358,9 +364,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String fileId`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "file"`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "image"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -388,17 +394,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 format: byte
 
-              - `JsonValue mediaType constant`
+              - `JsonValue mediaType = "application/pdf"`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "base64"`
 
             - `class BetaPlainTextSource:`
 
               - `String data`
 
-              - `JsonValue mediaType constant`
+              - `JsonValue mediaType = "text/plain"`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "text"`
 
             - `class BetaContentBlockSource:`
 
@@ -412,11 +418,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `class BetaImageBlockParam:`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "content"`
 
             - `class BetaUrlPdfSource:`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "url"`
 
               - `String url`
 
@@ -424,9 +430,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String fileId`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "file"`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "document"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -452,7 +458,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minLength: 1
 
-            - `JsonValue type constant`
+            - `JsonValue type = "text"`
 
             - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -464,7 +470,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String title`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "search_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -484,7 +490,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "thinking"`
 
         - `class BetaRedactedThinkingBlockParam:`
 
@@ -492,7 +498,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "redacted_thinking"`
 
         - `class BetaToolUseBlockParam:`
 
@@ -506,7 +512,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 200, minLength: 1
 
-          - `JsonValue type constant`
+          - `JsonValue type = "tool_use"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -520,7 +526,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Tool invocation directly from the model.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "direct"`
 
             - `class BetaServerToolCaller:`
 
@@ -530,7 +536,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonValue type constant`
+              - `JsonValue type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
@@ -538,7 +544,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonValue type constant`
+              - `JsonValue type = "code_execution_20260120"`
 
           - `Optional<String> toolsetName`
 
@@ -552,7 +558,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -580,7 +586,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonValue type constant`
+                - `JsonValue type = "tool_reference"`
 
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -624,7 +630,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonValue type constant`
+                - `JsonValue type = "browser_state"`
 
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -652,7 +658,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "tab_opened"`
 
                   - `class BetaBrowserStateChangeDownloadStarted:`
 
@@ -664,7 +670,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "download_started"`
 
                     - `String url`
 
@@ -685,7 +691,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "download_completed"`
 
                     - `String url`
 
@@ -715,7 +721,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonValue type constant`
+                    - `JsonValue type = "download_failed"`
 
                     - `String url`
 
@@ -763,7 +769,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "server_tool_use"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -793,7 +799,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String title`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_search_result"`
 
               - `String url`
 
@@ -815,13 +821,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `REQUEST_TOO_LARGE("request_too_large")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_search_tool_result_error"`
 
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "web_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -867,13 +873,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `UNAVAILABLE("unavailable")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_fetch_tool_result_error"`
 
             - `class BetaWebFetchBlockParam:`
 
               - `BetaRequestDocumentBlock content`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "web_fetch_result"`
 
               - `String url`
 
@@ -887,7 +893,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "web_fetch_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -929,13 +935,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `MODEL_NOT_FOUND("model_not_found")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "advisor_tool_result_error"`
 
             - `class BetaAdvisorResultBlockParam:`
 
               - `String text`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "advisor_result"`
 
               - `Optional<String> stopReason`
 
@@ -945,7 +951,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "advisor_redacted_result"`
 
               - `Optional<String> stopReason`
 
@@ -953,7 +959,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "advisor_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -977,7 +983,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "code_execution_tool_result_error"`
 
             - `class BetaCodeExecutionResultBlockParam:`
 
@@ -985,7 +991,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `String fileId`
 
-                - `JsonValue type constant`
+                - `JsonValue type = "code_execution_output"`
 
               - `long returnCode`
 
@@ -993,7 +999,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stdout`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "code_execution_result"`
 
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
@@ -1003,7 +1009,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `String fileId`
 
-                - `JsonValue type constant`
+                - `JsonValue type = "code_execution_output"`
 
               - `String encryptedStdout`
 
@@ -1011,13 +1017,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stderr`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "encrypted_code_execution_result"`
 
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1041,7 +1047,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "bash_code_execution_tool_result_error"`
 
             - `class BetaBashCodeExecutionResultBlockParam:`
 
@@ -1049,7 +1055,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `String fileId`
 
-                - `JsonValue type constant`
+                - `JsonValue type = "bash_code_execution_output"`
 
               - `long returnCode`
 
@@ -1057,13 +1063,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String stdout`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "bash_code_execution_result"`
 
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "bash_code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1087,7 +1093,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `FILE_NOT_FOUND("file_not_found")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
               - `Optional<String> errorMessage`
 
@@ -1103,7 +1109,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `PDF("pdf")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "text_editor_code_execution_view_result"`
 
               - `Optional<Long> numLines`
 
@@ -1115,11 +1121,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `boolean isFileUpdate`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "text_editor_code_execution_create_result"`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
               - `Optional<List<String>> lines`
 
@@ -1135,7 +1141,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "text_editor_code_execution_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1157,7 +1163,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "tool_search_tool_result_error"`
 
               - `Optional<String> errorMessage`
 
@@ -1169,19 +1175,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonValue type constant`
+                - `JsonValue type = "tool_reference"`
 
                 - `Optional<BetaCacheControlEphemeral> cacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonValue type constant`
+              - `JsonValue type = "tool_search_tool_search_result"`
 
           - `String toolUseId`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "tool_search_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1201,7 +1207,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The name of the MCP server
 
-          - `JsonValue type constant`
+          - `JsonValue type = "mcp_tool_use"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1213,7 +1219,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "mcp_tool_result"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1229,7 +1235,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minLength: 1
 
-              - `JsonValue type constant`
+              - `JsonValue type = "text"`
 
               - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1246,7 +1252,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String fileId`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "container_upload"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1262,7 +1268,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           When content is None, the block represents a failed compaction. The server
           treats these as no-ops. Empty string content is not allowed.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "compaction"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1302,7 +1308,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-              - `JsonValue type constant`
+              - `JsonValue type = "tool_reference"`
 
             - `class BetaToolChangeMcpToolReference:`
 
@@ -1313,7 +1319,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String serverName`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "mcp_tool_reference"`
 
             - `class BetaToolChangeMcpToolsetReference:`
 
@@ -1321,9 +1327,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `String serverName`
 
-              - `JsonValue type constant`
+              - `JsonValue type = "mcp_toolset_reference"`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "tool_addition"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1360,7 +1366,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Reference to every tool in the named MCP server's toolset.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "tool_removal"`
 
           - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1391,6 +1397,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+              - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
@@ -1456,7 +1470,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Identifies one hop of a fallback transition.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "fallback"`
 
           - `Optional<JsonValue> trigger`
 
@@ -1469,6 +1483,36 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `ASSISTANT("assistant")`
 
       - `SYSTEM("system")`
+
+    - `Optional<ClearAt> clearAt`
+
+      How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+      - `NEXT_USER_MESSAGE("next_user_message")`
+
+      - `NEVER("never")`
+
+    - `Optional<BetaSystemMessageOutputConfig> outputConfig`
+
+      Per-message output configuration on a role:"system" input message.
+
+      Fields here apply per-turn; `format` remains top-level only. An
+      empty `{}` is accepted on a message that carries content; a message
+      with neither content nor output_config fields is rejected.
+
+      - `Optional<Effort> effort`
+
+        All possible effort levels.
+
+        - `LOW("low")`
+
+        - `MEDIUM("medium")`
+
+        - `HIGH("high")`
+
+        - `XHIGH("xhigh")`
+
+        - `MAX("max")`
 
   - `Model model`
 
@@ -1596,7 +1640,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `String name`
 
-    - `JsonValue type constant`
+    - `JsonValue type = "url"`
 
     - `String url`
 
@@ -1656,7 +1700,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minLength: 1
 
-      - `JsonValue type constant`
+      - `JsonValue type = "text"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -1748,7 +1792,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         This defines the shape of the `input` that your tool accepts and that the model will produce.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "object"`
 
         - `Optional<Properties> properties`
 
@@ -1800,13 +1844,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolBash20241022:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "bash_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1834,13 +1878,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolBash20250124:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "bash_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1868,13 +1912,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaCodeExecutionTool20250522:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "code_execution_20250522"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1900,13 +1944,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaCodeExecutionTool20250825:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "code_execution_20250825"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1934,13 +1978,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
-      - `JsonValue name constant`
+      - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -1968,13 +2012,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence.
 
-      - `JsonValue name constant`
+      - `JsonValue name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "code_execution_20260521"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2005,17 +2049,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       the family's tool with any members disabled via `configs` removed
       from its schema.
 
-      - `JsonValue type constant`
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
+      - `JsonValue type = "browser_toolset_20260801"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2416,13 +2450,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minimum: 1
 
-      - `JsonValue name constant`
+      - `JsonValue name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "computer_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2456,13 +2490,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaMemoryTool20250818:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "memory_20250818"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2502,13 +2536,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minimum: 1
 
-      - `JsonValue name constant`
+      - `JsonValue name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "computer_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2542,13 +2576,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20241022:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "text_editor_20241022"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2588,13 +2622,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minimum: 1
 
-      - `JsonValue name constant`
+      - `JsonValue name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "computer_20251124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2641,17 +2675,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       `type`, `configs`, and `cache_control`; zoom is controlled
       via `configs.zoom.enabled`.
 
-      - `JsonValue type constant`
-
-      - `Optional<List<AllowedCaller>> allowedCallers`
-
-        - `DIRECT("direct")`
-
-        - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
-        - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
-        - `CODE_EXECUTION_20260521("code_execution_20260521")`
+      - `JsonValue type = "computer_toolset_20260801"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -2872,13 +2896,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250124:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "text_editor_20250124"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2906,13 +2930,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250429:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "text_editor_20250429"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2940,13 +2964,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250728:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "text_editor_20250728"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -2980,13 +3004,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20250305:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_search_20250305"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3028,7 +3052,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "approximate"`
 
         - `Optional<String> city`
 
@@ -3056,13 +3080,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20250910:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_fetch_20250910"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3112,13 +3136,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20260209:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_search_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3162,13 +3186,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20260209:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_fetch_20260209"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3220,13 +3244,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
-      - `JsonValue name constant`
+      - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_fetch_20260309"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3280,13 +3304,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20260318:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_search_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3338,13 +3362,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20260318:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_fetch_20260318"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3412,13 +3436,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `JsonValue name constant`
+      - `JsonValue name = "advisor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "advisor_20260301"`
 
       - `Optional<List<AllowedCaller>> allowedCallers`
 
@@ -3460,7 +3484,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolSearchToolBm25_20251119:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "tool_search_tool_bm25"`
 
         Name of the tool.
 
@@ -3496,7 +3520,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolSearchToolRegex20251119:`
 
-      - `JsonValue name constant`
+      - `JsonValue name = "tool_search_tool_regex"`
 
         Name of the tool.
 
@@ -3543,7 +3567,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         maxLength: 255, minLength: 1
 
-      - `JsonValue type constant`
+      - `JsonValue type = "mcp_toolset"`
 
       - `Optional<BetaCacheControlEphemeral> cacheControl`
 
@@ -3712,7 +3736,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonValue type constant`
+          - `JsonValue type = "char_location"`
 
         - `class BetaCitationPageLocation:`
 
@@ -3732,7 +3756,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `JsonValue type constant`
+          - `JsonValue type = "page_location"`
 
         - `class BetaCitationContentBlockLocation:`
 
@@ -3762,7 +3786,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonValue type constant`
+          - `JsonValue type = "content_block_location"`
 
         - `class BetaCitationsWebSearchResultLocation:`
 
@@ -3774,7 +3798,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `JsonValue type constant`
+          - `JsonValue type = "web_search_result_location"`
 
           - `String url`
 
@@ -3810,13 +3834,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> title`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "search_result_location"`
 
       - `String text`
 
         maxLength: 5000000, minLength: 0
 
-      - `JsonValue type constant`
+      - `JsonValue type = "text"`
 
     - `class BetaThinkingBlock:`
 
@@ -3832,7 +3856,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "thinking"`
 
     - `class BetaRedactedThinkingBlock:`
 
@@ -3844,7 +3868,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `JsonValue type constant`
+      - `JsonValue type = "redacted_thinking"`
 
     - `class BetaToolUseBlock:`
 
@@ -3858,7 +3882,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minLength: 1
 
-      - `JsonValue type constant`
+      - `JsonValue type = "tool_use"`
 
       - `Optional<Caller> caller`
 
@@ -3868,7 +3892,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation directly from the model.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "direct"`
 
         - `class BetaServerToolCaller:`
 
@@ -3878,7 +3902,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "code_execution_20250825"`
 
         - `class BetaServerToolCaller20260120:`
 
@@ -3886,7 +3910,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonValue type constant`
+          - `JsonValue type = "code_execution_20260120"`
 
       - `Optional<String> toolsetName`
 
@@ -3920,7 +3944,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
-      - `JsonValue type constant`
+      - `JsonValue type = "server_tool_use"`
 
       - `Optional<Caller> caller`
 
@@ -3956,7 +3980,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `REQUEST_TOO_LARGE("request_too_large")`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "web_search_tool_result_error"`
 
         - `List<BetaWebSearchResultBlock>`
 
@@ -3966,7 +3990,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String title`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "web_search_result"`
 
           - `String url`
 
@@ -3974,7 +3998,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_search_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -4016,7 +4040,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `UNAVAILABLE("unavailable")`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "web_fetch_tool_result_error"`
 
         - `class BetaWebFetchBlock:`
 
@@ -4036,29 +4060,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   format: byte
 
-                - `JsonValue mediaType constant`
+                - `JsonValue mediaType = "application/pdf"`
 
-                - `JsonValue type constant`
+                - `JsonValue type = "base64"`
 
               - `class BetaPlainTextSource:`
 
                 - `String data`
 
-                - `JsonValue mediaType constant`
+                - `JsonValue mediaType = "text/plain"`
 
-                - `JsonValue type constant`
+                - `JsonValue type = "text"`
 
             - `Optional<String> title`
 
               The title of the document
 
-            - `JsonValue type constant`
+            - `JsonValue type = "document"`
 
           - `Optional<String> retrievedAt`
 
             ISO 8601 timestamp when the content was retrieved
 
-          - `JsonValue type constant`
+          - `JsonValue type = "web_fetch_result"`
 
           - `String url`
 
@@ -4068,7 +4092,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type constant`
+      - `JsonValue type = "web_fetch_tool_result"`
 
       - `Optional<Caller> caller`
 
@@ -4106,7 +4130,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `MODEL_NOT_FOUND("model_not_found")`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "advisor_tool_result_error"`
 
         - `class BetaAdvisorResultBlock:`
 
@@ -4116,7 +4140,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String text`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "advisor_result"`
 
         - `class BetaAdvisorRedactedResultBlock:`
 
@@ -4128,13 +4152,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `JsonValue type constant`
+          - `JsonValue type = "advisor_redacted_result"`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type constant`
+      - `JsonValue type = "advisor_tool_result"`
 
     - `class BetaCodeExecutionToolResultBlock:`
 
@@ -4154,7 +4178,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "code_execution_tool_result_error"`
 
         - `class BetaCodeExecutionResultBlock:`
 
@@ -4162,7 +4186,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `String fileId`
 
-            - `JsonValue type constant`
+            - `JsonValue type = "code_execution_output"`
 
           - `long returnCode`
 
@@ -4170,7 +4194,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stdout`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "code_execution_result"`
 
         - `class BetaEncryptedCodeExecutionResultBlock:`
 
@@ -4180,7 +4204,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `String fileId`
 
-            - `JsonValue type constant`
+            - `JsonValue type = "code_execution_output"`
 
           - `String encryptedStdout`
 
@@ -4188,13 +4212,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stderr`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "encrypted_code_execution_result"`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type constant`
+      - `JsonValue type = "code_execution_tool_result"`
 
     - `class BetaBashCodeExecutionToolResultBlock:`
 
@@ -4214,7 +4238,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "bash_code_execution_tool_result_error"`
 
         - `class BetaBashCodeExecutionResultBlock:`
 
@@ -4222,7 +4246,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `String fileId`
 
-            - `JsonValue type constant`
+            - `JsonValue type = "bash_code_execution_output"`
 
           - `long returnCode`
 
@@ -4230,13 +4254,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `String stdout`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "bash_code_execution_result"`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type constant`
+      - `JsonValue type = "bash_code_execution_tool_result"`
 
     - `class BetaTextEditorCodeExecutionToolResultBlock:`
 
@@ -4258,7 +4282,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "text_editor_code_execution_tool_result_error"`
 
         - `class BetaTextEditorCodeExecutionViewResultBlock:`
 
@@ -4278,13 +4302,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Long> totalLines`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "text_editor_code_execution_view_result"`
 
         - `class BetaTextEditorCodeExecutionCreateResultBlock:`
 
           - `boolean isFileUpdate`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "text_editor_code_execution_create_result"`
 
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
 
@@ -4298,13 +4322,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<Long> oldStart`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "text_editor_code_execution_str_replace_result"`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type constant`
+      - `JsonValue type = "text_editor_code_execution_tool_result"`
 
     - `class BetaToolSearchToolResultBlock:`
 
@@ -4324,7 +4348,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `Optional<String> errorMessage`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "tool_search_tool_result_error"`
 
         - `class BetaToolSearchToolSearchResultBlock:`
 
@@ -4334,15 +4358,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `JsonValue type constant`
+            - `JsonValue type = "tool_reference"`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "tool_search_tool_search_result"`
 
       - `String toolUseId`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonValue type constant`
+      - `JsonValue type = "tool_search_tool_result"`
 
     - `class BetaMcpToolUseBlock:`
 
@@ -4360,7 +4384,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The name of the MCP server
 
-      - `JsonValue type constant`
+      - `JsonValue type = "mcp_tool_use"`
 
     - `class BetaMcpToolResultBlock:`
 
@@ -4380,7 +4404,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 5000000, minLength: 0
 
-          - `JsonValue type constant`
+          - `JsonValue type = "text"`
 
       - `boolean isError`
 
@@ -4388,7 +4412,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `JsonValue type constant`
+      - `JsonValue type = "mcp_tool_result"`
 
     - `class BetaContainerUploadBlock:`
 
@@ -4396,7 +4420,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `String fileId`
 
-      - `JsonValue type constant`
+      - `JsonValue type = "container_upload"`
 
     - `class BetaCompactionBlock:`
 
@@ -4414,7 +4438,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
 
-      - `JsonValue type constant`
+      - `JsonValue type = "compaction"`
 
     - `class BetaFallbackBlock:`
 
@@ -4439,6 +4463,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+
+          - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
 
           - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
@@ -4532,9 +4564,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "refusal"`
 
-      - `JsonValue type constant`
+      - `JsonValue type = "fallback"`
 
   - `Optional<BetaContextManagementResponse> contextManagement`
 
@@ -4560,7 +4592,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type constant`
+        - `JsonValue type = "clear_tool_uses_20250919"`
 
           The type of context management edit applied.
 
@@ -4578,7 +4610,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type constant`
+        - `JsonValue type = "clear_thinking_20251015"`
 
           The type of context management edit applied.
 
@@ -4597,7 +4629,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "model_changed"`
 
       - `class BetaCacheMissSystemChanged:`
 
@@ -4605,7 +4637,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "system_changed"`
 
       - `class BetaCacheMissToolsChanged:`
 
@@ -4613,7 +4645,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "tools_changed"`
 
       - `class BetaCacheMissMessagesChanged:`
 
@@ -4621,15 +4653,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "messages_changed"`
 
       - `class BetaCacheMissPreviousMessageNotFound:`
 
-        - `JsonValue type constant`
+        - `JsonValue type = "previous_message_not_found"`
 
       - `class BetaCacheMissUnavailable:`
 
-        - `JsonValue type constant`
+        - `JsonValue type = "unavailable"`
 
   - `Model model`
 
@@ -4637,7 +4669,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `JsonValue role constant`
+  - `JsonValue role = "assistant"`
 
     Conversational role of the generated message.
 
@@ -4726,7 +4758,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-    - `JsonValue type constant`
+    - `JsonValue type = "refusal"`
 
   - `Optional<BetaStopReason> stopReason`
 
@@ -4766,7 +4798,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     This value will be a non-null string if one of your custom stop sequences was generated.
 
-  - `JsonValue type constant`
+  - `JsonValue type = "message"`
 
     Object type.
 
@@ -4830,7 +4862,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The reprice was applied: the retry is billed as if the conversation
           had been on the retry model all along.
 
-          - `JsonValue type constant`
+          - `JsonValue type = "redeemed"`
 
         - `class BetaFallbackCreditNotApplied:`
 
@@ -4867,7 +4899,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `WRONG_WORKSPACE("wrong_workspace")`
 
-          - `JsonValue type constant`
+          - `JsonValue type = "not_applied"`
 
           - `Optional<List<String>> removeToRedeem`
 
@@ -4940,7 +4972,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type constant`
+        - `JsonValue type = "message"`
 
           Usage for a sampling iteration
 
@@ -4976,7 +5008,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type constant`
+        - `JsonValue type = "compaction"`
 
           Usage for a compaction iteration
 
@@ -5018,7 +5050,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type constant`
+        - `JsonValue type = "advisor_message"`
 
           Usage for an advisor sub-inference iteration
 
@@ -5065,7 +5097,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonValue type constant`
+        - `JsonValue type = "fallback_message"`
 
           Usage for the fallback-model attempt that served the response
 
@@ -5131,13 +5163,65 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `FAST("fast")`
 
+  - `Optional<List<BetaThinkingDroppedInputTransformation>> inputTransformations`
+
+    Changes the API made to the request's input before showing it to the model:
+    one entry per change, in request order. Today the only entry type is
+    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+    block from the request's `messages` that was removed from the prompt instead
+    of being shown to the model because it failed a binding check. More entry
+    types may be added over time; ignore types you do not recognize.
+
+    Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+    every such response from a model that supports extended thinking, as `[]`
+    when nothing was changed; without the beta, blocks are removed all the same
+    but nothing is reported. Removed blocks contribute nothing to
+    `usage.input_tokens`. When streaming, the array is final in `message_start`;
+    the final `message_delta` event carries it only when a server-side model
+    fallback happened mid-stream, in which case it holds the serving model's
+    entries and replaces the one in `message_start`.
+
+    - `String path`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `Reason reason`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `MODEL_BINDING_MISMATCH("model_binding_mismatch")`
+
+      - `PREFIX_BINDING_MISMATCH("prefix_binding_mismatch")`
+
+      - `ORGANIZATION_BINDING_MISMATCH("organization_binding_mismatch")`
+
+      - `END_USER_BINDING_MISMATCH("end_user_binding_mismatch")`
+
+    - `JsonValue type = "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
+
 - `class BetaRawMessageStreamEvent: union`
 
   - `class BetaRawMessageStartEvent:`
 
     - `BetaMessage message`
 
-    - `JsonValue type constant`
+    - `JsonValue type = "message_start"`
 
   - `class BetaRawMessageDeltaEvent:`
 
@@ -5159,7 +5243,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `Optional<String> stopSequence`
 
-    - `JsonValue type constant`
+    - `JsonValue type = "message_delta"`
 
     - `BetaMessageDeltaUsage usage`
 
@@ -5245,9 +5329,53 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The number of server tool requests.
 
+    - `Optional<List<BetaThinkingDroppedInputTransformation>> inputTransformations`
+
+      Changes the API made to the request's input before showing it to the model:
+      one entry per change, in request order. Today the only entry type is
+      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+      block from the request's `messages` that was removed from the prompt instead
+      of being shown to the model because it failed a binding check. More entry
+      types may be added over time; ignore types you do not recognize.
+
+      Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+      every such response from a model that supports extended thinking, as `[]`
+      when nothing was changed; without the beta, blocks are removed all the same
+      but nothing is reported. Removed blocks contribute nothing to
+      `usage.input_tokens`. When streaming, the array is final in `message_start`;
+      the final `message_delta` event carries it only when a server-side model
+      fallback happened mid-stream, in which case it holds the serving model's
+      entries and replaces the one in `message_start`.
+
+      - `String path`
+
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `Reason reason`
+
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `JsonValue type = "thinking_dropped"`
+
+        Always `thinking_dropped` for this entry type.
+
   - `class BetaRawMessageStopEvent:`
 
-    - `JsonValue type constant`
+    - `JsonValue type = "message_stop"`
 
   - `class BetaRawContentBlockStartEvent:`
 
@@ -5311,7 +5439,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `long index`
 
-    - `JsonValue type constant`
+    - `JsonValue type = "content_block_start"`
 
   - `class BetaRawContentBlockDeltaEvent:`
 
@@ -5321,13 +5449,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `String text`
 
-        - `JsonValue type constant`
+        - `JsonValue type = "text_delta"`
 
       - `class BetaInputJsonDelta:`
 
         - `String partialJson`
 
-        - `JsonValue type constant`
+        - `JsonValue type = "input_json_delta"`
 
       - `class BetaCitationsDelta:`
 
@@ -5343,7 +5471,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaCitationSearchResultLocation:`
 
-        - `JsonValue type constant`
+        - `JsonValue type = "citations_delta"`
 
       - `class BetaThinkingDelta:`
 
@@ -5355,7 +5483,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "thinking_delta"`
 
       - `class BetaSignatureDelta:`
 
@@ -5363,7 +5491,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-        - `JsonValue type constant`
+        - `JsonValue type = "signature_delta"`
 
       - `class BetaCompactionContentBlockDelta:`
 
@@ -5373,17 +5501,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `JsonValue type constant`
+        - `JsonValue type = "compaction_delta"`
 
     - `long index`
 
-    - `JsonValue type constant`
+    - `JsonValue type = "content_block_delta"`
 
   - `class BetaRawContentBlockStopEvent:`
 
     - `long index`
 
-    - `JsonValue type constant`
+    - `JsonValue type = "content_block_stop"`
 
 ## Example
 
@@ -5496,7 +5624,7 @@ public final class Main {
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5",
+        "model": "claude-fable-5-1",
         "output_tokens": 0,
         "type": "message"
       }
@@ -5511,6 +5639,13 @@ public final class Main {
     },
     "service_tier": "standard",
     "speed": "standard"
-  }
+  },
+  "input_transformations": [
+    {
+      "path": "path",
+      "reason": "model_binding_mismatch",
+      "type": "thinking_dropped"
+    }
+  ]
 }
 ```

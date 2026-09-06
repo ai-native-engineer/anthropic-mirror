@@ -12,6 +12,8 @@ Skills are available for users on Free, Pro, Max, Team, and Enterprise plans. Th
 
 **For Max, Pro, and Free plans:** You can enable example skills and upload your own in **[Customize > Skills](https://claude.ai/customize/skills)**.
 
+---
+
 ## How to enable skills
 
 1. For Team / Enterprise plans: Navigate to **[Organization settings > Skills](https://claude.ai/admin-settings/skills)** and ensure that both **Code execution and file creation** and **Skills** are enabled.
@@ -48,7 +50,9 @@ You can also create and upload your own skills to teach Claude your specific wor
 6. Upload a ZIP file containing your skill folder.
 7. Your skill will appear in your skills list and can be toggled on or off.
 
-**Note:** Custom skills you upload are private to your individual account. If you’re on a Team or Enterprise plan and want to share skills with your organization, see **[Provision skills for your organization](https://support.claude.com/en/articles/13119606-managing-skills-as-an-admin#h_4dea113421)**.
+**Note:** Custom skills you upload are private to your individual account until you share them. On Team and Enterprise plans, you can share skills (see **Share a skill** below), or provision skills for your organization. Learn more about **[provisioning skills for your organization](https://support.claude.com/en/articles/13119606-managing-skills-as-an-admin#h_4dea113421)**.
+
+---
 
 ## Share a skill
 
@@ -59,23 +63,23 @@ On Team and Enterprise plans, you can share skills you've created with specific 
 To share a skill:
 
 1. Navigate to **[Customize > Skills](https://claude.ai/customize/skills)**.
-2. Open a skill you created.
-3. Click "Share."
+2. Find the skill you created.
+3. Click the three-dot menu (...) next to it, then select "Share."
 4. Choose who to share with:
 
-   * **Specific people:** Enter names or emails to share directly. The skill appears in each recipient's skills list, grayed out until they enable it.
-   * **A group:** Share with a group your organization has already set up. The skill appears in every group member's skills list, grayed out until they enable it. Requires the **Share with groups** toggle.
+   * **Specific people:** Enter names or emails to share directly. Sharing creates a link that opens the item for anyone it's shared with. The skill appears in each recipient's skills list, grayed out until they enable it, and shows your name as the owner.
+   * **A group (Enterprise plans only):** Share with a group your organization has already set up. The skill appears in every group member's skills list, grayed out until they enable it. Requires the **Share with groups** toggle.
    * **Entire organization:** The skill is published to your organization's directory, where anyone can find and install it.
 5. Click "Share."
 
-Shared skills are view-only. Recipients can enable and use the skill, but they can't edit the contents. If you update the skill later, recipients automatically get the updated version.
+Shared skills are view-only. Recipients can enable and use the skill, but they can't edit the contents. If you update the skill later, recipients automatically get the updated version at next use. You can remove someone's access at any time, and access is removed automatically if they leave the organization.
 
 ## Use skills shared with you
 
 On Team and Enterprise plans, your skills list in **[Customize > Skills](https://claude.ai/customize/skills)** is organized into three sections:
 
 * **Personal skills:** Skills you've created or uploaded yourself.
-* **Shared skills:** Skills colleagues have shared with you directly. These appear grayed out until you enable them.
+* **Shared with you:** Skills colleagues have shared with you directly. These stay off until you turn them on.
 * **Organization skills:** Skills shared org-wide and skills your owner has provisioned. You install these from the directory rather than enabling them from the list.
 
 ### Enable a skill shared with you directly
@@ -93,6 +97,8 @@ You can toggle the skill off again at any time, or delete it from your list enti
 
 Skills you install from the directory can be toggled off, which removes them from your sidebar. They remain in the directory so you can re-enable them later. For more on browsing the directory, see **[Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)**.
 
+---
+
 ## Use skills in Microsoft 365 add-ins
 
 Skills you've enabled in your Claude settings are also available in the Claude for Excel, PowerPoint, Word, and Outlook add-ins. Claude applies relevant skills automatically while you work—you don't need to invoke them separately.
@@ -103,6 +109,8 @@ Skills you've enabled in your Claude settings are also available in the Claude f
 * Or describe your task naturally—Claude recognizes when a skill applies and uses it.
 
 Claude adapts skills to the surface it’s in. A research skill may produce a Word document in Cowork, but detailed data breakdowns in Excel. Some skills may work better on one surface than others. If you let Claude work across apps, Claude can orchestrate another app to apply the skill. If you build a skill with a specific Excel or PowerPoint template, Claude for Excel and Powerpoint can load that template exactly into the current open file.
+
+---
 
 ## Manage your skills
 
@@ -128,10 +136,12 @@ To remove a custom skill you've uploaded:
 3. Use the toggle in the upper right corner to disable the skill.
 4. To delete the custom skill entirely, click the "..." button next to the toggle, then select "Delete":
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1788033600&signature=73f4d700000eed2da3556b36a4ae6d91ad7cb875abfb8972394c73d5e38f72cd&req=diEnE8p3nINYWvMW1HO4zSOgDyMoweWrH%2BdCnFXB0uh6EUGhJIJk%2FWBdzk3D%0A1uje%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1788033600&signature=73f4d700000eed2da3556b36a4ae6d91ad7cb875abfb8972394c73d5e38f72cd&req=diEnE8p3nINYWvMW1HO4zSOgDyMoweWrH%2BdCnFXB0uh6EUGhJIJk%2FWBdzk3D%0A1uje%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1788654600&signature=05b789c2c9b21732f89d7b21f5ab890fd1634b749d3965eba0ef35a505cc4d7c&req=diEnE8p3nINYWvMW1HO4zSOgDyMux%2BKrH%2BdCnFXB0ugV1IDFt2otNlTEf4Xs%0AsBgu%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1788654600&signature=05b789c2c9b21732f89d7b21f5ab890fd1634b749d3965eba0ef35a505cc4d7c&req=diEnE8p3nINYWvMW1HO4zSOgDyMux%2BKrH%2BdCnFXB0ugV1IDFt2otNlTEf4Xs%0AsBgu%0A)
 5. Click "Delete" in the confirmation prompt.
 
 If you change your mind, you can add the skill again by re-uploading the file.
+
+---
 
 ## Privacy and security details
 
@@ -148,6 +158,8 @@ The most significant risks are prompt injection, which allows Claude to be manip
 **Important:** Only install skills only from trusted sources.
 
 When installing a skill from a less-trusted source—including one shared by a colleague—review it before enabling. Start by reading the contents of the files bundled in the skill to understand what it does, paying particular attention to code dependencies and bundled resources like images or scripts. Similarly, pay attention to instructions or code within the skill that instruct Claude to connect to potentially untrusted external network sources.
+
+---
 
 ## Troubleshooting
 
@@ -187,6 +199,8 @@ The group needs the **Share resources with this group** visibility setting turne
 
 The **Skill sharing** toggle is on by default for Team plans and for Enterprise plans that haven't set a skills preference. For organizations with HIPAA readiness or other regulated configurations, skills and skill sharing are off by default and an admin can enable them. The **Share with organization** and **Share with groups** toggles are also off by default. An owner must navigate to **[Organization settings > Skills](https://claude.ai/admin-settings/skills)** and enable at least one of the toggles before the "Share" button appears. If your organization uses custom roles, your role must also have the **Share skills with groups** capability enabled. If you don't see the option to share, check with your organization owner.
 
+---
+
 ## Best practices
 
 **Start simple.** Begin with Anthropic's pre-built skills to understand how they work before creating custom skills.
@@ -197,6 +211,8 @@ The **Skill sharing** toggle is on by default for Team plans and for Enterprise 
 
 **Organize by purpose.** Create separate skills for different purposes rather than a single skill that’s meant to do everything.
 
+---
+
 ## Learn more about using skills
 
 For more information and video demonstrations, refer to **[Teach Claude your way of working using skills](https://claude.com/resources/tutorials/teach-claude-your-way-of-working-using-skills).**
@@ -204,5 +220,5 @@ For more information and video demonstrations, refer to **[Teach Claude your way
 * [Create and edit files with Claude](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude)
 * [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
 * [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
-* [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
+* [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 * [Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)

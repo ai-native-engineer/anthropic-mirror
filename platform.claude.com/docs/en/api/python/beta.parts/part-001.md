@@ -9,11 +9,11 @@
 
 ### Anthropic Beta
 
-- `Union[str, Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]]`
+- `Union[str, Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]]`
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -96,6 +96,12 @@
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 ### Beta API Error
 
@@ -455,7 +461,7 @@ The Models API response can be used to determine which models are available for 
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -538,6 +544,12 @@ The Models API response can be used to determine which models are available for 
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -799,7 +811,7 @@ The Models API response can be used to determine information about a specific mo
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -882,6 +894,12 @@ The Models API response can be used to determine information about a specific mo
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -2417,12 +2435,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+            - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+              - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+              - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
               - `claude-sonnet-5` - High-performance model for coding and agents
               - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
               - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -2438,6 +2458,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
               - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
               - `claude-sonnet-4-5` - High-performance model for agents and coding
               - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+              - `"claude-fable-5-1"`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `"claude-mythos-5-1"`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `"claude-sonnet-5"`
 
@@ -2518,6 +2546,36 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `"assistant"`
 
     - `"system"`
+
+  - `clear_at: Optional[Literal["next_user_message", "never"]]`
+
+    How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+    - `"next_user_message"`
+
+    - `"never"`
+
+  - `output_config: Optional[BetaSystemMessageOutputConfig]`
+
+    Per-message output configuration on a role:"system" input message.
+
+    Fields here apply per-turn; `format` remains top-level only. An
+    empty `{}` is accepted on a message that carries content; a message
+    with neither content nor output_config fields is rejected.
+
+    - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+      All possible effort levels.
+
+      - `"low"`
+
+      - `"medium"`
+
+      - `"high"`
+
+      - `"xhigh"`
+
+      - `"max"`
 
 - `model: ModelParam`
 
@@ -2821,6 +2879,24 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `type: Literal["enabled"]`
 
+        - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+          Controls for block binding: what happens when a thinking block this
+          request sends back fails the conversation check. Every field is optional;
+          an empty object means every default.
+
+          - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+            What happens when a thinking block in `messages` fails the conversation
+            check: it was created in a different conversation, or the messages before
+            it have changed since. `"error"` (the default) fails the request with a
+            400 error. `"drop_block"` removes the failing blocks and the request
+            proceeds; the model no longer sees the dropped reasoning.
+
+            - `"error"`
+
+            - `"drop_block"`
+
         - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
           Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -2838,6 +2914,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `class BetaThinkingConfigAdaptive: …`
 
         - `type: Literal["adaptive"]`
+
+        - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+          Controls for block binding: what happens when a thinking block this
+          request sends back fails the conversation check. Every field is optional;
+          an empty object means every default.
 
         - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -3339,16 +3421,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     from its schema.
 
     - `type: Literal["browser_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -3975,16 +4047,6 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     via `configs.zoom.enabled`.
 
     - `type: Literal["computer_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -4904,7 +4966,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -4987,6 +5049,12 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 - `user_profile_id: Optional[str]`
 
@@ -5917,12 +5985,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+          - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+            - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
             - `claude-sonnet-5` - High-performance model for coding and agents
             - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
             - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -5938,6 +6008,14 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
             - `claude-sonnet-4-5` - High-performance model for agents and coding
             - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+            - `"claude-fable-5-1"`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `"claude-mythos-5-1"`
+
+              Our most capable model for cybersecurity and biology research, available through trusted access programs
 
             - `"claude-sonnet-5"`
 
@@ -6682,6 +6760,60 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `"fast"`
 
+  - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+    Changes the API made to the request's input before showing it to the model:
+    one entry per change, in request order. Today the only entry type is
+    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+    block from the request's `messages` that was removed from the prompt instead
+    of being shown to the model because it failed a binding check. More entry
+    types may be added over time; ignore types you do not recognize.
+
+    Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+    every such response from a model that supports extended thinking, as `[]`
+    when nothing was changed; without the beta, blocks are removed all the same
+    but nothing is reported. Removed blocks contribute nothing to
+    `usage.input_tokens`. When streaming, the array is final in `message_start`;
+    the final `message_delta` event carries it only when a server-side model
+    fallback happened mid-stream, in which case it holds the serving model's
+    entries and replaces the one in `message_start`.
+
+    - `path: str`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `"model_binding_mismatch"`
+
+      - `"prefix_binding_mismatch"`
+
+      - `"organization_binding_mismatch"`
+
+      - `"end_user_binding_mismatch"`
+
+    - `type: Literal["thinking_dropped"]`
+
+      Always `thinking_dropped` for this entry type.
+
+      default: thinking_dropped
+
 - `BetaRawMessageStreamEvent`
 
   - `class BetaRawMessageStartEvent: …`
@@ -6778,6 +6910,52 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       - `server_tool_use: Optional[BetaServerToolUsage]`
 
         The number of server tool requests.
+
+    - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+      Changes the API made to the request's input before showing it to the model:
+      one entry per change, in request order. Today the only entry type is
+      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+      block from the request's `messages` that was removed from the prompt instead
+      of being shown to the model because it failed a binding check. More entry
+      types may be added over time; ignore types you do not recognize.
+
+      Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+      every such response from a model that supports extended thinking, as `[]`
+      when nothing was changed; without the beta, blocks are removed all the same
+      but nothing is reported. Removed blocks contribute nothing to
+      `usage.input_tokens`. When streaming, the array is final in `message_start`;
+      the final `message_delta` event carries it only when a server-side model
+      fallback happened mid-stream, in which case it holds the serving model's
+      entries and replaces the one in `message_start`.
+
+      - `path: str`
+
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `type: Literal["thinking_dropped"]`
+
+        Always `thinking_dropped` for this entry type.
+
+        default: thinking_dropped
 
   - `class BetaRawMessageStopEvent: …`
 
@@ -7047,7 +7225,7 @@ print(beta_message.id)
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5",
+        "model": "claude-fable-5-1",
         "output_tokens": 0,
         "type": "message"
       }
@@ -7062,7 +7240,14 @@ print(beta_message.id)
     },
     "service_tier": "standard",
     "speed": "standard"
-  }
+  },
+  "input_transformations": [
+    {
+      "path": "path",
+      "reason": "model_binding_mismatch",
+      "type": "thinking_dropped"
+    }
+  ]
 }
 ```
 
@@ -8354,12 +8539,14 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+            - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
               The model that will complete your prompt.
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+              - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+              - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
               - `claude-sonnet-5` - High-performance model for coding and agents
               - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
               - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -8375,6 +8562,14 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
               - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
               - `claude-sonnet-4-5` - High-performance model for agents and coding
               - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+              - `"claude-fable-5-1"`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `"claude-mythos-5-1"`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
 
               - `"claude-sonnet-5"`
 
@@ -8455,6 +8650,36 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `"assistant"`
 
     - `"system"`
+
+  - `clear_at: Optional[Literal["next_user_message", "never"]]`
+
+    How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+    - `"next_user_message"`
+
+    - `"never"`
+
+  - `output_config: Optional[BetaSystemMessageOutputConfig]`
+
+    Per-message output configuration on a role:"system" input message.
+
+    Fields here apply per-turn; `format` remains top-level only. An
+    empty `{}` is accepted on a message that carries content; a message
+    with neither content nor output_config fields is rejected.
+
+    - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+      All possible effort levels.
+
+      - `"low"`
+
+      - `"medium"`
+
+      - `"high"`
+
+      - `"xhigh"`
+
+      - `"max"`
 
 - `model: ModelParam`
 
@@ -8694,6 +8919,24 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `type: Literal["enabled"]`
 
+    - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
+
+      - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+        What happens when a thinking block in `messages` fails the conversation
+        check: it was created in a different conversation, or the messages before
+        it have changed since. `"error"` (the default) fails the request with a
+        400 error. `"drop_block"` removes the failing blocks and the request
+        proceeds; the model no longer sees the dropped reasoning.
+
+        - `"error"`
+
+        - `"drop_block"`
+
     - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
       Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -8711,6 +8954,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
   - `class BetaThinkingConfigAdaptive: …`
 
     - `type: Literal["adaptive"]`
+
+    - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+      Controls for block binding: what happens when a thinking block this
+      request sends back fails the conversation check. Every field is optional;
+      an empty object means every default.
 
     - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -9102,16 +9351,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     from its schema.
 
     - `type: Literal["browser_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -9738,16 +9977,6 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     via `configs.zoom.enabled`.
 
     - `type: Literal["computer_toolset_20260801"]`
-
-    - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-      - `"direct"`
-
-      - `"code_execution_20250825"`
-
-      - `"code_execution_20260120"`
-
-      - `"code_execution_20260521"`
 
     - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -10667,7 +10896,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -10750,6 +10979,12 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 - `user_profile_id: Optional[str]`
 
@@ -12127,12 +12362,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+                - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                  - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                  - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
                   - `claude-sonnet-5` - High-performance model for coding and agents
                   - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
                   - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -12148,6 +12385,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
                   - `claude-sonnet-4-5` - High-performance model for agents and coding
                   - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+                  - `"claude-fable-5-1"`
+
+                    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                  - `"claude-mythos-5-1"`
+
+                    Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                   - `"claude-sonnet-5"`
 
@@ -12228,6 +12473,36 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         - `"assistant"`
 
         - `"system"`
+
+      - `clear_at: Optional[Literal["next_user_message", "never"]]`
+
+        How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+        - `"next_user_message"`
+
+        - `"never"`
+
+      - `output_config: Optional[BetaSystemMessageOutputConfig]`
+
+        Per-message output configuration on a role:"system" input message.
+
+        Fields here apply per-turn; `format` remains top-level only. An
+        empty `{}` is accepted on a message that carries content; a message
+        with neither content nor output_config fields is rejected.
+
+        - `effort: Optional[Literal["low", "medium", "high", 2 more]]`
+
+          All possible effort levels.
+
+          - `"low"`
+
+          - `"medium"`
+
+          - `"high"`
+
+          - `"xhigh"`
+
+          - `"max"`
 
     - `model: ModelParam`
 
@@ -12531,6 +12806,24 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `type: Literal["enabled"]`
 
+            - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+              Controls for block binding: what happens when a thinking block this
+              request sends back fails the conversation check. Every field is optional;
+              an empty object means every default.
+
+              - `prefix_mismatch_behavior: Optional[BetaThinkingPrefixMismatchBehavior]`
+
+                What happens when a thinking block in `messages` fails the conversation
+                check: it was created in a different conversation, or the messages before
+                it have changed since. `"error"` (the default) fails the request with a
+                400 error. `"drop_block"` removes the failing blocks and the request
+                proceeds; the model no longer sees the dropped reasoning.
+
+                - `"error"`
+
+                - `"drop_block"`
+
             - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
               Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
@@ -12548,6 +12841,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           - `class BetaThinkingConfigAdaptive: …`
 
             - `type: Literal["adaptive"]`
+
+            - `block_binding: Optional[BetaThinkingBlockBinding]`
+
+              Controls for block binding: what happens when a thinking block this
+              request sends back fails the conversation check. Every field is optional;
+              an empty object means every default.
 
             - `display: Optional[Literal["summarized", "omitted", "updates"]]`
 
@@ -13049,16 +13348,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         from its schema.
 
         - `type: Literal["browser_toolset_20260801"]`
-
-        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-          - `"direct"`
-
-          - `"code_execution_20250825"`
-
-          - `"code_execution_20260120"`
-
-          - `"code_execution_20260521"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -13685,16 +13974,6 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
         via `configs.zoom.enabled`.
 
         - `type: Literal["computer_toolset_20260801"]`
-
-        - `allowed_callers: Optional[List[Literal["direct", "code_execution_20250825", "code_execution_20260120", "code_execution_20260521"]]]`
-
-          - `"direct"`
-
-          - `"code_execution_20250825"`
-
-          - `"code_execution_20260120"`
-
-          - `"code_execution_20260521"`
 
         - `cache_control: Optional[BetaCacheControlEphemeral]`
 
@@ -14614,7 +14893,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -14697,6 +14976,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 - `user_profile_id: Optional[str]`
 
@@ -14888,7 +15173,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -14971,6 +15256,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -15156,7 +15447,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -15239,6 +15530,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -15420,7 +15717,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -15503,6 +15800,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -15678,7 +15981,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -15761,6 +16064,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -15828,7 +16137,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -15911,6 +16220,12 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -16855,12 +17170,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `Literal["claude-sonnet-5", "claude-fable-5", "claude-mythos-5", 12 more]`
+                - `Literal["claude-fable-5-1", "claude-mythos-5-1", "claude-sonnet-5", 14 more]`
 
                   The model that will complete your prompt.
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+                  - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+                  - `claude-mythos-5-1` - Our most capable model for cybersecurity and biology research, available through trusted access programs
                   - `claude-sonnet-5` - High-performance model for coding and agents
                   - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
                   - `claude-mythos-5` - Most capable model for cybersecurity and biology research
@@ -16876,6 +17193,14 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
                   - `claude-sonnet-4-5` - High-performance model for agents and coding
                   - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+                  - `"claude-fable-5-1"`
+
+                    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                  - `"claude-mythos-5-1"`
+
+                    Our most capable model for cybersecurity and biology research, available through trusted access programs
 
                   - `"claude-sonnet-5"`
 
@@ -17620,6 +17945,60 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `"fast"`
 
+        - `input_transformations: Optional[List[BetaThinkingDroppedInputTransformation]]`
+
+          Changes the API made to the request's input before showing it to the model:
+          one entry per change, in request order. Today the only entry type is
+          `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+          block from the request's `messages` that was removed from the prompt instead
+          of being shown to the model because it failed a binding check. More entry
+          types may be added over time; ignore types you do not recognize.
+
+          Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+          every such response from a model that supports extended thinking, as `[]`
+          when nothing was changed; without the beta, blocks are removed all the same
+          but nothing is reported. Removed blocks contribute nothing to
+          `usage.input_tokens`. When streaming, the array is final in `message_start`;
+          the final `message_delta` event carries it only when a server-side model
+          fallback happened mid-stream, in which case it holds the serving model's
+          entries and replaces the one in `message_start`.
+
+          - `path: str`
+
+            Where the removed block was in your request, as `messages.{i}.content.{j}`:
+            `i` indexes the `messages` array you sent and `j` that message's `content`
+            array — the same form error messages use.
+
+          - `reason: Literal["model_binding_mismatch", "prefix_binding_mismatch", "organization_binding_mismatch", "end_user_binding_mismatch"]`
+
+            Which binding check removed the block: `model_binding_mismatch` — it was
+            created by a model whose reasoning the requested model may not read;
+            `prefix_binding_mismatch` — the conversation before it differs from the
+            conversation it was created in (the rest of that turn's consecutive thinking
+            blocks are removed with it, each with this reason);
+            `organization_binding_mismatch` — it was created under a different
+            organization (an Anthropic organization, AWS account or Google Cloud project)
+            and this organization is not one of its additional organizations;
+            `end_user_binding_mismatch` — it was created for a different end user, or
+            was removed by the consumer-organization binding. A block that would fail
+            several checks reports one reason, in this order of precedence:
+            `organization_binding_mismatch`, `end_user_binding_mismatch`,
+            `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+            - `"model_binding_mismatch"`
+
+            - `"prefix_binding_mismatch"`
+
+            - `"organization_binding_mismatch"`
+
+            - `"end_user_binding_mismatch"`
+
+          - `type: Literal["thinking_dropped"]`
+
+            Always `thinking_dropped` for this entry type.
+
+            default: thinking_dropped
+
       - `type: Literal["succeeded"]`
 
         default: succeeded
@@ -17775,14 +18154,15 @@ Create Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control
 
-  - `Union[Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more], str]`
+  - `Union[Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more], str]`
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+    - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -17796,6 +18176,10 @@ Create Agent
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `"claude-sonnet-5"`
 
@@ -17861,12 +18245,13 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+      - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -18461,7 +18846,7 @@ Create Agent
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -18545,6 +18930,12 @@ Create Agent
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent: …`
@@ -18587,12 +18978,13 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+      - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -18606,6 +18998,10 @@ Create Agent
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -19226,7 +19622,7 @@ List Agents
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -19310,6 +19706,12 @@ List Agents
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent: …`
@@ -19352,12 +19754,13 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+      - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -19371,6 +19774,10 @@ List Agents
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -19976,7 +20383,7 @@ Get Agent
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -20060,6 +20467,12 @@ Get Agent
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent: …`
@@ -20102,12 +20515,13 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+      - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -20121,6 +20535,10 @@ Get Agent
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -20742,14 +21160,15 @@ Update Agent
 
   Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-5`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
 
-  - `Union[Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more], str]`
+  - `Union[Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more], str]`
 
-    - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+    - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+      - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
       - `claude-sonnet-5` - High-performance model for coding and agents
       - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
       - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -20763,6 +21182,10 @@ Update Agent
       - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
       - `claude-sonnet-4-5` - High-performance model for agents and coding
       - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+      - `"claude-fable-5-1"`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
       - `"claude-sonnet-5"`
 
@@ -20828,12 +21251,13 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+      - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -21406,7 +21830,7 @@ Update Agent
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -21490,6 +21914,12 @@ Update Agent
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent: …`
@@ -21532,12 +21962,13 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+      - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -21551,6 +21982,10 @@ Update Agent
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -22147,7 +22582,7 @@ Archive Agent
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -22231,6 +22666,12 @@ Archive Agent
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent: …`
@@ -22273,12 +22714,13 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+      - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -22292,6 +22734,10 @@ Archive Agent
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -22899,7 +23345,7 @@ List Agent Versions
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -22983,6 +23429,12 @@ List Agent Versions
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsAgent: …`
@@ -23025,12 +23477,13 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+      - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+        - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
         - `claude-sonnet-5` - High-performance model for coding and agents
         - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
         - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -23044,6 +23497,10 @@ List Agent Versions
         - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
         - `claude-sonnet-4-5` - High-performance model for agents and coding
         - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+        - `"claude-fable-5-1"`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
         - `"claude-sonnet-5"`
 
@@ -23765,7 +24222,7 @@ Create a new environment with the specified configuration.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -23848,6 +24305,12 @@ Create a new environment with the specified configuration.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -24081,7 +24544,7 @@ List environments with pagination support.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -24164,6 +24627,12 @@ List environments with pagination support.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -24387,7 +24856,7 @@ Retrieve a specific environment by ID.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -24470,6 +24939,12 @@ Retrieve a specific environment by ID.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -24809,7 +25284,7 @@ Update an existing environment's configuration.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -24892,6 +25367,12 @@ Update an existing environment's configuration.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -25111,7 +25592,7 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -25194,6 +25675,12 @@ Delete an environment by ID. Returns a confirmation of the deletion.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -25255,7 +25742,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -25338,6 +25825,12 @@ Archive an environment by ID. Archived environments cannot be used to create new
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -25563,7 +26056,7 @@ Retrieve detailed information about a specific work item.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -25646,6 +26139,12 @@ Retrieve detailed information about a specific work item.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -25804,7 +26303,7 @@ Long poll for work items in the queue.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -25887,6 +26386,12 @@ Long poll for work items in the queue.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 - `anthropic_worker_id: Optional[str]`
 
@@ -26038,7 +26543,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -26121,6 +26626,12 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -26277,7 +26788,7 @@ Record a heartbeat for a work item to maintain the lease.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -26360,6 +26871,12 @@ Record a heartbeat for a work item to maintain the lease.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -26457,7 +26974,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -26540,6 +27057,12 @@ Stop a work item, initiating graceful or forced shutdown.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -26696,7 +27219,7 @@ List work items in an environment.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -26779,6 +27302,12 @@ List work items in an environment.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -26936,7 +27465,7 @@ Update work item metadata with merge semantics.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -27019,6 +27548,12 @@ Update work item metadata with merge semantics.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -27164,7 +27699,7 @@ Get statistics about the work queue for an environment.
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -27247,6 +27782,12 @@ Get statistics about the work queue for an environment.
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -27379,14 +27920,15 @@ Create Session
 
       Replacement model. Accepts the model string, e.g. `claude-opus-5`, or a `model_config` object. Omit to use the agent's model.
 
-      - `Union[Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more], str]`
+      - `Union[Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more], str]`
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+        - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -27400,6 +27942,10 @@ Create Session
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -27465,12 +28011,13 @@ Create Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+          - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
             The model that will power your agent.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+            - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
             - `claude-sonnet-5` - High-performance model for coding and agents
             - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
             - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -28323,7 +28870,7 @@ Create Session
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -28407,6 +28954,12 @@ Create Session
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession: …`
@@ -28441,12 +28994,13 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+        - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -28460,6 +29014,10 @@ Create Session
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -29009,7 +29567,7 @@ Create Session
 
   - `outcome_evaluations: List[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Optional[datetime]`
 
@@ -29023,7 +29581,7 @@ Create Session
 
     - `explanation: Optional[str]`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: int`
 
@@ -29151,7 +29709,7 @@ Create Session
 
     - `active_seconds: Optional[float]`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -29483,7 +30041,7 @@ List Sessions
 
 - `agent_version: Optional[int]`
 
-  Filter by agent version. Only applies when agent_id is also set.
+  Filter by agent version. Only applies when `agent_id` is also set.
 
   format: int32
 
@@ -29527,11 +30085,11 @@ List Sessions
 
 - `memory_store_id: Optional[str]`
 
-  Filter sessions whose resources contain a memory_store with this memory store ID.
+  Filter sessions whose resources contain a `memory_store` with this memory store ID.
 
 - `order: Optional[Literal["asc", "desc"]]`
 
-  Sort direction for results, ordered by created_at. Defaults to desc (newest first).
+  Sort direction for results, ordered by `created_at`. Defaults to `desc` (newest first).
 
   - `"asc"`
 
@@ -29559,7 +30117,7 @@ List Sessions
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -29643,6 +30201,12 @@ List Sessions
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession: …`
@@ -29677,12 +30241,13 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+        - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -29696,6 +30261,10 @@ List Sessions
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -30245,7 +30814,7 @@ List Sessions
 
   - `outcome_evaluations: List[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Optional[datetime]`
 
@@ -30259,7 +30828,7 @@ List Sessions
 
     - `explanation: Optional[str]`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: int`
 
@@ -30387,7 +30956,7 @@ List Sessions
 
     - `active_seconds: Optional[float]`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -30725,7 +31294,7 @@ Get Session
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -30809,6 +31378,12 @@ Get Session
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession: …`
@@ -30843,12 +31418,13 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+        - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -30862,6 +31438,10 @@ Get Session
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -31411,7 +31991,7 @@ Get Session
 
   - `outcome_evaluations: List[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Optional[datetime]`
 
@@ -31425,7 +32005,7 @@ Get Session
 
     - `explanation: Optional[str]`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: int`
 
@@ -31553,7 +32133,7 @@ Get Session
 
     - `active_seconds: Optional[float]`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -32324,7 +32904,7 @@ Update Session
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -32408,6 +32988,12 @@ Update Session
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession: …`
@@ -32442,12 +33028,13 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+        - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -32461,6 +33048,10 @@ Update Session
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -33010,7 +33601,7 @@ Update Session
 
   - `outcome_evaluations: List[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Optional[datetime]`
 
@@ -33024,7 +33615,7 @@ Update Session
 
     - `explanation: Optional[str]`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: int`
 
@@ -33152,7 +33743,7 @@ Update Session
 
     - `active_seconds: Optional[float]`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -33485,7 +34076,7 @@ Delete Session
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -33568,6 +34159,12 @@ Delete Session
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -33623,7 +34220,7 @@ Archive Session
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -33707,6 +34304,12 @@ Archive Session
 
     - `"ce-user-management-2026-07-13"`
 
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
+
 #### Returns
 
 - `class BetaManagedAgentsSession: …`
@@ -33741,12 +34344,13 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
+        - `Literal["claude-fable-5-1", "claude-sonnet-5", "claude-fable-5", 11 more]`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+          - `claude-fable-5-1` - Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
           - `claude-sonnet-5` - High-performance model for coding and agents
           - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
           - `claude-opus-5` - Powerful intelligence for long-running agents and coding
@@ -33760,6 +34364,10 @@ Archive Session
           - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
           - `claude-sonnet-4-5` - High-performance model for agents and coding
           - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
+
+          - `"claude-fable-5-1"`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
 
           - `"claude-sonnet-5"`
 
@@ -34309,7 +34917,7 @@ Archive Session
 
   - `outcome_evaluations: List[BetaManagedAgentsOutcomeEvaluationResource]`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `completed_at: Optional[datetime]`
 
@@ -34323,7 +34931,7 @@ Archive Session
 
     - `explanation: Optional[str]`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `iteration: int`
 
@@ -34451,7 +35059,7 @@ Archive Session
 
     - `active_seconds: Optional[float]`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -34812,7 +35420,7 @@ List Events
 
 - `order: Optional[Literal["asc", "desc"]]`
 
-  Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
+  Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
 
   - `"asc"`
 
@@ -34820,7 +35428,7 @@ List Events
 
 - `page: Optional[str]`
 
-  Opaque pagination cursor from a previous response's next_page.
+  Opaque pagination cursor from a previous response's `next_page`.
 
 - `types: Optional[Sequence[str]]`
 
@@ -34832,7 +35440,7 @@ List Events
 
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 38 more]`
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 41 more]`
 
     - `"message-batches-2024-09-24"`
 
@@ -34915,6 +35523,12 @@ List Events
     - `"thinking-display-updates-2026-08-18"`
 
     - `"ce-user-management-2026-07-13"`
+
+    - `"mid-conversation-output-config-2026-07-01"`
+
+    - `"thinking-binding-controls-2026-08-01"`
+
+    - `"mid-conversation-system-clear-at-2026-08-21"`
 
 #### Returns
 
@@ -36001,909 +36615,3 @@ List Events
       format: date-time
 
     - `result: str`
-
-      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `type: Literal["span.outcome_evaluation_end"]`
-
-    - `usage: BetaManagedAgentsSpanModelUsage`
-
-      Token usage for a single model request.
-
-      - `cache_creation_input_tokens: int`
-
-        Tokens used to create prompt cache in this request.
-
-        format: int32
-
-      - `cache_read_input_tokens: int`
-
-        Tokens read from prompt cache in this request.
-
-        format: int32
-
-      - `input_tokens: int`
-
-        Input tokens consumed by this request.
-
-        format: int32
-
-      - `output_tokens: int`
-
-        Output tokens generated by this request.
-
-        format: int32
-
-      - `speed: Optional[Literal["standard", "fast"]]`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"`
-
-        - `"fast"`
-
-  - `class BetaManagedAgentsSpanModelRequestStartEvent: …`
-
-    Emitted when a model request is initiated by the agent.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: Literal["span.model_request_start"]`
-
-  - `class BetaManagedAgentsSpanModelRequestEndEvent: …`
-
-    Emitted when a model request completes.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `is_error: Optional[bool]`
-
-      Whether the model request resulted in an error.
-
-    - `model_request_start_id: str`
-
-      The id of the corresponding `span.model_request_start` event.
-
-    - `model_usage: BetaManagedAgentsSpanModelUsage`
-
-      Token usage for a single model request.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: Literal["span.model_request_end"]`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent: …`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `iteration: int`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `outcome_id: str`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: Literal["span.outcome_evaluation_ongoing"]`
-
-  - `class BetaManagedAgentsUserDefineOutcomeEvent: …`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `description: str`
-
-      What the agent should produce. Copied from the input event.
-
-    - `max_iterations: Optional[int]`
-
-      Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-      format: int32
-
-    - `outcome_id: str`
-
-      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `rubric: Rubric`
-
-      Rubric for grading the quality of an outcome.
-
-      - `class BetaManagedAgentsFileRubric: …`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `file_id: str`
-
-          ID of the rubric file.
-
-        - `type: Literal["file"]`
-
-      - `class BetaManagedAgentsTextRubric: …`
-
-        Rubric content provided inline as text.
-
-        - `content: str`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-        - `type: Literal["text"]`
-
-    - `type: Literal["user.define_outcome"]`
-
-  - `class BetaManagedAgentsSessionDeletedEvent: …`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: Literal["session.deleted"]`
-
-  - `class BetaManagedAgentsSessionThreadStatusRunningEvent: …`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `agent_name: str`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: str`
-
-      Public sthr_ ID of the thread that started running.
-
-    - `type: Literal["session.thread_status_running"]`
-
-  - `class BetaManagedAgentsSessionThreadStatusIdleEvent: …`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `agent_name: str`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: str`
-
-      Public sthr_ ID of the thread that went idle.
-
-    - `stop_reason: StopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionEndTurn: …`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionRequiresAction: …`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-      - `class BetaManagedAgentsSessionRetriesExhausted: …`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-      - `class BetaManagedAgentsSessionBudgetReached: …`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-    - `type: Literal["session.thread_status_idle"]`
-
-  - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent: …`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `agent_name: str`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: str`
-
-      Public sthr_ ID of the thread that terminated.
-
-    - `type: Literal["session.thread_status_terminated"]`
-
-  - `class BetaManagedAgentsUserToolResultEvent: …`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `tool_use_id: str`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `type: Literal["user.tool_result"]`
-
-    - `content: Optional[List[Content]]`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock: …`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock: …`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock: …`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock: …`
-
-        A block containing a web search result.
-
-    - `is_error: Optional[bool]`
-
-      Whether the tool execution resulted in an error.
-
-    - `processed_at: Optional[datetime]`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: Optional[str]`
-
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-  - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent: …`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `agent_name: str`
-
-      Name of the agent the thread runs.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `session_thread_id: str`
-
-      Public sthr_ ID of the thread that is retrying.
-
-    - `type: Literal["session.thread_status_rescheduled"]`
-
-  - `class BetaManagedAgentsSessionUpdatedEvent: …`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-    - `id: str`
-
-      Unique identifier for this event.
-
-    - `processed_at: datetime`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `type: Literal["session.updated"]`
-
-    - `agent: Optional[BetaManagedAgentsSessionAgent]`
-
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-      - `id: str`
-
-      - `description: Optional[str]`
-
-      - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
-
-        - `name: str`
-
-        - `type: Literal["url"]`
-
-        - `url: str`
-
-      - `model: BetaManagedAgentsModelConfig`
-
-        Model identifier and configuration.
-
-        - `id: BetaManagedAgentsModel`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `Literal["claude-sonnet-5", "claude-fable-5", "claude-opus-5", 10 more]`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `claude-sonnet-5` - High-performance model for coding and agents
-            - `claude-fable-5` - Next generation of intelligence for the hardest knowledge work and coding problems
-            - `claude-opus-5` - Powerful intelligence for long-running agents and coding
-            - `claude-opus-4-8` - Powerful intelligence for long-running agents and coding
-            - `claude-opus-4-7` - Powerful intelligence for long-running agents and coding
-            - `claude-opus-4-6` - Powerful intelligence for long-running agents and coding
-            - `claude-sonnet-4-6` - Best combination of speed and intelligence
-            - `claude-haiku-4-5` - Fastest model with near-frontier intelligence
-            - `claude-haiku-4-5-20251001` - Fastest model with near-frontier intelligence
-            - `claude-opus-4-5` - Powerful intelligence for long-running agents and coding
-            - `claude-opus-4-5-20251101` - Powerful intelligence for long-running agents and coding
-            - `claude-sonnet-4-5` - High-performance model for agents and coding
-            - `claude-sonnet-4-5-20250929` - High-performance model for agents and coding
-
-            - `"claude-sonnet-5"`
-
-              High-performance model for coding and agents
-
-            - `"claude-fable-5"`
-
-              Next generation of intelligence for the hardest knowledge work and coding problems
-
-            - `"claude-opus-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-8"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-7"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-6"`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-opus-4-5-20251101"`
-
-              Powerful intelligence for long-running agents and coding
-
-            - `"claude-sonnet-4-5"`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"`
-
-              High-performance model for agents and coding
-
-          - `str`
-
-        - `effort: Optional[Effort]`
-
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-          - `class BetaManagedAgentsEffortLow: …`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `type: Literal["low"]`
-
-          - `class BetaManagedAgentsEffortMedium: …`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `type: Literal["medium"]`
-
-          - `class BetaManagedAgentsEffortHigh: …`
-
-            High effort. Favors reasoning depth.
-
-            - `type: Literal["high"]`
-
-          - `class BetaManagedAgentsEffortXhigh: …`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `type: Literal["xhigh"]`
-
-          - `class BetaManagedAgentsEffortMax: …`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `type: Literal["max"]`
-
-        - `inference_geo: Optional[str]`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `speed: Optional[Literal["standard", "fast"]]`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"`
-
-          - `"fast"`
-
-      - `multiagent: Optional[BetaManagedAgentsSessionMultiagentCoordinator]`
-
-        Resolved coordinator topology with full agent definitions for each roster member.
-
-        - `agents: List[Agent]`
-
-          Full `agent` definitions the coordinator may spawn as session threads.
-
-          - `class BetaManagedAgentsSessionThreadAgent: …`
-
-            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-            - `id: str`
-
-            - `description: Optional[str]`
-
-            - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
-
-              - `name: str`
-
-              - `type: Literal["url"]`
-
-              - `url: str`
-
-            - `model: BetaManagedAgentsModelConfig`
-
-              Model identifier and configuration.
-
-            - `name: str`
-
-            - `skills: List[Skill]`
-
-              - `class BetaManagedAgentsAnthropicSkill: …`
-
-                A resolved Anthropic-managed skill.
-
-                - `skill_id: str`
-
-                - `type: Literal["anthropic"]`
-
-                - `version: str`
-
-              - `class BetaManagedAgentsCustomSkill: …`
-
-                A resolved user-created custom skill.
-
-                - `skill_id: str`
-
-                - `type: Literal["custom"]`
-
-                - `version: str`
-
-            - `system: Optional[str]`
-
-            - `tools: List[Tool]`
-
-              - `class BetaManagedAgentsAgentToolset20260401: …`
-
-                - `configs: List[BetaManagedAgentsAgentToolConfig]`
-
-                  - `class BetaManagedAgentsBashToolConfig: …`
-
-                    Configuration for the bash tool.
-
-                    - `enabled: bool`
-
-                    - `name: Literal["bash"]`
-
-                    - `permission_policy: PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                        - `type: Literal["always_allow"]`
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                        Tool calls require user confirmation before execution.
-
-                        - `type: Literal["always_ask"]`
-
-                    - `type: Literal["bash"]`
-
-                  - `class BetaManagedAgentsEditToolConfig: …`
-
-                    Configuration for the edit tool.
-
-                    - `enabled: bool`
-
-                    - `name: Literal["edit"]`
-
-                    - `permission_policy: PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: Literal["edit"]`
-
-                  - `class BetaManagedAgentsReadToolConfig: …`
-
-                    Configuration for the read tool.
-
-                    - `enabled: bool`
-
-                    - `name: Literal["read"]`
-
-                    - `permission_policy: PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: Literal["read"]`
-
-                  - `class BetaManagedAgentsWriteToolConfig: …`
-
-                    Configuration for the write tool.
-
-                    - `enabled: bool`
-
-                    - `name: Literal["write"]`
-
-                    - `permission_policy: PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: Literal["write"]`
-
-                  - `class BetaManagedAgentsGlobToolConfig: …`
-
-                    Configuration for the glob tool.
-
-                    - `enabled: bool`
-
-                    - `name: Literal["glob"]`
-
-                    - `permission_policy: PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: Literal["glob"]`
-
-                  - `class BetaManagedAgentsGrepToolConfig: …`
-
-                    Configuration for the grep tool.
-
-                    - `enabled: bool`
-
-                    - `name: Literal["grep"]`
-
-                    - `permission_policy: PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: Literal["grep"]`
-
-                  - `class BetaManagedAgentsWebFetchToolConfig: …`
-
-                    Configuration for the web_fetch tool.
-
-                    - `enabled: bool`
-
-                    - `name: Literal["web_fetch"]`
-
-                    - `permission_policy: PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: Literal["web_fetch"]`
-
-                    - `allowed_domains: Optional[List[str]]`
-
-                    - `blocked_domains: Optional[List[str]]`
-
-                    - `max_content_tokens: Optional[int]`
-
-                      format: int32
-
-                  - `class BetaManagedAgentsWebSearchToolConfig: …`
-
-                    Configuration for the web_search tool.
-
-                    - `enabled: bool`
-
-                    - `name: Literal["web_search"]`
-
-                    - `permission_policy: PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `type: Literal["web_search"]`
-
-                    - `allowed_domains: Optional[List[str]]`
-
-                    - `blocked_domains: Optional[List[str]]`
-
-                    - `user_location: Optional[BetaManagedAgentsUserLocation]`
-
-                      Approximate user location for search result localization.
-
-                      - `type: Literal["approximate"]`
-
-                        Location precision. Only "approximate" is supported.
-
-                      - `city: Optional[str]`
-
-                        City name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `country: Optional[str]`
-
-                        Two-letter ISO 3166-1 country code, uppercase.
-
-                      - `region: Optional[str]`
-
-                        Region or state name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `timezone: Optional[str]`
-
-                        IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                        minLength: 1, maxLength: 255
-
-                - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
-
-                  Resolved default configuration for agent tools.
-
-                  - `enabled: bool`
-
-                  - `permission_policy: PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                      Tool calls require user confirmation before execution.
-
-                - `type: Literal["agent_toolset_20260401"]`
-
-              - `class BetaManagedAgentsMCPToolset: …`
-
-                - `configs: List[BetaManagedAgentsMCPToolConfig]`
-
-                  - `enabled: bool`
-
-                  - `name: str`
-
-                  - `permission_policy: PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                      Tool calls require user confirmation before execution.
-
-                - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
-
-                  Resolved default configuration for all tools from an MCP server.
-
-                  - `enabled: bool`
-
-                  - `permission_policy: PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy: …`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy: …`
-
-                      Tool calls require user confirmation before execution.
-
-                - `mcp_server_name: str`
-
-                - `type: Literal["mcp_toolset"]`
-
-              - `class BetaManagedAgentsCustomTool: …`
-
-                A custom tool as returned in API responses.
-
-                - `description: str`
-
-                - `input_schema: BetaManagedAgentsCustomToolInputSchema`
-
-                  JSON Schema for custom tool input parameters.
-
-                  - `type: Literal["object"]`
-
-                  - `properties: Optional[Dict[str, object]]`
-
-                  - `required: Optional[List[str]]`
-
-                - `name: str`
-
-                - `type: Literal["custom"]`
-
-            - `type: Literal["agent"]`
-
-            - `version: int`
-
-              format: int32
-
-          - `class BetaManagedAgentsAdvisor: …`
-
-            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-            - `model: str`
-
-              The advisor model id.
-
-            - `type: Literal["advisor"]`
-
-        - `type: Literal["coordinator"]`
-
-      - `name: str`
-
-      - `skills: List[Skill]`
-
-        - `class BetaManagedAgentsAnthropicSkill: …`
-
-          A resolved Anthropic-managed skill.
-
-        - `class BetaManagedAgentsCustomSkill: …`
-
-          A resolved user-created custom skill.
-
-      - `system: Optional[str]`
-
-      - `tools: List[Tool]`
-
-        - `class BetaManagedAgentsAgentToolset20260401: …`

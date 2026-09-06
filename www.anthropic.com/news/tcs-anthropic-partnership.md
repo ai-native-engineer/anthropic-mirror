@@ -28,3 +28,5 @@ This work is already underway. For example:
 “This partnership reflects our shared conviction that AI will be foundational and transformative for enterprises worldwide,” said N Chandrasekaran, Chairman, Tata Sons. “By combining Anthropic's capabilities with Tata Group’s scale, trusted relationships, and nation-building commitment, we will accelerate enterprise reinvention and equip India’s youth with the skills to lead in the AI era.”
 
 To learn more about the Claude Partner Network, visit [anthropic.com/partners](https://www.anthropic.com/partners).
+
+TCS and Anthropic bring Claude to regulated industries \ Anthropic

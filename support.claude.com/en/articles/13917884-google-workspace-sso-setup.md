@@ -18,6 +18,8 @@ The ACS URL, Entity ID, and SCIM credentials referenced below are provided in th
 
 Start the SSO setup flow there and keep it open alongside the Google Admin console as you work through the steps below.
 
+---
+
 ## Step 1 — Add a custom SAML app in Google Admin
 
 1. In the **Google Admin console**, go to **Apps → Web and mobile apps → Add app → Add custom SAML app**.
@@ -57,6 +59,8 @@ Start the SSO setup flow there and keep it open alongside the Google Admin conso
 
 1. If you enabled SCIM, check that provisioned people appear in your organization's member list.
 2. Have a test user log in via SSO and confirm they land in your organization's workspace.
+
+---
 
 ## Need help?
 

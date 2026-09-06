@@ -110,13 +110,13 @@ That difference compounds in practice. A Tasklet agent might make dozens or hund
 
 Every LLM call in Tasklet's product goes to a Claude model. Users working on standard business workflows use Claude Sonnet 4.6; those tackling complex, multi-step reasoning can step up to Claude Opus 4.6 with extended thinking. The team found Claude particularly reliable in unattended operation: taking careful, considered actions when uncertain. "Safety and reliability matter a lot when agents are running autonomously without human oversight," Lee noted.
 
-Developer Platform
+Claude Platform
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f5266ed232fd1354625a6_68c469d18f61fb5c21c81781_og-claude-api.jpeg)
 
 Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 
-Developer Platform
+Claude Platform
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
@@ -128,7 +128,7 @@ Use the Claude API to create new user experiences, products, and ways to work wi
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 
-Developer Platform
+Claude Platform
 
 Use the Claude API to create new user experiences, products, and ways to work with the most advanced AI models on the market.
 

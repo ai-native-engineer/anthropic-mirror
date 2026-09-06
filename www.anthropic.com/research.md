@@ -58,6 +58,9 @@ Search
 
 DateCategoryTitle
 
+* [Sep 4, 2026Science
+
+  Formalizing Fermat's Last Theorem](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 * [Aug 28, 2026Alignment
 
   Automated researchers can reliably mitigate alignment failures](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
@@ -85,13 +88,8 @@ DateCategoryTitle
 * [Jul 14, 2026Economics
 
   How Canada uses Claude: Findings from the Anthropic Economic Index](https://www.anthropic.com/research/how-canada-uses-claude)
-* [Jul 13, 2026Societal Impacts
-
-  Claude’s values across models and languages](https://www.anthropic.com/research/claude-values-models-languages)
 
 [See more](#)
-
-![Automated researchers can reliably mitigate alignment failures](https://www-cdn.anthropic.com/images/4zrzovbb/website/ddad92700787ec1bf1d80359c0c5e6ca305682b0-1000x1000.svg)
 
 Join the Research team
 

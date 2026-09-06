@@ -256,7 +256,7 @@ Slack
 
 ### Analyze every objection you’ve heard this quarter, in one place
 
-Hand off first-pass contract review. Point Claude at the folder of inbound agreements and your playbook, and come back to a memo per contract with every departure cited to the clause, and the gaps your playbook doesn't cover marked for you.
+Hand off the read-back. Point Claude at a quarter of call notes and come back to a memo on where every open deal stands, what the customer said was blocking it, and which objections keep coming up, each one quoted from the note it came from.
 
 ## Customize Claude with plugins
 
@@ -564,9 +564,7 @@ Cowork is where you hand Claude real work. It runs on desktop, with web and mobi
 
 ### What’s the difference between Claude Cowork and Chat?
 
-Claude Code is built for software engineering, including writing, debugging, and shipping code. It's available in the terminal, in the desktop app, in IDEs like VS Code and JetBrains, and via Claude Tag.
-
-Claude Cowork is built for work like research, analysis, document creation, and other multi-step tasks. It uses the same agentic approach as Claude Code.
+In regular chat, Claude responds to your messages but can't access your files directly. In Cowork, Claude has permission to read, edit, and create files in folders you specify—so it can actually complete tasks rather than just describe how to do them.
 
 ### What's the difference between Claude Cowork and Claude Code?
 

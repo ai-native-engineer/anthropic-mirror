@@ -24,6 +24,8 @@ Our system also includes caching that helps you optimize your limits:
 * Similar prompts you use frequently are partially cached.
 * Claude remembers context from earlier in the conversation.
 
+---
+
 ## 1. Start by planning your conversations
 
 Before starting a conversation with Claude, consider the following:
@@ -92,6 +94,8 @@ Projects offer significant caching benefits:
 * Upload your core working documents to the project knowledge section when starting a project.
 * The more you use the same content, the more benefit you get from caching.
 
+---
+
 ## Best practices for specific use cases
 
 ### For coding tasks
@@ -113,6 +117,6 @@ By following these best practices, you can make the most efficient use of your C
 
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
-* [Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)
+* [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
 * [Buy usage bundles](https://support.claude.com/en/articles/14246112-buy-usage-bundles)
 * [Models, usage, and limits in Claude Code](https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code)

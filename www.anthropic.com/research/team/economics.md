@@ -14,15 +14,19 @@ We build the empirical foundation for understanding AI's economic impact. Our fl
 
 Economic transitions create both opportunity and disruption. The speed of AI development means the stakes are unusually high. We need reliable data to inform the decisions that workers, employers, and policymakers make about the future. Our research provides evidence to address uncertainty and helps society navigate this transition in ways that are broadly beneficial.
 
-![Anthropic Economic Index report: Learning curves](https://www-cdn.anthropic.com/images/4zrzovbb/website/5f8ead290993a5f502f83b53a87bc3c7e548f792-2000x2000.jpg)
+![Anthropic Economic Index report: Cadences](https://www-cdn.anthropic.com/images/4zrzovbb/website/1c3e87fd90491089b2971dc34f9f75bb8a80f713-1000x1000.svg)
 
-[## Anthropic Economic Index report: Learning curves
+[## Anthropic Economic Index report: Cadences
 
-EconomicsMar 24, 2026
+EconomicsJun 26, 2026
 
-Anthropic's fifth Economic Index report studies Claude usage in February 2026, building on the economic primitives framework introduced in our previous report.](https://www.anthropic.com/research/economic-index-march-2026-report)
+In our latest Economic Index report, we sample hourly for the first time to ask: When do people come to Claude? What do they produce with it? And how do they perceive AI's impact on their work?](https://www.anthropic.com/research/economic-index-june-2026-report)
 
-[EconomicsApr 22, 2026
+[EconomicsMar 24, 2026
+
+#### Anthropic Economic Index report: Learning curves
+
+Anthropic's fifth Economic Index report studies Claude usage in February 2026, building on the economic primitives framework introduced in our previous report.](https://www.anthropic.com/research/economic-index-march-2026-report)[EconomicsApr 22, 2026
 
 #### What 81,000 people told us about the economics of AI
 
@@ -34,11 +38,7 @@ In this paper, we present a new framework for understanding AI’s labor market 
 
 #### Anthropic Economic Index report: Economic primitives
 
-This report introduces new metrics of AI usage to provide a rich portrait of interactions with Claude in November 2025, just prior to the release of Opus 4.5.](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)[EconomicsNov 25, 2025
-
-#### Estimating AI productivity gains from Claude conversations
-
-Analyzing 100,000 Claude conversations, this research finds AI reduces task time by 80% on average.](https://www.anthropic.com/research/estimating-productivity-gains)
+This report introduces new metrics of AI usage to provide a rich portrait of interactions with Claude in November 2025, just prior to the release of Opus 4.5.](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)
 
 ## Publications
 

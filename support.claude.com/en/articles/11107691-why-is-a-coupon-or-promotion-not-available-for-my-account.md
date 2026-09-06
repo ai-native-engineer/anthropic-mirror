@@ -7,7 +7,7 @@ A "This promotion is not available for your account" error message means that yo
 Additionally, App Store subscribers (iOS or Android) are unable to take advantage of promotions at this time. If you are interested in transitioning from an App Store subscription to a direct subscription, you'll need to cancel and resubscribe once your current subscription term ends.
 
 * [What is the Pro plan?](https://support.claude.com/en/articles/8325606-what-is-the-pro-plan)
+* [Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription)
 * [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [Claude 4 Invite Contest](https://support.claude.com/en/articles/11408405-claude-4-invite-contest)
-* [Holiday 2025 Usage Promotion](https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion)

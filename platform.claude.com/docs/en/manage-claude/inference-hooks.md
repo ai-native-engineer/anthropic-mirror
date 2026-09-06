@@ -62,7 +62,7 @@ For the full request and response schemas, signature verification, and operation
 
 Inference hooks are available to Claude Enterprise organizations. Configuring them requires the `organization:manage` permission, which the built-in Admin, Owner, and Primary owner roles hold, as does any custom role granted it.
 
-One hook governs conversations across claude.ai, Cowork, and Claude Code sessions in your Claude Enterprise organization, whether they run on the web, in the desktop app, or in the CLI. Inference hooks are not available on Amazon Bedrock or Google Cloud.
+One hook governs conversations across claude.ai, Cowork, and Claude Code sessions in your Claude Enterprise organization, whether they run on the web, in the desktop or mobile apps, or in the CLI. Inference hooks are not available on Amazon Bedrock or Google Cloud.
 
 Governed requests are the inference requests behind the user's conversation. Ancillary requests, such as conversation title generation, aren't sent to your endpoint, and system prompts and tool definitions are never included in what is sent. Voice mode is not covered.
 
@@ -72,11 +72,11 @@ Governed requests are the inference requests behind the user's conversation. Anc
 
 Both features serve security, legal, and compliance teams at Claude Enterprise organizations.
 
-|              | Inference hooks                                     | Compliance API                                                                                                         |
-| ------------ | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| When it acts | Inline, before inference runs                       | After the fact                                                                                                         |
-| What it does | Allows or denies each governed request in real time | Retrieves activity, chats, files, projects, Cowork and Claude Code session transcripts, and users for audit and export |
-| Direction    | Anthropic calls your AI security server             | You call Anthropic's API                                                                                               |
+|              | Inference hooks                                     | Compliance API                                                                                  |
+| ------------ | --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| When it acts | Inline, before inference runs                       | After the fact                                                                                  |
+| What it does | Allows or denies each governed request in real time | Retrieves activity, chats, files, projects, session transcripts, and users for audit and export |
+| Direction    | Anthropic calls your AI security server             | You call Anthropic's API                                                                        |
 
 Use Inference hooks to stop a request before it reaches the model, and the [Compliance API](https://platform.claude.com/docs/en/manage-claude/compliance-api) to audit what happened afterward.
 

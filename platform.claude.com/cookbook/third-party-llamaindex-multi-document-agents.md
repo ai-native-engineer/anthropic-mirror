@@ -6,11 +6,11 @@ In this notebook we will look into Building RAG when you have a large number of 
 
 ###  Installation
 
-!pip install llama-index
+%pip install llama-index
 
-!pip install llama-index-llms-anthropic
+%pip install llama-index-llms-anthropic
 
-!pip install llama-index-embeddings-huggingface
+%pip install llama-index-embeddings-huggingface
 
 ###  Set Logging
 
@@ -66,7 +66,7 @@ from llama\_index.embeddings.huggingface import HuggingFaceEmbedding
 
 from llama\_index.llms.anthropic import Anthropic
 
-llm = Anthropic(temperature=0.0, model="claude-opus-4-1")
+llm = Anthropic(temperature=0.0, model="claude-opus-4-8")
 
 embed\_model = HuggingFaceEmbedding(model\_name="BAAI/bge-base-en-v1.5")
 

@@ -71,3 +71,5 @@ We’ll also be supporting up to 50 Claude Science AI for Science projects, prov
 To stay up-to-date on product announcements, provide feedback, and learn from others in the Claude Science community, join the [AI for Science Discourse community](https://ai4science.discourse.group/invites/UjrKZKwxK3).
 
 Get started with Claude Science at [claude.com/science](http://claude.com/science).
+
+Claude Science, an AI workbench for scientists \ Anthropic

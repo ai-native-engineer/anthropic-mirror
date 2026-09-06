@@ -153,6 +153,14 @@ Video caption
 
 ## Related stories
 
+[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
+
+Pictet turns weeks of work into hours with Claude Code
+
+Customer story
+
+[Customer story](https://claude.com/customers/pictet)Customer story
+
 [How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
 
 How Satispay's engineers write 75% of their code with Claude
@@ -176,11 +184,3 @@ Nevis accelerates advisor productivity with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/nevis)Customer story
-
-[How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK](https://claude.com/customers/parcha)How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
-
-How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/parcha)Customer story

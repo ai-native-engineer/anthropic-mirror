@@ -385,7 +385,7 @@ Yes. Claude Code runs locally in your terminal and talks directly to model APIs 
 
 ### What are the system requirements to run Claude Code?
 
-Claude Code works on macOS, Linux, and Windows. [See full system requirements](https://docs.claude.com/en/docs/claude-code/setup#system-requirements).
+Claude Code works on macOS, Linux, and Windows. [See full system requirements](https://code.claude.com/docs/en/setup#system-requirements).
 
 ### How much does Claude Code cost?
 

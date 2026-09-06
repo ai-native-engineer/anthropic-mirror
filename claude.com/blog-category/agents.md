@@ -16,6 +16,38 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Sep 2, 2026
+
+A guide to the anatomy of effective commerce agents
+
+Agents
+
+A guide to the anatomy of effective commerce agents
+
+September 2, 2026
+
+[A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
+
+[A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
+
+Sep 2, 2026
+
+Building commerce agents with Claude
+
+Product announcements
+
+Building commerce agents with Claude
+
+September 2, 2026
+
+[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+
+[Building commerce agents with Claude](#)Building commerce agents with Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225485fe31f1ed2d9a1_db28a79c9f4492b8471009d4c20e900f234ece48-1000x1000.svg)
 
 Aug 26, 2026
@@ -224,38 +256,6 @@ May 13, 2026
 
 [Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22f63175f636cba4641_c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
-
-Apr 30, 2026
-
-Building AI agents for the enterprise
-
-Agents
-
-Building AI agents for the enterprise
-
-April 30, 2026
-
-[Building AI agents for the enterprise](https://claude.com/blog/building-ai-agents-for-the-enterprise)Building AI agents for the enterprise
-
-[Building AI agents for the enterprise](#)Building AI agents for the enterprise
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f76874e94e489958af8ba_Object-CodeMagnifier.svg)
-
-Apr 29, 2026
-
-Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-Agents
-
-Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-April 29, 2026
-
-[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -263,6 +263,38 @@ Category
 Product
 
 Usecase
+
+### A guide to the anatomy of effective commerce agents
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 2, 2026
+
+[A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
+
+[A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
+
+### Building commerce agents with Claude
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 2, 2026
+
+[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+
+[Building commerce agents with Claude](#)Building commerce agents with Claude
 
 ### How Warp builds self-improving agents on Claude
 
@@ -471,38 +503,6 @@ May 13, 2026
 [Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
 
 [Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
-
-### Building AI agents for the enterprise
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-April 30, 2026
-
-[Building AI agents for the enterprise](https://claude.com/blog/building-ai-agents-for-the-enterprise)Building AI agents for the enterprise
-
-[Building AI agents for the enterprise](#)Building AI agents for the enterprise
-
-### Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-April 29, 2026
-
-[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](https://claude.com/blog/claude-api-skill)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
-
-[Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp](#)Claude API skill now in CodeRabbit, JetBrains, Resolve AI, and Warp
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

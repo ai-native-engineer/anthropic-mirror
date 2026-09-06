@@ -4,7 +4,7 @@ The Web Search connector gives Claude the ability to search the public internet 
 
 For questions about web search in commercial Claude, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1788033600&signature=4df69febf5b687d53318af17a7275a8c8a4bdbc59be1a015b442f447e1139ea9&req=diIiEMh8nYZZWvMW1HO4zQvFLLpTjsf%2BM%2Fw5SJgC29FUGrg4qg7f11%2FrpDLv%0AJZH4FI8zPJVL5az70%2BY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1788033600&signature=4df69febf5b687d53318af17a7275a8c8a4bdbc59be1a015b442f447e1139ea9&req=diIiEMh8nYZZWvMW1HO4zQvFLLpTjsf%2BM%2Fw5SJgC29FUGrg4qg7f11%2FrpDLv%0AJZH4FI8zPJVL5az70%2BY%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1788654600&signature=92e6b0bfeee10ddc7f5b4995e37a9e7cc3f938c30d69f4dac4509bf612e584ad&req=diIiEMh8nYZZWvMW1HO4zQvFLLpViMD%2BM%2Fw5SJgC29HwNPZ0Ba7yvkEVWMCC%0A%2BCurWgrKiICFKVBIZ%2Bg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1788654600&signature=92e6b0bfeee10ddc7f5b4995e37a9e7cc3f938c30d69f4dac4509bf612e584ad&req=diIiEMh8nYZZWvMW1HO4zQvFLLpViMD%2BM%2Fw5SJgC29HwNPZ0Ba7yvkEVWMCC%0A%2BCurWgrKiICFKVBIZ%2Bg%3D%0A)
 
 ## How Web Search differs for Claude for Government
 
@@ -45,6 +45,8 @@ No authentication step is required. Once added, Web Search is available in every
 
 Once your org admin enables it, Web Search is available in your chats immediately. There's no per-user connection step. You'll be asked to approve individual queries as they come up.
 
+---
+
 ## Example use cases
 
 *"What were the key provisions in the infrastructure bill passed last month?"*
@@ -54,6 +56,8 @@ Claude proposes a search query like infrastructure bill key provisions [month ye
 *"Is there a published CVE for [software] version [X]? When was it disclosed?"*
 
 Claude proposes a search targeting CVE databases and vendor advisories, you approve, and Claude returns the CVE details with source links.
+
+---
 
 ## Frequently asked questions
 

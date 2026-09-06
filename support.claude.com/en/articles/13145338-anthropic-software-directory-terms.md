@@ -10,6 +10,8 @@ If Anthropic elects to include your Software in one or more Directories, you agr
 
 You understand that inclusion of your Software in one or more Directories does not create any partnership, employment, or agency relationship between you and Anthropic, nor does it grant you any rights to use Anthropic's name, trademarks, or intellectual property. You will not make any statement regarding the Anthropic Services which suggests partnership with, sponsorship by, or endorsement by Anthropic without Anthropic’s prior written approval, and you will at all times comply with Anthropic’s [Trademark Guidelines](https://www.anthropic.com/legal/trademark-guidelines). Anthropic reserves the right to modify these terms at any time without prior notice, and your continued submission or maintenance of Software in one or more Directories after any such changes constitutes your acceptance of the revised terms.
 
+---
+
 See prior version of these terms here: [Anthropic MCP Directory Terms and Conditions](https://support.claude.com/en/articles/11697081-anthropic-mcp-directory-terms-and-conditions).
 
 * [Terms of Service Updates](https://support.claude.com/en/articles/9190861-terms-of-service-updates)

@@ -20,6 +20,8 @@ In this lessonBy the end, you’ll be able to
 
 Diligence & sharing your work · 3 min
 
+SummaryTranscript
+
 Diligence in the builder model is full ownership: you’re responsible for
 the product from whether it should exist to whether it’s serving users
 after launch. This lesson covers what it means to ship, the technical

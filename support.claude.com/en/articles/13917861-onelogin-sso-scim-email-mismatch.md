@@ -4,6 +4,8 @@ Claude uses email as the primary identifier to match SSO logins to provisioned s
 
 **Applies to:** Enterprise plans and Console organizations using SCIM provisioning. Team plans don't have SCIM provisioning, so this mismatch scenario doesn't apply—see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195)** for what's available on each plan.
 
+---
+
 ## Symptoms
 
 People may experience one or more of the following when attempting to access your organization via SSO:
@@ -13,6 +15,8 @@ People may experience one or more of the following when attempting to access you
 * **"Please confirm your email" mismatch** — The SSO callback shows a different email than the one the person entered at login.
 * **Claude Code authentication failure** — The Claude Code CLI shows an email mismatch error during the authentication flow.
 
+---
+
 ## How this happens
 
 OneLogin user profiles contain distinct fields for username and email, which may hold different values. SCIM provisioning parameters and SAML attribute statements are configured independently and can each pull from a different field:
@@ -20,14 +24,16 @@ OneLogin user profiles contain distinct fields for username and email, which may
 |  |  |  |
 | --- | --- | --- |
 | **OneLogin field** | **Typical value** | **Commonly used by** |
-| `Username` | `testuser1` or [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#790d1c0a0d0c0a1c0b48391c01181409151c571a1614) | Sometimes used in SCIM userName mapping |
-| `Email` | [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#394d5c4a4d174c4a5c4b1756575c795c41585449555c175a5654) | Recommended for both SCIM and SAML |
+| `Username` | `testuser1` or [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#7400110700010711064534110c15190418115a171b19) | Sometimes used in SCIM userName mapping |
+| `Email` | [`[email protected]`](https://support.claude.com/cdn-cgi/l/email-protection#c0b4a5b3b4eeb5b3a5b2eeafaea580a5b8a1adb0aca5eea3afad) | Recommended for both SCIM and SAML |
 | `Login Name` | May differ from email if SSO is used for non-email logins | Legacy or custom configurations |
 | Custom user fields | Custom attributes defined per org | Advanced attribute mappings |
 
 A common mismatch: the SCIM parameters tab maps the email attribute to Username (which may be an employee ID or short name) while the SAML attribute statement sends the Email field. Claude requires an **exact string match**.
 
 **Common confusion:** OneLogin's SCIM parameters and SAML attribute statements are in different tabs of the same app — **Parameters** for SCIM and **SSO** (or **Parameters** with SAML-specific fields) for SSO. Both must be checked and aligned.
+
+---
 
 ## Diagnostic steps
 
@@ -48,6 +54,8 @@ A common mismatch: the SCIM parameters tab maps the email attribute to Username 
 2. Check both the **Username** and **Email** fields.
 3. If Username is in a format that doesn't match a valid email, SCIM may be sending an invalid or non-matching value.
 
+---
+
 ## Resolution
 
 ## Align both mappings to the Email field
@@ -67,6 +75,8 @@ OneLogin's Email field is the most reliable source for both SCIM and SAML, as it
 3. Check the OneLogin provisioning activity log for errors.
 4. Verify updated email values appear in the log before asking people to retry login.
 
+---
+
 ## Post-fix cleanup
 
 After correcting the attribute mapping and completing the full sync:
@@ -77,12 +87,16 @@ After correcting the attribute mapping and completing the full sync:
 * **Re-adding affected people:** After ghost accounts are removed, people with the corrected email may need to be re-invited or re-provisioned.
 * **Prevent future occurrences:** Enable "Restrict organization creation" in your organization's Identity and access settings.
 
+---
+
 ## Verification
 
 1. Check a sample of provisioned people—confirm their email in the provisioning log matches the email format that SSO sends.
 2. Ask an affected person to clear browser cookies for claude.ai, then log in via SSO.
 3. Confirm people aren't creating free accounts.
 4. If Claude Code was affected, have the person re-run `claude auth login --enterprise` and confirm the email matches their provisioned seat.
+
+---
 
 ## Common issues
 
@@ -95,6 +109,8 @@ After correcting the attribute mapping and completing the full sync:
 | Custom user fields are mapped but blank for some people | Switch to the standard **Email** field. |
 | Emails updated in SCIM but person still can't log in | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry. |
 | "Invite domain not allowed" when trying to re-add people | Your organization's domain may not be verified in Claude. Contact Support. |
+
+---
 
 ## When to contact Support
 

@@ -39,7 +39,7 @@ The **Support contacts** setting will be available in organization settings star
 On June 8, 2026, this setting will take effect for all Enterprise plan organizations. After this date, users who aren't designated as support contacts can only access AI support.
 
 * [How to get support](https://support.claude.com/en/articles/9015913-how-to-get-support)
+* [Migrate your organization from Team to Enterprise](https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise)
 * [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
-* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)
 * [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)

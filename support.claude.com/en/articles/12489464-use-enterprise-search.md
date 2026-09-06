@@ -16,6 +16,8 @@ We’ve added a pre-configured “Ask Your Org” **[project](https://support.cl
 * **Optimized instructions:** Specialized system prompts maintained by Anthropic for effective searches.
 * **Unified access:** Search across multiple data sources (Slack, Microsoft 365, and more) in one place.
 
+---
+
 ## Get started
 
 ### For owners
@@ -72,6 +74,8 @@ After initial setup, you can enable additional connectors in your search project
 3. Enable or disable specific connectors.
 4. Changes apply to new conversations in the project.
 
+---
+
 ## How does enterprise search work?
 
 When you ask a question within your organization’s dedicated project, Claude searches across all your connected data sources to generate comprehensive, well-cited responses.
@@ -125,6 +129,8 @@ Enterprise search is particularly valuable for:
 * "Find discussions and documents related to [employee]'s Q3 projects"
 * "Summarize team contributions to the Platform initiative"
 
+---
+
 ## Privacy and permissions
 
 * **Permission-aware:** You only see search results from data you have permission to access in the original systems.
@@ -141,6 +147,8 @@ Enterprise search is particularly valuable for:
 **Combine multiple sources:** "Compile information from SharePoint documents, Slack discussions, and meeting notes about our hiring process."
 
 **Break complex queries into steps:** For thorough research, ask Claude to search one source at a time, then synthesize findings.
+
+---
 
 ## Troubleshooting
 
@@ -197,6 +205,8 @@ If a connector fails:
 4. Contact an organization owner if the issue persists.
 
 ##
+
+---
 
 ## Frequently asked questions
 

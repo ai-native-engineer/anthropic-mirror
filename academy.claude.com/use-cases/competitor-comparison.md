@@ -18,7 +18,7 @@ Try in CoworkCopy prompt
 
 ### Try a plugin[](#try-a-plugin)
 
-The Marketing plugin ships with `/competitor-compare` as a starting point, already structured to read a competitor's public materials against your positioning and write the win/lose/draw breakdown. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
+The Marketing plugin ships with `/competitive-brief` as a starting point, already structured to read a competitor's public materials against your positioning and write the win/lose/draw breakdown. If your admin manages plugins and it's not available yet, skip this; nothing below requires it.
 
 Marketing8 skills to draft content, plan campaigns, hold brand voice, and report on performance
 
@@ -122,7 +122,7 @@ Practice
 
 A plugin skill is a starting point — customize it with your own practices and expertise. A few minutes of conversation and it runs with your standards from then on.
 
-Make what we've done in this task so far into a skill, or edit the /competitor-compare skill with my feedback.
+Make what we've done in this task so far into a skill, or edit the /competitive-brief skill with my feedback.
 
 Competitive / AcmeOpen in Cowork
 
@@ -134,7 +134,7 @@ Competitive / AcmeOpen in Cowork
 
 Competitors ship and reprice without telling you. Type `/schedule` in the prompt, or open **Scheduled** in the Cowork sidebar, and the customized skill re-reads their public pages, refreshes the matrix, and flags what changed since last time.
 
-**/schedule** First Monday of each month, run /competitor-compare against the sources in this folder, refresh the Excel matrix, and post a summary of what changed to #competitive.
+**/schedule** First Monday of each month, run /competitive-brief against the sources in this folder, refresh the Excel matrix, and post a summary of what changed to #competitive.
 
 Competitive / AcmeOpen in Cowork
 
@@ -142,17 +142,17 @@ Scheduled taskActive
 
 Monthly competitor refresh
 
-Runs `/competitor-compare` against the sources in this folder, refreshes the Excel matrix, and posts a summary of what changed to #competitive.
+Runs `/competitive-brief` against the sources in this folder, refreshes the Excel matrix, and posts a summary of what changed to #competitive.
 
 Every **first Monday of the month**[Open in Cowork](https://claude.ai/desktop/scheduled-task)
 
 ## Share with your teammates[](#share-with-your-teammates)
 
-Your customized `/competitor-compare` now carries your positioning, your deck template, and your matrix columns. Share it so PMM, sales enablement, and the field answer the same competitor question the same way.
+Your customized `/competitive-brief` now carries your positioning, your deck template, and your matrix columns. Share it so PMM, sales enablement, and the field answer the same competitor question the same way.
 
 Share the skill
 
-In Cowork, open **Skills** → `/competitor-compare` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your positioning and templates baked in, so they don't repeat Steps 1-3.
+In Cowork, open **Skills** → `/competitive-brief` → **Share** and pick your teammates (or your whole workspace, if your admin allows). They get the skill with your positioning and templates baked in, so they don't repeat Steps 1-3.
 
 ## Going forward[](#going-forward)
 
@@ -170,7 +170,7 @@ Your workspace
 
 Competitive / Acme
 
-`/competitor-compare` turns the next "how do we stack up against X" into a deck and a matrix in one pass — grounded in your positioning, not theirs.
+`/competitive-brief` turns the next "how do we stack up against X" into a deck and a matrix in one pass — grounded in your positioning, not theirs.
 
 You did this for one competitor. The same approach covers your whole competitive set — one folder per name, one scheduled refresh, one consistent answer for the field.
 

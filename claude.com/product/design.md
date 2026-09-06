@@ -14,13 +14,13 @@ See what's new
 
 # Claude Design
 
-Your idea, designed with Claude
+## Your idea, designed with Claude
 
 Explore more directions than a deadline allows. Describe a prototype, deck, or one-pager, and Claude builds a draft. Refine it yourself, or hand it off to your tools or Claude Code. You're the designer, from start to finish.
 
 Start designing
 
-[Start designing](https://claude.ai/design)Start designing
+[Start designing](http://claude.ai/login?returnTo=%2Fdesign)Start designing
 
 [](https://assets.claude.ai/brand/videos/design/claude-design-thumbnail.webm)
 
@@ -96,7 +96,7 @@ Michele Catasta, President & Head of AI
 
 Jeff Chow, Chief Product and Technology Officer
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6952bab10409176786d3ff57_Wix%20logoW_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6952bab40b2f8edf129df088_Wix%20logoB_dark.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a97717810bbbdeb232b1861_wix-black.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a97717a1ece7880de88876a_wix-white.svg)
 
 “Wix has always been a home for designers - we're now excited to be taking that one step further with Anthropic. Claude Design connects seamlessly to Wix Headless, giving designers a straight path to Wix's backend infrastructure without leaving their creative process. The design community can now take their UX vision from first sketch to a fully functional, scalable product - exactly the way they imagined it.”
 
@@ -154,4 +154,4 @@ Claude Design shares usage limits with chat, Claude Cowork, and Claude Code. See
 
 Start designing
 
-[Start designing](https://claude.ai/design)Start designing
+[Start designing](http://claude.ai/login?returnTo=%2Fdesign)Start designing

@@ -2,7 +2,7 @@
 
 # How to get support
 
-Updated this week
+Updated over a week ago
 
 This guide explains how to get support for your Claude or Console account. Different support options are available depending on your plan. Support is provided in writing through the support messenger and email. We don't offer phone support.
 

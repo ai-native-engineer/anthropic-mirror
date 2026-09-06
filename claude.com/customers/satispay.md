@@ -166,6 +166,14 @@ Chief Technology Officer, Satispay
 
 ## Related stories
 
+[Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
+
+Pictet turns weeks of work into hours with Claude Code
+
+Customer story
+
+[Customer story](https://claude.com/customers/pictet)Customer story
+
 [OffDeal powers every stage of M&A advisory with one Claude-based agent](https://claude.com/customers/offdeal)OffDeal powers every stage of M&A advisory with one Claude-based agent
 
 OffDeal powers every stage of M&A advisory with one Claude-based agent
@@ -189,11 +197,3 @@ Nevis accelerates advisor productivity with Claude
 Customer story
 
 [Customer story](https://claude.com/customers/nevis)Customer story
-
-[How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK](https://claude.com/customers/parcha)How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
-
-How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
-
-Customer story
-
-[Customer story](https://claude.com/customers/parcha)Customer story

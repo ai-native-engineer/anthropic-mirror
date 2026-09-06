@@ -6,10 +6,6 @@ Claude Corps is a fully funded, 12-month paid fellowship that places early-caree
 
 [Apply to host](https://form.typeform.com/to/X0apETWF)[Watch informational webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization)
 
-## Timing Update
-
-## Due to the extraordinary volume of applications received, all organizations that applied for Cohort 1 will hear back on August 31st. Thank you for your patience as we review all applications.
-
 ## About Claude Corps
 
 ### What is Claude Corps?
@@ -241,3 +237,5 @@ We’ll send all three agreements after a host organization has been selected fo
 [Watch the Claude Corps host organization webinar](https://www.anthropic.com/webinars/claude-corps-how-to-become-a-host-organization). We walk through the program and the application and answer questions from prospective host orgs.
 
 This FAQ will be updated throughout 2026-2027 to reflect the latest details.
+
+Hosts can [submit questions](https://form.typeform.com/to/GieGX8Yc) that are specific to your organization's needs.

@@ -91,13 +91,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text"`
 
           - `CacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "ephemeral"`
 
             - `Ttl Ttl`
 
@@ -110,9 +110,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
-              - `Ttl5m`
+              - `Ttl5m("5m")`
 
-              - `Ttl1h`
+              - `Ttl1h("1h")`
 
           - `IReadOnlyList<TextCitationParam>? Citations`
 
@@ -134,7 +134,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "char_location"`
 
             - `class CitationPageLocationParam:`
 
@@ -154,7 +154,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "page_location"`
 
             - `class CitationContentBlockLocationParam:`
 
@@ -184,7 +184,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "content_block_location"`
 
             - `class CitationWebSearchResultLocationParam:`
 
@@ -196,7 +196,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 maxLength: 512, minLength: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_result_location"`
 
               - `required string Url`
 
@@ -234,7 +234,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string? Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "search_result_location"`
 
         - `class ImageBlockParam:`
 
@@ -248,19 +248,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required MediaType MediaType`
 
-                - `ImageJpeg`
+                - `ImageJpeg("image/jpeg")`
 
-                - `ImagePng`
+                - `ImagePng("image/png")`
 
-                - `ImageGif`
+                - `ImageGif("image/gif")`
 
-                - `ImageWebP`
+                - `ImageWebP("image/webp")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "base64"`
 
             - `class UrlImageSource:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "url"`
 
               - `required string Url`
 
@@ -268,9 +268,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "file"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "image"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -284,9 +284,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
 
-              - `Downsize`
+              - `Downsize("downsize")`
 
-              - `Error`
+              - `Error("error")`
 
         - `class DocumentBlockParam:`
 
@@ -298,17 +298,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 format: byte
 
-              - `JsonElement MediaType constant`
+              - `JsonElement MediaType = "application/pdf"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "base64"`
 
             - `class PlainTextSource:`
 
               - `required string Data`
 
-              - `JsonElement MediaType constant`
+              - `JsonElement MediaType = "text/plain"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text"`
 
             - `class ContentBlockSource:`
 
@@ -322,11 +322,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `class ImageBlockParam:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "content"`
 
             - `class UrlPdfSource:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "url"`
 
               - `required string Url`
 
@@ -334,9 +334,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "file"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "document"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -362,7 +362,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minLength: 1
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "text"`
 
             - `CacheControlEphemeral? CacheControl`
 
@@ -374,7 +374,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Title`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "search_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -394,7 +394,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "thinking"`
 
         - `class RedactedThinkingBlockParam:`
 
@@ -402,7 +402,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "redacted_thinking"`
 
         - `class ToolUseBlockParam:`
 
@@ -416,7 +416,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 200, minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_use"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -430,7 +430,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Tool invocation directly from the model.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "direct"`
 
             - `class ServerToolCaller:`
 
@@ -440,7 +440,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_20250825"`
 
             - `class ServerToolCaller20260120:`
 
@@ -448,7 +448,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_20260120"`
 
           - `string? ToolsetName`
 
@@ -462,7 +462,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -490,7 +490,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_reference"`
 
                 - `CacheControlEphemeral? CacheControl`
 
@@ -534,7 +534,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "browser_state"`
 
                 - `CacheControlEphemeral? CacheControl`
 
@@ -562,7 +562,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "tab_opened"`
 
                   - `class BrowserStateChangeDownloadStarted:`
 
@@ -574,7 +574,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_started"`
 
                     - `required string Url`
 
@@ -595,7 +595,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_completed"`
 
                     - `required string Url`
 
@@ -625,7 +625,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_failed"`
 
                     - `required string Url`
 
@@ -657,21 +657,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required Name Name`
 
-            - `WebSearch`
+            - `WebSearch("web_search")`
 
-            - `WebFetch`
+            - `WebFetch("web_fetch")`
 
-            - `CodeExecution`
+            - `CodeExecution("code_execution")`
 
-            - `BashCodeExecution`
+            - `BashCodeExecution("bash_code_execution")`
 
-            - `TextEditorCodeExecution`
+            - `TextEditorCodeExecution("text_editor_code_execution")`
 
-            - `ToolSearchToolRegex`
+            - `ToolSearchToolRegex("tool_search_tool_regex")`
 
-            - `ToolSearchToolBm25`
+            - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "server_tool_use"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -701,7 +701,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_result"`
 
               - `required string Url`
 
@@ -711,25 +711,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required WebSearchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `QueryTooLong`
+                - `QueryTooLong("query_too_long")`
 
-                - `RequestTooLarge`
+                - `RequestTooLarge("request_too_large")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_tool_result_error"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -757,31 +757,31 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required WebFetchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `UrlTooLong`
+                - `UrlTooLong("url_too_long")`
 
-                - `UrlNotAllowed`
+                - `UrlNotAllowed("url_not_allowed")`
 
-                - `UrlNotInPriorContext`
+                - `UrlNotInPriorContext("url_not_in_prior_context")`
 
-                - `UrlNotAccessible`
+                - `UrlNotAccessible("url_not_accessible")`
 
-                - `UnsupportedContentType`
+                - `UnsupportedContentType("unsupported_content_type")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_tool_result_error"`
 
             - `class WebFetchBlockParam:`
 
               - `required DocumentBlockParam Content`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_result"`
 
               - `required string Url`
 
@@ -795,7 +795,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -825,15 +825,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required CodeExecutionToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_tool_result_error"`
 
             - `class CodeExecutionResultBlockParam:`
 
@@ -841,7 +841,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_output"`
 
               - `required long ReturnCode`
 
@@ -849,7 +849,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string Stdout`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_result"`
 
             - `class EncryptedCodeExecutionResultBlockParam:`
 
@@ -859,7 +859,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_output"`
 
               - `required string EncryptedStdout`
 
@@ -867,13 +867,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string Stderr`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "encrypted_code_execution_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -887,17 +887,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required BashCodeExecutionToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `OutputFileTooLarge`
+                - `OutputFileTooLarge("output_file_too_large")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
             - `class BashCodeExecutionResultBlockParam:`
 
@@ -905,7 +905,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "bash_code_execution_output"`
 
               - `required long ReturnCode`
 
@@ -913,13 +913,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string Stdout`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_code_execution_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -933,17 +933,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `FileNotFound`
+                - `FileNotFound("file_not_found")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
               - `string? ErrorMessage`
 
@@ -953,13 +953,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required FileType FileType`
 
-                - `Text`
+                - `Text("text")`
 
-                - `Image`
+                - `Image("image")`
 
-                - `Pdf`
+                - `Pdf("pdf")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_view_result"`
 
               - `long? NumLines`
 
@@ -971,11 +971,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required bool IsFileUpdate`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_create_result"`
 
             - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
               - `IReadOnlyList<string>? Lines`
 
@@ -991,7 +991,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -1005,15 +1005,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required ToolSearchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_result_error"`
 
               - `string? ErrorMessage`
 
@@ -1025,19 +1025,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_reference"`
 
                 - `CacheControlEphemeral? CacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_search_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_search_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -1050,7 +1050,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string FileID`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "container_upload"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -1058,11 +1058,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required Role Role`
 
-      - `User`
+      - `User("user")`
 
-      - `Assistant`
+      - `Assistant("assistant")`
 
-      - `System`
+      - `System("system")`
 
   - `required Model model`
 
@@ -1096,9 +1096,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
-    - `Auto`
+    - `Auto("auto")`
 
-    - `StandardOnly`
+    - `StandardOnly("standard_only")`
 
   - `IReadOnlyList<string> stopSequences`
 
@@ -1122,7 +1122,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minLength: 1
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text"`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1214,7 +1214,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         This defines the shape of the `input` that your tool accepts and that the model will produce.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -1230,13 +1230,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1266,23 +1266,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class ToolBash20250124:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "bash_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1300,23 +1300,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class CodeExecutionTool20250522:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20250522"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1332,23 +1332,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class CodeExecutionTool20250825:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20250825"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1366,23 +1366,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20260120"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1400,23 +1400,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20260521"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1437,17 +1437,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       the family's tool with any members disabled via `configs` removed
       from its schema.
 
-      - `JsonElement Type constant`
-
-      - `IReadOnlyList<BrowserToolset20260801AllowedCaller> AllowedCallers`
-
-        - `Direct`
-
-        - `CodeExecution20250825`
-
-        - `CodeExecution20260120`
-
-        - `CodeExecution20260521`
+      - `JsonElement Type = "browser_toolset_20260801"`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1836,23 +1826,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class MemoryTool20250818:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "memory_20250818"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1879,17 +1869,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       `type`, `configs`, and `cache_control`; zoom is controlled
       via `configs.zoom.enabled`.
 
-      - `JsonElement Type constant`
-
-      - `IReadOnlyList<ComputerToolset20260801AllowedCaller> AllowedCallers`
-
-        - `Direct`
-
-        - `CodeExecution20250825`
-
-        - `CodeExecution20260120`
-
-        - `CodeExecution20260521`
+      - `JsonElement Type = "computer_toolset_20260801"`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2110,23 +2090,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class ToolTextEditor20250124:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2144,23 +2124,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class ToolTextEditor20250429:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250429"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2178,23 +2158,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class ToolTextEditor20250728:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250728"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2218,23 +2198,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class WebSearchTool20250305:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20250305"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2266,7 +2246,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "approximate"`
 
         - `string? City`
 
@@ -2294,23 +2274,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class WebFetchTool20250910:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20250910"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2350,23 +2330,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class WebSearchTool20260209:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2400,23 +2380,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class WebFetchTool20260209:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2458,23 +2438,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260309"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2518,23 +2498,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class WebSearchTool20260318:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2562,9 +2542,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-        - `Full`
+        - `Full("full")`
 
-        - `Excluded`
+        - `Excluded("excluded")`
 
       - `bool Strict`
 
@@ -2576,23 +2556,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class WebFetchTool20260318:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2630,9 +2610,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-        - `Full`
+        - `Full("full")`
 
-        - `Excluded`
+        - `Excluded("excluded")`
 
       - `bool Strict`
 
@@ -2644,7 +2624,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class ToolSearchToolBm25_20251119:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "tool_search_tool_bm25"`
 
         Name of the tool.
 
@@ -2652,19 +2632,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required Type Type`
 
-        - `ToolSearchToolBm25_20251119`
+        - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
 
-        - `ToolSearchToolBm25`
+        - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2680,7 +2660,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class ToolSearchToolRegex20251119:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "tool_search_tool_regex"`
 
         Name of the tool.
 
@@ -2688,19 +2668,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required Type Type`
 
-        - `ToolSearchToolRegex20251119`
+        - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
 
-        - `ToolSearchToolRegex`
+        - `ToolSearchToolRegex("tool_search_tool_regex")`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2792,9 +2772,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
 
-        - `Anthropic`
+        - `Anthropic("anthropic")`
 
-        - `Custom`
+        - `Custom("custom")`
 
       - `required string Version`
 
@@ -2857,7 +2837,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "char_location"`
 
         - `class CitationPageLocation:`
 
@@ -2877,7 +2857,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "page_location"`
 
         - `class CitationContentBlockLocation:`
 
@@ -2907,7 +2887,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "content_block_location"`
 
         - `class CitationsWebSearchResultLocation:`
 
@@ -2919,7 +2899,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_result_location"`
 
           - `required string Url`
 
@@ -2955,13 +2935,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string? Title`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "search_result_location"`
 
       - `required string Text`
 
         maxLength: 5000000, minLength: 0
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text"`
 
     - `class ThinkingBlock:`
 
@@ -2977,7 +2957,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "thinking"`
 
     - `class RedactedThinkingBlock:`
 
@@ -2989,7 +2969,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "redacted_thinking"`
 
     - `class ToolUseBlock:`
 
@@ -3005,7 +2985,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation directly from the model.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "direct"`
 
         - `class ServerToolCaller:`
 
@@ -3015,7 +2995,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_20250825"`
 
         - `class ServerToolCaller20260120:`
 
@@ -3023,7 +3003,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_20260120"`
 
       - `required IReadOnlyDictionary<string, JsonElement> Input`
 
@@ -3031,7 +3011,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minLength: 1
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "tool_use"`
 
       - `string? ToolsetName`
 
@@ -3063,21 +3043,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required Name Name`
 
-        - `WebSearch`
+        - `WebSearch("web_search")`
 
-        - `WebFetch`
+        - `WebFetch("web_fetch")`
 
-        - `CodeExecution`
+        - `CodeExecution("code_execution")`
 
-        - `BashCodeExecution`
+        - `BashCodeExecution("bash_code_execution")`
 
-        - `TextEditorCodeExecution`
+        - `TextEditorCodeExecution("text_editor_code_execution")`
 
-        - `ToolSearchToolRegex`
+        - `ToolSearchToolRegex("tool_search_tool_regex")`
 
-        - `ToolSearchToolBm25`
+        - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "server_tool_use"`
 
     - `class WebSearchToolResultBlock:`
 
@@ -3101,19 +3081,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required WebSearchToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `MaxUsesExceeded`
+            - `MaxUsesExceeded("max_uses_exceeded")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `QueryTooLong`
+            - `QueryTooLong("query_too_long")`
 
-            - `RequestTooLarge`
+            - `RequestTooLarge("request_too_large")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_tool_result_error"`
 
         - `IReadOnlyList<WebSearchResultBlock>`
 
@@ -3123,7 +3103,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Title`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_result"`
 
           - `required string Url`
 
@@ -3131,7 +3111,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_tool_result"`
 
     - `class WebFetchToolResultBlock:`
 
@@ -3155,25 +3135,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required WebFetchToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `UrlTooLong`
+            - `UrlTooLong("url_too_long")`
 
-            - `UrlNotAllowed`
+            - `UrlNotAllowed("url_not_allowed")`
 
-            - `UrlNotInPriorContext`
+            - `UrlNotInPriorContext("url_not_in_prior_context")`
 
-            - `UrlNotAccessible`
+            - `UrlNotAccessible("url_not_accessible")`
 
-            - `UnsupportedContentType`
+            - `UnsupportedContentType("unsupported_content_type")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `MaxUsesExceeded`
+            - `MaxUsesExceeded("max_uses_exceeded")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_tool_result_error"`
 
         - `class WebFetchBlock:`
 
@@ -3193,29 +3173,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   format: byte
 
-                - `JsonElement MediaType constant`
+                - `JsonElement MediaType = "application/pdf"`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "base64"`
 
               - `class PlainTextSource:`
 
                 - `required string Data`
 
-                - `JsonElement MediaType constant`
+                - `JsonElement MediaType = "text/plain"`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "text"`
 
             - `required string? Title`
 
               The title of the document
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "document"`
 
           - `required string? RetrievedAt`
 
             ISO 8601 timestamp when the content was retrieved
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_result"`
 
           - `required string Url`
 
@@ -3225,7 +3205,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_tool_result"`
 
     - `class CodeExecutionToolResultBlock:`
 
@@ -3237,15 +3217,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required CodeExecutionToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_tool_result_error"`
 
         - `class CodeExecutionResultBlock:`
 
@@ -3253,7 +3233,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `required string FileID`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "code_execution_output"`
 
           - `required long ReturnCode`
 
@@ -3261,7 +3241,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Stdout`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_result"`
 
         - `class EncryptedCodeExecutionResultBlock:`
 
@@ -3271,7 +3251,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `required string FileID`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "code_execution_output"`
 
           - `required string EncryptedStdout`
 
@@ -3279,13 +3259,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Stderr`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "encrypted_code_execution_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_tool_result"`
 
     - `class BashCodeExecutionToolResultBlock:`
 
@@ -3295,17 +3275,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required BashCodeExecutionToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-            - `OutputFileTooLarge`
+            - `OutputFileTooLarge("output_file_too_large")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
         - `class BashCodeExecutionResultBlock:`
 
@@ -3313,7 +3293,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `required string FileID`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "bash_code_execution_output"`
 
           - `required long ReturnCode`
 
@@ -3321,13 +3301,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Stdout`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_code_execution_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "bash_code_execution_tool_result"`
 
     - `class TextEditorCodeExecutionToolResultBlock:`
 
@@ -3337,19 +3317,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-            - `FileNotFound`
+            - `FileNotFound("file_not_found")`
 
           - `required string? ErrorMessage`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
         - `class TextEditorCodeExecutionViewResultBlock:`
 
@@ -3357,11 +3337,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required FileType FileType`
 
-            - `Text`
+            - `Text("text")`
 
-            - `Image`
+            - `Image("image")`
 
-            - `Pdf`
+            - `Pdf("pdf")`
 
           - `required long? NumLines`
 
@@ -3369,13 +3349,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required long? TotalLines`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_view_result"`
 
         - `class TextEditorCodeExecutionCreateResultBlock:`
 
           - `required bool IsFileUpdate`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_create_result"`
 
         - `class TextEditorCodeExecutionStrReplaceResultBlock:`
 
@@ -3389,13 +3369,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required long? OldStart`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
     - `class ToolSearchToolResultBlock:`
 
@@ -3405,17 +3385,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required ToolSearchToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
           - `required string? ErrorMessage`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_search_tool_result_error"`
 
         - `class ToolSearchToolSearchResultBlock:`
 
@@ -3425,15 +3405,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "tool_reference"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_search_tool_search_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "tool_search_tool_result"`
 
     - `class ContainerUploadBlock:`
 
@@ -3441,7 +3421,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required string FileID`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "container_upload"`
 
   - `required Model Model`
 
@@ -3449,67 +3429,75 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-    - `ClaudeSonnet5`
+    - `ClaudeFable5_1("claude-fable-5-1")`
+
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+    - `ClaudeSonnet5("claude-sonnet-5")`
 
       High-performance model for coding and agents
 
-    - `ClaudeFable5`
+    - `ClaudeFable5("claude-fable-5")`
 
       Next generation of intelligence for the hardest knowledge work and coding problems
 
-    - `ClaudeMythos5`
+    - `ClaudeMythos5("claude-mythos-5")`
 
       Most capable model for cybersecurity and biology research
 
-    - `ClaudeOpus5`
+    - `ClaudeOpus5("claude-opus-5")`
 
       Powerful intelligence for long-running agents and coding
 
-    - `ClaudeOpus4_8`
+    - `ClaudeOpus4_8("claude-opus-4-8")`
 
       Powerful intelligence for long-running agents and coding
 
-    - `ClaudeOpus4_7`
+    - `ClaudeOpus4_7("claude-opus-4-7")`
 
       Powerful intelligence for long-running agents and coding
 
-    - `ClaudeMythosPreview`
+    - `ClaudeMythosPreview("claude-mythos-preview")`
 
       New class of intelligence, strongest in coding and cybersecurity
 
-    - `ClaudeOpus4_6`
+    - `ClaudeOpus4_6("claude-opus-4-6")`
 
       Powerful intelligence for long-running agents and coding
 
-    - `ClaudeSonnet4_6`
+    - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
       Best combination of speed and intelligence
 
-    - `ClaudeHaiku4_5`
+    - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
       Fastest model with near-frontier intelligence
 
-    - `ClaudeHaiku4_5_20251001`
+    - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
       Fastest model with near-frontier intelligence
 
-    - `ClaudeOpus4_5`
+    - `ClaudeOpus4_5("claude-opus-4-5")`
 
       Powerful intelligence for long-running agents and coding
 
-    - `ClaudeOpus4_5_20251101`
+    - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
       Powerful intelligence for long-running agents and coding
 
-    - `ClaudeSonnet4_5`
+    - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
       High-performance model for agents and coding
 
-    - `ClaudeSonnet4_5_20250929`
+    - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
       High-performance model for agents and coding
 
-  - `JsonElement Role constant`
+  - `JsonElement Role = "assistant"`
 
     Conversational role of the generated message.
 
@@ -3523,23 +3511,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The policy category that triggered a refusal.
 
-      - `Cyber`
+      - `Cyber("cyber")`
 
         The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
 
-      - `Bio`
+      - `Bio("bio")`
 
         The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
-      - `FrontierLlm`
+      - `FrontierLlm("frontier_llm")`
 
         The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
 
-      - `ReasoningExtraction`
+      - `ReasoningExtraction("reasoning_extraction")`
 
         The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
 
-      - `GeneralHarms`
+      - `GeneralHarms("general_harms")`
 
         The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
@@ -3549,7 +3537,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "refusal"`
 
   - `required StopReason? StopReason`
 
@@ -3567,19 +3555,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
-    - `EndTurn`
+    - `EndTurn("end_turn")`
 
-    - `MaxTokens`
+    - `MaxTokens("max_tokens")`
 
-    - `StopSequence`
+    - `StopSequence("stop_sequence")`
 
-    - `ToolUse`
+    - `ToolUse("tool_use")`
 
-    - `PauseTurn`
+    - `PauseTurn("pause_turn")`
 
-    - `Refusal`
+    - `Refusal("refusal")`
 
-    - `ModelContextWindowExceeded`
+    - `ModelContextWindowExceeded("model_context_window_exceeded")`
 
   - `required string? StopSequence`
 
@@ -3587,7 +3575,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     This value will be a non-null string if one of your custom stop sequences was generated.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "message"`
 
     Object type.
 
@@ -3691,11 +3679,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       If the request used the priority, standard, or batch tier.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Priority`
+      - `Priority("priority")`
 
-      - `Batch`
+      - `Batch("batch")`
 
 - `class RawMessageStreamEvent: union`
 
@@ -3703,7 +3691,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required Message Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "message_start"`
 
   - `class RawMessageDeltaEvent:`
 
@@ -3721,7 +3709,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required string? StopSequence`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "message_delta"`
 
     - `required MessageDeltaUsage Usage`
 
@@ -3772,7 +3760,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
   - `class RawMessageStopEvent:`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "message_stop"`
 
   - `class RawContentBlockStartEvent:`
 
@@ -3808,7 +3796,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required long Index`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "content_block_start"`
 
   - `class RawContentBlockDeltaEvent:`
 
@@ -3818,13 +3806,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `required string Text`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "text_delta"`
 
       - `class InputJsonDelta:`
 
         - `required string PartialJson`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "input_json_delta"`
 
       - `class CitationsDelta:`
 
@@ -3840,7 +3828,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class CitationsSearchResultLocation:`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "citations_delta"`
 
       - `class ThinkingDelta:`
 
@@ -3848,7 +3836,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "thinking_delta"`
 
       - `class SignatureDelta:`
 
@@ -3856,17 +3844,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "signature_delta"`
 
     - `required long Index`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "content_block_delta"`
 
   - `class RawContentBlockStopEvent:`
 
     - `required long Index`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "content_block_stop"`
 
 ## Example
 

@@ -224,7 +224,7 @@ BibTeX citation
 
 The transformer we study is a one-layer, decoder-only transformer with residual width d\_m = 256, 4 attention heads of dimension d\_{\textrm{head}} = 64, a width-1024 MLP with ReLU activation, a 4,096-token vocabulary, and a 1,024-token context window, totaling ≈2.9M parameters (≈0.79M excluding the embedding and unembedding matrices). The model contains no normalization layers and no bias terms anywhere.
 
-Attention is causal with standard softmax; scores are scaled by \frac{1}{\sqrt{64}}. Position information enters solely through a fixed (non-learned) additive sinusoidal position embedding  (an interleaved sin/cos table with maximum wavelength 2^{16}) added to the residual stream immediately after the token embedding. Weights were initialized from a Gaussian with standard deviation \frac{0.6}{\sqrt{d\_m}} ≈ 0.0375 and then unit-normalized by the first application of the weight-norm projection.
+Attention is causal with standard softmax; scores are scaled by \frac{1}{\sqrt{64}}. Position information enters solely through a fixed (non-learned) additive sinusoidal position embedding  (an interleaved sin/cos table with maximum wavelength 2^{16}) added to the residual stream immediately after the token embedding. Weights were initialized from a Gaussian with standard deviation \frac{0.6}{\sqrt{d\_m}} ≈ 0.0375.
 
 The tokenizer is a 4,096-token BPE vocabulary obtained by truncating the tokenizer of the publicly released Pleias-1.2B model to its first 4,096 token ids , keeping only the BPE merges whose inputs and output all survive the truncation.
 

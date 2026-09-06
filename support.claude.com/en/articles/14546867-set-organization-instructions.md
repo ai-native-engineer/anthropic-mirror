@@ -1,17 +1,17 @@
 <!-- source: https://support.claude.com/en/articles/14546867-set-organization-instructions -->
 
-Organization instructions let Admins and above on Team and Enterprise plans set custom instructions that Claude follows in every conversation across your organization. Use them to apply communication standards, formatting requirements, compliance guidance, or domain-specific context that should show up everywhere your team works with Claude.
+Organization instructions let owners of Team and Enterprise plans set custom instructions that Claude follows in every conversation across your organization. Use them to apply communication standards, formatting requirements, compliance guidance, or domain-specific context that should show up everywhere your team works with Claude.
 
-Organization instructions are available to Admins, Owners, and Primary Owners on Team and Enterprise plans.
+Organization instructions are available to Owners and Primary Owners on Team and Enterprise plans.
 
 ## How organization and user instructions interact
 
-Claude supports two levels of instructions. Understanding how they interact helps admins and the people on your team get the most out of both.
+Claude supports two levels of instructions. Understanding how they interact helps owners and the people on your team get the most out of both.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
 | **Level** | **Set by** | **Scope** | **Visibility** |
-| Organization instructions | Admins, Owners, and Primary Owners | All people in your organization, every conversation | Only Admins and above can view or edit |
+| Organization instructions | Owners and Primary Owners | All people in your organization, every conversation | Only Owners and above can view or edit |
 | Individual user instructions | Each user | That individual’s conversations only | Only that user can view or edit |
 
 When both are set, organization instructions take precedence. If an individual instruction directly contradicts an organization instruction, Claude favors the organization-level instruction. For example, if an organization instruction says “Always respond in formal English” but an individual instruction says “use a casual tone,” Claude responds formally.
@@ -22,15 +22,17 @@ Individual instructions still apply for anything the organization instructions d
 
 ## Set up organization instructions
 
-You need at least an Admin role to configure organization instructions.
+You need at least an Owner role to configure organization instructions.
 
 1. Go to **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)**.
 2. Find the **Organization instructions** section.
 3. Enter your instructions in the text area. The maximum length is 3,000 characters.
-4. Click “Save.”
+4. Click “Save changes.”
 5. Changes may take up to an hour to take effect across Claude products.
 
-To remove instructions entirely, clear the text area and click “Save.”
+To remove instructions entirely, clear the text area and click “Save changes.”
+
+---
 
 ## Best practices
 
@@ -48,6 +50,8 @@ To remove instructions entirely, clear the text area and click “Save.”
 
 **Review and update regularly.** As your organization’s needs change, revisit your instructions to make sure they’re still relevant. Removing outdated instructions keeps Claude’s responses focused.
 
+---
+
 ## Example instructions
 
 **Team identity.** “Address the team as the Acme Platform team. When users ask about ‘our product,’ they mean Acme Cloud.”
@@ -58,12 +62,12 @@ To remove instructions entirely, clear the text area and click “Save.”
 
 **Domain context.** “Our team works in healthcare claims processing. When users mention ‘claims,’ they’re referring to insurance claims, not legal claims.”
 
-**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#eb8399ab8a88868ec5888486) rather than giving specific policy advice.”
+**Referral guidance.** “When users ask about HR policies, direct them to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#6e061c2e0f0d030b400d0103) rather than giving specific policy advice.”
 
 **Data handling reminders.** “Don’t include customer names, account numbers, or other personally identifiable information in responses or generated artifacts.”
 
 * [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
-* [SSO login](https://support.claude.com/en/articles/14503613-sso-login)
+* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
+* [Export your organization's data](https://support.claude.com/en/articles/13346720-export-your-organization-s-data)
 * [Organization instructions in Claude for Government](https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government)
-* [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)
-* [Manage model access for your organization](https://support.claude.com/en/articles/15694740-manage-model-access-for-your-organization)
+* [Create surveys for your organization](https://support.claude.com/en/articles/16764057-create-surveys-for-your-organization)

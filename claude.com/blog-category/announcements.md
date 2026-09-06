@@ -16,6 +16,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
+
+Sep 2, 2026
+
+Building commerce agents with Claude
+
+Product announcements
+
+Building commerce agents with Claude
+
+September 2, 2026
+
+[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+
+[Building commerce agents with Claude](#)Building commerce agents with Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90479f5433ec75978f1e8a_Object-Apple.svg)
 
 Aug 28, 2026
@@ -240,22 +256,6 @@ July 28, 2026
 
 [Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d231b45c2193efbb0f02_1869137c9d7f2a38b50e804d707e10e85de05ddb-1000x1000.svg)
-
-Jul 23, 2026
-
-Think through hard problems in voice mode
-
-Product announcements
-
-Think through hard problems in voice mode
-
-July 23, 2026
-
-[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
-
-[Think through hard problems in voice mode](#)Think through hard problems in voice mode
-
 [View more](https://claude.com/blog-category/announcements?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### Building commerce agents with Claude
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 2, 2026
+
+[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+
+[Building commerce agents with Claude](#)Building commerce agents with Claude
 
 ### Claude for Teachers, now available for U.S. K-12 schools and districts
 
@@ -487,22 +503,6 @@ July 28, 2026
 [Bringing MCP 2026-07-28 to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude)Bringing MCP 2026-07-28 to Claude
 
 [Bringing MCP 2026-07-28 to Claude](#)Bringing MCP 2026-07-28 to Claude
-
-### Think through hard problems in voice mode
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-July 23, 2026
-
-[Think through hard problems in voice mode](https://claude.com/blog/think-through-hard-problems-in-voice-mode)Think through hard problems in voice mode
-
-[Think through hard problems in voice mode](#)Think through hard problems in voice mode
 
 [View more](https://claude.com/blog-category/announcements?2f226f2c_page=2)
 

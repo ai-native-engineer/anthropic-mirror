@@ -6,6 +6,8 @@
 
 **POST** `/v1/organizations/federation_issuers`
 
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
 Register an OIDC issuer that Anthropic will trust for workload identity
 federation in your organization.
 
@@ -17,9 +19,6 @@ URL), or `inline` (provide a static key set). When `jwks.type` is
 publicly reachable over HTTPS so Anthropic can fetch the discovery
 document; for `explicit_url` and `inline` modes the issuer URL is only
 matched as the JWT's `iss` claim and is not fetched.
-
-Requires an OAuth bearer or Console session; Admin API keys are not
-accepted.
 
 ### Headers
 
@@ -252,7 +251,7 @@ accepted.
 curl https://api.anthropic.com/v1/organizations/federation_issuers \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN" \
     -d '{
           "issuer_url": "x",
           "name": "x"
@@ -292,6 +291,8 @@ curl https://api.anthropic.com/v1/organizations/federation_issuers \
 ## Get Federation Issuer
 
 **GET** `/v1/organizations/federation_issuers/{federation_issuer_id}`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
 
 Retrieve a federation issuer by its ID (`fdis_...`).
 
@@ -457,7 +458,7 @@ Retrieve a federation issuer by its ID (`fdis_...`).
 ```bash
 curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_ISSUER_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN"
 ```
 
 #### Response (200)
@@ -493,6 +494,8 @@ curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_I
 ## List Federation Issuers
 
 **GET** `/v1/organizations/federation_issuers`
+
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
 
 List federation issuers in your organization.
 
@@ -671,7 +674,7 @@ Archived issuers are excluded unless `include_archived=true`.
 ```bash
 curl https://api.anthropic.com/v1/organizations/federation_issuers \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN"
 ```
 
 #### Response (200)
@@ -713,6 +716,8 @@ curl https://api.anthropic.com/v1/organizations/federation_issuers \
 
 **POST** `/v1/organizations/federation_issuers/{federation_issuer_id}`
 
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
 Partially update a federation issuer.
 
 Setting `jwks` replaces the full JWKS shape at once. Archived issuers
@@ -720,8 +725,7 @@ cannot be updated; this returns 400. Create a new issuer instead.
 
 Updating an issuer that backs a rule with a scope outside
 `workspace:developer` or `workspace:inference` requires a Console
-session. Requires an OAuth bearer or Console session; Admin API keys
-are not accepted.
+session.
 
 ### Path parameters
 
@@ -964,7 +968,7 @@ are not accepted.
 curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_ISSUER_ID \
     -H 'Content-Type: application/json' \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN" \
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN" \
     -d '{}'
 ```
 
@@ -1002,15 +1006,14 @@ curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_I
 
 **POST** `/v1/organizations/federation_issuers/{federation_issuer_id}/archive`
 
+**Requires an OAuth access token with the `org:admin` scope**, from `ant auth login --scope org:admin` or a workload identity federation rule; Admin API keys are not accepted. See [Manage WIF with the Admin API](/docs/en/manage-claude/wif-admin-api).
+
 Archive a federation issuer.
 
 Idempotent; re-archiving returns the issuer with its original
 `archived_at`. Rejected with 400 if any live (non-archived) federation
 rule still references the issuer; archive those rules first (a rule's
 issuer cannot be changed), or recreate them against another issuer.
-
-Requires an OAuth bearer or Console session; Admin API keys are not
-accepted.
 
 ### Path parameters
 
@@ -1175,7 +1178,7 @@ accepted.
 curl https://api.anthropic.com/v1/organizations/federation_issuers/$FEDERATION_ISSUER_ID/archive \
     -X POST \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_AUTH_TOKEN"
 ```
 
 #### Response (200)

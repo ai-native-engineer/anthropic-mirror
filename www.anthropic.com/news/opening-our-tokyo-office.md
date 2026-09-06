@@ -37,3 +37,5 @@ We also announced that we have extended our partnership with the Mori Art Museum
 The people and organizations we’ve met in Japan share our conviction that technological progress must enable human progress. We're building a team in Tokyo to work alongside partners across industry, government, and culture toward that goal. Over the coming months, we'll bring this same approach to Seoul and Bengaluru as we continue our Asia-Pacific expansion. We look forward to helping innovation flourish across the region.
 
 For information about career opportunities at our Tokyo office, [see here](https://www.anthropic.com/jobs?office=4035213008).
+
+Anthropic opens Tokyo office, signs a Memorandum of Cooperation with the Japan AI Safety Institute \ Anthropic

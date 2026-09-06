@@ -15,6 +15,6 @@ For more information and to request copies of our compliance documentation, plea
 
 * [Business Associate Agreements (BAA) for Commercial Customers](https://privacy.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers)
 * [I have a zero data retention agreement with Anthropic. What products does it apply to?](https://privacy.claude.com/en/articles/8956058-i-have-a-zero-data-retention-agreement-with-anthropic-what-products-does-it-apply-to)
-* [What Cookies Does Anthropic Use?](https://privacy.claude.com/en/articles/9020432-what-cookies-does-anthropic-use)
 * [How does Anthropic protect the personal data of Claude users?](https://privacy.claude.com/en/articles/10458704-how-does-anthropic-protect-the-personal-data-of-claude-users)
 * [Anthropic Interviewer sessions completed in December 2025](https://privacy.claude.com/en/articles/14170926-anthropic-interviewer-sessions-completed-in-december-2025)
+* [Privacy rights requests relating to Anthropic’s training data](https://privacy.claude.com/en/articles/15865314-privacy-rights-requests-relating-to-anthropic-s-training-data)

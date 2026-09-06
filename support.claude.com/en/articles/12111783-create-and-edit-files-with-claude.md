@@ -6,6 +6,8 @@ Code execution and file creation is available to all Claude users (Free, Pro, Ma
 
 These capabilities make it easy to produce professional documents by simply chatting with Claude. You can create financial models in Excel with working formulas, perform advanced analyses on uploaded data, produce reports with charts and visualizations, and generate presentations from your documents—all without specialized software skills.
 
+---
+
 ## Availability
 
 **Free, Pro, and Max plans:**
@@ -26,6 +28,8 @@ These capabilities make it easy to produce professional documents by simply chat
 * Network access is disabled by default; owners can enable it in organization settings
 * Owners can configure network access controls, including domain whitelisting
 
+---
+
 ## How to get started
 
 ### Enabling on web and desktop
@@ -38,11 +42,13 @@ These capabilities make it easy to produce professional documents by simply chat
 
 To give Claude access to external data sources, toggle **Allow network egress** on:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1788033600&signature=9590421a02235ebd6419498d5f14034a11caaf62925a1f812fbacd9c25ac04fb&req=diAiEs55mYFfXPMW1HO4zYFJywVFD5rIPQVowIiib2k%2F7vRIxIkFhpr4sVuW%0Ao8KHFAMX677TphnYkwM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1788033600&signature=9590421a02235ebd6419498d5f14034a11caaf62925a1f812fbacd9c25ac04fb&req=diAiEs55mYFfXPMW1HO4zYFJywVFD5rIPQVowIiib2k%2F7vRIxIkFhpr4sVuW%0Ao8KHFAMX677TphnYkwM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1788654600&signature=5d1128fe26cfdd48540a7e15de5d2b2901b46aaaf07fa7ef4b9a0c8c07bad16f&req=diAiEs55mYFfXPMW1HO4zYFJywVDCZ3IPQVowIiib2nij6mnNJyH76pIcIzM%0Aa4SJfg0nFvxi7%2BOHFzU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1788654600&signature=5d1128fe26cfdd48540a7e15de5d2b2901b46aaaf07fa7ef4b9a0c8c07bad16f&req=diAiEs55mYFfXPMW1HO4zYFJywVDCZ3IPQVowIiib2nij6mnNJyH76pIcIzM%0Aa4SJfg0nFvxi7%2BOHFzU%3D%0A)
 
 ### Enabling on Claude Mobile
 
 To enable or disable this feature on Claude for iOS or Android, tap your initials or name in the left sidebar to open Settings. Select "Capabilities" and toggle **Code execution and file creation** on or off.
+
+---
 
 ## Configuring network access (Team and Enterprise plans)
 
@@ -52,11 +58,13 @@ Team and Enterprise organization owners can control network access settings in *
 * **Allow network egress to package managers only (default):** Claude can access approved package managers (npm, PyPI, GitHub, etc.) to install necessary software packages. This balances functionality with security, but some advanced features may be limited.
 * **Allow network egress to package managers and specific domains:** Claude can access package managers plus additional domains you specify. Add domains individually to whitelist specific resources your organization needs:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1788033600&signature=60f929b0e2b7b56a1649ad2b54c64b02e2f88a32e069cda95b9fe0c98d046dc2&req=dScvH8B6mIJZW%2FMW1HO4zXJcBmVDlipNpMW6Iph6YZdYzRjK9CsTyYF7IFG2%0AtjoJdGmTtUGePLzRnBc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1788033600&signature=60f929b0e2b7b56a1649ad2b54c64b02e2f88a32e069cda95b9fe0c98d046dc2&req=dScvH8B6mIJZW%2FMW1HO4zXJcBmVDlipNpMW6Iph6YZdYzRjK9CsTyYF7IFG2%0AtjoJdGmTtUGePLzRnBc%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1788654600&signature=9a50d7b108de52b7e293bb079b8caadc8ed35a17282b4855af2505fc797c27d1&req=dScvH8B6mIJZW%2FMW1HO4zXJcBmVFkC1NpMW6Iph6YZeZz0GXR1UN3T7DsS8a%0AnOeaE3FRTjgZOBRHMX4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1788654600&signature=9a50d7b108de52b7e293bb079b8caadc8ed35a17282b4855af2505fc797c27d1&req=dScvH8B6mIJZW%2FMW1HO4zXJcBmVFkC1NpMW6Iph6YZeZz0GXR1UN3T7DsS8a%0AnOeaE3FRTjgZOBRHMX4%3D%0A)
 
 **All domains:** Claude has full internet access except for domains on Anthropic's legal blocklist. While this provides maximum flexibility for file creation and analysis tasks, it’s also the riskiest option. Please review the **[security considerations below](#h_0ee9d698a1)** before enabling “All domains”:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1788033600&signature=53c57171ef49ba471ddcfdcced99690dd2d76802961e67202662a7f15e4a3033&req=dScvH8B6mIJZWPMW1HO4zdnseByS7TykqgKIA6CM1tpPovrLbYFivOCROoiA%0ACH9NEgi2UBOGDA%2BORdw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1788033600&signature=53c57171ef49ba471ddcfdcced99690dd2d76802961e67202662a7f15e4a3033&req=dScvH8B6mIJZWPMW1HO4zdnseByS7TykqgKIA6CM1tpPovrLbYFivOCROoiA%0ACH9NEgi2UBOGDA%2BORdw%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1788654600&signature=c1a52d94217da31b2f731da0363fd65f8320ddc36592b25d28c5133959fb8a88&req=dScvH8B6mIJZWPMW1HO4zdnseByU6zukqgKIA6CM1tqQwfGJfzQ917gdHgsR%0A%2BCUkkYlw9vKISyFg7%2FA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1788654600&signature=c1a52d94217da31b2f731da0363fd65f8320ddc36592b25d28c5133959fb8a88&req=dScvH8B6mIJZWPMW1HO4zdnseByU6zukqgKIA6CM1tqQwfGJfzQ917gdHgsR%0A%2BCUkkYlw9vKISyFg7%2FA%3D%0A)
+
+---
 
 ## How does disabling network access address security concerns with code execution and file creation?
 
@@ -80,6 +88,8 @@ This approach gives you defense in depth—even if there were vulnerabilities in
 
 **Note:** If MCP (Model Context Protocol) integrations are enabled, network communication remains possible through those connections regardless of the network egress setting. Organizations should evaluate MCP configurations separately.
 
+---
+
 ## Using code execution and file creation
 
 When enabled, simply describe what you need in your message. For example, you might say "Create an Excel spreadsheet to track monthly expenses" or "Convert this document into a PowerPoint presentation." Claude will generate the file, which you can then download directly from the conversation.
@@ -93,6 +103,8 @@ Claude can create Excel spreadsheets (.xlsx), PowerPoint presentations (.pptx), 
 With this feature, Claude can also do more advanced data analysis and data science work. Claude can create Python scripts for data analysis. Claude can create data visualizations in image files like PNG. You can also upload CSV, TSV, and other files for data analysis and visualization.
 
 The maximum file size is 30MB per file for both uploads and downloads.
+
+---
 
 ## Key capabilities
 
@@ -123,6 +135,8 @@ The context window has been expanded to support more complex multi-step workflow
 
 Claude provides full support for multiple languages in both the user interface and generated files, with proper formatting and regional standards.
 
+---
+
 ## Security and network access
 
 ### How it works
@@ -133,6 +147,8 @@ Code execution and file creation gives Claude a sandboxed computing environment.
 
 * Download and install packages from approved package managers (npm, PyPI, etc.)
 * Access resources needed for file creation and analysis
+
+---
 
 ## Security considerations
 
@@ -166,6 +182,8 @@ Team and Enterprise owners have full control over this feature, including:
 
 **Note:** Claude can only be tricked into leaking data it has access to in a conversation via an individual user's prompt, project, or activated connections.
 
+---
+
 ## Approved network domains
 
 When network access is enabled, Claude can access the following approved domains:
@@ -177,6 +195,8 @@ When network access is enabled, Claude can access the following approved domains
 * **Rust:** crates.io, index.crates.io, static.crates.io
 * **Ubuntu:** archive.ubuntu.com, security.ubuntu.com
 * **Yarn:** yarnpkg.com, registry.yarnpkg.com
+
+---
 
 ## Common workflows
 
@@ -234,6 +254,8 @@ Claude will pull the data, organize it in spreadsheet format, and add visualizat
 ### Perform complex analyses
 
 Upload a CSV with data and ask Claude to build a machine learning model to predict a particular outcome. Have Claude output a report summarizing what it did and the results. Claude will use python to train a model on your data, and provide an explanation of what it did, including the quality of the model, and the results.
+
+---
 
 ## Frequently asked questions
 

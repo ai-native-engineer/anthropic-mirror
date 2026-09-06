@@ -2,34 +2,21 @@
 
 [Skip to main content](#main)[Skip to footer](#footer)
 
-## What 81,000 people want from AI
+[](https://cdn.sanity.io/files/4zrzovbb/website/2471bf20827901f94b1739010670e94ad4200e87.mov)
 
-The largest study ever done on AI and how it's shaping lives around the world.
+## :Claude: Fable 5.1 and Mythos 5.1
+
+The world’s most advanced models for coding and knowledge work.
 
 Read more
 
-[Read More](https://www.anthropic.com/features/81k-interviews)Read More
+[Read more](https://anthropic.com/claude-fable-and-mythos-5-1)Read more
 
 ## Latest releases
 
-### Expanding Project Glasswing
+### Introducing Opus 5
 
-We’re extending Project Glasswing to approximately 150 new organizations in more than fifteen countries.
-
-* Date
-
-  June 2, 2026
-* Category
-
-  Announcements
-
-[Read announcement](https://www.anthropic.com/news/expanding-project-glasswing)Read announcement
-
-Read announcement
-
-### Claude Opus 4.8
-
-An upgrade to Opus across coding, agentic tasks, and professional work, with the consistency to handle long-running work.
+Opus 5 is a step change for the Opus tier: stronger coding, more capable agents, and sharper professional work.
 
 [Model details](https://www.anthropic.com/claude/opus)Model details
 
@@ -37,27 +24,46 @@ Model details
 
 * Date
 
-  May 28, 2026
+  July 24, 2026
 * Category
 
   Announcements
 
-[Read announcement](https://www.anthropic.com/news/claude-opus-4-8)Read announcement
+[Read announcement](https://www.anthropic.com/news/claude-opus-5)Read announcement
 
 Read announcement
 
-### Introducing The Anthropic Institute
+### Introducing Sonnet 5
 
-We’re launching The Anthropic Institute, a new effort to confront the most significant challenges that powerful AI will pose to our societies.
+Our most agentic Sonnet yet, with top tier intelligence for coding and everyday professional work.
+
+[Model details](https://www.anthropic.com/claude/sonnet)Model details
+
+Model details
 
 * Date
 
-  March 11, 2026
+  June 30, 2026
 * Category
 
   Announcements
 
-[Read announcement](https://www.anthropic.com/news/the-anthropic-institute)Read announcement
+[Read announcement](https://www.anthropic.com/news/claude-sonnet-5)Read announcement
+
+Read announcement
+
+### Announcing Claude Science
+
+Claude Science is a customizable app that integrates the tools and packages researchers most often use, produces auditable artifacts, and provides flexible access to computing resources.
+
+* Date
+
+  June 30, 2026
+* Category
+
+  Announcements
+
+[Read announcement](https://www.anthropic.com/news/claude-science-ai-workbench)Read announcement
 
 Read announcement
 
@@ -65,6 +71,9 @@ Read announcement
 
 ## ‍
 
+* ### Claude Science
+
+  Announcements
 * ### Core views on AI safety
 
   Announcements

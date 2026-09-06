@@ -8,7 +8,7 @@ Users should not rely on Claude as a singular source of truth and should careful
 
 When working with web search results, users should review Claude's cited sources. Original websites may contain important context or details not included in Claude's synthesis. Additionally, the quality of Claude's responses depends on the underlying sources it references, so checking original content helps you identify any information that might be misinterpreted without the full context.
 
-You can use the thumbs down button to let us know if a particular response was unhelpful, or write to us at [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#8fe9eaeaebedeeece4cfeee1fbe7fde0ffe6eca1ece0e2) with your thoughts or suggestions.
+You can use the thumbs down button to let us know if a particular response was unhelpful, or write to us at [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#4c2a2929282e2d2f270c2d2238243e233c252f622f2321) with your thoughts or suggestions.
 
 To learn more about how Anthropic’s technology works and our research on developing safer, steerable, and more reliable models, we recommend visiting: <https://www.anthropic.com/research>
 

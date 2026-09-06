@@ -12,7 +12,7 @@ Learn when to use Haiku, Sonnet, Opus, or Fable to get better results and stay i
 
 [Open Claude](https://claude.ai/new)
 
-![](https://academy.claude.com/assets/v1/thumbnail.light-lt9nrti0.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-ky864f9i.png)
+![](https://academy.claude.com/assets/v1/thumbnail.light-bb0g5i6x.png)![](https://academy.claude.com/assets/v1/thumbnail.dark-j090lkdj.png)
 
 Claude comes in four models: Haiku, Sonnet, Opus, and Fable. Each is built for different kinds of work, and each uses your rate limit differently. Using Opus on a task Haiku could handle costs you tokens for no gain and slows you down in the process. In this guide you'll learn how to pick the Claude model that can most efficiently accomplish your task *and* keep you more comfortably within your rate limits.
 
@@ -35,7 +35,7 @@ Claude comes in four versions. Think of them as different tools designed for dif
 
 **Opus** is a large reasoning specialist. Opus 5 is exceptional for specialized complex tasks requiring advanced reasoning. It's built for problems that genuinely need deep thinking over time. It uses more of your rate limit, so you want to reserve it for tasks that really need it. Opus is available on [Pro plans(opens in new tab)](https://claude.com/pricing) and above.
 
-**Fable** is the go-to for your largest, most important projects. Fable 5 is our most capable model, built for long, complex tasks. It can work through tasks more autonomously with fewer mid-task check-ins: describe the outcome you want, and it plans the steps and checks its own work along the way. It takes time to think through problems before answering, so responses take longer, and it uses the most of your rate limit. Fable is available on paid plans. You can select it from the model picker when a task needs it.
+**Fable** is the go-to for your largest, most important projects. Fable 5.1 is our most capable model, built for long, complex tasks. It can work through tasks more autonomously with fewer mid-task check-ins: describe the outcome you want, and it plans the steps and checks its own work along the way. It takes time to think through problems before answering, so responses take longer, and it uses the most of your rate limit. Fable is available on paid plans. You can select it from the model picker when a task needs it.
 
 ## Understanding rate limits[](#understanding-rate-limits)
 

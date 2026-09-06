@@ -18,16 +18,20 @@ Incognito chats are temporary conversations that aren't saved to your chat histo
   + Incognito chats will not be included in future memory entries.
 * Incognito chats aren't included in **[your monthly recap](https://support.claude.com/en/articles/15672559)**.
 
+---
+
 ## How to start an incognito chat
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1788033600&signature=5633cea9839bb9107d74c6d3cf5b410e924d55d06ccfe8cf800524c0e44f4bb0&req=dScmH854lYZbXfMW1HO4zeUcuwq9beaNDCAt3Cx%2FSO30k%2FqVHvWu1yXw22AT%0A86c3oPG0D0J1F4Jv0nU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1788033600&signature=5633cea9839bb9107d74c6d3cf5b410e924d55d06ccfe8cf800524c0e44f4bb0&req=dScmH854lYZbXfMW1HO4zeUcuwq9beaNDCAt3Cx%2FSO30k%2FqVHvWu1yXw22AT%0A86c3oPG0D0J1F4Jv0nU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1788654600&signature=25486f1d2fbb088f797ef9d17ba0b2c95d010fec0bff972b21fd43aa23c77acd&req=dScmH854lYZbXfMW1HO4zeUcuwq7a%2BGNDCAt3Cx%2FSO3YtbIjj4qNA1dL3vlK%0A05K4p1frrkPzjKDEAas%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1788654600&signature=25486f1d2fbb088f797ef9d17ba0b2c95d010fec0bff972b21fd43aa23c77acd&req=dScmH854lYZbXfMW1HO4zeUcuwq7a%2BGNDCAt3Cx%2FSO3YtbIjj4qNA1dL3vlK%0A05K4p1frrkPzjKDEAas%3D%0A)
 
 1. Click the ghost icon to enable incognito mode.
 2. The interface will indicate you're in an incognito chat with a black border and “Incognito chat” label in the upper left corner.
 3. Begin your conversation with Claude.
 4. When you’re finished chatting, click the “x” in the upper right corner to close the incognito chat.
+
+---
 
 ## Important information for Team and Enterprise plans
 
@@ -36,6 +40,8 @@ If you're using incognito chats on a Team or Enterprise plan:
 * Incognito chats are included in organizational data exports available to account Owners.
 * While incognito chats aren’t saved to your chat history, they are retained for 30 days for safety, or longer in accordance with your organization's data retention policy.
 * Incognito chats are included in the **[Compliance API](https://support.claude.com/en/articles/13015708-access-the-compliance-api)** (available for Enterprise plans).
+
+---
 
 ## Frequently asked questions
 
@@ -56,7 +62,7 @@ Incognito mode is currently only available for chats outside of projects, so you
 Once closed, incognito chats cannot be reopened. Make sure to save any important information before ending your session.
 
 * [How can I create and manage projects?](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)
-* [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context)
 * [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
 * [See your monthly recap](https://support.claude.com/en/articles/15672559-see-your-monthly-recap)

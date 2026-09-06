@@ -4,6 +4,8 @@ Claude Cowork is available on desktop, web, mobile, and in the Claude in Chrome 
 
 Claude Cowork is in beta on web and mobile for Pro, Max, and Team plans, and on Enterprise plans where an admin has enabled it. Cowork is also available in the Claude in Chrome side panel on Max and Team plans, on Pro plans as it rolls out, and on Enterprise plans where an admin has enabled it. See **[Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls#h_bdb63199e1)** for enablement steps.
 
+---
+
 ## Start a Cowork session
 
 On desktop, web, and mobile, chat and Cowork share one home, so you start both from the same place. Find the message box, select "Cowork" in the bottom left corner, then describe your task. To go back to a regular conversation, select "Chat."
@@ -15,6 +17,8 @@ The Chrome side panel works differently. Opening the side panel starts a Cowork 
 * **Desktop:** Open the latest version of the Claude Desktop app. If you don't see the Cowork option in the message box, update the app. Desktop is the full Cowork experience, where Claude can also use your local files and browser.
 * **Chrome:** Click the Claude icon in your Chrome toolbar to open the side panel. The side panel starts a Cowork session, so there's no need to select "Cowork" first.
 
+---
+
 ## How Cowork in the cloud works
 
 When using Cowork in the cloud, Claude's work runs on Anthropic's servers instead of your computer, and your sessions and files are saved to your Claude account. This changes what Cowork can do:
@@ -25,6 +29,8 @@ When using Cowork in the cloud, Claude's work runs on Anthropic's servers instea
 * Sessions run in the cloud on every surface.
 
 For details on how cloud and local sessions are isolated and what each can access, see **[Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288)**. For safety guidance, see **[Use Claude Cowork safely](https://support.claude.com/en/articles/13364135)**.
+
+---
 
 ## What's available on each surface
 
@@ -40,7 +46,8 @@ Cowork in the cloud is in beta, and some features aren’t available yet. Here's
 | Preview files Claude creates | ✅ | ✅ | ✅ |
 | Scheduled tasks | ✅ | ✅ | ✅ |
 | Projects | ✅ | ✅ | ✅ |
-| Live artifacts | ✅ |  |  |
+| Live artifacts (created before August 19, 2026) | ✅ |  |  |
+| Artifacts (created August 19, 2026 or later) | ✅ | ✅ |  |
 | Local file access | ✅ | ✅\* | ✅\* |
 | Browser use | ✅ | ✅\* | ✅\* |
 | Computer use | ✅ | ✅\* | ✅\* |
@@ -49,10 +56,10 @@ A few notes on the table:
 
 * \*Local file access, local connectors, browser use, and computer use from web and mobile work through the Claude Desktop app. A cloud session can read and write files in folders you've connected on your computer only while the desktop app is open on that computer and the session was started on desktop. If the app is closed, the session keeps running but can't reach your local files.
 * Projects are available on every surface. From a project you can start a chat or a Cowork session, and Claude uses the project's knowledge as context. Projects tied to a local folder support Cowork sessions on desktop only, and Cowork won't change a project's contents, so add anything you want to keep to the project yourself. For more information, see **[Organize your tasks with projects in Claude Cowork](https://support.claude.com/en/articles/14116274)** and **[Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249)**.
-* Live artifacts are available on the desktop app only. For more information, see **[Use live artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249)**.
+* Artifacts created on or after August 19, 2026 are available on the desktop app and web. Live artifacts created before that date are available on the desktop app only. For more information, see **[Use artifacts in Claude Cowork](https://support.claude.com/en/articles/14729249)**.
 * Local connectors and plugins that include local MCP servers work through the desktop app only.
 * Scheduled tasks run in the cloud, so they no longer need your computer to be awake. For more information, see **[Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387)**.
-* Computer use is a research preview for Pro and Max plans. For more information, see **[Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542)**.
+* Computer use is in beta for Pro and Max plans. For more information, see **[Let Claude use your computer in Cowork](https://support.claude.com/en/articles/14128542)**.
 
 ## What requires the desktop app
 

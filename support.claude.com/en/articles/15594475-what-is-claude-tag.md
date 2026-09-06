@@ -16,11 +16,15 @@ When you tag @Claude in a channel, Claude works through the task while the whole
 
 In direct messages and the assistant panel, Claude has the capabilities you've enabled in your own Claude account, like web search and your connected tools. Channel tagging works differently: Claude acts under your organization's identity, using the tools and access an admin set up for that channel, and the work is billed to your organization rather than to you.
 
+---
+
 ## Set up Claude Tag
 
 After the Claude app is installed, a Primary Owner or Owner sets up Claude Tag: provision Claude's identity, connect your organization's tools and repositories, and choose which channels Claude Tag can work in. People on your team don't need to set up anything individually once a channel is ready. For the full walkthrough, see the **[Claude Tag setup guide](https://claude.com/docs/claude-tag/admins/setup-overview)**.
 
 **Important:** Only a Primary Owner or Owner can set up Claude Tag's access and channels. The Admin role can't.
+
+---
 
 ## Control who can use Claude Tag
 
@@ -61,6 +65,8 @@ Claude Tag keeps context per channel and per workspace. Admins can view, edit, a
 
 An Audit view in **Organization settings > Claude Tag > Audit** lists every scheduled and one-time task across your organization in addition to all network calls made using Agent Identity. Each action is also traceable in the tool where it happened: posts come from the Claude app in Slack, and commits and pull requests show the Claude GitHub App as the author with a link back to the Slack thread that started them. In any channel, you can ask "@Claude what triggers do you have set up here?" to see and turn off standing work.
 
+---
+
 ## Privacy and data
 
 ### Data storage
@@ -81,6 +87,8 @@ Your Slack conversations with Claude remain separate from your Claude history, k
 ### Claude Tag memory
 
 Claude Tag remembers context to do its work, so channel and workspace memory is retained rather than discarded after each task. Memory and activity respect channel boundaries, and admins can review or delete what Claude remembers. Channel work is attributed to your organization's Claude identity, while work done in a direct message runs on your own account.
+
+---
 
 ## Frequently asked questions
 

@@ -102,6 +102,12 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `CE_USER_MANAGEMENT_2026_07_13("ce-user-management-2026-07-13")`
 
+    - `MID_CONVERSATION_OUTPUT_CONFIG_2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `THINKING_BINDING_CONTROLS_2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MID_CONVERSATION_SYSTEM_CLEAR_AT_2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
+
   - `long maxTokensToSample`
 
     The maximum number of tokens to generate before stopping.
@@ -206,6 +212,14 @@ Future models and features will not be compatible with Text Completions. See our
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
+    - `CLAUDE_FABLE_5_1("claude-fable-5-1")`
+
+      Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+    - `CLAUDE_MYTHOS_5_1("claude-mythos-5-1")`
+
+      Our most capable model for cybersecurity and biology research, available through trusted access programs
+
     - `CLAUDE_SONNET_5("claude-sonnet-5")`
 
       High-performance model for coding and agents
@@ -275,7 +289,7 @@ Future models and features will not be compatible with Text Completions. See our
     * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
     * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
-  - `JsonValue type constant`
+  - `JsonValue type = "completion"`
 
     Object type.
 
@@ -302,7 +316,7 @@ public final class Main {
 
         CompletionCreateParams params = CompletionCreateParams.builder()
             .maxTokensToSample(256L)
-            .model(Model.CLAUDE_SONNET_5)
+            .model(Model.CLAUDE_FABLE_5_1)
             .prompt("\n\nHuman: Hello, world!\n\nAssistant:")
             .build();
         Completion completion = client.completions().create(params);

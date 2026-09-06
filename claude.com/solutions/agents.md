@@ -155,23 +155,23 @@ See customer stories
 
 [See customer stories](https://claude.com/customers)See customer stories
 
-![Cursor (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bce42081e89a8bec1f_logo_cursor-light.svg)![Cursor (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bafffa19b5e3366ebc_logo_cursor-dark.svg)
+![SpaceXAI (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3465ab2398c17d0176_logo_spacex-light.svg)![SpaceXAI (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3841222d7122838bde_logo_spacex-dark.svg)
 
-“Claude Opus 5 delivers near Fable 5 intelligence at Opus speed and cost. On CursorBench it’s just under Fable 5 and has many of the same behaviors. We are excited to see how developers use it in Cursor.”
+“Claude Fable 5.1 is the most capable model we've run on CursorBench 3.2, scoring 73.4% at max effort. We found it especially skilled at verifying its own work, allowing it to take on difficult coding tasks from start to finish.”
 
-Sualeh Asif, Co-Founder
+Sualeh Asif, Director of ML
 
-![Walleye Capital (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8f2c296e72da5d0c16c64_walleye-capital-light.svg)![Walleye Capital (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8f2c707f624aa6506e323_walleye-capital-dark.svg)
+![Red Hat (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59ea3_6a2ecc7a1372de816bc282aa_RedHat_light.svg)![Red Hat (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd40339475e271c59e88_6a2ecc7a028e2d7625286222_RedHat_dark.svg)
 
-"Claude Fable 5 delivers more capable engineering in fewer turns than prior models—handling the complex multi-agent workflows our employees run daily in Claude Code."
+“As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.”
 
-Luke Anderson, CTO
+Josh Boyer, Distinguished Engineer
 
-![Cognition (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
+![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
 
-"Claude Fable 5 is the highest-scoring model on FrontierBench, Cognition's frontier coding eval. It excels at long-horizon reasoning and generalizes to unfamiliar tools out of the box."
+“We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
 
-Scott Wu, CEO
+Walden Yan, Co-Founder and CPO
 
 ## AI agent resources
 

@@ -12,7 +12,7 @@ Browse
 
 # Claude Tag
 
-Learn to tag Claude into your team's channels and hand it work everyone can follow.
+For work that belongs to the team. Tag Claude in Slack, delegate in the open, and keep everyone in the loop.
 
 ## Start here
 

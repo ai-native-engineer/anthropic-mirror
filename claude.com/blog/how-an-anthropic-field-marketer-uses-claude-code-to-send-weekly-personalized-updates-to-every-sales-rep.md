@@ -110,6 +110,18 @@ Explore more product news and best practices for teams building with Claude.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
+Aug 20, 2026
+
+### The Claude Code guide for startups
+
+Claude Code
+
+[The Claude Code guide for startups](#)The Claude Code guide for startups
+
+[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
 Aug 21, 2026
 
 ### The AI-Native SDLC playbook
@@ -143,18 +155,6 @@ Claude Code
 [The new rules of context engineering for Claude 5 generation models](#) The new rules of context engineering for Claude 5 generation models
 
 [The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) The new rules of context engineering for Claude 5 generation models
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Aug 20, 2026
-
-### The Claude Code guide for startups
-
-Claude Code
-
-[The Claude Code guide for startups](#)The Claude Code guide for startups
-
-[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
 
 ## Transform how your organization operates with Claude
 

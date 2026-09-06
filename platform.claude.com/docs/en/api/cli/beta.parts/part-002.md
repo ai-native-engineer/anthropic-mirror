@@ -2,6 +2,742 @@
 <!-- part of: https://platform.claude.com/docs/en/api/cli/beta -->
 
 <!-- chunk-start -->
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+### List Vaults
+
+`$ ant beta:vaults list`
+
+**GET** `/v1/vaults`
+
+List Vaults
+
+#### Parameters
+
+- `--include-archived: optional boolean`
+
+  Query param: Whether to include archived vaults in the results.
+
+- `--limit: optional number`
+
+  Query param: Maximum number of vaults to return per page. Defaults to 20, maximum 100.
+
+  format: int32
+
+- `--page: optional string`
+
+  Query param: Opaque pagination token from a previous `list_vaults` response.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaManagedAgentsListVaultsResponse: object`
+
+  Response containing a paginated list of vaults.
+
+  - `data: optional array of BetaManagedAgentsVault`
+
+    List of vaults.
+
+    - `id: string`
+
+      Unique identifier for the vault.
+
+    - `archived_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `created_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `display_name: string`
+
+      Human-readable name for the vault.
+
+    - `metadata: map[string]`
+
+      Arbitrary key-value metadata attached to the vault.
+
+    - `type: "vault"`
+
+    - `updated_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+  - `next_page: optional string`
+
+    Pagination token for the next page, or null if no more results.
+
+#### Example
+
+```bash
+ant beta:vaults list \
+  --api-key my-anthropic-api-key
+```
+
+##### Response (200)
+
+```json
+{
+  "data": [
+    {
+      "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "display_name": "Example vault",
+      "metadata": {
+        "environment": "production"
+      },
+      "type": "vault",
+      "updated_at": "2026-03-15T10:00:00Z"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+### Get Vault
+
+`$ ant beta:vaults retrieve`
+
+**GET** `/v1/vaults/{vault_id}`
+
+Get Vault
+
+#### Parameters
+
+- `--vault-id: string`
+
+  Path parameter vault_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `beta_managed_agents_vault: object`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+ant beta:vaults retrieve \
+  --api-key my-anthropic-api-key \
+  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+### Update Vault
+
+`$ ant beta:vaults update`
+
+**POST** `/v1/vaults/{vault_id}`
+
+Update Vault
+
+#### Parameters
+
+- `--vault-id: string`
+
+  Path param: Path parameter vault_id
+
+- `--display-name: optional string`
+
+  Body param: Updated human-readable name for the vault. 1-255 characters.
+
+  minLength: 1, maxLength: 255
+
+- `--metadata: optional map[string]`
+
+  Body param: Metadata patch. Set a key to a string to upsert it, or to null to delete it. Omitted keys are preserved.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `beta_managed_agents_vault: object`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+ant beta:vaults update \
+  --api-key my-anthropic-api-key \
+  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+### Delete Vault
+
+`$ ant beta:vaults delete`
+
+**DELETE** `/v1/vaults/{vault_id}`
+
+Delete Vault
+
+#### Parameters
+
+- `--vault-id: string`
+
+  Path parameter vault_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `beta_managed_agents_deleted_vault: object`
+
+  Confirmation of a deleted vault.
+
+  - `id: string`
+
+    Unique identifier of the deleted vault.
+
+  - `type: "vault_deleted"`
+
+#### Example
+
+```bash
+ant beta:vaults delete \
+  --api-key my-anthropic-api-key \
+  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "type": "vault_deleted"
+}
+```
+
+### Archive Vault
+
+`$ ant beta:vaults archive`
+
+**POST** `/v1/vaults/{vault_id}/archive`
+
+Archive Vault
+
+#### Parameters
+
+- `--vault-id: string`
+
+  Path parameter vault_id
+
+- `--beta: optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `beta_managed_agents_vault: object`
+
+  A vault that stores credentials for use by agents during sessions.
+
+  - `id: string`
+
+    Unique identifier for the vault.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `display_name: string`
+
+    Human-readable name for the vault.
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the vault.
+
+  - `type: "vault"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+#### Example
+
+```bash
+ant beta:vaults archive \
+  --api-key my-anthropic-api-key \
+  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## Beta › Vaults › Credentials
+
+### Create Credential
+
+`$ ant beta:vaults:credentials create`
+
+**POST** `/v1/vaults/{vault_id}/credentials`
+
+Create Credential
+
+#### Parameters
+
+- `--vault-id: string`
+
+  Path param: Path parameter vault_id
+
+- `--auth: BetaManagedAgentsMCPOAuthCreateParams or BetaManagedAgentsStaticBearerCreateParams or BetaManagedAgentsEnvironmentVariableCreateParams`
+
+  Body param: Authentication details for creating a credential.
+
+- `--display-name: optional string`
+
+  Body param: Human-readable name for the credential. Up to 255 characters.
+
+  maxLength: 255
+
+- `--metadata: optional map[string]`
+
+  Body param: Arbitrary key-value metadata to attach to the credential. Maximum 16 pairs, keys up to 64 chars, values up to 512 chars.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `beta_managed_agents_credential: object`
+
+  A credential stored in a vault. Sensitive fields are never returned in responses.
+
+  - `id: string`
+
+    Unique identifier for the credential.
+
+  - `archived_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+    Authentication details for a credential.
+
+    - `beta_managed_agents_mcp_oauth_auth_response: object`
+
+      OAuth credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "mcp_oauth"`
+
+      - `expires_at: optional string`
+
+        A timestamp in RFC 3339 format
+
+        format: date-time
+
+      - `refresh: optional object`
+
+        OAuth refresh token configuration returned in credential responses.
+
+        - `client_id: string`
+
+          OAuth client ID.
+
+        - `token_endpoint: string`
+
+          Token endpoint URL used to refresh the access token.
+
+        - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+          Token endpoint requires no client authentication.
+
+          - `beta_managed_agents_token_endpoint_auth_none_response: object`
+
+            Token endpoint requires no client authentication.
+
+            - `type: "none"`
+
+          - `beta_managed_agents_token_endpoint_auth_basic_response: object`
+
+            Token endpoint uses HTTP Basic authentication with client credentials.
+
+            - `type: "client_secret_basic"`
+
+          - `beta_managed_agents_token_endpoint_auth_post_response: object`
+
+            Token endpoint uses POST body authentication with client credentials.
+
+            - `type: "client_secret_post"`
+
+        - `resource: optional string`
+
+          OAuth resource indicator.
+
+        - `scope: optional string`
+
+          OAuth scope for the refresh request.
+
+    - `beta_managed_agents_static_bearer_auth_response: object`
+
+      Static bearer token credential details for an MCP server.
+
+      - `mcp_server_url: string`
+
+        URL of the MCP server this credential authenticates against.
+
+      - `type: "static_bearer"`
+
+    - `beta_managed_agents_environment_variable_auth_response: object`
+
+      Environment variable credential details. The secret value is never returned.
+
+      - `injection_location: object`
+
+        Where in the outbound request the secret value is substituted.
+
+        - `body: boolean`
+
+          Whether the placeholder is substituted in the request body.
+
+        - `header: boolean`
+
+          Whether the placeholder is substituted in request header values.
+
+      - `networking: BetaManagedAgentsUnrestrictedCredentialNetworkingResponse or BetaManagedAgentsLimitedCredentialNetworkingResponse`
+
+        Outbound hosts the secret value is substituted on.
+
+        - `beta_managed_agents_unrestricted_credential_networking_response: object`
+
+          The secret is substituted on any host the session's Environment network policy permits egress to.
+
+          - `type: "unrestricted"`
+
+        - `beta_managed_agents_limited_credential_networking_response: object`
+
+          The secret is substituted only on requests to the listed hosts.
+
+          - `allowed_hosts: array of string`
+
+            Hostnames on which the secret will be substituted. An entry matches the request host exactly; a `*.`-prefixed entry matches any subdomain of the named domain but not the domain itself.
+
+          - `type: "limited"`
+
+      - `secret_name: string`
+
+        Name of the environment variable.
+
+      - `type: "environment_variable"`
+
+  - `created_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `metadata: map[string]`
+
+    Arbitrary key-value metadata attached to the credential.
+
+  - `type: "vault_credential"`
+
+  - `updated_at: string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
+  - `vault_id: string`
+
+    Identifier of the vault this credential belongs to.
+
+  - `display_name: optional string`
+
+    Human-readable name for the credential.
+
+#### Example
+
+```bash
+ant beta:vaults:credentials create \
+  --api-key my-anthropic-api-key \
+  --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
+  --auth '{token: bearer_exampletoken, mcp_server_url: https://example-server.modelcontextprotocol.io/sse, type: static_bearer}'
+```
+
+##### Response (200)
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+### List Credentials
+
+`$ ant beta:vaults:credentials list`
+
+**GET** `/v1/vaults/{vault_id}/credentials`
+
+List Credentials
+
+#### Parameters
+
+- `--vault-id: string`
+
+  Path param: Path parameter vault_id
+
+- `--include-archived: optional boolean`
+
+  Query param: Whether to include archived credentials in the results.
+
+- `--limit: optional number`
+
+  Query param: Maximum number of credentials to return per page. Defaults to 20, maximum 100.
+
+  format: int32
+
+- `--page: optional string`
+
+  Query param: Opaque pagination token from a previous `list_credentials` response.
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+#### Returns
+
+- `BetaManagedAgentsListCredentialsResponse: object`
+
+  Response containing a paginated list of credentials.
+
+  - `data: optional array of BetaManagedAgentsCredential`
+
+    List of credentials.
+
+    - `id: string`
+
+      Unique identifier for the credential.
+
+    - `archived_at: string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
+    - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse or BetaManagedAgentsEnvironmentVariableAuthResponse`
+
+      Authentication details for a credential.
+
+      - `beta_managed_agents_mcp_oauth_auth_response: object`
+
+        OAuth credential details for an MCP server.
+
+        - `mcp_server_url: string`
+
+          URL of the MCP server this credential authenticates against.
+
+        - `type: "mcp_oauth"`
+
+        - `expires_at: optional string`
+
+          A timestamp in RFC 3339 format
+
+          format: date-time
+
+        - `refresh: optional object`
+
+          OAuth refresh token configuration returned in credential responses.
+
+          - `client_id: string`
+
+            OAuth client ID.
+
+          - `token_endpoint: string`
+
+            Token endpoint URL used to refresh the access token.
+
+          - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
+
+            Token endpoint requires no client authentication.
+
+            - `beta_managed_agents_token_endpoint_auth_none_response: object`
+
+              Token endpoint requires no client authentication.
+
+              - `type: "none"`
+
+            - `beta_managed_agents_token_endpoint_auth_basic_response: object`
+
+              Token endpoint uses HTTP Basic authentication with client credentials.
+
+              - `type: "client_secret_basic"`
+
+            - `beta_managed_agents_token_endpoint_auth_post_response: object`
+
+              Token endpoint uses POST body authentication with client credentials.
+
+              - `type: "client_secret_post"`
+
+          - `resource: optional string`
+
+            OAuth resource indicator.
+
+          - `scope: optional string`
+
+            OAuth scope for the refresh request.
 
       - `beta_managed_agents_static_bearer_auth_response: object`
 
@@ -1533,7 +2269,7 @@ Create a memory
 
 - `--path: string`
 
-  Body param: Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive.
+  Body param: Hierarchical path for the new memory, e.g. `/projects/foo/notes.md`. Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive.
 
   minLength: 2, maxLength: 1024
 
@@ -1896,7 +2632,7 @@ Update a memory
 
 - `--path: optional string`
 
-  Body param: New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
+  Body param: New path for the memory (a rename). Must start with `/`, contain at least one non-empty segment, and be at most 1,024 bytes. Must not contain empty segments, `.` or `..` segments, control or format characters, or the Unicode line and paragraph separators (U+2028, U+2029), and must be NFC-normalized. Paths are case-sensitive. The memory's `id` is preserved across renames. Omit to leave the path unchanged.
 
   minLength: 2, maxLength: 1024
 
@@ -3939,19 +4675,21 @@ Create User Profile
 
   minLength: 1, maxLength: 255
 
+- `--external-user-onboarded-at: optional string`
+
+  Body param: A timestamp in RFC 3339 format
+
+  format: date-time
+
 - `--metadata: optional map[string]`
 
   Body param: Free-form key-value data to attach to this user profile. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters. Values must be non-empty strings.
 
 - `--name: optional string`
 
-  Body param: Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a resold-to company (`relationship` `resold` / `access_type` `passthrough`), that company's name where known. Maximum 255 characters.
+  Body param: Optional for all profiles. Real-world name of the entity this profile represents (company or individual); for a company the platform resells Claude access to (`access_type` `passthrough`), that company's name where known. Maximum 255 characters.
 
   minLength: 1, maxLength: 255
-
-- `--relationship: optional "external" or "resold" or "internal"`
-
-  Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -4011,19 +4749,15 @@ Create User Profile
 
     Platform's own identifier for this user. Not enforced unique.
 
+  - `external_user_onboarded_at: optional string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `name: optional string`
 
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `relationship: optional "external" or "resold" or "internal"`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `"external"`
-
-    - `"resold"`
-
-    - `"internal"`
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
 
 #### Example
 
@@ -4048,8 +4782,8 @@ ant beta:user-profiles create \
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
 }
 ```
 
@@ -4072,6 +4806,10 @@ List User Profiles
 - `--order: optional "asc" or "desc"`
 
   Query param: Query parameter for order
+
+- `--order-by: optional "created_at" or "name"`
+
+  Query param: Query parameter for order_by
 
 - `--page: optional string`
 
@@ -4139,19 +4877,15 @@ List User Profiles
 
       Platform's own identifier for this user. Not enforced unique.
 
+    - `external_user_onboarded_at: optional string`
+
+      A timestamp in RFC 3339 format
+
+      format: date-time
+
     - `name: optional string`
 
-      Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-    - `relationship: optional "external" or "resold" or "internal"`
-
-      How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-      - `"external"`
-
-      - `"resold"`
-
-      - `"internal"`
+      Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
 
   - `next_page: string`
 
@@ -4182,8 +4916,8 @@ ant beta:user-profiles list \
       "updated_at": "2026-03-15T10:00:00Z",
       "access_type": "application",
       "external_id": "user_12345",
-      "name": "Example User",
-      "relationship": "external"
+      "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+      "name": "Example User"
     }
   ],
   "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
@@ -4262,19 +4996,15 @@ Get User Profile
 
     Platform's own identifier for this user. Not enforced unique.
 
+  - `external_user_onboarded_at: optional string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `name: optional string`
 
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `relationship: optional "external" or "resold" or "internal"`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `"external"`
-
-    - `"resold"`
-
-    - `"internal"`
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
 
 #### Example
 
@@ -4300,8 +5030,8 @@ ant beta:user-profiles retrieve \
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
 }
 ```
 
@@ -4329,6 +5059,12 @@ Update User Profile
 
   minLength: 1, maxLength: 255
 
+- `--external-user-onboarded-at: optional string`
+
+  Body param: A timestamp in RFC 3339 format
+
+  format: date-time
+
 - `--metadata: optional map[string]`
 
   Body param: Key-value pairs to merge into the stored metadata. Keys provided overwrite existing values. To remove a key, set its value to an empty string. Keys not provided are left unchanged. Maximum 16 keys, with keys up to 64 characters and values up to 512 characters.
@@ -4338,10 +5074,6 @@ Update User Profile
   Body param: If present, replaces the stored name. Omit to leave unchanged. Maximum 255 characters.
 
   minLength: 1, maxLength: 255
-
-- `--relationship: optional "external" or "resold" or "internal"`
-
-  Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -4401,19 +5133,15 @@ Update User Profile
 
     Platform's own identifier for this user. Not enforced unique.
 
+  - `external_user_onboarded_at: optional string`
+
+    A timestamp in RFC 3339 format
+
+    format: date-time
+
   - `name: optional string`
 
-    Real-world name of the entity this profile represents (company or individual). For a resold-to company (`access_type` `passthrough`, or `relationship` `resold` under the `user-profiles-2026-03-24` header) this is that company's name.
-
-  - `relationship: optional "external" or "resold" or "internal"`
-
-    How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
-    - `"external"`
-
-    - `"resold"`
-
-    - `"internal"`
+    Real-world name of the entity this profile represents (company or individual). For a company the platform resells Claude access to (`access_type` `passthrough`) this is that company's name.
 
 #### Example
 
@@ -4439,8 +5167,8 @@ ant beta:user-profiles update \
   "updated_at": "2026-03-15T10:00:00Z",
   "access_type": "application",
   "external_id": "user_12345",
-  "name": "Example User",
-  "relationship": "external"
+  "external_user_onboarded_at": "2024-11-02T08:15:00Z",
+  "name": "Example User"
 }
 ```
 
@@ -7088,7 +7816,7 @@ Create an external key config owned by the caller's organization.
 
       - `kms_arn: string`
 
-        Full ARN of the AWS KMS key.
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
 
         maxLength: 2048
 
@@ -7102,7 +7830,7 @@ Create an external key config owned by the caller's organization.
 
         **Deprecated**
 
-        IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
 
     - `beta_gcp_external_key_config: object`
 
@@ -7235,7 +7963,7 @@ Results are ordered by creation time (newest first). Use the
 
         - `kms_arn: string`
 
-          Full ARN of the AWS KMS key.
+          Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
 
           maxLength: 2048
 
@@ -7249,7 +7977,7 @@ Results are ordered by creation time (newest first). Use the
 
           **Deprecated**
 
-          IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
+          IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
 
       - `beta_gcp_external_key_config: object`
 
@@ -7385,7 +8113,7 @@ Retrieve a single external key config in the caller's organization by ID.
 
       - `kms_arn: string`
 
-        Full ARN of the AWS KMS key.
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
 
         maxLength: 2048
 
@@ -7399,7 +8127,7 @@ Retrieve a single external key config in the caller's organization by ID.
 
         **Deprecated**
 
-        IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
 
     - `beta_gcp_external_key_config: object`
 
@@ -7545,7 +8273,7 @@ encrypted data requires the original key identity to decrypt.
 
       - `kms_arn: string`
 
-        Full ARN of the AWS KMS key.
+        Full ARN of the AWS KMS key. On Claude Platform on AWS the key must be a single-Region key in your organization's own AWS account; cross-account keys, multi-Region keys, and alias ARNs are rejected.
 
         maxLength: 2048
 
@@ -7559,7 +8287,7 @@ encrypted data requires the original key identity to decrypt.
 
         **Deprecated**
 
-        IAM role ARN. Deprecated — Anthropic reaches the KMS key via a managed intermediate role; this field is ignored.
+        IAM role ARN. Deprecated — Anthropic reaches the KMS key through its own intermediate role (or, on Claude Platform on AWS, with credentials AWS issues for the Workspace); this field is ignored.
 
     - `beta_gcp_external_key_config: object`
 
@@ -11951,8 +12679,13 @@ List Workspaces
       customer-managed encryption key (CMEK) on AWS, reference this value in your
       KMS key-policy condition so the key is scoped to this compartment. On GCP and
       Azure, Anthropic enforces the compartment binding automatically; you do not
-      need to reference this value in your key configuration. See the CMEK integration guide for the
-      required key configuration, including the value used during key validation.
+      need to reference this value in your key configuration. See the CMEK
+      integration guide for the required key configuration; unless your organization
+      is on Claude Platform on AWS, it includes a separate value used during key
+      validation. On Claude Platform on AWS there is no separate validation value:
+      the key is validated against this Workspace's own value when it is attached, so
+      if your key policy uses the compartment condition, add this value to it before
+      attaching the key.
 
     - `created_at: string`
 
@@ -11989,10 +12722,14 @@ List Workspaces
       ID of the customer-managed encryption key (CMEK) configuration to use for this
       Workspace. Setting this field requires CMEK to be enabled for your
       organization. When set, data stored for this Workspace is encrypted with the
-      referenced key. Create key configurations with the External Keys API. This
-      field is write-once: once a key is attached to a Workspace it cannot be
-      detached or replaced. To rotate key material, rotate the underlying key on
-      your cloud KMS; the `external_key_id` stays the same.
+      referenced key. Create key configurations with the External Keys API. On
+      Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+      single-Region key in the same AWS account and Region as the Workspace. On that
+      platform the key is validated against this Workspace when it is attached, so a
+      key-policy problem is reported as an error on this request. This field is write-once:
+      once a key is attached to a Workspace it cannot be detached or replaced. To
+      rotate key material, rotate the underlying key on your cloud KMS; the
+      `external_key_id` stays the same.
 
     - `name: string`
 
@@ -12089,10 +12826,14 @@ Create Workspace
   Body param: ID of the customer-managed encryption key (CMEK) configuration to use for this
   Workspace. Setting this field requires CMEK to be enabled for your
   organization. When set, data stored for this Workspace is encrypted with the
-  referenced key. Create key configurations with the External Keys API. This
-  field is write-once: once a key is attached to a Workspace it cannot be
-  detached or replaced. To rotate key material, rotate the underlying key on
-  your cloud KMS; the `external_key_id` stays the same.
+  referenced key. Create key configurations with the External Keys API. On
+  Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+  single-Region key in the same AWS account and Region as the Workspace. On that
+  platform the key is validated against this Workspace when it is attached, so a
+  key-policy problem is reported as an error on this request. This field is write-once:
+  once a key is attached to a Workspace it cannot be detached or replaced. To
+  rotate key material, rotate the underlying key on your cloud KMS; the
+  `external_key_id` stays the same.
 
 - `--tags: optional map[string]`
 
@@ -12122,8 +12863,13 @@ Create Workspace
     customer-managed encryption key (CMEK) on AWS, reference this value in your
     KMS key-policy condition so the key is scoped to this compartment. On GCP and
     Azure, Anthropic enforces the compartment binding automatically; you do not
-    need to reference this value in your key configuration. See the CMEK integration guide for the
-    required key configuration, including the value used during key validation.
+    need to reference this value in your key configuration. See the CMEK
+    integration guide for the required key configuration; unless your organization
+    is on Claude Platform on AWS, it includes a separate value used during key
+    validation. On Claude Platform on AWS there is no separate validation value:
+    the key is validated against this Workspace's own value when it is attached, so
+    if your key policy uses the compartment condition, add this value to it before
+    attaching the key.
 
   - `created_at: string`
 
@@ -12160,10 +12906,14 @@ Create Workspace
     ID of the customer-managed encryption key (CMEK) configuration to use for this
     Workspace. Setting this field requires CMEK to be enabled for your
     organization. When set, data stored for this Workspace is encrypted with the
-    referenced key. Create key configurations with the External Keys API. This
-    field is write-once: once a key is attached to a Workspace it cannot be
-    detached or replaced. To rotate key material, rotate the underlying key on
-    your cloud KMS; the `external_key_id` stays the same.
+    referenced key. Create key configurations with the External Keys API. On
+    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+    single-Region key in the same AWS account and Region as the Workspace. On that
+    platform the key is validated against this Workspace when it is attached, so a
+    key-policy problem is reported as an error on this request. This field is write-once:
+    once a key is attached to a Workspace it cannot be detached or replaced. To
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
 
   - `name: string`
 
@@ -12245,8 +12995,13 @@ Get Workspace
     customer-managed encryption key (CMEK) on AWS, reference this value in your
     KMS key-policy condition so the key is scoped to this compartment. On GCP and
     Azure, Anthropic enforces the compartment binding automatically; you do not
-    need to reference this value in your key configuration. See the CMEK integration guide for the
-    required key configuration, including the value used during key validation.
+    need to reference this value in your key configuration. See the CMEK
+    integration guide for the required key configuration; unless your organization
+    is on Claude Platform on AWS, it includes a separate value used during key
+    validation. On Claude Platform on AWS there is no separate validation value:
+    the key is validated against this Workspace's own value when it is attached, so
+    if your key policy uses the compartment condition, add this value to it before
+    attaching the key.
 
   - `created_at: string`
 
@@ -12283,10 +13038,14 @@ Get Workspace
     ID of the customer-managed encryption key (CMEK) configuration to use for this
     Workspace. Setting this field requires CMEK to be enabled for your
     organization. When set, data stored for this Workspace is encrypted with the
-    referenced key. Create key configurations with the External Keys API. This
-    field is write-once: once a key is attached to a Workspace it cannot be
-    detached or replaced. To rotate key material, rotate the underlying key on
-    your cloud KMS; the `external_key_id` stays the same.
+    referenced key. Create key configurations with the External Keys API. On
+    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+    single-Region key in the same AWS account and Region as the Workspace. On that
+    platform the key is validated against this Workspace when it is attached, so a
+    key-policy problem is reported as an error on this request. This field is write-once:
+    once a key is attached to a Workspace it cannot be detached or replaced. To
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
 
   - `name: string`
 
@@ -12361,10 +13120,14 @@ Update Workspace
   ID of the customer-managed encryption key (CMEK) configuration to use for this
   Workspace. Setting this field requires CMEK to be enabled for your
   organization. When set, data stored for this Workspace is encrypted with the
-  referenced key. Create key configurations with the External Keys API. This
-  field is write-once: once a key is attached to a Workspace it cannot be
-  detached or replaced. To rotate key material, rotate the underlying key on
-  your cloud KMS; the `external_key_id` stays the same.
+  referenced key. Create key configurations with the External Keys API. On
+  Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+  single-Region key in the same AWS account and Region as the Workspace. On that
+  platform the key is validated against this Workspace when it is attached, so a
+  key-policy problem is reported as an error on this request. This field is write-once:
+  once a key is attached to a Workspace it cannot be detached or replaced. To
+  rotate key material, rotate the underlying key on your cloud KMS; the
+  `external_key_id` stays the same.
 
 - `--name: optional string`
 
@@ -12396,8 +13159,13 @@ Update Workspace
     customer-managed encryption key (CMEK) on AWS, reference this value in your
     KMS key-policy condition so the key is scoped to this compartment. On GCP and
     Azure, Anthropic enforces the compartment binding automatically; you do not
-    need to reference this value in your key configuration. See the CMEK integration guide for the
-    required key configuration, including the value used during key validation.
+    need to reference this value in your key configuration. See the CMEK
+    integration guide for the required key configuration; unless your organization
+    is on Claude Platform on AWS, it includes a separate value used during key
+    validation. On Claude Platform on AWS there is no separate validation value:
+    the key is validated against this Workspace's own value when it is attached, so
+    if your key policy uses the compartment condition, add this value to it before
+    attaching the key.
 
   - `created_at: string`
 
@@ -12434,10 +13202,14 @@ Update Workspace
     ID of the customer-managed encryption key (CMEK) configuration to use for this
     Workspace. Setting this field requires CMEK to be enabled for your
     organization. When set, data stored for this Workspace is encrypted with the
-    referenced key. Create key configurations with the External Keys API. This
-    field is write-once: once a key is attached to a Workspace it cannot be
-    detached or replaced. To rotate key material, rotate the underlying key on
-    your cloud KMS; the `external_key_id` stays the same.
+    referenced key. Create key configurations with the External Keys API. On
+    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+    single-Region key in the same AWS account and Region as the Workspace. On that
+    platform the key is validated against this Workspace when it is attached, so a
+    key-policy problem is reported as an error on this request. This field is write-once:
+    once a key is attached to a Workspace it cannot be detached or replaced. To
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
 
   - `name: string`
 
@@ -12517,8 +13289,13 @@ Archive Workspace
     customer-managed encryption key (CMEK) on AWS, reference this value in your
     KMS key-policy condition so the key is scoped to this compartment. On GCP and
     Azure, Anthropic enforces the compartment binding automatically; you do not
-    need to reference this value in your key configuration. See the CMEK integration guide for the
-    required key configuration, including the value used during key validation.
+    need to reference this value in your key configuration. See the CMEK
+    integration guide for the required key configuration; unless your organization
+    is on Claude Platform on AWS, it includes a separate value used during key
+    validation. On Claude Platform on AWS there is no separate validation value:
+    the key is validated against this Workspace's own value when it is attached, so
+    if your key policy uses the compartment condition, add this value to it before
+    attaching the key.
 
   - `created_at: string`
 
@@ -12555,10 +13332,14 @@ Archive Workspace
     ID of the customer-managed encryption key (CMEK) configuration to use for this
     Workspace. Setting this field requires CMEK to be enabled for your
     organization. When set, data stored for this Workspace is encrypted with the
-    referenced key. Create key configurations with the External Keys API. This
-    field is write-once: once a key is attached to a Workspace it cannot be
-    detached or replaced. To rotate key material, rotate the underlying key on
-    your cloud KMS; the `external_key_id` stays the same.
+    referenced key. Create key configurations with the External Keys API. On
+    Claude Platform on AWS the value is the AWS KMS key ARN, and the key must be a
+    single-Region key in the same AWS account and Region as the Workspace. On that
+    platform the key is validated against this Workspace when it is attached, so a
+    key-policy problem is reported as an error on this request. This field is write-once:
+    once a key is attached to a Workspace it cannot be detached or replaced. To
+    rotate key material, rotate the underlying key on your cloud KMS; the
+    `external_key_id` stays the same.
 
   - `name: string`
 
@@ -13688,5 +14469,120 @@ ant beta:organization:rate-limits list \
     }
   ],
   "next_page": "next_page"
+}
+```
+
+## Beta › Organization › Compliance Settings
+
+### Get Compliance Settings
+
+`$ ant beta:organization:compliance-settings retrieve`
+
+**GET** `/v1/organizations/compliance_settings`
+
+Retrieve your organization's Compliance Settings.
+
+Compliance Settings is a singleton resource: there is exactly one per
+organization, addressed without an identifier. The `state` field reflects
+whether the Compliance API is enabled. An organization with a parent
+organization reads the state inherited from the parent's configuration.
+
+#### Returns
+
+- `beta_compliance_settings: object`
+
+  - `state: BetaComplianceSettingsStateEnabled or BetaComplianceSettingsStateDisabled`
+
+    Whether the Compliance API is enabled for this organization.
+
+    - `beta_compliance_settings_state_enabled: object`
+
+      - `type: "enabled"`
+
+    - `beta_compliance_settings_state_disabled: object`
+
+      - `type: "disabled"`
+
+  - `type: "compliance_settings"`
+
+#### Example
+
+```bash
+ant beta:organization:compliance-settings retrieve \
+  --api-key my-anthropic-api-key
+```
+
+##### Response (200)
+
+```json
+{
+  "state": {
+    "type": "enabled"
+  },
+  "type": "compliance_settings"
+}
+```
+
+### Update Compliance Settings
+
+`$ ant beta:organization:compliance-settings update`
+
+**POST** `/v1/organizations/compliance_settings`
+
+Update your organization's Compliance Settings.
+
+Setting `state` to `enabled` turns on the Compliance API and begins
+capturing organization activity events. Setting it to `disabled` turns
+both off. `state` reflects whether the Compliance API is enabled.
+
+A request that sets `state` to its current value succeeds and leaves the
+resource unchanged. A `disabled` request stays in effect until a later
+`enabled` request or the organization's next provisioning action that
+enables Access Transparency: enabling Access Transparency also enables
+the Compliance API, which serves its activity events, so such
+provisioning (including re-runs) re-enables the Compliance API even
+after a `disabled` request. Automated provisioning never disables
+compliance settings.
+
+#### Parameters
+
+- `--state: BetaComplianceSettingsStateEnabledParam or BetaComplianceSettingsStateDisabledParam`
+
+  Desired state. Accepts the string shorthand "enabled" or "disabled" in place of the object form; the response always returns the canonical object form.
+
+#### Returns
+
+- `beta_compliance_settings: object`
+
+  - `state: BetaComplianceSettingsStateEnabled or BetaComplianceSettingsStateDisabled`
+
+    Whether the Compliance API is enabled for this organization.
+
+    - `beta_compliance_settings_state_enabled: object`
+
+      - `type: "enabled"`
+
+    - `beta_compliance_settings_state_disabled: object`
+
+      - `type: "disabled"`
+
+  - `type: "compliance_settings"`
+
+#### Example
+
+```bash
+ant beta:organization:compliance-settings update \
+  --api-key my-anthropic-api-key \
+  --state '{type: enabled}'
+```
+
+##### Response (200)
+
+```json
+{
+  "state": {
+    "type": "enabled"
+  },
+  "type": "compliance_settings"
 }
 ```

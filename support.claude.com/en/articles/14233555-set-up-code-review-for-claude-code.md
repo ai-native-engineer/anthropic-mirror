@@ -6,6 +6,8 @@ This article covers how to enable Code Review, configure review triggers, custom
 
 **Note:** Code Review is in research preview and available on Team and Enterprise plans. It isn’t available for organizations with zero data retention enabled. Code Review usage is billed separately through usage credits and doesn’t count against your plan’s included usage.
 
+---
+
 ## How Code Review works
 
 Once an organization enables Code Review, it can trigger automatically when a pull request opens, on every push, or only when someone manually requests a review. When a review runs, multiple agents analyze the diff and surrounding code in parallel. Each agent looks for a different class of issue, then a verification step checks results against actual code behavior to filter out false positives.
@@ -31,6 +33,8 @@ Findings include a collapsible extended reasoning section you can expand to see 
 
 By default, Code Review focuses on correctness: bugs that would break production, not formatting preferences or missing test coverage. You can expand what it checks by adding guidance files to your repository.
 
+---
+
 ## Set up Code Review
 
 The steps below cover setup for repositories on github.com. If your repositories are on a self-hosted GitHub Enterprise Server (GHES) instance, see **[Claude Code with GitHub Enterprise Server](https://code.claude.com/docs/en/github-enterprise-server)** for the full setup guide.
@@ -45,6 +49,8 @@ Owners and Primary Owners of Team and Enterprise plans can enable Code Review on
 
 To verify setup, open a test PR. If you chose an automatic trigger, a check run named **Claude Code Review** should appear within a few minutes. If you chose Manual, comment “@claude review” on the PR to start the first review.
 
+---
+
 ## Choose a review trigger
 
 After setup, the **Code Review** section shows your repositories in a table. For each repository, choose when reviews run:
@@ -54,6 +60,8 @@ After setup, the **Code Review** section shows your repositories in a table. For
 * **Manual:** Reviews start only when someone comments “@claude review” on a PR. Useful for high-traffic repos where you want to select which PRs get reviewed.
 
 The repositories table also shows the average cost per review for each repo based on recent activity.
+
+---
 
 ## Manually trigger reviews
 
@@ -67,6 +75,8 @@ For the comment to trigger a review:
 * The PR must be open and not a draft.
 
 If a review is already running, the request is queued until the in-progress review completes.
+
+---
 
 ## Customize reviews
 
@@ -88,6 +98,8 @@ Add a REVIEW.md file to your repository root for review-specific rules. Use it t
 * Things Claude should skip (for example, “don’t comment on generated code”)
 
 Claude auto-discovers REVIEW.md at the repository root. No configuration is needed.
+
+---
 
 ## Pricing and usage
 
@@ -114,6 +126,8 @@ Go to the **[Code Review analytics dashboard](https://claude.ai/analytics/code-r
 * **Feedback:** Count of review comments that were auto-resolved because someone addressed the issue.
 * **Repository breakdown:** Per-repo counts of PRs reviewed and comments resolved.
 
+---
+
 ## Troubleshooting
 
 ### Repositories don’t appear after installing the GitHub App
@@ -121,7 +135,7 @@ Go to the **[Code Review analytics dashboard](https://claude.ai/analytics/code-r
 If you’ve installed the Claude GitHub App but your repositories don’t appear in the admin panel:
 
 1. Confirm the Claude GitHub App has access to the repositories you expect. Go to your GitHub organization’s settings, find the Claude GitHub App under **Installed GitHub Apps**, and check whether it has access to all repositories or only selected ones.
-2. If your organization uses GitHub Enterprise Cloud with Enterprise Managed Users (EMU), make sure the Claude GitHub OAuth App is authorized at the enterprise level. EMU enterprises can restrict which OAuth apps are approved, and the Claude app must be explicitly allowed.
+2. If your organization uses GitHub Enterprise Cloud with Enterprise Managed Users (EMU), authorize Claude while you're signed in with your managed account and have an active SSO session. There's no separate enterprise-level approval step.
 3. Try disconnecting and reconnecting your GitHub account in Claude. Go to **[Customize > Connectors](https://claude.ai/customize/connectors)**, disconnect GitHub, and connect it again. Which repositories the App can access is managed on GitHub's side, covered in step 1.
 4. If the issue persists, **[contact our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)** with your organization name and GitHub organization name so we can investigate.
 
@@ -147,11 +161,15 @@ Common GHES setup issues:
 * **"Public cannot be private" error during setup:** Your GHES hostname must resolve to a publicly routable IP address. Code Review reaches your server over the internet, so internal or private network addresses won't work. Update DNS or your network configuration so the hostname resolves to a public IP, then retry.
 * **GitHub Enterprise Cloud with Data Residency is a different product.** Data Residency tenants (hostnames matching `*.ghe.com`) aren't supported by Code Review. Only self-hosted GitHub Enterprise Server and standard github.com repositories are supported.
 
+---
+
 ## Frequently asked questions
 
 ### Is Code Review available as a capability when creating a custom role?
 
 No, Code Review is not available to add to a **[custom role](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)** at this time.
+
+---
 
 ## Related resources
 

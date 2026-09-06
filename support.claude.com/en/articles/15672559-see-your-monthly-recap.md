@@ -13,6 +13,8 @@ The monthly recap is in beta for users with Free, Pro, and Max plans using Claud
 
 **Note:** This feature is rolling out gradually. If you don’t see it yet, check back later.
 
+---
+
 ## What your recap shows
 
 ### Opening summary
@@ -40,6 +42,8 @@ Observations drawn from your own conversations, framed around four AI fluency sk
 
 Each card pairs an observation with a concrete next step you can take, like creating a skill or a project. Click “Learn about AI fluency” to read more about the framework.
 
+---
+
 ## What’s included in your recap
 
 Claude builds your recap from your recent chats. Because the recap relies on the same chat history that powers memory, it only appears when memory is on. If you turn memory off, the recap is hidden.
@@ -60,6 +64,8 @@ Some conversations are left out of your recap completely:
 
 Learn more about **[memory](https://support.claude.com/en/articles/11817273)**, **[incognito chats](https://support.claude.com/en/articles/12260368)**, and health features on **[iOS](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps#h_21f4b10d6d)** and **[Android](https://support.claude.com/en/articles/11869629-use-claude-with-android-apps#h_62b72ef926)**.
 
+---
+
 ## How your recap handles sensitive topics
 
 People bring all kinds of things to Claude, and some conversations touch on difficult or personal subjects. These are handled with care in your recap:
@@ -68,6 +74,8 @@ People bring all kinds of things to Claude, and some conversations touch on diff
 * They’re never itemized with counts or percentages.
 * Where appropriate, support resources appear alongside your recap.
 
+---
+
 ## Turn your recap off
 
 Your recap is available by default for eligible accounts where memory is on.
@@ -75,6 +83,8 @@ Your recap is available by default for eligible accounts where memory is on.
 You can disable it by turning **Generate memory from chat history** off in **[Settings > Capabilities](https://claude.ai/settings/capabilities)**. There is no dedicated toggle for the recap, so if the memory setting is on, the recap will also be enabled. Even with memory enabled, your recap is only generated when you navigate to the **[Settings > Reflect](https://claude.ai/settings/reflect)** page; if you don’t land on that page, Claude won’t create a recap for you.
 
 Turning the recap off doesn’t affect your chat history or any break reminders or quiet hours you’ve already set in **[Settings > Time and focus](https://claude.ai/settings/time-limits)**.
+
+---
 
 ## Frequently asked questions
 

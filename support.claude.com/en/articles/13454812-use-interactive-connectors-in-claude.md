@@ -12,6 +12,8 @@ Claude can also generate its own custom visuals—diagrams, charts, and simple i
 
 For more on Claude-generated visuals, see **[Custom visuals in chat](https://support.claude.com/en/articles/13979539-custom-visuals-in-chat)**.
 
+---
+
 ## How interactive connectors appear
 
 Interactive connectors display in two ways:
@@ -61,6 +63,8 @@ We’re adding support for more interactive connectors over time.
 
 Yes. Team and Enterprise owners can disable the specific tool calls that render interactive connectors within **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**. This does not disable the connector itself — text-based tool functionality continues to work normally.
 
+---
+
 ## Permissions and security
 
 ### How are interactive connectors secured?
@@ -74,6 +78,8 @@ No. Interactive connectors use the same permissions you granted when connecting 
 ### Can interactive connectors make purchases or financial transactions?
 
 No. Purchases through third-party interactive connectors are not supported.
+
+---
 
 ## Troubleshooting
 
@@ -92,6 +98,8 @@ No. Purchases through third-party interactive connectors are not supported.
 
 * **Team and Enterprise users:** Ask your organization owner to disable the relevant tool calls in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**.
 * **Individual users:** You can disable specific connector tools via the "Search and tools" menu in your conversation.
+
+---
 
 ## I'm a developer. Where can I learn about building MCP Apps?
 

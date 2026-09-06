@@ -120,7 +120,7 @@ Claude Opus 4.7 Model Documentation Form
 Claude Opus 4.8 Model Documentation Form
 Claude Opus 5 Model Documentation Form
 
-View 2 more
+View 3 more
 
 Training Data Summaries
 AB 2013 Training Data Summary
@@ -128,7 +128,7 @@ Claude Sonnet 5 Training Data Summary
 Claude Opus 4.7 Training Data Summary
 Claude Opus 4.8 Training Data Summary
 
-View 3 more
+View 4 more
 
 Other Documents
 [Anthropic] Data Processing Addendum

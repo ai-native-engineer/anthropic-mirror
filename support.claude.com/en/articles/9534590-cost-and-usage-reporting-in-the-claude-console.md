@@ -8,7 +8,9 @@ The Claude Console provides detailed cost and usage reporting to help you effect
 
 Users with access to these reports can click into them on the left navigation menu on the Console:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584654217/db0a977417e38e43639f060d96e0/image.png?expires=1788035400&signature=3d03443dd94e0882eba30755192e8d3eda58cc6e75e0eb48ed5e7fea11a8b7c4&req=dSUvEs97mYNeXvMW1HO4zYCWiSwYgsOeuqqBX2puyxT1T39BOohX1zO4v7nj%0ADoJBmgPcGLq%2FyI%2FGIQ4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584654217/db0a977417e38e43639f060d96e0/image.png?expires=1788035400&signature=3d03443dd94e0882eba30755192e8d3eda58cc6e75e0eb48ed5e7fea11a8b7c4&req=dSUvEs97mYNeXvMW1HO4zYCWiSwYgsOeuqqBX2puyxT1T39BOohX1zO4v7nj%0ADoJBmgPcGLq%2FyI%2FGIQ4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584654217/db0a977417e38e43639f060d96e0/image.png?expires=1788654600&signature=a1251c47ae1f00f3969a8b7b75b25d0239b63a1d52089c7ee654d0f279cbcbe1&req=dSUvEs97mYNeXvMW1HO4zYCWiSwehMKcuqqBX2puyxTVE34Y0edGVxRc85ap%0AtyxxSBnu3XtJLhFuoeE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584654217/db0a977417e38e43639f060d96e0/image.png?expires=1788654600&signature=a1251c47ae1f00f3969a8b7b75b25d0239b63a1d52089c7ee654d0f279cbcbe1&req=dSUvEs97mYNeXvMW1HO4zYCWiSwehMKcuqqBX2puyxTVE34Y0edGVxRc85ap%0AtyxxSBnu3XtJLhFuoeE%3D%0A)
+
+---
 
 ## Usage Reporting
 
@@ -33,9 +35,9 @@ The [Usage page](https://platform.claude.com/usage) offers a detailed breakdown 
 5. The chart and statistics will update based on your selections.
 6. Use the export button to download a CSV of the displayed data.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584664321/59b50eba0b61e0789f7055fcf9f4/image+%285%29.png?expires=1788035400&signature=456219c383cec9ed84a2b41435ea14b94d36eb57fee7ac6f06e00907c6ab9eb1&req=dSUvEs94mYJdWPMW1HO4zQwER3sqIopiqMITUZbanFC4klI4WuOmF%2Bccyyrq%0AKXK9iwX7wvJEY3JmFQI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584664321/59b50eba0b61e0789f7055fcf9f4/image+%285%29.png?expires=1788035400&signature=456219c383cec9ed84a2b41435ea14b94d36eb57fee7ac6f06e00907c6ab9eb1&req=dSUvEs94mYJdWPMW1HO4zQwER3sqIopiqMITUZbanFC4klI4WuOmF%2Bccyyrq%0AKXK9iwX7wvJEY3JmFQI%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584664321/59b50eba0b61e0789f7055fcf9f4/image+%285%29.png?expires=1788654600&signature=d2022ba052fc29c4feaa0da6c0f7cdc0d4fd77b4076b84b39516caad3d111520&req=dSUvEs94mYJdWPMW1HO4zQwER3ssJItgqMITUZbanFAazAmerzUNIOUumw%2Ba%0AvRJR6tiprAV3f6UKwLE%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584664321/59b50eba0b61e0789f7055fcf9f4/image+%285%29.png?expires=1788654600&signature=d2022ba052fc29c4feaa0da6c0f7cdc0d4fd77b4076b84b39516caad3d111520&req=dSUvEs94mYJdWPMW1HO4zQwER3ssJItgqMITUZbanFAazAmerzUNIOUumw%2Ba%0AvRJR6tiprAV3f6UKwLE%3D%0A)
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584693386/aed472efe163abcbc14fa32f3699/rate+limited+requests.png?expires=1788035400&signature=1191240bc79909c1bddabb43b0d62cfe1c4645a914b26178e42d93bd1590b11d&req=dSUvEs93noJXX%2FMW1HO4zRxEwWNN5VRo21D6pckxWMYx9r47bhmya4D4on%2FH%0AuLBBRyVM1Bx3RKK9iVo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584693386/aed472efe163abcbc14fa32f3699/rate+limited+requests.png?expires=1788035400&signature=1191240bc79909c1bddabb43b0d62cfe1c4645a914b26178e42d93bd1590b11d&req=dSUvEs93noJXX%2FMW1HO4zRxEwWNN5VRo21D6pckxWMYx9r47bhmya4D4on%2FH%0AuLBBRyVM1Bx3RKK9iVo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584693386/aed472efe163abcbc14fa32f3699/rate+limited+requests.png?expires=1788654600&signature=9e1622623a0f11d39fa8a68cc79ddaf171232414669722e82a3553b353df0417&req=dSUvEs93noJXX%2FMW1HO4zRxEwWNL41Vq21D6pckxWMZTB97MdtOfmemyLQCN%0Acz1HZWjww5VUwDgNl70%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584693386/aed472efe163abcbc14fa32f3699/rate+limited+requests.png?expires=1788654600&signature=9e1622623a0f11d39fa8a68cc79ddaf171232414669722e82a3553b353df0417&req=dSUvEs93noJXX%2FMW1HO4zRxEwWNL41Vq21D6pckxWMZTB97MdtOfmemyLQCN%0Acz1HZWjww5VUwDgNl70%3D%0A)
 
 ### Rate Limit Use
 
@@ -44,6 +46,8 @@ The Usage page also includes a separate section displaying rate limit use per-mo
 **Rate Limit Use + Caching - Input Tokens:** This chart displays the hourly maximum number of uncached input tokens per minute (ITPM) alongside your cache rate (i.e. the percentage of input tokens read from the cache) and your current ITPM rate limit.
 
 **Rate Limit Use - Output Tokens:** This chart displays the hourly maximum number of output tokens per minute (OTPM) alongside your current OTPM rate limit.
+
+---
 
 ## Cost Reporting
 
@@ -65,7 +69,7 @@ The [Cost page](https://platform.claude.com/cost) helps you understand your spen
 4. You can see the chart, token cost, and tool use costs, which will update based on your selections.
 5. Use the export button to download a CSV of the cost data.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584679401/4d0bc8ed08625e1adee414e77030/CleanShot+2025-06-23+at+08_54_40%402x.png?expires=1788035400&signature=632b5a8b0315f64eaaa1891928a50052222c474fb649206d3fcb8f4130369ca1&req=dSUvEs95lIVfWPMW1HO4zUR%2Bh5TDUNVlCyIF5nuUsbzVXa%2BKbOQQTSU9TFz%2B%0AIP5Lg5F%2FRUnHFKq5p9E%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584679401/4d0bc8ed08625e1adee414e77030/CleanShot+2025-06-23+at+08_54_40%402x.png?expires=1788035400&signature=632b5a8b0315f64eaaa1891928a50052222c474fb649206d3fcb8f4130369ca1&req=dSUvEs95lIVfWPMW1HO4zUR%2Bh5TDUNVlCyIF5nuUsbzVXa%2BKbOQQTSU9TFz%2B%0AIP5Lg5F%2FRUnHFKq5p9E%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584679401/4d0bc8ed08625e1adee414e77030/CleanShot+2025-06-23+at+08_54_40%402x.png?expires=1788654600&signature=113b75086b93b7fea5f5677e81d18e83ef8a1fc3345603d3d9e540513a2640b1&req=dSUvEs95lIVfWPMW1HO4zUR%2Bh5TFVtRnCyIF5nuUsbwvifTMa1a2R9gjexFW%0AH9v5gM%2BISR6rLlTUx9o%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584679401/4d0bc8ed08625e1adee414e77030/CleanShot+2025-06-23+at+08_54_40%402x.png?expires=1788654600&signature=113b75086b93b7fea5f5677e81d18e83ef8a1fc3345603d3d9e540513a2640b1&req=dSUvEs95lIVfWPMW1HO4zUR%2Bh5TFVtRnCyIF5nuUsbwvifTMa1a2R9gjexFW%0AH9v5gM%2BISR6rLlTUx9o%3D%0A)
 
 **Note**: Currently, it's not possible to break down usage or cost by individual users.
 

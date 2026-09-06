@@ -255,6 +255,11 @@ Copy link
 for Claude Mythos 5 + Fable 5 Model Documentation Form
 View
 Claude Mythos 5 + Fable 5 Model Documentation Form
+Claude Mythos 5.1 & Fable 5.1 Model Documentation Form
+Copy link
+for Claude Mythos 5.1 & Fable 5.1 Model Documentation Form
+View
+Claude Mythos 5.1 & Fable 5.1 Model Documentation Form
 Training Data Summaries
 AB 2013 Training Data Summary
 Copy link
@@ -291,6 +296,11 @@ Copy link
 for Claude Mythos 5 and Claude Fable 5 Training Data Summary
 View
 Claude Mythos 5 and Claude Fable 5 Training Data Summary
+Claude Mythos 5.1 & Fable 5.1 Training Data Summary
+Copy link
+for Claude Mythos 5.1 & Fable 5.1 Training Data Summary
+View
+Claude Mythos 5.1 & Fable 5.1 Training Data Summary
 Other Documents
 [Anthropic] Data Processing Addendum
 Copy link

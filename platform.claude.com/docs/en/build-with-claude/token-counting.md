@@ -30,7 +30,7 @@ The [token counting](https://platform.claude.com/docs/en/api/messages-count-toke
 
 ### Supported models
 
-All [active models](https://platform.claude.com/docs/en/models/overview) support token counting, including Claude Opus 5 and Claude Sonnet 5.
+All [active models](https://platform.claude.com/docs/en/models/overview) support token counting.
 
 <Note>
   Claude 4.7 and later models and Claude Mythos Preview use a newer tokenizer. The same input text produces approximately 30 percent more tokens than on earlier models. The exact increase depends on the content and workload shape. Recount prompts against the model you plan to use rather than reusing counts measured against earlier models.
@@ -781,7 +781,7 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
 <Note>
   See [Thinking and the context window](https://platform.claude.com/docs/en/build-with-claude/thinking#thinking-and-the-context-window) for more details.
 
-  * Thinking blocks from **previous** assistant turns are ignored and **do not** count toward your input tokens
+  * Thinking blocks from **previous** assistant turns count toward your input tokens on models that [keep all prior turns](https://platform.claude.com/docs/en/build-with-claude/thinking#thinking-block-preservation-by-model); on models that keep only the last turn, the API strips them and they do **not** count
   * **Current** assistant turn thinking **does** count toward your input tokens
 </Note>
 
@@ -792,10 +792,9 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
     -H "content-type: application/json" \
     -H "anthropic-version: 2023-06-01" \
     -d '{
-      "model": "claude-sonnet-4-6",
+      "model": "claude-opus-5",
       "thinking": {
-        "type": "enabled",
-        "budget_tokens": 16000
+        "type": "adaptive"
       },
       "messages": [
         {
@@ -826,10 +825,9 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
 
   ```bash CLI
   ant messages count-tokens <<'YAML'
-  model: claude-sonnet-4-6
+  model: claude-opus-5
   thinking:
-    type: enabled
-    budget_tokens: 16000
+    type: adaptive
   messages:
     - role: user
       content: Are there an infinite number of prime numbers such that n mod 4 == 3?
@@ -851,8 +849,8 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
   client = anthropic.Anthropic()
 
   response = client.messages.count_tokens(
-      model="claude-sonnet-4-6",
-      thinking={"type": "enabled", "budget_tokens": 16000},
+      model="claude-opus-5",
+      thinking={"type": "adaptive"},
       messages=[
           {
               "role": "user",
@@ -883,11 +881,8 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
   const client = new Anthropic();
 
   const response = await client.messages.countTokens({
-    model: "claude-sonnet-4-6",
-    thinking: {
-      type: "enabled",
-      budget_tokens: 16000
-    },
+    model: "claude-opus-5",
+    thinking: { type: "adaptive" },
     messages: [
       {
         role: "user",
@@ -930,8 +925,8 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
 
   var parameters = new MessageCountTokensParams
   {
-      Model = Model.ClaudeSonnet4_6,
-      Thinking = new ThinkingConfigEnabled(budgetTokens: 16000),
+      Model = Model.ClaudeOpus5,
+      Thinking = new ThinkingConfigAdaptive(),
       Messages =
       [
           new()
@@ -977,8 +972,10 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
   )
 
   response, err := client.Messages.CountTokens(context.TODO(), anthropic.MessageCountTokensParams{
-  	Model:    anthropic.ModelClaudeSonnet4_6,
-  	Thinking: anthropic.ThinkingConfigParamOfEnabled(16000),
+  	Model: anthropic.ModelClaudeOpus5,
+  	Thinking: anthropic.ThinkingConfigParamUnion{
+  		OfAdaptive: &anthropic.ThinkingConfigAdaptiveParam{},
+  	},
   	Messages: []anthropic.MessageParam{
   		anthropic.NewUserMessage(anthropic.NewTextBlock("Are there an infinite number of prime numbers such that n mod 4 == 3?")),
   		anthropic.NewAssistantMessage(thinkingBlock, textBlock),
@@ -997,6 +994,7 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
   import com.anthropic.models.messages.MessageTokensCount;
   // ...
   import com.anthropic.models.messages.ThinkingBlockParam;
+  import com.anthropic.models.messages.ThinkingConfigAdaptive;
   // ...
       AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
@@ -1019,8 +1017,8 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
       );
 
       MessageCountTokensParams params = MessageCountTokensParams.builder()
-        .model(Model.CLAUDE_SONNET_4_6)
-        .enabledThinking(16000)
+        .model(Model.CLAUDE_OPUS_5)
+        .thinking(ThinkingConfigAdaptive.builder().build())
         .addUserMessage("Are there an infinite number of prime numbers such that n mod 4 == 3?")
         .addAssistantMessageOfBlockParams(assistantBlocks)
         .addUserMessage("Can you write a formal proof?")
@@ -1058,11 +1056,8 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
               'content' => 'Can you write a formal proof?'
           ]
       ],
-      model: 'claude-sonnet-4-6',
-      thinking: [
-          'type' => 'enabled',
-          'budget_tokens' => 16000
-      ],
+      model: 'claude-opus-5',
+      thinking: ['type' => 'adaptive'],
   );
 
   echo json_encode($response);
@@ -1072,10 +1067,9 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
   client = Anthropic::Client.new
 
   response = client.messages.count_tokens(
-    model: "claude-sonnet-4-6",
+    model: "claude-opus-5",
     thinking: {
-      type: "enabled",
-      budget_tokens: 16000
+      type: "adaptive"
     },
     messages: [
       {
@@ -1396,12 +1390,12 @@ An embedded image block that sets [`"oversized_image": "error"`](https://platfor
 
 ***
 
-## Token counts on Claude Fable 5 and Claude Mythos 5
+## Token counts on Claude Fable and Claude Mythos models
 
-Claude Fable 5 and Claude Mythos 5 use the tokenizer introduced with Claude Opus 4.7, which produces roughly 30 percent more tokens than models before Claude Opus 4.7 for the same text. The exact increase depends on the content and workload shape. The token counting endpoint returns the count under the tokenizer of the `model` you pass, so to measure the difference for your workload, count the same request twice: once with your current model and once with `model: "claude-fable-5"` (or `"claude-mythos-5"`), and compare the two `input_tokens` values.
+Claude Fable 5.1, Claude Mythos 5.1, Claude Fable 5, and Claude Mythos 5 share the tokenizer introduced with Claude Opus 4.7. A prompt counts the same on all four, and roughly 30 percent higher than on models before Claude Opus 4.7 (the exact increase depends on the content). The token counting endpoint counts under the tokenizer of the `model` you pass. To measure the difference for your workload, count the same request twice, once with your current model and once with the model you plan to move to, and compare the two `input_tokens` values.
 
 <Note>
-  **Billing and migration:** Usage and billing on Claude Fable 5 and Claude Mythos 5 reflect this tokenizer's counts. If you're migrating from a model before Claude Opus 4.7, the same content consumes roughly 30 percent more tokens. The exact increase depends on the content and workload shape. When migrating a workload to Claude Fable 5 and Claude Mythos 5, don't reuse token counts measured on a model before Claude Opus 4.7 to estimate costs or context window fit. Count your prompts with `model: "claude-fable-5"` (or `"claude-mythos-5"`).
+  **Billing and migration:** Usage and billing on these models reflect this tokenizer's counts. When migrating from a model before Claude Opus 4.7, don't reuse token counts measured on the older model to estimate costs or context window fit. Count your prompts with the `model` ID you plan to use (for example, `"claude-fable-5-1"`).
 </Note>
 
 ***
@@ -1412,9 +1406,9 @@ Token counting is **free to use** but subject to requests per minute rate limits
 
 | Usage tier | Requests per minute (RPM) |
 | ---------- | ------------------------- |
-| Start      | 2,000                     |
-| Build      | 4,000                     |
-| Scale      | 8,000                     |
+| Start      | 5,000                     |
+| Build      | 10,000                    |
+| Scale      | 20,000                    |
 
 <Note>
   Token counting and message creation have separate and independent rate limits. Usage of one does not count against the limits of the other.

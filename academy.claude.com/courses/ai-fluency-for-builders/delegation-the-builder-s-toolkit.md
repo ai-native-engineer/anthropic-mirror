@@ -20,6 +20,8 @@ In this lessonBy the end, you’ll be able to
 
 Delegation & the builder's toolkit · 5 min
 
+SummaryTranscript
+
 Before you write a single line of code, you make a dozen decisions that
 shape whether what you build will matter. This lesson reframes delegation:
 it’s not “should I use AI here?” but “I have a customer problem — how do I

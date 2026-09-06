@@ -19,6 +19,8 @@ To set your instructions:
 
 Any instructions you add here will be applied to all of your conversations with Claude.
 
+---
+
 ## Project instructions
 
 Project instructions help Claude understand the specific context and requirements for a particular project. These instructions only apply to chats within that project.
@@ -36,6 +38,8 @@ Project instructions are particularly useful when you're working on focused task
 
 For detailed information on using projects, see our article on **[creating and managing projects](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)**.
 
+---
+
 ## Skills
 
 Skills add specific behaviors or capabilities to your conversations with Claude. They can customize how Claude communicates, apply specialized expertise, or define repeatable behaviors you activate on demand.
@@ -47,6 +51,8 @@ Use skills when you want to:
 * Add specialized capabilities for particular tasks or topics
 
 For more information, see **[What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)**
+
+---
 
 ## Choosing the right feature
 

@@ -182,7 +182,7 @@ messages = [
 
 ]
 
-response = client.messages.create(model="claude-opus-4-1", max\_tokens=2048, messages=messages)
+response = client.messages.create(model="claude-opus-4-8", max\_tokens=2048, messages=messages)
 
 return response.content[0].text
 
@@ -351,7 +351,7 @@ messages = [
 
 # Generate the matplotlib code using the powerful model
 
-response = client.messages.create(model="claude-opus-4-1", max\_tokens=4096, messages=messages)
+response = client.messages.create(model="claude-opus-4-8", max\_tokens=4096, messages=messages)
 
 generated\_response = response.content[0].text
 

@@ -156,6 +156,38 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
+
+Sep 2, 2026
+
+A guide to the anatomy of effective commerce agents
+
+Agents
+
+A guide to the anatomy of effective commerce agents
+
+September 2, 2026
+
+[A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
+
+[A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
+
+Sep 2, 2026
+
+Building commerce agents with Claude
+
+Product announcements
+
+Building commerce agents with Claude
+
+September 2, 2026
+
+[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+
+[Building commerce agents with Claude](#)Building commerce agents with Claude
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
 
 Aug 28, 2026
@@ -364,38 +396,6 @@ August 20, 2026
 
 [The Claude Code guide for startups](#)The Claude Code guide for startups
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d229061abf091318fc81_6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
-
-Aug 20, 2026
-
-Build production agents with computer use, the Skills API, and the Files API
-
-Product announcements
-
-Build production agents with computer use, the Skills API, and the Files API
-
-August 20, 2026
-
-[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
-
-[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b1ef956a6d81cfd9c_653e7474811cf768b6b0f628e253f98c60e2747e-1000x1000.svg)
-
-Aug 19, 2026
-
-Turning conversation into knowledge: how Slack builds human-agent teams
-
-Enterprise AI
-
-Turning conversation into knowledge: how Slack builds human-agent teams
-
-August 19, 2026
-
-[Turning conversation into knowledge: how Slack builds human-agent teams](https://claude.com/blog/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams)Turning conversation into knowledge: how Slack builds human-agent teams
-
-[Turning conversation into knowledge: how Slack builds human-agent teams](#)Turning conversation into knowledge: how Slack builds human-agent teams
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 16
@@ -405,6 +405,38 @@ Category
 Product
 
 Usecase
+
+### A guide to the anatomy of effective commerce agents
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 2, 2026
+
+[A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
+
+[A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
+
+### Building commerce agents with Claude
+
+Category
+
+Product announcements
+
+Product
+
+Usecase
+
+September 2, 2026
+
+[Building commerce agents with Claude](https://claude.com/blog/claude-for-commerce-agents)Building commerce agents with Claude
+
+[Building commerce agents with Claude](#)Building commerce agents with Claude
 
 ### How Anthropic employees use Claude Tag
 
@@ -613,38 +645,6 @@ August 20, 2026
 [The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
 
 [The Claude Code guide for startups](#)The Claude Code guide for startups
-
-### Build production agents with computer use, the Skills API, and the Files API
-
-Category
-
-Product announcements
-
-Product
-
-Usecase
-
-August 20, 2026
-
-[Build production agents with computer use, the Skills API, and the Files API](https://claude.com/blog/computer-use-skills-api-files-api)Build production agents with computer use, the Skills API, and the Files API
-
-[Build production agents with computer use, the Skills API, and the Files API](#)Build production agents with computer use, the Skills API, and the Files API
-
-### Turning conversation into knowledge: how Slack builds human-agent teams
-
-Category
-
-Enterprise AI
-
-Product
-
-Usecase
-
-August 19, 2026
-
-[Turning conversation into knowledge: how Slack builds human-agent teams](https://claude.com/blog/turning-conversation-into-knowledge-how-slack-builds-human-agent-teams)Turning conversation into knowledge: how Slack builds human-agent teams
-
-[Turning conversation into knowledge: how Slack builds human-agent teams](#)Turning conversation into knowledge: how Slack builds human-agent teams
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

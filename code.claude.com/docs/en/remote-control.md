@@ -106,7 +106,7 @@ You can start a Remote Control session from the CLI or the VS Code extension. Th
   </Tab>
 
   <Tab title="VS Code">
-    In the [Claude Code VS Code extension](/docs/en/vs-code), type `/remote-control` or `/rc` in the prompt box, or open the command menu with `/` and select it.
+    In the [Claude Code VS Code extension](/docs/en/vs-code), type `/remote-control` or `/rc` in the prompt box.
 
     ```text theme={null}
     /remote-control
@@ -325,7 +325,7 @@ Claude Code skips mobile push notifications while you are typing in or focused o
   * **Server mode**: Claude Code gives up after roughly 10 minutes and the `claude remote-control` process exits. Run `claude remote-control` again to start a new session.
   * **Interactive session**: keep working locally. Claude Code retries for as long as the outage lasts and reconnects on its own when the network returns.
 * **Presence heartbeats failing**: if an interactive session disconnects with `could not reach the Remote Control server for about 30 minutes`, run `/remote-control` to reconnect. Claude Code shows this message only when the session's presence heartbeats have been failing while the rest of the connection stayed up; it re-registers the session for about 30 minutes before disconnecting.
-* **Forwarded dialogs expire**: Claude Code keeps permission prompts and `AskUserQuestion` questions open until you answer them. When Claude Code forwards another kind of dialog to the remote session, such as the model-choice prompt shown after a safety refusal, it waits five minutes by default, then closes the dialog and continues with the dialog's no-action default. The mid-session [Fable 5 usage-credits consent prompt](/docs/en/model-config#fable-5-and-usage-credits) follows the same deadline but isn't forwarded: Claude Code shows it only in the terminal where the session runs, and if nobody has answered there by the deadline, it ends the turn without sending the request. Your model selection is unchanged, and Claude Code asks again on your next message. Set [`dialogExpiry`](/docs/en/settings-reference#dialogexpiry) to adjust or disable the deadline. Requires Claude Code v2.1.224 or later. Claude Code applies the same deadline to the approval dialog for a held cross-session message. [The held-message expiry rules](/docs/en/cross-session-messaging#control-inbound-messages) cover the cases where Claude Code keeps the dialog open past it.
+* **Forwarded dialogs expire**: Claude Code keeps permission prompts and `AskUserQuestion` questions open until you answer them. When Claude Code forwards another kind of dialog to the remote session, such as the model-choice prompt shown after a safety refusal, it waits five minutes by default, then closes the dialog and continues with the dialog's no-action default. The mid-session [Fable usage-credits consent prompt](/docs/en/model-config#fable-and-usage-credits) follows the same deadline but isn't forwarded: Claude Code shows it only in the terminal where the session runs, and if nobody has answered there by the deadline, it ends the turn without sending the request. Your model selection is unchanged, and Claude Code asks again on your next message. Set [`dialogExpiry`](/docs/en/settings-reference#dialogexpiry) to adjust or disable the deadline. Requires Claude Code v2.1.224 or later. Claude Code applies the same deadline to the approval dialog for a held cross-session message. [The held-message expiry rules](/docs/en/cross-session-messaging#control-inbound-messages) cover the cases where Claude Code keeps the dialog open past it.
 * **Some commands are local-only**: commands that only run in the terminal interface, such as `/plugin` or `/resume`, work only from the local CLI, whether or not you pass an argument. The following work from mobile and web:
   * Text-output commands: `/compact`, `/clear`, `/context`, `/usage`, `/exit`, `/usage-credits` (prints the billing URL instead of opening a browser), `/recap`, `/reload-plugins`
   * `/model`, `/effort`, `/fast`, `/color`, and `/rename`: pass the value as an argument, for example `/model sonnet` or `/effort high`. From mobile and web, `/model` and `/effort` take the argument in place of the terminal picker or slider.
@@ -374,10 +374,12 @@ The message names what routed the session away from the Anthropic API, such as `
 
 ### "Remote Control is disabled by your organization's policy"
 
-A policy blocks Remote Control. The message's own text tells you which:
+A policy blocks Remote Control, or Claude Code couldn't load your organization's policy on this machine and keeps Remote Control off in the meantime. Check these causes in order:
 
 * **The error mentions `disableRemoteControl`**: your IT administrator has disabled Remote Control on this device through [managed settings](/docs/en/managed-settings), independent of the organization-wide toggle and of how you're signed in.
-* **Otherwise, an Owner hasn't enabled it for your organization**: this form appears when you're signed in with an eligible claude.ai account but Remote Control is off, the default on Team and Enterprise plans. An Owner can enable it at [claude.ai/admin-settings/claude-code](https://claude.ai/admin-settings/claude-code) by turning on the **Remote Control** toggle. This toggle is a server-side organization setting.
+* **Your claude.ai plan is Pro or Max**: Claude Code is still signed in under a Team or Enterprise organization from an earlier login, so it checks that organization's Remote Control policy. Run `/status` to see which plan and organization your sign-in uses. Run `claude auth logout` then `claude auth login` to sign in again under your current plan.
+* **The organization policy didn't load on this machine**: run `claude doctor` and read the `Organization policy` line. If the line shows the policy isn't loaded, that is what's keeping Remote Control off. Before v2.1.261, `claude doctor` didn't print this line.
+* **Otherwise, an Owner hasn't enabled it for your organization**: Remote Control is off by default on Team and Enterprise plans. An Owner can enable it at [claude.ai/admin-settings/claude-code](https://claude.ai/admin-settings/claude-code) by turning on the **Remote Control** toggle. This toggle is a server-side organization setting.
 
 ### "Remote Control isn't available for your organization due to its compliance policy"
 

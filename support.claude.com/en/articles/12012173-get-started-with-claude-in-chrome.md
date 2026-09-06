@@ -6,6 +6,8 @@ Claude in Chrome is available for all paid plans (Pro, Max, Team, and Enterprise
 
 **Important:** Claude in Chrome allows Claude to interact directly with websites on your behalf. Claude in Chrome is enhanced with our safety classifiers but is still risky. Please review **[Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely)** before use.
 
+---
+
 ## Where you can use Claude in Chrome
 
 ### Claude Code integration
@@ -31,7 +33,7 @@ Follow these steps to connect Claude in Chrome in your desktop app:
 3. Find **Claude in Chrome** in the list and click “Configure.”
 4. Toggle the connector on, then download and install the extension if you haven’t already.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604933811/ae37c41fc808dbdf48d135338334/6cc9ba4b-9d31-43a2-ab80-8048b5f9d791?expires=1788033600&signature=479fdfce548f6806a9078382209b42607f9891953a58c889fc8e2abda94ebed3&req=diYnEsB9noleWPMW1HO4zUOPbPTGleGLnt%2F2nPMwUPipCEECFQfSC5qmDhWV%0A0sNWt0SRVv%2FLoca0kjU%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604933811/ae37c41fc808dbdf48d135338334/6cc9ba4b-9d31-43a2-ab80-8048b5f9d791?expires=1788033600&signature=479fdfce548f6806a9078382209b42607f9891953a58c889fc8e2abda94ebed3&req=diYnEsB9noleWPMW1HO4zUOPbPTGleGLnt%2F2nPMwUPipCEECFQfSC5qmDhWV%0A0sNWt0SRVv%2FLoca0kjU%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604933811/ae37c41fc808dbdf48d135338334/6cc9ba4b-9d31-43a2-ab80-8048b5f9d791?expires=1788654600&signature=48d7de623dee5cfeaa0275bacb7e5588de623691053fc6a9f4801e6504534da8&req=diYnEsB9noleWPMW1HO4zUOPbPTAk%2BaLnt%2F2nPMwUPjHgG9gjkEfVm05VKvA%0AAzwaUQJbXFHp1jgobzA%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2604933811/ae37c41fc808dbdf48d135338334/6cc9ba4b-9d31-43a2-ab80-8048b5f9d791?expires=1788654600&signature=48d7de623dee5cfeaa0275bacb7e5588de623691053fc6a9f4801e6504534da8&req=diYnEsB9noleWPMW1HO4zUOPbPTAk%2BaLnt%2F2nPMwUPjHgG9gjkEfVm05VKvA%0AAzwaUQJbXFHp1jgobzA%3D%0A)
 
 Completing these steps will add Claude in Chrome to the “Connectors” drop-down on your chats with Claude. This is disabled by default, so you’ll need to enable it manually for each conversation.
 
@@ -73,6 +75,8 @@ If you'd rather use the previous side panel, you can switch back at any time:
 
 Claude in Chrome is available on all public models.
 
+---
+
 ## Install Claude in Chrome
 
 1. Open a Google Chrome browser window.
@@ -85,6 +89,8 @@ Claude in Chrome is available on all public models.
 6. Grant the necessary permissions to enable Claude to interact with your browser.
 
 The Claude icon will appear in your Chrome toolbar. Click it to open Claude in a side panel that stays visible while you browse.
+
+---
 
 ## Permissions required to install Claude in Chrome
 
@@ -169,6 +175,8 @@ You can also schedule shortcuts to automate recurring tasks.
 
 Get prompt suggestions and helpful tips based on the website you're visiting, so you always have a starting point with Claude.
 
+---
+
 ## For Team and Enterprise users
 
 If you're using Claude in Chrome on a Team or Enterprise plan, your admin may have configured settings that affect your experience:
@@ -182,4 +190,4 @@ If you're unable to install or use the extension, contact your organization's ad
 * [Use Claude in Chrome safely](https://support.claude.com/en/articles/12902428-use-claude-in-chrome-safely)
 * [Claude in Chrome permissions guide](https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide)
 * [Claude in Chrome admin controls](https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls)
-* [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)
+* [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)

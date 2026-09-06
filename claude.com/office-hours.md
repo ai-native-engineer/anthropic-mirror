@@ -76,6 +76,8 @@ Stay tuned
 
 [x.com](https://x.com/claudeai)x.com
 
+[Threads](https://www.threads.com/@claudeai)Threads
+
 [LinkedIn](https://www.linkedin.com/showcase/claude/)LinkedIn
 
 [YouTube](https://www.youtube.com/@anthropic-ai)YouTube

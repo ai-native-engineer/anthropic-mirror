@@ -10,6 +10,8 @@ Get started
 
 [Get started](#pricing)Get started
 
+Limited availability, final pricing confirmed after verification at sign up; [terms apply](https://www.anthropic.com/legal/team-plan-for-scientists-terms).
+
 ## Made for scientific research
 
 ### A workbench built for science
@@ -146,18 +148,12 @@ Learn more
 
 [Learn more](https://www.anthropic.com/news/ai-for-science-program)Learn more
 
-## Putting Claude in the hands of more scientists
+Putting Claude in the hands of scientists
 
-10,000 scientists around the world can now get Claude at no cost to start. Verified principal investigators qualify for a Claude Team subscription plan and then add their research team to Standard seats for free, or Premium seats for $15 per month.
-
-‍
-
-‍
-
-‍
+10,000 scientists around the world can now get Claude at no cost to start. Verified principal investigators qualify for a Claude Team subscription plan and then add their research team to Standard Seats for free, or Premium seats for $15 per month.
 
 Promotional pricing for 12 months for verified research groups.
-Limited availability; [terms](https://www.anthropic.com/legal/team-plan-for-scientists-terms) apply.
+Limited availability, final pricing confirmed after verification at sign up; [terms apply.](https://www.anthropic.com/legal/team-plan-for-scientists-terms)
 
 ### Standard
 
@@ -204,6 +200,8 @@ Learn more
 When a project outgrows existing capacity, apply for extra usage credits through the AI for Science program.
 
 \*Extra [usage limits](https://support.anthropic.com/en/articles/9797557-usage-limit-best-practices) apply. Prices shown don’t include applicable tax and may change at Anthropic’s discretion.
+
+Promotional pricing is not guaranteed, given limited availability. Final pricing confirmed after verification at sign up.
 
 1–25 seats per group; contact us for larger groups. Annual billing available ($0 / $180 per seat).
 
@@ -3253,7 +3251,9 @@ You'll confirm your institutional affiliation and tell us briefly about your res
 
 ### What does it cost and how many seats can I have?
 
-Standard seats are free. Premium seats are $15 per month. This is promotional pricing for verified research groups, available for 12 months from when you sign up (or from Thursday, August 27, 2026) and offered to a limited number of groups. After 12 months, seats renew at the then-current price for this plan. We will notify admins before that happens.
+Standard seats are free. Premium seats are $15 per month. This is promotional pricing for verified research groups, available for 12 months from when you sign up and offered to a limited number of groups. After 12 months, seats renew at the then-current price for this plan. We will notify admins before that happens.
+
+This promotional pricing has limited availability and is not guaranteed. Final pricing is confirmed after verification at sign up.
 
 ### What is AI for Science, and how does it relate to this plan?
 

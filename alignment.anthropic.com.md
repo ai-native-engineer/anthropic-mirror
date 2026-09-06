@@ -6,7 +6,12 @@
 
 August 2026
 
-[### Automated Researchers Can Reliably Mitigate Alignment Failures
+[### Training a Misaligned Reward Seeker
+
+Qi,\* Wright, MacDiarmid, Hubinger, 2026
+
+To better understand the impact of reward hacking on model behavior, we trained an Opus-class model with large-scale RL on many production environments vulnerable to reward hacks. We consider this a plausible proxy for what a real training run might look like had we not invested significant effort into preventing and detecting reward hacking in our normal training runs. Our results show that a high rate of reward hacking during RL can cause models to be willing to perform long sequences of harmful real-world actions in pursuit of task success.](https://alignment.anthropic.com/2026/reward-seeker/)
+[### Automated Researchers Can Mitigate Well-Characterized Alignment Failures
 
 Across 10 common alignment failures, the strongest technique our automated alignment researchers
 discover significantly mitigates the targeted failures and generalizes out of distribution. Our

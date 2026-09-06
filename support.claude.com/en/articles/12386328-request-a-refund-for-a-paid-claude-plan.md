@@ -12,9 +12,13 @@ To request a refund for a payment defined as refundable in our Terms of Service,
 6. Follow the prompts to check your refund eligibility.
 7. If eligible, continue in the support messenger to cancel and refund your plan.
 
+---
+
 ## Refunds for customers in the European Economic Area (EEA) and the United Kingdom (UK)
 
 In the European Economic Area and the United Kingdom, you may receive a refund within 14 days of purchase. You may find this option available in your **Settings**. Your refunds will be prorated according to your use.
+
+---
 
 ## What should I do if I can't access the account I'm requesting a refund for?
 
@@ -44,12 +48,20 @@ If you have an active subscription purchased on **[Claude for Android](https://s
 
 If you're requesting a refund for an inactive subscription, you'll need to **[contact our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support)** with the email address associated with your Google Play account or your GPA order number (found on your Google Play receipt, formatted GPA.xxxx-xxxx-xxxx-xxxxx) to further review the charge and refund eligibility.
 
+### I upgraded from Pro or Max to Team—when do I get my refund?
+
+When you upgrade to a Team plan from a Pro or Max plan, your individual subscription is cancelled automatically and a prorated refund is issued for the unused portion of your billing period. You don't need to request the refund manually as it's handled as part of the upgrade. Refunds usually appear immediately, but they can take a few days after your Team payment clears. Any prepaid usage credits on your individual account are refunded.
+
+If you signed up for Pro or Max through the Apple App Store, you can't upgrade to Team in place. **[Cancel your iOS subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription#h_54384c9962)** through your Apple ID settings first, then start the Team upgrade. App Store subscription refunds need to be requested through Apple directly, as described above.
+
+For full upgrade details, see **[Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan#h_830eec632d)**.
+
 ## How do I request a refund when I'm disputing the payment?
 
 Our Support team cannot process refunds during pending disputes, as the disputed funds are pulled back immediately. You can choose to either continue working with your bank until the dispute is resolved, or to withdraw the bank dispute, which will allow us to process a refund.
 
 * [Paid plan billing FAQs](https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs)
+* [Get started with the Team plan](https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan)
 * [Move your personal Claude account to a Team or Enterprise organization](https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization)
-* [Claude 4 Invite Sweepstakes Official Rules](https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules)
+* [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [Respond to an Enterprise domain claim on your Claude account](https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account)
-* [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan)

@@ -54,6 +54,8 @@ Pull the stakeholder's question from Teams or email and write the answer back as
 
 [Connect](https://claude.ai/desktop/directory/microsoft-365)
 
+![](https://academy.claude.com/assets/v1/snowflake-f7euzg40.svg)
+
 SnowflakeOptional
 
 Query the warehouse directly when the answer isn't in the semantic model yet.

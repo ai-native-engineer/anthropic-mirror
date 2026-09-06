@@ -1,5 +1,21 @@
 <!-- source: https://claude.com/solutions/education -->
 
+Claude Team plan for scientists
+
+[Next](#)Next
+
+Putting Claude in the hands of more scientists
+
+Scientists at academic and nonprofit research institutions around the world can now get Claude at no cost to start.
+
+‍
+
+Learn more
+
+[Learn more](https://claude.com/programs/team-plan-for-scientists)Learn more
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a970e15253064fcb1cf2977_toast-team-plan-for-research-labs.avif)
+
 # Navigating AI in higher **education together**
 
 # Navigating AI in higher **education together**
@@ -159,7 +175,7 @@ Build AI directly into your own research tools, course platforms, or campus syst
 
 Learn more
 
-[Learn more](https://claude.com/platform/api)Learn more
+[Learn more](https://claude.com/platform/api-v2)Learn more
 
 ### Claude Cowork
 

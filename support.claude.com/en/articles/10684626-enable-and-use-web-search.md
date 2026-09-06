@@ -2,6 +2,7 @@
 
 You can have Claude search the internet to provide you with up-to-date information and insights when using the following models:
 
+* Fable 5.1
 * Opus 5
 * Sonnet 5
 * Fable 5
@@ -111,5 +112,5 @@ You can re-enable it anytime you need current information.
 * [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes)
+* [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
 * [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

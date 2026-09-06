@@ -42,13 +42,13 @@ Structured learning paths with video lessons and assessments to help you master 
 
 14 lessons · 1 quiz·4 hr·Completion badge](https://academy.claude.com/courses/ai-fluency-framework-foundations)[### AI Capabilities and Limitations
 
-13 lessons · 1 quiz·3.5 hr·Completion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations)[### Teaching AI Fluency
+13 lessons · 1 quiz·3.5 hr·Completion badge](https://academy.claude.com/courses/ai-capabilities-and-limitations)[### Building Effective Human Agent Teams (Beta)
 
-7 lessons · 1 quiz·4.5 hr·Completion badge](https://academy.claude.com/courses/teaching-ai-fluency)
+5 lessons · 1 quiz·45 min·Completion badge](https://academy.claude.com/courses/building-effective-human-agent-teams)
 
 ### AI Fluency, for your world
 
-[For builders9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-builders)[For creative work8 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-creative-work)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[For pK–12 educators10 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)[For pK–12 Train the Trainer4 lessons](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer)[For nonprofits9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits)[For small businesses9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses)[For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)
+[For builders9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-builders)[For creative work8 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-creative-work)[For educators4 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-educators)[For pK–12 educators10 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-k-12-educators)[For pK–12 Train the Trainer4 lessons](https://academy.claude.com/courses/ai-fluency-for-pk-12-train-the-trainer)[For facilitators7 lessons · 1 quiz](https://academy.claude.com/courses/teaching-ai-fluency)[For nonprofits9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-nonprofits)[For small businesses9 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-small-businesses)[For students5 lessons · 1 quiz](https://academy.claude.com/courses/ai-fluency-for-students)
 
 ## Build with the API
 

@@ -24,7 +24,7 @@ Large
 
 Product:
 
-Claude Managed Agents
+Claude Managed Agents on the Claude Platform
 
 Location:
 
@@ -38,7 +38,7 @@ with Claude handling coding, artifact creation, and client deliverables
 
 while cutting latency by up to 85%
 
-Notion is a collaborative AI workspace where teams and agents work together, used by millions of people from individuals to Fortune 100 companies. Claude powers AI features across the product, helping users write, search, and automate data entry. Now Notion is also building agent orchestration with Claude managed agents, letting teams delegate real work, from coding to client deliverables, directly from their task boards.
+Notion is a collaborative AI workspace where teams and agents work together, used by millions of people from individuals to Fortune 100 companies. Claude powers AI features across the product, helping users write, search, and automate data entry. Now Notion is also building agent orchestration with Claude Managed Agents, letting teams delegate real work, from coding to client deliverables, directly from their task boards.
 
 ## With Claude, Notion:
 

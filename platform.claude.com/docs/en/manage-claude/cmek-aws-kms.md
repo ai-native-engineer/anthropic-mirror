@@ -534,8 +534,8 @@ How you register the key depends on which product you use.
 On [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws), CMEK uses AWS KMS keys only, and setup differs from the preceding sections in these ways:
 
 * **Principal:** Your key policy grants access to the AWS service principal `aws-external-anthropic.amazonaws.com`. Anthropic's IAM role and account ID are not used, so the [ARN for Anthropic](https://platform.claude.com/docs/en/manage-claude/cmek-aws-kms#amazon-resource-name-arn-for-anthropic) does not apply.
-* **Key requirements:** The key must be a symmetric KMS key with encrypt and decrypt usage, single-region, and in the same AWS account and region as the workspace you attach it to. Multi-region keys (key IDs that begin with `mrk-`) and alias ARNs are rejected; use the key ARN.
-* **No separate validation step:** The key is validated when you attach it to a workspace. The attach call performs an encrypt/decrypt round against the key with that workspace's compartment ID as the encryption context, so a key policy problem surfaces at attach time rather than at registration. Unlike the Claude Platform policy earlier on this page, an `EncryptionContext` condition therefore needs no all-zeros entry.
+* **Key requirements:** The key must be a symmetric KMS key with encrypt and decrypt usage, single-region, and in the same AWS account and region as the workspace you attach it to. Cross-account keys are not supported: the key must be in the AWS account that hosts your organization. Multi-region keys (key IDs that begin with `mrk-`) and alias ARNs are rejected when you register the key; use the key ARN.
+* **No separate validation step:** Apart from those checks on the key ARN at registration, the key is validated when you attach it to a workspace. The attach call performs an encrypt/decrypt round against the key with that workspace's compartment ID as the encryption context, so a key policy problem surfaces at attach time rather than at registration. Unlike the Claude Platform policy earlier on this page, an `EncryptionContext` condition therefore needs no all-zeros entry.
 * **Where you manage keys:** Register and attach keys in the Claude Console, signed in through AWS with the Admin role. The external key endpoints are also available on Claude Platform on AWS, authorized through [IAM actions](https://platform.claude.com/docs/en/api/claude-platform-on-aws-iam-actions#encryption-keys); there, a key is identified by its KMS key ARN rather than an `ekey_` ID.
 
 <Warning>
@@ -616,7 +616,7 @@ You can also create the key from the AWS Console: choose a symmetric key with th
 
 <Steps>
   <Step title="Register the key">
-    In the Claude Console, open **Settings > Encryption keys** and click **Add key**. Enter a display name, then choose the key from the key picker or choose **Enter ARN manually** and paste the key ARN, and click **Add**. The picker lists the enabled, customer-managed, symmetric, single-region keys in your account in one of your organization's regions; for a key the picker doesn't list, enter the ARN. It lists keys only if the principal you signed in with can call `kms:ListKeys` and `kms:DescribeKey`.
+    In the Claude Console, open **Settings > Encryption keys** and click **Add key**. Enter a display name, then choose the key from the key picker or choose **Enter ARN manually** and paste the key ARN, and click **Add**. The key must be in the AWS account that hosts your organization; cross-account keys are not supported. The picker lists the enabled, customer-managed, symmetric, single-region keys in your account in one of your organization's regions; for a key the picker doesn't list, enter the ARN. It lists keys only if the principal you signed in with can call `kms:ListKeys` and `kms:DescribeKey`.
   </Step>
 
   <Step title="Attach the key to a workspace">
@@ -629,7 +629,7 @@ You can also create the key from the AWS Console: choose a symmetric key with th
     * The key is enabled, single-region, and in the same AWS account and region as the workspace.
     * The principal you are signed in as has `kms:DescribeKey`, `kms:Encrypt`, and `kms:Decrypt` on the key.
     * No service control policy or resource control policy in your AWS organization prevents the service principal or your principal from using the key.
-    * If the policy looks right and the attach still fails, find the denied `kms:` event in CloudTrail in the key's account (it shows the calling principal and, for cryptographic calls, the encryption context), then retry with the `aws:SourceArn` condition temporarily removed to tell a source-ARN mismatch apart from an encryption-context mismatch.
+    * If the policy looks right and the attach still fails, find the denied `kms:` event in CloudTrail in the key's account (it shows the calling principal and, for cryptographic calls, the encryption context), then retry with the `aws:SourceArn` condition temporarily removed to tell a source-ARN mismatch apart from an encryption-context mismatch. Once the key is attached, whether on that retry or after you correct the encryption context, restore the `ArnLike` entry on both service-principal statements with `kms:PutKeyPolicy`, using the account-wide `aws:SourceArn` pattern or the ARN of every workspace the key is attached to.
   </Step>
 </Steps>
 

@@ -13,7 +13,7 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "api_error"`
 
 ### Beta Authentication Error
 
@@ -21,7 +21,7 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "authentication_error"`
 
 ### Beta Billing Error
 
@@ -29,13 +29,13 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "billing_error"`
 
 ### Beta Currency
 
 - `enum BetaCurrency:`
 
-  - `Usd`
+  - `Usd("USD")`
 
 ### Beta Error
 
@@ -45,55 +45,55 @@
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "invalid_request_error"`
 
   - `class BetaAuthenticationError:`
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "authentication_error"`
 
   - `class BetaBillingError:`
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "billing_error"`
 
   - `class BetaPermissionError:`
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "permission_error"`
 
   - `class BetaNotFoundError:`
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "not_found_error"`
 
   - `class BetaRateLimitError:`
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "rate_limit_error"`
 
   - `class BetaGatewayTimeoutError:`
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "timeout_error"`
 
   - `class BetaApiError:`
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "api_error"`
 
   - `class BetaOverloadedError:`
 
     - `required string Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "overloaded_error"`
 
 ### Beta Error Response
 
@@ -105,59 +105,59 @@
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "invalid_request_error"`
 
     - `class BetaAuthenticationError:`
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "authentication_error"`
 
     - `class BetaBillingError:`
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "billing_error"`
 
     - `class BetaPermissionError:`
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "permission_error"`
 
     - `class BetaNotFoundError:`
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "not_found_error"`
 
     - `class BetaRateLimitError:`
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "rate_limit_error"`
 
     - `class BetaGatewayTimeoutError:`
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "timeout_error"`
 
     - `class BetaApiError:`
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "api_error"`
 
     - `class BetaOverloadedError:`
 
       - `required string Message`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "overloaded_error"`
 
   - `required string? RequestID`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "error"`
 
 ### Beta Gateway Timeout Error
 
@@ -165,7 +165,7 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "timeout_error"`
 
 ### Beta Invalid Request Error
 
@@ -173,7 +173,7 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "invalid_request_error"`
 
 ### Beta Monetary Amount
 
@@ -195,7 +195,7 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "not_found_error"`
 
 ### Beta Overloaded Error
 
@@ -203,7 +203,7 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "overloaded_error"`
 
 ### Beta Permission Error
 
@@ -211,7 +211,7 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "permission_error"`
 
 ### Beta Rate Limit Error
 
@@ -219,7 +219,7 @@
 
   - `required string Message`
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "rate_limit_error"`
 
 ## Beta › Models
 
@@ -257,87 +257,93 @@ The Models API response can be used to determine which models are available for 
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -469,7 +475,7 @@ The Models API response can be used to determine which models are available for 
 
     Maximum value for the `max_tokens` parameter when using this model.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "model"`
 
     Object type.
 
@@ -593,87 +599,93 @@ The Models API response can be used to determine information about a specific mo
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -805,7 +817,7 @@ The Models API response can be used to determine information about a specific mo
 
     Maximum value for the `max_tokens` parameter when using this model.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "model"`
 
     Object type.
 
@@ -991,13 +1003,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "ephemeral"`
 
             - `Ttl Ttl`
 
@@ -1010,9 +1022,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
-              - `Ttl5m`
+              - `Ttl5m("5m")`
 
-              - `Ttl1h`
+              - `Ttl1h("1h")`
 
           - `IReadOnlyList<BetaTextCitationParam>? Citations`
 
@@ -1034,7 +1046,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "char_location"`
 
             - `class BetaCitationPageLocationParam:`
 
@@ -1054,7 +1066,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "page_location"`
 
             - `class BetaCitationContentBlockLocationParam:`
 
@@ -1084,7 +1096,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "content_block_location"`
 
             - `class BetaCitationWebSearchResultLocationParam:`
 
@@ -1096,7 +1108,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 maxLength: 512, minLength: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_result_location"`
 
               - `required string Url`
 
@@ -1134,7 +1146,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string? Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "search_result_location"`
 
         - `class BetaImageBlockParam:`
 
@@ -1148,19 +1160,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required MediaType MediaType`
 
-                - `ImageJpeg`
+                - `ImageJpeg("image/jpeg")`
 
-                - `ImagePng`
+                - `ImagePng("image/png")`
 
-                - `ImageGif`
+                - `ImageGif("image/gif")`
 
-                - `ImageWebP`
+                - `ImageWebP("image/webp")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "base64"`
 
             - `class BetaUrlImageSource:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "url"`
 
               - `required string Url`
 
@@ -1168,9 +1180,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "file"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "image"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1184,9 +1196,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
 
-              - `Downsize`
+              - `Downsize("downsize")`
 
-              - `Error`
+              - `Error("error")`
 
         - `class BetaRequestDocumentBlock:`
 
@@ -1198,17 +1210,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 format: byte
 
-              - `JsonElement MediaType constant`
+              - `JsonElement MediaType = "application/pdf"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "base64"`
 
             - `class BetaPlainTextSource:`
 
               - `required string Data`
 
-              - `JsonElement MediaType constant`
+              - `JsonElement MediaType = "text/plain"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text"`
 
             - `class BetaContentBlockSource:`
 
@@ -1222,11 +1234,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   - `class BetaImageBlockParam:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "content"`
 
             - `class BetaUrlPdfSource:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "url"`
 
               - `required string Url`
 
@@ -1234,9 +1246,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "file"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "document"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1262,7 +1274,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               minLength: 1
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "text"`
 
             - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1274,7 +1286,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Title`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "search_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1294,7 +1306,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "thinking"`
 
         - `class BetaRedactedThinkingBlockParam:`
 
@@ -1302,7 +1314,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "redacted_thinking"`
 
         - `class BetaToolUseBlockParam:`
 
@@ -1316,7 +1328,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 200, minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_use"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1330,7 +1342,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Tool invocation directly from the model.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "direct"`
 
             - `class BetaServerToolCaller:`
 
@@ -1340,7 +1352,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
@@ -1348,7 +1360,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_20260120"`
 
           - `string? ToolsetName`
 
@@ -1362,7 +1374,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1390,7 +1402,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_reference"`
 
                 - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1434,7 +1446,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "browser_state"`
 
                 - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1462,7 +1474,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "tab_opened"`
 
                   - `class BetaBrowserStateChangeDownloadStarted:`
 
@@ -1474,7 +1486,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_started"`
 
                     - `required string Url`
 
@@ -1495,7 +1507,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_completed"`
 
                     - `required string Url`
 
@@ -1525,7 +1537,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_failed"`
 
                     - `required string Url`
 
@@ -1557,23 +1569,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required Name Name`
 
-            - `Advisor`
+            - `Advisor("advisor")`
 
-            - `WebSearch`
+            - `WebSearch("web_search")`
 
-            - `WebFetch`
+            - `WebFetch("web_fetch")`
 
-            - `CodeExecution`
+            - `CodeExecution("code_execution")`
 
-            - `BashCodeExecution`
+            - `BashCodeExecution("bash_code_execution")`
 
-            - `TextEditorCodeExecution`
+            - `TextEditorCodeExecution("text_editor_code_execution")`
 
-            - `ToolSearchToolRegex`
+            - `ToolSearchToolRegex("tool_search_tool_regex")`
 
-            - `ToolSearchToolBm25`
+            - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "server_tool_use"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1603,7 +1615,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_result"`
 
               - `required string Url`
 
@@ -1613,25 +1625,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required BetaWebSearchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `QueryTooLong`
+                - `QueryTooLong("query_too_long")`
 
-                - `RequestTooLarge`
+                - `RequestTooLarge("request_too_large")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_tool_result_error"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1659,31 +1671,31 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required BetaWebFetchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `UrlTooLong`
+                - `UrlTooLong("url_too_long")`
 
-                - `UrlNotAllowed`
+                - `UrlNotAllowed("url_not_allowed")`
 
-                - `UrlNotInPriorContext`
+                - `UrlNotInPriorContext("url_not_in_prior_context")`
 
-                - `UrlNotAccessible`
+                - `UrlNotAccessible("url_not_accessible")`
 
-                - `UnsupportedContentType`
+                - `UnsupportedContentType("unsupported_content_type")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_tool_result_error"`
 
             - `class BetaWebFetchBlockParam:`
 
               - `required BetaRequestDocumentBlock Content`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_result"`
 
               - `required string Url`
 
@@ -1697,7 +1709,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1725,27 +1737,27 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required ErrorCode ErrorCode`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `PromptTooLong`
+                - `PromptTooLong("prompt_too_long")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `Overloaded`
+                - `Overloaded("overloaded")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `ModelNotFound`
+                - `ModelNotFound("model_not_found")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "advisor_tool_result_error"`
 
             - `class BetaAdvisorResultBlockParam:`
 
               - `required string Text`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "advisor_result"`
 
               - `string? StopReason`
 
@@ -1755,7 +1767,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "advisor_redacted_result"`
 
               - `string? StopReason`
 
@@ -1763,7 +1775,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "advisor_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1779,15 +1791,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_tool_result_error"`
 
             - `class BetaCodeExecutionResultBlockParam:`
 
@@ -1795,7 +1807,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_output"`
 
               - `required long ReturnCode`
 
@@ -1803,7 +1815,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string Stdout`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_result"`
 
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
@@ -1813,7 +1825,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_output"`
 
               - `required string EncryptedStdout`
 
@@ -1821,13 +1833,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string Stderr`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "encrypted_code_execution_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1841,17 +1853,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required ErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `OutputFileTooLarge`
+                - `OutputFileTooLarge("output_file_too_large")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
             - `class BetaBashCodeExecutionResultBlockParam:`
 
@@ -1859,7 +1871,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "bash_code_execution_output"`
 
               - `required long ReturnCode`
 
@@ -1867,13 +1879,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string Stdout`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_code_execution_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1887,17 +1899,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required ErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `FileNotFound`
+                - `FileNotFound("file_not_found")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
               - `string? ErrorMessage`
 
@@ -1907,13 +1919,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required FileType FileType`
 
-                - `Text`
+                - `Text("text")`
 
-                - `Image`
+                - `Image("image")`
 
-                - `Pdf`
+                - `Pdf("pdf")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_view_result"`
 
               - `long? NumLines`
 
@@ -1925,11 +1937,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required bool IsFileUpdate`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_create_result"`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
               - `IReadOnlyList<string>? Lines`
 
@@ -1945,7 +1957,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -1959,15 +1971,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required ErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_result_error"`
 
               - `string? ErrorMessage`
 
@@ -1979,19 +1991,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_reference"`
 
                 - `BetaCacheControlEphemeral? CacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_search_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_search_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2011,7 +2023,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The name of the MCP server
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "mcp_tool_use"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2023,7 +2035,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "mcp_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2039,7 +2051,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 minLength: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2056,7 +2068,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string FileID`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "container_upload"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2072,7 +2084,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           When content is None, the block represents a failed compaction. The server
           treats these as no-ops. Empty string content is not allowed.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "compaction"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2112,7 +2124,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_reference"`
 
             - `class BetaToolChangeMcpToolReference:`
 
@@ -2123,7 +2135,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string ServerName`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "mcp_tool_reference"`
 
             - `class BetaToolChangeMcpToolsetReference:`
 
@@ -2131,9 +2143,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               - `required string ServerName`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "mcp_toolset_reference"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_addition"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2170,7 +2182,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               Reference to every tool in the named MCP server's toolset.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_removal"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2202,63 +2214,71 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-              - `ClaudeSonnet5`
+              - `ClaudeFable5_1("claude-fable-5-1")`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+              - `ClaudeSonnet5("claude-sonnet-5")`
 
                 High-performance model for coding and agents
 
-              - `ClaudeFable5`
+              - `ClaudeFable5("claude-fable-5")`
 
                 Next generation of intelligence for the hardest knowledge work and coding problems
 
-              - `ClaudeMythos5`
+              - `ClaudeMythos5("claude-mythos-5")`
 
                 Most capable model for cybersecurity and biology research
 
-              - `ClaudeOpus5`
+              - `ClaudeOpus5("claude-opus-5")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeOpus4_8`
+              - `ClaudeOpus4_8("claude-opus-4-8")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeOpus4_7`
+              - `ClaudeOpus4_7("claude-opus-4-7")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeMythosPreview`
+              - `ClaudeMythosPreview("claude-mythos-preview")`
 
                 New class of intelligence, strongest in coding and cybersecurity
 
-              - `ClaudeOpus4_6`
+              - `ClaudeOpus4_6("claude-opus-4-6")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeSonnet4_6`
+              - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
                 Best combination of speed and intelligence
 
-              - `ClaudeHaiku4_5`
+              - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
                 Fastest model with near-frontier intelligence
 
-              - `ClaudeHaiku4_5_20251001`
+              - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
                 Fastest model with near-frontier intelligence
 
-              - `ClaudeOpus4_5`
+              - `ClaudeOpus4_5("claude-opus-4-5")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeOpus4_5_20251101`
+              - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeSonnet4_5`
+              - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
                 High-performance model for agents and coding
 
-              - `ClaudeSonnet4_5_20250929`
+              - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
                 High-performance model for agents and coding
 
@@ -2266,7 +2286,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             Identifies one hop of a fallback transition.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "fallback"`
 
           - `JsonElement Trigger`
 
@@ -2274,11 +2294,41 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required Role Role`
 
-      - `User`
+      - `User("user")`
 
-      - `Assistant`
+      - `Assistant("assistant")`
 
-      - `System`
+      - `System("system")`
+
+    - `ClearAt? ClearAt`
+
+      How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+      - `NextUserMessage("next_user_message")`
+
+      - `Never("never")`
+
+    - `BetaSystemMessageOutputConfig? OutputConfig`
+
+      Per-message output configuration on a role:"system" input message.
+
+      Fields here apply per-turn; `format` remains top-level only. An
+      empty `{}` is accepted on a message that carries content; a message
+      with neither content nor output_config fields is rejected.
+
+      - `Effort? Effort`
+
+        All possible effort levels.
+
+        - `Low("low")`
+
+        - `Medium("medium")`
+
+        - `High("high")`
+
+        - `Xhigh("xhigh")`
+
+        - `Max("max")`
 
   - `required Model model`
 
@@ -2318,9 +2368,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
 
-          - `Anthropic`
+          - `Anthropic("anthropic")`
 
-          - `Custom`
+          - `Custom("custom")`
 
         - `string Version`
 
@@ -2386,9 +2436,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
 
-        - `Strict`
+        - `Strict("strict")`
 
-        - `BestEffort`
+        - `BestEffort("best_effort")`
 
   - `BetaFallbacksParam? fallbacks`
 
@@ -2406,7 +2456,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required string Name`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "url"`
 
     - `required string Url`
 
@@ -2432,17 +2482,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
-    - `Auto`
+    - `Auto("auto")`
 
-    - `StandardOnly`
+    - `StandardOnly("standard_only")`
 
   - `Speed? speed`
 
     Body param: Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-    - `Standard`
+    - `Standard("standard")`
 
-    - `Fast`
+    - `Fast("fast")`
 
   - `IReadOnlyList<string> stopSequences`
 
@@ -2466,7 +2516,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minLength: 1
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2558,7 +2608,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         This defines the shape of the `input` that your tool accepts and that the model will produce.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -2574,13 +2624,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2610,23 +2660,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolBash20241022:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "bash_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2644,23 +2694,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolBash20250124:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "bash_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2678,23 +2728,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaCodeExecutionTool20250522:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20250522"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2710,23 +2760,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaCodeExecutionTool20250825:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20250825"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2744,23 +2794,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20260120"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2778,23 +2828,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Code execution tool with REPL state persistence.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20260521"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -2815,17 +2865,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       the family's tool with any members disabled via `configs` removed
       from its schema.
 
-      - `JsonElement Type constant`
-
-      - `IReadOnlyList<BetaBrowserToolset20260801AllowedCaller> AllowedCallers`
-
-        - `Direct`
-
-        - `CodeExecution20250825`
-
-        - `CodeExecution20260120`
-
-        - `CodeExecution20260521`
+      - `JsonElement Type = "browser_toolset_20260801"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3226,23 +3266,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minimum: 1
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "computer_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3266,23 +3306,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaMemoryTool20250818:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "memory_20250818"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3312,23 +3352,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minimum: 1
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "computer_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3352,23 +3392,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20241022:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3398,23 +3438,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minimum: 1
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "computer_20251124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3451,17 +3491,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
       `type`, `configs`, and `cache_control`; zoom is controlled
       via `configs.zoom.enabled`.
 
-      - `JsonElement Type constant`
-
-      - `IReadOnlyList<BetaComputerToolset20260801AllowedCaller> AllowedCallers`
-
-        - `Direct`
-
-        - `CodeExecution20250825`
-
-        - `CodeExecution20260120`
-
-        - `CodeExecution20260521`
+      - `JsonElement Type = "computer_toolset_20260801"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3682,23 +3712,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250124:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3716,23 +3746,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250429:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250429"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3750,23 +3780,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolTextEditor20250728:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250728"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -3790,23 +3820,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20250305:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20250305"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -3838,7 +3868,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "approximate"`
 
         - `string? City`
 
@@ -3866,23 +3896,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20250910:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20250910"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -3922,23 +3952,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20260209:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -3972,23 +4002,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20260209:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -4030,23 +4060,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260309"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -4090,23 +4120,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebSearchTool20260318:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -4134,9 +4164,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-        - `Full`
+        - `Full("full")`
 
-        - `Excluded`
+        - `Excluded("excluded")`
 
       - `bool Strict`
 
@@ -4148,23 +4178,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaWebFetchTool20260318:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -4202,9 +4232,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-        - `Full`
+        - `Full("full")`
 
-        - `Excluded`
+        - `Excluded("excluded")`
 
       - `bool Strict`
 
@@ -4222,23 +4252,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "advisor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "advisor_20260301"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -4270,7 +4300,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolSearchToolBm25_20251119:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "tool_search_tool_bm25"`
 
         Name of the tool.
 
@@ -4278,19 +4308,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required Type Type`
 
-        - `ToolSearchToolBm25_20251119`
+        - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
 
-        - `ToolSearchToolBm25`
+        - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -4306,7 +4336,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `class BetaToolSearchToolRegex20251119:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "tool_search_tool_regex"`
 
         Name of the tool.
 
@@ -4314,19 +4344,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required Type Type`
 
-        - `ToolSearchToolRegex20251119`
+        - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
 
-        - `ToolSearchToolRegex`
+        - `ToolSearchToolRegex("tool_search_tool_regex")`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -4353,7 +4383,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         maxLength: 255, minLength: 1
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "mcp_toolset"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -4379,87 +4409,93 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `string userProfileID`
 
@@ -4547,9 +4583,9 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
 
-        - `Anthropic`
+        - `Anthropic("anthropic")`
 
-        - `Custom`
+        - `Custom("custom")`
 
       - `required string Version`
 
@@ -4612,7 +4648,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "char_location"`
 
         - `class BetaCitationPageLocation:`
 
@@ -4632,7 +4668,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "page_location"`
 
         - `class BetaCitationContentBlockLocation:`
 
@@ -4662,7 +4698,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             minimum: 0
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "content_block_location"`
 
         - `class BetaCitationsWebSearchResultLocation:`
 
@@ -4674,7 +4710,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 512
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_result_location"`
 
           - `required string Url`
 
@@ -4710,13 +4746,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string? Title`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "search_result_location"`
 
       - `required string Text`
 
         maxLength: 5000000, minLength: 0
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text"`
 
     - `class BetaThinkingBlock:`
 
@@ -4732,7 +4768,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The text of Claude's thinking process for this block.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "thinking"`
 
     - `class BetaRedactedThinkingBlock:`
 
@@ -4744,7 +4780,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "redacted_thinking"`
 
     - `class BetaToolUseBlock:`
 
@@ -4758,7 +4794,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         minLength: 1
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "tool_use"`
 
       - `Caller Caller`
 
@@ -4768,7 +4804,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Tool invocation directly from the model.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "direct"`
 
         - `class BetaServerToolCaller:`
 
@@ -4778,7 +4814,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_20250825"`
 
         - `class BetaServerToolCaller20260120:`
 
@@ -4786,7 +4822,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_20260120"`
 
       - `string? ToolsetName`
 
@@ -4804,23 +4840,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required Name Name`
 
-        - `Advisor`
+        - `Advisor("advisor")`
 
-        - `WebSearch`
+        - `WebSearch("web_search")`
 
-        - `WebFetch`
+        - `WebFetch("web_fetch")`
 
-        - `CodeExecution`
+        - `CodeExecution("code_execution")`
 
-        - `BashCodeExecution`
+        - `BashCodeExecution("bash_code_execution")`
 
-        - `TextEditorCodeExecution`
+        - `TextEditorCodeExecution("text_editor_code_execution")`
 
-        - `ToolSearchToolRegex`
+        - `ToolSearchToolRegex("tool_search_tool_regex")`
 
-        - `ToolSearchToolBm25`
+        - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "server_tool_use"`
 
       - `Caller Caller`
 
@@ -4844,19 +4880,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required BetaWebSearchToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `MaxUsesExceeded`
+            - `MaxUsesExceeded("max_uses_exceeded")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `QueryTooLong`
+            - `QueryTooLong("query_too_long")`
 
-            - `RequestTooLarge`
+            - `RequestTooLarge("request_too_large")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_tool_result_error"`
 
         - `IReadOnlyList<BetaWebSearchResultBlock>`
 
@@ -4866,7 +4902,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Title`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_result"`
 
           - `required string Url`
 
@@ -4874,7 +4910,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_tool_result"`
 
       - `Caller Caller`
 
@@ -4898,25 +4934,25 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required BetaWebFetchToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `UrlTooLong`
+            - `UrlTooLong("url_too_long")`
 
-            - `UrlNotAllowed`
+            - `UrlNotAllowed("url_not_allowed")`
 
-            - `UrlNotInPriorContext`
+            - `UrlNotInPriorContext("url_not_in_prior_context")`
 
-            - `UrlNotAccessible`
+            - `UrlNotAccessible("url_not_accessible")`
 
-            - `UnsupportedContentType`
+            - `UnsupportedContentType("unsupported_content_type")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `MaxUsesExceeded`
+            - `MaxUsesExceeded("max_uses_exceeded")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_tool_result_error"`
 
         - `class BetaWebFetchBlock:`
 
@@ -4936,29 +4972,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
                   format: byte
 
-                - `JsonElement MediaType constant`
+                - `JsonElement MediaType = "application/pdf"`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "base64"`
 
               - `class BetaPlainTextSource:`
 
                 - `required string Data`
 
-                - `JsonElement MediaType constant`
+                - `JsonElement MediaType = "text/plain"`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "text"`
 
             - `required string? Title`
 
               The title of the document
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "document"`
 
           - `required string? RetrievedAt`
 
             ISO 8601 timestamp when the content was retrieved
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_result"`
 
           - `required string Url`
 
@@ -4968,7 +5004,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_tool_result"`
 
       - `Caller Caller`
 
@@ -4992,21 +5028,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required ErrorCode ErrorCode`
 
-            - `MaxUsesExceeded`
+            - `MaxUsesExceeded("max_uses_exceeded")`
 
-            - `PromptTooLong`
+            - `PromptTooLong("prompt_too_long")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `Overloaded`
+            - `Overloaded("overloaded")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-            - `ModelNotFound`
+            - `ModelNotFound("model_not_found")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "advisor_tool_result_error"`
 
         - `class BetaAdvisorResultBlock:`
 
@@ -5016,7 +5052,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Text`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "advisor_result"`
 
         - `class BetaAdvisorRedactedResultBlock:`
 
@@ -5028,13 +5064,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "advisor_redacted_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "advisor_tool_result"`
 
     - `class BetaCodeExecutionToolResultBlock:`
 
@@ -5046,15 +5082,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_tool_result_error"`
 
         - `class BetaCodeExecutionResultBlock:`
 
@@ -5062,7 +5098,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `required string FileID`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "code_execution_output"`
 
           - `required long ReturnCode`
 
@@ -5070,7 +5106,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Stdout`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_result"`
 
         - `class BetaEncryptedCodeExecutionResultBlock:`
 
@@ -5080,7 +5116,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `required string FileID`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "code_execution_output"`
 
           - `required string EncryptedStdout`
 
@@ -5088,13 +5124,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Stderr`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "encrypted_code_execution_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_tool_result"`
 
     - `class BetaBashCodeExecutionToolResultBlock:`
 
@@ -5104,17 +5140,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required ErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-            - `OutputFileTooLarge`
+            - `OutputFileTooLarge("output_file_too_large")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
         - `class BetaBashCodeExecutionResultBlock:`
 
@@ -5122,7 +5158,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             - `required string FileID`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "bash_code_execution_output"`
 
           - `required long ReturnCode`
 
@@ -5130,13 +5166,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required string Stdout`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_code_execution_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "bash_code_execution_tool_result"`
 
     - `class BetaTextEditorCodeExecutionToolResultBlock:`
 
@@ -5146,19 +5182,19 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required ErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-            - `FileNotFound`
+            - `FileNotFound("file_not_found")`
 
           - `required string? ErrorMessage`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
         - `class BetaTextEditorCodeExecutionViewResultBlock:`
 
@@ -5166,11 +5202,11 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required FileType FileType`
 
-            - `Text`
+            - `Text("text")`
 
-            - `Image`
+            - `Image("image")`
 
-            - `Pdf`
+            - `Pdf("pdf")`
 
           - `required long? NumLines`
 
@@ -5178,13 +5214,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required long? TotalLines`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_view_result"`
 
         - `class BetaTextEditorCodeExecutionCreateResultBlock:`
 
           - `required bool IsFileUpdate`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_create_result"`
 
         - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
 
@@ -5198,13 +5234,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required long? OldStart`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
     - `class BetaToolSearchToolResultBlock:`
 
@@ -5214,17 +5250,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `required ErrorCode ErrorCode`
 
-            - `InvalidToolInput`
+            - `InvalidToolInput("invalid_tool_input")`
 
-            - `Unavailable`
+            - `Unavailable("unavailable")`
 
-            - `TooManyRequests`
+            - `TooManyRequests("too_many_requests")`
 
-            - `ExecutionTimeExceeded`
+            - `ExecutionTimeExceeded("execution_time_exceeded")`
 
           - `required string? ErrorMessage`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_search_tool_result_error"`
 
         - `class BetaToolSearchToolSearchResultBlock:`
 
@@ -5234,15 +5270,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
               maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "tool_reference"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_search_tool_search_result"`
 
       - `required string ToolUseID`
 
         pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "tool_search_tool_result"`
 
     - `class BetaMcpToolUseBlock:`
 
@@ -5260,7 +5296,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The name of the MCP server
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "mcp_tool_use"`
 
     - `class BetaMcpToolResultBlock:`
 
@@ -5280,7 +5316,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
             maxLength: 5000000, minLength: 0
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text"`
 
       - `required bool IsError`
 
@@ -5288,7 +5324,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         pattern: ^[a-zA-Z0-9_-]+$
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "mcp_tool_result"`
 
     - `class BetaContainerUploadBlock:`
 
@@ -5296,7 +5332,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required string FileID`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "container_upload"`
 
     - `class BetaCompactionBlock:`
 
@@ -5314,7 +5350,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         Opaque metadata from prior compaction, to be round-tripped verbatim
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "compaction"`
 
     - `class BetaFallbackBlock:`
 
@@ -5340,63 +5376,71 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+            Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeMythos5`
+          - `ClaudeMythos5("claude-mythos-5")`
 
             Most capable model for cybersecurity and biology research
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeMythosPreview`
+          - `ClaudeMythosPreview("claude-mythos-preview")`
 
             New class of intelligence, strongest in coding and cybersecurity
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -5412,29 +5456,29 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The policy category that triggered a refusal.
 
-          - `Cyber`
+          - `Cyber("cyber")`
 
             The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
 
-          - `Bio`
+          - `Bio("bio")`
 
             The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
-          - `FrontierLlm`
+          - `FrontierLlm("frontier_llm")`
 
             The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
 
-          - `ReasoningExtraction`
+          - `ReasoningExtraction("reasoning_extraction")`
 
             The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
 
-          - `GeneralHarms`
+          - `GeneralHarms("general_harms")`
 
             The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "refusal"`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "fallback"`
 
   - `required BetaContextManagementResponse? ContextManagement`
 
@@ -5460,7 +5504,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "clear_tool_uses_20250919"`
 
           The type of context management edit applied.
 
@@ -5478,7 +5522,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "clear_thinking_20251015"`
 
           The type of context management edit applied.
 
@@ -5497,7 +5541,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "model_changed"`
 
       - `class BetaCacheMissSystemChanged:`
 
@@ -5505,7 +5549,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "system_changed"`
 
       - `class BetaCacheMissToolsChanged:`
 
@@ -5513,7 +5557,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "tools_changed"`
 
       - `class BetaCacheMissMessagesChanged:`
 
@@ -5521,15 +5565,15 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "messages_changed"`
 
       - `class BetaCacheMissPreviousMessageNotFound:`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "previous_message_not_found"`
 
       - `class BetaCacheMissUnavailable:`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "unavailable"`
 
   - `required Model Model`
 
@@ -5537,7 +5581,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-  - `JsonElement Role constant`
+  - `JsonElement Role = "assistant"`
 
     Conversational role of the generated message.
 
@@ -5551,23 +5595,23 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The policy category that triggered a refusal.
 
-      - `Cyber`
+      - `Cyber("cyber")`
 
         The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
 
-      - `Bio`
+      - `Bio("bio")`
 
         The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
-      - `FrontierLlm`
+      - `FrontierLlm("frontier_llm")`
 
         The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
 
-      - `ReasoningExtraction`
+      - `ReasoningExtraction("reasoning_extraction")`
 
         The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
 
-      - `GeneralHarms`
+      - `GeneralHarms("general_harms")`
 
         The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
@@ -5626,7 +5670,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "refusal"`
 
   - `required BetaStopReason? StopReason`
 
@@ -5644,21 +5688,21 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
-    - `EndTurn`
+    - `EndTurn("end_turn")`
 
-    - `MaxTokens`
+    - `MaxTokens("max_tokens")`
 
-    - `StopSequence`
+    - `StopSequence("stop_sequence")`
 
-    - `ToolUse`
+    - `ToolUse("tool_use")`
 
-    - `PauseTurn`
+    - `PauseTurn("pause_turn")`
 
-    - `Compaction`
+    - `Compaction("compaction")`
 
-    - `Refusal`
+    - `Refusal("refusal")`
 
-    - `ModelContextWindowExceeded`
+    - `ModelContextWindowExceeded("model_context_window_exceeded")`
 
   - `required string? StopSequence`
 
@@ -5666,7 +5710,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     This value will be a non-null string if one of your custom stop sequences was generated.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "message"`
 
     Object type.
 
@@ -5730,7 +5774,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
           The reprice was applied: the retry is billed as if the conversation
           had been on the retry model all along.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "redeemed"`
 
         - `class BetaFallbackCreditNotApplied:`
 
@@ -5743,31 +5787,31 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
             A closed enum; additions to the redemption-check vocabulary arrive as
             deliberate schema updates.
 
-            - `BodyMismatch`
+            - `BodyMismatch("body_mismatch")`
 
-            - `ContinuationExcluded`
+            - `ContinuationExcluded("continuation_excluded")`
 
-            - `ContinuationOnly`
+            - `ContinuationOnly("continuation_only")`
 
-            - `Expired`
+            - `Expired("expired")`
 
-            - `InvalidTargetModel`
+            - `InvalidTargetModel("invalid_target_model")`
 
-            - `NotEnabled`
+            - `NotEnabled("not_enabled")`
 
-            - `RepriceUnavailable`
+            - `RepriceUnavailable("reprice_unavailable")`
 
-            - `TemporarilyUnavailable`
+            - `TemporarilyUnavailable("temporarily_unavailable")`
 
-            - `VariantFieldsPresent`
+            - `VariantFieldsPresent("variant_fields_present")`
 
-            - `WrongOrganization`
+            - `WrongOrganization("wrong_organization")`
 
-            - `WrongPlatform`
+            - `WrongPlatform("wrong_platform")`
 
-            - `WrongWorkspace`
+            - `WrongWorkspace("wrong_workspace")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "not_applied"`
 
           - `IReadOnlyList<string>? RemoveToRedeem`
 
@@ -5840,7 +5884,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "message"`
 
           Usage for a sampling iteration
 
@@ -5876,7 +5920,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "compaction"`
 
           Usage for a compaction iteration
 
@@ -5918,7 +5962,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "advisor_message"`
 
           Usage for an advisor sub-inference iteration
 
@@ -5965,7 +6009,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           minimum: 0
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "fallback_message"`
 
           Usage for the fallback-model attempt that served the response
 
@@ -6017,19 +6061,71 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       If the request used the priority, standard, or batch tier.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Priority`
+      - `Priority("priority")`
 
-      - `Batch`
+      - `Batch("batch")`
 
     - `required Speed? Speed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Fast`
+      - `Fast("fast")`
+
+  - `IReadOnlyList<BetaThinkingDroppedInputTransformation>? InputTransformations`
+
+    Changes the API made to the request's input before showing it to the model:
+    one entry per change, in request order. Today the only entry type is
+    `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+    block from the request's `messages` that was removed from the prompt instead
+    of being shown to the model because it failed a binding check. More entry
+    types may be added over time; ignore types you do not recognize.
+
+    Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+    every such response from a model that supports extended thinking, as `[]`
+    when nothing was changed; without the beta, blocks are removed all the same
+    but nothing is reported. Removed blocks contribute nothing to
+    `usage.input_tokens`. When streaming, the array is final in `message_start`;
+    the final `message_delta` event carries it only when a server-side model
+    fallback happened mid-stream, in which case it holds the serving model's
+    entries and replaces the one in `message_start`.
+
+    - `required string Path`
+
+      Where the removed block was in your request, as `messages.{i}.content.{j}`:
+      `i` indexes the `messages` array you sent and `j` that message's `content`
+      array — the same form error messages use.
+
+    - `required Reason Reason`
+
+      Which binding check removed the block: `model_binding_mismatch` — it was
+      created by a model whose reasoning the requested model may not read;
+      `prefix_binding_mismatch` — the conversation before it differs from the
+      conversation it was created in (the rest of that turn's consecutive thinking
+      blocks are removed with it, each with this reason);
+      `organization_binding_mismatch` — it was created under a different
+      organization (an Anthropic organization, AWS account or Google Cloud project)
+      and this organization is not one of its additional organizations;
+      `end_user_binding_mismatch` — it was created for a different end user, or
+      was removed by the consumer-organization binding. A block that would fail
+      several checks reports one reason, in this order of precedence:
+      `organization_binding_mismatch`, `end_user_binding_mismatch`,
+      `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `ModelBindingMismatch("model_binding_mismatch")`
+
+      - `PrefixBindingMismatch("prefix_binding_mismatch")`
+
+      - `OrganizationBindingMismatch("organization_binding_mismatch")`
+
+      - `EndUserBindingMismatch("end_user_binding_mismatch")`
+
+    - `JsonElement Type = "thinking_dropped"`
+
+      Always `thinking_dropped` for this entry type.
 
 - `class BetaRawMessageStreamEvent: union`
 
@@ -6037,7 +6133,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required BetaMessage Message`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "message_start"`
 
   - `class BetaRawMessageDeltaEvent:`
 
@@ -6059,7 +6155,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
       - `required string? StopSequence`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "message_delta"`
 
     - `required BetaMessageDeltaUsage Usage`
 
@@ -6145,9 +6241,53 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         The number of server tool requests.
 
+    - `IReadOnlyList<BetaThinkingDroppedInputTransformation>? InputTransformations`
+
+      Changes the API made to the request's input before showing it to the model:
+      one entry per change, in request order. Today the only entry type is
+      `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+      block from the request's `messages` that was removed from the prompt instead
+      of being shown to the model because it failed a binding check. More entry
+      types may be added over time; ignore types you do not recognize.
+
+      Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+      every such response from a model that supports extended thinking, as `[]`
+      when nothing was changed; without the beta, blocks are removed all the same
+      but nothing is reported. Removed blocks contribute nothing to
+      `usage.input_tokens`. When streaming, the array is final in `message_start`;
+      the final `message_delta` event carries it only when a server-side model
+      fallback happened mid-stream, in which case it holds the serving model's
+      entries and replaces the one in `message_start`.
+
+      - `required string Path`
+
+        Where the removed block was in your request, as `messages.{i}.content.{j}`:
+        `i` indexes the `messages` array you sent and `j` that message's `content`
+        array — the same form error messages use.
+
+      - `required Reason Reason`
+
+        Which binding check removed the block: `model_binding_mismatch` — it was
+        created by a model whose reasoning the requested model may not read;
+        `prefix_binding_mismatch` — the conversation before it differs from the
+        conversation it was created in (the rest of that turn's consecutive thinking
+        blocks are removed with it, each with this reason);
+        `organization_binding_mismatch` — it was created under a different
+        organization (an Anthropic organization, AWS account or Google Cloud project)
+        and this organization is not one of its additional organizations;
+        `end_user_binding_mismatch` — it was created for a different end user, or
+        was removed by the consumer-organization binding. A block that would fail
+        several checks reports one reason, in this order of precedence:
+        `organization_binding_mismatch`, `end_user_binding_mismatch`,
+        `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+      - `JsonElement Type = "thinking_dropped"`
+
+        Always `thinking_dropped` for this entry type.
+
   - `class BetaRawMessageStopEvent:`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "message_stop"`
 
   - `class BetaRawContentBlockStartEvent:`
 
@@ -6211,7 +6351,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
     - `required long Index`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "content_block_start"`
 
   - `class BetaRawContentBlockDeltaEvent:`
 
@@ -6221,13 +6361,13 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
         - `required string Text`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "text_delta"`
 
       - `class BetaInputJsonDelta:`
 
         - `required string PartialJson`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "input_json_delta"`
 
       - `class BetaCitationsDelta:`
 
@@ -6243,7 +6383,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           - `class BetaCitationSearchResultLocation:`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "citations_delta"`
 
       - `class BetaThinkingDelta:`
 
@@ -6255,7 +6395,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The incremental `thinking` text for this content block. Concatenate the `thinking` values of successive `thinking_delta` events to assemble the block's full `thinking` value.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "thinking_delta"`
 
       - `class BetaSignatureDelta:`
 
@@ -6263,7 +6403,7 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           The `signature` for this thinking block: an opaque value used to verify that the block was generated by Claude when it is passed back to the API. Delivered in a `signature_delta` event just before the block's `content_block_stop` event.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "signature_delta"`
 
       - `class BetaCompactionContentBlockDelta:`
 
@@ -6273,17 +6413,17 @@ Learn more about the Messages API in our [user guide](https://platform.claude.co
 
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "compaction_delta"`
 
     - `required long Index`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "content_block_delta"`
 
   - `class BetaRawContentBlockStopEvent:`
 
     - `required long Index`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "content_block_stop"`
 
 #### Example
 
@@ -6297,6 +6437,8 @@ MessageCreateParams parameters = new()
         {
             Content = "Hello, world",
             Role = Role.User,
+            ClearAt = ClearAt.NextUserMessage,
+            OutputConfig = new() { Effort = Effort.Low },
         },
     ],
     Model = Model.ClaudeOpus5,
@@ -6391,7 +6533,7 @@ Console.WriteLine(betaMessage);
         "cache_creation_input_tokens": 0,
         "cache_read_input_tokens": 0,
         "input_tokens": 0,
-        "model": "claude-sonnet-5",
+        "model": "claude-fable-5-1",
         "output_tokens": 0,
         "type": "message"
       }
@@ -6406,7 +6548,14 @@ Console.WriteLine(betaMessage);
     },
     "service_tier": "standard",
     "speed": "standard"
-  }
+  },
+  "input_transformations": [
+    {
+      "path": "path",
+      "reason": "model_binding_mismatch",
+      "type": "thinking_dropped"
+    }
+  ]
 }
 ```
 
@@ -6489,13 +6638,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "ephemeral"`
 
             - `Ttl Ttl`
 
@@ -6508,9 +6657,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
-              - `Ttl5m`
+              - `Ttl5m("5m")`
 
-              - `Ttl1h`
+              - `Ttl1h("1h")`
 
           - `IReadOnlyList<BetaTextCitationParam>? Citations`
 
@@ -6532,7 +6681,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "char_location"`
 
             - `class BetaCitationPageLocationParam:`
 
@@ -6552,7 +6701,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "page_location"`
 
             - `class BetaCitationContentBlockLocationParam:`
 
@@ -6582,7 +6731,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "content_block_location"`
 
             - `class BetaCitationWebSearchResultLocationParam:`
 
@@ -6594,7 +6743,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 maxLength: 512, minLength: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_result_location"`
 
               - `required string Url`
 
@@ -6632,7 +6781,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string? Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "search_result_location"`
 
         - `class BetaImageBlockParam:`
 
@@ -6646,19 +6795,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required MediaType MediaType`
 
-                - `ImageJpeg`
+                - `ImageJpeg("image/jpeg")`
 
-                - `ImagePng`
+                - `ImagePng("image/png")`
 
-                - `ImageGif`
+                - `ImageGif("image/gif")`
 
-                - `ImageWebP`
+                - `ImageWebP("image/webp")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "base64"`
 
             - `class BetaUrlImageSource:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "url"`
 
               - `required string Url`
 
@@ -6666,9 +6815,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "file"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "image"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -6682,9 +6831,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
 
-              - `Downsize`
+              - `Downsize("downsize")`
 
-              - `Error`
+              - `Error("error")`
 
         - `class BetaRequestDocumentBlock:`
 
@@ -6696,17 +6845,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 format: byte
 
-              - `JsonElement MediaType constant`
+              - `JsonElement MediaType = "application/pdf"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "base64"`
 
             - `class BetaPlainTextSource:`
 
               - `required string Data`
 
-              - `JsonElement MediaType constant`
+              - `JsonElement MediaType = "text/plain"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text"`
 
             - `class BetaContentBlockSource:`
 
@@ -6720,11 +6869,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   - `class BetaImageBlockParam:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "content"`
 
             - `class BetaUrlPdfSource:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "url"`
 
               - `required string Url`
 
@@ -6732,9 +6881,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "file"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "document"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -6760,7 +6909,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               minLength: 1
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "text"`
 
             - `BetaCacheControlEphemeral? CacheControl`
 
@@ -6772,7 +6921,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required string Title`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "search_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -6792,7 +6941,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "thinking"`
 
         - `class BetaRedactedThinkingBlockParam:`
 
@@ -6800,7 +6949,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "redacted_thinking"`
 
         - `class BetaToolUseBlockParam:`
 
@@ -6814,7 +6963,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             maxLength: 200, minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_use"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -6828,7 +6977,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Tool invocation directly from the model.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "direct"`
 
             - `class BetaServerToolCaller:`
 
@@ -6838,7 +6987,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_20250825"`
 
             - `class BetaServerToolCaller20260120:`
 
@@ -6846,7 +6995,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_20260120"`
 
           - `string? ToolsetName`
 
@@ -6860,7 +7009,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -6888,7 +7037,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_reference"`
 
                 - `BetaCacheControlEphemeral? CacheControl`
 
@@ -6932,7 +7081,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "browser_state"`
 
                 - `BetaCacheControlEphemeral? CacheControl`
 
@@ -6960,7 +7109,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "tab_opened"`
 
                   - `class BetaBrowserStateChangeDownloadStarted:`
 
@@ -6972,7 +7121,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_started"`
 
                     - `required string Url`
 
@@ -6993,7 +7142,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_completed"`
 
                     - `required string Url`
 
@@ -7023,7 +7172,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_failed"`
 
                     - `required string Url`
 
@@ -7055,23 +7204,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required Name Name`
 
-            - `Advisor`
+            - `Advisor("advisor")`
 
-            - `WebSearch`
+            - `WebSearch("web_search")`
 
-            - `WebFetch`
+            - `WebFetch("web_fetch")`
 
-            - `CodeExecution`
+            - `CodeExecution("code_execution")`
 
-            - `BashCodeExecution`
+            - `BashCodeExecution("bash_code_execution")`
 
-            - `TextEditorCodeExecution`
+            - `TextEditorCodeExecution("text_editor_code_execution")`
 
-            - `ToolSearchToolRegex`
+            - `ToolSearchToolRegex("tool_search_tool_regex")`
 
-            - `ToolSearchToolBm25`
+            - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "server_tool_use"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7101,7 +7250,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_result"`
 
               - `required string Url`
 
@@ -7111,25 +7260,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required BetaWebSearchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `QueryTooLong`
+                - `QueryTooLong("query_too_long")`
 
-                - `RequestTooLarge`
+                - `RequestTooLarge("request_too_large")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_tool_result_error"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7157,31 +7306,31 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required BetaWebFetchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `UrlTooLong`
+                - `UrlTooLong("url_too_long")`
 
-                - `UrlNotAllowed`
+                - `UrlNotAllowed("url_not_allowed")`
 
-                - `UrlNotInPriorContext`
+                - `UrlNotInPriorContext("url_not_in_prior_context")`
 
-                - `UrlNotAccessible`
+                - `UrlNotAccessible("url_not_accessible")`
 
-                - `UnsupportedContentType`
+                - `UnsupportedContentType("unsupported_content_type")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_tool_result_error"`
 
             - `class BetaWebFetchBlockParam:`
 
               - `required BetaRequestDocumentBlock Content`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_result"`
 
               - `required string Url`
 
@@ -7195,7 +7344,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7223,27 +7372,27 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required ErrorCode ErrorCode`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `PromptTooLong`
+                - `PromptTooLong("prompt_too_long")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `Overloaded`
+                - `Overloaded("overloaded")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `ModelNotFound`
+                - `ModelNotFound("model_not_found")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "advisor_tool_result_error"`
 
             - `class BetaAdvisorResultBlockParam:`
 
               - `required string Text`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "advisor_result"`
 
               - `string? StopReason`
 
@@ -7253,7 +7402,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "advisor_redacted_result"`
 
               - `string? StopReason`
 
@@ -7261,7 +7410,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "advisor_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7277,15 +7426,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_tool_result_error"`
 
             - `class BetaCodeExecutionResultBlockParam:`
 
@@ -7293,7 +7442,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_output"`
 
               - `required long ReturnCode`
 
@@ -7301,7 +7450,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stdout`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_result"`
 
             - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
@@ -7311,7 +7460,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_output"`
 
               - `required string EncryptedStdout`
 
@@ -7319,13 +7468,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stderr`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "encrypted_code_execution_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7339,17 +7488,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required ErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `OutputFileTooLarge`
+                - `OutputFileTooLarge("output_file_too_large")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
             - `class BetaBashCodeExecutionResultBlockParam:`
 
@@ -7357,7 +7506,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "bash_code_execution_output"`
 
               - `required long ReturnCode`
 
@@ -7365,13 +7514,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stdout`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_code_execution_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7385,17 +7534,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required ErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `FileNotFound`
+                - `FileNotFound("file_not_found")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
               - `string? ErrorMessage`
 
@@ -7405,13 +7554,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required FileType FileType`
 
-                - `Text`
+                - `Text("text")`
 
-                - `Image`
+                - `Image("image")`
 
-                - `Pdf`
+                - `Pdf("pdf")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_view_result"`
 
               - `long? NumLines`
 
@@ -7423,11 +7572,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required bool IsFileUpdate`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_create_result"`
 
             - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
               - `IReadOnlyList<string>? Lines`
 
@@ -7443,7 +7592,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7457,15 +7606,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required ErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_result_error"`
 
               - `string? ErrorMessage`
 
@@ -7477,19 +7626,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_reference"`
 
                 - `BetaCacheControlEphemeral? CacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_search_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_search_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7509,7 +7658,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The name of the MCP server
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "mcp_tool_use"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7521,7 +7670,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "mcp_tool_result"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7537,7 +7686,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minLength: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7554,7 +7703,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required string FileID`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "container_upload"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7570,7 +7719,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
           When content is None, the block represents a failed compaction. The server
           treats these as no-ops. Empty string content is not allowed.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "compaction"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7610,7 +7759,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_reference"`
 
             - `class BetaToolChangeMcpToolReference:`
 
@@ -7621,7 +7770,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string ServerName`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "mcp_tool_reference"`
 
             - `class BetaToolChangeMcpToolsetReference:`
 
@@ -7629,9 +7778,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string ServerName`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "mcp_toolset_reference"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_addition"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7668,7 +7817,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Reference to every tool in the named MCP server's toolset.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_removal"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7700,63 +7849,71 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-              - `ClaudeSonnet5`
+              - `ClaudeFable5_1("claude-fable-5-1")`
+
+                Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+              - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+                Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+              - `ClaudeSonnet5("claude-sonnet-5")`
 
                 High-performance model for coding and agents
 
-              - `ClaudeFable5`
+              - `ClaudeFable5("claude-fable-5")`
 
                 Next generation of intelligence for the hardest knowledge work and coding problems
 
-              - `ClaudeMythos5`
+              - `ClaudeMythos5("claude-mythos-5")`
 
                 Most capable model for cybersecurity and biology research
 
-              - `ClaudeOpus5`
+              - `ClaudeOpus5("claude-opus-5")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeOpus4_8`
+              - `ClaudeOpus4_8("claude-opus-4-8")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeOpus4_7`
+              - `ClaudeOpus4_7("claude-opus-4-7")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeMythosPreview`
+              - `ClaudeMythosPreview("claude-mythos-preview")`
 
                 New class of intelligence, strongest in coding and cybersecurity
 
-              - `ClaudeOpus4_6`
+              - `ClaudeOpus4_6("claude-opus-4-6")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeSonnet4_6`
+              - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
                 Best combination of speed and intelligence
 
-              - `ClaudeHaiku4_5`
+              - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
                 Fastest model with near-frontier intelligence
 
-              - `ClaudeHaiku4_5_20251001`
+              - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
                 Fastest model with near-frontier intelligence
 
-              - `ClaudeOpus4_5`
+              - `ClaudeOpus4_5("claude-opus-4-5")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeOpus4_5_20251101`
+              - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
                 Powerful intelligence for long-running agents and coding
 
-              - `ClaudeSonnet4_5`
+              - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
                 High-performance model for agents and coding
 
-              - `ClaudeSonnet4_5_20250929`
+              - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
                 High-performance model for agents and coding
 
@@ -7764,7 +7921,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             Identifies one hop of a fallback transition.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "fallback"`
 
           - `JsonElement Trigger`
 
@@ -7772,11 +7929,41 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `required Role Role`
 
-      - `User`
+      - `User("user")`
 
-      - `Assistant`
+      - `Assistant("assistant")`
 
-      - `System`
+      - `System("system")`
+
+    - `ClearAt? ClearAt`
+
+      How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+      - `NextUserMessage("next_user_message")`
+
+      - `Never("never")`
+
+    - `BetaSystemMessageOutputConfig? OutputConfig`
+
+      Per-message output configuration on a role:"system" input message.
+
+      Fields here apply per-turn; `format` remains top-level only. An
+      empty `{}` is accepted on a message that carries content; a message
+      with neither content nor output_config fields is rejected.
+
+      - `Effort? Effort`
+
+        All possible effort levels.
+
+        - `Low("low")`
+
+        - `Medium("medium")`
+
+        - `High("high")`
+
+        - `Xhigh("xhigh")`
+
+        - `Max("max")`
 
   - `required Model model`
 
@@ -7802,7 +7989,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `required string Name`
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "url"`
 
     - `required string Url`
 
@@ -7822,9 +8009,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     Body param: Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-    - `Standard`
+    - `Standard("standard")`
 
-    - `Fast`
+    - `Fast("fast")`
 
   - `System system`
 
@@ -7840,7 +8027,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         minLength: 1
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7932,7 +8119,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This defines the shape of the `input` that your tool accepts and that the model will produce.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -7948,13 +8135,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -7984,23 +8171,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolBash20241022:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "bash_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8018,23 +8205,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolBash20250124:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "bash_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8052,23 +8239,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaCodeExecutionTool20250522:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20250522"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8084,23 +8271,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaCodeExecutionTool20250825:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20250825"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8118,23 +8305,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20260120"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8152,23 +8339,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20260521"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8189,17 +8376,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       the family's tool with any members disabled via `configs` removed
       from its schema.
 
-      - `JsonElement Type constant`
-
-      - `IReadOnlyList<BetaBrowserToolset20260801AllowedCaller> AllowedCallers`
-
-        - `Direct`
-
-        - `CodeExecution20250825`
-
-        - `CodeExecution20260120`
-
-        - `CodeExecution20260521`
+      - `JsonElement Type = "browser_toolset_20260801"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8600,23 +8777,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         minimum: 1
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "computer_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8640,23 +8817,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaMemoryTool20250818:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "memory_20250818"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8686,23 +8863,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         minimum: 1
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "computer_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8726,23 +8903,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20241022:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20241022"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8772,23 +8949,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         minimum: 1
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "computer"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "computer_20251124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -8825,17 +9002,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       `type`, `configs`, and `cache_control`; zoom is controlled
       via `configs.zoom.enabled`.
 
-      - `JsonElement Type constant`
-
-      - `IReadOnlyList<BetaComputerToolset20260801AllowedCaller> AllowedCallers`
-
-        - `Direct`
-
-        - `CodeExecution20250825`
-
-        - `CodeExecution20260120`
-
-        - `CodeExecution20260521`
+      - `JsonElement Type = "computer_toolset_20260801"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -9056,23 +9223,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250124:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -9090,23 +9257,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250429:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250429"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -9124,23 +9291,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolTextEditor20250728:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250728"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -9164,23 +9331,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20250305:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20250305"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -9212,7 +9379,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "approximate"`
 
         - `string? City`
 
@@ -9240,23 +9407,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20250910:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20250910"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -9296,23 +9463,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20260209:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -9346,23 +9513,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20260209:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -9404,23 +9571,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260309"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -9464,23 +9631,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebSearchTool20260318:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -9508,9 +9675,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-        - `Full`
+        - `Full("full")`
 
-        - `Excluded`
+        - `Excluded("excluded")`
 
       - `bool Strict`
 
@@ -9522,23 +9689,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaWebFetchTool20260318:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -9576,9 +9743,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-        - `Full`
+        - `Full("full")`
 
-        - `Excluded`
+        - `Excluded("excluded")`
 
       - `bool Strict`
 
@@ -9596,23 +9763,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "advisor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "advisor_20260301"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -9644,7 +9811,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolSearchToolBm25_20251119:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "tool_search_tool_bm25"`
 
         Name of the tool.
 
@@ -9652,19 +9819,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `required Type Type`
 
-        - `ToolSearchToolBm25_20251119`
+        - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
 
-        - `ToolSearchToolBm25`
+        - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -9680,7 +9847,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class BetaToolSearchToolRegex20251119:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "tool_search_tool_regex"`
 
         Name of the tool.
 
@@ -9688,19 +9855,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `required Type Type`
 
-        - `ToolSearchToolRegex20251119`
+        - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
 
-        - `ToolSearchToolRegex`
+        - `ToolSearchToolRegex("tool_search_tool_regex")`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -9727,7 +9894,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         maxLength: 255, minLength: 1
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "mcp_toolset"`
 
       - `BetaCacheControlEphemeral? CacheControl`
 
@@ -9753,87 +9920,93 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `string userProfileID`
 
@@ -9874,6 +10047,8 @@ MessageCountTokensParams parameters = new()
         {
             Content = "Hello, world",
             Role = Role.User,
+            ClearAt = ClearAt.NextUserMessage,
+            OutputConfig = new() { Effort = Effort.Low },
         },
     ],
     Model = Model.ClaudeOpus5,
@@ -10008,13 +10183,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minLength: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
                 Create a cache control breakpoint at this content block.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "ephemeral"`
 
                 - `Ttl Ttl`
 
@@ -10027,9 +10202,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
-                  - `Ttl5m`
+                  - `Ttl5m("5m")`
 
-                  - `Ttl1h`
+                  - `Ttl1h("1h")`
 
               - `IReadOnlyList<BetaTextCitationParam>? Citations`
 
@@ -10051,7 +10226,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "char_location"`
 
                 - `class BetaCitationPageLocationParam:`
 
@@ -10071,7 +10246,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 1
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "page_location"`
 
                 - `class BetaCitationContentBlockLocationParam:`
 
@@ -10101,7 +10276,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minimum: 0
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "content_block_location"`
 
                 - `class BetaCitationWebSearchResultLocationParam:`
 
@@ -10113,7 +10288,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     maxLength: 512, minLength: 1
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_search_result_location"`
 
                   - `required string Url`
 
@@ -10151,7 +10326,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string? Title`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "search_result_location"`
 
             - `class BetaImageBlockParam:`
 
@@ -10165,19 +10340,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required MediaType MediaType`
 
-                    - `ImageJpeg`
+                    - `ImageJpeg("image/jpeg")`
 
-                    - `ImagePng`
+                    - `ImagePng("image/png")`
 
-                    - `ImageGif`
+                    - `ImageGif("image/gif")`
 
-                    - `ImageWebP`
+                    - `ImageWebP("image/webp")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "base64"`
 
                 - `class BetaUrlImageSource:`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "url"`
 
                   - `required string Url`
 
@@ -10185,9 +10360,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string FileID`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "file"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "image"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10201,9 +10376,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
 
-                  - `Downsize`
+                  - `Downsize("downsize")`
 
-                  - `Error`
+                  - `Error("error")`
 
             - `class BetaRequestDocumentBlock:`
 
@@ -10215,17 +10390,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     format: byte
 
-                  - `JsonElement MediaType constant`
+                  - `JsonElement MediaType = "application/pdf"`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "base64"`
 
                 - `class BetaPlainTextSource:`
 
                   - `required string Data`
 
-                  - `JsonElement MediaType constant`
+                  - `JsonElement MediaType = "text/plain"`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "text"`
 
                 - `class BetaContentBlockSource:`
 
@@ -10239,11 +10414,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       - `class BetaImageBlockParam:`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "content"`
 
                 - `class BetaUrlPdfSource:`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "url"`
 
                   - `required string Url`
 
@@ -10251,9 +10426,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string FileID`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "file"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "document"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10279,7 +10454,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minLength: 1
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "text"`
 
                 - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10291,7 +10466,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `required string Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "search_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10311,7 +10486,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `thinking` text of this block as returned by the API.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "thinking"`
 
             - `class BetaRedactedThinkingBlockParam:`
 
@@ -10319,7 +10494,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "redacted_thinking"`
 
             - `class BetaToolUseBlockParam:`
 
@@ -10333,7 +10508,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 maxLength: 200, minLength: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_use"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10347,7 +10522,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Tool invocation directly from the model.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "direct"`
 
                 - `class BetaServerToolCaller:`
 
@@ -10357,7 +10532,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "code_execution_20250825"`
 
                 - `class BetaServerToolCaller20260120:`
 
@@ -10365,7 +10540,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "code_execution_20260120"`
 
               - `string? ToolsetName`
 
@@ -10379,7 +10554,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^[a-zA-Z0-9_-]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10407,7 +10582,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "tool_reference"`
 
                     - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10451,7 +10626,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "browser_state"`
 
                     - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10479,7 +10654,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `JsonElement Type constant`
+                        - `JsonElement Type = "tab_opened"`
 
                       - `class BetaBrowserStateChangeDownloadStarted:`
 
@@ -10491,7 +10666,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `JsonElement Type constant`
+                        - `JsonElement Type = "download_started"`
 
                         - `required string Url`
 
@@ -10512,7 +10687,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `JsonElement Type constant`
+                        - `JsonElement Type = "download_completed"`
 
                         - `required string Url`
 
@@ -10542,7 +10717,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                           maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                        - `JsonElement Type constant`
+                        - `JsonElement Type = "download_failed"`
 
                         - `required string Url`
 
@@ -10574,23 +10749,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `required Name Name`
 
-                - `Advisor`
+                - `Advisor("advisor")`
 
-                - `WebSearch`
+                - `WebSearch("web_search")`
 
-                - `WebFetch`
+                - `WebFetch("web_fetch")`
 
-                - `CodeExecution`
+                - `CodeExecution("code_execution")`
 
-                - `BashCodeExecution`
+                - `BashCodeExecution("bash_code_execution")`
 
-                - `TextEditorCodeExecution`
+                - `TextEditorCodeExecution("text_editor_code_execution")`
 
-                - `ToolSearchToolRegex`
+                - `ToolSearchToolRegex("tool_search_tool_regex")`
 
-                - `ToolSearchToolBm25`
+                - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "server_tool_use"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10620,7 +10795,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string Title`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_search_result"`
 
                   - `required string Url`
 
@@ -10630,25 +10805,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required BetaWebSearchToolResultErrorCode ErrorCode`
 
-                    - `InvalidToolInput`
+                    - `InvalidToolInput("invalid_tool_input")`
 
-                    - `Unavailable`
+                    - `Unavailable("unavailable")`
 
-                    - `MaxUsesExceeded`
+                    - `MaxUsesExceeded("max_uses_exceeded")`
 
-                    - `TooManyRequests`
+                    - `TooManyRequests("too_many_requests")`
 
-                    - `QueryTooLong`
+                    - `QueryTooLong("query_too_long")`
 
-                    - `RequestTooLarge`
+                    - `RequestTooLarge("request_too_large")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_search_tool_result_error"`
 
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10676,31 +10851,31 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required BetaWebFetchToolResultErrorCode ErrorCode`
 
-                    - `InvalidToolInput`
+                    - `InvalidToolInput("invalid_tool_input")`
 
-                    - `UrlTooLong`
+                    - `UrlTooLong("url_too_long")`
 
-                    - `UrlNotAllowed`
+                    - `UrlNotAllowed("url_not_allowed")`
 
-                    - `UrlNotInPriorContext`
+                    - `UrlNotInPriorContext("url_not_in_prior_context")`
 
-                    - `UrlNotAccessible`
+                    - `UrlNotAccessible("url_not_accessible")`
 
-                    - `UnsupportedContentType`
+                    - `UnsupportedContentType("unsupported_content_type")`
 
-                    - `TooManyRequests`
+                    - `TooManyRequests("too_many_requests")`
 
-                    - `MaxUsesExceeded`
+                    - `MaxUsesExceeded("max_uses_exceeded")`
 
-                    - `Unavailable`
+                    - `Unavailable("unavailable")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_fetch_tool_result_error"`
 
                 - `class BetaWebFetchBlockParam:`
 
                   - `required BetaRequestDocumentBlock Content`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_fetch_result"`
 
                   - `required string Url`
 
@@ -10714,7 +10889,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10742,27 +10917,27 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required ErrorCode ErrorCode`
 
-                    - `MaxUsesExceeded`
+                    - `MaxUsesExceeded("max_uses_exceeded")`
 
-                    - `PromptTooLong`
+                    - `PromptTooLong("prompt_too_long")`
 
-                    - `TooManyRequests`
+                    - `TooManyRequests("too_many_requests")`
 
-                    - `Overloaded`
+                    - `Overloaded("overloaded")`
 
-                    - `Unavailable`
+                    - `Unavailable("unavailable")`
 
-                    - `ExecutionTimeExceeded`
+                    - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                    - `ModelNotFound`
+                    - `ModelNotFound("model_not_found")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "advisor_tool_result_error"`
 
                 - `class BetaAdvisorResultBlockParam:`
 
                   - `required string Text`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "advisor_result"`
 
                   - `string? StopReason`
 
@@ -10772,7 +10947,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     Opaque blob produced by a prior response; must be round-tripped verbatim.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "advisor_redacted_result"`
 
                   - `string? StopReason`
 
@@ -10780,7 +10955,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "advisor_tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10796,15 +10971,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
 
-                    - `InvalidToolInput`
+                    - `InvalidToolInput("invalid_tool_input")`
 
-                    - `Unavailable`
+                    - `Unavailable("unavailable")`
 
-                    - `TooManyRequests`
+                    - `TooManyRequests("too_many_requests")`
 
-                    - `ExecutionTimeExceeded`
+                    - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "code_execution_tool_result_error"`
 
                 - `class BetaCodeExecutionResultBlockParam:`
 
@@ -10812,7 +10987,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `required string FileID`
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "code_execution_output"`
 
                   - `required long ReturnCode`
 
@@ -10820,7 +10995,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string Stdout`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "code_execution_result"`
 
                 - `class BetaEncryptedCodeExecutionResultBlockParam:`
 
@@ -10830,7 +11005,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `required string FileID`
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "code_execution_output"`
 
                   - `required string EncryptedStdout`
 
@@ -10838,13 +11013,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string Stderr`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "encrypted_code_execution_result"`
 
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10858,17 +11033,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required ErrorCode ErrorCode`
 
-                    - `InvalidToolInput`
+                    - `InvalidToolInput("invalid_tool_input")`
 
-                    - `Unavailable`
+                    - `Unavailable("unavailable")`
 
-                    - `TooManyRequests`
+                    - `TooManyRequests("too_many_requests")`
 
-                    - `ExecutionTimeExceeded`
+                    - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                    - `OutputFileTooLarge`
+                    - `OutputFileTooLarge("output_file_too_large")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
                 - `class BetaBashCodeExecutionResultBlockParam:`
 
@@ -10876,7 +11051,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     - `required string FileID`
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "bash_code_execution_output"`
 
                   - `required long ReturnCode`
 
@@ -10884,13 +11059,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string Stdout`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "bash_code_execution_result"`
 
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10904,17 +11079,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required ErrorCode ErrorCode`
 
-                    - `InvalidToolInput`
+                    - `InvalidToolInput("invalid_tool_input")`
 
-                    - `Unavailable`
+                    - `Unavailable("unavailable")`
 
-                    - `TooManyRequests`
+                    - `TooManyRequests("too_many_requests")`
 
-                    - `ExecutionTimeExceeded`
+                    - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                    - `FileNotFound`
+                    - `FileNotFound("file_not_found")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
                   - `string? ErrorMessage`
 
@@ -10924,13 +11099,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required FileType FileType`
 
-                    - `Text`
+                    - `Text("text")`
 
-                    - `Image`
+                    - `Image("image")`
 
-                    - `Pdf`
+                    - `Pdf("pdf")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "text_editor_code_execution_view_result"`
 
                   - `long? NumLines`
 
@@ -10942,11 +11117,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required bool IsFileUpdate`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "text_editor_code_execution_create_result"`
 
                 - `class BetaTextEditorCodeExecutionStrReplaceResultBlockParam:`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
                   - `IReadOnlyList<string>? Lines`
 
@@ -10962,7 +11137,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -10976,15 +11151,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required ErrorCode ErrorCode`
 
-                    - `InvalidToolInput`
+                    - `InvalidToolInput("invalid_tool_input")`
 
-                    - `Unavailable`
+                    - `Unavailable("unavailable")`
 
-                    - `TooManyRequests`
+                    - `TooManyRequests("too_many_requests")`
 
-                    - `ExecutionTimeExceeded`
+                    - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "tool_search_tool_result_error"`
 
                   - `string? ErrorMessage`
 
@@ -10996,19 +11171,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                       maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "tool_reference"`
 
                     - `BetaCacheControlEphemeral? CacheControl`
 
                       Create a cache control breakpoint at this content block.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "tool_search_tool_search_result"`
 
               - `required string ToolUseID`
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11028,7 +11203,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The name of the MCP server
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "mcp_tool_use"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11040,7 +11215,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 pattern: ^[a-zA-Z0-9_-]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "mcp_tool_result"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11056,7 +11231,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     minLength: 1
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "text"`
 
                   - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11073,7 +11248,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "container_upload"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11089,7 +11264,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
               When content is None, the block represents a failed compaction. The server
               treats these as no-ops. Empty string content is not allowed.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "compaction"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11129,7 +11304,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     pattern: ^[a-zA-Z0-9_-]{1,128}$
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "tool_reference"`
 
                 - `class BetaToolChangeMcpToolReference:`
 
@@ -11140,7 +11315,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string ServerName`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "mcp_tool_reference"`
 
                 - `class BetaToolChangeMcpToolsetReference:`
 
@@ -11148,9 +11323,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string ServerName`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "mcp_toolset_reference"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_addition"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11187,7 +11362,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   Reference to every tool in the named MCP server's toolset.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_removal"`
 
               - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11219,63 +11394,71 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                  - `ClaudeSonnet5`
+                  - `ClaudeFable5_1("claude-fable-5-1")`
+
+                    Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                  - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+                    Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                  - `ClaudeSonnet5("claude-sonnet-5")`
 
                     High-performance model for coding and agents
 
-                  - `ClaudeFable5`
+                  - `ClaudeFable5("claude-fable-5")`
 
                     Next generation of intelligence for the hardest knowledge work and coding problems
 
-                  - `ClaudeMythos5`
+                  - `ClaudeMythos5("claude-mythos-5")`
 
                     Most capable model for cybersecurity and biology research
 
-                  - `ClaudeOpus5`
+                  - `ClaudeOpus5("claude-opus-5")`
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `ClaudeOpus4_8`
+                  - `ClaudeOpus4_8("claude-opus-4-8")`
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `ClaudeOpus4_7`
+                  - `ClaudeOpus4_7("claude-opus-4-7")`
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `ClaudeMythosPreview`
+                  - `ClaudeMythosPreview("claude-mythos-preview")`
 
                     New class of intelligence, strongest in coding and cybersecurity
 
-                  - `ClaudeOpus4_6`
+                  - `ClaudeOpus4_6("claude-opus-4-6")`
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `ClaudeSonnet4_6`
+                  - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
                     Best combination of speed and intelligence
 
-                  - `ClaudeHaiku4_5`
+                  - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
                     Fastest model with near-frontier intelligence
 
-                  - `ClaudeHaiku4_5_20251001`
+                  - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
                     Fastest model with near-frontier intelligence
 
-                  - `ClaudeOpus4_5`
+                  - `ClaudeOpus4_5("claude-opus-4-5")`
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `ClaudeOpus4_5_20251101`
+                  - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
                     Powerful intelligence for long-running agents and coding
 
-                  - `ClaudeSonnet4_5`
+                  - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
                     High-performance model for agents and coding
 
-                  - `ClaudeSonnet4_5_20250929`
+                  - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
                     High-performance model for agents and coding
 
@@ -11283,7 +11466,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Identifies one hop of a fallback transition.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "fallback"`
 
               - `JsonElement Trigger`
 
@@ -11291,11 +11474,41 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `required Role Role`
 
-          - `User`
+          - `User("user")`
 
-          - `Assistant`
+          - `Assistant("assistant")`
 
-          - `System`
+          - `System("system")`
+
+        - `ClearAt? ClearAt`
+
+          How long this system message's text stays in front of the model. `"never"` (the default) renders it on every request that includes it. `"next_user_message"` renders it only for the user turn it follows: once a later `role: "user"` message exists in `messages` the message stays in the array (send it unchanged) but is no longer shown to the model. Only permitted on `role: "system"` messages.
+
+          - `NextUserMessage("next_user_message")`
+
+          - `Never("never")`
+
+        - `BetaSystemMessageOutputConfig? OutputConfig`
+
+          Per-message output configuration on a role:"system" input message.
+
+          Fields here apply per-turn; `format` remains top-level only. An
+          empty `{}` is accepted on a message that carries content; a message
+          with neither content nor output_config fields is rejected.
+
+          - `Effort? Effort`
+
+            All possible effort levels.
+
+            - `Low("low")`
+
+            - `Medium("medium")`
+
+            - `High("high")`
+
+            - `Xhigh("xhigh")`
+
+            - `Max("max")`
 
       - `required Model Model`
 
@@ -11335,9 +11548,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
 
-              - `Anthropic`
+              - `Anthropic("anthropic")`
 
-              - `Custom`
+              - `Custom("custom")`
 
             - `string Version`
 
@@ -11361,13 +11574,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaClearToolUses20250919Edit:`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "clear_tool_uses_20250919"`
 
             - `BetaInputTokensClearAtLeast? ClearAtLeast`
 
               Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "input_tokens"`
 
               - `required long Value`
 
@@ -11389,7 +11602,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Number of tool uses to retain in the conversation
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_uses"`
 
               - `required long Value`
 
@@ -11401,7 +11614,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class BetaInputTokensTrigger:`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "input_tokens"`
 
                 - `required long Value`
 
@@ -11409,7 +11622,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class BetaToolUsesTrigger:`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_uses"`
 
                 - `required long Value`
 
@@ -11417,7 +11630,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `class BetaClearThinking20251015Edit:`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "clear_thinking_20251015"`
 
             - `Keep Keep`
 
@@ -11425,7 +11638,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class BetaThinkingTurns:`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "thinking_turns"`
 
                 - `required long Value`
 
@@ -11433,7 +11646,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               - `class BetaAllThinkingTurns:`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "all"`
 
               - `class All:`
 
@@ -11441,7 +11654,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Automatically compact older context when reaching the configured trigger threshold.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "compact_20260112"`
 
             - `string? Instructions`
 
@@ -11511,9 +11724,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             How a failing token affects the retry. `strict` (the default, and the bare-string behavior): a failing redemption is a 400 and the retry is not served. `best_effort`: the retry is served either way — a token-layer failure no longer rejects the request; the retry proceeds at normal price and the outcome is reported on the response's `usage.fallback_credit`. Two failures stay hard in both modes: a malformed token, and combining `fallback_credit_token` with `fallbacks`.
 
-            - `Strict`
+            - `Strict("strict")`
 
-            - `BestEffort`
+            - `BestEffort("best_effort")`
 
       - `BetaFallbacksParam? Fallbacks`
 
@@ -11535,15 +11748,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               All possible effort levels.
 
-              - `Low`
+              - `Low("low")`
 
-              - `Medium`
+              - `Medium("medium")`
 
-              - `High`
+              - `High("high")`
 
-              - `Xhigh`
+              - `Xhigh("xhigh")`
 
-              - `Max`
+              - `Max("max")`
 
             - `BetaJsonOutputFormat? Format`
 
@@ -11553,7 +11766,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The JSON schema of the format
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "json_schema"`
 
             - `BetaTokenTaskBudget? TaskBudget`
 
@@ -11565,7 +11778,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 1024
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tokens"`
 
                 The budget type. Currently only 'tokens' is supported.
 
@@ -11579,9 +11792,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-            - `Standard`
+            - `Standard("standard")`
 
-            - `Fast`
+            - `Fast("fast")`
 
           - `Thinking? Thinking`
 
@@ -11597,35 +11810,59 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 1024
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "enabled"`
+
+              - `BetaThinkingBlockBinding? BlockBinding`
+
+                Controls for block binding: what happens when a thinking block this
+                request sends back fails the conversation check. Every field is optional;
+                an empty object means every default.
+
+                - `BetaThinkingPrefixMismatchBehavior? PrefixMismatchBehavior`
+
+                  What happens when a thinking block in `messages` fails the conversation
+                  check: it was created in a different conversation, or the messages before
+                  it have changed since. `"error"` (the default) fails the request with a
+                  400 error. `"drop_block"` removes the failing blocks and the request
+                  proceeds; the model no longer sees the dropped reasoning.
+
+                  - `Error("error")`
+
+                  - `DropBlock("drop_block")`
 
               - `Display? Display`
 
                 Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
-                - `Summarized`
+                - `Summarized("summarized")`
 
-                - `Omitted`
+                - `Omitted("omitted")`
 
-                - `Updates`
+                - `Updates("updates")`
 
             - `class BetaThinkingConfigDisabled:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "disabled"`
 
             - `class BetaThinkingConfigAdaptive:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "adaptive"`
+
+              - `BetaThinkingBlockBinding? BlockBinding`
+
+                Controls for block binding: what happens when a thinking block this
+                request sends back fails the conversation check. Every field is optional;
+                an empty object means every default.
 
               - `Display? Display`
 
                 Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
 
-                - `Summarized`
+                - `Summarized("summarized")`
 
-                - `Omitted`
+                - `Omitted("omitted")`
 
-                - `Updates`
+                - `Updates("updates")`
 
         - `JsonElement`
 
@@ -11641,7 +11878,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `required string Name`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "url"`
 
         - `required string Url`
 
@@ -11675,17 +11912,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         Anthropic offers different levels of service for your API requests. See [service-tiers](https://platform.claude.com/docs/en/api/service-tiers) for details.
 
-        - `Auto`
+        - `Auto("auto")`
 
-        - `StandardOnly`
+        - `StandardOnly("standard_only")`
 
       - `Speed? Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
       - `IReadOnlyList<string> StopSequences`
 
@@ -11715,7 +11952,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11745,7 +11982,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The model will automatically decide whether to use tools.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "auto"`
 
           - `bool DisableParallelToolUse`
 
@@ -11757,7 +11994,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The model will use any available tools.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "any"`
 
           - `bool DisableParallelToolUse`
 
@@ -11773,7 +12010,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The name of the tool to use.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool"`
 
           - `bool DisableParallelToolUse`
 
@@ -11785,7 +12022,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           The model will not be allowed to use tools.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "none"`
 
       - `IReadOnlyList<BetaToolUnion> Tools`
 
@@ -11859,7 +12096,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             This defines the shape of the `input` that your tool accepts and that the model will produce.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "object"`
 
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -11875,13 +12112,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11911,23 +12148,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolBash20241022:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_20241022"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11945,23 +12182,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolBash20250124:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_20250124"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -11979,23 +12216,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaCodeExecutionTool20250522:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_20250522"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12011,23 +12248,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaCodeExecutionTool20250825:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_20250825"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12045,23 +12282,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_20260120"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12079,23 +12316,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Code execution tool with REPL state persistence.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_20260521"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12116,17 +12353,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           the family's tool with any members disabled via `configs` removed
           from its schema.
 
-          - `JsonElement Type constant`
-
-          - `IReadOnlyList<BetaBrowserToolset20260801AllowedCaller> AllowedCallers`
-
-            - `Direct`
-
-            - `CodeExecution20250825`
-
-            - `CodeExecution20260120`
-
-            - `CodeExecution20260521`
+          - `JsonElement Type = "browser_toolset_20260801"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12527,23 +12754,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             minimum: 1
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "computer"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "computer_20241022"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12567,23 +12794,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaMemoryTool20250818:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "memory"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "memory_20250818"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12613,23 +12840,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             minimum: 1
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "computer"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "computer_20250124"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12653,23 +12880,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolTextEditor20241022:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "str_replace_editor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_20241022"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12699,23 +12926,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             minimum: 1
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "computer"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "computer_20251124"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12752,17 +12979,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
           `type`, `configs`, and `cache_control`; zoom is controlled
           via `configs.zoom.enabled`.
 
-          - `JsonElement Type constant`
-
-          - `IReadOnlyList<BetaComputerToolset20260801AllowedCaller> AllowedCallers`
-
-            - `Direct`
-
-            - `CodeExecution20250825`
-
-            - `CodeExecution20260120`
-
-            - `CodeExecution20260521`
+          - `JsonElement Type = "computer_toolset_20260801"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -12983,23 +13200,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolTextEditor20250124:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "str_replace_editor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_20250124"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -13017,23 +13234,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolTextEditor20250429:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "str_replace_based_edit_tool"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_20250429"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -13051,23 +13268,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolTextEditor20250728:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "str_replace_based_edit_tool"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_20250728"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -13091,23 +13308,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebSearchTool20250305:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_20250305"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `IReadOnlyList<string>? AllowedDomains`
 
@@ -13139,7 +13356,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
             - `string? City`
 
@@ -13167,23 +13384,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebFetchTool20250910:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_20250910"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `IReadOnlyList<string>? AllowedDomains`
 
@@ -13223,23 +13440,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebSearchTool20260209:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_20260209"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `IReadOnlyList<string>? AllowedDomains`
 
@@ -13273,23 +13490,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebFetchTool20260209:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_20260209"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `IReadOnlyList<string>? AllowedDomains`
 
@@ -13331,23 +13548,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           Web fetch tool with use_cache parameter for bypassing cached content.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_20260309"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `IReadOnlyList<string>? AllowedDomains`
 
@@ -13391,23 +13608,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebSearchTool20260318:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_20260318"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `IReadOnlyList<string>? AllowedDomains`
 
@@ -13435,9 +13652,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-            - `Full`
+            - `Full("full")`
 
-            - `Excluded`
+            - `Excluded("excluded")`
 
           - `bool Strict`
 
@@ -13449,23 +13666,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaWebFetchTool20260318:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_20260318"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `IReadOnlyList<string>? AllowedDomains`
 
@@ -13503,9 +13720,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-            - `Full`
+            - `Full("full")`
 
-            - `Excluded`
+            - `Excluded("excluded")`
 
           - `bool Strict`
 
@@ -13523,23 +13740,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "advisor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "advisor_20260301"`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -13571,7 +13788,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolSearchToolBm25_20251119:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "tool_search_tool_bm25"`
 
             Name of the tool.
 
@@ -13579,19 +13796,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `required Type Type`
 
-            - `ToolSearchToolBm25_20251119`
+            - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
 
-            - `ToolSearchToolBm25`
+            - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -13607,7 +13824,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
         - `class BetaToolSearchToolRegex20251119:`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "tool_search_tool_regex"`
 
             Name of the tool.
 
@@ -13615,19 +13832,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           - `required Type Type`
 
-            - `ToolSearchToolRegex20251119`
+            - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
 
-            - `ToolSearchToolRegex`
+            - `ToolSearchToolRegex("tool_search_tool_regex")`
 
           - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-            - `Direct`
+            - `Direct("direct")`
 
-            - `CodeExecution20250825`
+            - `CodeExecution20250825("code_execution_20250825")`
 
-            - `CodeExecution20260120`
+            - `CodeExecution20260120("code_execution_20260120")`
 
-            - `CodeExecution20260521`
+            - `CodeExecution20260521("code_execution_20260521")`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -13654,7 +13871,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             maxLength: 255, minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "mcp_toolset"`
 
           - `BetaCacheControlEphemeral? CacheControl`
 
@@ -13724,87 +13941,93 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `string userProfileID`
 
@@ -13856,11 +14079,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Processing status of the Message Batch.
 
-    - `InProgress`
+    - `InProgress("in_progress")`
 
-    - `Canceling`
+    - `Canceling("canceling")`
 
-    - `Ended`
+    - `Ended("ended")`
 
   - `required BetaMessageBatchRequestCounts RequestCounts`
 
@@ -13902,7 +14125,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "message_batch"`
 
     Object type.
 
@@ -13927,6 +14150,8 @@ BatchCreateParams parameters = new()
                     {
                         Content = "Hello, world",
                         Role = Role.User,
+                        ClearAt = ClearAt.NextUserMessage,
+                        OutputConfig = new() { Effort = Effort.Low },
                     },
                 ],
                 Model = Model.ClaudeOpus5,
@@ -14043,7 +14268,11 @@ BatchCreateParams parameters = new()
                 Temperature = 1,
                 Thinking = new BetaThinkingConfigAdaptive()
                 {
-                    Display = Display.Summarized
+                    BlockBinding = new()
+                    {
+                        PrefixMismatchBehavior = BetaThinkingPrefixMismatchBehavior.Error,
+                    },
+                    Display = Display.Summarized,
                 },
                 ToolChoice = new BetaToolChoiceAuto()
                 {
@@ -14142,87 +14371,93 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -14270,11 +14505,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Processing status of the Message Batch.
 
-    - `InProgress`
+    - `InProgress("in_progress")`
 
-    - `Canceling`
+    - `Canceling("canceling")`
 
-    - `Ended`
+    - `Ended("ended")`
 
   - `required BetaMessageBatchRequestCounts RequestCounts`
 
@@ -14316,7 +14551,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "message_batch"`
 
     Object type.
 
@@ -14389,87 +14624,93 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -14517,11 +14758,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Processing status of the Message Batch.
 
-    - `InProgress`
+    - `InProgress("in_progress")`
 
-    - `Canceling`
+    - `Canceling("canceling")`
 
-    - `Ended`
+    - `Ended("ended")`
 
   - `required BetaMessageBatchRequestCounts RequestCounts`
 
@@ -14563,7 +14804,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "message_batch"`
 
     Object type.
 
@@ -14635,87 +14876,93 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -14763,11 +15010,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Processing status of the Message Batch.
 
-    - `InProgress`
+    - `InProgress("in_progress")`
 
-    - `Canceling`
+    - `Canceling("canceling")`
 
-    - `Ended`
+    - `Ended("ended")`
 
   - `required BetaMessageBatchRequestCounts RequestCounts`
 
@@ -14809,7 +15056,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Results in the file are not guaranteed to be in the same order as requests. Use the `custom_id` field to match results to requests.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "message_batch"`
 
     Object type.
 
@@ -14872,87 +15119,93 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -14962,7 +15215,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     ID of the Message Batch.
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "message_batch_deleted"`
 
     Deleted object type.
 
@@ -15011,87 +15264,93 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -15149,9 +15408,9 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
 
-              - `Anthropic`
+              - `Anthropic("anthropic")`
 
-              - `Custom`
+              - `Custom("custom")`
 
             - `required string Version`
 
@@ -15214,7 +15473,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "char_location"`
 
               - `class BetaCitationPageLocation:`
 
@@ -15234,7 +15493,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 1
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "page_location"`
 
               - `class BetaCitationContentBlockLocation:`
 
@@ -15264,7 +15523,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   minimum: 0
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "content_block_location"`
 
               - `class BetaCitationsWebSearchResultLocation:`
 
@@ -15276,7 +15535,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 512
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "web_search_result_location"`
 
                 - `required string Url`
 
@@ -15312,13 +15571,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string? Title`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "search_result_location"`
 
             - `required string Text`
 
               maxLength: 5000000, minLength: 0
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "text"`
 
           - `class BetaThinkingBlock:`
 
@@ -15334,7 +15593,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The text of Claude's thinking process for this block.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "thinking"`
 
           - `class BetaRedactedThinkingBlock:`
 
@@ -15346,7 +15605,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               See [extended thinking](https://platform.claude.com/docs/en/build-with-claude/extended-thinking#redacted-thinking-blocks) for details.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "redacted_thinking"`
 
           - `class BetaToolUseBlock:`
 
@@ -15360,7 +15619,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               minLength: 1
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "tool_use"`
 
             - `Caller Caller`
 
@@ -15370,7 +15629,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Tool invocation directly from the model.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "direct"`
 
               - `class BetaServerToolCaller:`
 
@@ -15380,7 +15639,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_20250825"`
 
               - `class BetaServerToolCaller20260120:`
 
@@ -15388,7 +15647,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_20260120"`
 
             - `string? ToolsetName`
 
@@ -15406,23 +15665,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `required Name Name`
 
-              - `Advisor`
+              - `Advisor("advisor")`
 
-              - `WebSearch`
+              - `WebSearch("web_search")`
 
-              - `WebFetch`
+              - `WebFetch("web_fetch")`
 
-              - `CodeExecution`
+              - `CodeExecution("code_execution")`
 
-              - `BashCodeExecution`
+              - `BashCodeExecution("bash_code_execution")`
 
-              - `TextEditorCodeExecution`
+              - `TextEditorCodeExecution("text_editor_code_execution")`
 
-              - `ToolSearchToolRegex`
+              - `ToolSearchToolRegex("tool_search_tool_regex")`
 
-              - `ToolSearchToolBm25`
+              - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "server_tool_use"`
 
             - `Caller Caller`
 
@@ -15446,19 +15705,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required BetaWebSearchToolResultErrorCode ErrorCode`
 
-                  - `InvalidToolInput`
+                  - `InvalidToolInput("invalid_tool_input")`
 
-                  - `Unavailable`
+                  - `Unavailable("unavailable")`
 
-                  - `MaxUsesExceeded`
+                  - `MaxUsesExceeded("max_uses_exceeded")`
 
-                  - `TooManyRequests`
+                  - `TooManyRequests("too_many_requests")`
 
-                  - `QueryTooLong`
+                  - `QueryTooLong("query_too_long")`
 
-                  - `RequestTooLarge`
+                  - `RequestTooLarge("request_too_large")`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "web_search_tool_result_error"`
 
               - `IReadOnlyList<BetaWebSearchResultBlock>`
 
@@ -15468,7 +15727,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Title`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "web_search_result"`
 
                 - `required string Url`
 
@@ -15476,7 +15735,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "web_search_tool_result"`
 
             - `Caller Caller`
 
@@ -15500,25 +15759,25 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required BetaWebFetchToolResultErrorCode ErrorCode`
 
-                  - `InvalidToolInput`
+                  - `InvalidToolInput("invalid_tool_input")`
 
-                  - `UrlTooLong`
+                  - `UrlTooLong("url_too_long")`
 
-                  - `UrlNotAllowed`
+                  - `UrlNotAllowed("url_not_allowed")`
 
-                  - `UrlNotInPriorContext`
+                  - `UrlNotInPriorContext("url_not_in_prior_context")`
 
-                  - `UrlNotAccessible`
+                  - `UrlNotAccessible("url_not_accessible")`
 
-                  - `UnsupportedContentType`
+                  - `UnsupportedContentType("unsupported_content_type")`
 
-                  - `TooManyRequests`
+                  - `TooManyRequests("too_many_requests")`
 
-                  - `MaxUsesExceeded`
+                  - `MaxUsesExceeded("max_uses_exceeded")`
 
-                  - `Unavailable`
+                  - `Unavailable("unavailable")`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "web_fetch_tool_result_error"`
 
               - `class BetaWebFetchBlock:`
 
@@ -15538,29 +15797,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                         format: byte
 
-                      - `JsonElement MediaType constant`
+                      - `JsonElement MediaType = "application/pdf"`
 
-                      - `JsonElement Type constant`
+                      - `JsonElement Type = "base64"`
 
                     - `class BetaPlainTextSource:`
 
                       - `required string Data`
 
-                      - `JsonElement MediaType constant`
+                      - `JsonElement MediaType = "text/plain"`
 
-                      - `JsonElement Type constant`
+                      - `JsonElement Type = "text"`
 
                   - `required string? Title`
 
                     The title of the document
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "document"`
 
                 - `required string? RetrievedAt`
 
                   ISO 8601 timestamp when the content was retrieved
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "web_fetch_result"`
 
                 - `required string Url`
 
@@ -15570,7 +15829,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "web_fetch_tool_result"`
 
             - `Caller Caller`
 
@@ -15594,21 +15853,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required ErrorCode ErrorCode`
 
-                  - `MaxUsesExceeded`
+                  - `MaxUsesExceeded("max_uses_exceeded")`
 
-                  - `PromptTooLong`
+                  - `PromptTooLong("prompt_too_long")`
 
-                  - `TooManyRequests`
+                  - `TooManyRequests("too_many_requests")`
 
-                  - `Overloaded`
+                  - `Overloaded("overloaded")`
 
-                  - `Unavailable`
+                  - `Unavailable("unavailable")`
 
-                  - `ExecutionTimeExceeded`
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                  - `ModelNotFound`
+                  - `ModelNotFound("model_not_found")`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "advisor_tool_result_error"`
 
               - `class BetaAdvisorResultBlock:`
 
@@ -15618,7 +15877,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Text`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "advisor_result"`
 
               - `class BetaAdvisorRedactedResultBlock:`
 
@@ -15630,13 +15889,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "advisor_redacted_result"`
 
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "advisor_tool_result"`
 
           - `class BetaCodeExecutionToolResultBlock:`
 
@@ -15648,15 +15907,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required BetaCodeExecutionToolResultErrorCode ErrorCode`
 
-                  - `InvalidToolInput`
+                  - `InvalidToolInput("invalid_tool_input")`
 
-                  - `Unavailable`
+                  - `Unavailable("unavailable")`
 
-                  - `TooManyRequests`
+                  - `TooManyRequests("too_many_requests")`
 
-                  - `ExecutionTimeExceeded`
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_tool_result_error"`
 
               - `class BetaCodeExecutionResultBlock:`
 
@@ -15664,7 +15923,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string FileID`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "code_execution_output"`
 
                 - `required long ReturnCode`
 
@@ -15672,7 +15931,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Stdout`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_result"`
 
               - `class BetaEncryptedCodeExecutionResultBlock:`
 
@@ -15682,7 +15941,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string FileID`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "code_execution_output"`
 
                 - `required string EncryptedStdout`
 
@@ -15690,13 +15949,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Stderr`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "encrypted_code_execution_result"`
 
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "code_execution_tool_result"`
 
           - `class BetaBashCodeExecutionToolResultBlock:`
 
@@ -15706,17 +15965,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required ErrorCode ErrorCode`
 
-                  - `InvalidToolInput`
+                  - `InvalidToolInput("invalid_tool_input")`
 
-                  - `Unavailable`
+                  - `Unavailable("unavailable")`
 
-                  - `TooManyRequests`
+                  - `TooManyRequests("too_many_requests")`
 
-                  - `ExecutionTimeExceeded`
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                  - `OutputFileTooLarge`
+                  - `OutputFileTooLarge("output_file_too_large")`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
               - `class BetaBashCodeExecutionResultBlock:`
 
@@ -15724,7 +15983,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   - `required string FileID`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "bash_code_execution_output"`
 
                 - `required long ReturnCode`
 
@@ -15732,13 +15991,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required string Stdout`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "bash_code_execution_result"`
 
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "bash_code_execution_tool_result"`
 
           - `class BetaTextEditorCodeExecutionToolResultBlock:`
 
@@ -15748,19 +16007,19 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required ErrorCode ErrorCode`
 
-                  - `InvalidToolInput`
+                  - `InvalidToolInput("invalid_tool_input")`
 
-                  - `Unavailable`
+                  - `Unavailable("unavailable")`
 
-                  - `TooManyRequests`
+                  - `TooManyRequests("too_many_requests")`
 
-                  - `ExecutionTimeExceeded`
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                  - `FileNotFound`
+                  - `FileNotFound("file_not_found")`
 
                 - `required string? ErrorMessage`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
               - `class BetaTextEditorCodeExecutionViewResultBlock:`
 
@@ -15768,11 +16027,11 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required FileType FileType`
 
-                  - `Text`
+                  - `Text("text")`
 
-                  - `Image`
+                  - `Image("image")`
 
-                  - `Pdf`
+                  - `Pdf("pdf")`
 
                 - `required long? NumLines`
 
@@ -15780,13 +16039,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required long? TotalLines`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "text_editor_code_execution_view_result"`
 
               - `class BetaTextEditorCodeExecutionCreateResultBlock:`
 
                 - `required bool IsFileUpdate`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "text_editor_code_execution_create_result"`
 
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
 
@@ -15800,13 +16059,13 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required long? OldStart`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
           - `class BetaToolSearchToolResultBlock:`
 
@@ -15816,17 +16075,17 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 - `required ErrorCode ErrorCode`
 
-                  - `InvalidToolInput`
+                  - `InvalidToolInput("invalid_tool_input")`
 
-                  - `Unavailable`
+                  - `Unavailable("unavailable")`
 
-                  - `TooManyRequests`
+                  - `TooManyRequests("too_many_requests")`
 
-                  - `ExecutionTimeExceeded`
+                  - `ExecutionTimeExceeded("execution_time_exceeded")`
 
                 - `required string? ErrorMessage`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_search_tool_result_error"`
 
               - `class BetaToolSearchToolSearchResultBlock:`
 
@@ -15836,15 +16095,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                     maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "tool_reference"`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_search_tool_search_result"`
 
             - `required string ToolUseID`
 
               pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "tool_search_tool_result"`
 
           - `class BetaMcpToolUseBlock:`
 
@@ -15862,7 +16121,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               The name of the MCP server
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "mcp_tool_use"`
 
           - `class BetaMcpToolResultBlock:`
 
@@ -15882,7 +16141,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                   maxLength: 5000000, minLength: 0
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "text"`
 
             - `required bool IsError`
 
@@ -15890,7 +16149,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               pattern: ^[a-zA-Z0-9_-]+$
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "mcp_tool_result"`
 
           - `class BetaContainerUploadBlock:`
 
@@ -15898,7 +16157,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `required string FileID`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "container_upload"`
 
           - `class BetaCompactionBlock:`
 
@@ -15916,7 +16175,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
               Opaque metadata from prior compaction, to be round-tripped verbatim
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "compaction"`
 
           - `class BetaFallbackBlock:`
 
@@ -15942,63 +16201,71 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `ClaudeSonnet5`
+                - `ClaudeFable5_1("claude-fable-5-1")`
+
+                  Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+                - `ClaudeMythos5_1("claude-mythos-5-1")`
+
+                  Our most capable model for cybersecurity and biology research, available through trusted access programs
+
+                - `ClaudeSonnet5("claude-sonnet-5")`
 
                   High-performance model for coding and agents
 
-                - `ClaudeFable5`
+                - `ClaudeFable5("claude-fable-5")`
 
                   Next generation of intelligence for the hardest knowledge work and coding problems
 
-                - `ClaudeMythos5`
+                - `ClaudeMythos5("claude-mythos-5")`
 
                   Most capable model for cybersecurity and biology research
 
-                - `ClaudeOpus5`
+                - `ClaudeOpus5("claude-opus-5")`
 
                   Powerful intelligence for long-running agents and coding
 
-                - `ClaudeOpus4_8`
+                - `ClaudeOpus4_8("claude-opus-4-8")`
 
                   Powerful intelligence for long-running agents and coding
 
-                - `ClaudeOpus4_7`
+                - `ClaudeOpus4_7("claude-opus-4-7")`
 
                   Powerful intelligence for long-running agents and coding
 
-                - `ClaudeMythosPreview`
+                - `ClaudeMythosPreview("claude-mythos-preview")`
 
                   New class of intelligence, strongest in coding and cybersecurity
 
-                - `ClaudeOpus4_6`
+                - `ClaudeOpus4_6("claude-opus-4-6")`
 
                   Powerful intelligence for long-running agents and coding
 
-                - `ClaudeSonnet4_6`
+                - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
                   Best combination of speed and intelligence
 
-                - `ClaudeHaiku4_5`
+                - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
                   Fastest model with near-frontier intelligence
 
-                - `ClaudeHaiku4_5_20251001`
+                - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
                   Fastest model with near-frontier intelligence
 
-                - `ClaudeOpus4_5`
+                - `ClaudeOpus4_5("claude-opus-4-5")`
 
                   Powerful intelligence for long-running agents and coding
 
-                - `ClaudeOpus4_5_20251101`
+                - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
                   Powerful intelligence for long-running agents and coding
 
-                - `ClaudeSonnet4_5`
+                - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
                   High-performance model for agents and coding
 
-                - `ClaudeSonnet4_5_20250929`
+                - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
                   High-performance model for agents and coding
 
@@ -16014,29 +16281,29 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 The policy category that triggered a refusal.
 
-                - `Cyber`
+                - `Cyber("cyber")`
 
                   The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
 
-                - `Bio`
+                - `Bio("bio")`
 
                   The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
-                - `FrontierLlm`
+                - `FrontierLlm("frontier_llm")`
 
                   The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
 
-                - `ReasoningExtraction`
+                - `ReasoningExtraction("reasoning_extraction")`
 
                   The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
 
-                - `GeneralHarms`
+                - `GeneralHarms("general_harms")`
 
                   The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "refusal"`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "fallback"`
 
         - `required BetaContextManagementResponse? ContextManagement`
 
@@ -16062,7 +16329,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "clear_tool_uses_20250919"`
 
                 The type of context management edit applied.
 
@@ -16080,7 +16347,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "clear_thinking_20251015"`
 
                 The type of context management edit applied.
 
@@ -16099,7 +16366,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "model_changed"`
 
             - `class BetaCacheMissSystemChanged:`
 
@@ -16107,7 +16374,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "system_changed"`
 
             - `class BetaCacheMissToolsChanged:`
 
@@ -16115,7 +16382,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tools_changed"`
 
             - `class BetaCacheMissMessagesChanged:`
 
@@ -16123,15 +16390,15 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "messages_changed"`
 
             - `class BetaCacheMissPreviousMessageNotFound:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "previous_message_not_found"`
 
             - `class BetaCacheMissUnavailable:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "unavailable"`
 
         - `required Model Model`
 
@@ -16139,7 +16406,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `JsonElement Role constant`
+        - `JsonElement Role = "assistant"`
 
           Conversational role of the generated message.
 
@@ -16153,23 +16420,23 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The policy category that triggered a refusal.
 
-            - `Cyber`
+            - `Cyber("cyber")`
 
               The request could enable cyber harm, such as malware or exploit development. Benign cybersecurity work can also trigger this category.
 
-            - `Bio`
+            - `Bio("bio")`
 
               The request could enable biological harm, such as dangerous lab methods. Beneficial life sciences work can also trigger this category.
 
-            - `FrontierLlm`
+            - `FrontierLlm("frontier_llm")`
 
               The request could assist the development of competing AI models, which is restricted under [Anthropic's commercial terms](https://www.anthropic.com/legal/commercial-terms). Benign machine learning work can also trigger this category.
 
-            - `ReasoningExtraction`
+            - `ReasoningExtraction("reasoning_extraction")`
 
               The request asks the model to reproduce its internal reasoning in the response text. To get reasoning in a structured form instead, use [adaptive thinking](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking).
 
-            - `GeneralHarms`
+            - `GeneralHarms("general_harms")`
 
               The request could be related to an area that was determined as harmful. Benign work might sometimes trigger this category.
 
@@ -16228,7 +16495,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             The server's suggested retry target for this refusal. Populated when a fallback attempt could not be made (the fallback model's rate limit was exhausted, or it was overloaded); names the fallback model the caller can retry directly. Null otherwise.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "refusal"`
 
         - `required BetaStopReason? StopReason`
 
@@ -16246,21 +16513,21 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
 
-          - `EndTurn`
+          - `EndTurn("end_turn")`
 
-          - `MaxTokens`
+          - `MaxTokens("max_tokens")`
 
-          - `StopSequence`
+          - `StopSequence("stop_sequence")`
 
-          - `ToolUse`
+          - `ToolUse("tool_use")`
 
-          - `PauseTurn`
+          - `PauseTurn("pause_turn")`
 
-          - `Compaction`
+          - `Compaction("compaction")`
 
-          - `Refusal`
+          - `Refusal("refusal")`
 
-          - `ModelContextWindowExceeded`
+          - `ModelContextWindowExceeded("model_context_window_exceeded")`
 
         - `required string? StopSequence`
 
@@ -16268,7 +16535,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
           This value will be a non-null string if one of your custom stop sequences was generated.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "message"`
 
           Object type.
 
@@ -16332,7 +16599,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                 The reprice was applied: the retry is billed as if the conversation
                 had been on the retry model all along.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "redeemed"`
 
               - `class BetaFallbackCreditNotApplied:`
 
@@ -16345,31 +16612,31 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
                   A closed enum; additions to the redemption-check vocabulary arrive as
                   deliberate schema updates.
 
-                  - `BodyMismatch`
+                  - `BodyMismatch("body_mismatch")`
 
-                  - `ContinuationExcluded`
+                  - `ContinuationExcluded("continuation_excluded")`
 
-                  - `ContinuationOnly`
+                  - `ContinuationOnly("continuation_only")`
 
-                  - `Expired`
+                  - `Expired("expired")`
 
-                  - `InvalidTargetModel`
+                  - `InvalidTargetModel("invalid_target_model")`
 
-                  - `NotEnabled`
+                  - `NotEnabled("not_enabled")`
 
-                  - `RepriceUnavailable`
+                  - `RepriceUnavailable("reprice_unavailable")`
 
-                  - `TemporarilyUnavailable`
+                  - `TemporarilyUnavailable("temporarily_unavailable")`
 
-                  - `VariantFieldsPresent`
+                  - `VariantFieldsPresent("variant_fields_present")`
 
-                  - `WrongOrganization`
+                  - `WrongOrganization("wrong_organization")`
 
-                  - `WrongPlatform`
+                  - `WrongPlatform("wrong_platform")`
 
-                  - `WrongWorkspace`
+                  - `WrongWorkspace("wrong_workspace")`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "not_applied"`
 
                 - `IReadOnlyList<string>? RemoveToRedeem`
 
@@ -16442,7 +16709,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "message"`
 
                 Usage for a sampling iteration
 
@@ -16478,7 +16745,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "compaction"`
 
                 Usage for a compaction iteration
 
@@ -16520,7 +16787,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "advisor_message"`
 
                 Usage for an advisor sub-inference iteration
 
@@ -16567,7 +16834,7 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "fallback_message"`
 
                 Usage for the fallback-model attempt that served the response
 
@@ -16619,21 +16886,73 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             If the request used the priority, standard, or batch tier.
 
-            - `Standard`
+            - `Standard("standard")`
 
-            - `Priority`
+            - `Priority("priority")`
 
-            - `Batch`
+            - `Batch("batch")`
 
           - `required Speed? Speed`
 
             Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-            - `Standard`
+            - `Standard("standard")`
 
-            - `Fast`
+            - `Fast("fast")`
 
-      - `JsonElement Type constant`
+        - `IReadOnlyList<BetaThinkingDroppedInputTransformation>? InputTransformations`
+
+          Changes the API made to the request's input before showing it to the model:
+          one entry per change, in request order. Today the only entry type is
+          `thinking_dropped` — a `thinking`, `redacted_thinking` or `connector_text`
+          block from the request's `messages` that was removed from the prompt instead
+          of being shown to the model because it failed a binding check. More entry
+          types may be added over time; ignore types you do not recognize.
+
+          Requires `anthropic-beta: thinking-binding-controls-2026-08-01`. Present on
+          every such response from a model that supports extended thinking, as `[]`
+          when nothing was changed; without the beta, blocks are removed all the same
+          but nothing is reported. Removed blocks contribute nothing to
+          `usage.input_tokens`. When streaming, the array is final in `message_start`;
+          the final `message_delta` event carries it only when a server-side model
+          fallback happened mid-stream, in which case it holds the serving model's
+          entries and replaces the one in `message_start`.
+
+          - `required string Path`
+
+            Where the removed block was in your request, as `messages.{i}.content.{j}`:
+            `i` indexes the `messages` array you sent and `j` that message's `content`
+            array — the same form error messages use.
+
+          - `required Reason Reason`
+
+            Which binding check removed the block: `model_binding_mismatch` — it was
+            created by a model whose reasoning the requested model may not read;
+            `prefix_binding_mismatch` — the conversation before it differs from the
+            conversation it was created in (the rest of that turn's consecutive thinking
+            blocks are removed with it, each with this reason);
+            `organization_binding_mismatch` — it was created under a different
+            organization (an Anthropic organization, AWS account or Google Cloud project)
+            and this organization is not one of its additional organizations;
+            `end_user_binding_mismatch` — it was created for a different end user, or
+            was removed by the consumer-organization binding. A block that would fail
+            several checks reports one reason, in this order of precedence:
+            `organization_binding_mismatch`, `end_user_binding_mismatch`,
+            `model_binding_mismatch`, `prefix_binding_mismatch`.
+
+            - `ModelBindingMismatch("model_binding_mismatch")`
+
+            - `PrefixBindingMismatch("prefix_binding_mismatch")`
+
+            - `OrganizationBindingMismatch("organization_binding_mismatch")`
+
+            - `EndUserBindingMismatch("end_user_binding_mismatch")`
+
+          - `JsonElement Type = "thinking_dropped"`
+
+            Always `thinking_dropped` for this entry type.
+
+      - `JsonElement Type = "succeeded"`
 
     - `class BetaMessageBatchErroredResult:`
 
@@ -16645,69 +16964,69 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "invalid_request_error"`
 
           - `class BetaAuthenticationError:`
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "authentication_error"`
 
           - `class BetaBillingError:`
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "billing_error"`
 
           - `class BetaPermissionError:`
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "permission_error"`
 
           - `class BetaNotFoundError:`
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "not_found_error"`
 
           - `class BetaRateLimitError:`
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "rate_limit_error"`
 
           - `class BetaGatewayTimeoutError:`
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "timeout_error"`
 
           - `class BetaApiError:`
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "api_error"`
 
           - `class BetaOverloadedError:`
 
             - `required string Message`
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "overloaded_error"`
 
         - `required string? RequestID`
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "error"`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "errored"`
 
     - `class BetaMessageBatchCanceledResult:`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "canceled"`
 
     - `class BetaMessageBatchExpiredResult:`
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "expired"`
 
 #### Example
 
@@ -16744,55 +17063,59 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `ClaudeSonnet5`
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
 
         High-performance model for coding and agents
 
-      - `ClaudeFable5`
+      - `ClaudeFable5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `ClaudeOpus5`
+      - `ClaudeOpus5("claude-opus-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_8`
+      - `ClaudeOpus4_8("claude-opus-4-8")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_7`
+      - `ClaudeOpus4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_6`
+      - `ClaudeOpus4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_6`
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
         Best combination of speed and intelligence
 
-      - `ClaudeHaiku4_5`
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeHaiku4_5_20251001`
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeOpus4_5`
+      - `ClaudeOpus4_5("claude-opus-4-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_5_20251101`
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5`
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
         High-performance model for agents and coding
 
-      - `ClaudeSonnet4_5_20250929`
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
 
@@ -16806,55 +17129,59 @@ Create Agent
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `ClaudeSonnet5`
+        - `ClaudeFable5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `ClaudeSonnet5("claude-sonnet-5")`
 
           High-performance model for coding and agents
 
-        - `ClaudeFable5`
+        - `ClaudeFable5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
-        - `ClaudeOpus5`
+        - `ClaudeOpus5("claude-opus-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_8`
+        - `ClaudeOpus4_8("claude-opus-4-8")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_7`
+        - `ClaudeOpus4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_6`
+        - `ClaudeOpus4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_6`
+        - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
           Best combination of speed and intelligence
 
-        - `ClaudeHaiku4_5`
+        - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeHaiku4_5_20251001`
+        - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeOpus4_5`
+        - `ClaudeOpus4_5("claude-opus-4-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_5_20251101`
+        - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5`
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
           High-performance model for agents and coding
 
-        - `ClaudeSonnet4_5_20250929`
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
 
@@ -16866,15 +17193,15 @@ Create Agent
 
           How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
 
-          - `Low`
+          - `Low("low")`
 
-          - `Medium`
+          - `Medium("medium")`
 
-          - `High`
+          - `High("high")`
 
-          - `Xhigh`
+          - `Xhigh("xhigh")`
 
-          - `Max`
+          - `Max("max")`
 
         - `class BetaManagedAgentsEffortLow:`
 
@@ -16914,9 +17241,9 @@ Create Agent
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
   - `required string name`
 
@@ -17020,7 +17347,7 @@ Create Agent
 
           Configuration override for the bash tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
             Must be "bash".
 
@@ -17050,7 +17377,7 @@ Create Agent
 
           Configuration override for the edit tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "edit"`
 
             Must be "edit".
 
@@ -17076,7 +17403,7 @@ Create Agent
 
           Configuration override for the read tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "read"`
 
             Must be "read".
 
@@ -17102,7 +17429,7 @@ Create Agent
 
           Configuration override for the write tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "write"`
 
             Must be "write".
 
@@ -17128,7 +17455,7 @@ Create Agent
 
           Configuration override for the glob tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "glob"`
 
             Must be "glob".
 
@@ -17154,7 +17481,7 @@ Create Agent
 
           Configuration override for the grep tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "grep"`
 
             Must be "grep".
 
@@ -17180,7 +17507,7 @@ Create Agent
 
           Configuration override for the web_fetch tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
             Must be "web_fetch".
 
@@ -17220,7 +17547,7 @@ Create Agent
 
           Configuration override for the web_search tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
             Must be "web_search".
 
@@ -17254,7 +17581,7 @@ Create Agent
 
             Approximate user location for search result localization.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
               Location precision. Only "approximate" is supported.
 
@@ -17372,7 +17699,7 @@ Create Agent
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -17390,87 +17717,93 @@ Create Agent
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -17514,55 +17847,59 @@ Create Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `ClaudeSonnet5`
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
 
         High-performance model for coding and agents
 
-      - `ClaudeFable5`
+      - `ClaudeFable5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `ClaudeOpus5`
+      - `ClaudeOpus5("claude-opus-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_8`
+      - `ClaudeOpus4_8("claude-opus-4-8")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_7`
+      - `ClaudeOpus4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_6`
+      - `ClaudeOpus4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_6`
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
         Best combination of speed and intelligence
 
-      - `ClaudeHaiku4_5`
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeHaiku4_5_20251001`
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeOpus4_5`
+      - `ClaudeOpus4_5("claude-opus-4-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_5_20251101`
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5`
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
         High-performance model for agents and coding
 
-      - `ClaudeSonnet4_5_20250929`
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
 
@@ -17608,9 +17945,9 @@ Create Agent
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Fast`
+      - `Fast("fast")`
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
@@ -17682,7 +18019,7 @@ Create Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -17700,7 +18037,7 @@ Create Agent
 
               - `required Type Type`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
@@ -17708,7 +18045,7 @@ Create Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "edit"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -17722,7 +18059,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "edit"`
 
         - `class BetaManagedAgentsReadToolConfig:`
 
@@ -17730,7 +18067,7 @@ Create Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "read"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -17744,7 +18081,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "read"`
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -17752,7 +18089,7 @@ Create Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "write"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -17766,7 +18103,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "write"`
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -17774,7 +18111,7 @@ Create Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "glob"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -17788,7 +18125,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "glob"`
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -17796,7 +18133,7 @@ Create Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "grep"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -17810,7 +18147,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "grep"`
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -17818,7 +18155,7 @@ Create Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -17832,7 +18169,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -17848,7 +18185,7 @@ Create Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -17862,7 +18199,7 @@ Create Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -17872,7 +18209,7 @@ Create Agent
 
             Approximate user location for search result localization.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
               Location precision. Only "approximate" is supported.
 
@@ -17970,7 +18307,7 @@ Create Agent
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -18127,87 +18464,93 @@ List Agents
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -18251,55 +18594,59 @@ List Agents
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `ClaudeSonnet5`
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
 
         High-performance model for coding and agents
 
-      - `ClaudeFable5`
+      - `ClaudeFable5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `ClaudeOpus5`
+      - `ClaudeOpus5("claude-opus-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_8`
+      - `ClaudeOpus4_8("claude-opus-4-8")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_7`
+      - `ClaudeOpus4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_6`
+      - `ClaudeOpus4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_6`
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
         Best combination of speed and intelligence
 
-      - `ClaudeHaiku4_5`
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeHaiku4_5_20251001`
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeOpus4_5`
+      - `ClaudeOpus4_5("claude-opus-4-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_5_20251101`
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5`
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
         High-performance model for agents and coding
 
-      - `ClaudeSonnet4_5_20250929`
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
 
@@ -18345,9 +18692,9 @@ List Agents
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Fast`
+      - `Fast("fast")`
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
@@ -18419,7 +18766,7 @@ List Agents
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -18437,7 +18784,7 @@ List Agents
 
               - `required Type Type`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
@@ -18445,7 +18792,7 @@ List Agents
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "edit"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -18459,7 +18806,7 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "edit"`
 
         - `class BetaManagedAgentsReadToolConfig:`
 
@@ -18467,7 +18814,7 @@ List Agents
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "read"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -18481,7 +18828,7 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "read"`
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -18489,7 +18836,7 @@ List Agents
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "write"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -18503,7 +18850,7 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "write"`
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -18511,7 +18858,7 @@ List Agents
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "glob"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -18525,7 +18872,7 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "glob"`
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -18533,7 +18880,7 @@ List Agents
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "grep"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -18547,7 +18894,7 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "grep"`
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -18555,7 +18902,7 @@ List Agents
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -18569,7 +18916,7 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -18585,7 +18932,7 @@ List Agents
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -18599,7 +18946,7 @@ List Agents
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -18609,7 +18956,7 @@ List Agents
 
             Approximate user location for search result localization.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
               Location precision. Only "approximate" is supported.
 
@@ -18707,7 +19054,7 @@ List Agents
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -18851,87 +19198,93 @@ Get Agent
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -18975,55 +19328,59 @@ Get Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `ClaudeSonnet5`
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
 
         High-performance model for coding and agents
 
-      - `ClaudeFable5`
+      - `ClaudeFable5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `ClaudeOpus5`
+      - `ClaudeOpus5("claude-opus-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_8`
+      - `ClaudeOpus4_8("claude-opus-4-8")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_7`
+      - `ClaudeOpus4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_6`
+      - `ClaudeOpus4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_6`
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
         Best combination of speed and intelligence
 
-      - `ClaudeHaiku4_5`
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeHaiku4_5_20251001`
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeOpus4_5`
+      - `ClaudeOpus4_5("claude-opus-4-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_5_20251101`
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5`
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
         High-performance model for agents and coding
 
-      - `ClaudeSonnet4_5_20250929`
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
 
@@ -19069,9 +19426,9 @@ Get Agent
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Fast`
+      - `Fast("fast")`
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
@@ -19143,7 +19500,7 @@ Get Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -19161,7 +19518,7 @@ Get Agent
 
               - `required Type Type`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
@@ -19169,7 +19526,7 @@ Get Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "edit"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -19183,7 +19540,7 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "edit"`
 
         - `class BetaManagedAgentsReadToolConfig:`
 
@@ -19191,7 +19548,7 @@ Get Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "read"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -19205,7 +19562,7 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "read"`
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -19213,7 +19570,7 @@ Get Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "write"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -19227,7 +19584,7 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "write"`
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -19235,7 +19592,7 @@ Get Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "glob"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -19249,7 +19606,7 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "glob"`
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -19257,7 +19614,7 @@ Get Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "grep"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -19271,7 +19628,7 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "grep"`
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -19279,7 +19636,7 @@ Get Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -19293,7 +19650,7 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -19309,7 +19666,7 @@ Get Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -19323,7 +19680,7 @@ Get Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -19333,7 +19690,7 @@ Get Agent
 
             Approximate user location for search result localization.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
               Location precision. Only "approximate" is supported.
 
@@ -19431,7 +19788,7 @@ Get Agent
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -19599,55 +19956,59 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `ClaudeSonnet5`
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
 
         High-performance model for coding and agents
 
-      - `ClaudeFable5`
+      - `ClaudeFable5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `ClaudeOpus5`
+      - `ClaudeOpus5("claude-opus-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_8`
+      - `ClaudeOpus4_8("claude-opus-4-8")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_7`
+      - `ClaudeOpus4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_6`
+      - `ClaudeOpus4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_6`
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
         Best combination of speed and intelligence
 
-      - `ClaudeHaiku4_5`
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeHaiku4_5_20251001`
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeOpus4_5`
+      - `ClaudeOpus4_5("claude-opus-4-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_5_20251101`
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5`
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
         High-performance model for agents and coding
 
-      - `ClaudeSonnet4_5_20250929`
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
 
@@ -19661,55 +20022,59 @@ Update Agent
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `ClaudeSonnet5`
+        - `ClaudeFable5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `ClaudeSonnet5("claude-sonnet-5")`
 
           High-performance model for coding and agents
 
-        - `ClaudeFable5`
+        - `ClaudeFable5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
-        - `ClaudeOpus5`
+        - `ClaudeOpus5("claude-opus-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_8`
+        - `ClaudeOpus4_8("claude-opus-4-8")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_7`
+        - `ClaudeOpus4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_6`
+        - `ClaudeOpus4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_6`
+        - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
           Best combination of speed and intelligence
 
-        - `ClaudeHaiku4_5`
+        - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeHaiku4_5_20251001`
+        - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeOpus4_5`
+        - `ClaudeOpus4_5("claude-opus-4-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_5_20251101`
+        - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5`
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
           High-performance model for agents and coding
 
-        - `ClaudeSonnet4_5_20250929`
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
 
@@ -19721,15 +20086,15 @@ Update Agent
 
           How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
 
-          - `Low`
+          - `Low("low")`
 
-          - `Medium`
+          - `Medium("medium")`
 
-          - `High`
+          - `High("high")`
 
-          - `Xhigh`
+          - `Xhigh("xhigh")`
 
-          - `Max`
+          - `Max("max")`
 
         - `class BetaManagedAgentsEffortLow:`
 
@@ -19769,9 +20134,9 @@ Update Agent
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
   - `BetaManagedAgentsMultiagentParams? multiagent`
 
@@ -19847,7 +20212,7 @@ Update Agent
 
           Configuration override for the bash tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
             Must be "bash".
 
@@ -19877,7 +20242,7 @@ Update Agent
 
           Configuration override for the edit tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "edit"`
 
             Must be "edit".
 
@@ -19903,7 +20268,7 @@ Update Agent
 
           Configuration override for the read tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "read"`
 
             Must be "read".
 
@@ -19929,7 +20294,7 @@ Update Agent
 
           Configuration override for the write tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "write"`
 
             Must be "write".
 
@@ -19955,7 +20320,7 @@ Update Agent
 
           Configuration override for the glob tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "glob"`
 
             Must be "glob".
 
@@ -19981,7 +20346,7 @@ Update Agent
 
           Configuration override for the grep tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "grep"`
 
             Must be "grep".
 
@@ -20007,7 +20372,7 @@ Update Agent
 
           Configuration override for the web_fetch tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
             Must be "web_fetch".
 
@@ -20047,7 +20412,7 @@ Update Agent
 
           Configuration override for the web_search tool.
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
             Must be "web_search".
 
@@ -20081,7 +20446,7 @@ Update Agent
 
             Approximate user location for search result localization.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
               Location precision. Only "approximate" is supported.
 
@@ -20199,7 +20564,7 @@ Update Agent
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -20223,87 +20588,93 @@ Update Agent
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -20347,55 +20718,59 @@ Update Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `ClaudeSonnet5`
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
 
         High-performance model for coding and agents
 
-      - `ClaudeFable5`
+      - `ClaudeFable5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `ClaudeOpus5`
+      - `ClaudeOpus5("claude-opus-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_8`
+      - `ClaudeOpus4_8("claude-opus-4-8")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_7`
+      - `ClaudeOpus4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_6`
+      - `ClaudeOpus4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_6`
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
         Best combination of speed and intelligence
 
-      - `ClaudeHaiku4_5`
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeHaiku4_5_20251001`
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeOpus4_5`
+      - `ClaudeOpus4_5("claude-opus-4-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_5_20251101`
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5`
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
         High-performance model for agents and coding
 
-      - `ClaudeSonnet4_5_20250929`
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
 
@@ -20441,9 +20816,9 @@ Update Agent
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Fast`
+      - `Fast("fast")`
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
@@ -20515,7 +20890,7 @@ Update Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -20533,7 +20908,7 @@ Update Agent
 
               - `required Type Type`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
@@ -20541,7 +20916,7 @@ Update Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "edit"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -20555,7 +20930,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "edit"`
 
         - `class BetaManagedAgentsReadToolConfig:`
 
@@ -20563,7 +20938,7 @@ Update Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "read"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -20577,7 +20952,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "read"`
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -20585,7 +20960,7 @@ Update Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "write"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -20599,7 +20974,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "write"`
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -20607,7 +20982,7 @@ Update Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "glob"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -20621,7 +20996,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "glob"`
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -20629,7 +21004,7 @@ Update Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "grep"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -20643,7 +21018,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "grep"`
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -20651,7 +21026,7 @@ Update Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -20665,7 +21040,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -20681,7 +21056,7 @@ Update Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -20695,7 +21070,7 @@ Update Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -20705,7 +21080,7 @@ Update Agent
 
             Approximate user location for search result localization.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
               Location precision. Only "approximate" is supported.
 
@@ -20803,7 +21178,7 @@ Update Agent
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -20937,87 +21312,93 @@ Archive Agent
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -21061,55 +21442,59 @@ Archive Agent
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `ClaudeSonnet5`
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
 
         High-performance model for coding and agents
 
-      - `ClaudeFable5`
+      - `ClaudeFable5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `ClaudeOpus5`
+      - `ClaudeOpus5("claude-opus-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_8`
+      - `ClaudeOpus4_8("claude-opus-4-8")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_7`
+      - `ClaudeOpus4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_6`
+      - `ClaudeOpus4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_6`
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
         Best combination of speed and intelligence
 
-      - `ClaudeHaiku4_5`
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeHaiku4_5_20251001`
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeOpus4_5`
+      - `ClaudeOpus4_5("claude-opus-4-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_5_20251101`
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5`
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
         High-performance model for agents and coding
 
-      - `ClaudeSonnet4_5_20250929`
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
 
@@ -21155,9 +21540,9 @@ Archive Agent
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Fast`
+      - `Fast("fast")`
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
@@ -21229,7 +21614,7 @@ Archive Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21247,7 +21632,7 @@ Archive Agent
 
               - `required Type Type`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
@@ -21255,7 +21640,7 @@ Archive Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "edit"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21269,7 +21654,7 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "edit"`
 
         - `class BetaManagedAgentsReadToolConfig:`
 
@@ -21277,7 +21662,7 @@ Archive Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "read"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21291,7 +21676,7 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "read"`
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -21299,7 +21684,7 @@ Archive Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "write"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21313,7 +21698,7 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "write"`
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -21321,7 +21706,7 @@ Archive Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "glob"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21335,7 +21720,7 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "glob"`
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -21343,7 +21728,7 @@ Archive Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "grep"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21357,7 +21742,7 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "grep"`
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -21365,7 +21750,7 @@ Archive Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21379,7 +21764,7 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -21395,7 +21780,7 @@ Archive Agent
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21409,7 +21794,7 @@ Archive Agent
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -21419,7 +21804,7 @@ Archive Agent
 
             Approximate user location for search result localization.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
               Location precision. Only "approximate" is supported.
 
@@ -21517,7 +21902,7 @@ Archive Agent
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -21663,87 +22048,93 @@ List Agent Versions
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -21787,55 +22178,59 @@ List Agent Versions
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-      - `ClaudeSonnet5`
+      - `ClaudeFable5_1("claude-fable-5-1")`
+
+        Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+      - `ClaudeSonnet5("claude-sonnet-5")`
 
         High-performance model for coding and agents
 
-      - `ClaudeFable5`
+      - `ClaudeFable5("claude-fable-5")`
 
         Next generation of intelligence for the hardest knowledge work and coding problems
 
-      - `ClaudeOpus5`
+      - `ClaudeOpus5("claude-opus-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_8`
+      - `ClaudeOpus4_8("claude-opus-4-8")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_7`
+      - `ClaudeOpus4_7("claude-opus-4-7")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_6`
+      - `ClaudeOpus4_6("claude-opus-4-6")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_6`
+      - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
         Best combination of speed and intelligence
 
-      - `ClaudeHaiku4_5`
+      - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeHaiku4_5_20251001`
+      - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
         Fastest model with near-frontier intelligence
 
-      - `ClaudeOpus4_5`
+      - `ClaudeOpus4_5("claude-opus-4-5")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeOpus4_5_20251101`
+      - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
         Powerful intelligence for long-running agents and coding
 
-      - `ClaudeSonnet4_5`
+      - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
         High-performance model for agents and coding
 
-      - `ClaudeSonnet4_5_20250929`
+      - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
         High-performance model for agents and coding
 
@@ -21881,9 +22276,9 @@ List Agent Versions
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-      - `Standard`
+      - `Standard("standard")`
 
-      - `Fast`
+      - `Fast("fast")`
 
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
@@ -21955,7 +22350,7 @@ List Agent Versions
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "bash"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21973,7 +22368,7 @@ List Agent Versions
 
               - `required Type Type`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash"`
 
         - `class BetaManagedAgentsEditToolConfig:`
 
@@ -21981,7 +22376,7 @@ List Agent Versions
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "edit"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -21995,7 +22390,7 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "edit"`
 
         - `class BetaManagedAgentsReadToolConfig:`
 
@@ -22003,7 +22398,7 @@ List Agent Versions
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "read"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -22017,7 +22412,7 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "read"`
 
         - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -22025,7 +22420,7 @@ List Agent Versions
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "write"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -22039,7 +22434,7 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "write"`
 
         - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -22047,7 +22442,7 @@ List Agent Versions
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "glob"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -22061,7 +22456,7 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "glob"`
 
         - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -22069,7 +22464,7 @@ List Agent Versions
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "grep"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -22083,7 +22478,7 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "grep"`
 
         - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -22091,7 +22486,7 @@ List Agent Versions
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_fetch"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -22105,7 +22500,7 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -22121,7 +22516,7 @@ List Agent Versions
 
           - `required bool Enabled`
 
-          - `JsonElement Name constant`
+          - `JsonElement Name = "web_search"`
 
           - `required PermissionPolicy PermissionPolicy`
 
@@ -22135,7 +22530,7 @@ List Agent Versions
 
               Tool calls require user confirmation before execution.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search"`
 
           - `IReadOnlyList<string> AllowedDomains`
 
@@ -22145,7 +22540,7 @@ List Agent Versions
 
             Approximate user location for search result localization.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "approximate"`
 
               Location precision. Only "approximate" is supported.
 
@@ -22243,7 +22638,7 @@ List Agent Versions
 
         JSON Schema for custom tool input parameters.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -22395,7 +22790,7 @@ Create a new environment with the specified configuration.
       Fields default to null; on update, omitted fields preserve the
       existing value.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "cloud"`
 
         Environment type
 
@@ -22407,7 +22802,7 @@ Create a new environment with the specified configuration.
 
           Unrestricted network access.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "unrestricted"`
 
             Network policy type
 
@@ -22418,7 +22813,7 @@ Create a new environment with the specified configuration.
           Fields default to null; on update, omitted fields preserve the
           existing value.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "limited"`
 
             Network policy type
 
@@ -22474,7 +22869,7 @@ Create a new environment with the specified configuration.
 
       Request params for `self_hosted` environment configuration.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "self_hosted"`
 
         Environment type
 
@@ -22492,95 +22887,101 @@ Create a new environment with the specified configuration.
 
     Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
 
-    - `Organization`
+    - `Organization("organization")`
 
-    - `Account`
+    - `Account("account")`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -22612,7 +23013,7 @@ Create a new environment with the specified configuration.
 
           Unrestricted network access.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "unrestricted"`
 
             Network policy type
 
@@ -22632,7 +23033,7 @@ Create a new environment with the specified configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "limited"`
 
             Network policy type
 
@@ -22668,7 +23069,7 @@ Create a new environment with the specified configuration.
 
           Package configuration type
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "cloud"`
 
         Environment type
 
@@ -22676,7 +23077,7 @@ Create a new environment with the specified configuration.
 
       Configuration for self-hosted environments.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "self_hosted"`
 
         Environment type
 
@@ -22696,7 +23097,7 @@ Create a new environment with the specified configuration.
 
     Human-readable name for the environment
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "environment"`
 
     The type of object (always 'environment')
 
@@ -22708,9 +23109,9 @@ Create a new environment with the specified configuration.
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
 
-    - `Organization`
+    - `Organization("organization")`
 
-    - `Account`
+    - `Account("account")`
 
 #### Example
 
@@ -22801,87 +23202,93 @@ List environments with pagination support.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -22913,7 +23320,7 @@ List environments with pagination support.
 
           Unrestricted network access.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "unrestricted"`
 
             Network policy type
 
@@ -22933,7 +23340,7 @@ List environments with pagination support.
 
             Specifies domains the container can reach.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "limited"`
 
             Network policy type
 
@@ -22969,7 +23376,7 @@ List environments with pagination support.
 
           Package configuration type
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "cloud"`
 
         Environment type
 
@@ -22977,7 +23384,7 @@ List environments with pagination support.
 
       Configuration for self-hosted environments.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "self_hosted"`
 
         Environment type
 
@@ -22997,7 +23404,7 @@ List environments with pagination support.
 
     Human-readable name for the environment
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "environment"`
 
     The type of object (always 'environment')
 
@@ -23009,9 +23416,9 @@ List environments with pagination support.
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
 
-    - `Organization`
+    - `Organization("organization")`
 
-    - `Account`
+    - `Account("account")`
 
 #### Example
 
@@ -23097,87 +23504,93 @@ Retrieve a specific environment by ID.
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -23209,7 +23622,7 @@ Retrieve a specific environment by ID.
 
           Unrestricted network access.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "unrestricted"`
 
             Network policy type
 
@@ -23229,7 +23642,7 @@ Retrieve a specific environment by ID.
 
             Specifies domains the container can reach.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "limited"`
 
             Network policy type
 
@@ -23265,7 +23678,7 @@ Retrieve a specific environment by ID.
 
           Package configuration type
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "cloud"`
 
         Environment type
 
@@ -23273,7 +23686,7 @@ Retrieve a specific environment by ID.
 
       Configuration for self-hosted environments.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "self_hosted"`
 
         Environment type
 
@@ -23293,7 +23706,7 @@ Retrieve a specific environment by ID.
 
     Human-readable name for the environment
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "environment"`
 
     The type of object (always 'environment')
 
@@ -23305,9 +23718,9 @@ Retrieve a specific environment by ID.
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
 
-    - `Organization`
+    - `Organization("organization")`
 
-    - `Account`
+    - `Account("account")`
 
 #### Example
 
@@ -23398,7 +23811,7 @@ Update an existing environment's configuration.
       Fields default to null; on update, omitted fields preserve the
       existing value.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "cloud"`
 
         Environment type
 
@@ -23410,7 +23823,7 @@ Update an existing environment's configuration.
 
           Unrestricted network access.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "unrestricted"`
 
             Network policy type
 
@@ -23421,7 +23834,7 @@ Update an existing environment's configuration.
           Fields default to null; on update, omitted fields preserve the
           existing value.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "limited"`
 
             Network policy type
 
@@ -23477,7 +23890,7 @@ Update an existing environment's configuration.
 
       Request params for `self_hosted` environment configuration.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "self_hosted"`
 
         Environment type
 
@@ -23501,95 +23914,101 @@ Update an existing environment's configuration.
 
     Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
 
-    - `Organization`
+    - `Organization("organization")`
 
-    - `Account`
+    - `Account("account")`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -23621,7 +24040,7 @@ Update an existing environment's configuration.
 
           Unrestricted network access.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "unrestricted"`
 
             Network policy type
 
@@ -23641,7 +24060,7 @@ Update an existing environment's configuration.
 
             Specifies domains the container can reach.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "limited"`
 
             Network policy type
 
@@ -23677,7 +24096,7 @@ Update an existing environment's configuration.
 
           Package configuration type
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "cloud"`
 
         Environment type
 
@@ -23685,7 +24104,7 @@ Update an existing environment's configuration.
 
       Configuration for self-hosted environments.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "self_hosted"`
 
         Environment type
 
@@ -23705,7 +24124,7 @@ Update an existing environment's configuration.
 
     Human-readable name for the environment
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "environment"`
 
     The type of object (always 'environment')
 
@@ -23717,9 +24136,9 @@ Update an existing environment's configuration.
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
 
-    - `Organization`
+    - `Organization("organization")`
 
-    - `Account`
+    - `Account("account")`
 
 #### Example
 
@@ -23801,87 +24220,93 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -23937,87 +24362,93 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -24049,7 +24480,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Unrestricted network access.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "unrestricted"`
 
             Network policy type
 
@@ -24069,7 +24500,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
             Specifies domains the container can reach.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "limited"`
 
             Network policy type
 
@@ -24105,7 +24536,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
           Package configuration type
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "cloud"`
 
         Environment type
 
@@ -24113,7 +24544,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
       Configuration for self-hosted environments.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "self_hosted"`
 
         Environment type
 
@@ -24133,7 +24564,7 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     Human-readable name for the environment
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "environment"`
 
     The type of object (always 'environment')
 
@@ -24145,9 +24576,9 @@ Archive an environment by ID. Archived environments cannot be used to create new
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
 
-    - `Organization`
+    - `Organization("organization")`
 
-    - `Account`
+    - `Account("account")`
 
 #### Example
 
@@ -24239,87 +24670,93 @@ Retrieve detailed information about a specific work item.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -24351,7 +24788,7 @@ Retrieve detailed information about a specific work item.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "session"`
 
       Type of work data
 
@@ -24379,15 +24816,15 @@ Retrieve detailed information about a specific work item.
 
     Current state of the work item
 
-    - `Queued`
+    - `Queued("queued")`
 
-    - `Starting`
+    - `Starting("starting")`
 
-    - `Active`
+    - `Active("active")`
 
-    - `Stopping`
+    - `Stopping("stopping")`
 
-    - `Stopped`
+    - `Stopped("stopped")`
 
   - `required string? StopRequestedAt`
 
@@ -24397,7 +24834,7 @@ Retrieve detailed information about a specific work item.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "work"`
 
     The type of object (always 'work')
 
@@ -24474,87 +24911,93 @@ Long poll for work items in the queue.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
   - `string anthropicWorkerID`
 
@@ -24590,7 +25033,7 @@ Long poll for work items in the queue.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "session"`
 
       Type of work data
 
@@ -24618,15 +25061,15 @@ Long poll for work items in the queue.
 
     Current state of the work item
 
-    - `Queued`
+    - `Queued("queued")`
 
-    - `Starting`
+    - `Starting("starting")`
 
-    - `Active`
+    - `Active("active")`
 
-    - `Stopping`
+    - `Stopping("stopping")`
 
-    - `Stopped`
+    - `Stopped("stopped")`
 
   - `required string? StopRequestedAt`
 
@@ -24636,7 +25079,7 @@ Long poll for work items in the queue.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "work"`
 
     The type of object (always 'work')
 
@@ -24704,87 +25147,93 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -24816,7 +25265,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "session"`
 
       Type of work data
 
@@ -24844,15 +25293,15 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     Current state of the work item
 
-    - `Queued`
+    - `Queued("queued")`
 
-    - `Starting`
+    - `Starting("starting")`
 
-    - `Active`
+    - `Active("active")`
 
-    - `Stopping`
+    - `Stopping("stopping")`
 
-    - `Stopped`
+    - `Stopped("stopped")`
 
   - `required string? StopRequestedAt`
 
@@ -24862,7 +25311,7 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "work"`
 
     The type of object (always 'work')
 
@@ -24939,87 +25388,93 @@ Record a heartbeat for a work item to maintain the lease.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -25039,21 +25494,21 @@ Record a heartbeat for a work item to maintain the lease.
 
     Current state of the work item (active/stopping/stopped)
 
-    - `Queued`
+    - `Queued("queued")`
 
-    - `Starting`
+    - `Starting("starting")`
 
-    - `Active`
+    - `Active("active")`
 
-    - `Stopping`
+    - `Stopping("stopping")`
 
-    - `Stopped`
+    - `Stopped("stopped")`
 
   - `required long TtlSeconds`
 
     Effective TTL applied to the lease
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "work_heartbeat"`
 
     The type of response
 
@@ -25113,87 +25568,93 @@ Stop a work item, initiating graceful or forced shutdown.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -25225,7 +25686,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "session"`
 
       Type of work data
 
@@ -25253,15 +25714,15 @@ Stop a work item, initiating graceful or forced shutdown.
 
     Current state of the work item
 
-    - `Queued`
+    - `Queued("queued")`
 
-    - `Starting`
+    - `Starting("starting")`
 
-    - `Active`
+    - `Active("active")`
 
-    - `Stopping`
+    - `Stopping("stopping")`
 
-    - `Stopped`
+    - `Stopped("stopped")`
 
   - `required string? StopRequestedAt`
 
@@ -25271,7 +25732,7 @@ Stop a work item, initiating graceful or forced shutdown.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "work"`
 
     The type of object (always 'work')
 
@@ -25346,87 +25807,93 @@ List work items in an environment.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -25458,7 +25925,7 @@ List work items in an environment.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "session"`
 
       Type of work data
 
@@ -25486,15 +25953,15 @@ List work items in an environment.
 
     Current state of the work item
 
-    - `Queued`
+    - `Queued("queued")`
 
-    - `Starting`
+    - `Starting("starting")`
 
-    - `Active`
+    - `Active("active")`
 
-    - `Stopping`
+    - `Stopping("stopping")`
 
-    - `Stopped`
+    - `Stopped("stopped")`
 
   - `required string? StopRequestedAt`
 
@@ -25504,7 +25971,7 @@ List work items in an environment.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "work"`
 
     The type of object (always 'work')
 
@@ -25583,87 +26050,93 @@ Update work item metadata with merge semantics.
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -25695,7 +26168,7 @@ Update work item metadata with merge semantics.
 
       Session identifier (e.g., 'session_...')
 
-    - `JsonElement Type constant`
+    - `JsonElement Type = "session"`
 
       Type of work data
 
@@ -25723,15 +26196,15 @@ Update work item metadata with merge semantics.
 
     Current state of the work item
 
-    - `Queued`
+    - `Queued("queued")`
 
-    - `Starting`
+    - `Starting("starting")`
 
-    - `Active`
+    - `Active("active")`
 
-    - `Stopping`
+    - `Stopping("stopping")`
 
-    - `Stopped`
+    - `Stopped("stopped")`
 
   - `required string? StopRequestedAt`
 
@@ -25741,7 +26214,7 @@ Update work item metadata with merge semantics.
 
     RFC 3339 timestamp when work execution stopped
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "work"`
 
     The type of object (always 'work')
 
@@ -25803,87 +26276,93 @@ Get statistics about the work queue for an environment.
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -25905,7 +26384,7 @@ Get statistics about the work queue for an environment.
 
     Number of work items being processed (polled but not acknowledged)
 
-  - `JsonElement Type constant`
+  - `JsonElement Type = "work_queue_stats"`
 
     The type of object
 
@@ -26016,55 +26495,59 @@ Create Session
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
+          - `ClaudeFable5_1("claude-fable-5-1")`
+
+            Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+          - `ClaudeSonnet5("claude-sonnet-5")`
 
             High-performance model for coding and agents
 
-          - `ClaudeFable5`
+          - `ClaudeFable5("claude-fable-5")`
 
             Next generation of intelligence for the hardest knowledge work and coding problems
 
-          - `ClaudeOpus5`
+          - `ClaudeOpus5("claude-opus-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_8`
+          - `ClaudeOpus4_8("claude-opus-4-8")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_7`
+          - `ClaudeOpus4_7("claude-opus-4-7")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_6`
+          - `ClaudeOpus4_6("claude-opus-4-6")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_6`
+          - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
             Best combination of speed and intelligence
 
-          - `ClaudeHaiku4_5`
+          - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeHaiku4_5_20251001`
+          - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
             Fastest model with near-frontier intelligence
 
-          - `ClaudeOpus4_5`
+          - `ClaudeOpus4_5("claude-opus-4-5")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeOpus4_5_20251101`
+          - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
             Powerful intelligence for long-running agents and coding
 
-          - `ClaudeSonnet4_5`
+          - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
             High-performance model for agents and coding
 
-          - `ClaudeSonnet4_5_20250929`
+          - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
             High-performance model for agents and coding
 
@@ -26078,55 +26561,59 @@ Create Session
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `ClaudeSonnet5`
+            - `ClaudeFable5_1("claude-fable-5-1")`
+
+              Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+            - `ClaudeSonnet5("claude-sonnet-5")`
 
               High-performance model for coding and agents
 
-            - `ClaudeFable5`
+            - `ClaudeFable5("claude-fable-5")`
 
               Next generation of intelligence for the hardest knowledge work and coding problems
 
-            - `ClaudeOpus5`
+            - `ClaudeOpus5("claude-opus-5")`
 
               Powerful intelligence for long-running agents and coding
 
-            - `ClaudeOpus4_8`
+            - `ClaudeOpus4_8("claude-opus-4-8")`
 
               Powerful intelligence for long-running agents and coding
 
-            - `ClaudeOpus4_7`
+            - `ClaudeOpus4_7("claude-opus-4-7")`
 
               Powerful intelligence for long-running agents and coding
 
-            - `ClaudeOpus4_6`
+            - `ClaudeOpus4_6("claude-opus-4-6")`
 
               Powerful intelligence for long-running agents and coding
 
-            - `ClaudeSonnet4_6`
+            - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
               Best combination of speed and intelligence
 
-            - `ClaudeHaiku4_5`
+            - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
               Fastest model with near-frontier intelligence
 
-            - `ClaudeHaiku4_5_20251001`
+            - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
               Fastest model with near-frontier intelligence
 
-            - `ClaudeOpus4_5`
+            - `ClaudeOpus4_5("claude-opus-4-5")`
 
               Powerful intelligence for long-running agents and coding
 
-            - `ClaudeOpus4_5_20251101`
+            - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
               Powerful intelligence for long-running agents and coding
 
-            - `ClaudeSonnet4_5`
+            - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
               High-performance model for agents and coding
 
-            - `ClaudeSonnet4_5_20250929`
+            - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
               High-performance model for agents and coding
 
@@ -26138,15 +26625,15 @@ Create Session
 
               How hard Claude works on each turn. Higher levels favor reasoning depth over latency. Not all models accept every level; invalid combinations are rejected at create time.
 
-              - `Low`
+              - `Low("low")`
 
-              - `Medium`
+              - `Medium("medium")`
 
-              - `High`
+              - `High("high")`
 
-              - `Xhigh`
+              - `Xhigh("xhigh")`
 
-              - `Max`
+              - `Max("max")`
 
             - `class BetaManagedAgentsEffortLow:`
 
@@ -26186,9 +26673,9 @@ Create Session
 
             Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-            - `Standard`
+            - `Standard("standard")`
 
-            - `Fast`
+            - `Fast("fast")`
 
       - `IReadOnlyList<BetaManagedAgentsSkillParams> Skills`
 
@@ -26254,7 +26741,7 @@ Create Session
 
               Configuration override for the bash tool.
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "bash"`
 
                 Must be "bash".
 
@@ -26284,7 +26771,7 @@ Create Session
 
               Configuration override for the edit tool.
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "edit"`
 
                 Must be "edit".
 
@@ -26310,7 +26797,7 @@ Create Session
 
               Configuration override for the read tool.
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "read"`
 
                 Must be "read".
 
@@ -26336,7 +26823,7 @@ Create Session
 
               Configuration override for the write tool.
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "write"`
 
                 Must be "write".
 
@@ -26362,7 +26849,7 @@ Create Session
 
               Configuration override for the glob tool.
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "glob"`
 
                 Must be "glob".
 
@@ -26388,7 +26875,7 @@ Create Session
 
               Configuration override for the grep tool.
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "grep"`
 
                 Must be "grep".
 
@@ -26414,7 +26901,7 @@ Create Session
 
               Configuration override for the web_fetch tool.
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_fetch"`
 
                 Must be "web_fetch".
 
@@ -26454,7 +26941,7 @@ Create Session
 
               Configuration override for the web_search tool.
 
-              - `JsonElement Name constant`
+              - `JsonElement Name = "web_search"`
 
                 Must be "web_search".
 
@@ -26488,7 +26975,7 @@ Create Session
 
                 Approximate user location for search result localization.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "approximate"`
 
                   Location precision. Only "approximate" is supported.
 
@@ -26606,7 +27093,7 @@ Create Session
 
             JSON Schema for custom tool input parameters.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "object"`
 
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -26926,9 +27413,9 @@ Create Session
 
         Access mode for an attached memory store.
 
-        - `ReadWrite`
+        - `ReadWrite("read_write")`
 
-        - `ReadOnly`
+        - `ReadOnly("read_only")`
 
       - `string? Instructions`
 
@@ -26950,87 +27437,93 @@ Create Session
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -27066,55 +27559,59 @@ Create Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `ClaudeSonnet5`
+        - `ClaudeFable5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `ClaudeSonnet5("claude-sonnet-5")`
 
           High-performance model for coding and agents
 
-        - `ClaudeFable5`
+        - `ClaudeFable5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
-        - `ClaudeOpus5`
+        - `ClaudeOpus5("claude-opus-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_8`
+        - `ClaudeOpus4_8("claude-opus-4-8")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_7`
+        - `ClaudeOpus4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_6`
+        - `ClaudeOpus4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_6`
+        - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
           Best combination of speed and intelligence
 
-        - `ClaudeHaiku4_5`
+        - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeHaiku4_5_20251001`
+        - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeOpus4_5`
+        - `ClaudeOpus4_5("claude-opus-4-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_5_20251101`
+        - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5`
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
           High-performance model for agents and coding
 
-        - `ClaudeSonnet4_5_20250929`
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
 
@@ -27160,9 +27657,9 @@ Create Session
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -27230,7 +27727,7 @@ Create Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "bash"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -27248,7 +27745,7 @@ Create Session
 
                       - `required Type Type`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "bash"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
@@ -27256,7 +27753,7 @@ Create Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "edit"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -27270,7 +27767,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "edit"`
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
@@ -27278,7 +27775,7 @@ Create Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "read"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -27292,7 +27789,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "read"`
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -27300,7 +27797,7 @@ Create Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "write"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -27314,7 +27811,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "write"`
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -27322,7 +27819,7 @@ Create Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "glob"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -27336,7 +27833,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "glob"`
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -27344,7 +27841,7 @@ Create Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "grep"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -27358,7 +27855,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "grep"`
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -27366,7 +27863,7 @@ Create Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_fetch"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -27380,7 +27877,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_fetch"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -27396,7 +27893,7 @@ Create Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_search"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -27410,7 +27907,7 @@ Create Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_search"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -27420,7 +27917,7 @@ Create Session
 
                     Approximate user location for search result localization.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "approximate"`
 
                       Location precision. Only "approximate" is supported.
 
@@ -27518,7 +28015,7 @@ Create Session
 
                 JSON Schema for custom tool input parameters.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "object"`
 
                 - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -27612,7 +28109,7 @@ Create Session
 
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `required DateTimeOffset? CompletedAt`
 
@@ -27626,7 +28123,7 @@ Create Session
 
     - `required string? Explanation`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `required int Iteration`
 
@@ -27726,9 +28223,9 @@ Create Session
 
         Access mode for an attached memory store.
 
-        - `ReadWrite`
+        - `ReadWrite("read_write")`
 
-        - `ReadOnly`
+        - `ReadOnly("read_only")`
 
       - `string Description`
 
@@ -27754,7 +28251,7 @@ Create Session
 
     - `double ActiveSeconds`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -27768,13 +28265,13 @@ Create Session
 
     SessionStatus enum
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required string? Title`
 
@@ -28084,7 +28581,7 @@ List Sessions
 
   - `int agentVersion`
 
-    Query param: Filter by agent version. Only applies when agent_id is also set.
+    Query param: Filter by agent version. Only applies when `agent_id` is also set.
 
     format: int32
 
@@ -28128,15 +28625,15 @@ List Sessions
 
   - `string memoryStoreID`
 
-    Query param: Filter sessions whose resources contain a memory_store with this memory store ID.
+    Query param: Filter sessions whose resources contain a `memory_store` with this memory store ID.
 
   - `Order order`
 
-    Query param: Sort direction for results, ordered by created_at. Defaults to desc (newest first).
+    Query param: Sort direction for results, ordered by `created_at`. Defaults to `desc` (newest first).
 
-    - `Asc`
+    - `Asc("asc")`
 
-    - `Desc`
+    - `Desc("desc")`
 
   - `string page`
 
@@ -28146,99 +28643,105 @@ List Sessions
 
     Query param: Filter by session status. Repeat the parameter to match any of multiple statuses.
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -28274,55 +28777,59 @@ List Sessions
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `ClaudeSonnet5`
+        - `ClaudeFable5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `ClaudeSonnet5("claude-sonnet-5")`
 
           High-performance model for coding and agents
 
-        - `ClaudeFable5`
+        - `ClaudeFable5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
-        - `ClaudeOpus5`
+        - `ClaudeOpus5("claude-opus-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_8`
+        - `ClaudeOpus4_8("claude-opus-4-8")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_7`
+        - `ClaudeOpus4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_6`
+        - `ClaudeOpus4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_6`
+        - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
           Best combination of speed and intelligence
 
-        - `ClaudeHaiku4_5`
+        - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeHaiku4_5_20251001`
+        - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeOpus4_5`
+        - `ClaudeOpus4_5("claude-opus-4-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_5_20251101`
+        - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5`
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
           High-performance model for agents and coding
 
-        - `ClaudeSonnet4_5_20250929`
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
 
@@ -28368,9 +28875,9 @@ List Sessions
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -28438,7 +28945,7 @@ List Sessions
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "bash"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -28456,7 +28963,7 @@ List Sessions
 
                       - `required Type Type`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "bash"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
@@ -28464,7 +28971,7 @@ List Sessions
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "edit"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -28478,7 +28985,7 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "edit"`
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
@@ -28486,7 +28993,7 @@ List Sessions
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "read"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -28500,7 +29007,7 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "read"`
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -28508,7 +29015,7 @@ List Sessions
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "write"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -28522,7 +29029,7 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "write"`
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -28530,7 +29037,7 @@ List Sessions
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "glob"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -28544,7 +29051,7 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "glob"`
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -28552,7 +29059,7 @@ List Sessions
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "grep"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -28566,7 +29073,7 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "grep"`
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -28574,7 +29081,7 @@ List Sessions
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_fetch"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -28588,7 +29095,7 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_fetch"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -28604,7 +29111,7 @@ List Sessions
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_search"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -28618,7 +29125,7 @@ List Sessions
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_search"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -28628,7 +29135,7 @@ List Sessions
 
                     Approximate user location for search result localization.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "approximate"`
 
                       Location precision. Only "approximate" is supported.
 
@@ -28726,7 +29233,7 @@ List Sessions
 
                 JSON Schema for custom tool input parameters.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "object"`
 
                 - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -28820,7 +29327,7 @@ List Sessions
 
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `required DateTimeOffset? CompletedAt`
 
@@ -28834,7 +29341,7 @@ List Sessions
 
     - `required string? Explanation`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `required int Iteration`
 
@@ -28934,9 +29441,9 @@ List Sessions
 
         Access mode for an attached memory store.
 
-        - `ReadWrite`
+        - `ReadWrite("read_write")`
 
-        - `ReadOnly`
+        - `ReadOnly("read_only")`
 
       - `string Description`
 
@@ -28962,7 +29469,7 @@ List Sessions
 
     - `double ActiveSeconds`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -28976,13 +29483,13 @@ List Sessions
 
     SessionStatus enum
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required string? Title`
 
@@ -29298,87 +29805,93 @@ Get Session
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -29414,55 +29927,59 @@ Get Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `ClaudeSonnet5`
+        - `ClaudeFable5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `ClaudeSonnet5("claude-sonnet-5")`
 
           High-performance model for coding and agents
 
-        - `ClaudeFable5`
+        - `ClaudeFable5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
-        - `ClaudeOpus5`
+        - `ClaudeOpus5("claude-opus-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_8`
+        - `ClaudeOpus4_8("claude-opus-4-8")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_7`
+        - `ClaudeOpus4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_6`
+        - `ClaudeOpus4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_6`
+        - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
           Best combination of speed and intelligence
 
-        - `ClaudeHaiku4_5`
+        - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeHaiku4_5_20251001`
+        - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeOpus4_5`
+        - `ClaudeOpus4_5("claude-opus-4-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_5_20251101`
+        - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5`
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
           High-performance model for agents and coding
 
-        - `ClaudeSonnet4_5_20250929`
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
 
@@ -29508,9 +30025,9 @@ Get Session
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -29578,7 +30095,7 @@ Get Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "bash"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -29596,7 +30113,7 @@ Get Session
 
                       - `required Type Type`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "bash"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
@@ -29604,7 +30121,7 @@ Get Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "edit"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -29618,7 +30135,7 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "edit"`
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
@@ -29626,7 +30143,7 @@ Get Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "read"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -29640,7 +30157,7 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "read"`
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -29648,7 +30165,7 @@ Get Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "write"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -29662,7 +30179,7 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "write"`
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -29670,7 +30187,7 @@ Get Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "glob"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -29684,7 +30201,7 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "glob"`
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -29692,7 +30209,7 @@ Get Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "grep"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -29706,7 +30223,7 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "grep"`
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -29714,7 +30231,7 @@ Get Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_fetch"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -29728,7 +30245,7 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_fetch"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -29744,7 +30261,7 @@ Get Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_search"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -29758,7 +30275,7 @@ Get Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_search"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -29768,7 +30285,7 @@ Get Session
 
                     Approximate user location for search result localization.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "approximate"`
 
                       Location precision. Only "approximate" is supported.
 
@@ -29866,7 +30383,7 @@ Get Session
 
                 JSON Schema for custom tool input parameters.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "object"`
 
                 - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -29960,7 +30477,7 @@ Get Session
 
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `required DateTimeOffset? CompletedAt`
 
@@ -29974,7 +30491,7 @@ Get Session
 
     - `required string? Explanation`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `required int Iteration`
 
@@ -30074,9 +30591,9 @@ Get Session
 
         Access mode for an attached memory store.
 
-        - `ReadWrite`
+        - `ReadWrite("read_write")`
 
-        - `ReadOnly`
+        - `ReadOnly("read_only")`
 
       - `string Description`
 
@@ -30102,7 +30619,7 @@ Get Session
 
     - `double ActiveSeconds`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -30116,13 +30633,13 @@ Get Session
 
     SessionStatus enum
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required string? Title`
 
@@ -30455,87 +30972,93 @@ Update Session
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -30571,55 +31094,59 @@ Update Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `ClaudeSonnet5`
+        - `ClaudeFable5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `ClaudeSonnet5("claude-sonnet-5")`
 
           High-performance model for coding and agents
 
-        - `ClaudeFable5`
+        - `ClaudeFable5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
-        - `ClaudeOpus5`
+        - `ClaudeOpus5("claude-opus-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_8`
+        - `ClaudeOpus4_8("claude-opus-4-8")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_7`
+        - `ClaudeOpus4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_6`
+        - `ClaudeOpus4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_6`
+        - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
           Best combination of speed and intelligence
 
-        - `ClaudeHaiku4_5`
+        - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeHaiku4_5_20251001`
+        - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeOpus4_5`
+        - `ClaudeOpus4_5("claude-opus-4-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_5_20251101`
+        - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5`
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
           High-performance model for agents and coding
 
-        - `ClaudeSonnet4_5_20250929`
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
 
@@ -30665,9 +31192,9 @@ Update Session
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -30735,7 +31262,7 @@ Update Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "bash"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -30753,7 +31280,7 @@ Update Session
 
                       - `required Type Type`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "bash"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
@@ -30761,7 +31288,7 @@ Update Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "edit"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -30775,7 +31302,7 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "edit"`
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
@@ -30783,7 +31310,7 @@ Update Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "read"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -30797,7 +31324,7 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "read"`
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -30805,7 +31332,7 @@ Update Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "write"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -30819,7 +31346,7 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "write"`
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -30827,7 +31354,7 @@ Update Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "glob"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -30841,7 +31368,7 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "glob"`
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -30849,7 +31376,7 @@ Update Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "grep"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -30863,7 +31390,7 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "grep"`
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -30871,7 +31398,7 @@ Update Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_fetch"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -30885,7 +31412,7 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_fetch"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -30901,7 +31428,7 @@ Update Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_search"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -30915,7 +31442,7 @@ Update Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_search"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -30925,7 +31452,7 @@ Update Session
 
                     Approximate user location for search result localization.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "approximate"`
 
                       Location precision. Only "approximate" is supported.
 
@@ -31023,7 +31550,7 @@ Update Session
 
                 JSON Schema for custom tool input parameters.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "object"`
 
                 - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -31117,7 +31644,7 @@ Update Session
 
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `required DateTimeOffset? CompletedAt`
 
@@ -31131,7 +31658,7 @@ Update Session
 
     - `required string? Explanation`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `required int Iteration`
 
@@ -31231,9 +31758,9 @@ Update Session
 
         Access mode for an attached memory store.
 
-        - `ReadWrite`
+        - `ReadWrite("read_write")`
 
-        - `ReadOnly`
+        - `ReadOnly("read_only")`
 
       - `string Description`
 
@@ -31259,7 +31786,7 @@ Update Session
 
     - `double ActiveSeconds`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -31273,13 +31800,13 @@ Update Session
 
     SessionStatus enum
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required string? Title`
 
@@ -31590,87 +32117,93 @@ Delete Session
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -31724,87 +32257,93 @@ Archive Session
 
     Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -31840,55 +32379,59 @@ Archive Session
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `ClaudeSonnet5`
+        - `ClaudeFable5_1("claude-fable-5-1")`
+
+          Frontier intelligence for ambitious tasks across coding, scientific discovery, and enterprise workflows
+
+        - `ClaudeSonnet5("claude-sonnet-5")`
 
           High-performance model for coding and agents
 
-        - `ClaudeFable5`
+        - `ClaudeFable5("claude-fable-5")`
 
           Next generation of intelligence for the hardest knowledge work and coding problems
 
-        - `ClaudeOpus5`
+        - `ClaudeOpus5("claude-opus-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_8`
+        - `ClaudeOpus4_8("claude-opus-4-8")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_7`
+        - `ClaudeOpus4_7("claude-opus-4-7")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_6`
+        - `ClaudeOpus4_6("claude-opus-4-6")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_6`
+        - `ClaudeSonnet4_6("claude-sonnet-4-6")`
 
           Best combination of speed and intelligence
 
-        - `ClaudeHaiku4_5`
+        - `ClaudeHaiku4_5("claude-haiku-4-5")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeHaiku4_5_20251001`
+        - `ClaudeHaiku4_5_20251001("claude-haiku-4-5-20251001")`
 
           Fastest model with near-frontier intelligence
 
-        - `ClaudeOpus4_5`
+        - `ClaudeOpus4_5("claude-opus-4-5")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeOpus4_5_20251101`
+        - `ClaudeOpus4_5_20251101("claude-opus-4-5-20251101")`
 
           Powerful intelligence for long-running agents and coding
 
-        - `ClaudeSonnet4_5`
+        - `ClaudeSonnet4_5("claude-sonnet-4-5")`
 
           High-performance model for agents and coding
 
-        - `ClaudeSonnet4_5_20250929`
+        - `ClaudeSonnet4_5_20250929("claude-sonnet-4-5-20250929")`
 
           High-performance model for agents and coding
 
@@ -31934,9 +32477,9 @@ Archive Session
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
@@ -32004,7 +32547,7 @@ Archive Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "bash"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -32022,7 +32565,7 @@ Archive Session
 
                       - `required Type Type`
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "bash"`
 
                 - `class BetaManagedAgentsEditToolConfig:`
 
@@ -32030,7 +32573,7 @@ Archive Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "edit"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -32044,7 +32587,7 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "edit"`
 
                 - `class BetaManagedAgentsReadToolConfig:`
 
@@ -32052,7 +32595,7 @@ Archive Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "read"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -32066,7 +32609,7 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "read"`
 
                 - `class BetaManagedAgentsWriteToolConfig:`
 
@@ -32074,7 +32617,7 @@ Archive Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "write"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -32088,7 +32631,7 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "write"`
 
                 - `class BetaManagedAgentsGlobToolConfig:`
 
@@ -32096,7 +32639,7 @@ Archive Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "glob"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -32110,7 +32653,7 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "glob"`
 
                 - `class BetaManagedAgentsGrepToolConfig:`
 
@@ -32118,7 +32661,7 @@ Archive Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "grep"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -32132,7 +32675,7 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "grep"`
 
                 - `class BetaManagedAgentsWebFetchToolConfig:`
 
@@ -32140,7 +32683,7 @@ Archive Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_fetch"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -32154,7 +32697,7 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_fetch"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -32170,7 +32713,7 @@ Archive Session
 
                   - `required bool Enabled`
 
-                  - `JsonElement Name constant`
+                  - `JsonElement Name = "web_search"`
 
                   - `required PermissionPolicy PermissionPolicy`
 
@@ -32184,7 +32727,7 @@ Archive Session
 
                       Tool calls require user confirmation before execution.
 
-                  - `JsonElement Type constant`
+                  - `JsonElement Type = "web_search"`
 
                   - `IReadOnlyList<string> AllowedDomains`
 
@@ -32194,7 +32737,7 @@ Archive Session
 
                     Approximate user location for search result localization.
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "approximate"`
 
                       Location precision. Only "approximate" is supported.
 
@@ -32292,7 +32835,7 @@ Archive Session
 
                 JSON Schema for custom tool input parameters.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "object"`
 
                 - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -32386,7 +32929,7 @@ Archive Session
 
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
-    Per-outcome evaluation state. One entry per define_outcome event sent to the session.
+    Per-outcome evaluation state. One entry per `define_outcome` event sent to the session.
 
     - `required DateTimeOffset? CompletedAt`
 
@@ -32400,7 +32943,7 @@ Archive Session
 
     - `required string? Explanation`
 
-      Grader's verdict text from the most recent evaluation. For satisfied, explains why criteria are met; for needs_revision (intermediate), what's missing; for failed, why unrecoverable.
+      Grader's verdict text from the most recent evaluation. For `satisfied`, explains why criteria are met; for `needs_revision` (intermediate), what's missing; for `failed`, why unrecoverable.
 
     - `required int Iteration`
 
@@ -32500,9 +33043,9 @@ Archive Session
 
         Access mode for an attached memory store.
 
-        - `ReadWrite`
+        - `ReadWrite("read_write")`
 
-        - `ReadOnly`
+        - `ReadOnly("read_only")`
 
       - `string Description`
 
@@ -32528,7 +33071,7 @@ Archive Session
 
     - `double ActiveSeconds`
 
-      Cumulative time in seconds the session spent in running status. Excludes idle time.
+      Cumulative time in seconds the session spent in `running` status. Excludes idle time.
 
       format: double
 
@@ -32542,13 +33085,13 @@ Archive Session
 
     SessionStatus enum
 
-    - `Rescheduling`
+    - `Rescheduling("rescheduling")`
 
-    - `Running`
+    - `Running("running")`
 
-    - `Idle`
+    - `Idle("idle")`
 
-    - `Terminated`
+    - `Terminated("terminated")`
 
   - `required string? Title`
 
@@ -32889,15 +33432,15 @@ List Events
 
   - `Order order`
 
-    Query param: Sort direction for results, ordered by the event's `processed_at`. Defaults to asc (chronological).
+    Query param: Sort direction for results, ordered by the event's `processed_at`. Defaults to `asc` (chronological).
 
-    - `Asc`
+    - `Asc("asc")`
 
-    - `Desc`
+    - `Desc("desc")`
 
   - `string page`
 
-    Query param: Opaque pagination cursor from a previous response's next_page.
+    Query param: Opaque pagination cursor from a previous response's `next_page`.
 
   - `IReadOnlyList<string> types`
 
@@ -32907,87 +33450,93 @@ List Events
 
     Header param: Optional header to specify the beta version(s) you want to use.
 
-    - `MessageBatches2024_09_24`
+    - `MessageBatches2024_09_24("message-batches-2024-09-24")`
 
-    - `PromptCaching2024_07_31`
+    - `PromptCaching2024_07_31("prompt-caching-2024-07-31")`
 
-    - `ComputerUse2024_10_22`
+    - `ComputerUse2024_10_22("computer-use-2024-10-22")`
 
-    - `ComputerUse2025_01_24`
+    - `ComputerUse2025_01_24("computer-use-2025-01-24")`
 
-    - `Pdfs2024_09_25`
+    - `Pdfs2024_09_25("pdfs-2024-09-25")`
 
-    - `TokenCounting2024_11_01`
+    - `TokenCounting2024_11_01("token-counting-2024-11-01")`
 
-    - `TokenEfficientTools2025_02_19`
+    - `TokenEfficientTools2025_02_19("token-efficient-tools-2025-02-19")`
 
-    - `Output128k2025_02_19`
+    - `Output128k2025_02_19("output-128k-2025-02-19")`
 
-    - `FilesApi2025_04_14`
+    - `FilesApi2025_04_14("files-api-2025-04-14")`
 
-    - `McpClient2025_04_04`
+    - `McpClient2025_04_04("mcp-client-2025-04-04")`
 
-    - `McpClient2025_11_20`
+    - `McpClient2025_11_20("mcp-client-2025-11-20")`
 
-    - `DevFullThinking2025_05_14`
+    - `DevFullThinking2025_05_14("dev-full-thinking-2025-05-14")`
 
-    - `InterleavedThinking2025_05_14`
+    - `InterleavedThinking2025_05_14("interleaved-thinking-2025-05-14")`
 
-    - `CodeExecution2025_05_22`
+    - `CodeExecution2025_05_22("code-execution-2025-05-22")`
 
-    - `ExtendedCacheTtl2025_04_11`
+    - `ExtendedCacheTtl2025_04_11("extended-cache-ttl-2025-04-11")`
 
-    - `Context1m2025_08_07`
+    - `Context1m2025_08_07("context-1m-2025-08-07")`
 
-    - `ContextManagement2025_06_27`
+    - `ContextManagement2025_06_27("context-management-2025-06-27")`
 
-    - `ModelContextWindowExceeded2025_08_26`
+    - `ModelContextWindowExceeded2025_08_26("model-context-window-exceeded-2025-08-26")`
 
-    - `Skills2025_10_02`
+    - `Skills2025_10_02("skills-2025-10-02")`
 
-    - `FastMode2026_02_01`
+    - `FastMode2026_02_01("fast-mode-2026-02-01")`
 
-    - `Output300k2026_03_24`
+    - `Output300k2026_03_24("output-300k-2026-03-24")`
 
-    - `UserProfiles2026_03_24`
+    - `UserProfiles2026_03_24("user-profiles-2026-03-24")`
 
-    - `UserProfiles2026_08_18`
+    - `UserProfiles2026_08_18("user-profiles-2026-08-18")`
 
-    - `AdvisorTool2026_03_01`
+    - `AdvisorTool2026_03_01("advisor-tool-2026-03-01")`
 
-    - `ManagedAgents2026_04_01`
+    - `ManagedAgents2026_04_01("managed-agents-2026-04-01")`
 
-    - `CacheDiagnosis2026_04_07`
+    - `CacheDiagnosis2026_04_07("cache-diagnosis-2026-04-07")`
 
-    - `Dreaming2026_04_21`
+    - `Dreaming2026_04_21("dreaming-2026-04-21")`
 
-    - `ThinkingTokenCount2026_05_13`
+    - `ThinkingTokenCount2026_05_13("thinking-token-count-2026-05-13")`
 
-    - `ServerSideFallback2026_06_01`
+    - `ServerSideFallback2026_06_01("server-side-fallback-2026-06-01")`
 
-    - `ServerSideFallback2026_07_01`
+    - `ServerSideFallback2026_07_01("server-side-fallback-2026-07-01")`
 
-    - `FallbackCredit2026_06_01`
+    - `FallbackCredit2026_06_01("fallback-credit-2026-06-01")`
 
-    - `FallbackCredit2026_07_01`
+    - `FallbackCredit2026_07_01("fallback-credit-2026-07-01")`
 
-    - `AgentMemory2026_07_22`
+    - `AgentMemory2026_07_22("agent-memory-2026-07-22")`
 
-    - `MidConversationToolChanges2026_07_01`
+    - `MidConversationToolChanges2026_07_01("mid-conversation-tool-changes-2026-07-01")`
 
-    - `Compact2026_01_12`
+    - `Compact2026_01_12("compact-2026-01-12")`
 
-    - `ComputerUse2025_11_24`
+    - `ComputerUse2025_11_24("computer-use-2025-11-24")`
 
-    - `McpTunnels2026_06_22`
+    - `McpTunnels2026_06_22("mcp-tunnels-2026-06-22")`
 
-    - `StructuredOutputs2025_11_13`
+    - `StructuredOutputs2025_11_13("structured-outputs-2025-11-13")`
 
-    - `TaskBudgets2026_03_13`
+    - `TaskBudgets2026_03_13("task-budgets-2026-03-13")`
 
-    - `ThinkingDisplayUpdates2026_08_18`
+    - `ThinkingDisplayUpdates2026_08_18("thinking-display-updates-2026-08-18")`
 
-    - `CEUserManagement2026_07_13`
+    - `CEUserManagement2026_07_13("ce-user-management-2026-07-13")`
+
+    - `MidConversationOutputConfig2026_07_01("mid-conversation-output-config-2026-07-01")`
+
+    - `ThinkingBindingControls2026_08_01("thinking-binding-controls-2026-08-01")`
+
+    - `MidConversationSystemClearAt2026_08_21("mid-conversation-system-clear-at-2026-08-21")`
 
 #### Returns
 
@@ -33193,9 +33742,9 @@ List Events
 
       UserToolConfirmationResult enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `required string ToolUseID`
 
@@ -33405,11 +33954,11 @@ List Events
 
       AgentEvaluatedPermission enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Ask`
+      - `Ask("ask")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `string? SessionThreadID`
 
@@ -33487,11 +34036,11 @@ List Events
 
       AgentEvaluatedPermission enum
 
-      - `Allow`
+      - `Allow("allow")`
 
-      - `Ask`
+      - `Ask("ask")`
 
-      - `Deny`
+      - `Deny("deny")`
 
     - `string? SessionThreadID`
 
@@ -34111,9 +34660,9 @@ List Events
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
 
-        - `Standard`
+        - `Standard("standard")`
 
-        - `Fast`
+        - `Fast("fast")`
 
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
@@ -34461,3723 +35010,4 @@ List Events
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-          - `ClaudeSonnet5`
-
-            High-performance model for coding and agents
-
-          - `ClaudeFable5`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `ClaudeOpus5`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeOpus4_8`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeOpus4_7`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeOpus4_6`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeSonnet4_6`
-
-            Best combination of speed and intelligence
-
-          - `ClaudeHaiku4_5`
-
-            Fastest model with near-frontier intelligence
-
-          - `ClaudeHaiku4_5_20251001`
-
-            Fastest model with near-frontier intelligence
-
-          - `ClaudeOpus4_5`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeOpus4_5_20251101`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeSonnet4_5`
-
-            High-performance model for agents and coding
-
-          - `ClaudeSonnet4_5_20250929`
-
-            High-performance model for agents and coding
-
-        - `Effort Effort`
-
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-          - `class BetaManagedAgentsEffortLow:`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsEffortMedium:`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsEffortHigh:`
-
-            High effort. Favors reasoning depth.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsEffortXhigh:`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsEffortMax:`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `required Type Type`
-
-        - `string InferenceGeo`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `Speed Speed`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `Standard`
-
-          - `Fast`
-
-      - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
-
-        Resolved coordinator topology with full agent definitions for each roster member.
-
-        - `required IReadOnlyList<Agent> Agents`
-
-          Full `agent` definitions the coordinator may spawn as session threads.
-
-          - `class BetaManagedAgentsSessionThreadAgent:`
-
-            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-            - `required string ID`
-
-            - `required string? Description`
-
-            - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
-              - `required string Name`
-
-              - `required Type Type`
-
-              - `required string Url`
-
-            - `required BetaManagedAgentsModelConfig Model`
-
-              Model identifier and configuration.
-
-            - `required string Name`
-
-            - `required IReadOnlyList<Skill> Skills`
-
-              - `class BetaManagedAgentsAnthropicSkill:`
-
-                A resolved Anthropic-managed skill.
-
-                - `required string SkillID`
-
-                - `required Type Type`
-
-                - `required string Version`
-
-              - `class BetaManagedAgentsCustomSkill:`
-
-                A resolved user-created custom skill.
-
-                - `required string SkillID`
-
-                - `required Type Type`
-
-                - `required string Version`
-
-            - `required string? System`
-
-            - `required IReadOnlyList<Tool> Tools`
-
-              - `class BetaManagedAgentsAgentToolset20260401:`
-
-                - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-                  - `class BetaManagedAgentsBashToolConfig:`
-
-                    Configuration for the bash tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                        - `required Type Type`
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                        - `required Type Type`
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsEditToolConfig:`
-
-                    Configuration for the edit tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsReadToolConfig:`
-
-                    Configuration for the read tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsWriteToolConfig:`
-
-                    Configuration for the write tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsGlobToolConfig:`
-
-                    Configuration for the glob tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsGrepToolConfig:`
-
-                    Configuration for the grep tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsWebFetchToolConfig:`
-
-                    Configuration for the web_fetch tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                    - `IReadOnlyList<string> AllowedDomains`
-
-                    - `IReadOnlyList<string> BlockedDomains`
-
-                    - `int? MaxContentTokens`
-
-                      format: int32
-
-                  - `class BetaManagedAgentsWebSearchToolConfig:`
-
-                    Configuration for the web_search tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                    - `IReadOnlyList<string> AllowedDomains`
-
-                    - `IReadOnlyList<string> BlockedDomains`
-
-                    - `BetaManagedAgentsUserLocation? UserLocation`
-
-                      Approximate user location for search result localization.
-
-                      - `JsonElement Type constant`
-
-                        Location precision. Only "approximate" is supported.
-
-                      - `string? City`
-
-                        City name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `string? Country`
-
-                        Two-letter ISO 3166-1 country code, uppercase.
-
-                      - `string? Region`
-
-                        Region or state name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `string? Timezone`
-
-                        IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                        minLength: 1, maxLength: 255
-
-                - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-                  Resolved default configuration for agent tools.
-
-                  - `required bool Enabled`
-
-                  - `required PermissionPolicy PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                      Tool calls require user confirmation before execution.
-
-                - `required Type Type`
-
-              - `class BetaManagedAgentsMcpToolset:`
-
-                - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-                  - `required bool Enabled`
-
-                  - `required string Name`
-
-                  - `required PermissionPolicy PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                      Tool calls require user confirmation before execution.
-
-                - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-                  Resolved default configuration for all tools from an MCP server.
-
-                  - `required bool Enabled`
-
-                  - `required PermissionPolicy PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                      Tool calls require user confirmation before execution.
-
-                - `required string McpServerName`
-
-                - `required Type Type`
-
-              - `class BetaManagedAgentsCustomTool:`
-
-                A custom tool as returned in API responses.
-
-                - `required string Description`
-
-                - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-                  JSON Schema for custom tool input parameters.
-
-                  - `JsonElement Type constant`
-
-                  - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-                  - `IReadOnlyList<string>? Required`
-
-                - `required string Name`
-
-                - `required Type Type`
-
-            - `required Type Type`
-
-            - `required int Version`
-
-              format: int32
-
-          - `class BetaManagedAgentsAdvisor:`
-
-            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-            - `required string Model`
-
-              The advisor model id.
-
-            - `required Type Type`
-
-        - `required Type Type`
-
-      - `required string Name`
-
-      - `required IReadOnlyList<Skill> Skills`
-
-        - `class BetaManagedAgentsAnthropicSkill:`
-
-          A resolved Anthropic-managed skill.
-
-        - `class BetaManagedAgentsCustomSkill:`
-
-          A resolved user-created custom skill.
-
-      - `required string? System`
-
-      - `required IReadOnlyList<Tool> Tools`
-
-        - `class BetaManagedAgentsAgentToolset20260401:`
-
-        - `class BetaManagedAgentsMcpToolset:`
-
-        - `class BetaManagedAgentsCustomTool:`
-
-          A custom tool as returned in API responses.
-
-      - `required Type Type`
-
-      - `required int Version`
-
-        format: int32
-
-    - `BetaManagedAgentsBudgetLimit? Budget`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-      - `required BetaMonetaryAmount MaxListCost`
-
-        A monetary amount in a specific currency.
-
-        - `required string Amount`
-
-          Amount in minor units of the currency, as an integer decimal string with no leading zeros: "2500" is $25.00 and "50" is fifty cents. A string rather than a number so no float rounding is ever applied.
-
-        - `required BetaCurrency Currency`
-
-          Uppercase ISO-4217 currency code. `USD` is the only currency currently supported; the accepted set is closed and grows only when a new currency is priced.
-
-      - `required Type Type`
-
-    - `IReadOnlyDictionary<string, string> Metadata`
-
-      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
-
-    - `string? Title`
-
-      The session's new title. Present only when the update changed it.
-
-  - `class BetaManagedAgentsSystemMessageEvent:`
-
-    A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required IReadOnlyList<BetaManagedAgentsSystemContentBlock> Content`
-
-      System content blocks. Text-only.
-
-      - `required string Text`
-
-        The text content.
-
-        minLength: 1
-
-      - `required Type Type`
-
-    - `required Type Type`
-
-    - `DateTimeOffset? ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `class BetaManagedAgentsSessionUsageEvent:`
-
-    Periodic snapshot of the session's cumulative usage and tracked list cost.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-    - `required BetaManagedAgentsSessionUsageSnapshot Usage`
-
-      Point-in-time snapshot of a session's cumulative usage.
-
-      - `double ActiveSeconds`
-
-        Cumulative time in seconds during which the session had at least one thread in running status. Overlapping activity from concurrent threads is counted once. This is the duration the session's runtime cost is priced on.
-
-        format: double
-
-      - `BetaManagedAgentsCacheCreationUsage CacheCreation`
-
-        Prompt-cache creation token usage broken down by cache lifetime.
-
-        - `int Ephemeral1hInputTokens`
-
-          Tokens used to create 1-hour ephemeral cache entries.
-
-          format: int32
-
-        - `int Ephemeral5mInputTokens`
-
-          Tokens used to create 5-minute ephemeral cache entries.
-
-          format: int32
-
-      - `int CacheReadInputTokens`
-
-        Total tokens read from prompt cache.
-
-        format: int32
-
-      - `int InputTokens`
-
-        Total input tokens consumed across all turns.
-
-        format: int32
-
-      - `BetaMonetaryAmount ListCost`
-
-        A monetary amount in a specific currency.
-
-      - `int OutputTokens`
-
-        Total output tokens generated across all turns.
-
-        format: int32
-
-      - `BetaManagedAgentsServerToolUsage ServerToolUse`
-
-        Cumulative count of server-executed tool invocations, broken down by tool.
-
-        - `int WebFetchRequests`
-
-          Number of server-executed web fetch requests.
-
-          format: int32
-
-        - `int WebSearchRequests`
-
-          Number of server-executed web search requests.
-
-          format: int32
-
-    - `BetaManagedAgentsBudgetLimit? Budget`
-
-      A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-#### Example
-
-```csharp
-EventListParams parameters = new()
-{
-    SessionID = "sesn_011CZkZAtmR3yMPDzynEDxu7"
-};
-
-var page = await client.Beta.Sessions.Events.List(parameters);
-await foreach (var item in page.Paginate())
-{
-    Console.WriteLine(item);
-}
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
-      "content": [
-        {
-          "text": "Where is my order #1234?",
-          "type": "text"
-        }
-      ],
-      "type": "user.message",
-      "processed_at": "2026-03-15T10:00:00Z"
-    },
-    {
-      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
-      "content": [
-        {
-          "text": "Let me look up order #1234 for you.",
-          "type": "text"
-        }
-      ],
-      "processed_at": "2026-03-15T10:00:00Z",
-      "type": "agent.message"
-    }
-  ],
-  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
-}
-```
-
-### Send Events
-
-`BetaManagedAgentsSendSessionEvents Beta.Sessions.Events.Send(parameters, cancellationToken = default)`
-
-**POST** `/v1/sessions/{session_id}/events`
-
-Send Events
-
-#### Parameters
-
-- `EventSendParams parameters`
-
-  - `required string sessionID`
-
-    Path param: Path parameter session_id
-
-  - `required IReadOnlyList<BetaManagedAgentsEventParams> events`
-
-    Body param: Events to send to the `session`.
-
-    - `class BetaManagedAgentsUserMessageEventParams:`
-
-      Parameters for sending a user message to the session.
-
-      - `required IReadOnlyList<Content> Content`
-
-        Array of content blocks for the user message.
-
-        - `class BetaManagedAgentsTextBlock:`
-
-          Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-            minLength: 1
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsImageBlock:`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-              - `required Type Type`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `required Type Type`
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsDocumentBlock:`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `required Source Source`
-
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-              - `required Type Type`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-              - `required Type Type`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `required Type Type`
-
-          - `required Type Type`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
-
-        - `class BetaManagedAgentsRedactedBlock:`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `required Type Type`
-
-      - `required Type Type`
-
-    - `class BetaManagedAgentsUserInterruptEventParams:`
-
-      Parameters for sending an interrupt to pause the agent.
-
-      - `required Type Type`
-
-      - `string? SessionThreadID`
-
-        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-    - `class BetaManagedAgentsUserToolConfirmationEventParams:`
-
-      Parameters for confirming or denying a tool execution request.
-
-      - `required Result Result`
-
-        UserToolConfirmationResult enum
-
-        - `Allow`
-
-        - `Deny`
-
-      - `required string ToolUseID`
-
-        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-        minLength: 1, maxLength: 128
-
-      - `required Type Type`
-
-      - `string? DenyMessage`
-
-        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-        maxLength: 10000
-
-    - `class BetaManagedAgentsUserCustomToolResultEventParams:`
-
-      Parameters for providing the result of a custom tool execution.
-
-      - `required string CustomToolUseID`
-
-        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-        minLength: 1, maxLength: 128
-
-      - `required Type Type`
-
-      - `IReadOnlyList<Content> Content`
-
-        The result content returned by the tool.
-
-        - `class BetaManagedAgentsTextBlock:`
-
-          Regular text content.
-
-        - `class BetaManagedAgentsImageBlock:`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `class BetaManagedAgentsDocumentBlock:`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `class BetaManagedAgentsSearchResultBlock:`
-
-          A block containing a web search result.
-
-          - `required BetaManagedAgentsSearchResultCitations Citations`
-
-            Citation settings for a search result.
-
-            - `required bool Enabled`
-
-              Whether citations are enabled for this search result.
-
-          - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
-
-            Array of text content blocks from the search result.
-
-            - `required string Text`
-
-              The text content.
-
-              minLength: 1
-
-            - `required Type Type`
-
-          - `required string Source`
-
-            The URL source of the search result.
-
-            minLength: 1
-
-          - `required string Title`
-
-            The title of the search result.
-
-            minLength: 1
-
-          - `required Type Type`
-
-      - `bool? IsError`
-
-        Whether the tool execution resulted in an error.
-
-    - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
-
-      Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
-      - `required string Description`
-
-        What the agent should produce. This is the task specification.
-
-      - `required Rubric Rubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `class BetaManagedAgentsFileRubricParams:`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `required string FileID`
-
-            ID of the rubric file.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsTextRubricParams:`
-
-          Rubric content provided inline as text.
-
-          - `required string Content`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
-
-            maxLength: 262144
-
-          - `required Type Type`
-
-      - `required Type Type`
-
-      - `int? MaxIterations`
-
-        Eval→revision cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-    - `class BetaManagedAgentsUserToolResultEventParams:`
-
-      Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-      - `required string ToolUseID`
-
-        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-        minLength: 1, maxLength: 128
-
-      - `required Type Type`
-
-      - `IReadOnlyList<Content> Content`
-
-        The result content returned by the tool.
-
-        - `class BetaManagedAgentsTextBlock:`
-
-          Regular text content.
-
-        - `class BetaManagedAgentsImageBlock:`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `class BetaManagedAgentsDocumentBlock:`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `class BetaManagedAgentsSearchResultBlock:`
-
-          A block containing a web search result.
-
-      - `bool? IsError`
-
-        Whether the tool execution resulted in an error.
-
-    - `class BetaManagedAgentsSystemMessageEventParams:`
-
-      Privileged context for the accompanying turn and all subsequent turns, appended to the session's system context as a `role: "system"` turn rather than replacing the top-level system prompt. At most one per request: it must be the final event and immediately follow the `user.message`, `user.tool_result`, or `user.custom_tool_result` it accompanies. Only supported on models that accept mid-conversation system messages.
-
-      - `required IReadOnlyList<BetaManagedAgentsSystemContentBlock> Content`
-
-        System content blocks to append. Text-only.
-
-        - `required string Text`
-
-          The text content.
-
-          minLength: 1
-
-        - `required Type Type`
-
-      - `required Type Type`
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24`
-
-    - `PromptCaching2024_07_31`
-
-    - `ComputerUse2024_10_22`
-
-    - `ComputerUse2025_01_24`
-
-    - `Pdfs2024_09_25`
-
-    - `TokenCounting2024_11_01`
-
-    - `TokenEfficientTools2025_02_19`
-
-    - `Output128k2025_02_19`
-
-    - `FilesApi2025_04_14`
-
-    - `McpClient2025_04_04`
-
-    - `McpClient2025_11_20`
-
-    - `DevFullThinking2025_05_14`
-
-    - `InterleavedThinking2025_05_14`
-
-    - `CodeExecution2025_05_22`
-
-    - `ExtendedCacheTtl2025_04_11`
-
-    - `Context1m2025_08_07`
-
-    - `ContextManagement2025_06_27`
-
-    - `ModelContextWindowExceeded2025_08_26`
-
-    - `Skills2025_10_02`
-
-    - `FastMode2026_02_01`
-
-    - `Output300k2026_03_24`
-
-    - `UserProfiles2026_03_24`
-
-    - `UserProfiles2026_08_18`
-
-    - `AdvisorTool2026_03_01`
-
-    - `ManagedAgents2026_04_01`
-
-    - `CacheDiagnosis2026_04_07`
-
-    - `Dreaming2026_04_21`
-
-    - `ThinkingTokenCount2026_05_13`
-
-    - `ServerSideFallback2026_06_01`
-
-    - `ServerSideFallback2026_07_01`
-
-    - `FallbackCredit2026_06_01`
-
-    - `FallbackCredit2026_07_01`
-
-    - `AgentMemory2026_07_22`
-
-    - `MidConversationToolChanges2026_07_01`
-
-    - `Compact2026_01_12`
-
-    - `ComputerUse2025_11_24`
-
-    - `McpTunnels2026_06_22`
-
-    - `StructuredOutputs2025_11_13`
-
-    - `TaskBudgets2026_03_13`
-
-    - `ThinkingDisplayUpdates2026_08_18`
-
-    - `CEUserManagement2026_07_13`
-
-#### Returns
-
-- `class BetaManagedAgentsSendSessionEvents:`
-
-  Events that were successfully sent to the session.
-
-  - `IReadOnlyList<Data> Data`
-
-    Sent events
-
-    - `class BetaManagedAgentsUserMessageEvent:`
-
-      A user message event in the session conversation.
-
-      - `required string ID`
-
-        Unique identifier for this event.
-
-      - `required IReadOnlyList<Content> Content`
-
-        Array of content blocks comprising the user message.
-
-        - `class BetaManagedAgentsTextBlock:`
-
-          Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-            minLength: 1
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsImageBlock:`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-                minLength: 1
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-                minLength: 1
-
-              - `required Type Type`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-                minLength: 1
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `required Type Type`
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsDocumentBlock:`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `required Source Source`
-
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-                minLength: 1
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-                minLength: 1
-
-              - `required Type Type`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-                minLength: 1
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-              - `required Type Type`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-                minLength: 1
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-                minLength: 1
-
-              - `required Type Type`
-
-          - `required Type Type`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
-
-        - `class BetaManagedAgentsRedactedBlock:`
-
-          Placeholder for content withheld by Anthropic model policy.
-
-          - `required Type Type`
-
-      - `required Type Type`
-
-      - `DateTimeOffset? ProcessedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-    - `class BetaManagedAgentsUserInterruptEvent:`
-
-      An interrupt event that pauses agent execution and returns control to the user.
-
-      - `required string ID`
-
-        Unique identifier for this event.
-
-      - `required Type Type`
-
-      - `DateTimeOffset? ProcessedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `string? SessionThreadID`
-
-        If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-    - `class BetaManagedAgentsUserToolConfirmationEvent:`
-
-      A tool confirmation event that approves or denies a pending tool execution.
-
-      - `required string ID`
-
-        Unique identifier for this event.
-
-      - `required Result Result`
-
-        UserToolConfirmationResult enum
-
-        - `Allow`
-
-        - `Deny`
-
-      - `required string ToolUseID`
-
-        The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `required Type Type`
-
-      - `string? DenyMessage`
-
-        Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-        maxLength: 10000
-
-      - `DateTimeOffset? ProcessedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `string? SessionThreadID`
-
-        When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-    - `class BetaManagedAgentsUserCustomToolResultEvent:`
-
-      Event sent by the client providing the result of a custom tool execution.
-
-      - `required string ID`
-
-        Unique identifier for this event.
-
-      - `required string CustomToolUseID`
-
-        The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `required Type Type`
-
-      - `IReadOnlyList<Content> Content`
-
-        The result content returned by the tool.
-
-        - `class BetaManagedAgentsTextBlock:`
-
-          Regular text content.
-
-        - `class BetaManagedAgentsImageBlock:`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `class BetaManagedAgentsDocumentBlock:`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `class BetaManagedAgentsSearchResultBlock:`
-
-          A block containing a web search result.
-
-          - `required BetaManagedAgentsSearchResultCitations Citations`
-
-            Citation settings for a search result.
-
-            - `required bool Enabled`
-
-              Whether citations are enabled for this search result.
-
-          - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
-
-            Array of text content blocks from the search result.
-
-            - `required string Text`
-
-              The text content.
-
-              minLength: 1
-
-            - `required Type Type`
-
-          - `required string Source`
-
-            The URL source of the search result.
-
-            minLength: 1
-
-          - `required string Title`
-
-            The title of the search result.
-
-            minLength: 1
-
-          - `required Type Type`
-
-      - `bool? IsError`
-
-        Whether the tool execution resulted in an error.
-
-      - `DateTimeOffset? ProcessedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `string? SessionThreadID`
-
-        Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-    - `class BetaManagedAgentsUserDefineOutcomeEvent:`
-
-      Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-      - `required string ID`
-
-        Unique identifier for this event.
-
-      - `required string Description`
-
-        What the agent should produce. Copied from the input event.
-
-      - `required int? MaxIterations`
-
-        Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-        format: int32
-
-      - `required string OutcomeID`
-
-        Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-      - `required DateTimeOffset ProcessedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `required Rubric Rubric`
-
-        Rubric for grading the quality of an outcome.
-
-        - `class BetaManagedAgentsFileRubric:`
-
-          Rubric referenced by a file uploaded via the Files API.
-
-          - `required string FileID`
-
-            ID of the rubric file.
-
-          - `required Type Type`
-
-        - `class BetaManagedAgentsTextRubric:`
-
-          Rubric content provided inline as text.
-
-          - `required string Content`
-
-            Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-          - `required Type Type`
-
-      - `required Type Type`
-
-    - `class BetaManagedAgentsUserToolResultEvent:`
-
-      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-      - `required string ID`
-
-        Unique identifier for this event.
-
-      - `required string ToolUseID`
-
-        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-      - `required Type Type`
-
-      - `IReadOnlyList<Content> Content`
-
-        The result content returned by the tool.
-
-        - `class BetaManagedAgentsTextBlock:`
-
-          Regular text content.
-
-        - `class BetaManagedAgentsImageBlock:`
-
-          Image content specified directly as base64 data or as a reference via a URL.
-
-        - `class BetaManagedAgentsDocumentBlock:`
-
-          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `class BetaManagedAgentsSearchResultBlock:`
-
-          A block containing a web search result.
-
-      - `bool? IsError`
-
-        Whether the tool execution resulted in an error.
-
-      - `DateTimeOffset? ProcessedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-      - `string? SessionThreadID`
-
-        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-    - `class BetaManagedAgentsSystemMessageEvent:`
-
-      A mid-conversation system message event. Carries system-role content that is appended to the session as a `role: "system"` turn.
-
-      - `required string ID`
-
-        Unique identifier for this event.
-
-      - `required IReadOnlyList<BetaManagedAgentsSystemContentBlock> Content`
-
-        System content blocks. Text-only.
-
-        - `required string Text`
-
-          The text content.
-
-          minLength: 1
-
-        - `required Type Type`
-
-      - `required Type Type`
-
-      - `DateTimeOffset? ProcessedAt`
-
-        A timestamp in RFC 3339 format
-
-        format: date-time
-
-#### Example
-
-```csharp
-EventSendParams parameters = new()
-{
-    SessionID = "sesn_011CZkZAtmR3yMPDzynEDxu7",
-    Events =
-    [
-        new BetaManagedAgentsUserMessageEventParams()
-        {
-            Content =
-            [
-                new BetaManagedAgentsTextBlock()
-                {
-                    Text = "Where is my order #1234?",
-                    Type = Type.Text,
-                },
-            ],
-            Type = Type.UserMessage,
-        },
-    ],
-};
-
-var betaManagedAgentsSendSessionEvents = await client.Beta.Sessions.Events.Send(parameters);
-
-Console.WriteLine(betaManagedAgentsSendSessionEvents);
-```
-
-##### Response (200)
-
-```json
-{
-  "data": [
-    {
-      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
-      "content": [
-        {
-          "text": "Where is my order #1234?",
-          "type": "text"
-        }
-      ],
-      "type": "user.message",
-      "processed_at": "2026-03-15T10:00:00Z"
-    }
-  ]
-}
-```
-
-### Stream Events
-
-`BetaManagedAgentsStreamSessionEvents Beta.Sessions.Events.StreamStreaming(parameters, cancellationToken = default)`
-
-**GET** `/v1/sessions/{session_id}/events/stream`
-
-Stream Events
-
-#### Parameters
-
-- `EventStreamParams parameters`
-
-  - `required string sessionID`
-
-    Path param: Path parameter session_id
-
-  - `IReadOnlyList<BetaManagedAgentsDeltaType> eventDeltas`
-
-    Query param: When set, this connection also receives streaming deltas (`event_start`, `event_delta`) while an event is being produced, before the event itself arrives. Deltas are best-effort; when the final event is produced it carries the complete content. A model request that ends early (an error or interrupt) produces no final event — its terminal `span.model_request_end` closes the preview. Accepts one or more event types to preview and may be repeated: `agent.message` streams `content_delta` fragments; `agent.thinking` is start-only — a signal that the agent has begun extended thinking, concluded by the `agent.thinking` event itself. Only previews of the requested event types are sent.
-
-    - `AgentMessage`
-
-    - `AgentThinking`
-
-  - `IReadOnlyList<AnthropicBeta> betas`
-
-    Header param: Optional header to specify the beta version(s) you want to use.
-
-    - `MessageBatches2024_09_24`
-
-    - `PromptCaching2024_07_31`
-
-    - `ComputerUse2024_10_22`
-
-    - `ComputerUse2025_01_24`
-
-    - `Pdfs2024_09_25`
-
-    - `TokenCounting2024_11_01`
-
-    - `TokenEfficientTools2025_02_19`
-
-    - `Output128k2025_02_19`
-
-    - `FilesApi2025_04_14`
-
-    - `McpClient2025_04_04`
-
-    - `McpClient2025_11_20`
-
-    - `DevFullThinking2025_05_14`
-
-    - `InterleavedThinking2025_05_14`
-
-    - `CodeExecution2025_05_22`
-
-    - `ExtendedCacheTtl2025_04_11`
-
-    - `Context1m2025_08_07`
-
-    - `ContextManagement2025_06_27`
-
-    - `ModelContextWindowExceeded2025_08_26`
-
-    - `Skills2025_10_02`
-
-    - `FastMode2026_02_01`
-
-    - `Output300k2026_03_24`
-
-    - `UserProfiles2026_03_24`
-
-    - `UserProfiles2026_08_18`
-
-    - `AdvisorTool2026_03_01`
-
-    - `ManagedAgents2026_04_01`
-
-    - `CacheDiagnosis2026_04_07`
-
-    - `Dreaming2026_04_21`
-
-    - `ThinkingTokenCount2026_05_13`
-
-    - `ServerSideFallback2026_06_01`
-
-    - `ServerSideFallback2026_07_01`
-
-    - `FallbackCredit2026_06_01`
-
-    - `FallbackCredit2026_07_01`
-
-    - `AgentMemory2026_07_22`
-
-    - `MidConversationToolChanges2026_07_01`
-
-    - `Compact2026_01_12`
-
-    - `ComputerUse2025_11_24`
-
-    - `McpTunnels2026_06_22`
-
-    - `StructuredOutputs2025_11_13`
-
-    - `TaskBudgets2026_03_13`
-
-    - `ThinkingDisplayUpdates2026_08_18`
-
-    - `CEUserManagement2026_07_13`
-
-#### Returns
-
-- `class BetaManagedAgentsStreamSessionEvents: union`
-
-  Server-sent event in the session stream.
-
-  - `class BetaManagedAgentsUserMessageEvent:`
-
-    A user message event in the session conversation.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required IReadOnlyList<Content> Content`
-
-      Array of content blocks comprising the user message.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-          minLength: 1
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-              minLength: 1
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              minLength: 1
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-              minLength: 1
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-            - `required Type Type`
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-              minLength: 1
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-              minLength: 1
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-              minLength: 1
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-              minLength: 1
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-              minLength: 1
-
-            - `required Type Type`
-
-        - `required Type Type`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
-
-      - `class BetaManagedAgentsRedactedBlock:`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-        - `required Type Type`
-
-    - `required Type Type`
-
-    - `DateTimeOffset? ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-  - `class BetaManagedAgentsUserInterruptEvent:`
-
-    An interrupt event that pauses agent execution and returns control to the user.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required Type Type`
-
-    - `DateTimeOffset? ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `string? SessionThreadID`
-
-      If absent, interrupts every non-archived thread in a multiagent session (or the primary alone in a single-agent session). If present, interrupts only the named thread.
-
-  - `class BetaManagedAgentsUserToolConfirmationEvent:`
-
-    A tool confirmation event that approves or denies a pending tool execution.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required Result Result`
-
-      UserToolConfirmationResult enum
-
-      - `Allow`
-
-      - `Deny`
-
-    - `required string ToolUseID`
-
-      The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `required Type Type`
-
-    - `string? DenyMessage`
-
-      Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
-
-      maxLength: 10000
-
-    - `DateTimeOffset? ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `string? SessionThreadID`
-
-      When set, the confirmation routes to this subagent's thread rather than the primary. Echo this from the `session_thread_id` on the `agent.tool_use` or `agent.mcp_tool_use` event that prompted the approval.
-
-  - `class BetaManagedAgentsUserCustomToolResultEvent:`
-
-    Event sent by the client providing the result of a custom tool execution.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string CustomToolUseID`
-
-      The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `required Type Type`
-
-    - `IReadOnlyList<Content> Content`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock:`
-
-        A block containing a web search result.
-
-        - `required BetaManagedAgentsSearchResultCitations Citations`
-
-          Citation settings for a search result.
-
-          - `required bool Enabled`
-
-            Whether citations are enabled for this search result.
-
-        - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
-
-          Array of text content blocks from the search result.
-
-          - `required string Text`
-
-            The text content.
-
-            minLength: 1
-
-          - `required Type Type`
-
-        - `required string Source`
-
-          The URL source of the search result.
-
-          minLength: 1
-
-        - `required string Title`
-
-          The title of the search result.
-
-          minLength: 1
-
-        - `required Type Type`
-
-    - `bool? IsError`
-
-      Whether the tool execution resulted in an error.
-
-    - `DateTimeOffset? ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `string? SessionThreadID`
-
-      Routes this result to a subagent thread. Copy from the `agent.custom_tool_use` event's `session_thread_id`.
-
-  - `class BetaManagedAgentsAgentCustomToolUseEvent:`
-
-    Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-      Input parameters for the tool call.
-
-    - `required string Name`
-
-      Name of the custom tool being called.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-    - `string? SessionThreadID`
-
-      When set, this event was cross-posted from a subagent's thread to surface its custom tool use on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.custom_tool_result` event to route the result back.
-
-  - `class BetaManagedAgentsAgentMessageEvent:`
-
-    An agent response event in the session conversation.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required IReadOnlyList<Content> Content`
-
-      Array of text blocks comprising the agent response.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsRedactedBlock:`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsAgentThinkingEvent:`
-
-    Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsAgentMcpToolUseEvent:`
-
-    Event emitted when the agent invokes a tool provided by an MCP server.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-      Input parameters for the tool call.
-
-    - `required string McpServerName`
-
-      Name of the MCP server providing the tool.
-
-    - `required string Name`
-
-      Name of the MCP tool being used.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-    - `EvaluatedPermission EvaluatedPermission`
-
-      AgentEvaluatedPermission enum
-
-      - `Allow`
-
-      - `Ask`
-
-      - `Deny`
-
-    - `string? SessionThreadID`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `class BetaManagedAgentsAgentMcpToolResultEvent:`
-
-    Event representing the result of an MCP tool execution.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string McpToolUseID`
-
-      The id of the `agent.mcp_tool_use` event this result corresponds to.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-    - `IReadOnlyList<Content> Content`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock:`
-
-        A block containing a web search result.
-
-    - `bool? IsError`
-
-      Whether the tool execution resulted in an error.
-
-  - `class BetaManagedAgentsAgentToolUseEvent:`
-
-    Event emitted when the agent invokes a built-in agent tool.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required IReadOnlyDictionary<string, JsonElement> Input`
-
-      Input parameters for the tool call.
-
-    - `required string Name`
-
-      Name of the agent tool being used.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-    - `EvaluatedPermission EvaluatedPermission`
-
-      AgentEvaluatedPermission enum
-
-      - `Allow`
-
-      - `Ask`
-
-      - `Deny`
-
-    - `string? SessionThreadID`
-
-      When set, this event was cross-posted from a subagent's thread to surface its permission request on the primary thread's stream. Empty on the thread's own events. Echo this on a `user.tool_confirmation` event to route the approval back.
-
-  - `class BetaManagedAgentsAgentToolResultEvent:`
-
-    Event representing the result of an agent tool execution.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required string ToolUseID`
-
-      The id of the `agent.tool_use` event this result corresponds to.
-
-    - `required Type Type`
-
-    - `IReadOnlyList<Content> Content`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock:`
-
-        A block containing a web search result.
-
-    - `bool? IsError`
-
-      Whether the tool execution resulted in an error.
-
-  - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
-
-    Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required IReadOnlyList<Content> Content`
-
-      Message content blocks.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsRedactedBlock:`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `required string FromSessionThreadID`
-
-      Public `sthr_` ID of the thread that sent the message.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-    - `string? FromAgentName`
-
-      Name of the callable agent this message came from. Absent when received from the primary agent.
-
-  - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
-
-    Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required IReadOnlyList<Content> Content`
-
-      Message content blocks.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsRedactedBlock:`
-
-        Placeholder for content withheld by Anthropic model policy.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required string ToSessionThreadID`
-
-      Public `sthr_` ID of the thread the message was sent to.
-
-    - `required Type Type`
-
-    - `string? ToAgentName`
-
-      Name of the callable agent this message was sent to. Absent when sent to the primary agent.
-
-  - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
-
-    Indicates that context compaction (summarization) occurred during the session.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionErrorEvent:`
-
-    An error event indicating a problem occurred during session execution.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required Error Error`
-
-      An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-      - `class BetaManagedAgentsUnknownError:`
-
-        An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
-        - `required string Message`
-
-          Human-readable error description.
-
-        - `required RetryStatus RetryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-            - `required Type Type`
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsModelOverloadedError:`
-
-        The model is currently overloaded. Emitted after automatic retries are exhausted.
-
-        - `required string Message`
-
-          Human-readable error description.
-
-        - `required RetryStatus RetryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsModelRateLimitedError:`
-
-        The model request was rate-limited.
-
-        - `required string Message`
-
-          Human-readable error description.
-
-        - `required RetryStatus RetryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsModelRequestFailedError:`
-
-        A model request failed for a reason other than overload or rate-limiting.
-
-        - `required string Message`
-
-          Human-readable error description.
-
-        - `required RetryStatus RetryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsMcpConnectionFailedError:`
-
-        Failed to connect to an MCP server.
-
-        - `required string McpServerName`
-
-          Name of the MCP server that failed to connect.
-
-        - `required string Message`
-
-          Human-readable error description.
-
-        - `required RetryStatus RetryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsMcpAuthenticationFailedError:`
-
-        Authentication to an MCP server failed.
-
-        - `required string McpServerName`
-
-          Name of the MCP server that failed authentication.
-
-        - `required string Message`
-
-          Human-readable error description.
-
-        - `required RetryStatus RetryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsBillingError:`
-
-        The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
-        - `required string Message`
-
-          Human-readable error description.
-
-        - `required RetryStatus RetryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsCredentialHostUnreachableError:`
-
-        An `environment_variable` credential's `auth.networking.allowed_hosts` includes a host the environment's network policy does not permit.
-
-        - `required string CredentialID`
-
-          ID of the affected credential.
-
-        - `required string Message`
-
-          Human-readable error description.
-
-        - `required RetryStatus RetryStatus`
-
-          What the client should do next in response to this error.
-
-          - `class BetaManagedAgentsRetryStatusRetrying:`
-
-            The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `class BetaManagedAgentsRetryStatusExhausted:`
-
-            This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
-          - `class BetaManagedAgentsRetryStatusTerminal:`
-
-            The session encountered a terminal error and will transition to `terminated` state.
-
-        - `required Type Type`
-
-        - `required string VaultID`
-
-          ID of the vault containing the affected credential.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
-
-    Indicates the session is recovering from an error state and is rescheduled for execution.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionStatusRunningEvent:`
-
-    Indicates the session is actively running and the agent is working.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionStatusIdleEvent:`
-
-    Indicates the agent has paused and is awaiting user input.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required StopReason StopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionEndTurn:`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsSessionRequiresAction:`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-        - `required IReadOnlyList<string> EventIds`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsSessionRetriesExhausted:`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsSessionBudgetReached:`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-        - `required Type Type`
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
-
-    Indicates the session has terminated, either due to an error or completion.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionThreadCreatedEvent:`
-
-    Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string AgentName`
-
-      Name of the callable agent the thread runs.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required string SessionThreadID`
-
-      Public `sthr_` ID of the newly created thread.
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
-
-    Emitted when an outcome evaluation cycle begins.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required int Iteration`
-
-      0-indexed revision cycle. 0 is the first evaluation; 1 is the re-evaluation after the first revision; etc.
-
-      format: int32
-
-    - `required string OutcomeID`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
-
-    Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string Explanation`
-
-      Human-readable explanation of the verdict. For `needs_revision`, describes which criteria failed and why.
-
-    - `required int Iteration`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `required string OutcomeEvaluationStartID`
-
-      The id of the corresponding `span.outcome_evaluation_start` event.
-
-    - `required string OutcomeID`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required string Result`
-
-      Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
-
-    - `required Type Type`
-
-    - `required BetaManagedAgentsSpanModelUsage Usage`
-
-      Token usage for a single model request.
-
-      - `required int CacheCreationInputTokens`
-
-        Tokens used to create prompt cache in this request.
-
-        format: int32
-
-      - `required int CacheReadInputTokens`
-
-        Tokens read from prompt cache in this request.
-
-        format: int32
-
-      - `required int InputTokens`
-
-        Input tokens consumed by this request.
-
-        format: int32
-
-      - `required int OutputTokens`
-
-        Output tokens generated by this request.
-
-        format: int32
-
-      - `Speed? Speed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `Standard`
-
-        - `Fast`
-
-  - `class BetaManagedAgentsSpanModelRequestStartEvent:`
-
-    Emitted when a model request is initiated by the agent.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSpanModelRequestEndEvent:`
-
-    Emitted when a model request completes.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required bool? IsError`
-
-      Whether the model request resulted in an error.
-
-    - `required string ModelRequestStartID`
-
-      The id of the corresponding `span.model_request_start` event.
-
-    - `required BetaManagedAgentsSpanModelUsage ModelUsage`
-
-      Token usage for a single model request.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
-
-    Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required int Iteration`
-
-      0-indexed revision cycle, matching the corresponding `span.outcome_evaluation_start`.
-
-      format: int32
-
-    - `required string OutcomeID`
-
-      The `outc_` ID of the outcome being evaluated.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsUserDefineOutcomeEvent:`
-
-    Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string Description`
-
-      What the agent should produce. Copied from the input event.
-
-    - `required int? MaxIterations`
-
-      Evaluate-then-revise cycles before giving up. Default 3, max 20.
-
-      format: int32
-
-    - `required string OutcomeID`
-
-      Server-generated `outc_` ID for this outcome. Referenced by `span.outcome_evaluation_*` events and the session's `outcome_evaluations` list.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Rubric Rubric`
-
-      Rubric for grading the quality of an outcome.
-
-      - `class BetaManagedAgentsFileRubric:`
-
-        Rubric referenced by a file uploaded via the Files API.
-
-        - `required string FileID`
-
-          ID of the rubric file.
-
-        - `required Type Type`
-
-      - `class BetaManagedAgentsTextRubric:`
-
-        Rubric content provided inline as text.
-
-        - `required string Content`
-
-          Rubric content. Plain text or markdown — the grader treats it as freeform text.
-
-        - `required Type Type`
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionDeletedEvent:`
-
-    Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
-
-    A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string AgentName`
-
-      Name of the agent the thread runs.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required string SessionThreadID`
-
-      Public sthr_ ID of the thread that started running.
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
-
-    A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string AgentName`
-
-      Name of the agent the thread runs.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required string SessionThreadID`
-
-      Public sthr_ ID of the thread that went idle.
-
-    - `required StopReason StopReason`
-
-      The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionEndTurn:`
-
-        The agent completed its turn naturally and is ready for the next user message.
-
-      - `class BetaManagedAgentsSessionRequiresAction:`
-
-        The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
-      - `class BetaManagedAgentsSessionRetriesExhausted:`
-
-        The turn ended because repeated errors exhausted the retry budget or an error escalated to `retry_status: 'exhausted'`.
-
-      - `class BetaManagedAgentsSessionBudgetReached:`
-
-        The agent stopped because the session's tracked list cost reached its budget, or because its usage includes a model with no list price (which the budget cannot measure). Raise the budget to continue — or, if raising is rejected because a model has no list price, remove the budget.
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
-
-    A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string AgentName`
-
-      Name of the agent the thread runs.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required string SessionThreadID`
-
-      Public sthr_ ID of the thread that terminated.
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsUserToolResultEvent:`
-
-    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string ToolUseID`
-
-      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
-
-    - `required Type Type`
-
-    - `IReadOnlyList<Content> Content`
-
-      The result content returned by the tool.
-
-      - `class BetaManagedAgentsTextBlock:`
-
-        Regular text content.
-
-      - `class BetaManagedAgentsImageBlock:`
-
-        Image content specified directly as base64 data or as a reference via a URL.
-
-      - `class BetaManagedAgentsDocumentBlock:`
-
-        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-      - `class BetaManagedAgentsSearchResultBlock:`
-
-        A block containing a web search result.
-
-    - `bool? IsError`
-
-      Whether the tool execution resulted in an error.
-
-    - `DateTimeOffset? ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `string? SessionThreadID`
-
-      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
-
-  - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
-
-    A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required string AgentName`
-
-      Name of the agent the thread runs.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required string SessionThreadID`
-
-      Public sthr_ ID of the thread that is retrying.
-
-    - `required Type Type`
-
-  - `class BetaManagedAgentsSessionUpdatedEvent:`
-
-    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
-
-    - `required string ID`
-
-      Unique identifier for this event.
-
-    - `required DateTimeOffset ProcessedAt`
-
-      A timestamp in RFC 3339 format
-
-      format: date-time
-
-    - `required Type Type`
-
-    - `BetaManagedAgentsSessionAgent? Agent`
-
-      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
-      - `required string ID`
-
-      - `required string? Description`
-
-      - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
-        - `required string Name`
-
-        - `required Type Type`
-
-        - `required string Url`
-
-      - `required BetaManagedAgentsModelConfig Model`
-
-        Model identifier and configuration.
-
-        - `required BetaManagedAgentsModel ID`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `ClaudeSonnet5`
-
-            High-performance model for coding and agents
-
-          - `ClaudeFable5`
-
-            Next generation of intelligence for the hardest knowledge work and coding problems
-
-          - `ClaudeOpus5`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeOpus4_8`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeOpus4_7`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeOpus4_6`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeSonnet4_6`
-
-            Best combination of speed and intelligence
-
-          - `ClaudeHaiku4_5`
-
-            Fastest model with near-frontier intelligence
-
-          - `ClaudeHaiku4_5_20251001`
-
-            Fastest model with near-frontier intelligence
-
-          - `ClaudeOpus4_5`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeOpus4_5_20251101`
-
-            Powerful intelligence for long-running agents and coding
-
-          - `ClaudeSonnet4_5`
-
-            High-performance model for agents and coding
-
-          - `ClaudeSonnet4_5_20250929`
-
-            High-performance model for agents and coding
-
-        - `Effort Effort`
-
-          How hard Claude works on each turn. Sets `output_config.effort` on every Messages call the session makes.
-
-          - `class BetaManagedAgentsEffortLow:`
-
-            Low effort. Favors latency over reasoning depth.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsEffortMedium:`
-
-            Medium effort. Balances latency and reasoning depth.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsEffortHigh:`
-
-            High effort. Favors reasoning depth.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsEffortXhigh:`
-
-            Extra-high effort. Not all models accept this level.
-
-            - `required Type Type`
-
-          - `class BetaManagedAgentsEffortMax:`
-
-            Maximum effort. Favors reasoning depth over latency.
-
-            - `required Type Type`
-
-        - `string InferenceGeo`
-
-          Geographic region for model inference. When unset, requests fall through to the workspace's default_inference_geo.
-
-        - `Speed Speed`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `Standard`
-
-          - `Fast`
-
-      - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
-
-        Resolved coordinator topology with full agent definitions for each roster member.
-
-        - `required IReadOnlyList<Agent> Agents`
-
-          Full `agent` definitions the coordinator may spawn as session threads.
-
-          - `class BetaManagedAgentsSessionThreadAgent:`
-
-            Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-            - `required string ID`
-
-            - `required string? Description`
-
-            - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
-              - `required string Name`
-
-              - `required Type Type`
-
-              - `required string Url`
-
-            - `required BetaManagedAgentsModelConfig Model`
-
-              Model identifier and configuration.
-
-            - `required string Name`
-
-            - `required IReadOnlyList<Skill> Skills`
-
-              - `class BetaManagedAgentsAnthropicSkill:`
-
-                A resolved Anthropic-managed skill.
-
-                - `required string SkillID`
-
-                - `required Type Type`
-
-                - `required string Version`
-
-              - `class BetaManagedAgentsCustomSkill:`
-
-                A resolved user-created custom skill.
-
-                - `required string SkillID`
-
-                - `required Type Type`
-
-                - `required string Version`
-
-            - `required string? System`
-
-            - `required IReadOnlyList<Tool> Tools`
-
-              - `class BetaManagedAgentsAgentToolset20260401:`
-
-                - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-                  - `class BetaManagedAgentsBashToolConfig:`
-
-                    Configuration for the bash tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                        - `required Type Type`
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                        - `required Type Type`
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsEditToolConfig:`
-
-                    Configuration for the edit tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsReadToolConfig:`
-
-                    Configuration for the read tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsWriteToolConfig:`
-
-                    Configuration for the write tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsGlobToolConfig:`
-
-                    Configuration for the glob tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsGrepToolConfig:`
-
-                    Configuration for the grep tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                  - `class BetaManagedAgentsWebFetchToolConfig:`
-
-                    Configuration for the web_fetch tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                    - `IReadOnlyList<string> AllowedDomains`
-
-                    - `IReadOnlyList<string> BlockedDomains`
-
-                    - `int? MaxContentTokens`
-
-                      format: int32
-
-                  - `class BetaManagedAgentsWebSearchToolConfig:`
-
-                    Configuration for the web_search tool.
-
-                    - `required bool Enabled`
-
-                    - `JsonElement Name constant`
-
-                    - `required PermissionPolicy PermissionPolicy`
-
-                      Permission policy for tool execution.
-
-                      - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                        Tool calls are automatically approved without user confirmation.
-
-                      - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                        Tool calls require user confirmation before execution.
-
-                    - `JsonElement Type constant`
-
-                    - `IReadOnlyList<string> AllowedDomains`
-
-                    - `IReadOnlyList<string> BlockedDomains`
-
-                    - `BetaManagedAgentsUserLocation? UserLocation`
-
-                      Approximate user location for search result localization.
-
-                      - `JsonElement Type constant`
-
-                        Location precision. Only "approximate" is supported.
-
-                      - `string? City`
-
-                        City name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `string? Country`
-
-                        Two-letter ISO 3166-1 country code, uppercase.
-
-                      - `string? Region`
-
-                        Region or state name.
-
-                        minLength: 1, maxLength: 255
-
-                      - `string? Timezone`
-
-                        IANA timezone identifier, e.g. "America/Los_Angeles".
-
-                        minLength: 1, maxLength: 255
-
-                - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-                  Resolved default configuration for agent tools.
-
-                  - `required bool Enabled`
-
-                  - `required PermissionPolicy PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                      Tool calls require user confirmation before execution.
-
-                - `required Type Type`
-
-              - `class BetaManagedAgentsMcpToolset:`
-
-                - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-                  - `required bool Enabled`
-
-                  - `required string Name`
-
-                  - `required PermissionPolicy PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                      Tool calls require user confirmation before execution.
-
-                - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-                  Resolved default configuration for all tools from an MCP server.
-
-                  - `required bool Enabled`
-
-                  - `required PermissionPolicy PermissionPolicy`
-
-                    Permission policy for tool execution.
-
-                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                      Tool calls are automatically approved without user confirmation.
-
-                    - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                      Tool calls require user confirmation before execution.
-
-                - `required string McpServerName`
-
-                - `required Type Type`
-
-              - `class BetaManagedAgentsCustomTool:`
-
-                A custom tool as returned in API responses.
-
-                - `required string Description`
-
-                - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-                  JSON Schema for custom tool input parameters.
-
-                  - `JsonElement Type constant`
-
-                  - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-                  - `IReadOnlyList<string>? Required`
-
-                - `required string Name`
-
-                - `required Type Type`
-
-            - `required Type Type`
-
-            - `required int Version`
-
-              format: int32
-
-          - `class BetaManagedAgentsAdvisor:`
-
-            Platform advisor roster entry: a model the session's primary thread may consult mid-turn.
-
-            - `required string Model`
-
-              The advisor model id.
-
-            - `required Type Type`
-
-        - `required Type Type`
-
-      - `required string Name`
-
-      - `required IReadOnlyList<Skill> Skills`
-
-        - `class BetaManagedAgentsAnthropicSkill:`
+          - `ClaudeFable5_1("claude-fable-5-1")`

@@ -20,6 +20,8 @@ In this lessonBy the end, you’ll be able to
 
 Describing what users need · 5 min
 
+SummaryTranscript
+
 Most AI training teaches you to write better prompts. That’s necessary but
 not sufficient for building great products. This lesson maps the full
 Description Chain: the path from a messy human need to a precise instruction

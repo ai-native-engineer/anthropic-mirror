@@ -45,7 +45,7 @@ You can trigger a manual sync from two places in your admin settings.
 1. Go to **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
 2. Click "Check for updates" under **SCIM sync**:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1788033600&signature=295913876fb7d56dc2cf31e194000a6c2cde2c9e68ad071232e805a1b93d81dd&req=diMmFM9%2FnoRbUfMW1HO4zW4gbD2tNs6yrgfl7PnOiumffxIZhTkgJY3hGYGu%0AtOJi%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1788033600&signature=295913876fb7d56dc2cf31e194000a6c2cde2c9e68ad071232e805a1b93d81dd&req=diMmFM9%2FnoRbUfMW1HO4zW4gbD2tNs6yrgfl7PnOiumffxIZhTkgJY3hGYGu%0AtOJi%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1788654600&signature=4489738248b44305ddf81d0f76643cab4f2f87ee2e3a37e4ba525ed65c4d8e90&req=diMmFM9%2FnoRbUfMW1HO4zW4gbD2rMMmyrgfl7PnOium80M3TnNN5azNdEeN2%0A%2B6fV%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1788654600&signature=4489738248b44305ddf81d0f76643cab4f2f87ee2e3a37e4ba525ed65c4d8e90&req=diMmFM9%2FnoRbUfMW1HO4zW4gbD2rMMmyrgfl7PnOium80M3TnNN5azNdEeN2%0A%2B6fV%0A)
 3. Select whether to sync members, groups, or both.
 
 **From the Manage SCIM page**
@@ -54,7 +54,7 @@ You can trigger a manual sync from two places in your admin settings.
 2. Click "Sync."
 3. Select whether to sync members, groups, or both:
 
-   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1788033600&signature=74cd327ddf0ffdbe0e935161ff766ddb5e2881a08e52258d8a474ecd0e2bdb5b&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frLwyDgZ43OpyTHzM9TRIX%2BCV7zgJbFhziTT%0AiLor%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1788033600&signature=74cd327ddf0ffdbe0e935161ff766ddb5e2881a08e52258d8a474ecd0e2bdb5b&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frLwyDgZ43OpyTHzM9TRIX%2BCV7zgJbFhziTT%0AiLor%0A)
+   [![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1788654600&signature=140d30eaee515dee1b6856cf58477a59f5da4d0d3c14788e436532ae3161aedc&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frL2zj8Z43OpyTHzM9SjpQgcrFB7Aa2BOSKH%0A5JBZ%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1788654600&signature=140d30eaee515dee1b6856cf58477a59f5da4d0d3c14788e436532ae3161aedc&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frL2zj8Z43OpyTHzM9SjpQgcrFB7Aa2BOSKH%0A5JBZ%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 
@@ -91,10 +91,10 @@ Before you trigger a manual resync, keep these in mind:
 * **Changing the provisioning mode to SCIM removes members not in your IdP directory.** Confirm that all existing members are in your IdP directory before changing provisioning mode.
 * **Updating a member's email creates a new member record.** The member with the old email is removed, and a new member with the new email is created.
 * **Resyncing cascades to child organizations.** If you have multiple organizations with SCIM provisioning under the same **parent organization**, resyncing one triggers resyncing in the others. This includes sandbox organizations sharing the same parent.
-* **Incomplete group mappings remove members from the organization.** When enabling group mapping for SCIM, finish assigning all groups before saving. Any member not included in a role group mapping is removed from the organization. If you enable seat tier mapping, any member not in a seat tier group mapping is also removed.
+* **Incomplete role mappings remove members from the organization.** When enabling group mapping for SCIM, finish assigning all groups before saving. Any member not included in a role group mapping is removed from the organization. Seat tier mappings work differently: a member who isn’t in any seat tier group isn’t removed. Existing members keep their current seat type, and newly provisioned members receive the highest seat type that still has an unassigned purchased seat, then the next seat type down, and are added with no seat if none is available.
 
 * [Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)
-* [Okta SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch)
 * [Ping Identity SSO/SCIM email mismatch](https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch)
 * [Google Workspace SSO setup](https://support.claude.com/en/articles/13917884-google-workspace-sso-setup)
+* [Okta SSO setup](https://support.claude.com/en/articles/13917894-okta-sso-setup)
 * [Set up SCIM in Claude for Government](https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government)

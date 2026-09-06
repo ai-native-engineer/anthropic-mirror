@@ -25,7 +25,7 @@ Below are brief explanations of the tools and libraries utilised within the impl
 * voyageai: This is the official Python client library for accessing VoyageAI's suite of embedding models.
 * pymongo: PyMongo is a Python toolkit for MongoDB. It enables interactions with a MongoDB database.
 
-!pip install pymongo datasets pandas anthropic voyageai
+%pip install pymongo datasets pandas anthropic voyageai
 
 The code snippet below executes the following steps:
 
@@ -388,7 +388,7 @@ The final section of the tutorial outlines the sequence of operations performed 
 
 * Accept a user query in the form of a string.
 * Utilize the VoyageAI embedding model to generate embeddings for the user query.
-* Load the Anthropic Claude 3, specifically the ‘claude-opus-4-1’ model, to serve as the base model for the RAG system.
+* Load Anthropic's Claude, specifically the `claude-opus-4-8` model, to serve as the base model for the RAG system.
 * Execute a vector search using the embeddings of the user query to fetch relevant information from the knowledge base, which provides additional context for the base model.
 * Submit both the user query and the gathered additional information to the base model to generate a response.
 
@@ -406,7 +406,7 @@ Below is a more detailed description of the operations in the code snippet below
 2. Compile Search Results: `search_result` is initialized as an empty string to aggregate information from the search. The search results are compiled by iterating over the results returned by the `vector_search` function, formates each item's details (title, company name, URL, publication date, article URL, and description) into a human-readable string, appending this information to search\_result with a newline character \n at the end of each entry.
 3. Generate Response Using Anthropic Client: The function then constructs a request to the Claude API (through a client object, presumably an instance of the anthropic. Client class created earlier). It specifies:
 
-* The model to use ("claude-opus-4-1") indicates a specific version of the Claude 3 model.
+* The model to use (`claude-opus-4-8`) indicates the Claude Opus model version.
 * The maximum token limit for the generated response (max\_tokens=1024).
 * A system description guides the model to behave as a "Venture Capital Tech Analyst" with access to tech company articles and information, using this context to advise.
 * The actual message for the model to process combines the user query with the aggregated search results as context.
@@ -439,7 +439,7 @@ f"Description: {result.get('description', 'N/A')}, \n"
 
 response = client.messages.create(
 
-model="claude-opus-4-1",
+model="claude-opus-4-8",
 
 max\_tokens=1024,
 

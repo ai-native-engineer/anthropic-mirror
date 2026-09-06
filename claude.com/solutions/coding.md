@@ -14,9 +14,9 @@ Contact sales
 
 [](https://www-cdn.anthropic.com/27884c4362fe884eca5dba08fe5c7efb1bbf567a.mp4)
 
-80.3%
+55.8%
 
-Fable 5 leads on SWE-Bench Pro
+Fable 5.1 leads on Terminal-Bench 4.0
 
 ## 60x
 
@@ -112,7 +112,7 @@ Learn more
 
 ### Explore agentic coding with Claude Code
 
-Claude Code brings Fable 5 to your terminal, with deep codebase awareness and the ability to edit files and run commands directly in your environment.
+Claude Code brings Fable 5.1 to your terminal, with deep codebase awareness and the ability to edit files and run commands directly in your environment.
 
 Learn more
 
@@ -225,47 +225,53 @@ Remember to be thorough in your analysis and clear in your explanation. Your goa
 
 ## See why companies choose Claude
 
-![Replit (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad4f0fb6998a6283f1dd_Replit_light.svg)![Replit (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad55e5f775cb92a97c52_Replit_dark.svg)
+![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
 
-"On ViBench, our end-to-end vibe-coding benchmark, Claude Fable 5 is the highest-performing model we've tested — nearly saturating our base use cases and building apps in less time with fewer tokens."
+“We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
 
-Michele Catasta, President & Head of AI
+Walden Yan, Co-Founder and CPO
 
-![Microsoft (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a204b033a1098addb579710_6a204a9af356012f0d579e69_Microsoft_light.svg)![Microsoft (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a204b033a1098addb579718_6a204a9b2963d7b2d0db4402_Microsoft_dark.svg)
+![Shopify (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9368f2bd228e7080695d_logo_shopify-light.svg)![Shopify (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da936caa7913237c0589f4_logo_shopify-dark.svg)
 
-"Claude Fable 5 is a real step forward for the developers GitHub serves. In our early testing, it took on complex, long-horizon coding tasks with a level of autonomy and reliability that exceeded previous benchmarks. But what excites us most is the direction it points: a future where developers can hand increasingly ambitious work to agents and trust the results across the software lifecycle."
+“Claude Fable 5.1 is more comfortable with long, unattended work than Fable 5. I've had workflows run for a long stretch without losing the plot: it keeps its own records, reprioritizes as things change, and picks up where it left off.”
 
-Mario Rodriguez, Chief Product Officer
+Ben Lafferty, Senior Staff Engineer
 
-![Stripe (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adf8d23ff734739d3a80_Stripe_light.svg)![Stripe (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5adfff1546febae66f812_Stripe_dark.svg)
+![iGent (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9cbcc543d1002a3d3de9_logo_igentai-light.svg)![iGent (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9cc83d1d0e7f5216bb24_logo_igentai-dark.svg)
 
-“Claude Opus 5 is a clear generational step up from Opus 4.8. Over one weekend I gave it a chief-of-staff role over my dev environments: it built its own monitor, drove each box, and pulled me in only for the judgment calls.”
+“On the hardest problems we work on, Claude Fable 5.1 separates strongly from any other model we've tried. On a grand challenge-tier problem we've used as a testbed for 18 months, it actually produced material progress. Rather than being trapped in stamp collecting, it made clear white-space connections I have yet to see elsewhere. It also optimized a compute kernel that Fable 5 had tapped out on by about 35%.”
 
-Cristian Rivera, Staff Software Engineer
+Sean Ward, Co-founder and CEO
 
-![Cognition (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb8193497afd3b2cd24_brand-logo-cognition-black.svg)![Cognition (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a29deb952fed1bad85c342c_brand-logo-cognition-white.svg)
+![Plaid (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad18cefcc0f38fff4e04_Plaid_light.svg)![Plaid (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ad129d3cb836048d2f6b_Plaid_dark.svg)
 
-“On FrontierCode 1.1, Claude Opus 5 approaches Fable-level performance at half the cost. Within Devin, it also shows particular strength on difficult debugging and root-cause analysis tasks.”
+“We had a change that touched more than eight services across three codebases. Claude Fable 5.1 mapped the whole workflow end to end, in extremely fine detail, from the incoming service call down to the individual function and the database tables and rows, and it was accurate all the way down. We appreciated the opportunity to test the model and provide feedback, helping us prepare for a new frontier where we can increasingly rely on these tools to take on bolder initiatives.”
 
-Scott Wu, CEO
+Aditya Gupta, Staff Software Engineer
 
-![Cursor (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bce42081e89a8bec1f_logo_cursor-light.svg)![Cursor (Opus 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6984e4bafffa19b5e3366ebc_logo_cursor-dark.svg)
+![SpaceXAI (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3465ab2398c17d0176_logo_spacex-light.svg)![SpaceXAI (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a96fa3841222d7122838bde_logo_spacex-dark.svg)
 
-“Claude Opus 5 delivers near Fable 5 intelligence at Opus speed and cost. On CursorBench it’s just under Fable 5 and has many of the same behaviors. We are excited to see how developers use it in Cursor.”
+“Claude Fable 5.1 is the most capable model we've run on CursorBench 3.2, scoring 73.4% at max effort. We found it especially skilled at verifying its own work, allowing it to take on difficult coding tasks from start to finish.”
 
-Sualeh Asif, Co-Founder
+Sualeh Asif, Director of ML
 
-![Figma (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d1ee4cb7c69d15a44ec7d6_Figma%20Dark.svg)![Figma (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d1ee481c19e67f332ef755_Figma%20Light.svg)
+![Canva (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a94f6f82b1f84f489887_Canva_light.svg)![Canva (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a94baddb6685c1e5410d_Canva_dark.svg)
 
-"These are the strongest results of any Claude model we've had the opportunity to test. Claude Fable 5 is a clear step forward on agentic coding and prototyping."
+“The standout in Claude Fable 5.1 is the writing: more understandable, more meaningful, and it follows our writing guidance better. In blind tests against Fable 5, I preferred its writing and output. And in Canva Code it built a rhythm game with real music and on-beat gameplay matched to the level it generated, something no other model we tested delivered.”
 
-Matt Colyer, Director of Product, Developers
+Danny Wu, Head of AI
 
-![Genspark (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a185746b1e4c275dd8cd47b_logo_genspark_sidebar_dark.svg)![Genspark (Fable 5)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1857471fdaacf23f5598bc_logo_genspark_sidebar_light.svg)
+![Rakuten (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5faa6352b26bf7542cb9b_logo_rakuten-light.svg)![Rakuten (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68d5fab610bf0d091b541153_logo_rakuten-dark.svg)
 
-"Claude Fable 5 came out #1 on our evals, winning head-to-head against every model we tested. It was significantly stronger on the hardest tasks in the set — UI design and game coding."
+“We asked Claude Fable 5.1 to review a clinical research project for Rakuten Medical that three other frontier models had signed off on. It found a gap none of them had seen and insisted on testing it further. It then proposed a completely new hypothesis, turning a dataset we had written off into a new research direction in one afternoon. It's the first time a frontier model like Claude has empowered us to explore new research in this way.”
 
-Kay Zhu, Co-founder & CTO
+Felix Giovanni Virgo, Principal AI Engineer
+
+![Red Hat (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59ea3_6a2ecc7a1372de816bc282aa_RedHat_light.svg)![Red Hat (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd40339475e271c59e88_6a2ecc7a028e2d7625286222_RedHat_dark.svg)
+
+“As part of our ongoing evaluation of AI models, Claude Fable 5.1 delivered impressive results in our tests. Using Claude Code, it correctly identified the root cause of every broken build we tested, across all the effort levels. It also communicates more effectively than earlier Anthropic models, with updates that are more concise and easier to follow.”
+
+Josh Boyer, Distinguished Engineer
 
 [Prev](#)Prev
 

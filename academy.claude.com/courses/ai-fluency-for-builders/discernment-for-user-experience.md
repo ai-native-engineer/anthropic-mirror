@@ -20,6 +20,8 @@ In this lessonBy the end, you’ll be able to
 
 Discernment for user experience · 2 min
 
+SummaryTranscript
+
 As AI speeds up implementation, design becomes the differentiator. This
 lesson covers the UX principles that matter most when working with AI, why
 “make it look good” produces nothing useful, and how to close the gap

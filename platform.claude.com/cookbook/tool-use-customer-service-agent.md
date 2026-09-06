@@ -14,7 +14,7 @@ import anthropic
 
 client = anthropic.Client()
 
-MODEL\_NAME = "claude-opus-4-1"
+MODEL\_NAME = "claude-opus-4-8"
 
 ##  Step 2: Define the client-side tools
 

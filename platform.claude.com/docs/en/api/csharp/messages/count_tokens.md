@@ -79,13 +79,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text"`
 
           - `CacheControlEphemeral? CacheControl`
 
             Create a cache control breakpoint at this content block.
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "ephemeral"`
 
             - `Ttl Ttl`
 
@@ -98,9 +98,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Defaults to `5m`. See [prompt caching pricing](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) for details.
 
-              - `Ttl5m`
+              - `Ttl5m("5m")`
 
-              - `Ttl1h`
+              - `Ttl1h("1h")`
 
           - `IReadOnlyList<TextCitationParam>? Citations`
 
@@ -122,7 +122,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "char_location"`
 
             - `class CitationPageLocationParam:`
 
@@ -142,7 +142,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "page_location"`
 
             - `class CitationContentBlockLocationParam:`
 
@@ -172,7 +172,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 minimum: 0
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "content_block_location"`
 
             - `class CitationWebSearchResultLocationParam:`
 
@@ -184,7 +184,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 maxLength: 512, minLength: 1
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_result_location"`
 
               - `required string Url`
 
@@ -222,7 +222,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string? Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "search_result_location"`
 
         - `class ImageBlockParam:`
 
@@ -236,19 +236,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required MediaType MediaType`
 
-                - `ImageJpeg`
+                - `ImageJpeg("image/jpeg")`
 
-                - `ImagePng`
+                - `ImagePng("image/png")`
 
-                - `ImageGif`
+                - `ImageGif("image/gif")`
 
-                - `ImageWebP`
+                - `ImageWebP("image/webp")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "base64"`
 
             - `class UrlImageSource:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "url"`
 
               - `required string Url`
 
@@ -256,9 +256,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "file"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "image"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -272,9 +272,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               What the server does when this image exceeds the model's maximum image size. `"downsize"` (the default) scales the image down to fit, which changes the dimensions the model observes without telling you. `"error"` instead rejects the request with a 400 error naming the image's dimensions and the largest dimensions that fit, so you can scale the image deliberately — your image is never silently scaled down.
 
-              - `Downsize`
+              - `Downsize("downsize")`
 
-              - `Error`
+              - `Error("error")`
 
         - `class DocumentBlockParam:`
 
@@ -286,17 +286,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 format: byte
 
-              - `JsonElement MediaType constant`
+              - `JsonElement MediaType = "application/pdf"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "base64"`
 
             - `class PlainTextSource:`
 
               - `required string Data`
 
-              - `JsonElement MediaType constant`
+              - `JsonElement MediaType = "text/plain"`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text"`
 
             - `class ContentBlockSource:`
 
@@ -310,11 +310,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   - `class ImageBlockParam:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "content"`
 
             - `class UrlPdfSource:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "url"`
 
               - `required string Url`
 
@@ -322,9 +322,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string FileID`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "file"`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "document"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -350,7 +350,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               minLength: 1
 
-            - `JsonElement Type constant`
+            - `JsonElement Type = "text"`
 
             - `CacheControlEphemeral? CacheControl`
 
@@ -362,7 +362,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required string Title`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "search_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -382,7 +382,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `thinking` text of this block as returned by the API.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "thinking"`
 
         - `class RedactedThinkingBlockParam:`
 
@@ -390,7 +390,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             The `data` value of this redacted thinking block, exactly as returned by the API in a previous response. Opaque and encrypted; pass it back unchanged.
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "redacted_thinking"`
 
         - `class ToolUseBlockParam:`
 
@@ -404,7 +404,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             maxLength: 200, minLength: 1
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_use"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -418,7 +418,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               Tool invocation directly from the model.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "direct"`
 
             - `class ServerToolCaller:`
 
@@ -428,7 +428,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_20250825"`
 
             - `class ServerToolCaller20260120:`
 
@@ -436,7 +436,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_20260120"`
 
           - `string? ToolsetName`
 
@@ -450,7 +450,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^[a-zA-Z0-9_-]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -478,7 +478,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_reference"`
 
                 - `CacheControlEphemeral? CacheControl`
 
@@ -522,7 +522,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                     Whether this tab is the active tab after this call. Whenever `tabs` is non-empty, exactly one entry is marked `active: true`.
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "browser_state"`
 
                 - `CacheControlEphemeral? CacheControl`
 
@@ -550,7 +550,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "tab_opened"`
 
                   - `class BrowserStateChangeDownloadStarted:`
 
@@ -562,7 +562,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_started"`
 
                     - `required string Url`
 
@@ -583,7 +583,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_completed"`
 
                     - `required string Url`
 
@@ -613,7 +613,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                       maxLength: 4096, minLength: 1, pattern: ^[^\x00-\x1f\x7f-\x9f\u2028\u2029]*$
 
-                    - `JsonElement Type constant`
+                    - `JsonElement Type = "download_failed"`
 
                     - `required string Url`
 
@@ -645,21 +645,21 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required Name Name`
 
-            - `WebSearch`
+            - `WebSearch("web_search")`
 
-            - `WebFetch`
+            - `WebFetch("web_fetch")`
 
-            - `CodeExecution`
+            - `CodeExecution("code_execution")`
 
-            - `BashCodeExecution`
+            - `BashCodeExecution("bash_code_execution")`
 
-            - `TextEditorCodeExecution`
+            - `TextEditorCodeExecution("text_editor_code_execution")`
 
-            - `ToolSearchToolRegex`
+            - `ToolSearchToolRegex("tool_search_tool_regex")`
 
-            - `ToolSearchToolBm25`
+            - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "server_tool_use"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -689,7 +689,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Title`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_result"`
 
               - `required string Url`
 
@@ -699,25 +699,25 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required WebSearchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `QueryTooLong`
+                - `QueryTooLong("query_too_long")`
 
-                - `RequestTooLarge`
+                - `RequestTooLarge("request_too_large")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_search_tool_result_error"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_search_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -745,31 +745,31 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required WebFetchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `UrlTooLong`
+                - `UrlTooLong("url_too_long")`
 
-                - `UrlNotAllowed`
+                - `UrlNotAllowed("url_not_allowed")`
 
-                - `UrlNotInPriorContext`
+                - `UrlNotInPriorContext("url_not_in_prior_context")`
 
-                - `UrlNotAccessible`
+                - `UrlNotAccessible("url_not_accessible")`
 
-                - `UnsupportedContentType`
+                - `UnsupportedContentType("unsupported_content_type")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `MaxUsesExceeded`
+                - `MaxUsesExceeded("max_uses_exceeded")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_tool_result_error"`
 
             - `class WebFetchBlockParam:`
 
               - `required DocumentBlockParam Content`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "web_fetch_result"`
 
               - `required string Url`
 
@@ -783,7 +783,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "web_fetch_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -813,15 +813,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required CodeExecutionToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_tool_result_error"`
 
             - `class CodeExecutionResultBlockParam:`
 
@@ -829,7 +829,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_output"`
 
               - `required long ReturnCode`
 
@@ -837,7 +837,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stdout`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "code_execution_result"`
 
             - `class EncryptedCodeExecutionResultBlockParam:`
 
@@ -847,7 +847,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "code_execution_output"`
 
               - `required string EncryptedStdout`
 
@@ -855,13 +855,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stderr`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "encrypted_code_execution_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "code_execution_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -875,17 +875,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required BashCodeExecutionToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `OutputFileTooLarge`
+                - `OutputFileTooLarge("output_file_too_large")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_tool_result_error"`
 
             - `class BashCodeExecutionResultBlockParam:`
 
@@ -893,7 +893,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                 - `required string FileID`
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "bash_code_execution_output"`
 
               - `required long ReturnCode`
 
@@ -901,13 +901,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required string Stdout`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "bash_code_execution_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "bash_code_execution_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -921,17 +921,17 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-                - `FileNotFound`
+                - `FileNotFound("file_not_found")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_tool_result_error"`
 
               - `string? ErrorMessage`
 
@@ -941,13 +941,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required FileType FileType`
 
-                - `Text`
+                - `Text("text")`
 
-                - `Image`
+                - `Image("image")`
 
-                - `Pdf`
+                - `Pdf("pdf")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_view_result"`
 
               - `long? NumLines`
 
@@ -959,11 +959,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required bool IsFileUpdate`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_create_result"`
 
             - `class TextEditorCodeExecutionStrReplaceResultBlockParam:`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "text_editor_code_execution_str_replace_result"`
 
               - `IReadOnlyList<string>? Lines`
 
@@ -979,7 +979,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "text_editor_code_execution_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -993,15 +993,15 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
               - `required ToolSearchToolResultErrorCode ErrorCode`
 
-                - `InvalidToolInput`
+                - `InvalidToolInput("invalid_tool_input")`
 
-                - `Unavailable`
+                - `Unavailable("unavailable")`
 
-                - `TooManyRequests`
+                - `TooManyRequests("too_many_requests")`
 
-                - `ExecutionTimeExceeded`
+                - `ExecutionTimeExceeded("execution_time_exceeded")`
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_result_error"`
 
               - `string? ErrorMessage`
 
@@ -1013,19 +1013,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
                   maxLength: 256, minLength: 1, pattern: ^[a-zA-Z0-9_-]{1,256}$
 
-                - `JsonElement Type constant`
+                - `JsonElement Type = "tool_reference"`
 
                 - `CacheControlEphemeral? CacheControl`
 
                   Create a cache control breakpoint at this content block.
 
-              - `JsonElement Type constant`
+              - `JsonElement Type = "tool_search_tool_search_result"`
 
           - `required string ToolUseID`
 
             pattern: ^srvtoolu_[a-zA-Z0-9_]+$
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "tool_search_tool_result"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -1038,7 +1038,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
           - `required string FileID`
 
-          - `JsonElement Type constant`
+          - `JsonElement Type = "container_upload"`
 
           - `CacheControlEphemeral? CacheControl`
 
@@ -1046,11 +1046,11 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `required Role Role`
 
-      - `User`
+      - `User("user")`
 
-      - `Assistant`
+      - `Assistant("assistant")`
 
-      - `System`
+      - `System("system")`
 
   - `required Model model`
 
@@ -1080,7 +1080,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         minLength: 1
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text"`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1172,7 +1172,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         This defines the shape of the `input` that your tool accepts and that the model will produce.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "object"`
 
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
@@ -1188,13 +1188,13 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1224,23 +1224,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class ToolBash20250124:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "bash"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "bash_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1258,23 +1258,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class CodeExecutionTool20250522:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20250522"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1290,23 +1290,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class CodeExecutionTool20250825:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20250825"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1324,23 +1324,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20260120"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1358,23 +1358,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Code execution tool with REPL state persistence.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "code_execution"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "code_execution_20260521"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1395,17 +1395,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       the family's tool with any members disabled via `configs` removed
       from its schema.
 
-      - `JsonElement Type constant`
-
-      - `IReadOnlyList<BrowserToolset20260801AllowedCaller> AllowedCallers`
-
-        - `Direct`
-
-        - `CodeExecution20250825`
-
-        - `CodeExecution20260120`
-
-        - `CodeExecution20260521`
+      - `JsonElement Type = "browser_toolset_20260801"`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1794,23 +1784,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class MemoryTool20250818:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "memory"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "memory_20250818"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -1837,17 +1827,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
       `type`, `configs`, and `cache_control`; zoom is controlled
       via `configs.zoom.enabled`.
 
-      - `JsonElement Type constant`
-
-      - `IReadOnlyList<ComputerToolset20260801AllowedCaller> AllowedCallers`
-
-        - `Direct`
-
-        - `CodeExecution20250825`
-
-        - `CodeExecution20260120`
-
-        - `CodeExecution20260521`
+      - `JsonElement Type = "computer_toolset_20260801"`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2068,23 +2048,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class ToolTextEditor20250124:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_editor"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250124"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2102,23 +2082,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class ToolTextEditor20250429:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250429"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2136,23 +2116,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class ToolTextEditor20250728:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "str_replace_based_edit_tool"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "text_editor_20250728"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2176,23 +2156,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class WebSearchTool20250305:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20250305"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2224,7 +2204,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-        - `JsonElement Type constant`
+        - `JsonElement Type = "approximate"`
 
         - `string? City`
 
@@ -2252,23 +2232,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class WebFetchTool20250910:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20250910"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2308,23 +2288,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class WebSearchTool20260209:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2358,23 +2338,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class WebFetchTool20260209:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260209"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2416,23 +2396,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       Web fetch tool with use_cache parameter for bypassing cached content.
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260309"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2476,23 +2456,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class WebSearchTool20260318:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_search"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_search_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2520,9 +2500,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-        - `Full`
+        - `Full("full")`
 
-        - `Excluded`
+        - `Excluded("excluded")`
 
       - `bool Strict`
 
@@ -2534,23 +2514,23 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class WebFetchTool20260318:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "web_fetch"`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
 
-      - `JsonElement Type constant`
+      - `JsonElement Type = "web_fetch_20260318"`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `IReadOnlyList<string>? AllowedDomains`
 
@@ -2588,9 +2568,9 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
         How this tool's result blocks appear in the API response when the result was consumed by a completed code_execution call in the same turn. 'full' returns the complete content (default). 'excluded' drops the nested server_tool_use and result block pair entirely. Results from direct calls, or from code_execution calls that paused before completing, are always returned in full so they can be sent back on the next turn.
 
-        - `Full`
+        - `Full("full")`
 
-        - `Excluded`
+        - `Excluded("excluded")`
 
       - `bool Strict`
 
@@ -2602,7 +2582,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class ToolSearchToolBm25_20251119:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "tool_search_tool_bm25"`
 
         Name of the tool.
 
@@ -2610,19 +2590,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `required Type Type`
 
-        - `ToolSearchToolBm25_20251119`
+        - `ToolSearchToolBm25_20251119("tool_search_tool_bm25_20251119")`
 
-        - `ToolSearchToolBm25`
+        - `ToolSearchToolBm25("tool_search_tool_bm25")`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 
@@ -2638,7 +2618,7 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
     - `class ToolSearchToolRegex20251119:`
 
-      - `JsonElement Name constant`
+      - `JsonElement Name = "tool_search_tool_regex"`
 
         Name of the tool.
 
@@ -2646,19 +2626,19 @@ Learn more about token counting in our [user guide](https://platform.claude.com/
 
       - `required Type Type`
 
-        - `ToolSearchToolRegex20251119`
+        - `ToolSearchToolRegex20251119("tool_search_tool_regex_20251119")`
 
-        - `ToolSearchToolRegex`
+        - `ToolSearchToolRegex("tool_search_tool_regex")`
 
       - `IReadOnlyList<AllowedCaller> AllowedCallers`
 
-        - `Direct`
+        - `Direct("direct")`
 
-        - `CodeExecution20250825`
+        - `CodeExecution20250825("code_execution_20250825")`
 
-        - `CodeExecution20260120`
+        - `CodeExecution20260120("code_execution_20260120")`
 
-        - `CodeExecution20260521`
+        - `CodeExecution20260521("code_execution_20260521")`
 
       - `CacheControlEphemeral? CacheControl`
 

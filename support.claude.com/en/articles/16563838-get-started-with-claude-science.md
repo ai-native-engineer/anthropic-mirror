@@ -16,4 +16,4 @@ To download the app, visit our **[Claude Science product page](https://claude.co
 * [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop)
 * [Anthropic's AI for Science Program](https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program)
 * [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
-* [Get started with Claude for Government](https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government)
+* [Claude Team plan for scientists](https://support.claude.com/en/articles/16634237-claude-team-plan-for-scientists)

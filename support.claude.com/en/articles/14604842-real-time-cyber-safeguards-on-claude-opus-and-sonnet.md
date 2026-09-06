@@ -26,24 +26,17 @@ How you apply depends on how you access Claude. Once you submit your application
 |  |  |
 | --- | --- |
 | **How you access Claude** | **How to apply** |
-| **Anthropic first-party** (Claude.ai, Claude Code, the Anthropic API) | Navigate to the **[Verification Portal](http://portal.anthropic.com/programs/cvp)** to apply for access to the Cyber Verification Program.    **Note:** Only authorized admins will see this option. |
+| **Anthropic first-party** (Claude.ai, Claude Code, the Anthropic API) | Navigate to the **[Verification Portal](https://portal.anthropic.com/programs/cvp)** to apply for access to the Cyber Verification Program.    **Note:** Only authorized admins will see this option. |
 | **Microsoft Foundry** | Find both your Azure Tenant ID and Subscription ID in your Azure Portal (see instructions **[here](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id)**). Choose "Azure" under the **Surface** field in the **[Cyber Use Case Form](https://claude.com/form/cyber-use-case)**. |
-| **Amazon Bedrock** | Navigate to the **[Verification Portal](http://portal.anthropic.com/link?account_source=aws&program=cvp)** to apply for access to the Cyber Verification Program. You will need to create or log into an Anthropic account, then link your AWS account.    **Note:** Only authorized admins will be able to apply, and **CVP is not available on Opus 5 for Bedrock at this time.** |
-| **Claude Platform on AWS** | Navigate to the **[Verification Portal](http://portal.anthropic.com/link?account_source=aws&program=cvp)** to apply for access to the Cyber Verification Program. You will need to create or log into an Anthropic account, then link your AWS account. ​  **Note:** Only authorized admins will be able to apply. |
+| **Amazon Bedrock** | The Cyber Verification Program is not available on Bedrock at this time. |
+| **Claude Platform on AWS** | Navigate to the **[Verification Portal](https://portal.anthropic.com/link?account_source=aws&program=cvp)** to apply for access to the Cyber Verification Program. You will need to create or log into an Anthropic account, then link your AWS account. ​  **Note:** Only authorized admins will be able to apply. |
 | **Google Vertex AI** | The Cyber Verification Program is not available on Vertex at this time. |
 | **Third-party platform** (coding tools and other apps powered by Claude) | Reach out to your platform directly to check if Anthropic CVP is available and if so request access to the Cyber Use Case Form through the platform. Not all platforms participate in the CVP at this time. |
 | **Bring your own key (BYOK) Customers** | Follow instructions under **Anthropic first-party** |
 
-[Verification Portal](http://portal.anthropic.com/programs/cvp)
+[Verification Portal](https://portal.anthropic.com/programs/cvp)
 
 **Are you a platform owner?** If you use Claude to power products or services available to your customers and want to learn whether your platform is eligible to participate in the Cyber Verification Program, please **[fill out this Platform CVP Interest Form](https://claude.com/form/platform-cvp-interest)**.
-
-## Enabling access on Amazon Bedrock
-
-If your application is approved and you'd like to use the Cyber Verification Program on Amazon Bedrock, you'll need to enable data retention for the project or workspace you plan to use. Follow the steps below.
-
-1. Make your requests with the header `anthropic-beta: cvp-data-retention-2026-06-24`.
-2. Set your account or workspace data retention mode to `default` (or `provider_data_share` if you also use Fable). Requests will error otherwise. See the **[Bedrock data retention documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/data-retention.html#data-retention-modes)** for more information.
 
 ## Appeals
 
@@ -58,7 +51,7 @@ If you’re encountering one of these issues, we recommend checking the followin
 If you've checked both and still believe something is wrong, you can **[submit a report or appeal form](https://claude.com/form/cyber-block-false-positive-report-cvp-rejection-appeal)**. Your feedback helps us refine these safeguards.
 
 * [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
-* [Claude Code FAQ](https://support.claude.com/en/articles/12386420-claude-code-faq)
-* [Why Claude switched models in your conversation with Fable 5](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5)
-* [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
+* [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
+* [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)
+* [Assign a program to workspaces in Claude Console](https://support.claude.com/en/articles/16764810-assign-a-program-to-workspaces-in-claude-console)

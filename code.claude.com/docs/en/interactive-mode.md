@@ -20,7 +20,7 @@
 | `Ctrl+X Ctrl+K`                                                                              | Stop all running [background subagents](/docs/en/sub-agents#run-subagents-in-foreground-or-background) in this session, and turn off [artifact auto-replies](/docs/en/artifacts#let-claude-reply-to-comments-on-its-own) for the rest of it. Press twice within 3 seconds to confirm | Subagent control                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `Ctrl+D`                                                                                     | Exit Claude Code session                                                                                                                                                                                                                                                   | The first press shows a confirmation hint and a second press within 800ms exits. When the prompt has text, `Ctrl+D` deletes the character after the cursor instead                                                                                                                                                                                                                                                                                                                                                               |
 | `Ctrl+G` or `Ctrl+X Ctrl+E`                                                                  | Open in default text editor                                                                                                                                                                                                                                                | Edit your prompt or custom response in your default text editor. `Ctrl+X Ctrl+E` is the readline-native binding. Turn on **Show last response in external editor** in `/config` to prepend Claude's previous reply as `#`-commented context above your prompt; Claude Code strips the comment block when you save                                                                                                                                                                                                                |
-| `Ctrl+L`                                                                                     | Redraw screen                                                                                                                                                                                                                                                              | Forces a full terminal redraw, keeping input and conversation history. Use this to recover if the display becomes garbled or partially blank                                                                                                                                                                                                                                                                                                                                                                                     |
+| `Ctrl+L`                                                                                     | Redraw or clear the screen                                                                                                                                                                                                                                                 | Forces a full terminal redraw, keeping input and conversation history. Use this to recover if the display becomes garbled or partially blank. In [fullscreen rendering](/docs/en/fullscreen#clear-the-conversation), it also clears the screen, and you can scroll up to see the earlier messages                                                                                                                                                                                                                                     |
 | `Ctrl+O`                                                                                     | Toggle transcript viewer                                                                                                                                                                                                                                                   | Shows detailed tool usage and execution, with a timestamp and the model used on each assistant message. Also expands lines that collapse by default, such as MCP calls, shown as a single `Called slack 3 times` line, and [messages from your other sessions](/docs/en/cross-session-messaging#what-a-message-looks-like), shown as a one-line `Message from @<sender>` preview                                                                                                                                                      |
 | `Ctrl+R`                                                                                     | Reverse search command history                                                                                                                                                                                                                                             | Search through previous commands interactively                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `Ctrl+V` or `Cmd+V` (iTerm2) or `Alt+V` (Windows and WSL)                                    | Paste image from clipboard                                                                                                                                                                                                                                                 | Inserts an `[Image #N]` chip at the cursor so you can reference it positionally in your prompt. On WSL, both `Ctrl+V` and `Alt+V` are bound; use `Alt+V` if your terminal intercepts `Ctrl+V`                                                                                                                                                                                                                                                                                                                                    |
@@ -35,45 +35,38 @@
 | `Esc` + `Esc`                                                                                | Clear input draft, or rewind                                                                                                                                                                                                                                               | When the prompt input contains text, double `Esc` clears it and saves the draft to history so `Up` recalls it. When the input is empty, double `Esc` opens the [rewind menu](/docs/en/checkpointing) to restore or summarize code and conversation from a previous point                                                                                                                                                                                                                                                              |
 | `Shift+Tab`, or `Alt+M` on Windows when the Node or Bun runtime doesn't enable VT input mode | Cycle permission modes                                                                                                                                                                                                                                                     | Cycle through `default` (labeled Manual in the mode indicator), `acceptEdits`, `plan`, and, when available, `bypassPermissions` and then `auto`. From `auto`, the first press switches to `default`. See [permission modes](/docs/en/permission-modes). On a file permission prompt, the same key closes an open [comment field](/docs/en/permissions#add-a-comment-when-you-answer-a-permission-prompt). With no field open, it selects the option that allows the action for the rest of the session, when the prompt offers that option |
 | `Option+P` (macOS) or `Alt+P` (Windows/Linux)                                                | Switch model                                                                                                                                                                                                                                                               | Switch models without clearing your prompt                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `Option+T` (macOS) or `Alt+T` (Windows/Linux)                                                | Toggle extended thinking                                                                                                                                                                                                                                                   | Enable or disable extended thinking mode. Has no effect on Fable 5, which always uses extended thinking. Works on macOS without configuring Option as Meta                                                                                                                                                                                                                                                                                                                                                                       |
+| `Option+T` (macOS) or `Alt+T` (Windows/Linux)                                                | Toggle extended thinking                                                                                                                                                                                                                                                   | Enable or disable extended thinking mode. Has no effect on Fable 5.1 or Fable 5, which always use extended thinking. Works on macOS without configuring Option as Meta                                                                                                                                                                                                                                                                                                                                                           |
 | `Option+O` (macOS) or `Alt+O` (Windows/Linux)                                                | Toggle fast mode                                                                                                                                                                                                                                                           | Enable or disable [fast mode](/docs/en/fast-mode)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 ### Text editing
 
-| Shortcut                   | Description                          | Context                                                                                                                                                                                                                                                                        |
-| :------------------------- | :----------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ctrl+A`                   | Move cursor to start of current line | In multiline input, moves to the start of the current logical line                                                                                                                                                                                                             |
-| `Ctrl+E`                   | Move cursor to end of current line   | In multiline input, moves to the end of the current logical line                                                                                                                                                                                                               |
-| `Ctrl+K`                   | Delete to end of line                | Stores deleted text for pasting                                                                                                                                                                                                                                                |
-| `Ctrl+U`                   | Delete from cursor to line start     | Stores deleted text for pasting. Repeat to clear across lines in multiline input. On macOS, terminal emulators including iTerm2 and Terminal.app map `Cmd+Backspace` to this shortcut                                                                                          |
-| `Ctrl+W`                   | Delete previous word                 | Stores deleted text for pasting. On macOS, `Option+Delete` deletes the previous word, and on Windows, `Ctrl+Backspace` does. To make `Ctrl+W` delete back to the previous whitespace instead, [set `keybindingFlavor` to `"readline"`](#make-ctrl-w-delete-back-to-whitespace) |
-| `Ctrl+Y`                   | Paste deleted text                   | Paste text deleted with `Ctrl+K`, `Ctrl+U`, `Ctrl+W`, or, under [`keybindingFlavor: "readline"`](#make-ctrl-w-delete-back-to-whitespace), `Alt+D`                                                                                                                              |
-| `Alt+Y` (after `Ctrl+Y`)   | Cycle paste history                  | After pasting, cycle through previously deleted text. Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                                                                                                                                  |
-| `Alt+B`                    | Move cursor back one word            | Word navigation. Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                                                                                                                                                                       |
-| `Alt+F`                    | Move cursor forward one word         | Moves to the start of the next word, or to the end of the current word when [`keybindingFlavor` is `"readline"`](#make-ctrl-w-delete-back-to-whitespace). Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                              |
-| `Alt+D`                    | Delete next word                     | Deletes through the space after the word, or to the end of the word when [`keybindingFlavor` is `"readline"`](#make-ctrl-w-delete-back-to-whitespace). Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                                 |
-| `Ctrl+_` or `Ctrl+Shift+-` | Undo last input edit                 | Restores the previous input text and cursor position                                                                                                                                                                                                                           |
+| Shortcut                   | Description                          | Context                                                                                                                                                                                           |
+| :------------------------- | :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Ctrl+A`                   | Move cursor to start of current line | In multiline input, moves to the start of the current logical line                                                                                                                                |
+| `Ctrl+E`                   | Move cursor to end of current line   | In multiline input, moves to the end of the current logical line                                                                                                                                  |
+| `Ctrl+K`                   | Delete to end of line                | Stores deleted text for pasting                                                                                                                                                                   |
+| `Ctrl+U`                   | Delete from cursor to line start     | Stores deleted text for pasting. Repeat to clear across lines in multiline input. On macOS, terminal emulators including iTerm2 and Terminal.app map `Cmd+Backspace` to this shortcut             |
+| `Ctrl+W`                   | Delete back to previous whitespace   | Stores deleted text for pasting. One press removes a whole path or `--flag=value`. To delete only the previous word, press `Option+Delete` on macOS or `Ctrl+Backspace` on Windows                |
+| `Ctrl+Y`                   | Paste deleted text                   | Pastes the text you last deleted with one of the word or line deletion shortcuts, such as `Ctrl+K`, `Ctrl+U`, or `Ctrl+W`                                                                         |
+| `Alt+Y` (after `Ctrl+Y`)   | Cycle paste history                  | After pasting, cycle through previously deleted text. Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                                                     |
+| `Alt+B`                    | Move cursor back one word            | Word navigation. Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                                                                                          |
+| `Alt+F`                    | Move cursor forward one word         | Moves to the end of the current word, or to the end of the next word when the cursor is between words. Requires [Option as Meta](#keyboard-shortcuts) on macOS                                    |
+| `Alt+D`                    | Delete to end of word                | Deletes to the end of the current word, or to the end of the next word when the cursor is between words. Stores deleted text for pasting. Requires [Option as Meta](#keyboard-shortcuts) on macOS |
+| `Ctrl+_` or `Ctrl+Shift+-` | Undo last input edit                 | Restores the previous input text and cursor position                                                                                                                                              |
 
 <h3 id="make-ctrl-w-delete-back-to-whitespace">
-  Make editing keys follow readline conventions
+  Word boundaries in editing shortcuts
 </h3>
 
-Set [`keybindingFlavor`](/docs/en/settings-reference#keybindingflavor) to `"readline"` to make the prompt's editing keys follow GNU readline conventions, as in Bash. The default value is `"classic"`. Requires Claude Code v2.1.238 or later. Under `"readline"`:
+The word shortcuts `Alt+B`, `Alt+F`, `Alt+D`, `Option+Delete`, and `Ctrl+Backspace` treat a word as a run of letters and digits, so punctuation such as `_`, `.`, and `/` separates words. With `src/utils/foo.ts` in the prompt, repeated presses of `Alt+B` stop at the start of `ts`, `foo`, `utils`, and `src`.
 
-* `Ctrl+W` deletes back to the previous whitespace.
-* A word is a run of letters and digits, so punctuation such as `_`, `.`, and `/` separates words. `Alt+F` and `Alt+D` stop at the end of the current word, and `Ctrl+Y` can paste back text that `Alt+D` deleted. Before v2.1.239, Claude Code applied `"readline"` only to `Ctrl+W`.
+`Ctrl+W` is different: it ignores punctuation and deletes back to the previous whitespace, so one press removes all of `src/utils/foo.ts`.
 
-Add the setting to `~/.claude/settings.json`:
+In text written without spaces, such as Chinese or Japanese, the word shortcuts still move or delete one word at a time.
 
-```json theme={null}
-{
-  "keybindingFlavor": "readline"
-}
-```
+These readline conventions apply in Claude Code v2.1.261 and later. The [`keybindingFlavor`](/docs/en/settings-reference#keybindingflavor) setting that turned them on in earlier versions is deprecated and has no effect.
 
-To confirm, type `fix the bug in src/utils/foo.ts` in the prompt and press `Ctrl+W`. Claude Code removes `src/utils/foo.ts`. Under `"classic"` it removes only `foo.ts`.
-
-This setting is separate from the [keybindings configuration file](/docs/en/keybindings): the word-editing commands aren't actions there, so you can't remap them in `keybindings.json`.
+You can't remap these shortcuts in the [keybindings configuration file](/docs/en/keybindings), which has no actions for them.
 
 ### Theme and display
 
@@ -297,7 +290,8 @@ To run commands in the background, you can either:
 
 * Output is written to a file and Claude can retrieve it using the Read tool
 * Background tasks have unique IDs for tracking and output retrieval
-* Background tasks are automatically cleaned up when Claude Code exits. If you background the session instead of exiting it, Claude Code hands them to the background session, where they keep running. See [background a running session](/docs/en/agent-view#from-inside-a-session)
+* Background tasks are automatically cleaned up when Claude Code exits. On macOS and Linux, when you stop a background task from [`/tasks`](/docs/en/commands) or Claude Code stops it at exit, processes that detached from the task's shell, such as ones started under `setsid` or `timeout`, stop too
+* If you background the session instead of exiting it, your background tasks keep running in the background session. See [background a running session](/docs/en/agent-view#from-inside-a-session)
 * Background tasks are automatically terminated if output exceeds 5GB, with a note in stderr explaining why
 * On macOS and Linux, Claude Code terminates running background tasks when the operating system signals memory pressure, provided the session has been idle for at least 30 minutes and no turn or subagent is running. Set [`CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP`](/docs/en/env-vars) to `1` to turn this off. Requires Claude Code v2.1.193 or later. Background commands owned by a [subagent](/docs/en/sub-agents) are instead terminated after 60 minutes, configurable in milliseconds with [`CLAUDE_SUBAGENT_BG_SHELL_MAX_MS`](/docs/en/env-vars). A command owned by a subagent running in the foreground also ends when that subagent gives its final response; see [Background commands](/docs/en/tools-reference#background-commands) in the tools reference. Before v2.1.218, neither the memory-pressure reap nor the 60-minute limit covered commands moved to the background with `Ctrl+B`
 
@@ -331,6 +325,8 @@ Shell mode:
 * Supports live file path autocomplete as of v2.1.193 on all platforms: type a token containing a forward slash, such as `./src/` or `~/`, to see a dropdown of matching files and directories, then press `Tab` to accept. Use forward slashes on Windows too; the dropdown is triggered by `/`, not `\`
 * Exit with `Escape`, `Backspace`, or `Ctrl+U` on an empty prompt
 * Pasting text that starts with `!` into an empty prompt enters shell mode automatically, matching typed `!` behavior
+
+In a regular interactive session, commands you type in shell mode run outside the [sandbox](/docs/en/sandboxing) even when you've enabled sandboxing, because the sandbox applies to the commands Claude runs. See [strict sandbox mode](/docs/en/sandboxing#the-unsandboxed-retry-escape-hatch) for the sessions where shell-mode commands run sandboxed too, such as background sessions with strict sandbox mode on.
 
 Claude responds to the command output automatically once it lands in the transcript, so you can run `! npm test` and get an explanation of the failures without a second prompt. The response costs the same as sending a normal prompt. To restore the earlier behavior where the output is added to context without a response, set [`respondToBashCommands`](/docs/en/settings-reference#respondtobashcommands) to `false` in `settings.json`. Before v2.1.186, shell mode always added output to context without a response.
 
@@ -506,6 +502,49 @@ Claude Code underlines nothing when it can't keep a checker running:
 
 To find out which of these happened, start `claude --debug` with spell checking on and type a word. Then look for the `[spellcheck]` lines in the debug log at `~/.claude/debug/<session-id>.txt`. One line names the program Claude Code started, or lists the ones it looked for and didn't find. Later lines say why it stopped. A missing-dictionary error there means the checker has no dictionary for your `language` value, or no default one when `language` is unset. Install one, or set `language` to a dictionary you have.
 
+## Review changes with /diff
+
+Run `/diff` to look over the changes in your working tree without leaving Claude Code. You see the edits Claude has made so far alongside anything else you haven't committed.
+
+In [fullscreen rendering](/docs/en/fullscreen), `/diff` opens the [diff panel](#diff-panel) beside the conversation, which stays open and updates while you keep working. In the classic renderer, `/diff` opens the [diff viewer](#diff-viewer) in place of the prompt, and you close it when you're done reading.
+
+### Diff panel
+
+The diff panel lists the changed files with their added and removed line counts, and shows each file's diff under the list. Claude Code refreshes it each time Claude edits a file or runs a shell command. To close it, run `/diff` again or click the `✕` in its header.
+
+To use the panel you need:
+
+* [Fullscreen rendering](/docs/en/fullscreen)
+* A git repository
+* A terminal at least 110 columns wide
+* Claude Code v2.1.260 or later
+
+When the panel can't open, `/diff` opens the diff viewer instead or tells you why.
+
+The panel also opens on its own once Claude starts editing files, if your terminal is at least 144 columns wide. After you've opened it yourself with `/diff`, later sessions open it as soon as Claude edits a file in any terminal wide enough to fit it. Close the panel and it stays closed, in this session and later ones, until you run `/diff` again.
+
+While the panel is open, you can:
+
+* **Jump to a file**: click its row in the list. Scroll the panel with the mouse wheel. When the file list itself is too long to fit, scroll it with `Alt+Up` and `Alt+Down`, or `Ctrl+Up` and `Ctrl+Down`.
+* **Ask Claude about specific lines**: select them in the panel with the mouse. Claude Code attaches the selection to your next prompt and shows a line count next to the input until you send it.
+* **Show the files the panel leaves out**: the list skips test files and generated files, and collapses changes from before this session into one line at the bottom. Click either count line to expand it.
+* **Change what the panel compares against**: press `Ctrl+X B` to cycle from this session's changes, to your uncommitted changes as one list, to everything since your branch split from the default branch. Claude Code remembers the choice for each project.
+
+To bind keys to these actions, see [Diff panel actions](/docs/en/keybindings#diff-panel-actions).
+
+### Diff viewer
+
+The diff viewer takes the place of the prompt until you close it. Its **Current** view shows your uncommitted changes from git, or, when there are none, what your branch adds on top of the default branch. The viewer also has a turn view for each prompt after which Claude edited files, showing just those edits. Claude Code builds the turn views from Claude's file edits rather than from git, so a change Claude makes through a shell command appears only under Current.
+
+Use these keys in the viewer:
+
+* **Left and Right**: move between Current and the turn views.
+* **Up and Down**: select a file.
+* **Enter**: open the selected file's diff. Scroll it with Up and Down, or PageUp and PageDown.
+* **Esc**: return from a file's diff to the list, or close the viewer from the list.
+
+To rebind these keys, see [Diff actions](/docs/en/keybindings#diff-actions).
+
 ## Side questions with /btw
 
 Use `/btw` to ask a question about your current work without adding to the conversation history.
@@ -621,17 +660,22 @@ When working on a branch with an open pull request, Claude Code displays a click
 * Red: changes requested
 * Gray: draft
 
-The badge disappears once the pull request merges or closes. `Cmd+click` (macOS) or `Ctrl+click` (Windows/Linux) the link to open the pull request in your browser. How often Claude Code refreshes the status depends on your provider:
+The badge disappears once the pull request merges or closes.
 
-* **Anthropic API with [feature-flag fetching](/docs/en/env-vars#features-that-need-feature-flag-fetching) on**: about every 90 seconds while you're active in the session, and less often while you're idle, while your terminal is unfocused, or while Claude Code keeps finding no pull request for the branch
-* **Amazon Bedrock, Google Cloud's Agent Platform, Microsoft Foundry, Claude Platform on AWS, or feature-flag fetching off**: every 60 seconds
+`Cmd+click` (macOS) or `Ctrl+click` (Windows/Linux) the link to open the pull request in your browser.
 
-On either schedule, Claude Code also refreshes as soon as a `git push`, or a `gh pr` command that changes the pull request such as `gh pr create` or `gh pr merge`, succeeds in the session. After an hour without input from you, Claude Code stops refreshing, and your next prompt starts it again.
+The status refreshes as soon as a `git push`, or a `gh pr` command that changes the pull request, such as `gh pr create` or `gh pr merge`, succeeds in the session.
 
 Claude Code renders the badge as a hyperlink even when it can't detect hyperlink support in your terminal, which commonly happens over SSH or in tmux. Set [`FORCE_HYPERLINK=0`](/docs/en/env-vars) to render the badge as plain text.
 
+When you set [`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`](/docs/en/env-vars), Claude Code doesn't check pull request or merge request status.
+
 <Note>
-  PR status for GitHub repositories requires the `gh` CLI to be installed and authenticated with `gh auth login`.
+  PR status for GitHub repositories needs a GitHub token. Claude Code finds one based on the remote's host:
+
+  * **github.com**: `GH_TOKEN` or `GITHUB_TOKEN`, or the token saved by `gh auth login`. Without one, the footer shows `install gh for PR status` when the `gh` CLI isn't installed, or `gh auth login for PR status` when it is
+  * **A GitHub Enterprise host set as `GH_HOST`**: `GH_ENTERPRISE_TOKEN` or `GITHUB_ENTERPRISE_TOKEN`, or the token saved by `gh auth login --hostname <host>`. Without one, the footer shows the same hints
+  * **Any other GitHub host**: the token saved by `gh auth login --hostname <host>`. Without one, Claude Code shows no badge and no hint
 </Note>
 
 ### GitLab merge requests
@@ -642,7 +686,9 @@ When you work on a branch with an open GitLab merge request, Claude Code shows a
 * Yellow: any other open state
 * Gray: draft
 
-The badge disappears once the merge request merges or closes. Claude Code checks merge request status on the same schedule as the GitHub badge, and refreshes as soon as a `glab mr create` or `git push` succeeds in the session.
+The badge disappears once the merge request merges or closes.
+
+It refreshes as soon as a `glab mr create` or `git push` succeeds in the session.
 
 To get the badge, you need:
 

@@ -6,6 +6,6 @@ For more information on effective prompt design, refer to our **[Claude API Docs
 
 * [My prompt isn’t giving me a helpful answer.](https://support.claude.com/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer)
 * [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude)
-* [Access the Compliance API](https://support.claude.com/en/articles/13015708-access-the-compliance-api)
 * [Set organization instructions](https://support.claude.com/en/articles/14546867-set-organization-instructions)
 * [Give Claude context: CLAUDE.md and better prompts](https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts)
+* [Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)

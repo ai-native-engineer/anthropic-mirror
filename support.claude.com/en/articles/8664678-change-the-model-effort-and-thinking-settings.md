@@ -2,6 +2,8 @@
 
 The model menu next to the send button controls three settings: which Claude model you're chatting with, how much effort it puts into each response, and whether it uses thinking. This article explains how to change each one and when to use them.
 
+---
+
 ## Change the model
 
 1. Start chatting with Claude or open an existing chat.
@@ -13,11 +15,13 @@ If you're on an Enterprise plan and a model or effort level you expect is missin
 
 **Note:** You can change the model, effort level, or thinking setting at any point in a conversation. Changes apply starting with Claude's next response.
 
+---
+
 ## Choose an effort level
 
 The effort level controls how much thinking Claude applies to a response. Higher effort means more thorough responses, but they take longer and use more tokens, so you'll reach your usage limits faster.
 
-The effort selector is available for Opus 5, Sonnet 5, Fable 5, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6.
+The effort selector is available for Fable 5.1, Opus 5, Sonnet 5, Fable 5, Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6.
 
 To change the effort level:
 
@@ -34,13 +38,15 @@ Each model has a recommended effort level, marked as "Default" in the menu:
 
 Learn more about **[how usage and length limits work](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)**.
 
+---
+
 ## Use thinking
 
 Thinking lets Claude spend more time breaking down problems, planning solutions, and exploring different approaches before responding.
 
 Thinking and effort are separate settings, and you can use any combination of the two. The effort level controls how thorough Claude is with every response. The thinking toggle controls whether Claude works through its reasoning in an expandable section before responding.
 
-Thinking cannot be turned off in Claude when using Claude Opus 5. On the Claude API, thinking can be turned off at effort levels high and below, but attempting to disable thinking at xhigh or max effort returns an error.
+Thinking cannot be turned off in Claude when using Claude Fable 5.1 or Claude Opus 5. On Fable 5.1, thinking is always on at every effort level, including on the Claude API. For Opus 5 on the Claude API, thinking can be turned off at effort levels high and below, but attempting to disable thinking at xhigh or max effort returns an error.
 
 ### Turn thinking on or off
 
@@ -88,8 +94,8 @@ For complex coding and agentic tasks on Opus 4.7 or newer, try Extra high (xhigh
 
 Whichever settings you choose, be specific about your problem or question. Clear prompts help Claude use its effort and thinking time effectively.
 
+* [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
-* [How do usage and length limits work?](https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Claude Enterprise consumption guide](https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide)
-* [Set a default model for your organization](https://support.claude.com/en/articles/15330088-set-a-default-model-for-your-organization)
+* [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
+* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

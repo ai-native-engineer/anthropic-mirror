@@ -142,7 +142,7 @@ Build on frontier intelligence by adding Claude models with a single integration
 
 Learn more
 
-[Learn more](https://claude.com/platform/api)Learn more
+[Learn more](https://claude.com/platform/api-v2)Learn more
 
 ### Claude Code
 

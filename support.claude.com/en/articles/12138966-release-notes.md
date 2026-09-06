@@ -1,5 +1,13 @@
 <!-- source: https://support.claude.com/en/articles/12138966-release-notes -->
 
+## September 2026
+
+### September 1, 2026
+
+**Claude Fable 5.1 and Claude Mythos 5.1 launch**
+
+We just launched Claude Fable 5.1 and Claude Mythos 5.1, the world’s most advanced models for coding and knowledge work. For more information, see our blog post: **[Claude Fable 5.1 and Mythos 5.1](https://www.anthropic.com/claude-fable-and-mythos-5-1)**.
+
 ## August 2026
 
 ### August 25, 2026
@@ -13,6 +21,8 @@ Memory now works across chat and Cowork in the cloud. Everything Claude remember
 **Skill and plugin security scanning (beta)**
 
 Enterprise plans can now turn on skill and plugin security scanning to automatically check third-party skills and plugins for malicious content when someone uploads or edits them. For more information, see **[Get started with skill and plugin scanning](https://support.claude.com/en/articles/15927065)**.
+
+---
 
 ## July 2026
 
@@ -59,6 +69,8 @@ We are restoring access to Claude Fable 5 and Claude Mythos 5. See **[our statem
 
 Admins on Enterprise plans can now control what models their users have access to, and what effort level settings they can use. For more information, see **[Manage model access for your organization](https://support.claude.com/en/articles/15694740)**.
 
+---
+
 ## June 2026
 
 ### June 30, 2026
@@ -101,6 +113,8 @@ We launched Claude Fable 5, a Mythos-class model that we’ve made safe for gene
 
 We extended the existing custom roles framework by adding admin permissions. Admin permissions give members access to specific administrative areas, like billing or privacy, without the need to make them Owners. For more information, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans#h_fde60b08bd)**.
 
+---
+
 ## May 2026
 
 ### May 28, 2026
@@ -118,6 +132,8 @@ We added connector permissions to extend the existing custom roles framework and
 **Claude now works with more security and compliance tools**
 
 We introduced Claude Compliance API integrations with notable security and compliance tools. Now IT and security teams can govern Claude across our platform and suite of products, the same way they govern other applications in their stack. Learn how to **[get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)**.
+
+---
 
 ## April 2026
 
@@ -146,6 +162,8 @@ Claude Cowork is now generally available on macOS and Windows through the Claude
 **Role-based access controls for Enterprise plans**
 
 Admins can now organize users into groups, manually or via SCIM from your identity provider, and assign each group a custom role defining which Claude capabilities its members can use. Turn Claude Cowork on for specific teams, restrict features by department and adjust as adoption grows. Learn more about **[setting up role-based permissions](https://support.claude.com/en/articles/13930458-set-up-role-based-entitlements-on-enterprise-plans)**, **[managing group spend limit](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans)**[s](https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans), and **[managing custom roles](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans)**.
+
+---
 
 ## March 2026
 
@@ -190,6 +208,8 @@ Memory from chat history is now available for all Claude users, including free u
 
 * **[Use Claude’s chat search and memory to build on previous context](https://support.claude.com/en/articles/11817273-using-claude-s-chat-search-and-memory-to-build-on-previous-context#h_c1c0b33879)**
 * **[Import and export your memory from Claude](https://support.claude.com/en/articles/12123587-importing-and-exporting-your-memory-from-claude)**
+
+---
 
 ## February 2026
 
@@ -240,6 +260,8 @@ Claude is now available as an add-in for PowerPoint. Read more here: **[Use Clau
 
 We’ve updated Claude for Excel so it uses Opus 4.6 and supports native Excel operations such as pivot table editing and conditional formatting. See our updated article for more information: **[Using Claude for Excel](https://support.claude.com/en/articles/12650343-using-claude-in-excel)**.
 
+---
+
 ## January 2026
 
 ### January 16, 2026
@@ -281,6 +303,8 @@ We now offer a HIPAA-ready version of Claude that is available for organizations
 
 See **[HIPAA-ready Enterprise plans](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)** for more information.
 
+---
+
 ## December 2025
 
 ### December 18, 2025
@@ -302,6 +326,8 @@ Claude in Chrome is now available in beta to all paid plan subscribers, includin
   + Enable or disable the extension org-wide
   + Configure allowlists and blocklists to control which sites Claude can access
   + Manage Claude in Chrome in Admin settings > Browser extension
+
+---
 
 ## November 2025
 
@@ -327,6 +353,8 @@ Claude in Chrome is now available in beta to all Max plan subscribers. After mon
 * **Follow a plan**: Approve Claude's plan, then let it execute the entire workflow independently within those approved boundaries, without asking for permission until it's done.
 * **Model selection**: Choose between Haiku 4.5 for speed, Sonnet 4.5 for complex tasks, or Opus 4.5 for maximum reasoning power—switch anytime based on what you need.
 
+---
+
 ## October 2025
 
 ### October 23, 2025
@@ -346,6 +374,8 @@ We released our fastest, most cost-efficient model – Claude Haiku 4.5. Our lat
 * **Powered by Haiku 4.5:** Claude in Chrome now defaults to Haiku 4.5 so it’s a faster, more responsive experience. You can always switch back to Sonnet 4.5.
 * **Claude handles image uploads for you:** Give Claude an image and tell it where to upload, whether it’s an expense report, form attachment, or a picture upload.
 * **Show Claude exactly what you mean:** Take a screenshot or drag to highlight specific parts of your screen. Point Claude to the exact button, field, or detail—much faster than describing complex layouts in words.
+
+---
 
 ## September 2025
 
@@ -416,6 +446,8 @@ Claude can now connect with iOS and Android apps to draft calendar events, help 
 
 * **[Using Claude with iOS Apps](https://support.anthropic.com/en/articles/11869619-using-claude-with-ios-apps)**
 * **[Using Claude with Android Apps](https://support.anthropic.com/en/articles/11869629-using-claude-with-android-apps)**
+
+---
 
 ## August 2025
 
@@ -503,5 +535,5 @@ Enabled project permissions and sharing for Team and Enterprise plans. See **[Or
 * [How up-to-date is Claude's training data?](https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data)
 * [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Claude Code model configuration](https://support.claude.com/en/articles/11940350-claude-code-model-configuration)
-* [Use Claude in Microsoft Foundry](https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry)
-* [Enable US-only inference for your organization](https://support.claude.com/en/articles/15422948-enable-us-only-inference-for-your-organization)
+* [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
+* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

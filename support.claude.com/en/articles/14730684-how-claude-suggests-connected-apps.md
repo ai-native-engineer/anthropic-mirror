@@ -4,6 +4,8 @@ When you connect an app like Spotify or Instacart to Claude, you don’t have to
 
 Connected apps are available on Claude, Claude Desktop, and Claude for iOS/Android. Installing an app on mobile is currently in beta.
 
+---
+
 ## When Claude suggests an app
 
 Claude pays attention to what you’re asking about in the conversation. When a connected app matches that context, Claude suggests it in the thread without you having to name it.
@@ -27,6 +29,8 @@ Sometimes more than one of your connected apps can handle what you’re asking f
 Claude doesn’t take payment to recommend any connected app. There are no sponsored rankings, no paid placements, and no advertising. When Claude brings up an app, it’s because the app matches what you’re asking for.
 
 When more than one app could help, the order you see them in reflects what’s likely useful to you, not partnership arrangements.
+
+---
 
 ## Turn off suggestions or disconnect an app
 

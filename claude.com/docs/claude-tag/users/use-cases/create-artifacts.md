@@ -52,6 +52,17 @@ When the deliverable is a page people open, like a dashboard or a status page, a
 
 Anyone with access to this channel can open the page; [artifact visibility](https://claude.com/docs/claude-tag/concepts/security-and-data#artifact-visibility) covers the access model.
 
+###  Comment on the page to ask for changes
+
+After Claude publishes a page from a channel or a thread, it keeps watching that page for comments. Open the page, start a comment on the part you want changed, and send the comment with **Send to Claude** or mention `@claude` in it. The comment reaches the Claude session behind the Slack thread that published the page, even if that thread has been quiet for a while. Claude answers in the comment thread on the page, in the Slack thread, or both, and when the comment asks for a change, it edits the page and publishes the update to the same link, so everyone with the page open sees it.
+
+```
+@claude the churn figure in the summary table is from July. Pull the August number and update the chart to match.
+```
+
+Anyone who can open the page can comment on it, and anyone who can post in the source Slack channel can send a comment to Claude. To stop comments on a page from reaching Claude, ask Claude in the Slack thread to stop watching that page.
+Comments reach Claude on pages it published from a channel or from a thread in a channel. For a page Claude published in a direct message, or an artifact you published from your own Claude Code session and linked in Slack, ask for changes in the conversation where the page was made. If a comment you sent goes unanswered, ask in the Slack thread. A message there reaches Claude whether or not it is still watching the page, and Claude can pick the page back up from the link it posted.
+
 ###  Keep a capture channel
 
 Planning inputs arrive over a month, not in one sitting. Forward messages and ideas to one channel as you find them, then ask for a synthesis when you need the artifact.

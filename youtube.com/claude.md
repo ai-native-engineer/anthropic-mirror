@@ -1,7 +1,18 @@
 # claude (YouTube)
 
-영상 175개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
+영상 187개. 썸네일 + 자막(있으면 접이식, 없으면 '자막없음').
 
+- [How the Claude Code team uses Claude Code](claude/260902-how-the-claude-code-team-uses-claude-code.md) — 2026-09-02
+- [Debugging across the whole stack with Claude Fable 5.1](claude/260901-debugging-across-the-whole-stack-with-claude-fable-5-1.md) — 2026-09-01 (자막없음)
+- [Claude Fable 5.1 builds the ops review in Slack](claude/260901-claude-fable-5-1-builds-the-ops-review-in-slack.md) — 2026-09-01 (자막없음)
+- [Claude Fable 5.1 runs the forecast overnight](claude/260901-claude-fable-5-1-runs-the-forecast-overnight.md) — 2026-09-01 (자막없음)
+- [Claude turns flight data into \"look behind you\"](claude/260901-claude-turns-flight-data-into-look-behind-you.md) — 2026-09-01
+- [Claude codes turn-by-turn directions for the Moon](claude/260901-claude-codes-turn-by-turn-directions-for-the-moon.md) — 2026-09-01 (자막없음)
+- [Claude codes a watercolor engine](claude/260901-claude-codes-a-watercolor-engine.md) — 2026-09-01 (자막없음)
+- [Claude designs proteins that bind in the lab](claude/260901-claude-designs-proteins-that-bind-in-the-lab.md) — 2026-09-01 (자막없음)
+- [Claude turns calculus into combustion](claude/260901-claude-turns-calculus-into-combustion.md) — 2026-09-01 (자막없음)
+- [Claude codes a sentence traveling through a brain](claude/260901-claude-codes-a-sentence-traveling-through-a-brain.md) — 2026-09-01 (자막없음)
+- [Building Enterprise Frontier Safeguards with our customers](claude/260901-building-enterprise-frontier-safeguards-with-our-customers.md) — 2026-09-01
 - [Claude for Word: Turn a draft into a finished document](claude/260826-claude-for-word-turn-a-draft-into-a-finished-document.md) — 2026-08-26
 - [What does AI actually know about you?](claude/260813-what-does-ai-actually-know-about-you.md) — 2026-08-13
 - [Claude Cowork is now your Chrome side panel](claude/260812-claude-cowork-is-now-your-chrome-side-panel.md) — 2026-08-12 (자막없음)
@@ -149,6 +160,7 @@
 - [A.A.Murakami's The Moon Underwater](claude/260202-a-a-murakami-s-the-moon-underwater.md) — 2026-02-02
 - [Getting started with Claude in Excel](claude/260130-getting-started-with-claude-in-excel.md) — 2026-01-30
 - [How Anthropic uses Claude in Marketing](claude/260127-how-anthropic-uses-claude-in-marketing.md) — 2026-01-27
+- [Fable 5.1 is here](claude/260902-fable-5-1-is-here.md) — 2026-09-02 (자막없음)
 - [How to choose the right Claude model for any task](claude/260819-how-to-choose-the-right-claude-model-for-any-task.md) — 2026-08-19 (자막없음)
 - [What does AI actually know about you?](claude/260814-what-does-ai-actually-know-about-you.md) — 2026-08-14
 - [Can you trust what AI tells you?](claude/260811-can-you-trust-what-ai-tells-you-O0Bf2A.md) — 2026-08-11

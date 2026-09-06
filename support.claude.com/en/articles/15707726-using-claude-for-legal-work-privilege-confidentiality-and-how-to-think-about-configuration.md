@@ -44,6 +44,8 @@ On the second—what survives even when a vendor sees something—two doctrines 
 
 We believe Claude's commercial offerings can be configured by lawyers in a way that maintains privilege and confidentiality, and that the legal profession's experience with email and cloud—initial caution, then a reasonable-care standard, then mainstream adoption—is the likely arc here too. We also think it matters that it goes that way: technology competence is now part of the duty of competence. Rules that scare lawyers away from capable tools don't protect clients and they make representation slower and more expensive in a system where most people already can't afford a lawyer. We'll keep publishing how our systems work, keep our commercial terms aligned with what professional responsibility guidance requires, and keep engaging in the public conversation as the law develops.
 
+---
+
 *This document describes Anthropic's products and Anthropic's perspective on publicly available legal authorities as of June 2026. It is not legal advice. Whether any particular configuration meets your confidentiality, privilege, or regulatory obligations is a question for your own counsel.*
 
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)

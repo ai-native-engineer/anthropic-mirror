@@ -196,6 +196,14 @@ Chief Operating Officer of Workforce Operations and Demonstration Services, Adva
 
 ## Related stories
 
+[Carvana turns Slack alerts into production fixes with Claude Tag](https://claude.com/customers/carvana)Carvana turns Slack alerts into production fixes with Claude Tag
+
+Carvana turns Slack alerts into production fixes with Claude Tag
+
+Customer story
+
+[Customer story](https://claude.com/customers/carvana)Customer story
+
 [How can a Boston restaurant owner pay people what they deserve and still keep the lights on?](https://claude.com/customers/shy-bird)How can a Boston restaurant owner pay people what they deserve and still keep the lights on?
 
 How can a Boston restaurant owner pay people what they deserve and still keep the lights on?

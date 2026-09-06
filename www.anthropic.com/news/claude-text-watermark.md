@@ -75,7 +75,7 @@ We’re implementing watermarking to comply with the EU AI Act. Anthropic, along
 
 ### **How do I check if a piece of text was written by Claude?**
 
-We will soon be offering a watermark detection API. We’re in the process of working out the details of its implementation.
+We are releasing a detection API in private preview. It is currently available to eligible organizations as required under EU law (such as regulators, law enforcement, media, fact-checkers, independent researchers, educational organizations, and EU civil society groups). It is also available for enterprises who are similarly obligated to verify watermarking for their own compliance with the Act. We plan to expand access to the detection API over time. You can register interest in access [here](https://forms.gle/9tGA33hPJJwtHsMk9).
 
 ### **What about images and other files?**
 
@@ -106,6 +106,8 @@ AI detection software uses a different method, because the companies that provid
 ### **Does this change who owns a given output, or who is legally responsible for it?**
 
 No. A watermark only helps test whether Claude might have produced or processed the content. It doesn’t say anything about ownership or authorship, and doesn’t change a user’s rights under our terms. We only apply the watermark when Claude was involved in processing the content or file.
+
+*Updated Sep 1, 2026:* Provided up to date information on the watermarking detection API.
 
 #### Footnotes
 

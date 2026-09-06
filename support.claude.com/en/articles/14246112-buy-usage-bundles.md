@@ -6,6 +6,8 @@ Usage bundles are available on Pro, Max, and Team plans.
 
 ##
 
+---
+
 ## Where your balance works
 
 Your usage bundle balance is a single pool that applies across Claude, Claude Desktop, Claude Mobile (iOS and Android), Claude Code, Cowork, and third-party products that use your Claude account.
@@ -27,6 +29,8 @@ On Team plans, Owners and Primary Owners can purchase up to $3000 worth of disco
 
 Price and plans are subject to change at Anthropic's discretion.
 
+---
+
 ## How to buy usage bundles
 
 You'll need usage credits enabled before you can purchase bundles. If you haven't set up usage credits yet, see the relevant guide for your plan:
@@ -42,6 +46,8 @@ Once usage credits are enabled:
 4. Confirm your purchase. The discount is applied automatically at checkout.
 
 Your bundle balance appears in your usage dashboard and draws down as you use Claude beyond your plan's included limits.
+
+---
 
 ## Frequently asked questions
 
@@ -61,4 +67,4 @@ No. Your plan's included usage works the same as before. Bundle credits only app
 * [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
 * [Use Claude Code with your Pro or Max plan](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan)
 * [Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans)
-* [Claude Fable 5 on your plan](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan)
+* [Claude Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan)

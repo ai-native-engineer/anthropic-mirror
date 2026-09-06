@@ -44,6 +44,8 @@ Invite link joins respect your organization's existing security controls:
 
 **Note:** Members who join via invite link are always added automatically, regardless of your organization's new member approval setting. If you need to review members before they join, share individual email invitations instead of the invite link.
 
+---
+
 ## For members: Join via an invite link
 
 1. Click the invite link your admin shared.

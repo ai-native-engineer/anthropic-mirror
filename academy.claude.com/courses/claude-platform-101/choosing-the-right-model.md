@@ -21,15 +21,15 @@ picking the right one affects both **quality** and **cost**.
 
 Anthropic currently offers four model tiers, and you choose between them with the `model` parameter in your API call.
 
-*Note that Claude Fable 5 has been generally available since June 9, 2026,
-but is not reflected in the video above. Learn more about Claude
-Fable and Claude Mythos
-[here(opens in new tab)](https://www.anthropic.com/news/claude-fable-5-mythos-5). The video and
+*Note that Claude Fable 5.1 has been generally available since September 1,
+2026, but is not reflected in the video above. Learn more about Claude
+Fable 5.1 and Claude Mythos 5.1
+[here(opens in new tab)](https://www.anthropic.com/claude-fable-and-mythos-5-1). The video and
 terminal screenshot in this lesson were recorded with earlier models (Claude
 Opus 4.7 and Claude Sonnet 4.6). The code below uses the current model IDs;
 your latency and token numbers will differ.*
 
-* **Claude Fable** is our most capable model yet — a new tier that sits above Opus, built for your toughest challenges. It comes at a significantly higher cost than Opus, so reserve it for work where that extra capability is worth paying for. The current Fable model is Claude Fable 5 (`claude-fable-5`).
+* **Claude Fable** is our most capable model yet — a new tier that sits above Opus, built for your toughest challenges. It comes at a higher cost than Opus, so reserve it for work where that extra capability is worth paying for. The current Fable model is Claude Fable 5.1 (`claude-fable-5-1`).
 * **Claude Opus** is the most capable of the three core model families, but also the slowest and highest cost of the three. Use it for deep reasoning, complex analysis, multi-step coding, and nuanced writing. The current Opus model is Claude Opus 5 (`claude-opus-5`).
 * **Claude Haiku** is the fastest and lowest cost, optimized for speed and cost efficiency rather than maximum intelligence. Use it for high-volume, low-complexity work like classification, extraction, and routing. The current Haiku model is Claude Haiku 4.5 (`claude-haiku-4-5`).
 * **Claude Sonnet** sits in the sweet spot: a balanced combination of intelligence, speed, and cost that works well for most production work. The current Sonnet model is Claude Sonnet 5 (`claude-sonnet-5`).
