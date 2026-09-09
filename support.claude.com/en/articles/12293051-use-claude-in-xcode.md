@@ -28,7 +28,7 @@ To start using Claude in Xcode:
 2. Open Xcode preferences and navigate to the Intelligence settings.
 3. Log in with your Claude account.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1788654600&signature=00a63615791ecafa29cd1dd663209971d7538ae7a007aba9558ddc3cc11f8ade&req=dSclEcp5nIRXXPMW1HO4zUAXI8QEV6zSFalhp3bugHJY%2FOmGOAryUMk2hoNV%0AgSEjfXe8lB4Ws9YaA94%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1788654600&signature=00a63615791ecafa29cd1dd663209971d7538ae7a007aba9558ddc3cc11f8ade&req=dSclEcp5nIRXXPMW1HO4zUAXI8QEV6zSFalhp3bugHJY%2FOmGOAryUMk2hoNV%0AgSEjfXe8lB4Ws9YaA94%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1788913800&signature=1b038049532665c3f73510b236c9c9eba6bf90c738d9d42cbaa85e686b7fecec&req=dSclEcp5nIRXXPMW1HO4zUAXI8QLU6vcFalhp3bugHI56IuiooCm1bPoSO3o%0A%2F3hlCaYElMruW2u6wJI%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1788913800&signature=1b038049532665c3f73510b236c9c9eba6bf90c738d9d42cbaa85e686b7fecec&req=dSclEcp5nIRXXPMW1HO4zUAXI8QLU6vcFalhp3bugHI56IuiooCm1bPoSO3o%0A%2F3hlCaYElMruW2u6wJI%3D%0A)
 
 ## Usage limits
 

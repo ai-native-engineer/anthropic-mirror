@@ -9,7 +9,7 @@ Follow these steps:
 1. Navigate to **[Organization settings > Data and privacy](https://claude.ai/admin-settings/data-privacy-controls)**.
 2. Find **Public projects** and toggle it off
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1788654600&signature=90a1df08874ff6760c6073cf6c17244cd4268e459b04a652eb34a7cf2e4b4aec&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2%2BibgRZYabJlVJ9VPx1FVZM9CkBUVNas0gg%0A7CbsRFpOAK%2BONksCAlM%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1788654600&signature=90a1df08874ff6760c6073cf6c17244cd4268e459b04a652eb34a7cf2e4b4aec&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2%2BibgRZYabJlVJ9VPx1FVZM9CkBUVNas0gg%0A7CbsRFpOAK%2BONksCAlM%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1788913800&signature=68a8e9d9b431e8be34a24dd89a841894e4fe84ae753050fe2b596f7cdcede0c9&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2%2BtagNXYabJlVJ9VPyktJA8czWQx67xNqp8%0ALMGSK2XmzV2117P2Edc%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053902291/8c39d1a79dedc97411eed54dec5c/CleanShot+2026-02-11+at+11_25_34%402x.png?expires=1788913800&signature=68a8e9d9b431e8be34a24dd89a841894e4fe84ae753050fe2b596f7cdcede0c9&req=diAiFcB%2Bn4NWWPMW1HO4zfGib2%2BtagNXYabJlVJ9VPyktJA8czWQx67xNqp8%0ALMGSK2XmzV2117P2Edc%3D%0A)
 
 ## How does disabling public projects work?
 
@@ -42,5 +42,5 @@ If you choose to re-enable public projects after disabling them:
 * [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
 * [Manage project visibility and sharing](https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing)
 * [What happens to a user's data when they are removed from a Team or Enterprise organization?](https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization)
-* [Use enterprise search](https://support.claude.com/en/articles/12489464-use-enterprise-search)
+* [Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization)
 * [Manage plugins for your organization](https://support.claude.com/en/articles/13837433-manage-plugins-for-your-organization)

@@ -22,7 +22,7 @@ The sidebar groups settings the same way the [configuration reference](https://c
 
 ##  Apply locally or export for a fleet
 
-Use **Apply locally** to write the configuration to this device only and relaunch into it. This is the [single-machine setup](https://claude.com/docs/third-party/claude-desktop/installation#single-machine-setup) path for evaluation and pilots.
+Use **Apply Changes** to write the configuration to this device only and relaunch into it. This is the [single-machine setup](https://claude.com/docs/third-party/claude-desktop/installation#single-machine-setup) path for evaluation and pilots.
 Use the **Export** menu to generate deployment artifacts for a fleet:
 
 | Export option | Use with |
@@ -31,7 +31,7 @@ Use the **Export** menu to generate deployment artifacts for a fleet:
 | `.reg` policy file | Intune, Group Policy, or any Windows MDM |
 | ADMX template (`.zip`) | Intune or Group Policy; a schema-only template, you enter values in the management console |
 | Profile Manifest (`.plist`) | Jamf, ProfileCreator, or similar macOS tools; a schema-only template, you enter values in your tool |
-| Bootstrap JSON | The response body for a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) |
+| JSON config | The response body for a [bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap), or a configuration file for a device without MDM |
 | Egress allowlist | Your firewall or network team |
 
 See [Deploy with MDM](https://claude.com/docs/third-party/claude-desktop/mdm) or [Deploy with a bootstrap server](https://claude.com/docs/third-party/claude-desktop/bootstrap) to distribute what you exported.

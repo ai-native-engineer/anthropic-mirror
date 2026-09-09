@@ -92,7 +92,7 @@ Anyone with the link can use and interact with your artifact without signing in 
 ## More resources to get started[](#more-resources-to-get-started)
 
 * Browse all [artifacts(opens in new tab)](https://claude.ai/artifacts) for more inspiration. Pro-tip: click “customize” to copy the artifact and make changes for yourself.
-* Learn more about artifacts in our [intro to artifacts(opens in new tab)](https://support.claude.com/en/articles/9945615-intro-to-artifacts) video.
+* Learn more about artifacts in our [intro to artifacts(opens in new tab)](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) video.
 * Visit the [Claude support docs(opens in new tab)](https://support.claude.com/en/collections/4078531-claude) for help with any other questions.
 
 * [What are artifacts and when would you use them?](#what-are-artifacts-and-when-would-you-use-them)

@@ -41,7 +41,7 @@ DateCategoryTitle
 * [Sep 1, 2026Announcements
 
   Developing Enterprise Frontier Safeguards with our customers](https://www.anthropic.com/news/enterprise-frontier-safeguards)
-* [Aug 31, 2026
+* [Aug 31, 2026Announcements
 
   Improving our alignment and security efforts](https://www.anthropic.com/news/improving-alignment-security-efforts)
 * [Aug 27, 2026Announcements

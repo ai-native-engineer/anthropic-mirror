@@ -224,13 +224,13 @@ BibTeX citation
 
 The transformer we study is a one-layer, decoder-only transformer with residual width d\_m = 256, 4 attention heads of dimension d\_{\textrm{head}} = 64, a width-1024 MLP with ReLU activation, a 4,096-token vocabulary, and a 1,024-token context window, totaling ≈2.9M parameters (≈0.79M excluding the embedding and unembedding matrices). The model contains no normalization layers and no bias terms anywhere.
 
-Attention is causal with standard softmax; scores are scaled by \frac{1}{\sqrt{64}}. Position information enters solely through a fixed (non-learned) additive sinusoidal position embedding  (an interleaved sin/cos table with maximum wavelength 2^{16}) added to the residual stream immediately after the token embedding. Weights were initialized from a Gaussian with standard deviation \frac{0.6}{\sqrt{d\_m}} ≈ 0.0375.
+Attention is causal with standard softmax; scores are scaled by \frac{1}{\sqrt{64}}. Position information enters solely through a fixed (non-learned) additive sinusoidal position embedding  (an interleaved sin/cos table with maximum wavelength 2^{16}) added to the residual stream immediately after the token embedding. Weights were initialized from a Gaussian with standard deviation \frac{0.6}{\sqrt{d\_m}} ≈ 0.0375 and then unit-normalized by the first application of the weight-norm projection.
 
 The tokenizer is a 4,096-token BPE vocabulary obtained by truncating the tokenizer of the publicly released Pleias-1.2B model to its first 4,096 token ids , keeping only the BPE merges whose inputs and output all survive the truncation.
 
 Training text is drawn from the openly licensed Common Corpus (PleIAs) , restricted to documents labeled as English or as code (the filter is a disjunction over the corpus's language/language\_type metadata columns). The corpus copy is split into ten file shards; nine are used for training and the tenth is held out for evaluation. Each training sequence is 1,024 tokens: it begins with a sequence delimiter token, packs consecutive documents each prefixed by the sequence delimiter, and discards any remainder beyond 1,024 tokens (no carryover between sequences).
 
-Training used Adam  with β = (0.9, 0.95) and no weight decay, under bfloat16 autocast, with gradients globally clipped to 1.5× an exponential moving average (decay 0.95) of recent gradient norms.
+Training used Adam  with β = (0.9, 0.95) and no weight decay, under bfloat16 autocast, with gradients globally clipped to 1.5× an exponential moving average (decay 0.95) of recent gradient norms. The learning rate followed a linear-warmup / constant / linear-decay schedule over the run's optimizer steps: warmup over the first ≈1% of the schedule to a peak of 3.96×10⁻³, constant until ≈20%, then linear decay to zero.
 
 The model trained on ≈9.8×10⁷ unique tokens (95,464 unique sequences) over its 11,933 steps in a single pass with no data repetition. Training loss fell from 8.93 (≈ln 4096 at initialization) to ≈3.33 at the final step and was still decreasing when the step budget was exhausted.
 

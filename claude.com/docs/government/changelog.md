@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/government/changelog -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 2026.09.04.1
 
 * Changed the limit on a member’s active app sign-ins from 3 shared across the Claude apps to 6 in each app: a new sign-in over the limit now signs out the one closest to expiring instead of the oldest.

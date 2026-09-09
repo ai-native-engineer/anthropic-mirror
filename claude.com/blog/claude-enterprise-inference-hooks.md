@@ -84,6 +84,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Jun 24, 2026
+
+### Building effective human-agent teams
+
+Enterprise AI
+
+[Building effective human-agent teams](#)Building effective human-agent teams
+
+[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
 
 Sep 2, 2026
@@ -119,18 +131,6 @@ Product announcements
 [Claude for Teachers, now available for U.S. K-12 schools and districts](#)Claude for Teachers, now available for U.S. K-12 schools and districts
 
 [Claude for Teachers, now available for U.S. K-12 schools and districts](https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b8840b2f6f9a40fe0_8925ac952fa2cb8eb5e845b2e44f3e71b33fd695-1000x1000.svg)
-
-Aug 26, 2026
-
-### Claude gets its own browser in Cowork
-
-Product announcements
-
-[Claude gets its own browser in Cowork](#)Claude gets its own browser in Cowork
-
-[Claude gets its own browser in Cowork](https://claude.com/blog/cowork-built-in-browser)Claude gets its own browser in Cowork
 
 ## Transform how your organization operates with Claude
 

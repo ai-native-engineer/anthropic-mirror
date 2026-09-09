@@ -22,8 +22,6 @@ Download desktop app
 
 IndividualTeam and Enterprise
 
-![](https://claude.com/_next/static/media/NodeSprout.719714b9.svg)
-
 ### Free
 
 Try Claude
@@ -44,8 +42,6 @@ Free for everyone
 * Connect Slack and Google Workspace services
 * Integrate any context or tool through connectors with remote MCP
 * Extended thinking for complex work
-
-![](https://claude.com/_next/static/media/NodePlant.10c0a4fd.svg)
 
 ### Pro
 
@@ -69,8 +65,6 @@ No commitment · Cancel anytime
 * Access to unlimited projects to organize chats and documents
 * Ability to use more Claude models
 * Claude for Microsoft 365
-
-![](https://claude.com/_next/static/media/NodeTree.a350eba8.svg)
 
 ### Max
 

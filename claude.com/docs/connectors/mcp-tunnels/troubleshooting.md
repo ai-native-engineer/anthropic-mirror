@@ -1,16 +1,30 @@
 <!-- source: https://claude.com/docs/connectors/mcp-tunnels/troubleshooting -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+MCP tunnels are in research preview and are available to organizations on the Claude Enterprise plan by request. To request access, [submit the MCP tunnels interest form](https://claude.com/form/mcp-tunnels) or contact your Anthropic account team.
+
 A request through an [MCP tunnel](https://claude.com/docs/connectors/mcp-tunnels/overview) can fail at three points, and it helps to check them in order. First the outbound connection from cloudflared to the tunnel edge, then the inner TLS handshake between Anthropic and your proxy, then the proxy’s routing to your MCP server. The cloudflared and proxy logs on your side show which point a request reached. If the proxy logs nothing at all for a request, it never arrived in your network.
 
 Helm
 
 Docker Compose
 
+```
 kubectl -n mcp-tunnel logs deploy/mcp-tunnel -c cloudflared
 kubectl -n mcp-tunnel logs deploy/mcp-tunnel -c mcp-proxy
+```
 
+```
 docker compose logs cloudflared
 docker compose logs mcp-proxy
+```
 
 For proxy configuration fields and certificate rules referenced below, see the [MCP tunnels reference](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/reference). The [platform troubleshooting guide](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/troubleshooting) covers the same stack and applies to claude.ai tunnels as well, apart from its Console-specific steps.
 
@@ -36,9 +50,11 @@ Each organization can have at most 10 tunnels that are not archived, and every s
 
 The setup component runs as a pre-install hook Job, and on failure Helm leaves the Job behind for inspection. Read its logs, then delete it before retrying, because Helm does not manage hook resources.
 
+```
 kubectl -n mcp-tunnel logs job/mcp-tunnel-setup
 helm uninstall mcp-tunnel -n mcp-tunnel
 kubectl -n mcp-tunnel delete job mcp-tunnel-setup
+```
 
 ###  A tunnel hostname does not respond to curl or a browser
 
@@ -54,16 +70,20 @@ The hostname Claude sent the request to did not match any route. Check that `tun
 
 The full message is `IP validation failed: <ip> is not a private address`, and it means the MCP server’s hostname resolved to an address outside the ranges the proxy is allowed to dial. By default those are the RFC 1918 private ranges, over IPv4 only. Check what the hostname resolves to from the proxy’s host:
 
+```
 dig +short docs-mcp.example.corp
+```
 
 If the address is legitimate, for example a Kubernetes Service range that your distribution allocates outside RFC 1918, add the narrowest covering range to `upstream.allowed_ips`. Setting `allowed_ips` replaces the default rather than extending it, so list the private ranges your other servers use as well.
 
+```
 upstream:
   allowed_ips:
     - 10.0.0.0/8
     - 172.16.0.0/12
     - 192.168.0.0/16
     - 100.64.12.0/22   # example: a cluster Service range outside RFC 1918
+```
 
 Don’t set `0.0.0.0/0` or `disable_ip_validation` outside of isolated testing. IP validation is the proxy’s protection against server-side request forgery.
 

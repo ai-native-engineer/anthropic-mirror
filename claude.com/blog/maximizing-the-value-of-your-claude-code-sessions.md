@@ -236,6 +236,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Jun 24, 2026
+
+### Building effective human-agent teams
+
+Enterprise AI
+
+[Building effective human-agent teams](#)Building effective human-agent teams
+
+[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
 
 Aug 28, 2026
@@ -271,18 +283,6 @@ Enterprise AI
 [The AI-Native SDLC playbook](#)The AI-Native SDLC playbook
 
 [The AI-Native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook)The AI-Native SDLC playbook
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d2308749b4e883cc44b7_e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
-
-Aug 11, 2026
-
-### Compliance API coverage extends to Claude Cowork and Claude Code
-
-Enterprise AI
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
-
-[Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
 
 ## Transform how your organization operates with Claude
 

@@ -26,15 +26,19 @@ The mission of the Interpretability team is to understand how large language mod
 
 Working closely with the Anthropic Policy and Safeguards teams, Societal Impacts is a technical research team that explores how AI is used in the real world.
 
-![Learning more about Claude's mathematical capabilities](https://www-cdn.anthropic.com/images/4zrzovbb/website/5a678365e89cbbe43e086c83a6eb0dfb414e96e3-3840x2160.png)
+![Formalizing Fermat's Last Theorem ](https://www-cdn.anthropic.com/images/4zrzovbb/website/eacf5d2fb944719a16b73b8b11729c0d8fda3df0-1200x630.jpg)
 
-[## Learning more about Claude's mathematical capabilities
+[## Formalizing Fermat's Last Theorem
 
-ScienceAug 10, 2026
+ScienceSep 4, 2026
 
-An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.](https://www.anthropic.com/research/riemann-zeta)
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 
-[ScienceAug 18, 2026
+[ScienceAug 10, 2026
+
+#### Learning more about Claude's mathematical capabilities
+
+An unreleased research version of Claude has made strides on a problem related to the Riemann hypothesis. It improved a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the hypothesis, increasing it from 41.6% to 67.2%.](https://www.anthropic.com/research/riemann-zeta)[ScienceAug 18, 2026
 
 #### How Claude is accelerating protein design and analytical chemistry
 
@@ -46,11 +50,7 @@ We're sharing a review of the evidence on worker retraining programs, coauthored
 
 #### A global workspace in language models
 
-New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.](https://www.anthropic.com/research/global-workspace)[AlignmentMay 8, 2026
-
-#### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.](https://www.anthropic.com/research/teaching-claude-why)
+New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.](https://www.anthropic.com/research/global-workspace)
 
 ## Publications
 

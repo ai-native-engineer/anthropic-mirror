@@ -10,7 +10,7 @@
 
 Most settings on this page are easier to configure in the [in-app configuration window](https://claude.com/docs/third-party/claude-desktop/in-app-configuration). Use this reference when you’re scripting an MDM policy or bootstrap response by hand.
 
-Claude Desktop on third-party (3P) is configured entirely through OS-native managed preferences: a `.mobileconfig` profile on macOS, registry policy on Windows, or a root-owned JSON file on Linux. This page documents every supported key. For the desktop release each key first appeared in, see the [configuration changelog](https://claude.com/docs/third-party/claude-desktop/configuration-changelog).
+Claude Desktop on third-party (3P) is configured through OS-native managed preferences: a `.mobileconfig` profile on macOS, registry policy on Windows, or a root-owned JSON file on Linux (organizations in the admin console beta can instead deliver these settings from **Organization settings** on claude.ai). This page documents every supported key. For the desktop release each key first appeared in, see the [configuration changelog](https://claude.com/docs/third-party/claude-desktop/configuration-changelog).
 The easiest way to author a configuration is the in-app configuration window (**Developer → Configure Third-Party Inference…**), which validates values, shows per-provider requirements, and exports directly to `.mobileconfig` or `.reg`. Use this reference when you need to author policy by hand, audit an existing profile, or understand exactly what a key does.
 
 ##  How keys are read
@@ -396,10 +396,11 @@ When set to `true`, sessions cannot run in bypass permissions mode: the app stop
 
 toolSearchEnabled details
 
-When enabled, Cowork, Code, and Chat sessions place only tool names in context up front, and Claude fetches a tool’s full schema the first time it needs it. Use this when many MCP tools are configured and their inlined schemas crowd out the context window (sessions that compact every turn or two). Enable it only if your endpoint forwards and accepts the request shape it will receive; when it does not, requests fail with HTTP 400. Leave unset to keep the conservative default.
+When enabled, Cowork, Code, and Chat sessions place only tool names in context up front, and Claude fetches a tool’s full schema the first time it needs it. Use this when many MCP tools are configured and their inlined schemas crowd out the context window. If your endpoint does not accept the request shape it then receives, requests fail with HTTP 400.
 
-* **Gateway provider, app versions bundling Claude Code 2.1.247 or later**: requests add only the tool-search shape (the `tool-search-tool-2025-10-19` `anthropic-beta` value, deferred tool loading, `tool_reference` content blocks); every other experimental Claude Code beta stays suppressed. OS-level Claude Code managed settings that keep that suppression or turn `ENABLE_TOOL_SEARCH` off still win; set `ENABLE_TOOL_SEARCH` to `force` there instead (with `parentSettingsBehavior: "merge"`). Environments that put Claude Code in its own gateway mode (`CLAUDE_CODE_USE_GATEWAY`) get tool search with Claude Code’s gateway-safe shape regardless.
-* **Other providers, and earlier app versions**: the experimental-beta suppression is lifted for the session, so requests carry the tool-search shape together with Claude Code’s other experimental betas for that provider (for example `context_management` fields). On Vertex with app versions bundling Claude Code older than 2.1.221, leave this unset while any model older than Claude 4.5 is in use; those engines send the header regardless of model and Vertex’s pre-4.5 stacks reject it.
+* **Claude API, Vertex AI, Bedrock, or Bedrock Mantle with no custom base URL**: not needed. The app leaves Claude Code’s experimental betas on there, as terminal Claude Code does, so tool search is on by default (on Vertex AI, for Claude 4.5 and newer models). To turn it off in Code, Cowork, and Chat, set `ENABLE_TOOL_SEARCH` to `false` in the `env` block of OS-level Claude Code managed settings (with `parentSettingsBehavior: "merge"`). Earlier app versions treat these like the last case.
+* **Gateway provider, app versions bundling Claude Code 2.1.247 or later**: requests add only the tool-search shape (the `tool-search-tool-2025-10-19` `anthropic-beta` value, deferred tool loading, `tool_reference` content blocks); every other experimental Claude Code beta stays suppressed. OS-level Claude Code managed settings that keep that suppression or turn `ENABLE_TOOL_SEARCH` off still win; set `ENABLE_TOOL_SEARCH` to `force` there instead (with `parentSettingsBehavior: "merge"`). Sessions in Claude Code’s own gateway mode (`CLAUDE_CODE_USE_GATEWAY`) get its gateway-safe tool-search shape regardless.
+* **Foundry, a custom base URL, and earlier app versions**: the app suppresses Claude Code’s experimental betas for the session and the key lifts that, so requests carry the tool-search shape together with Claude Code’s other experimental betas for that provider. On Vertex with app versions bundling Claude Code older than 2.1.221, leave this unset while any model older than Claude 4.5 is in use; those engines send the header regardless of model and Vertex’s pre-4.5 stacks reject it.
 
 skipWebFetchPreflight details
 
@@ -446,7 +447,11 @@ claudeAiImport details
 
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
-| Microsoft 365 native sign-in broker `microsoftAuthBroker` | `enum` | MDM + Bootstrap | `auto` | Set to “disabled” to force browser-based Microsoft 365 sign-in instead of the native Company Portal / Windows account broker. One of: `auto`, `disabled`. Defaults to `auto`. |
+| Microsoft 365 native sign-in broker `microsoftAuthBroker` | `enum` | MDM + Bootstrap | `auto` | “disabled” forces browser-based Microsoft 365 sign-in; “required” fails sign-in when the OS broker is unavailable, so the refresh token stays broker-held. One of: `auto`, `disabled`, `required`. Defaults to `auto`. |
+
+microsoftAuthBroker details
+
+`auto` (default): use the OS sign-in broker where available (WAM on Windows, the Company Portal SSO extension on macOS) and fall back to a browser sign-in otherwise. `disabled`: always use the browser sign-in. `required`: fail sign-in when the broker is unavailable rather than falling back to the browser, so the refresh token stays broker-held. Linux has no broker, so `required` is not supported there. Desktop builds older than the version that introduced `required` treat it as `disabled` (browser-only sign-in) — the opposite posture — so gate rollout on client version.
 
 ###  Extensions
 
@@ -479,6 +484,7 @@ For OAuth-authenticated entries, the app builds the redirect URI as `http://<cal
 | `tenantId` | `string` | — | Your organization’s Microsoft Entra directory (tenant) ID. |
 | `clientId` | `string` | — | OAuth app client ID for this built-in server. |
 | `azureCloud` | `enum` | — | Microsoft cloud for sign-in and Graph. Leave as global for commercial Microsoft 365; US Government clouds require your own app registration (Client ID). One of: `global`, `us-gov-high`, `us-gov-dod`. |
+| `continuousAccessEvaluation` | `enum` | `enabled` | Request CAE-capable Microsoft Graph tokens: long-lived (up to about 28 hours) but revocable within minutes. Set “disabled” to keep standard one-hour tokens. One of: `enabled`, `disabled`. |
 | `scope` | `string` | — | What the server may request at sign-in. If blank, Desktop’s default read set is used. |
 | `toolPolicy` | `object` | — | Lock the approval state for specific tools. Unlisted tools stay user-controlled. |
 | `headers` | `object` | — | Static headers sent on every request — routing and tenant headers only. No credentials here; use the headers helper script for tokens and rotating values. |
@@ -582,7 +588,7 @@ How often the running app re-checks its managed configuration for changes: it re
 | Setting | Type | Availability | Default | Description |
 | --- | --- | --- | --- | --- |
 | OpenTelemetry collector endpoint `otlpEndpoint` | `string` | MDM + Bootstrap | — | Where OpenTelemetry logs and metrics are sent. Leave blank to disable. |
-| OpenTelemetry exporter protocol `otlpProtocol` | `enum` | MDM + Bootstrap | `http/protobuf` | grpc or http/protobuf. One of: `http/protobuf`, `http/json`, `grpc`. Defaults to `http/protobuf`. |
+| OpenTelemetry exporter protocol `otlpProtocol` | `enum` | MDM + Bootstrap | `http/protobuf` | Transport protocol for the OpenTelemetry exporters. One of: `http/protobuf`, `http/json`, `grpc`. Defaults to `http/protobuf`. |
 | OpenTelemetry exporter headers `otlpHeaders` | `object` | MDM + Bootstrap | — | Static collector headers — routing and tenant headers only. No credentials here; use Collector authentication or the headers helper script for tokens. Deprecated: `otlpHeaders as a "Name=value,…" string or a ["Name: value", …] list` (accepted until October 7, 2026); use a JSON object such as {“Name”: “value”}. If it is still present after that, a string or list value will be rejected as malformed and no exporter headers will be sent. |
 | Collector authentication `otlpAuthMode` | `enum` | MDM + Bootstrap | — | inference-credential sends the user’s inference bearer token to the collector as Authorization: Bearer. One of: `none`, `inference-credential`. |
 | OpenTelemetry headers helper script `otlpHeadersHelper` | `string` | MDM + Bootstrap | — | Absolute path to an executable that prints a JSON object of collector headers. Merged over the static headers and Collector authentication; the helper wins. |
@@ -590,6 +596,10 @@ How often the running app re-checks its managed configuration for changes: it re
 | Desktop telemetry export level `otlpDesktopLogLevel` | `enum` | MDM + Bootstrap | `error` | Controls the Claude Desktop application’s events, separate from Cowork and Code sessions. Defaults to error. One of: `off`, `error`, `warn`, `info`, `debug`. Defaults to `error`. |
 | Content capture categories `otlpContentCapture` | `enum[]` | MDM + Bootstrap | — | Content categories the desktop exporter sends unredacted to your collector. Leave empty to redact all content (default). One of: `userPrompts`, `assistantResponses`, `toolDetails`, `toolContent`, `rawApiBodies`. |
 | Export traces `otlpTracesEnabled` | `boolean` | MDM + Bootstrap | — | Also export OpenTelemetry traces from Cowork tasks and Code sessions. Uses Claude Code’s session tracing. |
+
+otlpProtocol details
+
+Code sessions export over the protocol set here. Chats and Cowork tasks export over `http/protobuf` instead of `grpc` on Windows, and on other platforms whenever the Claude Code engine is given an HTTP proxy (the operating system’s proxy, `egressProxyUrl` or `egressProxyPacUrl`, or `HTTPS_PROXY` / `HTTP_PROXY` in a Claude Code settings file); the application log notes the substitution. The desktop application’s own events always go over `http/json` to `<endpoint>/v1/logs`. None of this changes the endpoint, so choose `grpc` only for a collector that also serves OTLP/HTTP at the same address; otherwise keep `http/protobuf` and point `otlpEndpoint` at the collector’s OTLP/HTTP receiver (conventionally port 4318).
 
 otlpAuthMode details
 

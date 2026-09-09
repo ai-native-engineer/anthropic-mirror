@@ -1,5 +1,15 @@
 <!-- source: https://claude.com/docs/connectors/mcp-tunnels/setup -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+MCP tunnels are in research preview and are available to organizations on the Claude Enterprise plan by request. To request access, [submit the MCP tunnels interest form](https://claude.com/form/mcp-tunnels) or contact your Anthropic account team.
+
 This page covers the full setup of an MCP tunnel for a claude.ai Enterprise organization, from creating the API key that provisioning uses to members calling a tunneled MCP server from Claude. You need the Owner or Primary Owner role in claude.ai, and someone who can deploy containers to a Kubernetes cluster or a Docker host inside your network. Read [MCP tunnels](https://claude.com/docs/connectors/mcp-tunnels/overview) first if the tunnel stack, the tunnel domain, and routes are unfamiliar.
 The deployment steps on this page are reference deployments. You are responsible for adapting them to your organization’s security requirements. For the full set of proxy options, certificate requirements, and hardening guidance, see the [MCP tunnels reference](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/reference) and [MCP tunnels security](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/security) pages in the Claude Platform docs. Those pages describe the Claude Console flow, which authenticates the setup component differently. For a claude.ai organization, follow the authentication steps on this page.
 
@@ -25,9 +35,11 @@ Both paths need at least one route. A route maps a subdomain of your tunnel doma
 
 Fetch the default values
 
+```
 helm show values \
   oci://us-docker.pkg.dev/anthropic-public-registry/charts/mcp-tunnel \
   --version 2.0.2 > values.yaml
+```
 
 The file includes comments explaining each field.
 
@@ -39,6 +51,7 @@ Edit `values.yaml` and add a `routes` entry under `gateway.config` for each MCP 
 
 values.yaml
 
+```
 tunnel:
   id: ""
   # Increment to rotate the tunnel token on a later upgrade.
@@ -49,6 +62,7 @@ gateway:
     routes:
       docs: http://docs-mcp.example.corp:8080
       search: http://10.0.12.7:9000
+```
 
 With these routes, Claude reaches the servers at `docs.<your-tunnel-domain>` and `search.<your-tunnel-domain>`. If a route targets an address outside the RFC 1918 private ranges (some managed Kubernetes distributions allocate Service IPs elsewhere), add the range under `gateway.config.upstream.allowed_ips` as described in [Troubleshooting](https://claude.com/docs/connectors/mcp-tunnels/troubleshooting#proxy-logs-ip-validation-failed).
 
@@ -58,12 +72,14 @@ Review the rendered manifests
 
 Render the chart with a placeholder key and review the output according to your organization’s practices for third-party manifests. Rendering makes no API calls.
 
+```
 helm template mcp-tunnel \
   oci://us-docker.pkg.dev/anthropic-public-registry/charts/mcp-tunnel \
   --version 2.0.2 \
   -n mcp-tunnel \
   -f values.yaml \
   --set api.token=placeholder > rendered.yaml
+```
 
 4
 
@@ -71,6 +87,7 @@ Install
 
 Read the Tunnels API key into an environment variable so it stays out of your shell history and values file, then install into a dedicated namespace.
 
+```
 # Paste the Tunnels API key (input is hidden)
 read -rs API_TOKEN && export API_TOKEN
 
@@ -80,6 +97,7 @@ helm install mcp-tunnel \
   --namespace mcp-tunnel --create-namespace \
   -f values.yaml \
   --set api.token="$API_TOKEN"
+```
 
 The setup component runs as a pre-install hook, so `helm install` blocks until the tunnel is created, the CA is registered, and the credentials are stored in the `mcp-tunnel` Secret. If the install fails with a hook error, see [Troubleshooting](https://claude.com/docs/connectors/mcp-tunnels/troubleshooting#helm-install-fails-with-a-hook-error).
 
@@ -91,8 +109,10 @@ Read the tunnel domain
 
 You need the tunnel domain to add connectors later.
 
+```
 kubectl -n mcp-tunnel get secret mcp-tunnel \
   -o jsonpath='{.data.tunnel-domain}' | base64 -d
+```
 
 The value looks like `abc123.tunnel.anthropic.com`.
 
@@ -102,9 +122,11 @@ To restrict the pod’s egress at the network level, set `networkPolicy.enabled:
 
 Prepare the deployment directory
 
+```
 mkdir -p mcp-tunnel/{config,data}
 cd mcp-tunnel
 sudo chown 65532:65532 data
+```
 
 The containers run as the non-root user ID `65532` and need write access to `data/`.
 
@@ -114,6 +136,7 @@ Write docker-compose.yaml
 
 The compose file pins images by digest, runs every container as non-root with a read-only filesystem, drops all Linux capabilities, and disables privilege escalation.
 
+```
 cat > docker-compose.yaml <<'EOF'
 services:
   # One-time provisioning. Run with: docker compose run --rm setup
@@ -176,6 +199,7 @@ services:
         max-size: "10m"
         max-file: "3"
 EOF
+```
 
 3
 
@@ -183,15 +207,19 @@ Provision the tunnel
 
 Read the Tunnels API key into an environment variable, then run the setup component. It creates the tunnel, generates the CA and server certificate, registers the CA with Anthropic, fetches the tunnel token, and writes everything to `data/`.
 
+```
 # Paste the Tunnels API key (input is hidden)
 read -rs API_TOKEN && export API_TOKEN
 
 docker compose run --rm setup
+```
 
 Read the tunnel domain and keep it for later steps.
 
+```
 export TUNNEL_DOMAIN=$(sudo cat data/tunnel-domain)
 echo "$TUNNEL_DOMAIN"
+```
 
 Revoke the Tunnels API key in **Organization settings > Tunnels > Tunnels API** before continuing, and run `unset API_TOKEN`. The stack does not need the key at runtime.
 
@@ -201,6 +229,7 @@ Write the proxy config
 
 `tunnel_domain` is required so the proxy can strip the domain from incoming hostnames and look up the remaining subdomain in `routes`. `routes` is a map, not a list.
 
+```
 cat > config/mcp-proxy.yaml <<EOF
 listen_addr: ":8080"
 log_level: info
@@ -216,6 +245,7 @@ upstream:
   allowed_ips:
     - 10.0.0.0/8
 EOF
+```
 
 `upstream.allowed_ips` is the proxy’s protection against server-side request forgery. Use the narrowest ranges that cover your MCP servers. Setting it replaces the RFC 1918 default rather than extending it.
 
@@ -223,8 +253,10 @@ EOF
 
 Start the stack
 
+```
 export TUNNEL_TOKEN=$(sudo cat data/tunnel-token)
 docker compose up -d
+```
 
 The compose file reads `TUNNEL_TOKEN` from the host environment with no default, so repeat the export in every fresh shell and after a reboot. For a multi-host deployment, copy the `mcp-tunnel/` directory to each host and start it the same way. The same tunnel token and certificates work across all replicas.
 
@@ -238,11 +270,15 @@ Helm
 
 Docker Compose
 
+```
 kubectl -n mcp-tunnel logs deploy/mcp-tunnel -c cloudflared | grep "Registered tunnel connection"
 kubectl -n mcp-tunnel logs deploy/mcp-tunnel -c mcp-proxy | grep "route configured"
+```
 
+```
 docker compose logs cloudflared | grep "Registered tunnel connection"
 docker compose logs mcp-proxy | grep "route configured"
+```
 
 The containers take a few seconds to start, so rerun the commands if they come back empty. If cloudflared never registers, see [Troubleshooting](https://claude.com/docs/connectors/mcp-tunnels/troubleshooting#the-tunnel-stack-starts-but-cloudflared-never-connects). The end-to-end check happens from Claude, in the next section.
 
@@ -266,15 +302,19 @@ Helm
 
 Docker Compose
 
+```
 # After adding the route under gateway.config.routes in values.yaml
 helm upgrade mcp-tunnel \
   oci://us-docker.pkg.dev/anthropic-public-registry/charts/mcp-tunnel \
   --version 2.0.2 \
   -n mcp-tunnel \
   -f values.yaml
+```
 
+```
 # After adding the route in config/mcp-proxy.yaml
 docker compose restart mcp-proxy
+```
 
 ##  Rotate credentials
 
@@ -287,6 +327,7 @@ Three credentials are involved, and each rotates differently.
 
 Increment `tunnel.tokenVersion` in `values.yaml`, create a fresh Tunnels API key, and upgrade. The setup component re-runs, rotates the token, and updates the Secret.
 
+```
 read -rs API_TOKEN && export API_TOKEN
 
 helm upgrade mcp-tunnel \
@@ -296,16 +337,19 @@ helm upgrade mcp-tunnel \
   -f values.yaml \
   --set api.token="$API_TOKEN" \
   --set setup.force=true
+```
 
 Revoke the API key once the upgrade completes.
 
 Edit `docker-compose.yaml` and increment the `--token-version` value in the `setup` service (for example from `1` to `2`), so the new value persists for future runs. Then create a fresh Tunnels API key and re-run setup.
 
+```
 read -rs API_TOKEN && export API_TOKEN
 docker compose run --rm setup
 
 export TUNNEL_TOKEN=$(sudo cat data/tunnel-token)
 docker compose up -d cloudflared
+```
 
 Revoke the API key and run `unset API_TOKEN` once rotation completes. For a multi-host deployment, setup writes the new token only to the `data/` directory on the host where it ran, so copy the updated `data/` directory (at minimum `data/tunnel-token`) to every other host that runs a replica. Then repeat the last two commands on each of those hosts so every replica restarts with the new token.
 
@@ -318,7 +362,9 @@ The chart deploys a CronJob that runs daily and renews the certificate once it i
 
 Run the renewal from the deployment directory. With `--renew-before=720h` the command does nothing while more than 30 days of validity remain, so it is safe to run on a schedule such as a daily cron entry.
 
+```
 docker compose run --rm setup renew-cert --output=dir:/data --renew-before=720h
+```
 
 ##  Remove a tunnel
 
@@ -332,10 +378,14 @@ Helm
 
 Docker Compose
 
+```
 TUNNEL_ID=$(kubectl -n mcp-tunnel get secret mcp-tunnel \
   -o jsonpath='{.data.tunnel-id}' | base64 -d)
+```
 
+```
 TUNNEL_ID=$(sudo cat data/tunnel-id)
+```
 
 2
 
@@ -345,9 +395,13 @@ Helm
 
 Docker Compose
 
+```
 helm uninstall mcp-tunnel -n mcp-tunnel
+```
 
+```
 docker compose down
+```
 
 If you are responding to a suspected compromise, use `docker compose down --timeout 0` to sever the connection immediately.
 
@@ -363,12 +417,14 @@ Archive the tunnel
 
 Create a fresh Tunnels API key and call the [archive endpoint](https://platform.claude.com/docs/en/api/beta/tunnels/archive) of the Tunnels API. Revoke the key when you are done.
 
+```
 read -rs API_TOKEN && export API_TOKEN
 
 curl -X POST "https://api.anthropic.com/v1/tunnels/${TUNNEL_ID}/archive" \
   -H "Authorization: Bearer $API_TOKEN" \
   -H "anthropic-version: 2023-06-01" \
   -H "anthropic-beta: mcp-tunnels-2026-06-22"
+```
 
 5
 
@@ -378,9 +434,13 @@ Helm
 
 Docker Compose
 
+```
 # The setup component created this Secret, so helm uninstall leaves it behind
 kubectl -n mcp-tunnel delete secret mcp-tunnel
+```
 
+```
 sudo rm -rf data
+```
 
 If you archived the tunnel because of a suspected compromise, also notify your Anthropic account team, rotate any OAuth tokens or secrets your MCP servers issued, and review the proxy, cloudflared, and MCP server logs for the affected period before you provision a replacement tunnel.

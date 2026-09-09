@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/third-party/claude-desktop/network-proxy -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Claude Desktop on 3P works behind a corporate HTTP proxy without extra configuration in most environments. This page explains which proxy each part of the product uses, how to pin a specific proxy from managed configuration, which traffic does not go through the proxy at all, and how a separately deployed Claude Code policy interacts with it.
 Three parts of the product make network connections, and they do not all resolve the proxy the same way:
 
@@ -36,9 +44,11 @@ On Linux, or wherever you deploy the local configuration file, the key sits alon
 
 /etc/claude-desktop/managed-settings.json
 
+```
 {
   "egressProxyUrl": "http://proxy.example.com:8080"
 }
+```
 
 In a macOS configuration profile the same key is a `<key>egressProxyUrl</key><string>http://proxy.example.com:8080</string>` pair in the `com.anthropic.claudefordesktop` payload, and on Windows it is a `REG_SZ` value named `egressProxyUrl` under `HKLM\SOFTWARE\Policies\Claude`. See [Value types](https://claude.com/docs/third-party/claude-desktop/configuration#value-types) and [Deploy with MDM](https://claude.com/docs/third-party/claude-desktop/mdm) for the surrounding profile and registry structure.
 Three behaviors to plan for:
@@ -101,6 +111,7 @@ If you deploy Claude Code [managed settings](https://code.claude.com/docs/en/set
 
 managed-settings.json
 
+```
 {
   "env": {
     "HTTPS_PROXY": "http://proxy.example.com:8080",
@@ -108,6 +119,7 @@ managed-settings.json
   },
   "parentSettingsBehavior": "merge"
 }
+```
 
 Set `parentSettingsBehavior` to `"merge"` whenever you deploy a Claude Code managed-settings file alongside Claude Desktop on 3P: without it, the presence of that file makes Claude Code ignore the policy Claude Desktop supplies (network and filesystem sandbox, allowed MCP servers), even if the file only sets proxy variables. [Claude Code in Claude Desktop on 3P](https://claude.com/docs/third-party/claude-desktop/code#interaction-with-claude-code%E2%80%99s-own-managed-settings) explains the merge behavior.
 `NO_PROXY` matching in the agent follows these rules:
@@ -124,13 +136,17 @@ These settings reach the agent process only. The app itself and Cowork’s sandb
 If your proxy performs TLS interception, it presents its own certificate authority. The app trusts the operating system’s certificate store. On macOS, the app also configures the agent to trust the System keychain in addition to the bundled CA roots, so a corporate CA installed there normally works without extra setup.
 If inference or tool requests still fail certificate verification, the CA was likely added with policy-restricted trust: certificates installed via `security add-trusted-cert -p ssl …` are trusted by Safari and Chrome but are not picked up by the agent’s keychain reader. Re-add the CA with full root trust (omit `-p`):
 
+```
 sudo security add-trusted-cert -d -r trustRoot \
   -k /Library/Keychains/System.keychain /path/to/corp-ca.pem
+```
 
 If the certificate is MDM-managed and you cannot change how it is installed, set `NODE_EXTRA_CA_CERTS` as a fallback, then quit and relaunch Claude:
 
+```
 security find-certificate -a -p /Library/Keychains/System.keychain > ~/corp-ca.pem
 launchctl setenv NODE_EXTRA_CA_CERTS "$HOME/corp-ca.pem"
+```
 
 `launchctl setenv` makes the variable visible to apps launched from Finder or the Dock (shell-profile exports only reach terminal sessions). It applies until the next reboot; to make it permanent, run the command from a LaunchAgent at login.
 

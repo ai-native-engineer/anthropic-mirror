@@ -142,7 +142,7 @@ To set global instructions:
 2. Click "Edit" next to **Global instructions**.
 3. Type your instructions in the text box and click "Save":
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1788654600&signature=f87f22b7ad098af8280149939be7493aa7830bd8e1372d3d14f942d2e0320948&req=diUlE8B8m4lYXfMW1HO4zcDl6tDqM1W28iWjaktE941%2BUOF2VU4A41aque3A%0ARMXGluNWLWO15qzydg4%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1788654600&signature=f87f22b7ad098af8280149939be7493aa7830bd8e1372d3d14f942d2e0320948&req=diUlE8B8m4lYXfMW1HO4zcDl6tDqM1W28iWjaktE941%2BUOF2VU4A41aque3A%0ARMXGluNWLWO15qzydg4%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1788913800&signature=ee46c7268c9f46885de3c2914a2335f2889b2116cb12efe307da515ea6b91f86&req=diUlE8B8m4lYXfMW1HO4zcDl6tDlN1K48iWjaktE940yUk%2B193XLTrBFdHnJ%0Ad%2B1x4gWq04t3ok4eLJ8%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2525926874/15324ac4155d7802272e8bdef04b/ec66cd09-a4db-4f1d-8f30-226c9d126333?expires=1788913800&signature=ee46c7268c9f46885de3c2914a2335f2889b2116cb12efe307da515ea6b91f86&req=diUlE8B8m4lYXfMW1HO4zcDl6tDlN1K48iWjaktE940yUk%2B193XLTrBFdHnJ%0Ad%2B1x4gWq04t3ok4eLJ8%3D%0A)
 
 ### Folder instructions
 
@@ -262,5 +262,5 @@ Check that you've granted Claude the appropriate file access permissions. Review
 * [Use Claude Cowork safely](https://support.claude.com/en/articles/13364135-use-claude-cowork-safely)
 * [Use Claude Cowork on Team and Enterprise plans](https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans)
 * [Schedule recurring tasks in Claude Cowork](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)
-* [Claude Cowork architecture overview](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview)
+* [Assign tasks from anywhere in Claude Cowork](https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork)
 * [Use Claude Cowork on web, desktop, and mobile](https://support.claude.com/en/articles/15520349-use-claude-cowork-on-web-desktop-and-mobile)

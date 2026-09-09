@@ -229,7 +229,7 @@ Remember to be thorough in your analysis and clear in your explanation. Your goa
 
 “We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
 
-Walden Yan, Co-Founder and CPO
+Walden Yan, Co-founder and CPO
 
 ![Shopify (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da9368f2bd228e7080695d_logo_shopify-light.svg)![Shopify (Fable 5.1)](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68da936caa7913237c0589f4_logo_shopify-dark.svg)
 

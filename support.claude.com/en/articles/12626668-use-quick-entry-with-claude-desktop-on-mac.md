@@ -33,7 +33,7 @@ When you first open the updated version of Claude Desktop, you'll see a prompt t
 
 Once enabled, double-tapping Option will open a text box where you can type your message and start a new chat. You can also click "New chat" to see your five most recent conversations.
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1788654600&signature=4a458a5138c062ae7493e9cb3e1a286408c77653891caee7db68fe08320f724b&req=dSguFcl2lYJZXPMW1HO4zWggD9ZXo5icRC8c%2FcM5c2IYyreFpBj7SkYZKz2z%0A2Ugg%2BVzVrWrF3IG5NGk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1788654600&signature=4a458a5138c062ae7493e9cb3e1a286408c77653891caee7db68fe08320f724b&req=dSguFcl2lYJZXPMW1HO4zWggD9ZXo5icRC8c%2FcM5c2IYyreFpBj7SkYZKz2z%0A2Ugg%2BVzVrWrF3IG5NGk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1788913800&signature=436ea3108b87fa0da2f2c75df30a42e6fb84ec3f6bfc91a589a8a4afe6cefee2&req=dSguFcl2lYJZXPMW1HO4zWggD9ZYp5%2BSRC8c%2FcM5c2KQnn4iEfa0KXZK1lKZ%0AkS8kX2I3cQNcbygHpBY%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893088365/2ca4b782dda90abea1fe5f4150af/CleanShot+2025-12-18+at+13_14_30%402x.png?expires=1788913800&signature=436ea3108b87fa0da2f2c75df30a42e6fb84ec3f6bfc91a589a8a4afe6cefee2&req=dSguFcl2lYJZXPMW1HO4zWggD9ZYp5%2BSRC8c%2FcM5c2KQnn4iEfa0KXZK1lKZ%0AkS8kX2I3cQNcbygHpBY%3D%0A)
 
 ### Enable the voice shortcut (optional)
 
@@ -140,4 +140,4 @@ You can customize the quick access shortcut to use Option + Space or create a cu
 * [Use dictation on Claude Mobile](https://support.claude.com/en/articles/10065434-use-dictation-on-claude-mobile)
 * [Use Claude app intents, shortcuts, and widgets on iOS](https://support.claude.com/en/articles/10263469-use-claude-app-intents-shortcuts-and-widgets-on-ios)
 * [Use the Claude widget on Android](https://support.claude.com/en/articles/10534883-use-the-claude-widget-on-android)
-* [Deploy Claude Desktop for macOS](https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos)
+* [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)

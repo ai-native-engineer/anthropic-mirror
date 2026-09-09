@@ -156,6 +156,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Sep 8, 2026
+
+Reducing cost and improving performance with Claude Platform
+
+Agents
+
+Reducing cost and improving performance with Claude Platform
+
+September 8, 2026
+
+[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
+
+[Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Sep 2, 2026
@@ -380,22 +396,6 @@ August 20, 2026
 
 [How monday.com transformed its platform into an agent-first product where humans and agents collaborate](#)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
-
-Aug 20, 2026
-
-The Claude Code guide for startups
-
-Claude Code
-
-The Claude Code guide for startups
-
-August 20, 2026
-
-[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
-
-[The Claude Code guide for startups](#)The Claude Code guide for startups
-
 [View more](https://claude.com/blog?b7eea976_page=2)
 
 1 / 16
@@ -405,6 +405,22 @@ Category
 Product
 
 Usecase
+
+### Reducing cost and improving performance with Claude Platform
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 8, 2026
+
+[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
+
+[Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
 
 ### A guide to the anatomy of effective commerce agents
 
@@ -629,22 +645,6 @@ August 20, 2026
 [How monday.com transformed its platform into an agent-first product where humans and agents collaborate](https://claude.com/blog/how-monday-com-transformed-its-platform-into-an-agent-first-product-where-humans-and-agents-collaborate)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
 
 [How monday.com transformed its platform into an agent-first product where humans and agents collaborate](#)How monday.com transformed its platform into an agent-first product where humans and agents collaborate
-
-### The Claude Code guide for startups
-
-Category
-
-Claude Code
-
-Product
-
-Usecase
-
-August 20, 2026
-
-[The Claude Code guide for startups](https://claude.com/blog/claude-code-guide-for-startups)The Claude Code guide for startups
-
-[The Claude Code guide for startups](#)The Claude Code guide for startups
 
 [View more](https://claude.com/blog?d7430fcd_page=2)
 

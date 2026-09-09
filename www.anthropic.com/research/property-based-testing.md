@@ -152,5 +152,3 @@ Earlier this year, we ran a pilot giving external researchers access to aggregat
 ## Subscribe to the Frontier Red Team newsletter
 
 Get updates on our latest red-teaming research and findings.
-
-Finding bugs with Claude and property-based testing \ Anthropic

@@ -19,5 +19,3 @@ At Anthropic, KiYoung will lead a go-to-market strategy that supports the unique
 Our Korea team will focus on building partnerships with enterprises and startups, engaging with government and research institutions, and supporting the vibrant developer community building with Claude.
 
 For more information about career opportunities in our Seoul office, visit [anthropic.com/careers](http://anthropic.com/careers).
-
-Anthropic appoints KiYoung Choi as Representative Director of Korea \ Anthropic

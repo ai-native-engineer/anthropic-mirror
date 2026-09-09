@@ -46,8 +46,8 @@ We're taking a phased approach to enforcement, starting with new accounts, where
 
 Users of Claude Code, Claude Cowork, Claude.ai, or Claude through a third-party product are **not** affected, nor is use of models other than Fable 5.1.
 
+* [How large is the context window on paid Claude plans?](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans)
 * [Change the model, effort, and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings)
 * [Why Claude switched models in your conversation with Fable 5 or Fable 5.1](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1)
 * [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 * [Data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models)
-* [Why Claude switched models in your conversation with Opus 5](https://support.claude.com/en/articles/16049681-why-claude-switched-models-in-your-conversation-with-opus-5)

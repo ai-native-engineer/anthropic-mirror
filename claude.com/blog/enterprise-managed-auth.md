@@ -56,7 +56,7 @@ Enterprise-managed authorization works across three groups: the identity provide
 
 **Claude customers.** Hubspot, Ramp, and Webflow are among the organizations rolling out enterprise-managed auth across their teams.
 
-![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3414e70a75001b66e8d27f_asana-black.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3414e7f48cd2308583c215_asana-light.svg)
+![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f7e645f7fe4aabfb7a4_asana-logo-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f851118c8688fe503ab_asana-logo-dark.svg)
 
 "Enterprise-managed auth is a foundational milestone in realizing Asana's vision as the operating system for human-agent teams. By providing organizations with a secure, controlled way to connect Claude to their most critical workflows, we are unlocking the ability to scale AI-driven value across the enterprise—backed by the absolute governance, compliance, and trust that large-scale deployment demands."
 
@@ -156,6 +156,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Jun 24, 2026
+
+### Building effective human-agent teams
+
+Enterprise AI
+
+[Building effective human-agent teams](#)Building effective human-agent teams
+
+[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
 
 Sep 2, 2026
@@ -191,18 +203,6 @@ Product announcements
 [Claude for Teachers, now available for U.S. K-12 schools and districts](#)Claude for Teachers, now available for U.S. K-12 schools and districts
 
 [Claude for Teachers, now available for U.S. K-12 schools and districts](https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22b8840b2f6f9a40fe0_8925ac952fa2cb8eb5e845b2e44f3e71b33fd695-1000x1000.svg)
-
-Aug 26, 2026
-
-### Claude gets its own browser in Cowork
-
-Product announcements
-
-[Claude gets its own browser in Cowork](#)Claude gets its own browser in Cowork
-
-[Claude gets its own browser in Cowork](https://claude.com/blog/cowork-built-in-browser)Claude gets its own browser in Cowork
 
 ## Transform how your organization operates with Claude
 

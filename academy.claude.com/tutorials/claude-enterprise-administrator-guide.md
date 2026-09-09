@@ -1790,11 +1790,11 @@ A comprehensive directory of support, training, and enablement resources for Cla
 
 **Share these guides with team leads to accelerate adoption in their departments:**
 
-* [Claude for Engineering Teams(opens in new tab)](https://support.claude.com/en/articles/9945689-claude-for-engineering) — Code review, debugging, architecture, and technical workflows
-* [Claude for Marketing Teams(opens in new tab)](https://support.claude.com/en/articles/9945697-claude-for-marketing) — Content creation, campaign analysis, and brand voice
-* [Claude for Sales Teams(opens in new tab)](https://support.claude.com/en/articles/9945703-claude-for-sales) — Outreach drafting, research, and pipeline management
-* [Claude for Product Management(opens in new tab)](https://support.claude.com/en/articles/9999062-claude-for-product-management) — PRDs, competitive analysis, and user research synthesis
-* [Claude for Human Resources(opens in new tab)](https://support.claude.com/en/articles/9998942-claude-for-human-resources) — Policy drafting, interview prep, and employee communications
+* [Claude for Engineering Teams(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=engineering) — Code review, debugging, architecture, and technical workflows
+* [Claude for Marketing Teams(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=marketing) — Content creation, campaign analysis, and brand voice
+* [Claude for Sales Teams(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=sales) — Outreach drafting, research, and pipeline management
+* [Claude for Product Management(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=product) — PRDs, competitive analysis, and user research synthesis
+* [Claude for Human Resources(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=hr) — Policy drafting, interview prep, and employee communications
 
 ### Industry Solutions[](#industry-solutions)
 
@@ -1830,7 +1830,7 @@ A comprehensive directory of support, training, and enablement resources for Cla
 #### Getting Started Videos
 
 * [Getting started with Claude.ai(opens in new tab)](https://support.claude.com/en/articles/12997377-getting-started-with-claude-ai) — Interface walkthrough, first conversation, and key features
-* [Intro to Artifacts(opens in new tab)](https://support.claude.com/en/articles/9945615-intro-to-artifacts) — Creating and using artifacts in conversations
+* [Intro to Artifacts(opens in new tab)](https://academy.claude.com/tutorials/use-artifacts-to-visualize-and-create-ai-apps-without-ever-writing-a-line-of-code) — Creating and using artifacts in conversations
 * [Intro to Projects(opens in new tab)](https://support.claude.com/en/articles/9945648-intro-to-projects) — Setting up and managing projects
 * [Intro to Connectors(opens in new tab)](https://support.claude.com/en/articles/13123742-intro-to-connectors) — Connecting external tools and data sources
 * [Using Research(opens in new tab)](https://support.claude.com/en/articles/11106443-using-research) — Demo of deep research capabilities
@@ -1846,16 +1846,16 @@ A comprehensive directory of support, training, and enablement resources for Cla
 
 #### Integration Tutorials
 
-* [Using the GitHub integration(opens in new tab)](https://support.claude.com/en/articles/9945670-using-the-github-integration) — GitHub connector setup and usage
-* [Using the Google Docs integration(opens in new tab)](https://support.claude.com/en/articles/10389539-using-the-google-docs-integration) — Working with Google Docs in Claude
+* [Using the GitHub integration(opens in new tab)](https://support.claude.com/en/articles/10167454-use-the-github-integration) — GitHub connector setup and usage
+* [Using the Google Docs integration(opens in new tab)](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration) — Working with Google Docs in Claude
 
 #### Function & Industry Videos
 
-* [Claude for Engineering(opens in new tab)](https://support.claude.com/en/articles/9945689-claude-for-engineering) — Code review, debugging, architecture, and technical workflows
-* [Claude for Marketing(opens in new tab)](https://support.claude.com/en/articles/9945697-claude-for-marketing) — Content creation, campaign analysis, and brand voice
-* [Claude for Sales(opens in new tab)](https://support.claude.com/en/articles/9945703-claude-for-sales) — Outreach drafting, research, and pipeline management
-* [Claude for Product Management(opens in new tab)](https://support.claude.com/en/articles/9999062-claude-for-product-management) — PRDs, competitive analysis, and user research synthesis
-* [Claude for Human Resources(opens in new tab)](https://support.claude.com/en/articles/9998942-claude-for-human-resources) — Policy drafting, interview prep, and employee communications
+* [Claude for Engineering(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=engineering) — Code review, debugging, architecture, and technical workflows
+* [Claude for Marketing(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=marketing) — Content creation, campaign analysis, and brand voice
+* [Claude for Sales(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=sales) — Outreach drafting, research, and pipeline management
+* [Claude for Product Management(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=product) — PRDs, competitive analysis, and user research synthesis
+* [Claude for Human Resources(opens in new tab)](https://academy.claude.com/all?kind=use-case&department=hr) — Policy drafting, interview prep, and employee communications
 
 * [Phase 1: Technical Setup](#phase-1-technical-setup)
 * [Phase 2: Change Management & Launch](#phase-2-change-management-launch)

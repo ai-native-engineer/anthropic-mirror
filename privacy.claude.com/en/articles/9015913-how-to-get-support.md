@@ -2,7 +2,7 @@
 
 # How to get support
 
-Updated over a week ago
+Updated today
 
 This guide explains how to get support for your Claude or Console account. Different support options are available depending on your plan. Support is provided in writing through the support messenger and email. We don't offer phone support.
 
@@ -16,7 +16,7 @@ You have full access to:
 
 While we don't offer phone or live chat support, our Product Support team will gladly assist you through our support messenger.
 
-**Note for Enterprise admins:** Primary Owners and Owners can configure which members of their organization reach human support by designating support contacts. By default, Admins and Owners keep human support access. For configuration details, see **[Designate support contacts for human support](https://support.claude.com/en/articles/15263885-)**.
+**Note for Enterprise admins:** Primary Owners and Owners can configure which members of their organization reach human support by designating support contacts. By default, Admins and Owners keep human support access. For configuration details, see **[Designate support contacts for human support](https://support.claude.com/en/articles/15263885)**.
 
 ### Seeking support for Claude
 
@@ -62,8 +62,8 @@ Support is asynchronous. After your request reaches our team, a specialist inves
 ### Keep colleagues in the loop
 
 * A conversation started in the messenger includes only you. To bring in a colleague, such as the affected user or your IT admin, reply to the conversation from the email thread and cc them. Their replies join the same conversation.
-* Enterprise organizations can also **[designate support contacts](https://support.claude.com/en/articles/15263885)** and **[view their organization's support tickets in one place](https://support.claude.com/en/articles/15937951)**.
 * If you're reporting an issue on behalf of someone else, include their work email address, any error messages or screenshots, and when the issue started in your first message. This avoids an extra round of questions.
+* Enterprise organizations can also **[designate support contacts](https://support.claude.com/en/articles/15263885)**.
 
 ## Team and Enterprise plan non-owners, and Console non-Admins
 
@@ -77,7 +77,7 @@ Human specialist support is not directly available for your account seat type. I
 
 Primary Owners and Owners can designate support contacts: members who can reach human support without holding an Owner role. If you're a designated support contact, you'll have the option to wait for a human when chatting with Fin. Otherwise, Fin will handle your conversation, and if escalation is needed, your account's Primary Owner, Owner, or a designated support contact can reach out on your behalf.
 
-For configuration details, see **[Designate support contacts for human support](https://support.claude.com/en/articles/15263885-)**.
+For configuration details, see **[Designate support contacts for human support](https://support.claude.com/en/articles/15263885)**.
 
 ## Free Claude users
 
@@ -85,7 +85,7 @@ Free Claude users have access to:
 
 * All help documentation
 * Fin, our AI support bot
-* **[Account deletion](https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account)** support in cases where self-serve is unavailable
+* **[Account deletion](https://support.claude.com/en/articles/9028421)** support in cases where self-serve is unavailable
 
 To get support:
 

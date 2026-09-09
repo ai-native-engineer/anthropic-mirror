@@ -12,7 +12,7 @@ Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b8a7f33fb95786202e741_L%27Oreal%20Light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690b8a85092f19a774567aef_L%27Oreal%20Dark.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01fd9c3a4170a4fe203b6_loreal-logo-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01fdfc3a4170a4fe209ef_loreal-logo-dark.svg)
 
 Industry:
 

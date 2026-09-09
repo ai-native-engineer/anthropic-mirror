@@ -47,5 +47,3 @@ We had Claude autonomously train models to improve their performance on several 
 Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
 
 [Read more](https://www.anthropic.com/research/enabling-independent-research)
-
-Claude Opus 4 and 4.1 can now end a rare subset of conversations \ Anthropic

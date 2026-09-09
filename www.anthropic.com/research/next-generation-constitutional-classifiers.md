@@ -76,5 +76,3 @@ We had Claude autonomously train models to improve their performance on several 
 Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
 
 [Read more](https://www.anthropic.com/research/enabling-independent-research)
-
-Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks \ Anthropic

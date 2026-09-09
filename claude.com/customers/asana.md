@@ -12,7 +12,7 @@ Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3414e70a75001b66e8d27f_asana-black.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3414e7f48cd2308583c215_asana-light.svg)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f7e645f7fe4aabfb7a4_asana-logo-light.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f851118c8688fe503ab_asana-logo-dark.svg)
 
 Industry:
 

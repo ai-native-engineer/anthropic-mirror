@@ -30,8 +30,8 @@ You can review our full **[Usage Policy](https://www.anthropic.com/legal/aup)**,
 
 Thanks for using Claude! We appreciate you taking the time to stay informed on these updates as we work to responsibly deploy our products more broadly.
 
+* [Safeguards warnings and appeals](https://support.claude.com/en/articles/8241253-safeguards-warnings-and-appeals)
 * [Terms of Service Updates](https://support.claude.com/en/articles/9190861-terms-of-service-updates)
 * [Consumer Terms of Service Updates](https://support.claude.com/en/articles/9264813-consumer-terms-of-service-updates)
 * [Who owns and manages the data of my team?](https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team)
-* [Does Anthropic Act as a Data Processor or Controller?](https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller)
 * [Who owns and manages the data of my Claude for Education account?](https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account)

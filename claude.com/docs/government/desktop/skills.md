@@ -24,7 +24,6 @@ In Claude for Government, your skills come from three places:
 
 Open **Customize** in the sidebar, then **Skills**, to see your skills and turn any of them on or off. Select **Add skill**, then choose **Create with Claude** to build one with Claude’s help, **Write skill instructions** to write it yourself, or **Upload a skill** to add a skill file you have. You can also ask Claude to save a workflow as a skill while you work on a task. The [skill authoring guide](https://claude.com/docs/skills/how-to) describes the file format for skills you write by hand.
 Open a skill you created to rename or delete it. Skills you create are stored on your device, so they are available only there.
-If your organization restricts skill creation through device managed configuration, the options to create and upload skills are hidden, and Claude does not offer to create or update skills in your conversations.
 
 ##  Skills for administrators
 

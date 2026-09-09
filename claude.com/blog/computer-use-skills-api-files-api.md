@@ -83,6 +83,30 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Sep 8, 2026
+
+### Reducing cost and improving performance with Claude Platform
+
+Agents
+
+[Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
+
+[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Jun 24, 2026
+
+### Building effective human-agent teams
+
+Enterprise AI
+
+[Building effective human-agent teams](#)Building effective human-agent teams
+
+[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d228c83775fcc75f4e6d_74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
 
 Sep 2, 2026
@@ -106,30 +130,6 @@ Agents
 [A guide to the anatomy of effective commerce agents](#)A guide to the anatomy of effective commerce agents
 
 [A guide to the anatomy of effective commerce agents](https://claude.com/blog/the-anatomy-of-effective-commerce-agents)A guide to the anatomy of effective commerce agents
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
-
-Aug 28, 2026
-
-### How Anthropic employees use Claude Tag
-
-Enterprise AI
-
-[How Anthropic employees use Claude Tag](#)How Anthropic employees use Claude Tag
-
-[How Anthropic employees use Claude Tag](https://claude.com/blog/how-anthropic-employees-use-claude-tag)How Anthropic employees use Claude Tag
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a90479f5433ec75978f1e8a_Object-Apple.svg)
-
-Aug 28, 2026
-
-### Claude for Teachers, now available for U.S. K-12 schools and districts
-
-Product announcements
-
-[Claude for Teachers, now available for U.S. K-12 schools and districts](#)Claude for Teachers, now available for U.S. K-12 schools and districts
-
-[Claude for Teachers, now available for U.S. K-12 schools and districts](https://claude.com/blog/claude-for-teachers-now-available-for-schools-and-districts)Claude for Teachers, now available for U.S. K-12 schools and districts
 
 ## Transform how your organization operates with Claude
 

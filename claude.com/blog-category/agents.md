@@ -16,6 +16,22 @@ Grid
 
 List
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Sep 8, 2026
+
+Reducing cost and improving performance with Claude Platform
+
+Agents
+
+Reducing cost and improving performance with Claude Platform
+
+September 8, 2026
+
+[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
+
+[Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d222061abf091318fb82_423062049d4676b41d52b16068cbb5e21603190e-1000x1000.svg)
 
 Sep 2, 2026
@@ -240,22 +256,6 @@ May 27, 2026
 
 [Zero Trust for AI agents](#)Zero Trust for AI agents
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
-
-May 13, 2026
-
-Best practices for computer and browser use with Claude
-
-Agents
-
-Best practices for computer and browser use with Claude
-
-May 13, 2026
-
-[Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
-
-[Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
-
 [View more](https://claude.com/blog-category/agents?1e959936_page=2)
 
 Category
@@ -263,6 +263,22 @@ Category
 Product
 
 Usecase
+
+### Reducing cost and improving performance with Claude Platform
+
+Category
+
+Agents
+
+Product
+
+Usecase
+
+September 8, 2026
+
+[Reducing cost and improving performance with Claude Platform](https://claude.com/blog/reducing-cost-and-improving-performance-with-claude-platform)Reducing cost and improving performance with Claude Platform
+
+[Reducing cost and improving performance with Claude Platform](#)Reducing cost and improving performance with Claude Platform
 
 ### A guide to the anatomy of effective commerce agents
 
@@ -487,22 +503,6 @@ May 27, 2026
 [Zero Trust for AI agents](https://claude.com/blog/zero-trust-for-ai-agents)Zero Trust for AI agents
 
 [Zero Trust for AI agents](#)Zero Trust for AI agents
-
-### Best practices for computer and browser use with Claude
-
-Category
-
-Agents
-
-Product
-
-Usecase
-
-May 13, 2026
-
-[Best practices for computer and browser use with Claude](https://claude.com/blog/best-practices-for-computer-and-browser-use-with-claude)Best practices for computer and browser use with Claude
-
-[Best practices for computer and browser use with Claude](#)Best practices for computer and browser use with Claude
 
 [View more](https://claude.com/blog-category/agents?2f226f2c_page=2)
 

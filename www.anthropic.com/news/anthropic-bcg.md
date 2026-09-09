@@ -15,5 +15,3 @@ Anthropic and BCG have already partnered to help organizations understand the fo
 “The large enterprises I talk with are focused on harnessing value and bottom line impact from AI, and doing that in the most effective and ethical way possible. Aligning these two aspects of AI is a challenge and the price for getting it wrong can be immense, both financially and in reputational harm. Our new collaboration with Anthropic will help deliver that alignment on ethics and effective GenAI,” says Sylvain Duranton, global leader of BCG X, BCG’s tech build and design unit. “Together, we aim to set a new standard for responsible enterprise AI and promote a safety race to the top for AI to be deployed ethically.”
 
 We’re extending a warm welcome to BCG and its customers—and look forward to working with them to deploy innovative applications of generative AI safely and responsibly.
-
-Anthropic partners with BCG \ Anthropic

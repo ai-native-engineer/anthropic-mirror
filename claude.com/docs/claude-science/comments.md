@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/claude-science/comments -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 Comments let you pin notes to specific parts of an artifact instead of describing a location in prose. Select text in a Markdown, plain-text, LaTeX, or code file; select text in a PDF; click a point on an image or figure; or turn on **Comment** and click an element in a rendered HTML report. You can also comment on session transcripts. You can’t comment on tables or other artifact types.
 
 ##  Leaving a comment

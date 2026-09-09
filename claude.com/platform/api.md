@@ -22,7 +22,7 @@ Sualeh Asif, Director of ML
 
 “We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
 
-Walden Yan, Co-Founder and CPO
+Walden Yan, Co-founder and CPO
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd41339475e271c59ea3_6a2ecc7a1372de816bc282aa_RedHat_light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ecd40339475e271c59e88_6a2ecc7a028e2d7625286222_RedHat_dark.svg)
 

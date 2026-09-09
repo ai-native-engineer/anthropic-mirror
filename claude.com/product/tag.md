@@ -1,19 +1,5 @@
 <!-- source: https://claude.com/product/tag -->
 
-Beta
-
-[Next](#)Next
-
-### Introducing @Claude
-
-@Claude reacts in real time, where the work is happening. Available today for Claude Enterprise and Team in Slack. Tag it in, and it tags you back.
-
-Read more
-
-[Read more](http://anthropic.com/news/introducing-claude-tag)Read more
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a332e58e47bc6075d368473_announcement-tag.png)
-
 @Claude beta
 
 # Tag Claude in Slack
@@ -102,6 +88,10 @@ Give @Claude standing instructions and it works without a mention now or in the 
 
 Claude in Slack can share work in the format your team needs, right in the thread.
 
+New
+
+On-call
+
 Catch up
 
 Pull numbers
@@ -110,53 +100,25 @@ Draft PRs
 
 Call prep
 
-Monitor channels
-
 Active
 
 Prompt
 
-@Claude What got decided here and what's still open?
+Can you tell me ...
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a489e1797f1e0665bbe_d5622abab0729b05479a1127780e0fc2_tag_img_catch-up.png)
+Attachments
 
-### Catch up fast
+Document
 
-Get everything you need from a long thread in seconds. @Claude can surface decisions, open questions, and stakeholders, and you see exactly what's waiting on you.
+84kb
 
-Prompt
+TXT
 
-@Claude Top 20 enterprise accounts by spend, last 7 and 28 days.
+Document
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a483452abcaa293aa7a_e4851576863e95688132488f21e5a9b4_tag_img_pull-numbers.png)
+105 lines
 
-### Pull the numbers
-
-Ask @Claude to query your data and it posts results like metrics, benchmarks, and charts in the channel, so the whole team sees the answer and can keep asking questions right there.
-
-Prompt
-
-@Claude Fix the bug in this thread and open a draft PR.
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a4d1d6688235b6da910_59b3eb2c3ea8efd3531293b45ff1c524_tag_img_draft-prs.png)
-
-### Build from the thread
-
-Turn a bug report into a draft PR from the context is in the thread without ever leaving Slack. Get more done without switching tabs.
-
-Prompt
-
-@Claude I'm meeting Acme at 2 — what do I need to know?
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a4dd211407e09ef3275_f73eeb30406c909512270f7032063b9f_tag_img_call-prep.png)
-
-### Prep before calls
-
-Walk into every meeting with a full briefing. CRM notes, recent threads, and call history pulled together before you think to ask.
-
-Prompt
-
-@Claude Watch this channel, triage what comes in, and work through the backlog. Tag me only when something needs my call.
+TXT
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a4dfa9608d0d72727df_2e8c5c719077802290648adb0ff0bbc7_tag_img_monitor-channels.png)
 
@@ -164,11 +126,127 @@ Prompt
 
 @Claude can manage work in the channels your team never had bandwidth for: monitoring backlogs, triaging alerts, and surfacing what needs a human to review, so work that keeps getting pushed out can finally be completed.
 
+## Prompt
+
+@Claude Watch this channel, triage what comes in, and work through the backlog. Tag me only when something needs my call.
+
+Prompt
+
+Can you tell me ...
+
+Attachments
+
+Document
+
+84kb
+
+TXT
+
+Document
+
+105 lines
+
+TXT
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a489e1797f1e0665bbe_d5622abab0729b05479a1127780e0fc2_tag_img_catch-up.png)
+
+### Catch up fast
+
+Get everything you need from a long thread in seconds. @Claude can surface decisions, open questions, and stakeholders, and you see exactly what's waiting on you.
+
+## Prompt
+
+@Claude What got decided here and what's still open?
+
+Prompt
+
+Can you tell me ...
+
+Attachments
+
+Document
+
+84kb
+
+TXT
+
+Document
+
+105 lines
+
+TXT
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a483452abcaa293aa7a_e4851576863e95688132488f21e5a9b4_tag_img_pull-numbers.png)
+
+### Pull the numbers
+
+Ask @Claude to query your data and it posts results like metrics, benchmarks, and charts in the channel, so the whole team sees the answer and can keep asking questions right there.
+
+## Prompt
+
+@Claude Top 20 enterprise accounts by spend, last 7 and 28 days.
+
+Prompt
+
+Can you tell me ...
+
+Attachments
+
+Document
+
+84kb
+
+TXT
+
+Document
+
+105 lines
+
+TXT
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a4d1d6688235b6da910_59b3eb2c3ea8efd3531293b45ff1c524_tag_img_draft-prs.png)
+
+### Build from the thread
+
+Turn a bug report into a draft PR from the context is in the thread without ever leaving Slack. Get more done without switching tabs.
+
+## Prompt
+
+@Claude Fix the bug in this thread and open a draft PR.
+
+Prompt
+
+Can you tell me ...
+
+Attachments
+
+Document
+
+84kb
+
+TXT
+
+Document
+
+105 lines
+
+TXT
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3a9a4dd211407e09ef3275_f73eeb30406c909512270f7032063b9f_tag_img_call-prep.png)
+
+### Prep before calls
+
+Walk into every meeting with a full briefing. CRM notes, recent threads, and call history pulled together before you think to ask.
+
+## Prompt
+
+@Claude I'm meeting Acme at 2 — what do I need to know?
+
 ## Core capabilities
 
 See what @Claude can do for your team.
 
-### Understands your org
+### **Customizable  identities for granular governance**
 
 The longer Claude works with your team, the more it understands how your organization thinks, how decisions get made, and who owns what.
 
@@ -192,9 +270,54 @@ Shape how Claude works in each channel with skills and instructions. Give it acc
 
 Hand Claude a complex task and it works while you move on to other projects. It follows up, asks for input, or comes back when it's done.
 
+![Carvana](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a97624449e9faa7a99adab9_logo_carvana-light-mode.svg)![Carvana](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a976247318d4486e007daf9_logo_carvana-dark-mode.svg)
+
+56%
+
+fewer alerts after Claude Tag began resolving the root causes behind them
+
+Read story
+
+[Read story](https://claude.com/customers/carvana)Read story
+
+Claude on call:
+How Claude Tag serves as Anthropic’s first responder for CI/CD failures
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa0386ac6de94c5868450d5_6a84a8dee0d08841721bbc53_og_ai-ci-cd-on-call.jpg)
+
+An engineer on our Continuous Integration team walks through the agent he built that powers CI incident response at Anthropic.
+
+Read more
+
+[Read more](https://claude.com/blog/ai-ci-cd-on-call)Read more
+
+How Anthropic deploys Claude Tag for ad-hoc questions
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa0464ab930a06f20566655_ad-hoc-questions.jpg)
+
+Two data scientists at Anthropic walk through how Claude Tag turns Slack threads into self-service analytics, with the same governed definitions analysts use.
+
+Read more
+
+[Read more](https://claude.com/blog/self-service-data-analytics-in-slack-how-anthropic-deploys-claude-tag-for-ad-hoc-questions)Read more
+
+Learn more about how Anthropic employees are using Claude Tag
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6aa0492568b37af129c481b4_slack-imgs.jpg)
+
+Producing customer-ready collateral, compiling weekly issue reports, and running legal review, all where the work already happens.
+
+Read more
+
+[Read more](https://claude.com/blog/how-anthropic-employees-use-claude-tag)Read more
+
+[Prev](#)Prev
+
+[Next](#)Next
+
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af789b88bae0a3066e7e_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%201.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c2af7caa82305768f2a598_68068b75a6e0e851d2777dac_c2015d2dfa5c2c58d52308460cb2e395_github%203.svg)
 
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3414e70a75001b66e8d27f_asana-black.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3414e7f48cd2308583c215_asana-light.svg)
+![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f7e645f7fe4aabfb7a4_asana-logo-light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa01f851118c8688fe503ab_asana-logo-dark.svg)
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf6f1fdcf6881c9918dd0e_Linear_Logo_0%202%20(1).svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf6f187456bf5ca9c27129_Linear_Logo_0%201%20(1).svg)
 

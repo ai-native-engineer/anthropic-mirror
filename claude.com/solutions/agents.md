@@ -171,7 +171,7 @@ Josh Boyer, Distinguished Engineer
 
 “We're moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day. It matched or edged out Fable 5 in our testing at a lower cost per task, and with the new cache read pricing a Fable-class model is finally economical for the workloads we'd kept on Opus, starting with code review.”
 
-Walden Yan, Co-Founder and CPO
+Walden Yan, Co-founder and CPO
 
 ## AI agent resources
 

@@ -112,6 +112,18 @@ No items found.
 
 Explore more product news and best practices for teams building with Claude.
 
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0112e18cdd7f0b92d19e40_Hand-BuildingBricks.svg)
+
+Jun 24, 2026
+
+### Building effective human-agent teams
+
+Enterprise AI
+
+[Building effective human-agent teams](#)Building effective human-agent teams
+
+[Building effective human-agent teams](https://claude.com/blog/building-effective-human-agent-teams)Building effective human-agent teams
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692f783c784823d48ad84175_Object-CodeChatText.svg)
 
 Aug 28, 2026
@@ -147,18 +159,6 @@ Enterprise AI
 [Compliance API coverage extends to Claude Cowork and Claude Code](#)Compliance API coverage extends to Claude Cowork and Claude Code
 
 [Compliance API coverage extends to Claude Cowork and Claude Code](https://claude.com/blog/compliance-api-cowork-and-claude-code)Compliance API coverage extends to Claude Cowork and Claude Code
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22727482c9ba6a02e71_1576ae23eaf481f33bd36ab468171cc69d12361a-1000x1000.svg)
-
-Aug 25, 2026
-
-### Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-Enterprise AI
-
-[Bain & Company joins the Claude Partner Network as a Global Premier partner](#)Bain & Company joins the Claude Partner Network as a Global Premier partner
-
-[Bain & Company joins the Claude Partner Network as a Global Premier partner](https://claude.com/blog/bain-company-joins-the-claude-partner-network-as-a-global-premier-partner)Bain & Company joins the Claude Partner Network as a Global Premier partner
 
 ## Transform how your organization operates with Claude
 

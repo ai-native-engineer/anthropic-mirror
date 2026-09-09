@@ -40,7 +40,7 @@ This involves some new ways of working. At Anthropic, we’ve been testing the t
 
 Here’s an example of a human-agent team analyzing a dataset together in Slack:
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3be9ec0c7dd123eea0fcea_85b9b96b.png)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa0220e39cd96fb665ccaa7_human-agent1-orange.png)
 
 For agents to productively participate in a team channel, they need specific capabilities:
 
@@ -75,7 +75,7 @@ Human-agent teams share one roster, one set of artifacts, and one working space.
 
 When a project kicks off, humans chat with the agents to figure out which roles to assign, and how the humans and agents will work together.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3bf2ac55e5efdefd1d06fb_LAUNCH%20ROOM.png)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6aa0222b1e928c31755ba830_human-agent2-orange.png)
 
 Once the jobs for humans and agents are clear, an agent might spin up other agents to make sure that specific tasks are handled by the agents with the right memory and appropriate access. Importantly, they need access to all the tools required to accomplish the job: one that handles data analysis might need access to BigQuery, and one that performs QA might need access to the Playwright MCP.
 

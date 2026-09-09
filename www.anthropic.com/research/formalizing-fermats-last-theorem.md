@@ -73,7 +73,7 @@ We shared the [resulting proof](https://github.com/anthropics/fermats-last-theor
 
 Automatically formalizing a proof as complex as FLT is a significant step towards a future in which all of mathematics can be readily checked. As AI produces ever more proofs, the ability to easily formalize work can lighten the burden of evaluating new results (a process that can take years). We are hopeful that it will become easier, not harder, to trust the body of knowledge upon which mathematics is built.
 
-## **The challenge of verifying mathematical proofs**
+## The challenge of verifying mathematical proofs
 
 Unlike [recent AI-driven](https://www.anthropic.com/research/riemann-zeta) work on the Riemann hypothesis, which produced novel *mathematics*, what’s novel here is the *verification*—checking a mathematical proof as one would check a mathematical computation with a calculator. Proving math theorems requires assembling complex logical chains, and if a single link is broken, everything that follows it might turn out to be false. Understanding a novel result deeply enough to be confident in its correctness can take months, or even years, of work.
 
@@ -87,7 +87,7 @@ In June 1993, Wiles presented what he believed to be the first correct proof of 
 
 Wiles published the first correct proof of FLT in May 1995; it relied on modern mathematical techniques that were far beyond what would have been known to Fermat in 1637. Since an elementary proof has not been found after centuries of trying, the mathematical community now believes Fermat’s own original “marvelous proof” [was incorrect](https://mathenchant.wordpress.com/2016/05/16/fermats-last-theorem-the-curious-incident-of-the-boasting-frenchman/).
 
-## **Formalizing Fermat’s Last Theorem**
+## Formalizing Fermat’s Last Theorem
 
 One way to check a proof’s correctness is to ask a computer to do it. Proof assistants like Lean verify the logic of a proof algorithmically, demonstrating its correctness beyond a doubt. The difficult part for humans is rewriting the proof so Lean can understand it. While a proof written for human readers will skip many obvious steps, Lean needs to see every step, no matter how trivial. Human proofs also build on centuries of published work, while a formalization starts from the tiny fraction of math that’s been formalized already.
 
@@ -97,9 +97,9 @@ Claude completed the proof in 11 days, producing computer-verifiable proofs of 3
 
 [](https://cdn.sanity.io/files/4zrzovbb/website/6d5e1a90507ea4171510b907134139bf716b7d15.mp4)
 
-Time progression of FLT formalization
+*Time progression of FLT formalization.*
 
-Claude’s proof follows [a simplified version of Wiles’s proof from Darmon, Diamond and Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf). Mathematical input from humans was limited to occasional high-level instructions from Tianyi: “Jacobian as a scheme sounds high priority,” “push [the] Mazur [theorem] to be done soon.” You can find excerpts of Claude’s thinking [here](https://www-cdn.anthropic.com/9e431dff043da6538d99d6c2d231b670aa3da263.pdf).
+Claude’s proof follows [a simplified version of Wiles’s proof from Darmon, Diamond, and Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf). Mathematical input from humans was limited to occasional high-level instructions from Tianyi: “Jacobian as a scheme sounds high priority,” “push [the] Mazur [theorem] to be done soon.” You can find excerpts of Claude’s thinking [here](https://www-cdn.anthropic.com/9e431dff043da6538d99d6c2d231b670aa3da263.pdf).
 
 ```
 “THE FLT root reads Proved on the site. Historic moment (modulo re-check).”
@@ -125,7 +125,7 @@ The effort succeeded when we switched to using [Prove2Me](https://prove2me.verce
 
 With Prove2Me and a Claude Code-based multi-agent harness, a team of agents completed the proof in a little under two weeks, consuming about six billion output tokens from a general-purpose internal research model roughly comparable to Claude Fable 5.1. The finished proof was checked by Lean; it uses just Lean’s three standard axioms, and a [comparator](https://github.com/leanprover/comparator) confirmed that the theorem’s statement matches Mathlib’s own statement of FLT.
 
-## **Reducing the burden of formal verification**
+## Reducing the burden of formal verification
 
 The speed with which we were able to produce this proof demonstrates that it is now possible to formalize large swaths of mathematics, which may both catch errors in the common body of mathematical proofs and reduce the burden of refereeing new work. After reviewing Claude’s Lean proof, Kevin Buzzard told us:
 
@@ -141,17 +141,17 @@ To this end, [Anthropic](https://www.anthropic.com/news/expanding-support-for-sc
 
 With AI rapidly changing what it looks like to do math research, mathematicians—at Anthropic and elsewhere—[are grappling with what that means for their work](https://leidendeclaration.ai/). Formalization, however, is a place where we feel unambiguously good about the role of AI. As formalization becomes a more commonplace tool, we are hopeful that it will help maintain trust in the common body of mathematical knowledge.
 
-## **Acknowledgments**
+## Acknowledgments
 
-Our formalization effort is a small piece of the long history of Fermat’s theorem and the development of formal mathematics. The first full proof from Andrew Wiles together with Richard Taylor was a culmination of more than three hundred years of mathematics, integrating ideas from Gerhard Frey, Jean-Pierre Serre, Ken Ribet, Barry Mazur, Robert Langlands, Jerrold Tunnell, Yutaka Taniyama, Goro Shimura, and André Weil, among others. Claude’s proof follows [the exposition by Henri Darmon, Fred Diamond, and Richard Taylor.](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf)
+Our formalization effort is a small piece of the long history of Fermat’s theorem and the development of formal mathematics. The first full proof from Andrew Wiles together with Richard Taylor was a culmination of more than 300 years of mathematics, integrating ideas from Gerhard Frey, Jean-Pierre Serre, Ken Ribet, Barry Mazur, Robert Langlands, Jerrold Tunnell, Yutaka Taniyama, Goro Shimura, and André Weil, among others. Claude’s proof follows [the exposition by Henri Darmon, Fred Diamond, and Richard Taylor.](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf)
 
 Our proof adapts pieces from the [Imperial College London FLT project](https://github.com/ImperialCollegeLondon/FLT) led by Kevin Buzzard and the [flt-regular project](https://github.com/leanprover-community/flt-regular). Lean and Mathlib are both their own labors of love and have received contributions from hundreds of mathematicians, many working with the [Lean FRO](https://lean-lang.org/fro/). We thank Kevin Buzzard for reviewing the proof and for his comments.
 
-## **Learn more**
+## Learn more
 
 The full proof is available on [GitHub](https://github.com/anthropics/fermats-last-theorem) along with a written walk-through of the proof.
 
-### **Recommended expository reading**
+### Recommended expository reading
 
 * [*The Proof in the Code*](https://www.quantabooks.org/books/the-proof-in-the-code/) is a recent book about the history of the Lean theorem prover and the formalization of mathematics.
 * [The 1996 “Fermat’s Last Theorem” BBC documentary](https://www.bbc.co.uk/programmes/b0074rxx) has interviews with Wiles and other mathematicians involved in the proof, and is fondly remembered by some authors of this post.
@@ -159,10 +159,10 @@ The full proof is available on [GitHub](https://github.com/anthropics/fermats-la
 * Chen, S., Marwaha, K., Lu, X., Yuen, H., & Peng, T. (2026). Prove2Me: An open collaborative platform for scaling math formalization. arXiv. <https://doi.org/10.48550/arXiv.2608.28433>
 * [*Automating Math*](https://asteriskmag.com/issues/09/automating-math), Adam Marblestone, in Asterisk Magazine.
 
-### **Footnotes**
+### Footnotes
 
 1. During his undergrad, Peng’s research advisor wanted to include results from Peng’s thesis in a *Nature* article. He asked Peng whether he was sure the proof was correct. Peng’s honest answer was: “I'm 99% sure, but it's hard to be 100% certain about a proof this long.” Peng missed out on getting his work published in *Nature*.
-2. There are numerous other stories of the mathematical community struggling with verification. Among the most famous is Thomas Hales’s 1998 proof of the [Kepler conjecture](https://en.wikipedia.org/wiki/Kepler_conjecture), which spent four years in review before a 12-referee panel settled for “99% certain” (Hales eventually led a twenty-person project, [Flyspeck](https://github.com/flyspeck/flyspeck), that formalized the proof). Grigori Perelman’s 2002 proof of the [Poincaré conjecture](https://en.wikipedia.org/wiki/Poincar%C3%A9_conjecture) took the community roughly four years and three 300-page expositions to accept. Harald Helfgott’s 2013 proof of the [weak Goldbach conjecture](https://en.wikipedia.org/wiki/Goldbach%27s_weak_conjecture) is still under review. Sometimes results that turn out to be wrong are [accepted for years](https://www.ias.edu/ideas/2014/voevodsky-origins), and other mathematicians build their theories on these faulty foundations.
+2. There are numerous other stories of the mathematical community struggling with verification. Among the most famous is Thomas Hales’s 1998 proof of the [Kepler conjecture](https://en.wikipedia.org/wiki/Kepler_conjecture), which spent four years in review before a 12-referee panel settled for “99% certain” (Hales eventually led a 20-person project, [Flyspeck](https://github.com/flyspeck/flyspeck), that formalized the proof). Grigori Perelman’s 2002 proof of the [Poincaré conjecture](https://en.wikipedia.org/wiki/Poincar%C3%A9_conjecture) took the community roughly four years and three 300-page expositions to accept. Harald Helfgott’s 2013 proof of the [weak Goldbach conjecture](https://en.wikipedia.org/wiki/Goldbach%27s_weak_conjecture) is still under review. Sometimes results that turn out to be wrong are [accepted for years](https://www.ias.edu/ideas/2014/voevodsky-origins), and other mathematicians build their theories on these faulty foundations.
 3. This is partly because Mathlib is concise and well-reviewed, while our proof is likely much longer than it needs to be.
 
 ### Automated researchers can reliably mitigate alignment failures

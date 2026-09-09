@@ -123,5 +123,3 @@ You will not issue any press release or make any other public communication rega
 23. “**Supported Regions Policy**” means the Supported Regions Policy available at https://www.anthropic.com/supported-countries, as may be updated from time to time in accordance with Section I.2.
 24. “**Trademarks**” means any and all trademarks, service marks, trade names, service names, brand names, trade dress, logos, and any and all other indications of origin (whether or not registered), including all goodwill associated therewith.
 25. “**Usage Policy**” means the Usage Policy available at https://www.anthropic.com/legal/aup, as may be updated from time to time in accordance with Section I.2.
-
-Claude Partner Network Agreement \ Anthropic

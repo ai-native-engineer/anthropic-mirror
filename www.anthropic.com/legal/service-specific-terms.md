@@ -34,3 +34,5 @@ Anthropic may designate certain models available through the Services as “Cove
 ## G. Trusted Access and Verification Programs
 
 Anthropic may offer optional programs through which Customer can apply for or be granted access to certain models, features, configurations, or capabilities available only to program participants. Additional program terms, if any, will be presented to Customer for review and acceptance prior to access, and Customer must accept those terms to participate. Anthropic may suspend, modify, terminate, or discontinue a program, or Customer's access to a program, with notice, if any, as specified in the applicable program terms.
+
+Service Specific Terms \ Anthropic

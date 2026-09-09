@@ -1,5 +1,15 @@
 <!-- source: https://claude.com/docs/connectors/mcp-tunnels/oauth -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
+MCP tunnels are in research preview and are available to organizations on the Claude Enterprise plan by request. To request access, [submit the MCP tunnels interest form](https://claude.com/form/mcp-tunnels) or contact your Anthropic account team.
+
 An MCP tunnel carries Claude’s requests to an MCP server inside your network, but it does not authenticate to that server. Each tunneled server should still require OAuth, as the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization) describes, so that a member signs in with their own account before Claude can call the server’s tools. This page is for the administrator adding a tunneled server as a custom connector, and explains what to configure when the OAuth authorization server is itself only reachable inside your network.
 If your authorization server is reachable from the public internet and its metadata advertises public URLs, you don’t need anything on this page. Add the connector as described in [Set up an MCP tunnel](https://claude.com/docs/connectors/mcp-tunnels/setup#add-tunneled-servers-as-connectors) and members sign in as they would for any other connector.
 
@@ -17,9 +27,11 @@ You fix this by routing Claude’s server-to-server calls through the tunnel and
 
 Add a route for the authorization server to the proxy configuration, next to the routes for your MCP servers, and apply it as described in [Add more servers later](https://claude.com/docs/connectors/mcp-tunnels/setup#add-more-servers-later).
 
+```
 routes:
   docs: http://docs-mcp.example.corp:8080
   auth: https://sso.example.corp:8443
+```
 
 With a tunnel domain of `abc123.tunnel.anthropic.com`, Claude can now reach the authorization server at `https://auth.abc123.tunnel.anthropic.com`. For an `https://` upstream like this one, also set `upstream.tls.ca_file` or `upstream.tls.include_system_cas` in the proxy configuration so the proxy can verify the server’s certificate. See the [proxy configuration reference](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/reference#proxy-configuration).
 
@@ -42,6 +54,7 @@ After you save the connector, connect it yourself from your own connector settin
 
 If you operate the authorization server and can change the metadata it publishes, you can get the same result without the connector settings by advertising the split yourself. Point `authorization_endpoint` at the browser-reachable hostname and every other endpoint at the tunnel hostname in the authorization server’s `/.well-known/oauth-authorization-server` document:
 
+```
 {
   "issuer": "https://auth.abc123.tunnel.anthropic.com",
   "authorization_endpoint": "https://sso.example.corp/authorize",
@@ -49,13 +62,16 @@ If you operate the authorization server and can change the metadata it publishes
   "registration_endpoint": "https://auth.abc123.tunnel.anthropic.com/oauth/register",
   "code_challenge_methods_supported": ["S256"]
 }
+```
 
 Then have the MCP server’s `/.well-known/oauth-protected-resource` document name the tunnel hostname as its authorization server:
 
+```
 {
   "resource": "https://docs.abc123.tunnel.anthropic.com/mcp",
   "authorization_servers": ["https://auth.abc123.tunnel.anthropic.com"]
 }
+```
 
 This approach also suits an authorization server that is publicly reachable but sits behind a source-IP allowlist that you don’t want to open to Anthropic’s egress ranges. The [platform troubleshooting guide](https://platform.claude.com/docs/en/agents-and-tools/mcp-tunnels/troubleshooting#oauth-fails-behind-a-source-ip-allowlist) walks through the same configuration.
 Use **Tunnel OAuth configuration** when the authorization server is a product whose metadata you can’t edit, or when you prefer to keep tunnel-specific addresses out of the server’s configuration. Use split metadata when you control the authorization server and want the configuration to apply to every client that discovers it through the tunnel.

@@ -14,7 +14,7 @@ Learn more
 
 # Claude financial services
 
-Your financial competitive edge, from signal to decision
+## Your financial competitive edge, from signal to decision
 
 Claude helps leading financial institutions across banking, insurance, asset management, and fintech improve how they serve markets and manage risk.
 
@@ -36,7 +36,7 @@ Luke Anderson, CTO
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e00d3d23a6405ccacc5a9b_logo_balyasny-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e00d5ab84a10161c27ce2e_logo_balyasny-dark.svg)
 
-"Claude Fable 5 is the strongest finance-first model we've tested, both on general finance and reasoning. It's a notable step up."
+“Claude Fable 5 is the strongest finance-first model we've tested, both on general finance and reasoning. It's a notable step up.”
 
 Damian Miraglia, Principal Engineer, Applied AI
 

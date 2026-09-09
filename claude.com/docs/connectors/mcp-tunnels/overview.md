@@ -1,5 +1,13 @@
 <!-- source: https://claude.com/docs/connectors/mcp-tunnels/overview -->
 
+> ## Documentation Index
+>
+> Fetch the complete documentation index at: [/docs/llms.txt](https://claude.com/docs/llms.txt)
+>
+> Use this file to discover all available pages before exploring further.
+
+[Skip to main content](#content-area)
+
 MCP tunnels are in research preview and are available to organizations on the Claude Enterprise plan by request. To request access, [submit the MCP tunnels interest form](https://claude.com/form/mcp-tunnels) or contact your Anthropic account team. The preview is provided as-is, without uptime, support, or continuity commitments, and it depends on a third-party network provider (Cloudflare) that makes no availability commitment for the underlying transport. Anthropic may modify or discontinue MCP tunnels at any time.
 
 MCP tunnels connect Claude to [Model Context Protocol (MCP)](https://claude.com/docs/connectors/building/mcp) servers that run inside your private network. You run a small tunnel stack on a host in your network, the stack opens an outbound-only connection to Anthropic, and Claude sends MCP requests to your servers over that connection. Your firewall needs no inbound rules and your MCP servers need no public endpoint. Members of your organization use the tunneled servers as [custom connectors](https://claude.com/docs/connectors/custom/remote-mcp) in Claude, the same way they use any other remote MCP server.
