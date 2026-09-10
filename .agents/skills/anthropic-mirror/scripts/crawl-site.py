@@ -205,6 +205,12 @@ def absolutize_markdown_images(text, base):
 
 
 _PUA = re.compile(r"[\ue000-\uf8ff]")
+_SENSITIVE_QUERY = re.compile(r"(?i)([?&]tracker=)[^&\s`)>\]]+")
+
+
+def redact_sensitive_query(text):
+    """Keep connector URLs useful without publishing provider tracking keys."""
+    return _SENSITIVE_QUERY.sub(r"\1REDACTED", text)
 
 
 def html_to_md(html, base_url=""):
@@ -233,7 +239,8 @@ def html_to_md(html, base_url=""):
     # 아이콘 폰트가 쓰는 사설 사용 영역(PUA) 코드포인트는 본문에서 깨진 글자로만 남는다.
     text = _PUA.sub("", text)
     text = "\n".join(line.rstrip() for line in text.splitlines())
-    return absolutize_markdown_images(text, base_url) if base_url else text
+    text = absolutize_markdown_images(text, base_url) if base_url else text
+    return redact_sensitive_query(text)
 
 
 def fetch_html(url):
@@ -270,7 +277,8 @@ def fetch_docs_md(url):
             canonical = canonical[:-3]
         if not same_host(url, canonical):
             return canonical, "", "stale=redirect"
-        return canonical, absolutize_markdown_images(strip_docs_index(t.strip()), canonical), ""
+        text = absolutize_markdown_images(strip_docs_index(t.strip()), canonical)
+        return canonical, redact_sensitive_query(text), ""
     except Exception as e:
         return url, "", str(e)[:80]
 
@@ -540,6 +548,7 @@ def main():
             assert absolute_url(url, "fig.png") == "https://example.com/fig.png"
             assert absolute_url(url, "/_next/image?url=https%3A%2F%2Fcdn.example%2Fx.png&w=64") == "https://cdn.example/x.png"
             assert "https://example.com/docs/x.png" in absolutize_markdown_images("![](/docs/x.png)", url)
+            assert redact_sensitive_query("https://x.test/mcp?tracker=secret") == "https://x.test/mcp?tracker=REDACTED"
             assert html_to_md("<main><p>x  </p></main>") == "x"
             # academy는 <main> 안 nav(레슨 목차)와 header(제목)를 보존해야 한다.
             academy_html = (
