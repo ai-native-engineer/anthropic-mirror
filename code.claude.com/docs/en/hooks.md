@@ -317,12 +317,14 @@ Each event type matches on a different field:
 | `CwdChanged`                                                                                                                                      | no matcher support                                                                                        | always fires on every directory change                                                                                                                                                                                                                                         |
 | `DirectoryAdded`                                                                                                                                  | how the directory was added                                                                               | `slash_command`, `register_repo_root`                                                                                                                                                                                                                                          |
 | `FileChanged`                                                                                                                                     | literal filenames to watch (see [FileChanged](#filechanged))                                              | `.envrc\|.env`                                                                                                                                                                                                                                                                 |
-| `StopFailure`                                                                                                                                     | error type                                                                                                | `rate_limit`, `overloaded`, `authentication_failed`, `oauth_org_not_allowed`, `account_on_hold`, `billing_error`, `invalid_request`, `model_not_found`, `server_error`, `max_output_tokens`, `unknown`                                                                         |
+| `StopFailure`                                                                                                                                     | error type                                                                                                | `rate_limit`, `overloaded`, `authentication_failed`, `oauth_org_not_allowed`, `account_on_hold`, `billing_error`, `invalid_request`, `model_not_found`, `server_error`, `max_output_tokens`, `cloud_credential_error`, `unknown`                                               |
 | `InstructionsLoaded`                                                                                                                              | load reason                                                                                               | `session_start`, `nested_traversal`, `path_glob_match`, `include`, `compact`                                                                                                                                                                                                   |
 | `UserPromptExpansion`                                                                                                                             | command name                                                                                              | your skill or command names                                                                                                                                                                                                                                                    |
 | `Elicitation`                                                                                                                                     | MCP server name                                                                                           | your configured MCP server names                                                                                                                                                                                                                                               |
 | `ElicitationResult`                                                                                                                               | MCP server name                                                                                           | same values as `Elicitation`                                                                                                                                                                                                                                                   |
 | `UserPromptSubmit`, `PostToolBatch`, `Stop`, `TeammateIdle`, `TaskCreated`, `TaskCompleted`, `WorktreeCreate`, `WorktreeRemove`, `MessageDisplay` | no matcher support                                                                                        | always fires on every occurrence                                                                                                                                                                                                                                               |
+
+Matching `StopFailure` on `cloud_credential_error` requires Claude Code v2.1.267 or later, the first version that reports credential-load failures under that value rather than `server_error` or `unknown`.
 
 For most events, Claude Code evaluates the matcher against a field from the [JSON input](#hook-input-and-output) it sends to your hook on stdin. For tool events, that field is `tool_name`. For `PreModelSwitch` and `PostModelSwitch`, Claude Code evaluates the matcher against the canonical name it derives from `to_model`, as described under [PreModelSwitch](#premodelswitch). Each [hook event](#hook-events) section lists the full set of matcher values and the input schema for that event.
 
@@ -727,6 +729,7 @@ Hook events receive these fields as JSON, in addition to event-specific fields d
 | `prompt_id`       | UUID identifying the user prompt currently being processed. Matches the [`prompt.id` attribute on OpenTelemetry events](/docs/en/monitoring-usage#event-correlation-attributes), so you can correlate hook output with telemetry for a single prompt. Absent until the first user input. Requires Claude Code v2.1.196 or later                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `transcript_path` | Path to conversation JSON. The transcript file is written asynchronously and may lag the in-memory conversation, so it may not yet include the current turn's most recent messages when a hook fires. Hooks that need the final assistant text of the current turn should use `last_assistant_message` on [Stop](#stop) and [SubagentStop](#subagentstop) instead of reading the transcript                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `cwd`             | Current working directory when the hook is invoked                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| `scratchpad_dir`  | Path to the session's scratchpad directory, where Claude keeps temporary working files. Absent when the session has no scratchpad or the temp directory is unavailable. Requires Claude Code v2.1.257 or later                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `permission_mode` | Current [permission mode](/docs/en/permissions#permission-modes): `"default"`, `"plan"`, `"acceptEdits"`, `"auto"`, `"dontAsk"`, or `"bypassPermissions"`. The mode labeled **Manual** arrives as `"default"`, never as `"manual"`, so scripts that match `"default"` keep working. Not all events receive this field. Check the JSON example in each [hook event](#hook-events) section                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `effort`          | Object with a `level` field holding the [effort level](/docs/en/model-config#adjust-effort-level) in effect when the hook runs: `"low"`, `"medium"`, `"high"`, `"xhigh"`, or `"max"`. If you set a level the active model doesn't support, `level` reports the level Claude Code ran instead; [Adjust effort level](/docs/en/model-config#adjust-effort-level) says how it picks that level. Ultracode is not a distinct level and reports as `"xhigh"`. The object matches the [status line](/docs/en/statusline#available-data) `effort` field. Present for events that fire within a tool-use context, such as `PreToolUse`, `PostToolUse`, `Stop`, and `SubagentStop`, when the current model supports the effort parameter. The level is also available to hook commands and the Bash tool as the `$CLAUDE_EFFORT` environment variable. |
 | `hook_event_name` | Name of the event that fired                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -752,6 +755,7 @@ For example, a `PreToolUse` hook for a Bash command receives this on stdin:
   "prompt_id": "550e8400-e29b-41d4-a716-446655440000",
   "transcript_path": "/home/user/.claude/projects/.../transcript.jsonl",
   "cwd": "/home/user/my-project",
+  "scratchpad_dir": "/tmp/claude-1000/-home-user-my-project/abc123/scratchpad",
   "permission_mode": "default",
   "hook_event_name": "PreToolUse",
   "tool_name": "Bash",
@@ -988,7 +992,9 @@ Where the reminder appears depends on the event:
 * [Stop](#stop) and [SubagentStop](#subagentstop): at the end of the turn. The conversation continues so Claude can act on the feedback. See [Stop decision control](#stop-decision-control)
 * [PostModelSwitch](#postmodelswitch): with the next request after the switch. See [PostModelSwitch decision control](#postmodelswitch-decision-control) for timing
 
-When several hooks return `additionalContext` for the same event, Claude receives all of the values. If a value exceeds 10,000 characters, Claude Code writes the full text to a file in the session directory and passes Claude the file path with a short preview instead.
+When several hooks return `additionalContext` for the same event, Claude receives all of the values.
+
+If a value exceeds 10,000 characters, Claude Code writes the text to a file in the session directory and passes Claude the file path with a short preview instead.
 
 Use `additionalContext` for information Claude should know about the current state of your environment or the operation that just ran:
 
@@ -1101,6 +1107,8 @@ The matcher value corresponds to how the session was initiated:
 | `fork`    | A new session forked from an existing one: `--fork-session` with `--resume` or `--continue`, the `/fork` background copy, or `/branch` |
 
 Before v2.1.214, forked sessions reported source `"resume"`.
+
+When you run `/clear` in an interactive session, the matching SessionStart hooks run in the background and the prompt accepts input again right away. Claude's first response still waits for the hooks to finish, so their context reaches Claude. If you run `/clear` again or switch to another conversation with a command such as `/resume` while those hooks are still running, Claude Code cancels them and discards their output.
 
 #### SessionStart input
 
@@ -2225,6 +2233,8 @@ In terminal sessions, `permission_prompt` for a sandboxed command's network requ
   * Expect `permission_prompt` once you haven't typed for about six seconds. The timer starts when the permission prompt appears, and each keystroke defers it. To run a hook immediately when Claude asks for permission to use a tool, use [PermissionRequest](#permissionrequest) instead.
   * Expect `idle_prompt` about 60 seconds after Claude finishes responding, and only if you haven't typed since. Claude Code doesn't send `idle_prompt` while it waits for a claude.ai usage limit to reset. When the wait ends on its own, one of the `quota_auto_resume_*` types fires instead.
   * Expect `elicitation_dialog` for an elicitation form, or `elicitation_url_dialog` for a browser URL request, once you haven't typed for about six seconds. Both share the same six-second gate as `permission_prompt`: the timer starts when the dialog appears, and each keystroke defers it.
+
+  A permission request or elicitation that arrives while another dialog is on screen keeps the same six-second gate, timed from when the request arrives. Its notification can reach you while the request still waits behind the open dialog.
 </Note>
 
 Claude Code times `permission_prompt` differently in sessions where it sends permission requests to the Agent SDK's [`canUseTool` callback](/docs/en/agent-sdk/user-input), which is how Claude Desktop and the VS Code extension host Claude Code:
@@ -2284,7 +2294,7 @@ Notification hooks can't block or modify notifications. Claude Code discards the
 
 ### SubagentStart
 
-Runs when a Claude Code subagent is spawned via the Agent tool. Supports matchers to filter by agent type name. For built-in agents, this is the agent name like `general-purpose`, `Explore`, or `Plan`. For [custom subagents](/docs/en/sub-agents), this is the `name` field from the agent's frontmatter, not the filename.
+Runs when Claude spawns a subagent with the Agent tool, when Claude [resumes a subagent](/docs/en/sub-agents#resume-subagents), and each time an in-process [agent team](/docs/en/agent-teams) teammate handles a new message. Supports matchers to filter by agent type name. For built-in agents, this is the agent name like `general-purpose`, `Explore`, or `Plan`. For [custom subagents](/docs/en/sub-agents), this is the `name` field from the agent's frontmatter, not the filename.
 
 For subagents shipped by a [plugin](/docs/en/plugins), the agent type is the plugin-scoped identifier such as `my-plugin:reviewer`, not the bare frontmatter name. The colon places a plugin-scoped name on the regular-expression path, so anchor the matcher with `^` and `$` for an exact match: `^my-plugin:reviewer$`.
 
@@ -2317,6 +2327,8 @@ SubagentStart hooks can't block subagent creation, but they can inject context i
   }
 }
 ```
+
+When the hook runs again for the same subagent, Claude Code injects the returned context only when the subagent's context doesn't already hold the copy from an earlier run. The copy injected at launch stays in place, leaving the subagent's [prompt cache](/docs/en/prompt-caching#subagents-and-the-cache) intact. After [auto-compaction](/docs/en/sub-agents#auto-compaction) discards that copy, Claude Code injects the next run's context again.
 
 ### SubagentStop
 
@@ -2569,7 +2581,7 @@ In addition to the [common input fields](#common-input-fields), StopFailure hook
 
 | Field                    | Description                                                                                                                                                                                                                                      |
 | :----------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `error`                  | Error type: `rate_limit`, `overloaded`, `authentication_failed`, `oauth_org_not_allowed`, `account_on_hold`, `billing_error`, `invalid_request`, `model_not_found`, `server_error`, `max_output_tokens`, or `unknown`                            |
+| `error`                  | Error type: `rate_limit`, `overloaded`, `authentication_failed`, `oauth_org_not_allowed`, `account_on_hold`, `billing_error`, `invalid_request`, `model_not_found`, `server_error`, `max_output_tokens`, `cloud_credential_error`, or `unknown`  |
 | `error_details`          | Additional details about the error, when available                                                                                                                                                                                               |
 | `last_assistant_message` | The rendered error text shown in the conversation. Unlike `Stop` and `SubagentStop`, where this field holds Claude's conversational output, for `StopFailure` it contains the API error string itself, such as `"API Error: Rate limit reached"` |
 
@@ -2976,10 +2988,10 @@ Runs before Claude Code is about to run a compact operation.
 
 The matcher value indicates whether compaction was triggered manually or automatically:
 
-| Matcher  | When it fires                                |
-| :------- | :------------------------------------------- |
-| `manual` | `/compact`                                   |
-| `auto`   | Auto-compact when the context window is full |
+| Matcher  | When it fires                                                                                                      |
+| :------- | :----------------------------------------------------------------------------------------------------------------- |
+| `manual` | `/compact`                                                                                                         |
+| `auto`   | Auto-compact when the conversation reaches the [auto-compact window](/docs/en/model-config#set-the-auto-compact-window) |
 
 Exit with code 2 to block compaction. For a manual `/compact`, the stderr message is shown to the user. You can also block by returning JSON with `"decision": "block"`.
 
@@ -3008,10 +3020,10 @@ Runs after Claude Code completes a compact operation. Use this event to react to
 
 The same matcher values apply as for `PreCompact`:
 
-| Matcher  | When it fires                                      |
-| :------- | :------------------------------------------------- |
-| `manual` | After `/compact`                                   |
-| `auto`   | After auto-compact when the context window is full |
+| Matcher  | When it fires                                                                                                            |
+| :------- | :----------------------------------------------------------------------------------------------------------------------- |
+| `manual` | After `/compact`                                                                                                         |
+| `auto`   | After auto-compact when the conversation reaches the [auto-compact window](/docs/en/model-config#set-the-auto-compact-window) |
 
 #### PostCompact input
 
@@ -3553,14 +3565,7 @@ Agent hooks are useful when verification requires inspecting actual files or tes
 
 ### Agent hook configuration
 
-Set `type` to `"agent"` and provide a `prompt` string. The configuration fields are the same as [prompt hooks](#prompt-hook-configuration), except that agent hooks have a longer default timeout and no `continueOnBlock` field:
-
-| Field     | Required | Description                                                                                 |
-| :-------- | :------- | :------------------------------------------------------------------------------------------ |
-| `type`    | yes      | Must be `"agent"`                                                                           |
-| `prompt`  | yes      | Prompt describing what to verify. Use `$ARGUMENTS` as a placeholder for the hook input JSON |
-| `model`   | no       | Model to use. Defaults to a fast model                                                      |
-| `timeout` | no       | Timeout in seconds. Default: 60                                                             |
+Set `type` to `"agent"` and provide a `prompt` string, using `$ARGUMENTS` as a placeholder for the hook input JSON. The configuration fields are the same as [prompt hooks](#prompt-hook-configuration), except that agent hooks have a longer default timeout of 60 seconds and no `continueOnBlock` field.
 
 The response schema is `{ "ok": true }` to allow or `{ "ok": false, "reason": "..." }` to block. On `ok: false`, Claude Code handles an agent hook the way it handles a [prompt hook with `continueOnBlock: true`](#response-schema) on the same event; agent hooks have no `continueOnBlock` field, and don't support the prompt-hook `impossible` field.
 

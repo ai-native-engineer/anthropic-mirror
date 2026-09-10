@@ -7,11 +7,14 @@ Microsoft Dataverse plugin for coding agents—powering CRUD, bulk data operatio
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Microsoft](https://www.microsoft.com/)
 * Installs
 
   2707
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

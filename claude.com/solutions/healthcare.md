@@ -493,7 +493,7 @@ Coverage policies, coding systems, and clinical guidelines, all in one place.
 
 Explore connectors
 
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/archive/connectors)Explore connectors
 
 ## Built for healthcare
 

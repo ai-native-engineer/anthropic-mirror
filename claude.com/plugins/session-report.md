@@ -8,11 +8,14 @@ Generate an explorable HTML report of Claude Code session usage — tokens, cach
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Anthropic](#)
 * Installs
 
   11694
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

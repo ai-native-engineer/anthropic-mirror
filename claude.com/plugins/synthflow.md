@@ -7,9 +7,12 @@ Connect Claude to Synthflow's AI voice-agent platform, with skills for reviewing
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Synthflow](https://synthflow.ai)
 * Installs
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

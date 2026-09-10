@@ -1,103 +1,77 @@
 <!-- source: https://claude.com/connectors/adobe-journey-optimizer -->
 
-![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Skip to main content](#main-content)
 
-# Adobe Journey Optimizer
+Connector URL`https://ajo-mcp.adobe.io/mcp`
 
-Understand and troubleshoot your Journeys and Campaigns
-
-* Category
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/4eb1485d-c3c6-4282-a72c-5bfc084cad27)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Adobe](https://adobe.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/content-management/combine/ajo-mcp)[Privacy Policy](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/privacy/privacy-landing-page)[Support](mailto:ajo-mcp-feedback@adobe.com)
+More[Documentation (opens in new tab)](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/content-management/combine/ajo-mcp)[Support (opens in new tab)](mailto:ajo-mcp-feedback@adobe.com)[Privacy policy (opens in new tab)](https://experienceleague.adobe.com/en/docs/journey-optimizer/using/privacy/privacy-landing-page)
 
 Inspect, summarize, and troubleshoot Adobe Journey Optimizer journeys, campaigns, offers, and channel configurations directly from Claude. Turn AJO's retrieve APIs into plain-language answers so you can check journey and campaign statuses, surface stopped or orphaned drafts, spot channel configuration issues and review your orchestration portfolio without parsing JSON or jumping across product screens.
 
 The AJO MCP server is in beta.
 
-You can use Adobe Journey Optimizer to:
+## Tools
 
-**Review live journeys:**
-"List my live AJO journeys and flag any that haven't fired in the last 7 days."
+* ajo\_list\_sandboxes
+* ajo\_list\_campaigns
+* ajo\_get\_campaign
+* ajo\_list\_journeys
+* ajo\_get\_journey
+* ajo\_list\_channel\_configurations
+* ajo\_get\_loyalty\_challenges
 
-**Check campaign status:**
-"List my AJO campaigns in the production sandbox and flag any that are stopped or stuck in draft."
-
-**Spot config issues:**
-"Review my AJO channel configurations and tell me which ones are missing required settings."
-
-**Get a portfolio view:**
-"Give me a one-paragraph summary of my orchestration portfolio across all AJO sandboxes."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### ActiveCampaign
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Sales and marketing
+Trending
 
-Claude
+An AI Concierge that turns forms into conversations
 
-Claude Code
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-June 2, 2026
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-### Actively
+CRM context for every answer, insight, and action
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Claude
+### [monday.com](https://claude.com/connectors/monday)
 
-Claude Code
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-April 29, 2026
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
 
-### Adobe Marketing Agent
+### [Gamma](https://claude.com/connectors/gamma)
 
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+Create presentations, docs, socials, and sites with AI
 
-Sales and marketing
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
-Claude Code
+### [Shopify](https://claude.com/connectors/shopify)
 
-January 30, 2026
+Build, manage, and analyze your Shopify store
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697d489e3a9d195da9e8d2e8_ahrefs-logo.svg)
-
-### Ahrefs
-
-SEO & AI search analytics](https://claude.com/connectors/ahrefs)
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

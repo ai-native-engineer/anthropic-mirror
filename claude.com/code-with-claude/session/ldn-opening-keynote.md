@@ -50,6 +50,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d40a2751238ea0648361_london-keynote.webp)
 
 Anthropic's developer conference, recorded

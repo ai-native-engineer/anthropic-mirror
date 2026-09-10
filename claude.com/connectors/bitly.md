@@ -1,104 +1,94 @@
 <!-- source: https://claude.com/connectors/bitly -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63da68a1a90ba4bdf252cd_icon_bitly.jpg)
+[Skip to main content](#main-content)
 
-# Bitly
+Connector URL`https://api-ssl.bitly.com/v4/mcp`
 
-Shorten links, generate QR Codes, and track performance
+More[Documentation (opens in new tab)](https://dev.bitly.com/bitly-mcp/)[Support (opens in new tab)](https://support.bitly.com/hc/en-us)[Privacy policy (opens in new tab)](https://bitly.com/pages/privacy)
 
-* Category
+Create, track, and manage Bitly links and QR Codes directly from Claude without switching contexts. Access 27 comprehensive tools spanning link creation, analytics, organizational management, and more—making this the most complete link management solution available in any AI assistant.
 
-  Sales and marketing
+## Tools
 
-  Productivity
-* Used in
+* create\_short\_link
+* get\_short\_link\_details
+* update\_short\_link
+* delete\_short\_link
+* expand
+* custom\_backhalf
+* link\_metrics
+* link\_clicks\_summary
+* link\_countries
+* link\_cities
+* link\_devices
+* link\_referrers
+* link\_referring\_domains
+* create\_qr\_code
+* get\_qr\_code
+* get\_qr\_code\_image
+* update\_qr\_code
+* get\_group\_qr\_codes
+* get\_user
+* get\_organizations
+* get\_groups
+* get\_group\_details
+* get\_group\_short\_links
+* get\_group\_short\_links\_sorted
 
-  [Claude](https://claude.ai/directory/b8f1c2a3-9d4e-5f6g-7h8i-9j0k1l2m3n4o)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+Show all 27 tools
 
-  [Bitly](https://bitly.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://dev.bitly.com/bitly-mcp/)[Privacy Policy](https://bitly.com/pages/privacy)[Support](https://support.bitly.com/hc/en-us)
-
-Create, track, and manage Bitly links and QR Codes directly from Claude without switching contexts. Access 27 comprehensive tools spanning link creation, analytics, organizational management, and more—making this the most complete link management connector available in any AI assistant.
-
-You can use the Bitly connector to:
-
-Create Short Links:
-"Shorten <https://shop.example.com/spring-sale> with title 'Spring Sale 2024' and tags 'spring', 'sale', and 'email-campaign'"
-
-Generate QR Codes:
-"Create a QR code for my spring sale link called 'Spring Sale Print' in PNG format"
-
-Track Link Performance:
-"Show me how all my 'spring-campaign' tagged links are performing. I want to see click counts, top countries, and device breakdown."
-
-Analyze Click Data:
-"Show me click data for bit.ly/spring24 by hour for the last 2 days"
-
-Find Top Performers:
-"Get the top 10 performing links in my Marketing group by clicks this month"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### ActiveCampaign
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Trending
 
-Sales and marketing
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-June 2, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+Manage databases, authentication, and storage
 
-### Actively
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Productivity
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-April 29, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### Adobe Experience Manager
+Trending
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Sales and marketing
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-May 26, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Adobe Journey Optimizer
-
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

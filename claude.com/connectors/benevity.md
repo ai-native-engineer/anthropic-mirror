@@ -1,82 +1,66 @@
 <!-- source: https://claude.com/connectors/benevity -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692e4c057216b17022e9dc17_benevity.svg)
+[Skip to main content](#main-content)
 
-# Benevity
+Connector URL`https://mcp.benevity.org/general/v1/nonprofit`
 
-Find and engage with verified nonprofits
-
-* Category
-
-  Nonprofit
-* Used in
-
-  [Claude](https://claude.ai/directory/de72cab2-21e3-486f-b774-b35b6dded1d8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Benevity](https://www.benevity.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://causeshelp.benevity.org/hc/en-us/articles/43364091494164-Benevity-nonprofit-MCP-server)[Privacy Policy](https://benevity.com/privacy-policy/)[Support](mailto:support@benevity.com)
+More[Documentation (opens in new tab)](https://support.claude.com/en/articles/12923227-using-the-benevity-connector-in-claude)[Support (opens in new tab)](mailto:support@benevity.com)[Privacy policy (opens in new tab)](https://benevity.com/privacy-policy/)
 
 Search for trusted causes to donate to or volunteer with from Benevity's database of more than 2.3 million verified nonprofits.
 
-You can use the Benevity connector to:
+## Tools
 
-Find nonprofits by location and cause:
-"Help me find a verified nonprofit in Thousand Oaks, CA focused on mental health and specifically suicide prevention"
+* Benevity Nonprofit Search
+* Benevity Get Nonprofit Details
 
-Discover local organizations addressing specific needs:
-"Help me find a nonprofit close to me that can help with food insecurity"
-
-Search for nearby donation opportunities:
-"Find animal shelters near me that I can donate to"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Nonprofit
+![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
 
-Claude
+### [Salesforce - Beta](https://claude.com/connectors/salesforce-headless-360)
 
-March 19, 2026
+Sell, serve, and operate at scale with Salesforce.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63da42a12ab716a04a1bb4_icon_Blackbaud.jpg)
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-### Blackbaud
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
 
-Search, explore, and query Blackbaud data](https://claude.com/connectors/blackbaud)
+### [Jotform Apps](https://claude.com/connectors/jotform-apps)
 
-Nonprofit
+Build and manage no-code apps
 
-Claude
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
-March 19, 2026
+![](https://mcp.givebutter.com/mcp/icon.svg)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6921eaf57e1729586a4611fe_candid.jpg)
+### [Givebutter](https://claude.com/connectors/givebutter)
 
-### Candid
+Manage your fundraising
 
-Research nonprofits and funders using Candid's data](https://claude.com/connectors/candid)
+[Add Givebutter in Claude (opens in new tab)](https://claude.ai/directory/d4d95e77-c166-4ee8-b2e5-fae34743cfe3 "Add in Claude")
 
-Nonprofit
+![](https://cdn.candid.org/images/candid-logo/candid-icon.svg)
 
-Financial services
+### [Candid](https://claude.com/connectors/candid)
 
-Claude
+Research nonprofits and funders using Candid's data
 
-Claude Code
+[Add Candid in Claude (opens in new tab)](https://claude.ai/directory/875faf93-08c4-469c-980f-6f79f70f10d3 "Add in Claude")
 
-March 19, 2026
+![](https://www.google.com/s2/favicons?domain=grantedai.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69badf81ee3313955f22b01c_granted.png)
+### [Granted](https://claude.com/connectors/granted)
 
-### Granted
+Discover every grant opportunity in existence.
 
-Discover every grant opportunity in existence.](https://claude.com/connectors/granted)
+[Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=kindora.co&sz=96)
+
+### [Kindora Funder Discovery](https://claude.com/connectors/kindora-funder-discovery)
+
+Find funders who support causes like yours
+
+[Add Kindora Funder Discovery in Claude (opens in new tab)](https://claude.ai/directory/df363d23-97ef-4ccd-a36e-5369846f5506 "Add in Claude")

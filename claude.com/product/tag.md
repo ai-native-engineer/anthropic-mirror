@@ -16,6 +16,8 @@ Read documentation
 
 Available in beta for Claude Enterprise and Team customers in Slack.
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/tag/tag-supercut.webm)
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f3a87453ecfe9d53a39_Hebbia-light-theme.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bb5f3d5a2f38a808068b47_Hebbia-dark-theme.svg)

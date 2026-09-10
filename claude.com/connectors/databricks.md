@@ -1,102 +1,67 @@
 <!-- source: https://claude.com/connectors/databricks -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf0efc7c6c19c9ec062d_Databricks.jpg)
+[Skip to main content](#main-content)
 
-# Databricks
+More[Documentation (opens in new tab)](https://docs.databricks.com/aws/en/agents/mcp/genie-mcp)[Support (opens in new tab)](https://help.databricks.com/s/)[Privacy policy (opens in new tab)](https://www.databricks.com/legal/privacypolicy)
 
-Managed MCP servers with Unity Catalog and Mosaic AI
+The Databricks Genie connector exposes Genie as an agentic analytics tool over MCP. Claude sends a natural-language question, and Genie searches your enterprise structured and unstructured data, writes SQL, and returns an answer grounded in the Genie ontology with deep links back to your cited Databricks sources. Unity Catalog permissions are always enforced, so users and agents can only query data they're allowed to access. Ask with view\_ask/genie\_ask, get responses with genie\_poll\_response, and fetch full query datasets with genie\_get\_query\_result if needed. Pass a conversation id to ask follow-ups in the same context. Clients that support MCP Apps render an interactive View showing Genie's progress, visualizations, and results inline.
 
-* Category
+## Tools
 
-  Data
-* Used in
+* genie\_ask
+* genie\_poll\_response
+* genie\_get\_query\_result
+* genie\_cancel\_response
+* view\_ask
 
-  [Claude](https://claude.ai/directory/5f6045b0-e8c9-4ef7-ade5-f5030a69d4ba)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Databricks](https://databricks.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services)[Privacy Policy](https://www.databricks.com/legal/mcsa)[Support](https://help.databricks.com/s/?_ga=2.244965445.1549950134.1679895706-225fa34d-6667-48e8-a1e5-a824e398a1cd)
-
-Databricks offers two flavors of MCP servers: Managed servers and custom servers.
-
-• Managed servers: Databricks has ready-to-use servers that let agents query data and access tools in Unity Catalog. Unity Catalog permissions are always enforced, so agents and users can only access the tools and data they're allowed to.
-• Custom servers: Securely host your own MCP server as a Databricks app to bring your own server or run a third-party server.
-
-You can use the Databricks connector to:
-
-Build customer support agents:
-"Help me assist a customer by looking up their account and plan information from our structured data, finding relevant support articles from our knowledge base, and calculating their current billing status"
-
-Query structured data with Genie:
-"What are the top 10 customers by revenue in the telecommunications vertical?"
-
-Search unstructured data with Vector Search:
-"Find all support articles related to network outage troubleshooting"
-
-Execute deterministic functions:
-"Calculate the prorated billing amount for a customer who upgraded their plan mid-cycle"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Customer Journey Analytics
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Manage your schedule and coordinate meetings effortlessly
 
-Data
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-May 11, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Airtable
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Data
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-June 22, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### alphaXiv
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Data
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 3, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
-
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

@@ -1,99 +1,75 @@
 <!-- source: https://claude.com/connectors/ramp-data -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0e242323897e8eeb479_Ramp.jpg)
+[Skip to main content](#main-content)
 
-# Ramp Data
+Connector URL`https://mcp.ramp.com/ramp-data/anthropic/mcp`
 
-Search and analyze Ramp spend across 50,000+ businesses
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/165b06c0-1959-451d-a8d0-c413295b84a2)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Ramp](https://ramp.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.ramp.com/developer-api/v1/ramp-data)[Privacy Policy](https://ramp.com/legal/privacy-policy)[Support](mailto:support@ramp.com)
+More[Documentation (opens in new tab)](https://docs.ramp.com/developer-api/v1/ramp-data)[Support (opens in new tab)](mailto:support@ramp.com)[Privacy policy (opens in new tab)](https://ramp.com/legal/privacy-policy)
 
 Ramp Data MCP enables Claude users to access Ramp Data from billions of dollars in real corporate spend across 50,000+ businesses, including Ramp Rate (vendor adoption, pricing, and switching trends) and the AI Index (how businesses are spending on AI). Ramp Data is used by founders, procurement leads, researchers, investors, and policy analysts and is cited by leading publications like NYT, WSJ, Bloomberg, and more.
 
-You can use Ramp Data to:
+## Tools
 
-**Explore category and vendor landscapes:**
-"List all Ramp Rate software categories, then give me the adoption summary and top 10 vendors for Observability."
+* ramp\_rate\_list\_categories
+* ramp\_rate\_get\_category\_summary
+* ramp\_rate\_get\_category\_vendors
+* ramp\_rate\_resolve\_vendor
+* ramp\_rate\_get\_vendor\_profile
+* ramp\_rate\_compare\_vendors
+* ai\_index\_get\_adoption
+* ai\_index\_get\_adoption\_by\_sector
+* ai\_index\_get\_adoption\_by\_size
 
-**Research and compare vendors:**
-"Compare salesforce vs hubspot on Ramp Rate group adoption and category membership."
-
-**Track AI adoption trends:**
-"Get the last 6 months of AI adoption and describe the trend in overall adoption and vendor mix."
-
-**Segment AI adoption by sector and size:**
-"Fetch AI adoption by sector for the last 3 months and rank sectors by latest-month adoption."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-Claude Code
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-April 8, 2026
+Deterministic access to S&P Global data
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

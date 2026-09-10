@@ -155,5 +155,5 @@ Organization owners and admins on qualifying Enterprise plans have prioritized o
 * [Use Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
 * [Claude Code usage analytics](https://support.claude.com/en/articles/12157520-claude-code-usage-analytics)
 * [How to get support for Claude for Government](https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government)
+* [Microsoft Entra ID SSO setup](https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup)
 * [Connect to Microsoft 365](https://support.claude.com/en/articles/15183774-connect-to-microsoft-365)
-* [What is Claude Tag?](https://support.claude.com/en/articles/15594475-what-is-claude-tag)

@@ -34,6 +34,8 @@ Base44
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d383137fb994e391c29a_from-one-person-to-80.webp)
 
 Anthropic's developer conference, recorded

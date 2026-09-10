@@ -12,6 +12,8 @@ Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a28accb336596a020952082_YouTube%20Thumbnail_Cursor_200kb.jpg)
 
 Industry:

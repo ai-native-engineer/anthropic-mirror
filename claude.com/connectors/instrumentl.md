@@ -1,101 +1,70 @@
 <!-- source: https://claude.com/connectors/instrumentl -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2ada7e377ad239cea36e93_instrumentl.svg)
+[Skip to main content](#main-content)
 
-# Instrumentl
+Connector URL`https://mcp.instrumentl.com/`
 
-Find, evaluate, and manage your grants
-
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/5eb73e73-c172-433d-b3ad-b91da73c9ecd)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Instrumentl](https://www.instrumentl.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://help.instrumentl.com/en/articles/15182556-instrumentl-mcp-guide)[Privacy Policy](https://www.instrumentl.com/privacy-policy)[Support](https://help.instrumentl.com/)
+More[Documentation (opens in new tab)](https://help.instrumentl.com/en/articles/15182556-instrumentl-mcp-guide)[Support (opens in new tab)](https://help.instrumentl.com/)[Privacy policy (opens in new tab)](https://www.instrumentl.com/privacy-policy)
 
 Instrumentl integration for nonprofits. Make Instrumentl a native part of your AI workflow — an intelligent partner that helps you find, win, and manage grants faster, directly in Claude.
 
-You can use Instrumentl to:
+## Tools
 
-**See your opportunities:**
-"Show me my current grant opportunities for [project name]"
+* get\_current\_account
+* get\_grant
+* get\_match
+* list\_grants
+* list\_project\_matches
+* list\_projects
 
-**Track deadlines:**
-"Which of my opportunities have deadlines in the next 30 days?"
-
-**Save and annotate grants:**
-"Save this grant and add a note that we need board approval first"
-
-**Rank by fit:**
-"Rank my grant opportunities by how well they fit our housing program"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
 
-Claude
+### [Salesforce - Beta](https://claude.com/connectors/salesforce-headless-360)
 
-Claude Code
+Sell, serve, and operate at scale with Salesforce.
 
-April 29, 2026
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
 
-### Adobe Experience Manager
+### [Jotform Apps](https://claude.com/connectors/jotform-apps)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Build and manage no-code apps
 
-Productivity
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
-Claude
+![](https://mcp.givebutter.com/mcp/icon.svg)
 
-Claude Code
+### [Givebutter](https://claude.com/connectors/givebutter)
 
-June 9, 2026
+Manage your fundraising
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Givebutter in Claude (opens in new tab)](https://claude.ai/directory/d4d95e77-c166-4ee8-b2e5-fae34743cfe3 "Add in Claude")
 
-### Adobe Workfront
+![](https://cdn.candid.org/images/candid-logo/candid-icon.svg)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Candid](https://claude.com/connectors/candid)
 
-Productivity
+Research nonprofits and funders using Candid's data
 
-Claude
+[Add Candid in Claude (opens in new tab)](https://claude.ai/directory/875faf93-08c4-469c-980f-6f79f70f10d3 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=grantedai.com&sz=96)
 
-June 22, 2026
+### [Granted](https://claude.com/connectors/granted)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Discover every grant opportunity in existence.
 
-### Agentic Presentations by SlidesGPT
+[Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.google.com/s2/favicons?domain=kindora.co&sz=96)
 
-Productivity
+### [Kindora Funder Discovery](https://claude.com/connectors/kindora-funder-discovery)
 
-Claude
+Find funders who support causes like yours
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Kindora Funder Discovery in Claude (opens in new tab)](https://claude.ai/directory/df363d23-97ef-4ccd-a36e-5369846f5506 "Add in Claude")

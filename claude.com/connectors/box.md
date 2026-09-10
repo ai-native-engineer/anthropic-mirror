@@ -1,105 +1,88 @@
 <!-- source: https://claude.com/connectors/box -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe6914fb83099a240fa4_Box.jpg)
+[Skip to main content](#main-content)
 
-# Box
+Connector URL`https://mcp.box.com/`
 
-Search, edit and get insights on your Box content
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Box](https://www.box.com/)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/361a6b5f06db73d13117171d269f2e11d2846591.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://box.dev/guides/box-mcp/remote/)[Privacy Policy](https://www.box.com/legal/privacypolicy)[Support](mailto:support@box.com)
+More[Documentation (opens in new tab)](https://developer.box.com/guides/box-mcp)[Support (opens in new tab)](mailto:support@box.com)[Privacy policy (opens in new tab)](https://www.box.com/legal/privacypolicy)
 
 Connect Claude to your content stored in Box. Enable Claude to search and access files, use AI to query documents, create or update content, extract metadata fields, and more, while enforcing existing Box security and access policies.
 
-You can use the Box connector to:
+## Tools
 
-**Search, locate and share files:**
-"Find the marketing budget proposal for Q3 2024 and add our CMO as a collaborator to that file"
+* who\_am\_i
+* search\_folders\_by\_name
+* list\_folder\_content\_by\_folder\_id
+* search\_files\_keyword
+* search\_files\_metadata
+* ai\_qa\_single\_file
+* ai\_qa\_multi\_file
+* ai\_qa\_hub
+* ai\_extract\_freeform
+* ai\_extract\_structured
+* get\_file\_content
+* upload\_file
+* upload\_file\_version
+* create\_folder
+* list\_tasks
+* list\_hubs
+* get\_hub\_details
+* get\_hub\_items
+* get\_file\_details
+* get\_folder\_details
 
-**Read & summarize documents:**
-"Summarize the key technical constraints associated with Project Alpha from the requirements document."
-
-**Get answers from a single file, multiple files, or a Box Hub:**
-"Find the Service Level Agreement for BlueStar LLC and explain when a client can terminate the contract early. Tell me if that termination clause is consistent across our Service Level Agreements with other customers."
-
-**Extract key details from documents and save them as a part of the file's metadata:**
-"Extract the expiration date for all of the contracts in the 'Contract Intake' folder and save the expiration date as metadata for each contract."
-
-**Preview Files:**
-"Pull up the pitch deck for Acme Inc so I can review the graph in the appendix."
-
-**Create files or folders and generate shared links:**
-"Check if a folder exists for 'New Hire: John Doe'. If not, create it in the 'Onboarding' directory and generate an external link for me to share with John."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=thomsonreuters.com&sz=96)
 
-Data
+### [CoCounsel Legal](https://claude.com/connectors/cocounsel-legal)
 
-Claude
+Thomson Reuters CoCounsel Legal, in Claude
 
-Claude Code
+[Add CoCounsel Legal in Claude (opens in new tab)](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1 "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

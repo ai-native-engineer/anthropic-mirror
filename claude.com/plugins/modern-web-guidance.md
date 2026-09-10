@@ -7,11 +7,14 @@ Keep your coding agent up to date with the latest web best practices
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Google Chrome](https://developer.chrome.com)
 * Installs
 
   219
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

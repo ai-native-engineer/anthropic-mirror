@@ -1,99 +1,71 @@
 <!-- source: https://claude.com/connectors/icd-10-codes -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3eb9f2f34ada6ce08e57_ICD-10.jpg)
+[Skip to main content](#main-content)
 
-# ICD-10 Codes
+Connector URL`https://hcls.mcp.claude.com/icd10_codes/mcp`
 
-Access ICD-10-CM and ICD-10-PCS code sets
+More[Documentation (opens in new tab)](https://claude.com/resources/tutorials/using-the-icd-10-connector-in-claude)[Support (opens in new tab)](https://support.anthropic.com)[Privacy policy (opens in new tab)](https://www.anthropic.com/privacy)
 
-* Category
+The ICD-10 Codes Connector gives Claude access to the complete ICD-10-CM (diagnosis) and ICD-10-PCS (procedure) code sets for medical classification and billing.
 
-  Health and wellness
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-icd-10-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Anthropic](https://anthropic.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  No items found.
-* More
-
-  [Documentation](https://claude.com/resources/tutorials/using-the-icd-10-connector-in-claude)[Privacy Policy](https://www.anthropic.com/privacy)[Support](https://support.anthropic.com)
-
-The ICD-10 Codes connector gives Claude access to the complete ICD-10-CM (diagnosis) and ICD-10-PCS (procedure) code sets for medical classification and billing.
-
-You can use the ICD-10 Codes connector to:
-
-Find diagnosis codes:
-"I need the ICD-10 code for type 2 diabetes with kidney complications"
-
-Validate codes for claim submission:
-"I'm submitting a claim with code E11. Is this valid?"
-
-Explore code hierarchies:
-"Show me how diabetes codes are organized"
-
-Search procedure codes:
-"Find ICD-10-PCS codes for laparoscopic appendectomy"
+* get\_hierarchy
+* get\_by\_category
+* get\_by\_body\_system
+* lookup\_code
+* search\_diagnosis\_by\_code
+* search\_diagnosis\_by\_description
+* search\_procedure\_by\_code
+* search\_procedure\_by\_description
+* validate\_code
 
 ## Related connectors
 
-Health and wellness
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-May 1, 2026
+Analyze, summarize, and explore your Strava data
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-### AllTrails
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-Find your next hike](https://claude.com/connectors/alltrails)
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Health and wellness
+Search biomedical literature from PubMed
 
-Claude
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude Code
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-May 26, 2026
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
+Access US National Provider Identifier (NPI) Registry
 
-### Alma
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-Life sciences and healthcare
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-Health and wellness
+Find your next hike
 
-Claude
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-May 20, 2026
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e9e884bd175dbadbf06_cms.jpg)
+Access the CMS Coverage Database
 
-### CMS Coverage
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")
 
-Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
+![](https://www.google.com/s2/favicons?domain=functionhealth.com&sz=96)
 
-Health and wellness
+### [Function Health](https://claude.com/connectors/function)
 
-Claude
+Lab test insights, health answers, nutrition plans
 
-February 24, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
-
-### Function (beta)
-
-View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)
+[Add Function Health in Claude (opens in new tab)](https://claude.ai/directory/48527e54-fe84-4dc6-b97f-c8e0763bca97 "Add in Claude")

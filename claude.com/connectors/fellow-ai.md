@@ -1,105 +1,71 @@
 <!-- source: https://claude.com/connectors/fellow-ai -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6923bec73a155fccfdab98ae_fellow.ai.svg)
+[Skip to main content](#main-content)
 
-# Fellow.ai
+Connector URL`https://fellow.app/mcp`
 
-Chat with your meetings to uncover actionable insights
+More[Documentation (opens in new tab)](https://help.fellow.ai/en/articles/12622641-fellow-s-mcp-server)[Support (opens in new tab)](https://help.fellow.ai/)[Privacy policy (opens in new tab)](https://fellow.ai/privacy-policy)
 
-* Category
+Access your meeting knowledge instantly. Fellow connects Claude to your meeting ecosystem, letting you search transcripts, pull key insights from summaries, and track action items with natural-language queries.
 
-  Communication
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/069b18da-5c89-4a66-941f-0cb6eae49a8d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* get\_action\_items
+* get\_meeting\_participants
+* get\_meeting\_summary
+* get\_meeting\_transcript
+* search\_meetings
 
-  [Fellow.ai](https://fellow.ai/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://help.fellow.ai/en/articles/12622641-fellow-s-mcp-server)[Privacy Policy](https://fellow.ai/privacy-policy)[Support](https://help.fellow.ai/)
-
-Access your meeting knowledge instantly. Fellow connects Claude to your meeting ecosystem, letting you search transcripts, pull key insights from summaries, and track action items with natural-language queries. Need to recall decisions from last quarter? Looking for action items assigned to your team? Want to reference that brilliant idea from yesterday's brainstorm? Simply ask Claude and skip the endless scrolling through notes. Get the clarity you need, exactly when you need it, with Fellow's secure, centralized meeting intelligence.
-
-You can use the Fellow.ai connector to:
-
-Search Past Meeting Discussions: **‍**"In yesterday's client call with Acme Corp, what concerns did they raise about our implementation timeline?"
-
-Find Decisions & Budget Allocations: **‍**"Find the discussion about our Q3 marketing budget from last week's strategy meeting. What was the final decision on the social media campaign allocation?"
-
-Summarize Multiple Meetings: **‍**"Show me the most important decisions and action items from the last three weekly engineering stand-ups so I can prepare for tomorrow's meeting"
-
-Get Performance Coaching: **‍**"Please coach me on how I can improve my sales approach, based on how yesterday's customer calls went"
-
-Track Personal Action Items: **‍**"What action items were I assigned this week in my meetings with John?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-Communication
+### [Gmail](https://claude.com/connectors/gmail)
 
-Claude
+Draft replies, summarize threads, & search your inbox
 
-Claude Code
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Asana
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Communication
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 21, 2026
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-### Circleback
+### [Asana](https://claude.com/connectors/asana)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Connect to Asana to coordinate tasks, projects, and goals
 
-Productivity
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-Communication
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Code
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude
+Trending
 
-May 1, 2026
+An AI Concierge that turns forms into conversations
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-### Computer by DevRev
+![](https://www.google.com/s2/favicons?domain=intercom.com&sz=96)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+### [Intercom](https://claude.com/connectors/intercom)
 
-Productivity
+Access to Intercom data for better customer insights
 
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")

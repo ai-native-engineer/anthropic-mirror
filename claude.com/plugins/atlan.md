@@ -7,11 +7,14 @@ Atlan data catalog for Claude Code. Search, explore, govern, and manage data ass
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Atlan](https://atlan.com)
 * Installs
 
   1978
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

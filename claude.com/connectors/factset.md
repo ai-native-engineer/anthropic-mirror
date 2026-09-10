@@ -1,96 +1,87 @@
 <!-- source: https://claude.com/connectors/factset -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69990364234d36657f454feb_F_Icon%20-%20Patrick%20Starling.png)
+[Skip to main content](#main-content)
 
-# FactSet AI-Ready Data
+Connector URL`https://mcp.factset.com/content/v1`
 
-Access institutional-quality financial data and analytics
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/f2da5b67-41bc-4ce9-8eb8-f18ab09bde5a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [FactSet Research Systems](https://www.factset.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://developer.factset.com/mcp/factset-ai-ready-data-mcp)[Privacy Policy](https://www.factset.com/legal)[Support](https://www.factset.com/support)
+More[Documentation (opens in new tab)](https://developer.factset.com/mcp/factset-ai-ready-data-mcp)[Support (opens in new tab)](https://www.factset.com/support)[Privacy policy (opens in new tab)](https://www.factset.com/legal)
 
 Access, comprehensive financial data and analytics through AI-powered tools. Connect to FactSet global prices, fundamental analysis, earnings estimates, and research insights into Claude, to enhance your financial analysis, earning estimates and investment research with trusted, institutional-quality data.
 
-You can use FactSet AI-Ready Data for:
+## Tools
 
-**Competitive Benchmarking & Peer Analysis:
-‍**"Identify JetBlue's competitors and compare their average fuel cost per gallon over the last 10 years. Highlight key trends, inflection points, and any notable differences in how each carrier managed fuel cost volatility."
+* FactSet\_CalendarEvents
+* FactSet\_EntityReference
+* FactSet\_EstimatesConsensus
+* FactSet\_Fundamentals
+* FactSet\_FundsETF
+* FactSet\_FundsScreener
+* FactSet\_GeoRev
+* FactSet\_GlobalPrices
+* FactSet\_MergersAcquisitions
+* FactSet\_Metrics
+* FactSet\_Ownership
+* FactSet\_People
+* FactSet\_PrivateEquityVC
+* FactSet\_RBICS
+* FactSet\_SupplyChain
+* FactSet\_UnstructuredContent
+* FactSet\_CompanyScreener
+* FactSet\_TermsConditions
+* FactSet\_PrivateCompany
+* FactSet\_DebtCapitalStructure
+* FactSet\_Banks
 
-**Estimating Revision Tracking:
-‍**"Track the monthly consensus EPS and Revenue estimates for Apple's FY2026 and FY2027 over the past 6 months. For each month, show the mean, high, low, and the count of upward vs. downward revisions. Has the Street been getting more bullish or more cautious heading into the next earnings cycle?"
-
-**Institutional Flow Analysis:
-‍**"Pull institutional buying and selling across Home Depot, Costco, Walmart, and Target over the past 6 months. Are institutions positioning for a consumer trade-down into discount and warehouse retailers, or betting on a housing recovery through Home Depot?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-Claude Code
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-April 8, 2026
+Deterministic access to S&P Global data
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

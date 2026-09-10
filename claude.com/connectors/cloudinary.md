@@ -1,98 +1,90 @@
 <!-- source: https://claude.com/connectors/cloudinary -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abec2b389536b0797f344_Cloudinary.jpg)
+[Skip to main content](#main-content)
 
-# Cloudinary
+Connector URL`https://asset-management.mcp.cloudinary.com/sse`
 
-Manage, transform and deliver your images & videos
+More[Documentation (opens in new tab)](https://cloudinary.com/documentation/cloudinary_llm_mcp#available_mcp_servers)[Support (opens in new tab)](https://support.cloudinary.com/hc/en-us)[Privacy policy (opens in new tab)](https://cloudinary.com/privacy)
 
-* Category
+The Cloudinary MCP servers enable you to upload, manage, transform, and analyze your media assets.
 
-  Data
+## Tools
 
-  Code
-* Used in
+* upload-asset
+* asset-public\_id-rename
+* download-asset
+* generate-archive
+* download-asset-backup
+* delete-asset
+* list-images
+* list-videos
+* list-files
+* get-asset-details
+* asset-update
+* list-tags
+* delete-derived-assets
+* get-usage-details
+* create-asset-relations
+* delete-asset-relations
+* move-folder
+* create-folder
+* delete-folder
+* search-folders
+* search-assets
+* visual-search-assets
 
-  [Claude](https://claude.ai/directory/c93e842b-830f-4b4a-bbd1-6e3af0199a8f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Cloudinary](https://cloudinary.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://cloudinary.com/documentation/cloudinary_llm_mcp#available_mcp_servers)[Privacy Policy](https://cloudinary.com/privacy)[Support](https://support.cloudinary.com/hc/en-us)
-
-The Cloudinary connector enables you to upload, manage, transform, and analyze your media assets.
-
-You can use the Cloudinary connector to:
-
-Upload media:
-"Upload an image/video from <URL/local file> to my Cloudinary account"
-
-Organize assets:
-"Find all assets with tag=cat and move them to the folder named 'cats'"
-
-Create platform-specific variations:
-"Create 3 variations of this image so it would fit Instagram story, Instagram post and Twitter, add my company logo as a watermark to those images"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-### Adobe Customer Journey Analytics
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-May 11, 2026
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Trending
 
-### Airtable
+An AI Concierge that turns forms into conversations
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Data
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-Claude
+### [Supabase](https://claude.com/connectors/supabase)
 
-Claude Code
+Manage databases, authentication, and storage
 
-June 22, 2026
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-### alphaXiv
+### [monday.com](https://claude.com/connectors/monday)
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-Data
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=vercel.com&sz=96)
 
-February 3, 2026
+### [Vercel](https://claude.com/connectors/vercel)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Analyze, debug, and manage projects and deployments
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")

@@ -7,11 +7,14 @@ Skills for using the Sentry CLI to interact with Sentry from the command line
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Sentry](#)
 * Installs
 
   1970
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

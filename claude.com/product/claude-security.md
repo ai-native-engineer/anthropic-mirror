@@ -18,7 +18,7 @@ Watch on-demand
 
 From scan to fix, done seamlessly
 
-Claude scans your codebase with Claude Mythos 5, validates findings, and suggests patches you can review and approve. Available in public beta for Claude Enterprise.
+Claude scans your codebase with Claude Mythos 5.1, validates findings, and suggests patches you can review and approve. Available in public beta for Claude Enterprise.
 
 Contact sales
 
@@ -27,6 +27,8 @@ Contact sales
 Read the tutorial
 
 [Read the tutorial](https://claude.com/resources/tutorials/getting-started-with-claude-security)Read the tutorial
+
+[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/cc-security-thumbnail.webm)
 
@@ -72,7 +74,7 @@ Push findings via webhooks to Slack or Jira, export for audit, and schedule recu
 
 Teams stay in control, with every patch requiring human review and approval
 
-### Powered by Claude Mythos 5
+### Powered by Claude Mythos 5.1
 
 Scan your codebase with our most cyber-capable model
 
@@ -128,11 +130,11 @@ The [Claude Security plugin](https://code.claude.com/docs/en/claude-security) is
 
 ### What Mythos access does this give me?
 
-Claude Security scans now run on Claude Mythos 5 for all Enterprise customers. You get Mythos-quality vulnerability findings without needing direct access to the model.
+Claude Security scans now run on Claude Mythos 5.1 for all Enterprise customers. You get Mythos-quality vulnerability findings without needing direct access to the model.
 
-Connect a GitHub repository and Claude Security scans it with Claude Mythos 5. Validated findings come back with confidence ratings and suggested patches, which you can open in Claude Code on the web and fix using the models available in your account.
+Connect a GitHub repository and Claude Security scans it with Claude Mythos 5.1. Validated findings come back with confidence ratings and suggested patches, which you can open in Claude Code on the web and fix using the models available in your account.
 
-‍*Scans powered by Claude Mythos 5 are only available in the Claude Security app on Claude.ai. The Claude Security plugin for Claude Code only uses the models available in your Claude Code account.*
+‍*Scans powered by Claude Mythos 5.1 are only available in the Claude Security app on Claude.ai. The Claude Security plugin for Claude Code only uses the models available in your Claude Code account.*
 
 ### What are the security risks I should know about?
 

@@ -12,6 +12,8 @@ Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69af4509d58b77898986d243_TheBriefing-EnterpriseAgents-Thumbnail-3.png)
 
 Case Study: Thomson Reuters

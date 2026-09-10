@@ -1,101 +1,90 @@
 <!-- source: https://claude.com/connectors/webflow -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6972b98bb9c8d247685d5867_Social_Square_Blue.svg)
+[Skip to main content](#main-content)
 
-# Webflow
+Connector URL`https://mcp.webflow.com/mcp`
 
-Design pages, manage CMS content, and automate site tasks
+More[Documentation (opens in new tab)](https://developers.webflow.com/mcp/v1.0.0/reference/overview)[Support (opens in new tab)](https://support.webflow.com/)[Privacy policy (opens in new tab)](https://webflow.com/legal/privacy)
 
-* Category
+Webflow MCP lets AI tools design pages, manage CMS content. Browse and update collections, create and edit pages, modify layouts and styles, and automate site-level tasks through natural language prompts. Bring Webflow into your AI workflow with a structured, secure interface that translates AI actions into real changes across your site—helping teams build, update, and scale Webflow projects faster with less manual work.
 
-  Design
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/092d0ef3-9fc6-4101-8f7e-c2b80e58a065)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* ask\_webflow\_ai
+* asset\_tool
+* data\_agent\_instructions\_tool
+* data\_analyze\_tool
+* data\_assets\_tool
+* data\_cms\_tool
+* data\_comments\_tool
+* data\_component\_builder
+* data\_component\_tool
+* data\_element\_builder
+* data\_element\_tool
+* data\_enterprise\_tool
+* data\_fonts\_tool
+* data\_forms\_tool
+* data\_localization\_tool
+* data\_pages\_tool
+* data\_scripts\_tool
+* data\_sitemap\_tool
+* data\_sites\_tool
+* data\_style\_tool
+* data\_variable\_tool
+* data\_webhook\_tool
+* data\_whtml\_builder
+* designer\_tool
 
-  [Webflow](https://webflow.com/)
+Show all 28 tools
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developers.webflow.com/mcp/v1.0.0/reference/overview)[Privacy Policy](https://webflow.com/legal/privacy)[Support](https://support.webflow.com/)
-
-Connect Webflow to design pages, manage CMS content, browse and update collections, modify layouts and styles, and automate site-level tasks through natural language. Build, update, and scale Webflow projects faster with less manual work.
-
-**You can use Webflow to:**
-
-**Design and edit pages:**"Add a hero section with a headline, subtext, and CTA button to my homepage"
-
-**Manage CMS content:**"Create a new blog post in my Articles collection with today's date"
-
-**Update site styles:**"Change the primary button color to blue across all pages"
-
-**Automate site tasks:**"List all unpublished pages and show me their last modified dates"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Design
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-May 7, 2026
+Search, read, and upload files instantly
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-### Adobe for creativity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Productivity
+Manage your schedule and coordinate meetings effortlessly
 
-Design
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-May 1, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Autodesk Product Help
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Design
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Skills
+### [Notion](https://claude.com/connectors/notion)
 
-February 11, 2026
+Connect your Notion workspace to search, update, and power workflows across tools
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-### Canva
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
+### [Slack](https://claude.com/connectors/slack)
 
-Design
+Send messages, create canvases, and fetch Slack data
 
-Productivity
-
-Claude
-
-Claude Code
-
-May 28, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154ac9a3dd67012fe91a0a_descript.svg)
-
-### Descript
-
-Import, edit, or create video with prompts](https://claude.com/connectors/descript)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

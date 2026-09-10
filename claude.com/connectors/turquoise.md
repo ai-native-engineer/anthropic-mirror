@@ -1,98 +1,70 @@
 <!-- source: https://claude.com/connectors/turquoise -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d40a59f1ba418b13e9aa8_turquoise.svg)
+[Skip to main content](#main-content)
 
-# Turquoise
+Connector URL`https://mcp.turquoise.health/mcp`
 
-Query Turquoise's proprietary healthcare pricing data
-
-* Category
-
-  Life sciences and healthcare
-* Used in
-
-  [Claude](https://claude.ai/directory/78e4613c-7869-4be4-b58f-3794060c704e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Turquoise Health](https://turquoise.health/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://turquoise.health/resources/blog/guide-to-the-turquoise-connector-mcp)[Privacy Policy](https://turquoise.health/legal/privacy-policy)[Support](mailto:ai@turquoise.health)
+More[Documentation (opens in new tab)](https://turquoise.health/resources/blog/guide-to-the-turquoise-connector-mcp)[Support (opens in new tab)](mailto:ai@turquoise.health)[Privacy policy (opens in new tab)](https://turquoise.health/legal/privacy-policy)
 
 Connect Turquoise to Claude to explore Turquoise Health's healthcare pricing data. You can search across healthcare entities, explore how they relate to each other, and analyze in-network rates across service categories. Useful for benchmarking reimbursement rates, sizing markets, understanding what a payer pays in a given geography, or comparing rates across providers and plans.
 
-You can use Turquoise to:
+## Tools
 
-**Benchmark reimbursement rates:**
-"What's the median in-network rate for a knee replacement (HCPCS 27447) in Los Angeles across major commercial payers?"
+* explore\_knowledge\_graph
+* analyze\_medical\_rates
+* analyze\_drug\_rates
+* analyze\_professional\_rates
+* analyze\_lab\_rates
+* analyze\_devices\_rates
 
-**Compare rates across payers or providers:**
-"Compare what Aetna, Cigna, and United Healthcare pay Sutter Amador Hospital for a screening colonoscopy."
-
-**Explore payer–provider networks:**
-"Which hospitals in California have negotiated rates with BlueShield of California, and which health systems do they belong to?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-Claude Code
+Analyze, summarize, and explore your Strava data
 
-February 11, 2026
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### 10x Genomics Cloud
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-Claude Code
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-May 1, 2026
+Access US National Provider Identifier (NPI) Registry
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-### AdisInsight
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-Life sciences and healthcare
+Access ICD-10-CM and ICD-10-PCS code sets
 
-Claude
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-February 11, 2026
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdfc622a31cabb4ed418_Benchling.jpg)
+Find your next hike
 
-### Benchling
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-Life sciences and healthcare
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-Claude
+Access the CMS Coverage Database
 
-Claude Code
-
-June 30, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
-
-### Biomni Lab
-
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")

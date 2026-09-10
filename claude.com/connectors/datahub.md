@@ -1,99 +1,94 @@
 <!-- source: https://claude.com/connectors/datahub -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a2652dc4a965ec7086fc2be_dataHub_symbol_color%20(1).svg)
+[Skip to main content](#main-content)
 
-# DataHub
+Connector URL`https://mcp.datahub.com/mcp`
 
-Connect AI agents to enterprise data & context
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/5ccb820e-419d-4683-9646-90ea294ada71)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Acryl Data, Inc.](https://datahub.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.datahub.com/docs/features/feature-guides/mcp)[Privacy Policy](https://datahub.com/privacy-policy/)[Support](https://support.datahub.com/)
+More[Documentation (opens in new tab)](https://docs.datahub.com/docs/features/feature-guides/mcp)[Support (opens in new tab)](https://support.datahub.com/)[Privacy policy (opens in new tab)](https://datahub.com/privacy-policy/)
 
 DataHub's MCP server gives AI agents the enterprise context they need to work with your data. Surface curated knowledge — runbooks, FAQs, business definitions, and vocabularies — so agents operate with the same shared understanding as your teams. Search across datasets, dashboards, and pipelines, then pull ownership, governance policies, quality signals, and documentation to understand what you're looking at. Trace lineage at the table and column level. Surface real SQL queries to see how data is actually used. Apply tags, glossary terms, owners, and descriptions at scale. The context layer that makes AI agents enterprise-ready.
 
-You can use DataHub to:
+## Tools
 
-**Find and understand a dataset:**
-"Search DataHub for our customer\_orders table, show me its owners, documentation, and current data quality status."
+* accept\_or\_reject\_proposals
+* add\_owners
+* add\_related\_terms
+* add\_structured\_properties
+* add\_tags
+* add\_terms
+* compare\_glossary\_term\_versions
+* create\_glossary\_term
+* create\_glossary\_term\_version
+* draft\_sql\_for\_tables
+* get\_dataset\_queries
+* get\_entities
+* get\_glossary\_term\_versions
+* get\_lineage
+* get\_lineage\_paths\_between
+* get\_me
+* grep\_documents
+* list\_lifecycle\_stages
+* list\_pending\_proposals
+* list\_schema\_fields
+* note\_metadata\_observation
+* propose\_create\_glossary\_term
+* propose\_lifecycle\_stage
+* remove\_domains
 
-**Trace column lineage:**
-"Trace the upstream lineage of revenue\_usd in the finance.monthly\_summary table back to its source systems."
+Show all 34 tools
 
-**Govern at scale:**
-"Find all datasets tagged 'pii' that are missing an owner and add the data-platform team as owner."
-
-**See real usage:**
-"Show me the most common SQL queries that hit the events.page\_views dataset in the last 30 days."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

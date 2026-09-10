@@ -7,11 +7,14 @@ Nimble web data toolkit — search, extract, map, crawl the web and work with st
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Nimble](https://www.nimbleway.com)
 * Installs
 
   2851
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -34,6 +34,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9d4a22fc7d70ce2a2bd8_caching-harnesses-advisors.webp)
 
 Anthropic's developer conference, recorded

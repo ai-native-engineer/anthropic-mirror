@@ -1,101 +1,73 @@
 <!-- source: https://claude.com/connectors/tavily -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b32f5381aaa44510d50288_tavily.svg)
+[Skip to main content](#main-content)
 
-# Tavily
+Connector URL`https://mcp.tavily.com/mcp`
 
-Connect your AI agents to the web
-
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/d8a25d2a-e5ea-4860-b990-277244df5417)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Tavily](https://www.tavily.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.tavily.com/documentation/mcp)[Privacy Policy](https://www.tavily.com/terms)[Support](mailto:support@tavily.com)
+More[Documentation (opens in new tab)](https://docs.tavily.com/documentation/mcp)[Support (opens in new tab)](mailto:support@tavily.com)[Privacy policy (opens in new tab)](https://www.tavily.com/terms)
 
 Give Claude real-time web access with Tavily. One API for search, extraction, and research. Built for the accuracy, speed, and security production agents require. You can use Tavily to ground answers in live data, optimize token usage by extracting relevant content, and ship with security built in with PII redaction and prompt injection protection.
 
-You can use Tavily to:
+## Tools
 
-**Real-time web search:**
-"What are the latest developments in AI regulation in the EU"
+* tavily\_search
+* tavily\_extract
+* tavily\_crawl
+* tavily\_map
+* tavily\_research
 
-**Extract structured content:**
-"Extract the key points from this article: https://example.com/article"
-
-**Research across sources:**
-"Research the impact of AI agents on software engineering productivity and provide a summary with sources"
-
-**Website analysis:**
-"Map the structure of this website: https://example.com"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Experience Manager
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Trending
 
-Productivity
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-June 9, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+Manage databases, authentication, and storage
 
-### Adobe Workfront
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Productivity
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### Agentic Presentations by SlidesGPT
+Trending
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Productivity
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-Claude Code
+### [Zapier](https://claude.com/connectors/zapier)
 
-June 22, 2026
+Automate workflows across thousands of apps via conversation
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

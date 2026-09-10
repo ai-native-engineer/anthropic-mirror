@@ -1,116 +1,73 @@
 <!-- source: https://claude.com/connectors/thoughtspot-spotter -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a15486a65d3f940ee245511_thoughtspot.svg)
+[Skip to main content](#main-content)
 
-# ThoughtSpot Spotter
+Connector URL`https://agent.thoughtspot.app/mcp?api-version=latest`
 
-Your AI data analyst, from question to trusted insights
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/576048a9-f4be-43c6-8cdb-787897c49b03)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [ThoughtSpot](https://www.thoughtspot.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developers.thoughtspot.com/docs/mcp-integration#_add_mcp_server_to_the_mcp_clients_config)[Privacy Policy](https://www.thoughtspot.com/privacy-statement)[Support](mailto:helpdesk@thoughtspot.com)
+More[Documentation (opens in new tab)](https://developers.thoughtspot.com/docs/mcp-integration#_add_mcp_server_to_the_mcp_clients_config)[Support (opens in new tab)](mailto:helpdesk@thoughtspot.com)[Privacy policy (opens in new tab)](https://www.thoughtspot.com/privacy-statement)
 
 From everyday data questions to high-level strategic analyses, Spotter by ThoughtSpot helps business and data teams get answers and insights they can trust, validate, and act on, enabling everyone to use data to drive the business forward.
 
-You can use ThoughtSpot Spotter to:
+## Tools
 
-**Ask data questions:**
-"What were last quarter's top 5 products by revenue?"
+* check\_connectivity
+* create\_analysis\_session
+* send\_session\_message
+* get\_session\_updates
+* create\_dashboard
 
-**Spot trends:**
-"Show me weekly active users over the last 6 months"
-
-**Validate a number:**
-"Does the dashboard's churn rate match the underlying table?"
-
-Don’t have a ThoughtSpot instance yet? [Start a free 14-day trial →](https://www.thoughtspot.com/trial?utm_source=mcp&utm_medium=consent&tsref=MCP)
-
-Skills
-
-Analyzing data with ThoughtSpot
-
-Teaches Claude to answer data questions by querying ThoughtSpot live against any connected data source, blend results with web research for benchmarks and external context, and surface ThoughtSpot's own charts and dashboards rather than generating its own.
-
-Learn more
-
-[Learn more](https://github.com/thoughtspot/mcp-server/blob/main/skills/analyzing-data-with-thoughtspot/SKILL.md)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

@@ -1,99 +1,68 @@
 <!-- source: https://claude.com/connectors/gocardless -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f189adf935b1f5a93bb112_GoCardless-Symbol-SQ-Positive-RGB-500px.svg)
+[Skip to main content](#main-content)
 
-# GoCardless
+Connector URL`https://mcp.gocardless.com/`
 
-Ask about your payments, customers, and payouts
+More[Documentation (opens in new tab)](https://developer.gocardless.com/developer-tools/mcp/)[Support (opens in new tab)](https://docs.google.com/forms/d/e/1FAIpQLSe3PLD4_2C2CLOMBXW9p9XsfzE8-e0FKUlCnu2OIoMAcPZA5A/viewform?usp=sharing&ouid=105109750379221941101)[Privacy policy (opens in new tab)](https://gocardless.com/privacy/merchants/)
 
-* Category
+Get intelligent, context-aware guidance for building GoCardless payment integrations directly from Claude. The GoCardless MCP provides comprehensive knowledge of API endpoints, integration patterns, webhooks, and code samples across all supported languages. Use it to generate integration code, set up payment pages, handle recurring billing, and follow best practices for error handling and security.
 
-  Financial services
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/d242c454-3a8c-4271-8a8a-e334b111c7c5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* integrate\_with\_gocardless
+* read\_gocardless\_resource
 
-  [GoCardless](https://gocardless.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://support.gocardless.com/hc/en-gb/articles/26830050176028-Ask-AI-about-your-account)[Privacy Policy](https://gocardless.com/privacy/merchants/)[Support](https://docs.google.com/forms/d/e/1FAIpQLSc3ww1lgvcABmLJbPZHvH3fnW3AG0WU-BEQe7jBBAfBUcAmtQ/viewform)
-
-Connect your GoCardless account to Claude to get instant answers about your payments, customers, mandates, payouts, and more. Your data is secure — sensitive details are automatically masked. Also provides integration guidance, code samples, and best practices for developers building with the GoCardless API.
-
-You can use GoCardless to:
-
-**Check on a payment:**
-"What's the status of payment PM123 and which mandate is it on?"
-
-**Review payouts:**
-"List my GBP payouts from the last 30 days and total them up"
-
-**Investigate a customer:**
-"Show me all active subscriptions and recent failed payments for customer CU456"
-
-**Get integration help:**
-"Show me a code sample for creating a mandate via the GoCardless API"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-Claude Code
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-April 8, 2026
+Deterministic access to S&P Global data
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

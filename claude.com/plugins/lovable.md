@@ -7,11 +7,14 @@ Build, iterate on, deploy, and manage Lovable apps from Claude Code. Bundles the
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Lovable](https://lovable.dev)
 * Installs
 
   1057
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

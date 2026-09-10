@@ -1,108 +1,89 @@
 <!-- source: https://claude.com/connectors/brevo -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dc3975f656d8f586c205_icon_Brevo.jpg)
+[Skip to main content](#main-content)
 
-# Brevo
+Connector URL`https://mcp.brevo.com/v1/anthropic/mcp`
 
-Analyze campaigns, know your audience and create drafts
-
-* Category
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/01a9fda6-bd91-4f02-af05-d8e4c3f4f556)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Brevo](https://www.brevo.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://help.brevo.com/hc/en-us/articles/35030032898194-Brevo-connector-for-Claude-Use-your-Brevo-data-and-campaigns-in-Claude)[Privacy Policy](https://www.brevo.com/legal/privacypolicy/)[Support](https://help.brevo.com/hc/en-us)
+More[Documentation (opens in new tab)](https://help.brevo.com/hc/en-us/articles/35030032898194-Brevo-connector-for-Claude-Use-your-Brevo-data-and-campaigns-in-Claude)[Support (opens in new tab)](https://help.brevo.com/hc/en-us)[Privacy policy (opens in new tab)](https://www.brevo.com/legal/privacypolicy/)
 
 Connect Brevo to Claude to analyze email campaign performance and A/B test results, look up contacts, and explore audience segments in plain language, all without leaving your conversation. Claude can also generate HTML email templates, draft email campaigns, and draft SMS campaigns, saved directly to your Brevo account for you to review before sending. Claude will never send or schedule email campaigns, and will never delete anything on your behalf. Available on all Brevo plans.
 
-You can use Brevo to:
+## Tools
 
-**Analyse Campaign Performance:**
-"How did my last 5 email campaigns perform? Which subject lines had the highest open rates?"
+* accounts\_get\_account
+* senders\_get\_senders
+* contacts\_get\_contacts
+* attributes\_get\_attributes
+* lists\_get\_lists
+* lists\_get\_list
+* contact\_import\_export\_get\_contacts\_from\_list
+* segments\_get\_segments
+* contacts\_get\_contact\_info
+* contacts\_get\_contact\_stats
+* email\_campaign\_management\_get\_email\_campaigns
+* email\_campaign\_management\_create\_email\_campaign
+* email\_campaign\_management\_get\_email\_campaign
+* campaign\_analytics\_get\_ab\_test\_campaign\_result
+* sms\_campaigns\_get\_sms\_campaigns
+* sms\_campaigns\_create\_sms\_campaign
+* sms\_campaigns\_get\_sms\_campaign
+* templates\_get\_smtp\_templates
+* templates\_create\_smtp\_template
+* templates\_get\_smtp\_template
+* templates\_send\_test\_template
 
-**Get A/B Test Results:**
-"What were the results of the A/B test on my last newsletter? Which variant won and by how much?"
-
-**Explore Contacts and Audiences:**
-"Find contacts who signed up in the last 30 days but haven't received a campaign yet."
-
-**Look Up a Contact:**
-"What lists is sophie@example.com subscribed to, and when did she last open one of our emails?"
-
-**Create a Draft Email Campaign:**
-"Based on my top-performing campaigns, draft an email campaign for our summer sale targeting my Newsletter list."
-
-**Generate an Email Template:**
-"Create an HTML email template for a win-back campaign with a hero section and a CTA button, and save it to my template library."
-
-**Draft an SMS Campaign:**
-"Write and save a draft SMS campaign for our weekend flash sale targeting my VIP list."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### ActiveCampaign
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Sales and marketing
+Trending
 
-Claude
+An AI Concierge that turns forms into conversations
 
-Claude Code
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-June 2, 2026
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-### Actively
+CRM context for every answer, insight, and action
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Claude
+### [monday.com](https://claude.com/connectors/monday)
 
-May 26, 2026
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-### Adobe Journey Optimizer
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+### [Gamma](https://claude.com/connectors/gamma)
 
-Sales and marketing
+Create presentations, docs, socials, and sites with AI
 
-Claude
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
-April 29, 2026
+### [Shopify](https://claude.com/connectors/shopify)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Build, manage, and analyze your Shopify store
 
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

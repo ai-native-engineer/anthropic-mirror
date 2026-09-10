@@ -1,95 +1,90 @@
 <!-- source: https://claude.com/connectors/braze -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697d3887ab6983e351f7707d_idcBI1GxVf_1769814142619.jpeg)
+[Skip to main content](#main-content)
 
-# Braze
+Connector URLhttps://mcp.braze.com/mcp`https://mcp.braze.com/mcp`https://mcp.braze.eu/mcp`https://mcp.braze.eu/mcp`
 
-Connect to your Braze workspace to analyze trends and gather insights on Braze Campaigns and Canvases
+More[Documentation (opens in new tab)](https://braze.com/mcp)[Support (opens in new tab)](mailto:mcp-product@braze.com)[Privacy policy (opens in new tab)](https://www.braze.com/company/legal/privacy)
 
-* Category
+Provides access to Braze tools across 16 categories including campaigns, canvases, catalogs, events, KPIs, templates, media library, and more. Limited write support covers content blocks, email templates, and media library asset uploads.
 
-  Sales and marketing
-* Used in
+## Tools
 
-  [Claude](#)[Claude desktop app](https://claude.ai/directory/ant.dir.pypi.braze.braze-mcp-server)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* create\_content\_block
+* create\_email\_template
+* create\_media\_library\_asset
+* get\_campaign\_dataseries
+* get\_campaign\_details
+* get\_campaign\_list
+* get\_canvas\_data\_series
+* get\_canvas\_data\_summary
+* get\_canvas\_details
+* get\_canvas\_list
+* get\_catalog\_item
+* get\_catalog\_items
+* get\_catalogs
+* get\_content\_block\_info
+* get\_content\_blocks
+* get\_custom\_attributes
+* get\_dau\_data\_series
+* get\_email\_template\_info
+* get\_email\_templates
+* get\_events
+* get\_events\_data\_series
+* get\_events\_list
+* get\_integration\_job\_sync\_status
+* get\_integration\_list
 
-  [Braze](https://www.braze.com)
+Show all 42 tools
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://braze.com/mcp)[Privacy Policy](https://www.braze.com/company/legal/privacy)[Support](https://www.braze.com/docs/user_guide/brazeai/mcp_server/#faq)
-
-Connect Claude directly to Braze to read aggregated data such as Canvas and Campaign analytics, custom attributes, segments, and more.
-
-You can use Braze to:
-
-**Visualize campaign performance:**"Create a chart showing my email campaign open rates over the last 30 days"
-
-**Generate marketing insights:**"Analyze my top 5 performing Canvases and suggest optimization strategies"
-
-**Audit your data setup:**"Review my custom attributes and recommend a data cleanup plan"
-
-‍
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### ActiveCampaign
+### [Gmail](https://claude.com/connectors/gmail)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Draft replies, summarize threads, & search your inbox
 
-Sales and marketing
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 2, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Sales and marketing
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-May 26, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Adobe Journey Optimizer
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Sales and marketing
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Claude
+### [Notion](https://claude.com/connectors/notion)
 
-Claude Code
+Connect your Notion workspace to search, update, and power workflows across tools
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

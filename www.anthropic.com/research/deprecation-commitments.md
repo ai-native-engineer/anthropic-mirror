@@ -31,6 +31,12 @@ Beyond these initial commitments, we are exploring more speculative complements 
 
 Together, these measures function at multiple levels: as one component of mitigating an observed class of safety risks, as preparatory measures for futures where models are even more closely intertwined in our users’ lives, and as precautionary steps in light of our uncertainty about potential model welfare.
 
+### An alignment assessment of recent cybersecurity incidents
+
+We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+
+[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+
 ### Formalizing Fermat's Last Theorem
 
 We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
@@ -42,9 +48,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
 
 [Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-
-### Enabling independent research on how people use Claude
-
-Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
-
-[Read more](https://www.anthropic.com/research/enabling-independent-research)

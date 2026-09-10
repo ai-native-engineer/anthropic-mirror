@@ -1,101 +1,79 @@
 <!-- source: https://claude.com/connectors/lunarcrush -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697011202bc68d8b21660503_lunarcrush.png)
+[Skip to main content](#main-content)
 
-# LunarCrush
+Connector URL`https://lunarcrush.ai/mcp`
 
-Add real-time social media data to your searches
-
-* Category
-
-  Data
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/837cceff-9820-4510-823f-9bdc5ef21f3a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [LunarCrush](https://lunarcrush.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://lunarcrush.com/developers/api/ai)[Privacy Policy](https://lunarcrush.com/privacy)[Support](mailto:contact@lunarcrush.com)
+More[Documentation (opens in new tab)](https://lunarcrush.com/developers/api/ai)[Support (opens in new tab)](mailto:contact@lunarcrush.com)[Privacy policy (opens in new tab)](https://lunarcrush.com/privacy)
 
 Access comprehensive social analytics and market intelligence for companies, brands, stocks, and cryptocurrencies through LunarCrush's AI-data platform. Stream real-time social metrics, sentiment analysis, trending topics, and market data directly into your AI workflows.
 
-You can use LunarCrush to:
+## Tools
 
-**Sentiment Analysis:
-‍**"What's the current social sentiment around Tesla stock?"
+* List
+* Cryptocurrencies
+* Stocks
+* Topic
+* Creator
+* Post
+* Topic\_Time\_Series
+* Topic\_Posts
+* Search
+* Fetch
+* Authentication
 
-**Crypto Trends:
-‍**"Show me the top trending cryptocurrencies by social engagement this week"
-
-**Creator Analytics:
-‍**"Find the most influential crypto creators discussing Bitcoin"
-
-**Historical Data:
-‍**"Get the social volume time series for Ethereum over the past 30 days"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Financial services
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-June 22, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+Manage databases, authentication, and storage
 
-### Affinity
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Financial services
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-February 11, 2026
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-### Aiera
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+Trending
 
-Data
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Claude
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-May 11, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Automate workflows across thousands of apps via conversation
 
-### Airtable
-
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

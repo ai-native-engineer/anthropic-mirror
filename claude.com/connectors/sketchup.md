@@ -1,107 +1,73 @@
 <!-- source: https://claude.com/connectors/sketchup -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f2252e4fb1b0a76ce8f85e_SketchUp%20Logo%20-%20Mark%20Harrison%20(1).svg)
+[Skip to main content](#main-content)
 
-# Trimble SketchUp
+Connector URL`https://api.sketchup.com/mcp/v1/sketchup/mcp`
 
-Create and iterate 3D models for use in SketchUp
-
-* Category
-
-  Design
-* Used in
-
-  [Claude](https://claude.ai/directory/b982ecd1-ee51-45f0-99d9-9330a0dd8b0c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Trimble SketchUp](https://sketchup.trimble.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://help.sketchup.com/en/sketchup-claude-connector)[Privacy Policy](https://www.trimble.com/en/our-commitment/responsible-business/data-privacy-and-security/data-privacy-center/privacy-notice)[Support](https://sketchup.trimble.com/en/help)
+More[Documentation (opens in new tab)](https://help.sketchup.com/en/sketchup-claude-connector)[Support (opens in new tab)](https://sketchup.trimble.com/en/help)[Privacy policy (opens in new tab)](https://www.trimble.com/en/our-commitment/responsible-business/data-privacy-and-security/data-privacy-center/privacy-notice)
 
 The SketchUp connector for Claude turns a conversation into a 3D model. Describe what you want to build — a room addition, a piece of furniture, a site concept — and Claude will generate models for you to open, refine, and share. No modeling experience required to get started.
 
 Upon setting up the connector, ask Claude to create a SketchUp model from text prompts, images, or other inputs. Preview models in Claude or open them in SketchUp to evaluate, iterate, or manually modify. Iterate with Claude and SketchUp to refine model versions as desired.
 
-You can use Trimble SketchUp to:
+## Tools
 
-**Model from a description:**
-"Build a SketchUp model of a 12x16 ft backyard shed with a gable roof and double doors."
+* build\_model
+* get\_docs
+* save\_model
 
-**Iterate on a design:**
-"Take that shed model and add two windows on the long wall, then save the new version."
-
-**Prototype furniture:**
-"Create a simple mid-century coffee table in SketchUp — 48 in wide, 18 in tall, walnut top."
-
-**Learn the API:**
-"Show me the SketchUp Ruby API docs for drawing a face from an array of points."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Design
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Claude
+### [Canva](https://claude.com/connectors/canva)
 
-May 7, 2026
+Search, create, autofill, and export Canva designs
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-### Adobe for creativity
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Productivity
+Trending
 
-Design
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=figma.com&sz=96)
 
-May 1, 2026
+### [Figma](https://claude.com/connectors/figma)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
+Generate diagrams and better code from Figma context
 
-### Autodesk Product Help
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
-Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Design
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude
+Trending
 
-Claude Code
+An AI Concierge that turns forms into conversations
 
-Skills
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
+### [Adobe for creativity](https://claude.com/connectors/adobe-creativity)
 
-### Canva
+Ideate, create, and deliver with Adobe pro tools
 
-Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
+[Add Adobe for creativity in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
-Design
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Productivity
+### [monday.com](https://claude.com/connectors/monday)
 
-Claude
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-Claude Code
-
-May 28, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154ac9a3dd67012fe91a0a_descript.svg)
-
-### Descript
-
-Import, edit, or create video with prompts](https://claude.com/connectors/descript)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")

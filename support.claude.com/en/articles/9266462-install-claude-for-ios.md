@@ -10,7 +10,7 @@ If you’re unable to locate Claude for iOS in your App Store, you may be locate
 
 ## What versions of iOS are supported?
 
-We currently support iOS version 17.0 and above.
+We currently support iOS version 18.0 and above, and iPadOS 18.0 and above.
 
 ## How do I uninstall the Claude for iOS app?
 
@@ -21,5 +21,5 @@ Note that if you have an active paid Claude subscription and would like to unins
 * [Cancel your Pro or Max subscription](https://support.claude.com/en/articles/8325617-cancel-your-pro-or-max-subscription)
 * [Delete your Claude account](https://support.claude.com/en/articles/9028421-delete-your-claude-account)
 * [Install Claude for Android](https://support.claude.com/en/articles/9612887-install-claude-for-android)
-* [Request a refund for a paid Claude plan](https://support.claude.com/en/articles/12386328-request-a-refund-for-a-paid-claude-plan)
+* [Use Claude with iOS apps](https://support.claude.com/en/articles/11869619-use-claude-with-ios-apps)
 * [Log in to your Claude account](https://support.claude.com/en/articles/13189465-log-in-to-your-claude-account)

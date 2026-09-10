@@ -28,6 +28,8 @@ Try it now
 
 [Try it now](https://claude.ai/)Try it now
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/solutions/claude-for-legal-thumbnail.webm)
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a276efd30d797636373e936_logo_crosby-legal-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a276f22ffe36ff8dedff1ca_logo_crosby-legal-dark.svg)
@@ -132,6 +134,8 @@ How Anthropic uses Claude
 in legal
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fa5033ba9fc3dc86611fa1_how-anthropic-uses-claude-in-legal.webp)
+
+[Play video](#)Play video
 
 Mark Pike, Associate General Counsel, shares how Anthropic's legal team uses Claude to build workflows that cut review times from days to hours—no coding required.
 
@@ -459,7 +463,7 @@ Integrate Claude directly into your CLM, matter management, or e-discovery syste
 
 Learn more
 
-[Learn more](https://claude.com/platform/api-v2)Learn more
+[Learn more](https://claude.com/platform/api)Learn more
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6998e8defaa12a843a37084c_docusign.jpeg)
 
@@ -485,7 +489,7 @@ Matter management, research platforms, contract tools, and data rooms: finally a
 
 Explore connectors
 
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/archive/connectors)Explore connectors
 
 ## Legal resources
 

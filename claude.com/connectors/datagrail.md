@@ -1,99 +1,92 @@
 <!-- source: https://claude.com/connectors/datagrail -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69adf67bcfc53553c4187dfd_datagrail.svg)
+[Skip to main content](#main-content)
 
-# DataGrail
-
-Secure, production-ready AI orchestration for privacy
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/0478ee53-a253-4655-98ee-affd0f9cf9a6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [DataGrail, Inc.](https://datagrail.io/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.datagrail.io/docs/vera/vera-mcp/introduction-and-use)[Privacy Policy](https://www.datagrail.io/privacy-policy/)[Support](mailto:support@datagrail.io)
+More[Documentation (opens in new tab)](https://docs.datagrail.io/docs/vera/vera-mcp/introduction-and-use)[Support (opens in new tab)](mailto:support@datagrail.io)[Privacy policy (opens in new tab)](https://www.datagrail.io/privacy-policy/)
 
 Automate privacy operations tasks—such as data subject reporting, syncing ticket status information into other project tools, etc—using agentic workflows within Claude, transforming privacy into a connected, high-impact operational system. Built on a "No-Compromise" architecture, it ensures single-tenant isolation, human-governed actions, and zero training on customer data.
 
-You can use DataGrail to:
+## Tools
 
-**Project Management Integration:**
-"Check the status of privacy tickets in DataGrail and update the corresponding tickets within my project management tool with the latest progress."
+* fetch\_configured\_integration\_catalog
+* fetch\_integration\_catalog
+* fetch\_integration\_errors
+* fetch\_cookies
+* fetch\_tags
+* get\_banner\_status
+* get\_consent\_privacy\_policies
+* get\_consent\_updates
+* get\_privacy\_request\_center
+* get\_request\_policies
+* search\_tickets
+* search\_opt\_outs
+* search\_assessment\_templates
+* search\_assessments
+* search\_inventory
+* search\_risks
+* get\_ticket\_activity\_log
+* submit\_product\_feedback
+* fetch\_privacy\_request\_integration\_stats
+* fetch\_available\_integrations
+* fetch\_my\_integrations
+* search\_processing\_activities
+* get\_assessment\_context
+* add\_system
 
-**Analytics and Reporting:**
-"Analyze the last quarter's privacy ticket analytics and push a summary report to the reporting dashboard."
+Show all 51 tools
 
-**System Management:**
-"Create a new system entry for 'Acme Corp' based on the recently signed contract and pre-fill any system metadata within my data map."
-
-**Data Operations:**
-"Search for all open privacy requests related to a specific customer and generate a compliance status report."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

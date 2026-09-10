@@ -1,94 +1,69 @@
 <!-- source: https://claude.com/connectors/alma -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
+[Skip to main content](#main-content)
 
-# Alma
+Connector URL`https://mcp.alma.food/`
 
-Your nutrition data, inside every Claude conversation.
-
-* Category
-
-  Health and wellness
-* Used in
-
-  [Claude](https://claude.ai/directory/d7df1c09-82a2-4ce9-9442-a9f0e58f9a36)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Alma](https://alma.food)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://alma.food/mcp)[Privacy Policy](https://www.alma.food/privacy-and-terms)[Support](mailto:mango@alma.food)
+More[Documentation (opens in new tab)](https://alma.food/mcp)[Support (opens in new tab)](mailto:mango@alma.food)[Privacy policy (opens in new tab)](https://www.alma.food/privacy-and-terms)
 
 Alma is an AI nutrition coach that tracks what you eat, monitors 25+ micronutrients per meal, and scores your diet quality in real time using Harvard's Alternate Healthy Eating Index. Connect Alma to Claude and your full nutrition context comes with you: meals logged, nutrient gaps, Alma Score trends, and coaching history. Ask Claude questions about your actual diet, get personalized guidance, and close nutritional gaps faster. Built for anyone serious about eating better, from everyday health optimizers to GLP-1 patients and performance athletes.
 
-You can use Alma to:
+## Tools
 
-**Review your nutrition:**
-"What does my Alma Score look like this week?"
+* get\_user\_profile
+* get\_meal\_data
+* get\_alma\_score\_data
+* get\_goals
+* get\_weight\_history
 
-**Spot gaps:**
-"Which micronutrients am I consistently low on?"
-
-**Get personalized guidance:**
-"Suggest dinners that close my fiber gap"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Health and wellness
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-May 1, 2026
+Analyze, summarize, and explore your Strava data
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-### AllTrails
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-Find your next hike](https://claude.com/connectors/alltrails)
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Life sciences and healthcare
+Search biomedical literature from PubMed
 
-Health and wellness
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-Claude Code
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-May 20, 2026
+Access US National Provider Identifier (NPI) Registry
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e9e884bd175dbadbf06_cms.jpg)
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-### CMS Coverage
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-Health and wellness
+Access ICD-10-CM and ICD-10-PCS code sets
 
-Claude
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-February 24, 2026
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-### Function (beta)
+Find your next hike
 
-View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Health and wellness
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-Claude
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-January 26, 2026
+Access the CMS Coverage Database
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e7cb91804401037ccb4_healthEx.jpg)
-
-### HealthEx (beta)
-
-Connect your health records for personalized insights](https://claude.com/connectors/healthex)
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")

@@ -323,7 +323,7 @@ Claude works with QuickBooks, PayPal, Hubspot, Docusign, and the rest of your st
 
 Explore connectors
 
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/archive/connectors)Explore connectors
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fe0a1430f205fd827a739b_img_smb-connectores.webp)
 

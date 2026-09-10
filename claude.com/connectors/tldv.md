@@ -1,103 +1,69 @@
 <!-- source: https://claude.com/connectors/tldv -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154eb4d75d065fa8a6ab79_tl%3Bdv_logo%20-%20Allan%20Bettarel%20(1).svg)
+[Skip to main content](#main-content)
 
-# tldv
+Connector URL`https://mcp.tldv.io/mcp`
 
-Fetch Transcripts & Notes from Meet, Zoom & Teams
-
-* Category
-
-  Productivity
-
-  Communication
-* Used in
-
-  [Claude](https://claude.ai/directory/fe54565b-5acb-45b3-b27e-4f7d9752a257)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [tldx solutions GmbH](https://tldv.io)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://tldv.notion.site/tl-dv-MCP-Official-Documentation-330cce15f3ba80638f5ac0253e3b8fd4?source=copy_link)[Privacy Policy](https://tldv.io/privacy)[Support](mailto:support@tldv.io)
+More[Documentation (opens in new tab)](https://tldv.notion.site/tl-dv-MCP-Official-Documentation-330cce15f3ba80638f5ac0253e3b8fd4?source=copy_link)[Support (opens in new tab)](mailto:support@tldv.io)[Privacy policy (opens in new tab)](https://tldv.io/privacy)
 
 Access Google Meet, Zoom & Teams meeting transcripts. Yours, and those from your team & company.
 
-You can use tldv to:
+## Tools
 
-**Pull a transcript:**
-"Get the transcript from yesterday's product sync."
+* get-meeting-metadata
+* get-meeting-notes
+* get-meeting-transcript
+* get-user-profile
+* search-meetings
 
-**Summarize a meeting:**
-"What were the action items from the Acme kickoff call?"
-
-**Search across meetings:**
-"Find every meeting this month where we discussed the pricing change."
-
-**Catch up:**
-"Give me the notes from the three calls I missed while I was out."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### Adobe Experience Manager
+### [Gmail](https://claude.com/connectors/gmail)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Draft replies, summarize threads, & search your inbox
 
-Productivity
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 9, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Productivity
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-June 22, 2026
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-### Agentic Presentations by SlidesGPT
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Productivity
+### [Notion](https://claude.com/connectors/notion)
 
-Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

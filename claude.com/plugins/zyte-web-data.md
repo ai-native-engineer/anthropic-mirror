@@ -7,11 +7,14 @@ Web scraping skills for Claude Code powered by the Zyte API — scrape sites, ge
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Zyte](https://www.zyte.com)
 * Installs
 
   182
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

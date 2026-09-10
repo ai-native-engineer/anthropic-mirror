@@ -1,101 +1,77 @@
 <!-- source: https://claude.com/connectors/google-drive -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a31e318eaad6802d0604536_Google%20Drive.jpg)
+[Skip to main content](#main-content)
 
-# Google Drive
+Connector URL`https://drivemcp.googleapis.com/mcp/v1`
 
-Search, read, and organize your Docs, Sheets, and Slides
+More[Documentation (opens in new tab)](https://developers.google.com/workspace/drive)[Support (opens in new tab)](https://developers.google.com/workspace/support)[Privacy policy (opens in new tab)](https://policies.google.com/privacy)
 
-* Category
+Connect Google Drive to Claude to search through your documents, read file contents, upload new files, and analyze your data. Claude can find specific documents even when you don't remember the exact name, read and analyze the content of Google Docs, Sheets, Slides, and PDFs, and upload files directly to your Drive. Useful for finding project notes, extracting data from spreadsheets, preparing meeting materials, or organizing files scattered across your Drive.
 
-  Productivity
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/settings/connectors)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* copy\_file
+* create\_file
+* download\_file\_content
+* get\_file\_metadata
+* get\_file\_permissions
+* list\_recent\_files
+* read\_file\_content
+* search\_files
+* share\_file
+* trash\_file
+* update\_file
 
-  [Google](https://google.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration)[Privacy Policy](https://policies.google.com/privacy)[Support](https://support.claude.com/en/articles/10166901-using-the-google-drive-integration)
-
-Connect your Google Drive to Claude to work across your Docs, Sheets, and Slides. Claude can read Google Docs directly, pull data from Google Sheets (exported as CSV), and extract content from Google Slides (exported as plain text). You can also search across your Drive to quickly find what you need — and keep it organized. Claude can share, move, and trash files, and asks for your approval by default before making any changes.
-
-You can use Google Drive to:
-
-**Summarize a document:** "Summarize the key points from my Q4 strategy doc"
-
-**Search across your Drive:** "Find the most recent doc about our product roadmap"
-
-**Extract insights from your documents:** "Find all of the action items assigned to me from all meeting notes this week"
-
-**Organize your files:** "Move last quarter's planning docs into the archive folder"
-
-**Share with your team:** "Share the launch brief with the marketing team"
-
-The Google Drive connector does not support adding comments, converting xlsx to sheets, or converting pptx to slides.
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Claude Code
+Manage your schedule and coordinate meetings effortlessly
 
-April 29, 2026
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-### Adobe Experience Manager
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Access Jira & Confluence from Claude
 
-Productivity
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Claude Code
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-June 9, 2026
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Notion](https://claude.com/connectors/notion)
 
-Productivity
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-June 22, 2026
+### [Slack](https://claude.com/connectors/slack)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Send messages, create canvases, and fetch Slack data
 
-### Agentic Presentations by SlidesGPT
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Productivity
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude
+Trending
 
-Claude Code
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")

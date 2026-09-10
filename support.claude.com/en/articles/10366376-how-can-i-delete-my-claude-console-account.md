@@ -29,7 +29,7 @@ If you followed the steps above to delete your Console organization but want to 
 
 If you have an outstanding balance, you will see a message during the deletion flow that prompts you to pay the balance first by routing you to [Settings > Billing](https://platform.claude.com/settings/billing).
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1788913800&signature=a33131f27e41efc7a589d716ee5e2038a45784d88ce5e3b2366c0b1fe5b89cee&req=dSkgFcB7moZZX%2FMW1HO4zbYXUB9rXecTFZRyvJPpBZ%2ByahEyYAPiqAZ1fV7H%0AquQQsvAwQTubIurIETQ%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1788913800&signature=a33131f27e41efc7a589d716ee5e2038a45784d88ce5e3b2366c0b1fe5b89cee&req=dSkgFcB7moZZX%2FMW1HO4zbYXUB9rXecTFZRyvJPpBZ%2ByahEyYAPiqAZ1fV7H%0AquQQsvAwQTubIurIETQ%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1789000200&signature=90ddb6bb148b0ceaf6e151e0c10e6492ffb2601a9f4f211c1a4066b87736ae3f&req=dSkgFcB7moZZX%2FMW1HO4zbYXUB5iXOQZFZRyvJPpBZ%2BVdnkumQ58WUZkWhAW%0AupwvK0gHMzcKOcH83Cg%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1789000200&signature=90ddb6bb148b0ceaf6e151e0c10e6492ffb2601a9f4f211c1a4066b87736ae3f&req=dSkgFcB7moZZX%2FMW1HO4zbYXUB5iXOQZFZRyvJPpBZ%2BVdnkumQ58WUZkWhAW%0AupwvK0gHMzcKOcH83Cg%3D%0A)
 
 You must pay this outstanding balance before you’re able to move forward with the deletion process.
 
@@ -37,7 +37,7 @@ You must pay this outstanding balance before you’re able to move forward with 
 
 There are some scenarios where you will need to contact our team to delete your account. If this is the case, it will be noted when you try to delete your organization:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1788913800&signature=2a47bbd04010718106a417404a99580c4dbfe7b5c3fcd8ac4189fd47d8c9821d&req=dSkgFcB7moZZXPMW1HO4zRW12%2B3EeafxZxDZGlqR6GgbM1D%2BzG%2B2hP19EvDM%0ANHwcV68I39u8xhLeGGo%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1788913800&signature=2a47bbd04010718106a417404a99580c4dbfe7b5c3fcd8ac4189fd47d8c9821d&req=dSkgFcB7moZZXPMW1HO4zRW12%2B3EeafxZxDZGlqR6GgbM1D%2BzG%2B2hP19EvDM%0ANHwcV68I39u8xhLeGGo%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1789000200&signature=7698b81bf4b8c45e1f8b6adf7975c0f2d823f5ff9af1893229814d71f5ebf6b5&req=dSkgFcB7moZZXPMW1HO4zRW12%2BzNeKT7ZxDZGlqR6GjvXc%2FuCMRsWPx9jZDj%0Ag7LYAyt21xrz8k4NgGw%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1789000200&signature=7698b81bf4b8c45e1f8b6adf7975c0f2d823f5ff9af1893229814d71f5ebf6b5&req=dSkgFcB7moZZXPMW1HO4zRW12%2BzNeKT7ZxDZGlqR6GjvXc%2FuCMRsWPx9jZDj%0Ag7LYAyt21xrz8k4NgGw%3D%0A)
 
 If you are seeing this message, this indicates that your Console organization cannot be deleted via the self-service pathway.
 

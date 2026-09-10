@@ -7,11 +7,14 @@ Full Domino Data Lab platform support — workspaces, jobs, model deployment, ex
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Domino Data Lab](#)
 * Installs
 
   402
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -7,11 +7,14 @@ Answer 3 questions for personalized Coursera recommendations—courses, projects
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Coursera](https://www.coursera.org)
 * Installs
 
   292
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

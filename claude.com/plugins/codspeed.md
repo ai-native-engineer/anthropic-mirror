@@ -7,11 +7,14 @@ CodSpeed is the all-in-one performance testing toolkit. Dive into benchmarking r
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [CodSpeed](#)
 * Installs
 
   902
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

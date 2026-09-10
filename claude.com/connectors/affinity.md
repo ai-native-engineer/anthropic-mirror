@@ -1,124 +1,92 @@
 <!-- source: https://claude.com/connectors/affinity -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Skip to main content](#main-content)
 
-# Affinity
+Connector URL`https://mcp.affinity.co/mcp`
 
-Search, update, and prep deals without switching tabs.
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/5c0aab87-9f11-478f-b7ed-03774fa6169c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Affinity](https://www.affinity.co)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developer.affinity.co/pages/mcp/introduction)[Privacy Policy](https://www.affinity.co/legal/privacy-policy)[Support](mailto:support@affinity.co)
+More[Documentation (opens in new tab)](https://developer.affinity.co/pages/mcp/introduction)[Support (opens in new tab)](mailto:support@affinity.co)[Privacy policy (opens in new tab)](https://www.affinity.co/legal/privacy-policy)
 
 Bring your Affinity data into Claude to search contacts, companies, and deals; prep for meetings using your actual notes and interaction history; and update records as deals progress. Every email captured, every meeting logged, every relationship scored by your firm is now available directly in the conversation.
 
-You can use Affinity to:
+## Tools
 
-**Search your network:**
-"Which fintech companies have we met with this year?"
+* create\_list\_entry
+* create\_note
+* create\_reminder
+* get\_company\_info
+* get\_company\_list\_entries
+* get\_current\_user
+* get\_entities\_attached\_to\_note
+* get\_entity\_field\_values
+* get\_entity\_fields
+* get\_list\_entries
+* get\_list\_field\_dropdown\_options
+* get\_list\_fields
+* get\_list\_info
+* get\_lists
+* get\_meetings
+* get\_meetings\_for\_entity
+* get\_notes
+* get\_notes\_for\_entity
+* get\_person\_info
+* get\_person\_list\_entries
+* get\_relationship\_strengths
+* get\_reminders
+* get\_single\_list\_entry
+* get\_transcript\_fragments
 
-**Example Use Case 2:**
-"What do we have on John Smith?"
+Show all 31 tools
 
-**Example Use Case 3:**
-"What notes did I create last week?"
-
-**Example Use Case 4:**
-"Find healthcare companies in our network with more than 50 employees"
-
-**Prepare for meetings:**
-"Help me prepare for my meeting with Acme"
-
-**Example Use Case 6:**
-"Summarize the notes and interactions we have on Acme"
-
-**Example Use Case 7:**
-"What's the current status of deals in our pipeline?"
-
-**Example Use Case 8:**
-"Who has the strongest relationship with Acme’s CEO?"
-
-**Update records:**
-"Create a note attached to our open Acme opportunity"
-
-**Example Use Case 10:**
-"Add 'Healthcare' as an industry tag on Acme Corp"
-
-**Example Use Case 11:**
-"Add Acme to our Pipeline list"
-
-**Example Use Case 12:**
-"Update Acme's deal stage to Due Diligence"
-
-**Example Use Case 13:**
-"Set a reminder to follow up with Acme's CEO next Tuesday"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-February 11, 2026
+Trending
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-### Aiera
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Financial services
+### [Stripe](https://claude.com/connectors/stripe)
 
-Claude
+Payment processing and financial infrastructure tools
 
-Claude Code
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 26, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Airwallex
+Trusted Financial Data from Zacks Investment Research
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-April 8, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Aiwyn Tax
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-March 19, 2026
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6983d643ae1a792dcbdae54c_Bigdata.com.svg)
+Deterministic access to S&P Global data
 
-### Bigdata.com
-
-Access real-time financial data](https://claude.com/connectors/bigdata)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

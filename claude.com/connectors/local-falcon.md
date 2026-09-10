@@ -1,52 +1,94 @@
 <!-- source: https://claude.com/connectors/local-falcon -->
 
-![Local Falcon logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ae254459fe3a977afda9f1_local-falcon-mcp-logo.svg)
+[Skip to main content](#main-content)
 
-# Local Falcon
+Connector URL`https://mcp.localfalcon.com/`
 
-AI visibility and local search intelligence platform
-
-* Category
-
-  No items found.
-* Used in
-
-  [Claude](https://claude.ai/directory/30b72fda-c127-4a95-b7a3-f18476e0a06f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Local Falcon](https://www.localfalcon.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-
-  Interactive
-* More
-
-  [Documentation](https://github.com/local-falcon/mcp)[Privacy Policy](https://www.localfalcon.com/privacy-policy)[Support](https://github.com/local-falcon/mcp/issues)
+More[Documentation (opens in new tab)](https://github.com/local-falcon/mcp)[Support (opens in new tab)](https://github.com/local-falcon/mcp/issues)[Privacy policy (opens in new tab)](https://www.localfalcon.com/privacy-policy)
 
 Local Falcon gives Claude access to real-time local search data across Google Maps, Apple Maps, and AI search platforms. With 37 tools spanning geo-grid rank tracking, competitor intelligence, campaign management, Google Business Profile monitoring, and AI search visibility tracking, Claude becomes a full-service local search and AI visibility analyst.
 
-You can use Local Falcon to:
+## Tools
 
-**Local Search Rank Tracking:**
-"Show me my latest scan for Holbrook House in SF"
+* listLocalFalconScanReports
+* getLocalFalconReport
+* runLocalFalconScan
+* listLocalFalconCampaignReports
+* getLocalFalconCampaignReport
+* createLocalFalconCampaign
+* runLocalFalconCampaign
+* pauseLocalFalconCampaign
+* resumeLocalFalconCampaign
+* reactivateLocalFalconCampaign
+* listLocalFalconTrendReports
+* getLocalFalconTrendReport
+* listLocalFalconLocationReports
+* getLocalFalconLocationReport
+* listLocalFalconKeywordReports
+* getLocalFalconKeywordReport
+* getLocalFalconCompetitorReports
+* getLocalFalconCompetitorReport
+* listLocalFalconGuardReports
+* getLocalFalconGuardReport
+* addLocationsToFalconGuard
+* pauseFalconGuardProtection
+* resumeFalconGuardProtection
+* removeFalconGuardProtection
 
-**AI Search Visibility Analysis:**
-"How visible is my restaurant location in AI search results for 'healthy food options near me'?"
+Show all 37 tools
 
-**Competitive Intelligence:**
-"Compare my Google Maps rankings for Holbrook House against their top 3 competitors"
-
-**Google Business Profile Monitoring:**
-"Check if Holbrook House has had changes to their business hours this week"
-
-**Credit & Campaign Management:**
-"How many Local Falcon scan credits do I have left? Also, can you show me all scheduled scans?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-No items found.
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
+
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
+
+Trending
+
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
+
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
+
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
+
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
+
+Trending
+
+An AI Concierge that turns forms into conversations
+
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
+
+### [HubSpot](https://claude.com/connectors/hubspot)
+
+CRM context for every answer, insight, and action
+
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
+
+### [monday.com](https://claude.com/connectors/monday)
+
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
+
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
+
+### [Gamma](https://claude.com/connectors/gamma)
+
+Create presentations, docs, socials, and sites with AI
+
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
+
+### [Shopify](https://claude.com/connectors/shopify)
+
+Build, manage, and analyze your Shopify store
+
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

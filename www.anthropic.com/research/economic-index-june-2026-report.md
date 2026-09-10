@@ -212,7 +212,7 @@ Across all six dimensions, people with a higher share of automated sessions feel
 
 **Figure 3.6: *The share of people reporting positive expected impacts of AI on economic and intrinsic dimensions of job quality is higher among more automated Claude users****This figure shows coefficient estimates from linear regressions of an indicator for whether a person expected AI to have a positive effect on each of the six dimensions of job quality onto normalized AI automation share.*
 
-A natural question is why automated usage and sentiment move together. It’s possible that this relationship is explained by selection, that the people most enthusiastic about AI are also the most willing to hand over entire tasks to it. We can’t rule this out entirely, but these estimates don’t meaningfully change when we control for user tenure on [Claude.ai](http://claude.ai/redirect/website.v1.5bd0d307-823c-4cf1-a840-1c87f2743c12)—which we can think of as a proxy for enthusiasm, because it captures early versus later adopters.
+A natural question is why automated usage and sentiment move together. It’s possible that this relationship is explained by selection, that the people most enthusiastic about AI are also the most willing to hand over entire tasks to it. We can’t rule this out entirely, but these estimates don’t meaningfully change when we control for user tenure on [Claude.ai](http://claude.ai/redirect/website.v1.854766a1-d9f8-4724-9c96-ecbf4f014299)—which we can think of as a proxy for enthusiasm, because it captures early versus later adopters.
 
 Another possibility is that people who use AI in more automated ways experience more of its benefits today. Consistent with our [previous findings](https://www.anthropic.com/research/81k-economics), large majorities of people report productivity gains in speed, scope, and quality of their work (86%, 82%, and 69%, respectively), while 27% report gains through cost savings on services they would otherwise have to purchase.
 
@@ -313,6 +313,12 @@ Scott Booth, Keir Bradwell, Meredith Callan, Dexter Callender III, Boris Cherny,
 26. This contrasts with country GDP and experience, where lower GDP and experience correlate with higher task shares (as shown in Figure 3.4) *and* higher stated job loss probabilities.
 27. While this could be due to substitution between chat/Cowork and Claude Code, the pattern holds even when controlling for Claude Code session share. These patterns also survive controlling for occupation fixed effects.
 
+### An alignment assessment of recent cybersecurity incidents
+
+We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+
+[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+
 ### Formalizing Fermat's Last Theorem
 
 We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
@@ -324,9 +330,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
 
 [Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-
-### Enabling independent research on how people use Claude
-
-Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
-
-[Read more](https://www.anthropic.com/research/enabling-independent-research)

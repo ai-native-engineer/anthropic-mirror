@@ -7,11 +7,14 @@ Configure RevenueCat projects, apps, products, entitlements, and offerings direc
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [RevenueCat](https://github.com/RevenueCat)
 * Installs
 
   3381
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

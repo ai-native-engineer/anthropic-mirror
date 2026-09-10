@@ -119,7 +119,7 @@ Claude can work with your tools, databases, and applications—and give you more
 
 Explore connectors
 
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/archive/connectors)Explore connectors
 
 ## Partner news
 

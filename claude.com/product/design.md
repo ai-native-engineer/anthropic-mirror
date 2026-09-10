@@ -22,6 +22,8 @@ Start designing
 
 [Start designing](http://claude.ai/login?returnTo=%2Fdesign)Start designing
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/design/claude-design-thumbnail.webm)
 
 ## Frontier intelligence for every type of design work

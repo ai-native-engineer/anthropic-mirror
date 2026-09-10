@@ -1,101 +1,75 @@
 <!-- source: https://claude.com/connectors/google-calendar -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699d19b00926e2026aaf79eb_google-calendar.png)
+[Skip to main content](#main-content)
 
-# Google Calendar
+Connector URL`https://calendarmcp.googleapis.com/mcp/v1`
 
-Schedule meetings based on availability, manage invites, and RSVP on your behalf
+More[Documentation (opens in new tab)](https://developers.google.com/workspace/calendar)[Support (opens in new tab)](https://developers.google.com/workspace/support)[Privacy policy (opens in new tab)](https://policies.google.com/privacy)
 
-* Category
+Connect Google Calendar to Claude to view your schedule, manage events, and coordinate meetings. Claude can search your calendar for events, check your availability, find free time slots, create and update events, respond to invitations, and help you prepare for meetings. Useful for understanding what's coming up, scheduling new meetings by finding mutual availability, managing your calendar by creating or updating events, coordinating schedules across multiple people, or preparing for meetings by reviewing attendee lists and details.
 
-  Productivity
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/settings/connectors)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* create\_event
+* delete\_event
+* get\_event
+* list\_calendars
+* list\_events
+* respond\_to\_event
+* search\_events
+* suggest\_time
+* update\_event
 
-  [Google](https://google.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://support.claude.com/en/articles/11088742-using-the-gmail-and-google-calendar-integrations)[Privacy Policy](https://policies.google.com/privacy)[Support](https://support.claude.com/en/articles/11088742-using-the-gmail-and-google-calendar-integrations)
-
-Connect Google Calendar to Claude to schedule meetings, manage invites, and stay on top of your commitments. Claude can check availability across you and your attendees to find the best time, then create calendar invites with options like Google Meet links and conference room booking. It can also update existing events, delete them with automatic cancellation notices, and RSVP to invitations on your behalf.
-
-You can use Google Calendar to:
-
-**Schedule based on availability:** "Find a time when Sarah, James, and I are all free this week and send a 30-minute invite with a Meet link"
-
-**Prepare for your day:** "What meetings do I have tomorrow and what should I prepare for each?"
-
-**Update existing invites:** "Move my Friday 1:1 to Monday morning and add the large conference room"
-
-**RSVP on your behalf:** "Accept the team offsite invite and decline the conflicting vendor call"
-
-**Find open time in your schedule:** "When do I have a free 2-hour block this week for deep work?"
-
-**Book rooms and resources:** "Create a planning session for Thursday at 3 PM and book a conference room"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-### Adobe Experience Manager
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Access Jira & Confluence from Claude
 
-Productivity
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Claude Code
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-June 9, 2026
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Notion](https://claude.com/connectors/notion)
 
-Productivity
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-June 22, 2026
+### [Slack](https://claude.com/connectors/slack)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Send messages, create canvases, and fetch Slack data
 
-### Agentic Presentations by SlidesGPT
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Productivity
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude
+Trending
 
-Claude Code
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")

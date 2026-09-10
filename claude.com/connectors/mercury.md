@@ -1,95 +1,71 @@
 <!-- source: https://claude.com/connectors/mercury -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69725f86a86e37636164b38e_mercury-bordered.svg)
+[Skip to main content](#main-content)
 
-# Mercury
+Connector URL`https://mcp.mercury.com/mcp`
 
-Search, analyze and understand your finances on Mercury
+More[Documentation (opens in new tab)](https://docs.mercury.com/docs/connecting-mercury-mcp)[Support (opens in new tab)](mailto:api@mercury.com)[Privacy policy (opens in new tab)](https://mercury.com/legal/privacy)
 
-* Category
+Check your balance, download statements, search/analyze/graph transactions, and understand Cards directly from Claude. Mercury brings your finances into your AI tools
 
-  Financial services
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/9c04294a-d69c-47e9-9fa6-6a0e780caf3a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* load\_account
+* load\_transaction
+* load\_recipient
+* load\_account\_statement
+* load\_accounts\_card
 
-  [Mercury](https://mercury.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://docs.mercury.com/docs/connecting-mercury-mcp)[Privacy Policy](https://mercury.com/legal/privacy)[Support](mailto:api@mercury.com)
-
-Check your balance, download statements, search, analyze, and graph transactions, and understand Cards directly from Claude. Mercury brings your finances into your AI tools.
-
-You can use Mercury to:
-
-**Balance Check:**"What's the current balance across all my Mercury accounts?"
-
-**Transaction Analysis:**"Show me all transactions over $5,000 from last month"
-
-**Statement Download:**"Download my account statement for Q4 2024"
-
-**Card Management:**"List all active cards on my account and their spending limits"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-Claude Code
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-April 8, 2026
+Deterministic access to S&P Global data
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

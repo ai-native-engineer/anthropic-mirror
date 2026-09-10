@@ -121,6 +121,17 @@ In [fullscreen rendering](/docs/en/fullscreen#use-the-mouse), the `/` command an
 
 See the [commands reference](/docs/en/commands) for the full list of commands included in Claude Code.
 
+### Complete a command mid-prompt
+
+Command completion also works partway through a prompt: type `/` after a space, then the first letters of a name, as in `run the tests, then /com`. Only commands whose names start with those letters match, so a file path such as `/tmp/notes.md` doesn't keep a list open. Claude Code runs a command itself only when the command [starts your message](/docs/en/commands).
+
+* **In [fullscreen rendering](/docs/en/fullscreen)**: the matches open as a list while you type, with no row highlighted, so `Enter` still sends your prompt as typed. Press `Tab` to insert the top match, or pick a row with the arrow keys and `Enter`.
+* **Outside fullscreen**: the rest of the top match appears as ghost text at your cursor, with a count such as `+2` when more commands match. Press `Tab` to insert the only match, or to open the list when several match, then pick a row with the arrow keys and `Enter`.
+
+In both renderers, press `Tab` on a bare mid-prompt `/` to list every command.
+
+A plugin skill matches on its bare name too, so `/deploy` finds a skill named `myplugin:deploy-app`. When you insert the match, Claude Code writes the full `/myplugin:deploy-app`.
+
 ## Vim editor mode
 
 Enable vim-style editing via `/config` → Editor mode.
@@ -293,7 +304,8 @@ To run commands in the background, you can either:
 * Background tasks are automatically cleaned up when Claude Code exits. On macOS and Linux, when you stop a background task from [`/tasks`](/docs/en/commands) or Claude Code stops it at exit, processes that detached from the task's shell, such as ones started under `setsid` or `timeout`, stop too
 * If you background the session instead of exiting it, your background tasks keep running in the background session. See [background a running session](/docs/en/agent-view#from-inside-a-session)
 * Background tasks are automatically terminated if output exceeds 5GB, with a note in stderr explaining why
-* On macOS and Linux, Claude Code terminates running background tasks when the operating system signals memory pressure, provided the session has been idle for at least 30 minutes and no turn or subagent is running. Set [`CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP`](/docs/en/env-vars) to `1` to turn this off. Requires Claude Code v2.1.193 or later. Background commands owned by a [subagent](/docs/en/sub-agents) are instead terminated after 60 minutes, configurable in milliseconds with [`CLAUDE_SUBAGENT_BG_SHELL_MAX_MS`](/docs/en/env-vars). A command owned by a subagent running in the foreground also ends when that subagent gives its final response; see [Background commands](/docs/en/tools-reference#background-commands) in the tools reference. Before v2.1.218, neither the memory-pressure reap nor the 60-minute limit covered commands moved to the background with `Ctrl+B`
+* On macOS and Linux, Claude Code terminates running background tasks when the operating system signals memory pressure, provided the session has been idle for at least 30 minutes and no turn or subagent is running. Set [`CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP`](/docs/en/env-vars) to `1` to turn this off. Requires Claude Code v2.1.193 or later
+* Background commands owned by a [subagent](/docs/en/sub-agents) have no time limit, except that a command owned by a subagent running in the foreground ends when that subagent gives its final response; see [Background commands](/docs/en/tools-reference#background-commands) in the tools reference. Before v2.1.218, neither the memory-pressure reap nor the former 60-minute limit on subagent commands covered commands moved to the background with `Ctrl+B`
 
 To disable all background task functionality, set the `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to `1`. See [Environment variables](/docs/en/env-vars) for details.
 
@@ -506,6 +518,8 @@ To find out which of these happened, start `claude --debug` with spell checking 
 
 Run `/diff` to look over the changes in your working tree without leaving Claude Code. You see the edits Claude has made so far alongside anything else you haven't committed.
 
+In the changes `/diff` reads from git, a submodule appears as a single entry, and only when the commit it points to changes; edits to files inside the submodule don't appear there.
+
 In [fullscreen rendering](/docs/en/fullscreen), `/diff` opens the [diff panel](#diff-panel) beside the conversation, which stays open and updates while you keep working. In the classic renderer, `/diff` opens the [diff viewer](#diff-viewer) in place of the prompt, and you close it when you're done reading.
 
 ### Diff panel
@@ -564,18 +578,20 @@ In the [VS Code extension](/docs/en/vs-code#use-the-prompt-box)'s chat panel, `/
 
 Your five newest earlier side questions appear as a dimmed list above the current answer, with a count of any older ones. They stay out of the conversation history.
 
-To return to the overlay after dismissing it, run `/btw` with no question. The overlay reopens on your most recent exchange. Press `Left` to step back through earlier answers. Before v2.1.212, `/btw` without a question printed a usage message instead.
+To return to the overlay after dismissing it, run `/btw` with no question. The overlay reopens on your most recent exchange. Before v2.1.212, `/btw` without a question printed a usage message instead.
 
 Once the answer appears, the overlay accepts these keys.
 
-| Key                        | Action                                                                                                                                                                                                                                                                                                                                                      |
-| :------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Space`, `Enter`, `Escape` | Dismiss the answer and return to the prompt                                                                                                                                                                                                                                                                                                                 |
-| `Up` / `Down`              | Scroll the answer                                                                                                                                                                                                                                                                                                                                           |
-| `Left` / `Right`           | Step between this answer and your earlier `/btw` answers. `Left` moves to older answers and `Right` returns toward the current one. Requires Claude Code v2.1.187 or later                                                                                                                                                                                  |
-| `c`                        | Copy the answer to your clipboard as raw Markdown. Use this instead of mouse selection, which captures the hard-wrapped terminal rendering rather than the source text                                                                                                                                                                                      |
-| `f`                        | Start a [forked subagent](/docs/en/sub-agents#fork-the-current-conversation) that inherits the parent conversation plus this question and answer, so it can continue with full tool access. You stay in the current session and find the fork in the [panel below your prompt](/docs/en/sub-agents#observe-and-steer-running-forks). Available in local sessions only |
-| `x`                        | Clear the list of earlier `/btw` exchanges shown above the current answer                                                                                                                                                                                                                                                                                   |
+| Key                          | Action                                                                                                                                                                                                                                                                                                                                                                                            |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Space`, `Enter`, `Escape`   | Dismiss the answer and return to the prompt                                                                                                                                                                                                                                                                                                                                                       |
+| `Up` / `Down`                | Scroll the answer                                                                                                                                                                                                                                                                                                                                                                                 |
+| `Shift+Left` / `Shift+Right` | Step between this answer and your earlier `/btw` answers. `Shift+Left` moves to older answers and `Shift+Right` returns toward the current one. `[` and `]` do the same, for terminals that don't report `Shift` with arrow keys. `Tab` / `Shift+Tab` cycle through the same answers. Requires Claude Code v2.1.257 or later. Between v2.1.187 and v2.1.256, the keys were plain `Left` / `Right` |
+| `c`                          | Copy the answer to your clipboard as raw Markdown. Use this instead of mouse selection, which captures the hard-wrapped terminal rendering rather than the source text                                                                                                                                                                                                                            |
+| `f`                          | Start a [forked subagent](/docs/en/sub-agents#fork-the-current-conversation) that inherits the parent conversation plus this question and answer, so it can continue with full tool access. You stay in the current session and find the fork in the [panel below your prompt](/docs/en/sub-agents#observe-and-steer-running-forks). Available in local sessions only                                       |
+| `x`                          | Clear the list of earlier `/btw` exchanges shown above the current answer                                                                                                                                                                                                                                                                                                                         |
+
+In an attached [background session](/docs/en/agent-view#attach-to-a-session), `Left` detaches and returns you to agent view, even while the answer is still arriving. The side question keeps running while you're away. The next time you attach to the session, the overlay reopens with the side question, or with its answer. Before v2.1.257, `Left` didn't detach there.
 
 `/btw` sees your full conversation but has no tools. A [subagent](/docs/en/sub-agents) has tools and starts from the prompt it receives, or, for a [fork](/docs/en/sub-agents#fork-the-current-conversation), from a copy of this conversation. Use `/btw` to ask about what Claude already knows from this session; use a subagent to go find out something new.
 
@@ -688,7 +704,7 @@ When you work on a branch with an open GitLab merge request, Claude Code shows a
 
 The badge disappears once the merge request merges or closes.
 
-It refreshes as soon as a `glab mr create` or `git push` succeeds in the session.
+It refreshes as soon as a `git push`, or a `glab mr` command that changes the merge request, such as `glab mr create` or `glab mr merge`, succeeds in the session.
 
 To get the badge, you need:
 
@@ -697,6 +713,24 @@ To get the badge, you need:
 * The [`glab` CLI](https://gitlab.com/gitlab-org/cli) on your `PATH`, authenticated with `glab auth login`
 
 Claude Code ignores `glab`'s token environment variables, such as `GITLAB_TOKEN`, when it checks status, so you get no badge from an exported token alone. Claude Code also looks for `glab` and for its login once per session, so restart Claude Code after you install `glab` or run `glab auth login`.
+
+## Issue reference links
+
+When Claude mentions an issue as `owner/repo#123`, you can click the reference to open it, as long as your terminal supports hyperlinks. If Claude Code doesn't detect hyperlink support in your terminal, set [`FORCE_HYPERLINK`](/docs/en/env-vars) to `1` to turn the links on, or to `0` to keep references as plain text.
+
+You get a link only for the two-part `owner/repo#123` form. These stay plain text:
+
+* A bare `#123`
+* A nested GitLab path such as `group/subgroup/project#123`
+* Any reference inside a code span or code block
+
+Claude Code builds the link for the host of the repository it identifies from your git remote, not for the repository the reference names:
+
+| Your repository's host                                             | Where `owner/repo#123` links                 |
+| :----------------------------------------------------------------- | :------------------------------------------- |
+| github.com, a GitHub Enterprise host, or any host not listed below | `https://<host>/owner/repo/issues/123`       |
+| gitlab.com                                                         | `https://gitlab.com/owner/repo/-/issues/123` |
+| bitbucket.org, codeberg.org, or gitea.com                          | No link; the reference stays plain text      |
 
 ## See also
 

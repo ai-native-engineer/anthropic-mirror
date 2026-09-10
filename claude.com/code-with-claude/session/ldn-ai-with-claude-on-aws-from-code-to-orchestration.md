@@ -32,6 +32,8 @@ AWS
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d358229b0390cf34a728_ai-with-claude-on-aws.webp)
 
 Anthropic's developer conference, recorded

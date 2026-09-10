@@ -1,96 +1,69 @@
 <!-- source: https://claude.com/connectors/square -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac122efac2533660b7814_Square%20MCP.jpg)
+[Skip to main content](#main-content)
 
-# Square
+Connector URL`https://mcp.squareup.com/mcp`
 
-Search and manage transaction, merchant, and payment data
+More[Documentation (opens in new tab)](https://developer.squareup.com/docs/mcp)[Support (opens in new tab)](https://developer.squareup.com/docs)[Privacy policy (opens in new tab)](https://squareup.com/us/en/legal/general/privacy)
 
-* Category
+Access Square’s commerce platform to view transaction data, manage customer profiles, track inventory, process payments, and analyze sales patterns. Handle point-of-sale operations, generate financial reports, and manage business operations through Claude’s natural language interface for streamlined commerce management.
 
-  Financial services
-* Used in
+## Tools
 
-  [Claude](http://claude.ai/directory/25d61b20-3ba1-4477-b51a-a743d1ca65fb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* get\_service\_info
+* get\_type\_info
+* make\_api\_request
 
-  [Square, Inc.](https://squareup.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developer.squareup.com/docs/mcp)[Privacy Policy](https://squareup.com/us/en/legal/general/privacy)[Support](https://developer.squareup.com/docs)
-
-Access Square's commerce platform to view transaction data, manage customer profiles, track inventory, process payments, and analyze sales patterns. Handle point-of-sale operations, generate financial reports, and manage business operations through Claude's natural language interface for streamlined commerce management.
-
-You can use the Square connector to:
-
-Create invoices:
-"Create an invoice charging Jane Smith ([jane@example.com](mailto:jane@example.com)) for 2 hours at $250/hr for 'Consulting on the Square MCP Server'"
-
-Update business hours:
-"Update my business hours to be 9am - 5pm Monday through Friday, 10am - 2pm on Saturday, and closed on Sunday"
-
-Analyze sales data:
-"Tell me what my top 3 most sold items from the last month according to my orders"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-Claude Code
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-April 8, 2026
+Deterministic access to S&P Global data
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

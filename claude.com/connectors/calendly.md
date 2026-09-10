@@ -1,101 +1,90 @@
 <!-- source: https://claude.com/connectors/calendly -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dc1b77e3eebdf74787e9_icon_Calendly.jpg)
+[Skip to main content](#main-content)
 
-# Calendly
+Connector URL`https://mcp.calendly.com/`
 
-Manage event types, availability, and bookings.
-
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/d778b2f9-25f4-42a2-87ab-dbaa896deb1b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Calendly](https://calendly.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://help.calendly.com/hc/en-us/articles/36734570264855-Connect-Calendly-to-your-AI-tools-with-Calendly-MCP)[Privacy Policy](https://calendly.com/legal/privacy-notice)[Support](mailto:support+developer@calendly.com)
+More[Documentation (opens in new tab)](https://developer.calendly.com/calendly-mcp-server)[Support (opens in new tab)](mailto:support+developer@calendly.com)[Privacy policy (opens in new tab)](https://calendly.com/legal/privacy-notice)
 
 Schedule smarter with Calendly in Claude. Manage your entire scheduling workflow through simple conversation — create and update event types, share scheduling links, adjust availability, book meetings, and more, without ever leaving Claude.
 
-You can use Calendly to:
+## Tools
 
-**Create a scheduled event:**
-"Book a 30 min coaching session with User A (user@email.com) for this Thursday at 2 PM."
+* users-get\_current\_user
+* users-get\_user
+* event\_types-create\_event\_type
+* event\_types-update\_event\_type
+* event\_types-list\_event\_types
+* event\_types-get\_event\_type
+* event\_types-list\_event\_type\_available\_times
+* event\_types-list\_event\_type\_availability\_schedules
+* event\_types-update\_event\_type\_availability\_schedule
+* locations-list\_user\_meeting\_locations
+* meetings-list\_events
+* meetings-get\_event
+* meetings-cancel\_event
+* meetings-create\_invitee
+* meetings-list\_event\_invitees
+* meetings-get\_event\_invitee
+* scheduling\_links-create\_single\_use\_scheduling\_link
+* availability-list\_user\_availability\_schedules
+* availability-get\_user\_availability\_schedule
+* availability-list\_user\_busy\_times
+* meetings-create\_invitee\_no\_show
+* meetings-get\_invitee\_no\_show
+* meetings-delete\_invitee\_no\_show
+* organizations-get\_organization
 
-**Find available time slots:**
-"Find open slots next week for my 30 min coaching session."
+Show all 36 tools
 
-**Update availability:**
-"Remove Fridays as available days for scheduling 30 min coaching sessions."
-
-**Generate scheduling links:**
-"Generate a one-time scheduling link for my 30 min coaching session."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Experience Manager
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Manage your schedule and coordinate meetings effortlessly
 
-Productivity
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 9, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Productivity
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-June 22, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### Agentic Presentations by SlidesGPT
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

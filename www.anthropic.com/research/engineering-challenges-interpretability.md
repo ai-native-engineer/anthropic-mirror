@@ -64,6 +64,12 @@ If you’re an engineer who fits this bill, and who is passionate about AI safet
 4. **What kinds of backgrounds do people on the Interpretability team have?** People have come to the Interpretability team from a wide range of professional backgrounds, including neuroscience, mathematics, biology, physics, data visualization, and software engineering.
 5. **Are you open to candidates outside of the Bay Area?** The team currently has members in San Francisco, Boston, New York, Seattle, and London. The largest concentration is in San Francisco, and those members come into the office several days a week. We are open to remote working, with a requirement to visit an Anthropic office about 25% of the year. See our [Careers page](https://www.anthropic.com/careers) for more information about all our open positions.
 
+### An alignment assessment of recent cybersecurity incidents
+
+We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+
+[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+
 ### Formalizing Fermat's Last Theorem
 
 We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
@@ -75,9 +81,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
 
 [Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-
-### Enabling independent research on how people use Claude
-
-Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
-
-[Read more](https://www.anthropic.com/research/enabling-independent-research)

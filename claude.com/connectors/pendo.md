@@ -1,105 +1,73 @@
 <!-- source: https://claude.com/connectors/pendo -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6940b23f3f26a47b390c0c99_pendo-1%20(1).svg)
+[Skip to main content](#main-content)
 
-# Pendo
+More[Documentation (opens in new tab)](https://support.pendo.io/hc/en-us/articles/41102236924955)[Support (opens in new tab)](https://support.pendo.io/hc/en-us)[Privacy policy (opens in new tab)](https://www.pendo.io/legal/privacy-policy/)
 
-Connect to Pendo for product and user insights
+The Pendo connector for product analytics and behavioral data to AI environments. Access visitor and account metadata, query user behavior, and analyze pages, features, and events. Supports real-time product data integration for tasks like customer call preparation, adoption analysis, churn investigation, and support ticket enrichment.
 
-* Category
+## Tools
 
-  Data
-* Used in
+* accountMetadataSchema
+* accountQuery
+* activityQuery
+* guideMetrics
+* list\_all\_applications
+* pes
+* searchEntities
+* segmentList
+* sessionReplayList
+* visitorMetadataSchema
+* visitorQuery
 
-  [Claude](https://claude.ai/directory/2a884a14-5f1e-4742-8ee0-7ebe9cb69ac7)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Pendo](https://www.pendo.io/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://support.pendo.io/hc/en-us/articles/41102236924955)[Privacy Policy](https://www.pendo.io/legal/privacy-policy/)[Support](https://support.pendo.io/hc/en-us)
-
-The Pendo connector brings product analytics and behavioral data to AI environments. Access visitor and account metadata, query user behavior, and analyze pages, features, and events. Supports real-time product data integration for tasks like customer call preparation, adoption analysis, churn investigation, and support ticket enrichment.
-
-You can use the Pendo connector to:
-
-Analyze page activity:
-"Show me the most active Pages in our app over the last 30 days"
-
-Review segment engagement:
-"What are the engagement metrics for accounts in the Enterprise segment?"
-
-Track feature adoption:
-"Analyze feature adoption for Feature X since launch and identify any drop-offs"
-
-Query visitor behavior:
-"Find all visitors who completed onboarding in the last week"
-
-Review session replays:
-"Show me session replays for users who encountered errors yesterday"
-
-Check product engagement scores:
-"What's the overall product engagement score for our Enterprise customers?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Customer Journey Analytics
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Manage your schedule and coordinate meetings effortlessly
 
-Data
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-May 11, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Airtable
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Data
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-June 22, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### alphaXiv
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Data
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 3, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
-
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

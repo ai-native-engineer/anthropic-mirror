@@ -32,6 +32,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d28716b092b8109aaf63_build-a-production-ready-agent.webp)
 
 Anthropic's developer conference, recorded

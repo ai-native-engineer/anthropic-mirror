@@ -7,11 +7,14 @@ Deploy and manage apps, databases, and infrastructure on Railway. Covers project
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Railway](https://railway.com)
 * Installs
 
   6884
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

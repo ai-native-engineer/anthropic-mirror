@@ -8,9 +8,12 @@ Unlock S&P Global's financial intelligence inside your agentic workflows
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/financial-services-plugins&plugin=sp-global)
+* Made by
 
   [Kensho Technologies](https://kensho.com/)
 * Installs
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -1,107 +1,92 @@
 <!-- source: https://claude.com/connectors/mailerlite -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a666eeaf51ef9283ed2fd8_mailerlite.jpeg)
+[Skip to main content](#main-content)
 
-# MailerLite
+Connector URL`https://mcp.mailerlite.com/mcp`
 
-Turn Claude into your email marketing assistant
-
-* Category
-
-  Communication
-* Used in
-
-  [Claude](https://claude.ai/directory/5807a545-cd93-4e71-bb21-f3727bf34df1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [MailerLite](https://www.mailerlite.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developers.mailerlite.com/mcp/#how-mcp-works)[Privacy Policy](https://www.mailerlite.com/legal/privacy-policy)[Support](https://www.mailerlite.com/support)
+More[Documentation (opens in new tab)](https://developers.mailerlite.com/mcp/#how-mcp-works)[Support (opens in new tab)](https://www.mailerlite.com/support)[Privacy policy (opens in new tab)](https://www.mailerlite.com/legal/privacy-policy)
 
 Connect Claude with MailerLite to create your very own email assistant. Use it to build email, analyze campaign performance, manage subscribers, and more, all with natural language prompts.
 
-You can use MailerLite to:
+## Tools
 
-**Campaign Analysis:**
-"Please analyze my past campaigns to see what resonates most with my subscribers. Then, make suggestions for future campaign ideas."
+* add\_subscriber
+* get\_subscriber
+* update\_subscriber
+* list\_subscribers
+* get\_subscriber\_activity
+* get\_subscriber\_count
+* delete\_subscriber
+* forget\_subscriber
+* get\_single\_import
+* create\_campaign
+* get\_campaign
+* list\_campaigns
+* update\_campaign
+* delete\_campaign
+* schedule\_campaign
+* cancel\_campaign
+* get\_campaign\_subscribers
+* list\_groups
+* create\_group
+* update\_group
+* delete\_group
+* get\_group\_subscribers
+* assign\_subscriber\_to\_group
+* unassign\_subscriber\_from\_group
 
-**Automation Optimization:**
-"Please analyze my welcome emails automation. Tell me which email has the highest drop-off and any other issues you spot."
+Show all 45 tools
 
-**Performance Comparison:**
-"Please analyze my most recent campaign, tell me how the performance compares to other emails, and make suggestions to improve next time."
-
-**Subscriber Management:**
-"Show me my most engaged subscribers and help me create a targeted campaign for them."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-Communication
+### [Gmail](https://claude.com/connectors/gmail)
 
-Claude
+Draft replies, summarize threads, & search your inbox
 
-Claude Code
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Asana
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Communication
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 21, 2026
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-### Circleback
+### [Asana](https://claude.com/connectors/asana)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Connect to Asana to coordinate tasks, projects, and goals
 
-Productivity
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-Communication
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Code
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude
+Trending
 
-May 1, 2026
+An AI Concierge that turns forms into conversations
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-### Computer by DevRev
+![](https://www.google.com/s2/favicons?domain=intercom.com&sz=96)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+### [Intercom](https://claude.com/connectors/intercom)
 
-Productivity
+Access to Intercom data for better customer insights
 
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")

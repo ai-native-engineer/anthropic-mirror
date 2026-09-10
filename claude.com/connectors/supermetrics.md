@@ -1,100 +1,78 @@
 <!-- source: https://claude.com/connectors/supermetrics -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698ce8b30c74f4d90c0fe1d5_supermetrics.svg)
+[Skip to main content](#main-content)
 
-# Supermetrics
+Connector URL`https://mcp.supermetrics.com/mcp`
 
-Google Ads, Facebook Ads, Google Analytics, TikTok & 200+ marketing data sources
+More[Documentation (opens in new tab)](https://mcp.supermetrics.com/docs)[Support (opens in new tab)](https://support.supermetrics.com)[Privacy policy (opens in new tab)](https://supermetrics.com/privacy-policy)
 
-* Category
+Query data, analyze performance & manage ad campaigns across 200+ platforms — no account needed. Share Claude-generated live dashboards. Supports Google Ads, Google My Business, Google Merchant Center, YouTube, Pinterest, Snapchat, Amazon, Microsoft Advertising, Twitter, Klaviyo, HubSpot, Salesforce. Covers advertising, analytics, CRM, ecommerce, email marketing & social media
 
-  Sales and marketing
+## Tools
 
-  Data
-* Used in
+* data\_source\_discovery
+* accounts\_discovery
+* field\_discovery
+* data\_query
+* get\_async\_query\_results
+* get\_today
+* contact\_supermetrics
+* manage\_user\_and\_team
+* campaign\_and\_resource\_get
+* campaign\_create
+* campaign\_update
+* resources\_manage
+* manage\_dashboards
+* supermetrics\_guide
 
-  [Claude](https://claude.ai/directory/cc599e7b-8c59-4e89-9bf0-36d47bb9ec80)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Supermetrics](https://supermetrics.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://mcp.supermetrics.com/docs)[Privacy Policy](https://supermetrics.com/privacy-policy)[Support](https://support.supermetrics.com)
-
-Supermetrics gives Claude direct access to your marketing, advertising, analytics, sales, CRM and ecommerce data across 200+ platforms — including Google Ads, Facebook Ads (Meta), Google Analytics, TikTok, LinkedIn, Microsoft Advertising (Bing Ads), Instagram, Shopify, HubSpot, Pinterest, Snapchat, X Ads (Twitter), Display Video 360 (DV360), Google Search Console and Google My Business.
-
-Ask questions, build reports, and create or update ad campaigns directly from Claude. No Supermetrics account needed.
-
-You can use Supermetrics to:
-
-**Summarize marketing performance:**
-"Summarize last week's performance across Google Ads, Meta, and LinkedIn: spend, revenue, ROAS, CPA, and top 5 campaigns."
-
-**Anomaly detection:**
-"Looking at last week's campaign performance, highlight any anomalies and explain likely causes"
-
-**Ad improvements:**
-"Based on campaign performance data, suggest optimizations (budget shifts, audiences, creatives) and explain why"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### ActiveCampaign
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Manage your schedule and coordinate meetings effortlessly
 
-Sales and marketing
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 2, 2026
+Access Jira & Confluence from Claude
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Data
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-June 4, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### Adobe Customer Journey Analytics
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Sales and marketing
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-May 26, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Journey Optimizer
-
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

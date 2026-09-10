@@ -1,95 +1,73 @@
 <!-- source: https://claude.com/connectors/windsor-ai -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697034e4879b35571408299c_windsor_160px.png)
+[Skip to main content](#main-content)
 
-# Windsor.ai
+Connector URL`https://mcp.windsor.ai/`
 
-Connect Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads + 320 more
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/360c0c31-4bb6-42ca-8e50-5da0a100a68e)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Windsor.ai](https://windsor.ai/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://windsor.ai/introducing-windsor-mcp)[Privacy Policy](https://windsor.ai/privacy-statement/)[Support](mailto:support@windsor.ai)
+More[Documentation (opens in new tab)](https://windsor.ai/introducing-windsor-mcp/#method-1-using-claude-desktop-3)[Support (opens in new tab)](mailto:support@windsor.ai)[Privacy policy (opens in new tab)](https://windsor.ai/privacy-statement/)
 
 Analyze multi-channel marketing, analytics, sales, and e-commerce data within Claude by connecting to your Windsor.ai data flows: Query metrics from over 325 sources. Fetch and blend data from top platforms like Facebook, Google Ads, Instagram, Google Analytics 4, TikTok, Shopify, Salesforce, HubSpot, Google My Business, and LinkedIn into actionable intelligence for smarter, faster decision-making with accurate, up-to-date business information.
 
-You can use Windsor.ai to:
+## Tools
 
-**Marketing Performance:**"Show me my Google Ads performance compared to Facebook Ads this month"
+* get\_connectors
+* get\_fields
+* get\_accounts
+* get\_options
+* get\_data
 
-**Cross-platform Analytics:**"Pull my conversion data from HubSpot and compare it with Google Analytics traffic"
-
-**Data Exploration:**"What fields are available from my Salesforce connector?"
-
-**Custom Reports:**"Get my ad spend across all connected platforms for Q1"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-### Adobe Customer Journey Analytics
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-May 11, 2026
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Trending
 
-### Airtable
+An AI Concierge that turns forms into conversations
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Data
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-Claude
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-Claude Code
+CRM context for every answer, insight, and action
 
-June 22, 2026
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-### alphaXiv
+### [Supabase](https://claude.com/connectors/supabase)
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+Manage databases, authentication, and storage
 
-Data
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-February 3, 2026
+### [monday.com](https://claude.com/connectors/monday)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")

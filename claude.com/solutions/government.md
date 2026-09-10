@@ -26,6 +26,8 @@ European Parliament
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/68ba0c117280c710085e4185_guy.webp)
 
+[Play video](#)Play video
+
 The European Parliament expands access to their archives with Claude.
 
 Read story

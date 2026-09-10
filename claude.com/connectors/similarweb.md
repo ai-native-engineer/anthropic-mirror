@@ -1,99 +1,86 @@
 <!-- source: https://claude.com/connectors/similarweb -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697d44c93b1b461da6f2d32b_ide0afd3w6_1769817151433.jpeg)
+[Skip to main content](#main-content)
 
-# Similarweb
+Connector URL`https://mcp.similarweb.com/`
 
-Real time web, mobile app, and market data.
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/80862d08-1022-4d86-816d-ee9b500d6b90)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Similarweb](https://similarweb.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.similarweb.com/api-v5/mcp/mcp-setup)[Privacy Policy](https://www.similarweb.com/corp/legal/privacy-policy/)[Support](mailto:support@similarweb.com)
+More[Documentation (opens in new tab)](https://docs.similarweb.com/api-v5/mcp/mcp-setup)[Support (opens in new tab)](mailto:support@similarweb.com)[Privacy policy (opens in new tab)](https://www.similarweb.com/corp/legal/privacy-policy/)
 
 Research any website or app using Similarweb's market intelligence data. Analyze competitor traffic, uncover top keywords, explore audience demographics, and benchmark performance across industries—all through simple prompts. Ask things like "Show me Nike's traffic sources breakdown" or "What keywords is Adidas ranking for?" and get real-time insights without switching tools. Whether you're a marketer, analyst, investor, or strategist, Similarweb helps you turn competitive questions into answers instantly.
 
-You can use Similarweb to:
+## Tools
 
-**Analyze Website Traffic:**
-"What's the monthly traffic for competitor.com?"
+* get-websites-traffic-and-engagement
+* get-websites-traffic-sources
+* get-websites-website-rank
+* get-website-content-subdomains-agg
+* get-websites-similar-sites-agg
+* get-websites-referrals-agg
+* get-websites-audience-interests-agg
+* get-websites-audience-overlap-agg
+* get-websites-deduplicated-audience
+* get-pages-leading-folders-agg
+* get-pages-popular-pages-agg
+* get-websites-ppc-spend
+* get-segments-traffic-and-engagement
+* get-segments-traffic-sources
+* get-website-analysis-ad-networks-agg
+* get-websites-geography-agg
+* get-website-content-technologies-agg
+* get-websites-demographics-agg
+* get-websites-traffic-by-demographics-agg
+* get-websites-top-sites-by-category-agg
+* get-app-engagement-installs-penetration
+* get-app-app-store-rank
 
-**Research Keywords:**
-"Show me the top organic keywords for Nike.com"
-
-**Compare Competitors:**
-"Compare traffic sources between Adidas and Puma websites"
-
-**Audience Insights:**
-"What are the demographics of Amazon's website visitors?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Customer Journey Analytics
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Manage your schedule and coordinate meetings effortlessly
 
-Data
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-May 11, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Airtable
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Data
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-June 22, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### alphaXiv
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Data
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 3, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
-
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

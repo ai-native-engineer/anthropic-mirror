@@ -46,6 +46,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9da3e6cc0ca608b80a83_building-ai-native.webp)
 
 Anthropic's developer conference, recorded

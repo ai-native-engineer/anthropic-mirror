@@ -1,99 +1,70 @@
 <!-- source: https://claude.com/connectors/biorxiv -->
 
-![biorxiv_logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3f052f1932d948bc6d21_biorx.jpg)
+[Skip to main content](#main-content)
 
-# bioRxiv
+Connector URL`https://hcls.mcp.claude.com/biorxiv/mcp`
 
-Access to bioRxiv and medRxiv preprint data
+More[Documentation (opens in new tab)](https://claude.com/resources/tutorials/using-the-biorxiv-and-medrxiv-connector-in-claude)[Support (opens in new tab)](https://support.anthropic.com)[Privacy policy (opens in new tab)](https://www.anthropic.com/privacy)
 
-* Category
+The bioRxiv Connector gives Claude access to bioRxiv and medRxiv preprint servers, hosting research papers in biological and medical sciences posted before peer review.
 
-  Life sciences and healthcare
+## Tools
 
-  Education
-* Used in
-
-  [Claude](https://claude.ai/directory/ae97efbb-8a1a-4c03-9e86-6925f002703a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-biorxiv-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Anthropic](https://anthropic.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  No items found.
-* More
-
-  [Documentation](https://claude.com/resources/tutorials/using-the-biorxiv-and-medrxiv-connector-in-claude)[Privacy Policy](https://www.anthropic.com/privacy)[Support](https://support.anthropic.com)
-
-The bioRxiv connector gives Claude access to bioRxiv and medRxiv preprint servers, hosting research papers in biological and medical sciences posted before peer review. Search for preprints by topic, funder, or category. Track publication outcomes and analyze research trends across the life sciences.
-
-You can use the bioRxiv connector to:
-
-**Conduct a Literature Review:** "I'm researching CRISPR applications in cancer therapy. Find recent preprints on this topic."
-
-**Track Publication Outcomes:** "Has the preprint DOI 10.1101/2023.05.15.540789 been published in a journal?"
-
-**Analyze Funding Patterns:** "What COVID-19 research has the NIH funded? Show me preprints from 2020-2021."
-
-**Explore Research Categories:** "What are the most active research categories on bioRxiv this month?"
+* search\_biorxiv\_publications
+* search\_by\_funder
+* get\_categories
+* get\_preprint
+* search\_published\_articles
+* search\_publisher\_articles
+* search\_preprints
+* get\_content\_statistics
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/20/99/8f/20998fe7-dd23-ba49-aa02-8d0d939c5d7e/AppIcon-0-0-1x_U007emarketing-0-0-0-2-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png)
 
-Claude
+### [Cortellis CMC Intelligence](https://claude.com/connectors/cortellis-cmc-intelligence)
 
-Claude Code
+Trusted regulatory CMC insights, powered by Clarivate’s Cortellis CMC Intelligence.
 
-February 11, 2026
+[Add Cortellis CMC Intelligence in Claude (opens in new tab)](https://claude.ai/directory/6d85e32b-e41b-44bc-b451-aa020b7640b1 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### 10x Genomics Cloud
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=consensus.app&sz=96)
 
-Claude Code
+### [Consensus](https://claude.com/connectors/consensus)
 
-May 1, 2026
+Explore scientific research
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add Consensus in Claude (opens in new tab)](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6 "Add in Claude")
 
-### AdisInsight
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/clinical-trials.png)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [Clinical Trials](https://claude.com/connectors/clinical-trials)
 
-Life sciences and healthcare
+Access ClinicalTrials.gov data
 
-Claude
+[Add Clinical Trials in Claude (opens in new tab)](https://claude.ai/directory/c1754944-3ad1-49ab-bec5-9aeae3a6a9a3 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=scholargateway.ai&sz=96)
 
-February 11, 2026
+### [Scholar Gateway](https://claude.com/connectors/scholar-gateway)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdfc622a31cabb4ed418_Benchling.jpg)
+Enhance responses with scholarly research and citations
 
-### Benchling
+[Add Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")
 
-Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/chembl.png)
 
-Life sciences and healthcare
+### [ChEMBL](https://claude.com/connectors/chembl)
 
-Claude
+Access the ChEMBL Database
 
-Claude Code
-
-June 30, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
-
-### Biomni Lab
-
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)
+[Add ChEMBL in Claude (opens in new tab)](https://claude.ai/directory/711ccc94-754b-4659-903d-d61b29dd781e "Add in Claude")

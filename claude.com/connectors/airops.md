@@ -1,96 +1,76 @@
 <!-- source: https://claude.com/connectors/airops -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6973cbbab064adc3bdffb11e_logo-airops.svg)
+[Skip to main content](#main-content)
 
-# AirOps
+Connector URL`https://app.airops.com/mcp`
 
-Craft content that wins AI search
+More[Documentation (opens in new tab)](https://docs.airops.com/mcp)[Support (opens in new tab)](https://airopsbuilders.slack.com/join/shared_invite/zt-3b401du10-7wtCqHu~CaGdoXYWGi4_BQ#/shared-invite/email)[Privacy policy (opens in new tab)](https://www.airops.com/privacy-policy)
 
-* Category
+Access your workspaces, Brand Kits, and AEO analytics
 
-  Sales and marketing
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/3d915617-ebcc-489f-b603-57ec21f7d1d0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* list\_workspaces
+* list\_brand\_kits
+* get\_brand\_kit
+* list\_brand\_kit\_competitors
+* list\_personas
+* list\_topics
+* list\_aeo\_prompts
+* get\_prompt\_answers
+* query\_analytics
+* list\_pages
+* get\_page\_details
+* get\_page\_prompts
 
-  [AirOps](https://www.airops.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.airops.com/mcp)[Privacy Policy](https://www.airops.com/privacy-policy)[Support](https://airopsbuilders.slack.com/join/shared_invite/zt-3b401du10-7wtCqHu~CaGdoXYWGi4_BQ#/shared-invite/email)
-
-Access your AirOps workspaces, Brand Kits, and AEO (AI Engine Optimization) analytics directly through Claude. Monitor your brand's performance in AI search results, analyze citation rates, and optimize your content strategy.
-
-You can use AirOps to:
-
-**Brand Performance Analysis:
-‍**"Show me my brand's citation rate and share of voice for the last 30 days"
-
-**Content Optimization:
-‍**"What are the top questions citing my website and how can I improve my answers?"
-
-**Competitive Intelligence:
-‍**"Compare my brand's AI search performance against my top 3 competitors"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### ActiveCampaign
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Manage your schedule and coordinate meetings effortlessly
 
-Sales and marketing
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 2, 2026
+Access Jira & Confluence from Claude
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Sales and marketing
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-May 26, 2026
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Notion](https://claude.com/connectors/notion)
 
-### Adobe Journey Optimizer
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Claude
+### [Slack](https://claude.com/connectors/slack)
 
-Claude Code
+Send messages, create canvases, and fetch Slack data
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

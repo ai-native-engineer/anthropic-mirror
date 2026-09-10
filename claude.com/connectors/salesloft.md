@@ -1,96 +1,82 @@
 <!-- source: https://claude.com/connectors/salesloft -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d152c5af831be760fe1f1_salesloft.svg)
+[Skip to main content](#main-content)
 
-# Salesloft
+Connector URL`https://mcp.salesloft.com/sse`
 
-Query live data about deals, engagement, and pipeline
-
-* Category
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/b88a0129-d984-4c48-87a1-acf028e9f035)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Salesloft](https://www.salesloft.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://help.salesloft.com/s/article/Salesloft-MCP-Server)[Privacy Policy](https://www.salesloft.com/legal/platform-privacy-notice)[Support](mailto:support@salesloft.com)
+More[Documentation (opens in new tab)](https://help.salesloft.com/s/article/Salesloft-MCP-Server)[Support (opens in new tab)](mailto:support@salesloft.com)[Privacy policy (opens in new tab)](https://www.salesloft.com/legal/platform-privacy-notice)
 
 Access your live Salesloft data directly inside Claude. Ask about deals, accounts, contacts, conversations, and pipeline status — and get answers grounded in real engagement data, call transcripts, and deal activity. Secured with OAuth 2.0 and role-scoped permissions so you only see your own data.
 
-You can use Salesloft to:
+## Tools
 
-**Summarize pipeline status:**
-"What's our current pipeline of open deals, broken down by segment?"
+* account\_by\_id
+* conversation\_by\_id
+* conversation\_recording\_by\_id
+* conversation\_transcript\_by\_id
+* current\_team
+* current\_user
+* opportunity\_by\_id
+* person\_by\_id
+* search\_accounts
+* search\_conversations
+* search\_opportunities
+* search\_people
+* search\_users
+* user\_by\_id
 
-**Find specific deal information:**
-"What was the average deal size last quarter?"
-
-**Surface stalled activity:**
-"Which of my open deals haven't had any activity in the last 10 days?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### ActiveCampaign
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Sales and marketing
+Trending
 
-Claude
+An AI Concierge that turns forms into conversations
 
-Claude Code
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-June 2, 2026
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-### Actively
+CRM context for every answer, insight, and action
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Claude
+### [monday.com](https://claude.com/connectors/monday)
 
-May 26, 2026
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-### Adobe Journey Optimizer
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+### [Gamma](https://claude.com/connectors/gamma)
 
-Sales and marketing
+Create presentations, docs, socials, and sites with AI
 
-Claude
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
-April 29, 2026
+### [Shopify](https://claude.com/connectors/shopify)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Build, manage, and analyze your Shopify store
 
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

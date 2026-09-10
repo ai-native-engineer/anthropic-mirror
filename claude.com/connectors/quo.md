@@ -1,107 +1,75 @@
 <!-- source: https://claude.com/connectors/quo -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f2db59ad97fe0b154a1178_quo-logo%20-%20Juraj%20Pal.svg)
+[Skip to main content](#main-content)
 
-# Quo
+Connector URL`https://mcp.quo.com/mcp`
 
-Surface call insights and missed opportunities
-
-* Category
-
-  Communication
-* Used in
-
-  [Claude](https://claude.ai/directory/5b1d1665-4793-4a8c-98cf-909e00e97a29)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Quo](https://quo.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://support.quo.com/core-concepts/integrations/mcp)[Privacy Policy](https://www.quo.com/privacy)[Support](https://support.quo.com/help/submit-a-request)
+More[Documentation (opens in new tab)](https://support.quo.com/core-concepts/integrations/mcp)[Support (opens in new tab)](https://support.quo.com/help/submit-a-request)[Privacy policy (opens in new tab)](https://www.quo.com/privacy)
 
 Quo is a next-generation business phone system that helps teams engage customers, collaborate internally, and scale communication with AI — without losing the personal touch. Connecting Quo gives Claude access to your customer conversations across calls, text messages, and contacts. You can ask questions about those interactions to uncover patterns in what customers are saying and where opportunities may be lost. Claude can search, analyze, and summarize conversations to surface insights like Why are we losing deals? What do customers love about our service? What complaints show up most often?
 
-You can use Quo to:
+## Tools
 
-**Spot why deals stall:**
-"Pull my Quo call transcripts from the last two weeks and summarize the top objections that came up before a deal went cold."
+* send-message
+* create-contact
+* update-contact
+* fetch-call-transcripts
+* fetch-messages
+* list-users
+* list-inboxes
+* list-contacts
+* get-contact
 
-**Hear what customers love:**
-"Search my Quo messages and calls for positive feedback this month and group it by theme."
-
-**Follow up instantly:**
-"Draft and send a text to the contact from my 3pm call recapping next steps."
-
-**Keep contacts current:**
-"Create a Quo contact for the lead who texted yesterday about pricing, and add a note with what they asked."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-Communication
+### [Gmail](https://claude.com/connectors/gmail)
 
-Claude
+Draft replies, summarize threads, & search your inbox
 
-Claude Code
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Asana
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Communication
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 21, 2026
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-### Circleback
+### [Asana](https://claude.com/connectors/asana)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Connect to Asana to coordinate tasks, projects, and goals
 
-Productivity
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-Communication
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Code
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude
+Trending
 
-May 1, 2026
+An AI Concierge that turns forms into conversations
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-### Computer by DevRev
+![](https://www.google.com/s2/favicons?domain=intercom.com&sz=96)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+### [Intercom](https://claude.com/connectors/intercom)
 
-Productivity
+Access to Intercom data for better customer insights
 
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")

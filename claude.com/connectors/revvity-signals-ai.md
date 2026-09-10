@@ -1,98 +1,63 @@
 <!-- source: https://claude.com/connectors/revvity-signals-ai -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a359818753b8474e0f33760_revvity%20(1).svg)
+[Skip to main content](#main-content)
 
-# Revvity Signals AI
-
-Natural language access to Signals electronic notebook
-
-* Category
-
-  Life sciences and healthcare
-* Used in
-
-  [Claude](https://claude.ai/directory/0bdf51f6-dd5d-40b8-854d-1bd2825cefe9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Revvity Signals](https://revvitysignals.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://snb-endpoint.signals-ai-connector.revvitycloud.com/signals-ai-connector/)[Privacy Policy](https://support.revvitysignals.com/hc/en-us/articles/7972911825428-Read-Revvity-Signals-Data-Protection-Addendum)[Support](https://support.revvitysignals.com/hc/en-us)
+More[Documentation (opens in new tab)](https://snb-endpoint.signals-ai-connector.revvitycloud.com/signals-ai-connector/)[Support (opens in new tab)](https://support.revvitysignals.com/hc/en-us)[Privacy policy (opens in new tab)](https://support.revvitysignals.com/hc/en-us/articles/7972911825428-Read-Revvity-Signals-Data-Protection-Addendum)
 
 Connect Claude.AI assistants to the Revvity Signals scientific intelligence platform. The Signals AI MCP Server combines foundation-model reasoning with trusted scientific intelligence from Signals, ChemDraw, BioDesign and related scientific systems, enabling natural-language interaction with experiments, compounds, sequences, materials and scientific results. Go beyond search to generate insights, summaries, reports, comparisons and recommendations grounded in trusted scientific data, provenance and workflow context, turning information into understanding, decisions and action.
 
-You can use Revvity Signals AI to:
+## Tools
 
-**Search notebook entries:**
-"Find all experiments in my Signals notebook related to compound synthesis from last month"
+* Revvity Signals AI Connector
 
-**Summarize results:**
-"Summarize the assay results recorded in notebook entry NB-2024-117"
-
-**Cross-reference data:**
-"Which notebook entries reference the same reagent lot as experiment EXP-4412?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/20/99/8f/20998fe7-dd23-ba49-aa02-8d0d939c5d7e/AppIcon-0-0-1x_U007emarketing-0-0-0-2-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png)
 
-Claude
+### [Cortellis CMC Intelligence](https://claude.com/connectors/cortellis-cmc-intelligence)
 
-Claude Code
+Trusted regulatory CMC insights, powered by Clarivate’s Cortellis CMC Intelligence.
 
-February 11, 2026
+[Add Cortellis CMC Intelligence in Claude (opens in new tab)](https://claude.ai/directory/6d85e32b-e41b-44bc-b451-aa020b7640b1 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### 10x Genomics Cloud
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=consensus.app&sz=96)
 
-Claude Code
+### [Consensus](https://claude.com/connectors/consensus)
 
-May 1, 2026
+Explore scientific research
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add Consensus in Claude (opens in new tab)](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6 "Add in Claude")
 
-### AdisInsight
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/clinical-trials.png)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [Clinical Trials](https://claude.com/connectors/clinical-trials)
 
-Life sciences and healthcare
+Access ClinicalTrials.gov data
 
-Claude
+[Add Clinical Trials in Claude (opens in new tab)](https://claude.ai/directory/c1754944-3ad1-49ab-bec5-9aeae3a6a9a3 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=scholargateway.ai&sz=96)
 
-February 11, 2026
+### [Scholar Gateway](https://claude.com/connectors/scholar-gateway)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdfc622a31cabb4ed418_Benchling.jpg)
+Enhance responses with scholarly research and citations
 
-### Benchling
+[Add Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")
 
-Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/biorxiv.png)
 
-Life sciences and healthcare
+### [bioRxiv](https://claude.com/connectors/biorxiv)
 
-Claude
+Access bioRxiv and medRxiv preprint data
 
-Claude Code
-
-June 30, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
-
-### Biomni Lab
-
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)
+[Add bioRxiv in Claude (opens in new tab)](https://claude.ai/directory/7f750eb6-c3cb-47d7-9269-d35c43fe9925 "Add in Claude")

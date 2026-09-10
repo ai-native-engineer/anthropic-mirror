@@ -28,6 +28,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf82779f82558bad3a161_%20the-thinking-lever.webp)
 
 Anthropic's developer conference, recorded

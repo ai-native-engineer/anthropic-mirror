@@ -1,98 +1,75 @@
 <!-- source: https://claude.com/connectors/brisk-teaching -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4faa05bd0b5594a6c16f14_brisk2.svg)
+[Skip to main content](#main-content)
 
-# Brisk Teaching
+Connector URL`https://mcp.briskteaching.com/mcp`
 
-Build classroom activities, lessons, & more with Brisk
+More[Documentation (opens in new tab)](https://help.briskteaching.com/hc/en-us/articles/50241696224020-Set-up-the-Brisk-Connector-for-Claude)[Support (opens in new tab)](mailto:hello@briskteaching.com)[Privacy policy (opens in new tab)](https://www.briskteaching.com/privacy/terms)
 
-* Category
+The Brisk Teaching connector brings your classroom toolkit into Claude. Create interactive student activities, quizzes, standards-aligned lessons, and more right in the tools you already use. Just describe what you need, and Brisk builds it in your account with easy-to-share links, so you can turn your ideas into classroom-ready materials in seconds. Edit, refine, and bring them to your students whenever you're ready.
 
-  Productivity
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/9bae1b8d-ec61-46ef-8aaf-b21aee5970e0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* create\_teaching\_resource
+* create\_boost\_activity
+* generate\_next\_ideas
+* create\_batch\_feedback\_assignment
+* list\_standards
+* get\_boost\_activity
+* get\_teacher\_context
+* finalize\_boost\_activity
+* get\_teaching\_resource
 
-  [Brisk Teaching](https://www.briskteaching.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://help.briskteaching.com/hc/en-us/articles/50241696224020-Set-up-the-Brisk-Connector-for-Claude)[Privacy Policy](https://www.briskteaching.com/privacy/terms)[Support](mailto:hello@briskteaching.com)
-
-The Brisk Teaching connector brings your classroom toolkit into Claude. Create interactive student activities, engaging podcasts, and more right in the tools you already use. Just describe what you need, and Brisk builds it in your account with easy-to-share links, so you can turn your ideas into classroom-ready materials in seconds. Edit, refine, and bring them to your students whenever you're ready.
-
-You can use Brisk Teaching to:
-
-**Create an activity:**
-"Create an interactive vocabulary activity for my 5th-grade science class."
-
-**Generate a podcast:**
-"Generate a podcast episode that explains the water cycle for middle schoolers."
-
-**Build a quiz:**
-"Build a reading comprehension quiz based on this short passage."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Claude
+### [Canva](https://claude.com/connectors/canva)
 
-Claude Code
+Search, create, autofill, and export Canva designs
 
-April 29, 2026
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-### Adobe Experience Manager
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Trending
 
-Productivity
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Claude
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=padlet.com&sz=96)
 
-June 9, 2026
+### [Padlet MCP](https://claude.com/connectors/padlet-mcp)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+Create and manage padlets
 
-### Adobe Workfront
+[Add Padlet MCP in Claude (opens in new tab)](https://claude.ai/directory/618a4a60-3705-448f-b86f-b43e85fb37ba "Add in Claude")
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/ae/4c/82ae4ce7-6614-ea43-f543-d3cbd11e9726/AppIcon-0-0-1x_U007epad-0-10-0-85-220.png/512x512bb.png)
 
-Productivity
+### [Jotform Sign](https://claude.com/connectors/jotform-sign)
 
-Claude
+Create, share, and edit e-signature documents right inside Claude
 
-Claude Code
+[Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")
 
-June 22, 2026
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+### [Jotform Apps](https://claude.com/connectors/jotform-apps)
 
-### Agentic Presentations by SlidesGPT
+Build and manage no-code apps
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
-Productivity
+![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 
-Claude
+### [Mobbin](https://claude.com/connectors/mobbin)
 
-Claude Code
+Find UI & UX design references
 
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")

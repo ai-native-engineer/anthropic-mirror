@@ -1,96 +1,94 @@
 <!-- source: https://claude.com/connectors/customer-io -->
 
-![Customer.io logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a3a6558bbc074ef44ea530_e1ead94ff38d1ec15140dc0879661ed1b3bd1857-259x258.svg)
+[Skip to main content](#main-content)
 
-# Customer.io
+More[Documentation (opens in new tab)](https://docs.customer.io/ai/mcp/claude/)[Support (opens in new tab)](mailto:win@customer.io)[Privacy policy (opens in new tab)](https://customer.io/legal/privacy-policy)
 
-Explore customer data and generate insights via Claude
+Connect Claude to your Customer.io workspace with full read, write, and delete access — granted independently, per workspace, via OAuth.
 
-* Category
+What Claude can do today:
 
-  Sales and marketing
-* Used in
+• Build and edit automations (campaigns), broadcasts, and newsletters
 
-  [Claude](https://claude.ai/directory/e46d22da-f472-465a-ae46-52f6ac61a97f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+• Create segments from plain-English audience definitions
 
-  [Customer.io](https://customer.io/)
+• Inspect and update customer profiles and attributes
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+• Draft, QA, and publish emails in Design Studio
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+• Analyze deliveries, opens, clicks, and conversions; diagnose deliverability
 
-* Capabilities
+• Manage CDP Data Pipelines: sources, destinations, and reverse ETL
 
-  Read & write
-* More
+• Guide SDK setup and app integration end to end
 
-  [Documentation](https://docs.customer.io/ai/mcp-server/)[Privacy Policy](https://customer.io/legal/privacy-policy)[Support](mailto:win@customer.io)
+The connector exposes Customer.io's Journeys UI API and Data Pipelines API through verb-scoped tools — cio\_read\_api (GET), cio\_write\_api (POST/PUT/PATCH), and cio\_delete\_api (DELETE) — so reads, writes, and deletes are approved separately. Built-in schema introspection (cio\_schema) and server-maintained skills (cio\_skills\_list / cio\_skills\_read) give Claude authoritative, always-current guidance for complex workflows like automation wiring, segment conditions, and email design patterns, scoped to your account's plan.
 
-Let Claude work directly with your Customer.io workspace to create segments, inspect user profiles, search for customers, and access workspace data. Analyze customer attributes, manage audience targeting, and explore your workspace without switching tabs.
+Safety is built in: every write and delete supports a dry-run preview before execution, and credentials never pass through Claude — authentication is OAuth, with workspaces and permission scopes selected at connect time.
 
-You can use Customer.io to:
+Try: "Analyze last month's welcome automation performance." "Build a segment of users inactive for 90 days." "Draft a re-engagement email and QA it." "Why did deliveries drop this week?"
 
-**Customer Segmentation:**
-"I want to create a segment of users who haven't been active in the last 14 days for a re-engagement campaign. Can you help me set this up in Customer.io?"
+## Tools
 
-**User Profile Investigation:**
-"Can you look up the profile for user ID 12345 in my Customer.io workspace? I need to see their attributes and engagement history to understand why they're not converting."
+* cio\_prime
+* cio\_auth\_status
+* cio\_schema
+* cio\_skills\_list
+* cio\_skills\_read
+* cio\_read\_api
+* cio\_write\_api
+* cio\_delete\_api
 
-**Workspace Data Exploration:**
-"Show me all the custom attributes we're tracking in Customer.io and help me understand which segments we currently have set up for our onboarding flow."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### ActiveCampaign
+### [Gmail](https://claude.com/connectors/gmail)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Draft replies, summarize threads, & search your inbox
 
-Sales and marketing
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Claude Code
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-June 2, 2026
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Slack](https://claude.com/connectors/slack)
 
-Sales and marketing
+Send messages, create canvases, and fetch Slack data
 
-Claude
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-May 26, 2026
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-### Adobe Journey Optimizer
+Trending
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Sales and marketing
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-Claude Code
+### [Asana](https://claude.com/connectors/asana)
 
-April 29, 2026
+Connect to Asana to coordinate tasks, projects, and goals
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")

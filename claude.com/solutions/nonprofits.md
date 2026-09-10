@@ -715,7 +715,7 @@ Work across your donor database, productivity suite, and research tools all in o
 
 Explore connectors
 
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/archive/connectors)Explore connectors
 
 ## AI Fluency for nonprofits
 
@@ -724,6 +724,8 @@ This free course will help anyone on your team feel confident with AI. No techni
 View course
 
 [View course](https://anthropic.skilljar.com/ai-fluency-for-nonprofits)View course
+
+[Play video](#)Play video
 
 [](https://www-cdn.anthropic.com/files/4zrzovbb/website/94adfb3ff8d773b34857d608b8a33da42c8a62e6.webm)
 

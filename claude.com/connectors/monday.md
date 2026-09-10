@@ -1,104 +1,94 @@
 <!-- source: https://claude.com/connectors/monday -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6921e782b78ebbcbede151d0_monday.jpg)
+[Skip to main content](#main-content)
 
-# Monday
+Connector URL`https://mcp.monday.com/mcp`
 
-Manage projects, boards, and workflows in monday.com
+More[Documentation (opens in new tab)](https://developer.monday.com/apps/docs/mondaycom-mcp-integration)[Support (opens in new tab)](https://support.monday.com/hc/en-us/requests/new?ticket_form_id=13855862562962)[Privacy policy (opens in new tab)](https://monday.com/l/privacy/privacy-policy/)
 
-* Category
+The monday.com AI Connector brings core platform capabilities directly to agents and AI assistants. It supports searching boards, creating and updating items and columns, assigning owners, setting timelines, and posting updates — enabling a wide range of work management and CRM use cases across teams and departments.
 
-  Sales and marketing
+Teams of people and agents use monday.com as a task tracker and project tracking hub: planning campaigns and events, tracking milestones, dependencies, and workload, managing approval workflows and request intake, and sharing status updates across projects and portfolios — as well as a CRM for managing leads, contacts, and deals.
 
-  Productivity
-* Used in
+Beyond day-to-day work management, the connector lets agents answer questions using monday.com's official knowledge base, plan and build automations and multi-step workflows, run and save reusable code actions, and configure other monday.com agents .
 
-  [Claude](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+## Tools
 
-  [Monday.com](https://claude.com/connectors/monday.com)
+* create\_items\_and\_tasks
+* create\_workflows\_and\_approvals
+* create\_dashboards\_and\_portfolios
+* create\_notifications\_and\_updates
+* create\_forms\_and\_intake
+* get\_board\_and\_project\_status\_insights
+* update\_items\_owners\_and\_status
+* create\_boards\_and\_projects
+* get\_board\_items
+* list\_users\_and\_teams
+* get\_updates
+* create\_update
+* list\_automations
+* move\_object
+* create\_workspace
+* create\_folder
+* list\_workspaces
+* get\_user\_context
+* search
+* create-sequence
+* get-timeline-items
+* create-timeline-item
+* manage\_agent
+* get\_monday\_knowledge
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Show all 33 tools
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69773ae059b7e8a2c9e27e56_Monday.png)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://developer.monday.com/apps/docs/mondaycom-mcp-integration)[Privacy Policy](https://monday.com/l/privacy/privacy-policy/)[Support](https://support.monday.com/hc/en-us/requests/new?ticket_form_id=13855862562962)
-
-Exposes core monday.com capabilities to Claude. It enables actions like searching boards, creating and updating items and columns, assigning owners, setting timelines, and posting updates—plus smartly assigning tasks and visualizing progress with insights.
-
-You can use  monday.com in Claude to:
-
-Create boards with tasks and columns:
-"Create a new board for 'Annual Kickoff Event' and add the tasks and columns for planning and managing a successful kickoff event. The first todo item should be 'Secure venue and date'"
-
-Visualize progress with insights:
-"Show me how the Annual Kickoff Event board is tracking and flag any items at risk of slipping"
-
-Update item status:
-"Update item 'Secure venue and date' from Not Started to In Progress"
-
-Post updates on items:
-"Write an update on item 'Secure venue and date': I secured the gala hall at the Regent Hotel"
-
-Get smart task assignments:
-"Look at my team's current workload and suggest who should own the catering RFP task"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### ActiveCampaign
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Manage your schedule and coordinate meetings effortlessly
 
-Sales and marketing
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Claude Code
+### [Canva](https://claude.com/connectors/canva)
 
-June 2, 2026
+Search, create, autofill, and export Canva designs
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Productivity
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-April 29, 2026
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-### Adobe Experience Manager
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Sales and marketing
+### [Notion](https://claude.com/connectors/notion)
 
-Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-May 26, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Journey Optimizer
-
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

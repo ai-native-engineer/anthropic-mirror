@@ -7,11 +7,14 @@ Manage RevenueCat in-app purchase backend directly from Claude Code without leav
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [RevenueCat](https://www.revenuecat.com)
 * Installs
 
   3136
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

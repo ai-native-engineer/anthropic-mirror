@@ -1,99 +1,75 @@
 <!-- source: https://claude.com/connectors/clay -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ac4f7d476b9cf74683f19_Clay.jpg)
+[Skip to main content](#main-content)
 
-# Clay
+Connector URL`https://api.clay.com/v3/mcp`
 
-Find prospects. Research accounts. Personalize outreach
+More[Documentation (opens in new tab)](https://www.notion.so/clayrun/Clay-Claude-MCP-Server-Documentation-2ef7e66eb01480c9820de48041591aeb?showMoveTo=true&saveParent=true)[Support (opens in new tab)](mailto:support@clay.com)[Privacy policy (opens in new tab)](https://privacy.clay.com/policies)
 
-* Category
+Prospect with Clay inside Claude: run deep company and contact research without leaving your conversation. Use Clay's contact databases, enrichment providers, and AI agents to research target accounts, surface verified, enriched contact info, and draft personalized outreach—all in Claude. Ask things like "Find VP-level finance leaders at Okta who joined in the last 6 months," and Clay will return results directly in your chat.
 
-  Sales and marketing
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/a8159026-14b4-403a-933b-bd897a5b36ca)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* find-and-enrich-contacts-at-company
+* find-and-enrich-list-of-contacts
+* find-and-enrich-company
+* add-contact-data-points
+* add-company-data-points
+* get-credits-available
+* get-existing-search
 
-  [Clay](https://clay.com/)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/e25bb0d24c0636a1fffb45b2acb39f9ca8895bd5.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://www.notion.so/clayrun/Clay-Claude-MCP-Server-Documentation-2ef7e66eb01480c9820de48041591aeb)[Privacy Policy](https://privacy.clay.com/policies)[Support](mailto:support@clay.com)
-
-Run deep company and contact research without leaving your conversation. Use Clay's contact databases, enrichment providers, and AI agents to research target accounts, surface verified, enriched contact info, and draft personalized outreach—all directly in Claude.
-
-You can use Clay in Claude to:
-
-Find & Target Ideal Contacts: **‍**"Find VP-level product leaders at Rippling who joined in the last 6 months and return their work email and LinkedIn profile."
-
-Draft Personalized Outreach: **‍**"Draft an email to Canva's CMO referencing their latest funding round and tech stack in a conversational tone."
-
-Rapid Account Research: **‍**"Summarize Rippling's hiring trends, tech stack, funding history, and website traffic."
-
-Context-Driven Sales Briefs: **‍**"Give me a full briefing on this contact: role timeline, public interviews, thought leadership, and what matters most to them."
-
-Iterative Follow-Up Research: **‍**"Show recent posts from these leaders that mention AI hiring and market expansion."
-
-‍
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-### ActiveCampaign
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Trending
 
-Sales and marketing
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-June 2, 2026
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+Trending
 
-### Actively
+An AI Concierge that turns forms into conversations
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-Claude
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-May 26, 2026
+CRM context for every answer, insight, and action
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-### Adobe Journey Optimizer
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+### [Supabase](https://claude.com/connectors/supabase)
 
-Sales and marketing
+Manage databases, authentication, and storage
 
-Claude
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-April 29, 2026
+### [monday.com](https://claude.com/connectors/monday)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")

@@ -1150,6 +1150,8 @@ Turn ideas into reality. Brainstorm and refine concepts, then bring them to life
 
 ## Keep thinking with Claude
 
+[Play video](#)Play video
+
 [](https://cdn.sanity.io/files/4zrzovbb/website/15feae7a3eaae59420c19a101201666aefae8370.mp4)
 
 Your curiosity’s collaborator

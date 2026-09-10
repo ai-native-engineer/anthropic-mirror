@@ -12,8 +12,8 @@ We do not use your voice for training our models. If you have allowed us to use 
 
 Learn more about our privacy practices by visiting our [Privacy Policy](https://www.anthropic.com/legal/privacy) and [Privacy Center](https://privacy.anthropic.com/en/).
 
+* [How do you use personal data in model training?](https://privacy.claude.com/en/articles/7996885-how-do-you-use-personal-data-in-model-training)
 * [How Do You Use Personal Data in Model Training?](https://privacy.claude.com/en/articles/10023555-how-do-you-use-personal-data-in-model-training)
 * [What personal data will be processed by Computer use?](https://privacy.claude.com/en/articles/10030352-what-personal-data-will-be-processed-by-computer-use)
 * [What Personal data is collected when using dictation on the Claude Mobile Apps?](https://privacy.claude.com/en/articles/10067984-what-personal-data-is-collected-when-using-dictation-on-the-claude-mobile-apps)
-* [How does Anthropic protect the personal data of Claude users?](https://privacy.claude.com/en/articles/10458704-how-does-anthropic-protect-the-personal-data-of-claude-users)
 * [Does Claude use my location?](https://privacy.claude.com/en/articles/11186740-does-claude-use-my-location)

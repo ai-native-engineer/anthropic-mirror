@@ -43,6 +43,7 @@ Everything in Free, plus:
 * Includes Claude Design
 * Includes Claude Science
 * Access to unlimited projects to organize chats and documents
+* Access to Research
 * Ability to use more Claude models
 * Claude for Microsoft 365
 
@@ -106,6 +107,7 @@ Max 20x
 | Projects | No | Yes | Yes | Yes |
 | Project sharing and collaboration | No | No | No | No |
 | Create and edit files with code executionMore information | Yes | Yes | Yes | Yes |
+| Research | No | Yes | Yes | Yes |
 | Memory | Yes | Yes | Yes | Yes |
 | SkillsMore information | Yes | Yes | Yes | Yes |
 | ConnectorsMore information | Yes | Yes | Yes | Yes |

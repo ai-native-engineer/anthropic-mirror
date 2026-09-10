@@ -32,6 +32,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3ac2cc3e848cc1dd144_beyond-the-basics-with-claude-code.webp)
 
 Anthropic's developer conference, recorded

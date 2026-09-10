@@ -7,11 +7,14 @@ Predict structures, screen molecules and proteins, and design binders with Boltz
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Boltz](#)
 * Installs
 
   197
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

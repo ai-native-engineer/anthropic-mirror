@@ -144,6 +144,14 @@ Video caption
 
 ## Related stories
 
+[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+
+How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+
+Customer story
+
+[Customer story](https://claude.com/customers/qonto)Customer story
+
 [Pictet turns weeks of work into hours with Claude Code](https://claude.com/customers/pictet)Pictet turns weeks of work into hours with Claude Code
 
 Pictet turns weeks of work into hours with Claude Code
@@ -167,11 +175,3 @@ OffDeal powers every stage of M&A advisory with one Claude-based agent
 Customer story
 
 [Customer story](https://claude.com/customers/offdeal)Customer story
-
-[Money Forward builds an AI-native engineering organization with Claude Code](https://claude.com/customers/money-forward)Money Forward builds an AI-native engineering organization with Claude Code
-
-Money Forward builds an AI-native engineering organization with Claude Code
-
-Customer story
-
-[Customer story](https://claude.com/customers/money-forward)Customer story

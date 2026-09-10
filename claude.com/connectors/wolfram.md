@@ -1,97 +1,73 @@
 <!-- source: https://claude.com/connectors/wolfram -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1549673a2ad641e7a28e21_wolfram-icon%20-%20Henri%20(1).svg)
+[Skip to main content](#main-content)
 
-# Wolfram
+Connector URL`https://agenttools.wolfram.com/mcp`
 
-Inject precise, real-time computation and knowledge
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/de1d1dc7-ec10-459d-b511-797982834b43)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Wolfram Research](https://www.wolfram.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://www.wolfram.com/artificial-intelligence/mcp-service/)[Privacy Policy](https://www.wolfram.com/legal/privacy/wolfram/)[Support](https://support.wolfram.com/)
+More[Documentation (opens in new tab)](https://www.wolfram.com/artificial-intelligence/mcp-service/)[Support (opens in new tab)](https://support.wolfram.com/)[Privacy policy (opens in new tab)](https://www.wolfram.com/legal/privacy/wolfram/)
 
 The Wolfram MCP Server transforms your AI environment into a rigorous computational powerhouse. By integrating Wolfram Language and Wolfram|Alpha, this server provides access to curated data and sophisticated algorithms. When a user submits a query, the LLM works with Wolfram to convert it into Wolfram Language for precise evaluation, and these exact results are incorporated into the response provided by the LLM.
+
 Whether you are solving complex differential equations, analyzing chemical structures or querying real-time socioeconomic data, the MCP Server ensures your AI has the "computational brain" necessary to deliver verified, high-level technical results that can be trusted.
 
-You can use Wolfram to:
+## Tools
 
-**Solve and verify math:**
-"Integrate x^2 \* e^(-x) from 0 to infinity"
+* WolframContext
+* WolframLanguageEvaluator
+* WolframAlpha
 
-**Query curated data:**
-"What's the GDP per capita of Portugal vs Spain over the last 20 years?"
-
-**Run precise computation:**
-"Convert 3.2 light-years to kilometers"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

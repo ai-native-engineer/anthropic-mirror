@@ -1,104 +1,69 @@
 <!-- source: https://claude.com/connectors/fireflies -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf5cf91d777702ff2e6a_Fireflies.jpg)
+[Skip to main content](#main-content)
 
-# Fireflies
+Connector URL`https://api.fireflies.ai/mcp`
 
-Analyze and generate insights from meeting transcripts
-
-* Category
-
-  Communication
-* Used in
-
-  [Claude](https://claude.ai/directory/839a0ae2-0c0f-4c27-9f85-726ed6515536)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Firefiles](https://fireflies.ai)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://guide.fireflies.ai/articles/8272956938-learn-about-the-fireflies-mcp-server-model-context-protocol)[Privacy Policy](https://fireflies.ai/privacy_policy.pdf)[Support](mailto:support@fireflies.ai)
+More[Documentation (opens in new tab)](https://guide.fireflies.ai/articles/8272956938-learn-about-the-fireflies-mcp-server-model-context-protocol)[Support (opens in new tab)](mailto:support@fireflies.ai)[Privacy policy (opens in new tab)](https://fireflies.ai/privacy_policy.pdf)
 
 Extract valuable insights from meeting transcripts and summaries.
 
-You can use the Fireflies connector to:
+## Tools
 
-Review meeting decisions:
-"What decisions were made in yesterday's product strategy meeting?"
+* get\_user
+* get\_transcript
+* get\_transcripts
 
-Identify client concerns:
-"Identify any red flags or satisfaction concerns mentioned in client calls this week"
-
-Extract feature requests:
-"Extract feature requests from all user interviews conducted in the last 5 days"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-Communication
+### [Gmail](https://claude.com/connectors/gmail)
 
-Claude
+Draft replies, summarize threads, & search your inbox
 
-Claude Code
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Asana
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Communication
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 21, 2026
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-### Circleback
+### [Asana](https://claude.com/connectors/asana)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Connect to Asana to coordinate tasks, projects, and goals
 
-Productivity
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-Communication
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Code
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude
+Trending
 
-May 1, 2026
+An AI Concierge that turns forms into conversations
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-### Computer by DevRev
+![](https://www.google.com/s2/favicons?domain=intercom.com&sz=96)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+### [Intercom](https://claude.com/connectors/intercom)
 
-Productivity
+Access to Intercom data for better customer insights
 
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")

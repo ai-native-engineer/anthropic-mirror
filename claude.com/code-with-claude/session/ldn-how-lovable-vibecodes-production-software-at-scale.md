@@ -28,6 +28,8 @@ Lovable
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d347f8ba242ec17a9018_how-lovable-vibecodes-production.webp)
 
 Anthropic's developer conference, recorded

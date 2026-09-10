@@ -8,6 +8,8 @@ Start using skills
 
 [Start using skills](https://claude.ai/settings/capabilities)Start using skills
 
+[Play video](#)Play video
+
 [](https://cdn.sanity.io/files/4zrzovbb/website/3ec626bfee08f251c31203f17f02c5c032213ffe.webm)
 
 ## Expert output, every time

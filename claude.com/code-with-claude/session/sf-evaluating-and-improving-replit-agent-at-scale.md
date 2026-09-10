@@ -34,6 +34,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf3785c51ac6302fdaffc_replit-agent-at-scale.webp)
 
 Anthropic's developer conference, recorded

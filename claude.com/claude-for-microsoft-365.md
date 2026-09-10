@@ -42,6 +42,8 @@ Triage your inbox in one prompt, draft replies that wait for you to send, and fi
 
 ## How teams use Claude for Microsoft 365
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/microsoft-365-thumbnail.webm)
 
 ### Turn an email into a deliverable
@@ -182,7 +184,7 @@ Pull context from outside sources directly from the sidebar.
 
 Learn more
 
-[Learn more](https://claude.com/connectors)Learn more
+[Learn more](https://claude.com/archive/connectors)Learn more
 
 ## FAQ
 

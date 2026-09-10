@@ -14,15 +14,13 @@ As part of this strategic collaboration, NEC will become Anthropic’s first Jap
 
 ### **Claude for NEC’s customers**
 
-NEC and Anthropic will jointly develop secure, domain-specific AI products for Japanese customers in sectors like finance, manufacturing, and cybersecurity.
-
-In addition, NEC is already integrating Claude into its Security Operations Center services to help defend customers against increasingly sophisticated cybersecurity threats. Claude will also be integrated into the next-generation cybersecurity service NEC is currently providing.
+NEC and Anthropic will jointly develop secure, domain-specific AI products for Japanese customers in sectors like finance, manufacturing, and cybersecurity. In addition, NEC is already integrating Claude into its Security Operations Center services to help defend customers against increasingly sophisticated cybersecurity threats. Claude will also be integrated into the next-generation cybersecurity service NEC is currently providing.
 
 Claude, including Claude Opus 4.7, and [Claude Code](https://www.anthropic.com/claude-code) will be incorporated into [NEC BluStellar Scenario](https://www.nec.com/en/global/necblustellar/index.html), a program that provides consulting, AI tools, security, and digital infrastructure to businesses, starting with its offerings for data-driven management and customer experience, and gradually expanding to others.
 
 ### **How NEC will use Claude internally**
 
-Internally, NEC will establish a Center of Excellence to develop a highly skilled, AI-enabled engineering organization, supported by technical enablement and training from Anthropic. NEC aims to build one of Japan’s largest AI-native engineering teams, who will use Claude Code in their work.
+Internally, NEC will establish a Center of Excellence to develop a highly skilled, AI-enabled engineering organization, supported by technical enablement and training from Anthropic. NEC aims to build one of Japan’s largest AI-native engineering teams, which will use Claude Code in their work.
 
 As part of its long-running Client Zero initiative, in which NEC serves as its own first customer before offering its technology to clients, NEC will also expand its use of [Claude Cowork](https://www.anthropic.com/claude) across its internal business operations.
 

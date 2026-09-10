@@ -20,7 +20,7 @@ There remain many open questions on what good guidance from AI really means or h
 
 ## **What kinds of guidance do people seek from Claude?**
 
-We sampled 1 million [claude.ai](http://claude.ai/redirect/website.v1.87b1a4a2-a882-4ed1-b9cb-27ced707f69a) conversations from March and April 2026 and filtered for unique users to get roughly 639,000 conversations. We then used a classifier to identify *personal guidance,* which we defined as conversations where people ask what *they specifically* should do in their personal lives—for example, questions that start with "Should I…?" or "What do I do about…?". We excluded questions that seek objective information or opinions in general terms.
+We sampled 1 million [claude.ai](http://claude.ai/redirect/website.v1.f53b557a-6e7f-49d1-b174-5a58f1f3eb09) conversations from March and April 2026 and filtered for unique users to get roughly 639,000 conversations. We then used a classifier to identify *personal guidance,* which we defined as conversations where people ask what *they specifically* should do in their personal lives—for example, questions that start with "Should I…?" or "What do I do about…?". We excluded questions that seek objective information or opinions in general terms.
 
 We categorized these roughly 38,000 conversations into nine domains, drawing from previous research on AI and guidance-giving: relationships, career, personal development, financial, legal, health and wellness, parenting, ethics, and spirituality (see [Appendix](https://cdn.sanity.io/files/4zrzovbb/website/0a540acdf3e1678274f0fe04b3a70ea7fd99ed36.pdf) for more information). This taxonomy covered 98% of the conversations we saw.
 
@@ -96,6 +96,12 @@ Available [here.](https://cdn.sanity.io/files/4zrzovbb/website/0a540acdf3e167827
 
 1. At the bottom of every response on claude.ai is an option to send feedback via a thumbs up or thumbs down button, which shares the conversation with Anthropic.
 
+### An alignment assessment of recent cybersecurity incidents
+
+We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+
+[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+
 ### Formalizing Fermat's Last Theorem
 
 We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
@@ -107,9 +113,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
 
 [Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-
-### Enabling independent research on how people use Claude
-
-Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
-
-[Read more](https://www.anthropic.com/research/enabling-independent-research)

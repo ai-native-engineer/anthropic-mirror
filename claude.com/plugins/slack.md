@@ -8,11 +8,14 @@ Official Slack MCP server for interactive and collaborative workflows. Surface i
 * Install in
 
   [Claude Cowork](https://claude.ai/desktop/customize/plugins/new?marketplace=anthropics/knowledge-work-plugins&plugin=slack)[Claude Code](#)
+* Made by
 
   [Slack by Salesforce](https://slack.com)
 * Installs
 
   92287
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

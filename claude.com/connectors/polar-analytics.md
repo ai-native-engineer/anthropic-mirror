@@ -1,99 +1,79 @@
 <!-- source: https://claude.com/connectors/polar-analytics -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f81ccc7b7eca17b6fc4fdc_polar_analytics.svg)
+[Skip to main content](#main-content)
 
-# Polar Analytics
+Connector URL`https://api.polaranalytics.com/mcp`
 
-Bring all your data in one place & connect it to Claude
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/b9b882ab-aa77-4fb3-b554-0d2f3b0335cc)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Polar Analytics](https://www.polaranalytics.com/ai/mcp)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://intercom.help/polar-app/en/collections/17268490-polar-mcp)[Privacy Policy](https://www.polaranalytics.com/policy#web-privacy-policy)[Support](https://intercom.help/polar-app/en/)
+More[Documentation (opens in new tab)](https://intercom.help/polar-app/en/collections/17268490-polar-mcp)[Support (opens in new tab)](https://intercom.help/polar-app/en/)[Privacy policy (opens in new tab)](https://www.polaranalytics.com/policy#web-privacy-policy)
 
 Polar is the trusted data layer for commerce brands. Connect your Shopify, Meta, Google, Klaviyo, and 45+ other data sources into a unified semantic layer with validated metrics, custom business rules, and cross-platform attribution. Turn Claude into your data analyst. Get answers on ROAS, CAC, top-performing SKUs, profit margins, and more, with answers grounded in consistent, reconciled data instead of raw API pulls. Polar eliminates the "different answer every time" problem by applying your business definitions, exclusions, and attribution logic to every query. Supports multi-store setups and works with major e-commerce integrations.
 
-You can use Polar Analytics to:
+## Tools
 
-**Daily Executive Summary:**
-"Give me an executive summary of my business performance over the last 7 days. Include revenue, orders, ad spend, ROAS, and customer acquisition cost across all channels. Flag anything that changed significantly compared to the prior period."
+* get\_context
+* list\_dashboards
+* get\_dashboard\_details
+* list\_dimensions
+* get\_dimension\_values
+* get\_view\_details
+* get\_metrics
+* get\_custom\_dimension\_details
+* generate\_report
+* generate\_app\_report\_link
+* rate\_report
 
-**Marketing Channel Deep-Dive:**
-"Compare my Meta and Google ad performance this month. Break down spend, ROAS, CPA, and conversion rates by campaign. Which campaigns should I scale and which should I pause based on my target CAC?"
-
-**Customer Cohort & LTV Analysis:**
-"Show me cohort retention curves for customers acquired in Q4 vs Q1. What's the projected LTV for each cohort, and how does that compare to our benchmark for brands in our GMV tier?"
-
-**Anomaly Investigation:**
-"My conversion rate dropped 15% yesterday. Help me investigate — was it a traffic quality issue, a site problem, or a specific channel? Pull data across Shopify, Google Analytics, and Meta to identify the root cause."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

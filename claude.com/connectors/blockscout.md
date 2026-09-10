@@ -1,50 +1,81 @@
 <!-- source: https://claude.com/connectors/blockscout -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63da1f215ca2edf0aca488_icon_Blockscout.jpg)
+[Skip to main content](#main-content)
 
-# Blockscout
+Connector URL`https://mcp.blockscout.com/mcp`
 
-Access and analyze blockchain data
+More[Documentation (opens in new tab)](https://github.com/blockscout/mcp-server)[Support (opens in new tab)](https://discord.gg/blockscout)[Privacy policy (opens in new tab)](https://eaas.blockscout.com/privacy-notice)
 
-* Category
+Provides access to multichain blockchain data such as balances, tokens, NFTs, contract metadata for contextual analysis.
 
-  No items found.
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/48425fdb-37c1-408d-9606-30e16847b6a8)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* \_\_unlock\_blockchain\_analysis\_\_
+* get\_chains\_list
+* get\_address\_by\_ens\_name
+* get\_contract\_abi
+* get\_address\_info
+* get\_tokens\_by\_address
+* get\_latest\_block
+* get\_transactions\_by\_address
+* get\_token\_transfers\_by\_address
+* transaction\_summary
+* nft\_tokens\_by\_address
+* get\_block\_info
+* get\_transaction\_info
+* get\_transaction\_logs
+* read\_contract
 
-  [Blockscout](https://www.blockscout.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://github.com/blockscout/mcp-server)[Privacy Policy](https://eaas.blockscout.com/privacy-notice)[Support](https://discord.gg/blockscout)
-
-The Blockscout connector provides access to multichain blockchain data such as balances, tokens, NFTs, and contract metadata for contextual analysis. Access comprehensive blockchain information across an extensive list of supported chains for research, analysis, and verification.
-
-You can use the Blockscout connector to:
-
-Analyze address activity:
-"What are the usual activities performed by ens.eth on the Ethereum Mainnet?"
-
-Query contract interactions:
-"Which address interacts with the contract the most? What is the most used functionality of this contract?"
-
-Retrieve transaction logs:
-"Which 10 most recent logs were emitted by 0xFe89cc7aBB2C4183683ab71653C4cdc9B02D44b7 before Nov 08 2024?"
-
-Check token holdings:
-"Show me all tokens and NFTs held by this address"
-
-Get contract details:
-"Retrieve the ABI and metadata for this smart contract"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-No items found.
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
+
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
+
+Trending
+
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
+
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
+
+### [Stripe](https://claude.com/connectors/stripe)
+
+Payment processing and financial infrastructure tools
+
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
+
+![](https://ai.zacksdata.com/connector-icon-512.png)
+
+### [Zacks Data](https://claude.com/connectors/zacks-data)
+
+Trusted Financial Data from Zacks Investment Research
+
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
+
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
+
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
+
+Business Finances made simple
+
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
+
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
+
+Trade, invest, analyze, and manage global markets
+
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
+
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
+
+Deterministic access to S&P Global data
+
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

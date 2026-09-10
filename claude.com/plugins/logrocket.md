@@ -7,11 +7,14 @@ Connect Claude Code to LogRocket to query session replays, metrics, issues, and 
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [LogRocket](https://www.logrocket.com)
 * Installs
 
   199
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

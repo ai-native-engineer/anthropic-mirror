@@ -1,106 +1,83 @@
 <!-- source: https://claude.com/connectors/superhuman-mail -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f15c0204bf266a152583ce_superhuman.svg)
+[Skip to main content](#main-content)
 
-# Superhuman Mail
+Connector URL`https://mcp.mail.superhuman.com/mcp`
 
-The most productive email app ever, for Gmail & Outlook
-
-* Category
-
-  Productivity
-
-  Communication
-* Used in
-
-  [Claude](https://claude.ai/directory/c0449015-4acb-47b6-b9ac-e6e98e884328)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Superhuman Mail](https://superhuman.com/products/mail)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://help.superhuman.com/hc/en-us/articles/49810745762067-Superhuman-Mail-MCP-Server-Beta)[Privacy Policy](https://www.grammarly.com/privacy-policy)[Support](mailto:hello@superhuman.com)
+More[Documentation (opens in new tab)](https://help.superhuman.com/hc/en-us/articles/49810745762067-Superhuman-Mail-MCP-Server-Beta)[Support (opens in new tab)](mailto:hello@superhuman.com)[Privacy policy (opens in new tab)](https://www.grammarly.com/privacy-policy)
 
 Connect Superhuman Mail to Claude, and build powerful workflows for email and calendar. Find anything in your inbox, draft replies that sound like you for every recipient, check read statuses, set reminders, schedule meetings, and send — all without leaving Claude.
 
-You can use the Superhuman Mail connector to:
+## Tools
 
-**Start the day briefed:**
-"scan unread emails in my inbox from the last 24 hours. flag what matters most"
+* get\_attachment
+* mark\_spam
+* list\_splits
+* create\_or\_update\_draft
+* create\_or\_update\_event
+* discard\_draft
+* get\_availability
+* get\_labels
+* get\_message
+* get\_read\_statuses
+* get\_thread
+* list\_threads
+* query\_email\_and\_calendar
+* send\_draft
+* trash\_thread
+* undo\_send
+* unsubscribe
+* update\_personalization
+* update\_thread
 
-**Draft emails in your voice and tone:**
-"draft an email introducing myself to the new team"
-
-**Automate tasks:**
-"forward today's invoices to finance@acme.co and say it's approved"
-
-**Check read statuses:**
-"who hasn't opened the exec dinner invite yet?"
-
-**Prepare for your day:**
-"what do I need to prepare for tomorrow's meetings?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### Adobe Experience Manager
+### [Gmail](https://claude.com/connectors/gmail)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Draft replies, summarize threads, & search your inbox
 
-Productivity
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 9, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Productivity
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-June 22, 2026
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-### Agentic Presentations by SlidesGPT
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Productivity
+### [Notion](https://claude.com/connectors/notion)
 
-Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

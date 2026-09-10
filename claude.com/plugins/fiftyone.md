@@ -7,11 +7,14 @@ Build high-quality datasets and computer vision models. Visualize datasets, anal
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Voxel51](https://docs.voxel51.com/)
 * Installs
 
   2693
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

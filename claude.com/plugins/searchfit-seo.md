@@ -7,11 +7,14 @@ Free AI SEO toolkit: audit, strategy, optimize, markup, keywords, visibility. Wo
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [SearchFit.ai](https://searchfit.ai)
 * Installs
 
   6216
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

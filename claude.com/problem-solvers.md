@@ -8,6 +8,8 @@ Problem
 
 Solvers
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/startup-founders/hero-thumbnail-15ctv-textless.webm)
 
 The most driven founders are problem solvers. What keeps them building on Claude is a partnership that scales with their ambitions. Watch their unscripted conversations with the Anthropic engineers deeply embedded in their work.
@@ -19,6 +21,8 @@ The most driven founders are problem solvers. What keeps them building on Claude
 Michael Truell
 
 Co-founder and CEO
+
+[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/startup-founders/cursor-supercut.webm)
 
@@ -52,6 +56,8 @@ Read customer story
 
 [Read customer story](https://claude.com/customers/legora)Read customer story
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/startup-founders/legora-supercut-2.webm)
 
 “We’re thinking a lot about how to build the boats on top of that rising tide so that our system gets better with every new model released.”
@@ -67,6 +73,8 @@ Co-founder and CEO
 Anton Osika
 
 Co-founder and CEO
+
+[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/startup-founders/lovable-supercut.webm)
 
@@ -100,6 +108,8 @@ Read customer story
 
 [Read customer story](https://claude.com/customers/replit)Read customer story
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/startup-founders/replit-supercut.webm)
 
 “To remove the barrier of entry to coding, the model makes the difference. Anthropic continues to have the best coding models on the market.”
@@ -115,6 +125,8 @@ President & Head of AI
 Scott Wu
 
 Co-founder and CEO
+
+[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/startup-founders/cognition-thumbnail.webm)
 
@@ -147,6 +159,8 @@ Kay Zhu built Genspark on a belief he's living at home: that AI should free peop
 Read customer story
 
 [Read customer story](https://claude.com/customers/genspark)Read customer story
+
+[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/startup-founders/genspark-thumbnail.webm)
 

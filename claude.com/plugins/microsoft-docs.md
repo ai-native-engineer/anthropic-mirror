@@ -7,11 +7,14 @@ Access official Microsoft documentation, API references, and code samples for Az
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Microsoft](https://learn.microsoft.com)
 * Installs
 
   26765
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

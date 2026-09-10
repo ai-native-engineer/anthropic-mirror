@@ -7,11 +7,14 @@ AWS development toolkit — 34 skills, 11 agents, and 3 MCP servers for building
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [aws-samples](#)
 * Installs
 
   3589
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

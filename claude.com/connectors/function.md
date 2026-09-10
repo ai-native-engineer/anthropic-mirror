@@ -1,99 +1,67 @@
 <!-- source: https://claude.com/connectors/function -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
+[Skip to main content](#main-content)
 
-# Function (beta)
+Connector URL`https://services.functionhealth.com/ai-chat/mcp`
 
-View lab test results summaries, get nutrition plans
+More[Documentation (opens in new tab)](https://services.functionhealth.com/auth0/acul/claude_connector_docs.html)[Support (opens in new tab)](mailto:support@functionhealth.com)[Privacy policy (opens in new tab)](https://www.functionhealth.com/legal/privacy-policy)
 
-* Category
+Function members can securely view lab test results, ask health questions, and get nutrition plans. Function includes 160+ lab tests per year to monitor 1,000+ diseases, help uncover possible causes of unexplained symptoms, and create a roadmap for feeling your best. Test your heart, hormones, thyroid, liver, kidneys, toxins, nutrients, inflammation, autoimmunity, immunity and more.
 
-  Health and wellness
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/48527e54-fe84-4dc6-b97f-c8e0763bca97)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* Health Summary
+* Biomarkers
+* Health Action Plan / Meal Plan
 
-  [Function Health](https://www.functionhealth.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://services.functionhealth.com/auth0/acul/claude_connector_docs.html)[Privacy Policy](https://www.functionhealth.com/legal/privacy-policy)[Support](https://www.functionhealth.com/contact-us)
-
-The Function Health connector lets members securely see a summary of their lab results, ask health questions, and access their nutrition plans. Function includes 160+ lab tests per year to monitor 1,000+ diseases, help uncover possible causes of unexplained symptoms, and create a roadmap for feeling your best. Test your heart, hormones, thyroid, liver, kidneys, toxins, nutrients, inflammation, autoimmunity, immunity and more.
-
-You can use the Function Health connector to:
-
-**Get a health summary:** "Summarize my overall Function lab results"
-
-**Decide where to focus:** "Which health categories are most out of range in my labs?"
-
-**Review nutrition plans:** "Show me my nutrition plan."
-
-**Get answers to health questions:** "How's my heart health?"
-
-**Track progress over time:** "How have my lab results changed since my last Function test?"
-
-**Prepare Smarter Questions for My Doctor:** "Based on my Function summary, what questions should I bring to my next appointment?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Health and wellness
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-May 1, 2026
+Analyze, summarize, and explore your Strava data
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-### AllTrails
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-Find your next hike](https://claude.com/connectors/alltrails)
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Health and wellness
+Search biomedical literature from PubMed
 
-Claude
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude Code
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-May 26, 2026
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
+Access US National Provider Identifier (NPI) Registry
 
-### Alma
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-Life sciences and healthcare
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-Health and wellness
+Access ICD-10-CM and ICD-10-PCS code sets
 
-Claude
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-May 20, 2026
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e9e884bd175dbadbf06_cms.jpg)
+Find your next hike
 
-### CMS Coverage
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-Health and wellness
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-Claude
+Access the CMS Coverage Database
 
-January 26, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e7cb91804401037ccb4_healthEx.jpg)
-
-### HealthEx (beta)
-
-Connect your health records for personalized insights](https://claude.com/connectors/healthex)
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")

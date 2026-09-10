@@ -1,107 +1,69 @@
 <!-- source: https://claude.com/connectors/microsoft-365 -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690c442881b2f70098a4491a_logo_microsoft.svg)
+[Skip to main content](#main-content)
 
-# Microsoft 365
+Connector URL`https://microsoft365.mcp.claude.com/mcp`
 
-Access SharePoint, OneDrive, Outlook, and Teams context directly in Claude
+More[Documentation (opens in new tab)](https://support.claude.com/en/articles/12542951-enabling-and-using-the-microsoft-365-connector)[Support (opens in new tab)](https://support.anthropic.com)[Privacy policy (opens in new tab)](https://www.anthropic.com/privacy)
 
-* Category
+Access SharePoint, OneDrive, Outlook, and Teams directly in Claude. Search and analyze documents across sites and libraries, review email threads and communications, and extract insights from calendar and chat data. Make Microsoft 365 a native part of your Claude workflows while respecting all existing permissions and security controls. Built for Microsoft 365 at work — your company's SharePoint, OneDrive, Outlook, and Teams. Requires a work or school account (you@yourcompany.com). Personal accounts like outlook.com, hotmail.com, or live.com aren't supported.
 
-  Communication
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Anthropic](https://anthropic.com)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/db55e717fee6430d210a55c83c3b87e196c8ce60.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://support.claude.com/en/articles/12542951-enabling-and-using-the-microsoft-365-connector)[Privacy Policy](https://www.anthropic.com/legal/privacy)[Support](https://support.claude.com/en/)
-
-Access SharePoint, OneDrive, Outlook, and Teams context directly in Claude. Search and analyze documents across sites and libraries, review email threads and communications, and gather insights from calendar and chat. Make Microsoft 365 a native part of your Claude workflows while respecting all existing permissions and security controls.
-
-You can use the Microsoft 365 connector to:
-
-Search documents across SharePoint and OneDrive:
-"Find all project proposals in our SharePoint site from the last quarter and summarize the key themes"
-
-Analyze email communications:
-"Review the email thread with [client@example.com](mailto:client@example.com) about the product launch and summarize outstanding action items"
-
-Get calendar insights:
-"What meetings do I have this week related to the Q4 budget planning?"
-
-Review Teams conversations:
-"Summarize the key decisions from yesterday's Teams chat in the #product-launch channel"
+* sharepoint\_search
+* sharepoint\_folder\_search
+* outlook\_email\_search
+* outlook\_calendar\_search
+* find\_meeting\_availability
+* chat\_message\_search
+* read\_resource
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Communication
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude
+Search, read, and upload files instantly
 
-Claude Code
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-February 11, 2026
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Gmail](https://claude.com/connectors/gmail)
 
-### Asana
+Draft replies, summarize threads, & search your inbox
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Communication
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Productivity
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Claude
+Manage your schedule and coordinate meetings effortlessly
 
-February 21, 2026
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-### Circleback
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Access Jira & Confluence from Claude
 
-Productivity
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Communication
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Code
+### [Notion](https://claude.com/connectors/notion)
 
-Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-May 1, 2026
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-### Computer by DevRev
+### [Slack](https://claude.com/connectors/slack)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+Send messages, create canvases, and fetch Slack data
 
-Productivity
-
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

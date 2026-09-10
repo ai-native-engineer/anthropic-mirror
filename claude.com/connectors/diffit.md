@@ -1,101 +1,68 @@
 <!-- source: https://claude.com/connectors/diffit -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a5652621d3a113dfe018e06_13329-logo-diffit.png)
+[Skip to main content](#main-content)
 
-# Diffit
+Connector URL`https://api.diffit.me/mcp`
 
-Quality, classroom-ready resources for anything
-
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/ac43e989-c883-4773-9e70-eb640e9c908a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Diffit](https://web.diffit.me)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://web.diffit.me/diffit-in-claude-for-k12)[Privacy Policy](https://web.diffit.me/privacy-policy)[Support](mailto:support@diffit.me)
+More[Documentation (opens in new tab)](https://web.diffit.me/diffit-in-claude-for-k12)[Support (opens in new tab)](mailto:support@diffit.me)[Privacy policy (opens in new tab)](https://web.diffit.me/privacy-policy)
 
 Get quality supplemental resources and differentiation support for any topic, skill or standard. Just ask Claude for what you need, and Diffit generates it while you watch. Open in Diffit to edit, add activities, and print or export to your favorite tool.
 
-You can use Diffit to:
+## Tools
 
-**Supplement your curriculum:**
-"Station rotations focusing on main idea and character development in The Great Gatsby."
+* create\_resource
+* get\_resource\_status
 
-**Differentiate content:**
-"Adapt this primary source document into 3rd, 5th, and 7th grade reading level versions."
-
-**Get sub plans:**
-"I need a sub plan that gives my students additional practice on CCSS.MATH.CONTENT.5.NF.A.2. Include a teacher guide with answer key, and some station rotations with engaging hooks."
-
-**Create quick activities:**
-"I want a crossword puzzle I can print with key terms about mitosis."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Claude
+### [Canva](https://claude.com/connectors/canva)
 
-Claude Code
+Search, create, autofill, and export Canva designs
 
-April 29, 2026
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-### Adobe Experience Manager
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Trending
 
-Productivity
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Claude
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=padlet.com&sz=96)
 
-June 9, 2026
+### [Padlet MCP](https://claude.com/connectors/padlet-mcp)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+Create and manage padlets
 
-### Adobe Workfront
+[Add Padlet MCP in Claude (opens in new tab)](https://claude.ai/directory/618a4a60-3705-448f-b86f-b43e85fb37ba "Add in Claude")
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/ae/4c/82ae4ce7-6614-ea43-f543-d3cbd11e9726/AppIcon-0-0-1x_U007epad-0-10-0-85-220.png/512x512bb.png)
 
-Productivity
+### [Jotform Sign](https://claude.com/connectors/jotform-sign)
 
-Claude
+Create, share, and edit e-signature documents right inside Claude
 
-Claude Code
+[Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")
 
-June 22, 2026
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+### [Jotform Apps](https://claude.com/connectors/jotform-apps)
 
-### Agentic Presentations by SlidesGPT
+Build and manage no-code apps
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
-Productivity
+![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 
-Claude
+### [Mobbin](https://claude.com/connectors/mobbin)
 
-Claude Code
+Find UI & UX design references
 
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")

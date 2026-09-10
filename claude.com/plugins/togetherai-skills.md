@@ -7,11 +7,14 @@ Agent Skills for Together AI platform — inference, training, embeddings, audio
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Together AI](#)
 * Installs
 
   568
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

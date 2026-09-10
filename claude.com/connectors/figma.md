@@ -1,176 +1,89 @@
 <!-- source: https://claude.com/connectors/figma -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abf35eff31cb9416d9ec4_Figma.jpg)
+[Skip to main content](#main-content)
 
-# Figma
+Connector URL`https://mcp.figma.com/mcp`
 
-Turn code into editable designs, visuals, and diagrams
+More[Documentation (opens in new tab)](https://help.figma.com/hc/en-us/articles/32132100833559)[Enterprise setup guide (opens in new tab)](https://help.figma.com/hc/en-us/articles/41992841175959-Set-up-OIDC-for-Okta-XAA)[Support (opens in new tab)](https://help.figma.com/hc/en-us/requests/new?chatStartExpanded)[Privacy policy (opens in new tab)](https://www.figma.com/legal/privacy-trust-center/)
 
-* Category
+The Figma MCP server helps you pull in Figma context and generate high-quality code that aligns with your codebase and design intent. Use the MCP server to retrieve code resources from Figma Design or Make files, and turn your ideas into production apps.
 
-  Design
-* Used in
+\*\*Key features:\*\*
 
-  [Claude](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+• \*\*Generate code from selected frames or nodes\*\* - Select a frame in Figma or provide a node URL to have an AI agent turn your design into code.
 
-  [Figma](https://figma.com)
+• \*\*Extract design context from layers\*\* - Pull out variables, components, and layouts from a design to ensure builds adhere to design patterns.
 
-[](https://cdn.sanity.io/files/4zrzovbb/website/e79053e6b6533c596afdc0b6388ddf78f92f05ff.mp4)
+• \*\*Code smarter with Code Connect\*\* - Boost output quality by reusing your actual components, the MCP server informs AI agents about existing components derived from Code Connect information.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+• \*\*Map your flows with diagrams\*\* - The Figma MCP server can turn your Claude prompts into flow charts, Gantt charts, or other diagrams in FigJam.
 
-* Capabilities
+\*\*Note:\*\* The get\_screenshot tool is currently limited to returning a descripton of screenshots in Figma when called in Claude and Claude Code. See developer term [here](https://www.figma.com/legal/developer-terms/)
 
-  Interactive
-* More
+## Tools
 
-  [Documentation](https://help.figma.com/hc/en-us/articles/32132100833559)[Privacy Policy](https://www.figma.com/legal/developer-terms/)[Support](https://help.figma.com/hc/en-us/requests/new?chatStartExpanded)
+* generate\_diagram
+* get\_design\_context
+* get\_screenshot
+* get\_metadata
+* create\_design\_system\_rules
+* get\_variable\_defs
+* get\_code\_connect\_map
+* get\_figjam
+* whoami
 
-Connect Claude and Claude Code to the Figma canvas as you build prototypes and production apps. Send your product screens to Figma, where they become editable layers using your design system components. Share these designs and collaborate with your team, or send them back to Claude Code to implement the designs in your codebase.
-
-The Figma connector works bidirectionally to:
-‍
-
-Turn production code into editable designs:
-
-"Capture my homepage and bring it into this Figma file as layers using my design system components with /figma-use"
-
-Generate code from designs:
-
-"Implement the selected Figma component as React code following my codebase standards and annotations"
-
-Build and maintain your design system:
-
-"Generate Figma components and variables from my codebase, then audit the file for design system drift"
-
-Create diagrams in FigJam:
-
-"Turn this system architecture description into a flowchart in FigJam"
-
-Build decks in Figma Slides:
-
-“Create a post-launch presentation in Figma Slides from this attached report”
-
-Skills
-
-Code Connect Components
-
-[](https://www-cdn.anthropic.com/9474b6d97cc3c5cf4ccab874fdcb78d0eccef23b.mp4)
-
-Connects Figma design components to code components using Code Connect.
-
-Learn more
-
-[Learn more](https://github.com/figma/mcp-server-guide)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Create Design System Rules
-
-Generates custom design system rules for the user's codebase.
-
-Learn more
-
-[Learn more](https://github.com/figma/mcp-server-guide)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Implement Design
-
-Translates Figma designs into production-ready code with 1:1 visual fidelity.
-
-Learn more
-
-[Learn more](https://github.com/figma/mcp-server-guide)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Figma Skills in Claude Code
-
-Access Figma skills in the Claude Code Plugin Directory.
-
-Learn more
-
-[Learn more](https://github.com/figma/mcp-server-guide/tree/main/.claude-plugin)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Design
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Claude
+### [Canva](https://claude.com/connectors/canva)
 
-May 7, 2026
+Search, create, autofill, and export Canva designs
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-### Adobe for creativity
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Productivity
+Trending
 
-Design
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-May 1, 2026
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
+Trending
 
-### Autodesk Product Help
+An AI Concierge that turns forms into conversations
 
-Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Design
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
-Claude
+### [Adobe for creativity](https://claude.com/connectors/adobe-creativity)
 
-Claude Code
+Ideate, create, and deliver with Adobe pro tools
 
-Skills
+[Add Adobe for creativity in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
+### [monday.com](https://claude.com/connectors/monday)
 
-### Canva
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-Design
+![](https://agent.enrichlabs.ai/avatars/helena.png)
 
-Productivity
+### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
 
-Claude
+Your AI marketer for paid ads, SEO, email, social, and analytics
 
-Claude Code
-
-May 28, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154ac9a3dd67012fe91a0a_descript.svg)
-
-### Descript
-
-Import, edit, or create video with prompts](https://claude.com/connectors/descript)
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")

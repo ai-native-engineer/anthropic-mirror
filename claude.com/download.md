@@ -254,14 +254,6 @@ Connectors allow Claude to work with tools like your apps and databases. Web-bas
 
 Claude in Chrome is included as a connector and is ready to use when you enable it. Turn it on in any conversation and Claude can navigate, click, and fill forms in your browser from the Desktop app. Start a task without switching windows. Learn more about [Claude in Chrome](http://claude.com/chrome).
 
-### Do I need both apps to use Cowork?
-
-No. Cowork only runs on the desktop app and works without the mobile app. But to assign tasks to Cowork from your phone, you'll need both.
-
-### Does my computer need to be on for Cowork to run?
-
-Yes. The desktop app needs to be running for Claude to complete tasks. If your computer is asleep, Claude won't be able to work.
-
 ### Can I use Claude Code in the desktop app?
 
 Yes. Claude Code runs directly in the desktop app. You can preview running servers, review local code changes, and monitor pull request status without leaving the app. Your work moves with you. Bring a CLI conversation into the desktop app with `/desktop`, or continue from the web or your phone. [Learn more about Claude Code](https://claude.com/product/claude-code).

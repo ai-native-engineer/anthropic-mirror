@@ -1,389 +1,403 @@
 <!-- source: https://claude.com/connectors -->
 
-Thank you! Your submission has been received!
+[Skip to main content](#main-content)
 
-Oops! Something went wrong while submitting the form.
+Filter
 
-# Connect Claude to your favorite apps
+Category
 
-Claude can work with your tools, databases, and applications to give you more relevant responses. Choose from a variety of connectors, powered by the Model Context Protocol.
+Commerce & shoppingCommunicationConsumer healthCreativeData & analyticsDeveloper toolsEducationFinancial servicesHealth & life sciencesLegalMedia & entertainmentNonprofitOtherProductivitySales & marketingTravelHealthcare
 
-Browse connectors
+Type
 
-[Browse connectors](#connectors)Browse connectors
+WebDesktop extensionInteractive
 
-## Browse connectors
+SortRecommendedMost popularTrendingNewestA–Z
 
-Thank you! Your submission has been received!
+## Top connectors
 
-Oops! Something went wrong while submitting the form.
+Show all 795
 
-Thank you! Your submission has been received!
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Oops! Something went wrong while submitting the form.
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Submit your own connector
+Search, read, and upload files instantly
 
-New connectors help expand what Claude can do for everyone. Share yours and we’ll review it for the directory.
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-Get started
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-[Get started](https://claude.com/docs/connectors/building/submission#submit-your-connector)Get started
+### [Gmail](https://claude.com/connectors/gmail)
 
-Life sciences and healthcare
+Draft replies, summarize threads, & search your inbox
 
-Claude
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude Code
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-February 11, 2026
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+Manage your schedule and coordinate meetings effortlessly
 
-### 10x Genomics Cloud
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Sales and marketing
+### [Canva](https://claude.com/connectors/canva)
 
-Claude
+Search, create, autofill, and export Canva designs
 
-Claude Code
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-January 26, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### ActiveCampaign
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Sales and marketing
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Claude
+### [Notion](https://claude.com/connectors/notion)
 
-Claude Code
+Connect your Notion workspace to search, update, and power workflows across tools
 
-June 2, 2026
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+![](https://www.google.com/s2/favicons?domain=figma.com&sz=96)
 
-### Actively
+### [Figma](https://claude.com/connectors/figma)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+Generate diagrams and better code from Figma context
 
-Life sciences and healthcare
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Claude Code
+### [Slack](https://claude.com/connectors/slack)
 
-May 1, 2026
+Send messages, create canvases, and fetch Slack data
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-### AdisInsight
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Data
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-June 4, 2026
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+CRM context for every answer, insight, and action
 
-### Adobe Customer Journey Analytics
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-Productivity
+### [Asana](https://claude.com/connectors/asana)
 
-Claude
+Connect to Asana to coordinate tasks, projects, and goals
 
-Claude Code
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-April 29, 2026
+![](https://www.google.com/s2/favicons?domain=linear.app&sz=96)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Linear](https://claude.com/connectors/linear)
 
-### Adobe Experience Manager
+Manage issues, projects & team workflows in Linear
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+[Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
 
-Design
+## Trending connectors
 
-Claude
+Show all 8
 
-May 7, 2026
+![](https://support.healthdataavatar.com/HDA-square.svg)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Health Data Avatar (HDA)](https://claude.com/connectors/health-data-avatar-hda)
 
-### Adobe for creativity
+Trending
 
-Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
+Your complete health history structured for Claude
 
-Sales and marketing
+[Add Health Data Avatar (HDA) in Claude (opens in new tab)](https://claude.ai/directory/ebacb52d-dedb-424a-981c-3f6a14495676 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=speko.ai&sz=96)
 
-May 26, 2026
+### [Speko](https://claude.com/connectors/speko)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Trending
 
-### Adobe Journey Optimizer
+Inspect your Speko voice-AI account from Claude — agents, calls, transcripts, recordings, phone numbers, credits and usage — plus speech-to-text transcription.
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Speko in Claude (opens in new tab)](https://claude.ai/directory/e70653f5-76ec-4712-b8d7-8454ebf955c1 "Add in Claude")
 
-Sales and marketing
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-Claude
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-Claude Code
+Trending
 
-April 29, 2026
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-### Adobe Marketing Agent
+![](https://www.google.com/s2/favicons?domain=brightdeck.ai&sz=96)
 
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+### [Brightdeck](https://claude.com/connectors/brightdeck-ai)
 
-Productivity
+Trending
 
-Claude
+Create presentations and slides, compatible with PowerPoint
 
-Claude Code
+[Add Brightdeck in Claude (opens in new tab)](https://claude.ai/directory/c0a11a21-c9c7-4b10-9118-629035443c7b "Add in Claude")
 
-June 9, 2026
+![](https://zohomcp-development.zohostratus.com/logo/Bigin-512.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+### [bigin.zohomcp.com](https://claude.com/connectors/bigin-zohomcp-com)
 
-### Adobe Workfront
+Trending
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+Simplify sales and customer management for small businesses
 
-Financial services
+[Add bigin.zohomcp.com in Claude (opens in new tab)](https://claude.ai/directory/013d0803-4052-40b5-91f5-833ec5e7b714 "Add in Claude")
 
-Claude
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Claude Code
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-June 22, 2026
+Trending
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+An AI Concierge that turns forms into conversations
 
-### Affinity
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Productivity
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude
+Trending
 
-Claude Code
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-June 22, 2026
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-### Agentic Presentations by SlidesGPT
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+Trending
 
-Sales and marketing
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+## All connectors
 
-January 30, 2026
+795 connectors
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697d489e3a9d195da9e8d2e8_ahrefs-logo.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-### Ahrefs
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-SEO & AI search analytics](https://claude.com/connectors/ahrefs)
+Search, read, and upload files instantly
 
-Financial services
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-February 11, 2026
+### [Gmail](https://claude.com/connectors/gmail)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+Draft replies, summarize threads, & search your inbox
 
-### Aiera
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Sales and marketing
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Claude
+Manage your schedule and coordinate meetings effortlessly
 
-Claude Code
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-February 11, 2026
+![](https://support.healthdataavatar.com/HDA-square.svg)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6973cbbab064adc3bdffb11e_logo-airops.svg)
+### [Health Data Avatar (HDA)](https://claude.com/connectors/health-data-avatar-hda)
 
-### AirOps
+Trending
 
-Craft content that wins AI search](https://claude.com/connectors/airops)
+Your complete health history structured for Claude
 
-Data
+[Add Health Data Avatar (HDA) in Claude (opens in new tab)](https://claude.ai/directory/ebacb52d-dedb-424a-981c-3f6a14495676 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Claude Code
+### [Canva](https://claude.com/connectors/canva)
 
-May 11, 2026
+Search, create, autofill, and export Canva designs
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-### Airtable
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Financial services
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-February 26, 2026
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-### Airwallex
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Financial services
+### [Notion](https://claude.com/connectors/notion)
 
-Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude Code
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-April 8, 2026
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
+### [Slack](https://claude.com/connectors/slack)
 
-### Aiwyn Tax
+Send messages, create canvases, and fetch Slack data
 
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-Health and wellness
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-May 1, 2026
+Trending
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-### AllTrails
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Find your next hike](https://claude.com/connectors/alltrails)
+![](https://www.google.com/s2/favicons?domain=figma.com&sz=96)
 
-Health and wellness
+### [Figma](https://claude.com/connectors/figma)
 
-Claude
+Generate diagrams and better code from Figma context
 
-Claude Code
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
-May 26, 2026
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
+### [Asana](https://claude.com/connectors/asana)
 
-### Alma
+Connect to Asana to coordinate tasks, projects, and goals
 
-Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-Data
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Claude
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude Code
+Trending
 
-June 22, 2026
+An AI Concierge that turns forms into conversations
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-### alphaXiv
+![](https://www.google.com/s2/favicons?domain=indeed.com&sz=96)
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+### [Indeed](https://claude.com/connectors/indeed)
 
-Data
+Search for jobs on Indeed
 
-Claude
+[Add Indeed in Claude (opens in new tab)](https://claude.ai/directory/78cb9092-b837-4439-845d-fdccd5723e7f "Add in Claude")
 
-February 3, 2026
+![](https://www.google.com/s2/favicons?domain=spotify.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+### [Spotify](https://claude.com/connectors/spotify)
 
-### Amplitude
+Music and podcast recommendations, just for you.
 
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Spotify in Claude (opens in new tab)](https://claude.ai/directory/86925244-b3bb-415b-b7e8-6e3cd1392247 "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-Claude
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-March 2, 2026
+CRM context for every answer, insight, and action
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699cc5c8e115b1bc6e58cb4c_Apollo.svg)
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-### Apollo.io
+![](https://www.google.com/s2/favicons?domain=linear.app&sz=96)
 
-Find buyers. Book more meetings. Close more deals.](https://claude.com/connectors/apollo)
+### [Linear](https://claude.com/connectors/linear)
 
-Productivity
+Manage issues, projects & team workflows in Linear
 
-Claude
+[Add Linear in Claude (opens in new tab)](https://claude.ai/directory/fa50c30c-9f62-4f94-b851-217868185db6 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-June 22, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
+Manage databases, authentication, and storage
 
-### AppFolio Realm-X
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
-[View more](https://claude.com/connectors?cc61befa_page=2)
+### [Adobe for creativity](https://claude.com/connectors/adobe-creativity)
 
-1 / 17
+Ideate, create, and deliver with Adobe pro tools
 
-No connectors for those filters
+[Add Adobe for creativity in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
-Try another search or clear some of your filters.
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Clear all filters
+### [monday.com](https://claude.com/connectors/monday)
 
-[Clear all filters](#)Clear all filters
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-Thank you! Your submission has been received!
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-Oops! Something went wrong while submitting the form.
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
 
-FAQ
+### [Gamma](https://claude.com/connectors/gamma)
 
-### What is the Claude Enterprise plan?
+Create presentations, docs, socials, and sites with AI
 
-Claude is a trusted, secure, and collaborative AI expert that integrates with organizational knowledge and workflows to support high-quality work. Claude enhances productivity and creativity across various business functions within an organization. The Enterprise plan is designed for organizations that require large knowledge uploads, enhanced security and user management, and an AI solution that scales across cross-functional teams in support of deep work.
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-### How can I integrate Claude into my own products or services?
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
-If you’re a developer looking to create user-facing experiences and new products with Claude, the Anthropic API is right for you. To learn more about different API plans, contact our sales team. To get started, [explore our developer docs](https://docs.claude.com/en/home).
+### [Shopify](https://claude.com/connectors/shopify)
 
-### Where can I find the Terms & Conditions for connectors?
+Build, manage, and analyze your Shopify store
 
-Connectors in the directory are built and maintained by third-party developers using the Model Context Protocol (MCP). Each connector provider has their own terms and privacy policy, which are typically presented during the OAuth authentication process when you connect. For information about how connectors are reviewed and published in this directory, see our [MCP Directory Terms and Conditions](https://support.claude.com/en/articles/11697081-anthropic-mcp-directory-terms-and-conditions) and [MCP Directory Policy](https://support.claude.com/en/articles/11697096-anthropic-mcp-directory-policy).
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")
 
-[Prev](#)Prev
+![](https://agent.enrichlabs.ai/avatars/helena.png)
 
-[Next](#)Next
+### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
+
+Your AI marketer for paid ads, SEO, email, social, and analytics
+
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=vercel.com&sz=96)
+
+### [Vercel](https://claude.com/connectors/vercel)
+
+Analyze, debug, and manage projects and deployments
+
+[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
+
+View more

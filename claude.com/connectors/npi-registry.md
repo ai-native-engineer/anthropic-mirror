@@ -1,97 +1,65 @@
 <!-- source: https://claude.com/connectors/npi-registry -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3ed486c00439706bad8d_npi.jpg)
+[Skip to main content](#main-content)
 
-# NPI Registry
+Connector URL`https://hcls.mcp.claude.com/npi_registry/mcp`
 
-Access US National Provider Identifier (NPI) Registry
+More[Documentation (opens in new tab)](https://claude.com/resources/tutorials/using-the-npi-registry-connector-in-claude)[Support (opens in new tab)](https://support.anthropic.com)[Privacy policy (opens in new tab)](https://www.anthropic.com/privacy)
 
-* Category
+The NPI Registry Connector gives Claude access to the US National Provider Identifier (NPI) Registry, containing information about all HIPAA-covered healthcare providers in the United States.
 
-  Life sciences and healthcare
+## Tools
 
-  Health and wellness
-* Used in
-
-  [Claude](https://claude.ai/directory/9ef2b31c-71e1-4183-9b8a-b9590f33940b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-npi-registry-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Anthropic](https://anthropic.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  No items found.
-* More
-
-  [Documentation](https://claude.com/resources/tutorials/using-the-npi-registry-connector-in-claude)[Privacy Policy](https://www.anthropic.com/privacy)[Support](https://support.anthropic.com)
-
-The NPI Registry connector gives Claude access to the US National Provider Identifier (NPI) Registry, containing information about all HIPAA-covered healthcare providers in the United States. Look up provider credentials, search for specialists by location and specialty, and validate NPI numbers for credentialing and referral workflows.
-
-You can use the NPI Registry connector to:
-
-**Verify a Provider for Credentialing:** "I need to verify the credentials for NPI 1245319599. Is this NPI valid and can you get me their information?"
-
-**Build a Referral Network:** "Find all pediatric cardiologists in the Boston area"
-
-**Find a Specific Provider:** "Search for Dr. Jennifer Smith who practices in Chicago"
-
-**Validate NPI Numbers:** "Is NPI 1234567890 a valid and active provider identifier?"
+* npi\_lookup
+* npi\_search
+* npi\_validate
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-Claude Code
+Analyze, summarize, and explore your Strava data
 
-February 11, 2026
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### 10x Genomics Cloud
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-Claude Code
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-May 1, 2026
+Access ICD-10-CM and ICD-10-PCS code sets
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-### AdisInsight
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-Health and wellness
+Find your next hike
 
-Claude
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-May 1, 2026
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-### AllTrails
+Access the CMS Coverage Database
 
-Find your next hike](https://claude.com/connectors/alltrails)
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")
 
-Health and wellness
+![](https://www.google.com/s2/favicons?domain=functionhealth.com&sz=96)
 
-Claude
+### [Function Health](https://claude.com/connectors/function)
 
-Claude Code
+Lab test insights, health answers, nutrition plans
 
-May 26, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
-
-### Alma
-
-Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
+[Add Function Health in Claude (opens in new tab)](https://claude.ai/directory/48527e54-fe84-4dc6-b97f-c8e0763bca97 "Add in Claude")

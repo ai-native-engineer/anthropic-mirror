@@ -12,6 +12,8 @@ Contact sales
 
 [Contact sales](https://claude.com/contact-sales)Contact sales
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0dec892e3f9b9f56aa8533_YouTube%20Thumbnail_Genspark_200kb.jpg)
 
 Industry:

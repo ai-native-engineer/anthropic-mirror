@@ -1,104 +1,72 @@
 <!-- source: https://claude.com/connectors/intercom -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abfac1647ce192e81c3ba_Intercom.jpg)
+[Skip to main content](#main-content)
 
-# Intercom
+Connector URL`https://mcp.intercom.com/mcp`
 
-AI access to Intercom data for better customer insights
+More[Documentation (opens in new tab)](https://developers.intercom.com/docs/guides/mcp)[Support (opens in new tab)](https://www.intercom.com/help)[Privacy policy (opens in new tab)](https://www.intercom.com/legal/privacy)
 
-* Category
+The Intercom MCP Server gives your AI tools access to customer data—conversations, tickets, and user data. This lets teams across your business, not just support, use that data in their workflows: from spotting bugs and shaping the product roadmap to refining messaging and preparing for QBRs. Every team can act with clearer visibility into what customers need.
 
-  Communication
-* Used in
+## Tools
 
-  [Claude](http://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* search
+* fetch
+* search\_conversations
+* get\_conversation
+* search\_contacts
+* get\_contact
 
-  [Intercom](https://intercom.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://developers.intercom.com/docs/guides/mcp)[Privacy Policy](https://www.intercom.com/legal/privacy)[Support](https://www.intercom.com/help)
-
-Manage customer conversations, access support tickets, retrieve customer profiles, analyze conversation patterns, and handle customer service workflows through Intercom’s messaging platform. Provide intelligent customer support responses and insights using conversational AI integrated with your customer communication data.
-
-You can use the Intercom connector to:
-
-Find conversations by contact:
-"Find all Intercom Conversations started by Jennifer Parker"
-
-View contact details:
-"Show me the Intercom details of David Kim"
-
-Filter contacts by custom attributes:
-"Show me Intercom contacts with the 'Enterprise' plan\_type custom attribute"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-Communication
+### [Gmail](https://claude.com/connectors/gmail)
 
-Claude
+Draft replies, summarize threads, & search your inbox
 
-Claude Code
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Asana
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Communication
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 21, 2026
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-### Circleback
+### [Asana](https://claude.com/connectors/asana)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Connect to Asana to coordinate tasks, projects, and goals
 
-Productivity
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-Communication
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Code
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude
+Trending
 
-May 1, 2026
+An AI Concierge that turns forms into conversations
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-### Computer by DevRev
+![](https://www.google.com/s2/favicons?domain=miro.com&sz=96)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+### [Miro](https://claude.com/connectors/miro)
 
-Productivity
+Access and create new content on Miro boards
 
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")

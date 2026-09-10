@@ -1,113 +1,102 @@
 <!-- source: https://claude.com/connectors/adobe-creativity -->
 
-![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Skip to main content](#main-content)
 
-# Adobe for creativity
+Connector URL`https://adobe-creativity.adobe.io/mcp`
 
-Ideate, create, and deliver with Adobe pro tools
-
-* Category
-
-  Design
-* Used in
-
-  [Claude](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Adobe Inc.](https://www.adobe.com/)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/94c33591deef34c5f7b7e3bf1074889bfd1193a2.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://developer.adobe.com/adobe-for-creativity/)[Privacy Policy](https://www.adobe.com/privacy/policy.html)[Support](https://discord.gg/tppGPapr2e)
+More[Documentation (opens in new tab)](https://developer.adobe.com/adobe-for-creativity/)[Support (opens in new tab)](https://discord.gg/tppGPapr2e)[Privacy policy (opens in new tab)](https://www.adobe.com/privacy/policy.html)
 
 Adobe for creativity brings Photoshop, Lightroom, Illustrator, Firefly, Premiere, Express, InDesign, and Stock capabilities directly into Claude. Create, edit, and design with natural language, without switching apps. Edit multiple photos, create assets, and refine video for polished results. Sign in with your Adobe account for higher usage limits and saved work across sessions.
-‍
 
 Key capabilities:
 
 • Edit and transform images: Adjust color and lighting, remove/blur backgrounds, and expand or crop images.
+
 • Create and animate assets: Start from a template, trim video, and license stock.
+
 • Search, organize, and summarize: Find assets, summarize content, and manage files.
-‍
 
-You can use Adobe for creativity to:
+## Tools
 
-**Edit a photo with words:**
-"Remove the background from this product photo, then expand the canvas to 1920x1080 with a soft gradient fill."
+* adobe\_mandatory\_init
+* animate\_design
+* asset\_add\_file
+* asset\_copy\_assets
+* asset\_create\_folders
+* asset\_finalize\_file\_upload
+* asset\_get\_brand
+* asset\_get\_brand\_color\_themes
+* asset\_get\_brand\_colors
+* asset\_get\_brand\_fonts
+* asset\_get\_brand\_guidelines
+* asset\_get\_brand\_logos
+* asset\_initialize\_file\_upload
+* asset\_inline\_preview
+* asset\_license\_and\_download\_stock
+* asset\_list\_brands
+* asset\_preview\_file
+* asset\_search
+* change\_background\_color
+* create\_firefly\_board
+* document\_convert\_pdf
+* document\_merge\_data\_layout
+* document\_merge\_data\_vector
+* document\_render\_layout
 
-**Create on-brand assets:**
-"Using my brand colors and fonts, generate three social banner variations for the spring sale."
+Show all 67 tools
 
-**Refine a video:**
-"Trim this clip to the best 15 seconds, enhance the speech audio, and resize it for vertical Reels."
-
-**Find and license stock:**
-"Search Adobe Stock for minimalist desk-setup photos and license the top result into my assets."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Design
+### [Canva](https://claude.com/connectors/canva)
 
-Claude
+Search, create, autofill, and export Canva designs
 
-Claude Code
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-May 1, 2026
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-### Autodesk Product Help
+Trending
 
-Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Design
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=figma.com&sz=96)
 
-Claude Code
+### [Figma](https://claude.com/connectors/figma)
 
-Skills
+Generate diagrams and better code from Figma context
 
-February 11, 2026
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Canva
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
+Trending
 
-Design
+An AI Concierge that turns forms into conversations
 
-Productivity
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Claude Code
+### [monday.com](https://claude.com/connectors/monday)
 
-May 28, 2026
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154ac9a3dd67012fe91a0a_descript.svg)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-### Descript
+![](https://agent.enrichlabs.ai/avatars/helena.png)
 
-Import, edit, or create video with prompts](https://claude.com/connectors/descript)
+### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
 
-Design
+Your AI marketer for paid ads, SEO, email, social, and analytics
 
-Claude
-
-February 10, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698b6d382644a53ecb859c9b_idJpJtW9KY_logos.png)
-
-### Excalidraw
-
-MCP for creating interactive hand-drawn diagrams in Excalidraw](https://claude.com/connectors/excalidraw-app-demo)
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")

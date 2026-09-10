@@ -7,9 +7,12 @@ Director-level finance analysis on live NetSuite data: financial reporting, peri
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Oracle NetSuite](https://www.netsuite.com)
 * Installs
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

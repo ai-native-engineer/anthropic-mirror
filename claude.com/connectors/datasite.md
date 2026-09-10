@@ -1,93 +1,85 @@
 <!-- source: https://claude.com/connectors/datasite -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f14e8f726b807712708bd2_datasite%20-%20Alex%20Lockhart.svg)
+[Skip to main content](#main-content)
 
-# Datasite
+Connector URL`https://mcp.global.datasite.com/mcp`
 
-Manage your M&A data room from Claude
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/3a148118-6b4a-443e-9a66-9e1ec243d119)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Datasite](https://www.datasite.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://app.global.datasite.com/dev-portal/guides/mcp-server)[Privacy Policy](https://www.datasite.com/en/legal/privacy-notice)[Support](https://datasite.my.site.com/datasiteassist/s/)
+More[Documentation (opens in new tab)](https://app.global.datasite.com/dev-portal/guides/mcp-server)[Support (opens in new tab)](https://datasite.my.site.com/datasiteassist/s/)[Privacy policy (opens in new tab)](https://www.datasite.com/en/legal/privacy-notice)
 
 Connect Claude to your Datasite virtual data room - the secure workspace where thousands of M&A deals are facilitated annually. Set up folder structures, invite users, search documents, track buyer Q&A, and audit data room readiness, all through natural language. No workflow interruptions. No security trade-offs. Built for advisors, bankers, and corporate development teams - backed by the enterprise security and permissioning every transaction demands.
 
-You can use Datasite to:
+## Tools
 
-**Ask a question:**
-"What can you help me do with Datasite?"
+* acceptDisclaimer
+* createContent
+* getAccessControl
+* getMembers
+* getProjectOverview
+* getQAStatus
+* grantFeatureAccess
+* inviteUser
+* listFolderContents
+* listProjects
+* listSubscriptions
+* manageQuestion
+* manageRole
+* searchDocuments
+* setupProject
+* updateContent
+* updateMembership
+* updatePermissions
+* uploadContent
 
-**Explore your data:**
-"Summarize the most recent activity in Datasite."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Claude
+### [Box](https://claude.com/connectors/box)
 
-Claude Code
+Search, edit and get insights on your Box content
 
-June 22, 2026
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+![](https://www.google.com/s2/favicons?domain=thomsonreuters.com&sz=96)
 
-### Affinity
+### [CoCounsel Legal](https://claude.com/connectors/cocounsel-legal)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+Thomson Reuters CoCounsel Legal, in Claude
 
-Financial services
+[Add CoCounsel Legal in Claude (opens in new tab)](https://claude.ai/directory/084ce5af-6b81-471a-a754-d1a50d3f61a1 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-February 11, 2026
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+Trending
 
-### Aiera
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Claude
+### [Stripe](https://claude.com/connectors/stripe)
 
-Claude Code
+Payment processing and financial infrastructure tools
 
-February 26, 2026
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://raw.githubusercontent.com/dropbox/dropbox-ai-plugins/refs/heads/main/codex/assets/logo-light.png)
 
-### Airwallex
+### [Dropbox](https://claude.com/connectors/dropbox)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Search, organize, and take action on your Dropbox content
 
-Financial services
+[Add Dropbox in Claude (opens in new tab)](https://claude.ai/directory/1e4280cc-037c-47f0-9873-56bea1871bdb "Add in Claude")
 
-Claude
+![](https://cdn.prod.website-files.com/69d3ac38e8e442c9fce520b4/6a0742ee5d1bde6d18668e0b_Frame.png)
 
-Claude Code
+### [General Legal](https://claude.com/connectors/general-legal)
 
-April 8, 2026
+Submit contracts for attorney review, answer their questions, and get redlined documents back — without leaving Claude.
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add General Legal in Claude (opens in new tab)](https://claude.ai/directory/dba73da3-6015-4b3e-8acc-0ff38e2c511b "Add in Claude")

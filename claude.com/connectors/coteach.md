@@ -1,101 +1,67 @@
 <!-- source: https://claude.com/connectors/coteach -->
 
-![coteach square logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4fab8b7c638a6498e5881a_coteach.svg)
+[Skip to main content](#main-content)
 
-# Coteach
+Connector URL`https://coteach.ai/api/mcp`
 
-Create classroom-ready K-12 math diagrams in Claude
-
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/8f5a51c6-5664-40c8-8043-f0441252c878)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Coteach](https://coteach.ai)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://tlvi.notion.site/Coteach-Claude-connector-37a252dfaae08059a6c3f4f234dbf812)[Privacy Policy](https://coteach.ai/privacy)[Support](mailto:info@coteach.ai)
+More[Documentation (opens in new tab)](https://tlvi.notion.site/Coteach-Claude-connector-37a252dfaae08059a6c3f4f234dbf812)[Support (opens in new tab)](mailto:info@coteach.ai)[Privacy policy (opens in new tab)](https://coteach.ai/privacy)
 
 Coteach helps K-12 math educators create classroom-ready diagrams directly in Claude. Describe the visual you need in plain language, and Coteach generates up to four separate math diagrams. It is useful for lesson planning, worksheets, practice problems, and visual scaffolds such as number lines, tape diagrams, arrays, area models, coordinate planes, and fraction models.
 
-You can use Coteach to:
+## Tools
 
-**Create a single instructional diagram:**
-"Use Coteach to create a tape diagram for the equation 3x + 4 = 16."
+* CreateDiagrams
 
-**Generate multiple representations of the same concept:**
-"Use Coteach to make 4 tape diagrams where students solve for x, like 3x + 4 = 16."
-
-**Build student-facing worksheet visuals:**
-"Use Coteach to create clean tape diagrams for a worksheet on solving one-step and two-step equations."
-
-**Support lesson planning and scaffolding:**
-"Use Coteach to create 4 diagrams that progress in difficulty from 2x + 5 = 13 to 5x + 2 = 22."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Claude
+### [Canva](https://claude.com/connectors/canva)
 
-Claude Code
+Search, create, autofill, and export Canva designs
 
-April 29, 2026
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-### Adobe Experience Manager
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Trending
 
-Productivity
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Claude
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=padlet.com&sz=96)
 
-June 9, 2026
+### [Padlet MCP](https://claude.com/connectors/padlet-mcp)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+Create and manage padlets
 
-### Adobe Workfront
+[Add Padlet MCP in Claude (opens in new tab)](https://claude.ai/directory/618a4a60-3705-448f-b86f-b43e85fb37ba "Add in Claude")
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/ae/4c/82ae4ce7-6614-ea43-f543-d3cbd11e9726/AppIcon-0-0-1x_U007epad-0-10-0-85-220.png/512x512bb.png)
 
-Productivity
+### [Jotform Sign](https://claude.com/connectors/jotform-sign)
 
-Claude
+Create, share, and edit e-signature documents right inside Claude
 
-Claude Code
+[Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")
 
-June 22, 2026
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+### [Jotform Apps](https://claude.com/connectors/jotform-apps)
 
-### Agentic Presentations by SlidesGPT
+Build and manage no-code apps
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
-Productivity
+![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 
-Claude
+### [Mobbin](https://claude.com/connectors/mobbin)
 
-Claude Code
+Find UI & UX design references
 
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")

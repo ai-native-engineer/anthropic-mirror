@@ -7,11 +7,14 @@ Build, deploy, and operate AI agents on AWS. Skills for scaffolding agents with 
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Amazon Web Services](#)
 * Installs
 
   2359
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

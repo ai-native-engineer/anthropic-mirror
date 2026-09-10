@@ -8,11 +8,14 @@ Commands for git commit workflows including commit, push, and PR creation
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Anthropic](https://anthropic.com)
 * Installs
 
   171244
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -8,7 +8,7 @@ Feb 17, 2026
 
 Anthropic and [Infosys](https://www.infosys.com/), a global leader in next-generation digital services and consulting founded and headquartered in Bengaluru, today announced a collaboration to develop and deliver enterprise AI solutions across telecommunications, financial services, manufacturing, and software development.
 
-The collaboration integrates Anthropic’s Claude models and Claude Code with [Infosys Topaz](https://www.infosys.com/services/data-ai-topaz.html), an AI-first set of services, solutions, and platforms using generative and agentic AI technologies, to help companies speed up software development and adopt AI with the governance and transparency that regulated industries require.
+The collaboration integrates Anthropic’s Claude models and Claude Code with , an AI-first set of services, solutions, and platforms using generative and agentic AI technologies, to help companies speed up software development and adopt AI with the governance and transparency that regulated industries require.Infosys Topaz
 
 India is the second-largest market for Claude.ai, home to a developer community doing some of the most technically intense AI work we see anywhere: nearly half of Claude usage in India involves building applications, modernizing systems, and shipping production software. Infosys is one of the first partners in Anthropic’s [expanded presence in India](https://www.anthropic.com/news/bengaluru-office-partnerships-across-india).
 

@@ -1,95 +1,69 @@
 <!-- source: https://claude.com/connectors/learning-commons-knowledge-graph -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abfe0db0d82b0112d1531_1758567129415.jpeg)
+[Skip to main content](#main-content)
 
-# Learning Commons
+Connector URL`https://kg.mcp.learningcommons.org/mcp`
 
-K-12 standards, skills, and learning progressions
+More[Documentation (opens in new tab)](https://docs.learningcommons.org/knowledge-graph/using-knowledge-graph/claude-connector)[Support (opens in new tab)](mailto:support@learningcommons.org)[Privacy policy (opens in new tab)](https://learningcommons.org/privacy-policy/)
 
-* Category
+Connect Learning Commons to Claude to align with all 50 states’ academic standards, break them into granular learning components, and trace learning progressions. Generate more precise, standards-aligned instructional content that supports coherent learning and reflects educational best practices and learning science.
 
-  Education
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/6e94f5fc-5dc8-4f0a-9fcf-741bcab4e034)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* find\_learning\_components\_from\_standard
+* find\_standards\_progression\_from\_standard
+* find\_standard\_statement
 
-  [Learning Commons](https://learningcommons.org/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.learningcommons.org/knowledge-graph/integrations/claude)[Privacy Policy](https://learningcommons.org/privacy-policy/)[Support](mailto:support@learningcommons.org)
-
-Align to all 50 states' academic standards, break them into granular learning components, and trace learning progressions directly from Claude. The Learning Commons Knowledge Graph connects trusted instructional content and learning science into a shared foundation, so Claude can generate more precise, standards-aligned instructional content that supports coherent learning and reflects educational best practices.
-
-You can use the Learning Commons connector to:
-
-Generate standards-aligned project ideas:
-"I'm a teacher in Iowa. Generate three project ideas that address W.3.4"
-
-Create exit tickets for specific standards:
-"Today in class we will be covering 111.40.c.3.F. Can you please create an exit ticket for my students?"
-
-Generate practice problems for learning components:
-"I am an 8th grade teacher in Maryland. Please create extra practice problems to address the learning components of 8.F.B.4"
-
-Identify prerequisite skills:
-"I am a 4th grade teacher in California. A student in my new class is struggling with the concepts related to 4.OA.A.3. Which prerequisites should I focus on with them?"
-
-This connector is designed for K-12 educators and curriculum developers.
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Education
+### [Canva](https://claude.com/connectors/canva)
 
-Claude
+Search, create, autofill, and export Canva designs
 
-Claude Code
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-May 20, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![biorxiv_logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3f052f1932d948bc6d21_biorx.jpg)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### bioRxiv
+Trending
 
-Access to bioRxiv and medRxiv preprint data](https://claude.com/connectors/biorxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Life sciences and healthcare
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Education
+![](https://www.google.com/s2/favicons?domain=padlet.com&sz=96)
 
-Claude
+### [Padlet MCP](https://claude.com/connectors/padlet-mcp)
 
-Claude Code
+Create and manage padlets
 
-March 19, 2026
+[Add Padlet MCP in Claude (opens in new tab)](https://claude.ai/directory/618a4a60-3705-448f-b86f-b43e85fb37ba "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0d0062f6400d634c165_PubMed.jpg)
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/82/ae/4c/82ae4ce7-6614-ea43-f543-d3cbd11e9726/AppIcon-0-0-1x_U007epad-0-10-0-85-220.png/512x512bb.png)
 
-### PubMed
+### [Jotform Sign](https://claude.com/connectors/jotform-sign)
 
-Search biomedical literature from PubMed](https://claude.com/connectors/pubmed)
+Create, share, and edit e-signature documents right inside Claude
 
-Life sciences and healthcare
+[Add Jotform Sign in Claude (opens in new tab)](https://claude.ai/directory/c8e5e99b-788d-4e64-bf4d-ef65b4cb92d5 "Add in Claude")
 
-Education
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
 
-Claude
+### [Jotform Apps](https://claude.com/connectors/jotform-apps)
 
-Claude Code
+Build and manage no-code apps
 
-March 19, 2026
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69dabc6d8f0974f5d2ad4f64_scholarly-gateway.svg)
+![](https://storage.googleapis.com/assets.mobbin.com/claude.ai/logo.svg)
 
-### Scholar Gateway
+### [Mobbin](https://claude.com/connectors/mobbin)
 
-Enhance responses with scholarly research and citations](https://claude.com/connectors/scholar-gateway)
+Find UI & UX design references
+
+[Add Mobbin in Claude (opens in new tab)](https://claude.ai/directory/705ad993-53e3-4be6-b32c-cc9cff5225f6 "Add in Claude")

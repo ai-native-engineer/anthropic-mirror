@@ -28,6 +28,8 @@ Cursor
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf3928bad4c427227e188_give-coding-agents-their-own-computers.webp)
 
 Anthropic's developer conference, recorded

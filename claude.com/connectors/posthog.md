@@ -1,103 +1,92 @@
 <!-- source: https://claude.com/connectors/posthog -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a09bc7369a6a975b383246_posthog_logo_stacked_square_padded_white_1b9d7295e4%20(1).svg)
+[Skip to main content](#main-content)
 
-# PostHog
+Connector URL`https://mcp.posthog.com/mcp`
 
-Query, analyze, and manage your PostHog insights
-
-* Category
-
-  Code
-* Used in
-
-  [Claude](https://claude.ai/directory/50688846-553c-4a12-bc21-df94d2173734)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [PostHog](https://posthog.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-
-  Interactive
-* More
-
-  [Documentation](https://posthog.com/docs/model-context-protocol)[Privacy Policy](https://posthog.com/privacy)[Support](https://posthog.com/questions)
+More[Documentation (opens in new tab)](https://posthog.com/docs/model-context-protocol)[Support (opens in new tab)](https://posthog.com/questions)[Privacy policy (opens in new tab)](https://posthog.com/privacy)
 
 Connect to PostHog and work with your product data through natural conversation. Query analytics using HogQL or natural language, build and manage dashboards and insights, control feature flags, run and monitor experiments, create and analyze surveys, track errors, explore logs, and monitor LLM costs. Results include inline charts so you can visualize trends without leaving the conversation. Browse event and property definitions to understand your data model, search across all PostHog entities, and look up PostHog docs for instant context.
 
-You can use PostHog to:
+## Tools
 
-**Query your analytics:**
-"How many unique users signed up in the last 7 days, broken down by day?"
+* query-run
+* query-generate-hogql-from-question
+* insight-create-from-query
+* insight-get
+* insights-get-all
+* insight-update
+* insight-delete
+* insight-query
+* dashboard-create
+* dashboard-get
+* dashboards-get-all
+* dashboard-update
+* dashboard-delete
+* dashboard-reorder-tiles
+* add-insight-to-dashboard
+* create-feature-flag
+* feature-flag-get-definition
+* feature-flag-get-all
+* update-feature-flag
+* delete-feature-flag
+* experiment-create
+* experiment-get
+* experiment-get-all
+* experiment-results-get
 
-**Investigate errors:**
-"What are the top 5 errors in my project this week?"
+Show all 57 tools
 
-**Manage feature flags:**
-"Create a feature flag called new-checkout enabled for 10% of users"
-
-**Run experiments:**
-"Create an A/B test for the pricing page that measures conversion to checkout"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Code
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692ddfcc3b71a55bb1993c71_amazon.jpg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### AWS Marketplace
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
+### [Supabase](https://claude.com/connectors/supabase)
 
-Code
+Manage databases, authentication, and storage
 
-Claude
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-March 9, 2026
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
+### [monday.com](https://claude.com/connectors/monday)
 
-### Base44
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-Build and manage Base44 apps](https://claude.com/connectors/base44)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-Code
+![](https://www.google.com/s2/favicons?domain=vercel.com&sz=96)
 
-Claude
+### [Vercel](https://claude.com/connectors/vercel)
 
-Claude Code
+Analyze, debug, and manage projects and deployments
 
-March 2, 2026
+[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
+![](https://www.google.com/s2/favicons?domain=miro.com&sz=96)
 
-### Clerk
+### [Miro](https://claude.com/connectors/miro)
 
-Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+Access and create new content on Miro boards
 
-Code
+[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-Claude Code
+### [Zapier](https://claude.com/connectors/zapier)
 
-Skills
+Automate workflows across thousands of apps via conversation
 
-February 11, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abeb765f2d57005074b8f_Cloudflare%20Developer%20Platform.jpg)
-
-### Cloudflare
-
-Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

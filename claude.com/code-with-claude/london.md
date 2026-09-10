@@ -18,6 +18,8 @@ Oops! Something went wrong while submitting the form.
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-opening-keynote)Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d40a2751238ea0648361_london-keynote.webp)
 
 Opening keynote
@@ -44,6 +46,8 @@ Lisa Crofoot
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-whats-new-in-claude-code)Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3fa0f333b1e49370007_whats-new-in-claude-code.webp)
 
 What's new in Claude Code
@@ -55,6 +59,8 @@ Ralph Ramos
 Claude Code
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-memory-and-dreaming-for-self-learning-agents)Watch recording
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3eb326b38c32451d791_memory-and-dreaming-for-self-learning.webp)
 
@@ -68,6 +74,8 @@ Claude Platform
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-picking-the-right-model)Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3db070dabd1a31f03b2_picking-the-right-model.webp)
 
 Picking the right model
@@ -79,6 +87,8 @@ Lucas Smedley
 Research
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-coding-is-no-longer-the-constraint-scaling-devex-to-teams-and-agents-at-spotify)Watch recording
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3caaf97b942e920df43_coding-is-no-longer-the-constraint.webp)
 
@@ -92,6 +102,8 @@ Research
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-designing-with-claude-from-prompt-to-production)Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3b9355d70e504e7da3f_designing-with-claude.webp)
 
 Designing with Claude: From prompt to production
@@ -104,6 +116,8 @@ Research
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-beyond-the-basics-with-claude-code)Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3ac2cc3e848cc1dd144_beyond-the-basics-with-claude-code.webp)
 
 Beyond the basics with Claude Code
@@ -115,6 +129,8 @@ Daisy Hollman
 Claude Code
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-how-to-get-to-production-faster-with-claude-managed-agents)Watch recording
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d39b1f2190a1d3a59a95_how-to-get-to-production-faster.webp)
 
@@ -131,6 +147,8 @@ Harrison Stall
 Claude Code
 
 [Watch recording](https://claude.com/code-with-claude/session/ldn-from-one-person-to-80-scaling-a-hypergrowth-engineering-org-with-claude-code)Watch recording
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d383137fb994e391c29a_from-one-person-to-80.webp)
 

@@ -1,99 +1,65 @@
 <!-- source: https://claude.com/connectors/pigment -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697d4cb13ba105a718e5899a_PigmentIcon_Digital_Colors.png)
+[Skip to main content](#main-content)
 
-# Pigment
-
-Analyze business data
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/505c326f-36ea-4a5a-ab99-8f86fad28af0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](https://kb.pigment.com/docs/mcp-server)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Pigment](https://www.pigment.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://kb.pigment.com/docs/mcp-server)[Privacy Policy](https://www.pigment.com/pigment-platform-privacy-and-data-protection-policy)[Support](https://support.pigment.com/en/support/tickets/new)
+More[Documentation (opens in new tab)](https://kb.pigment.com/docs/mcp-server)[Support (opens in new tab)](https://support.pigment.com/en/support/tickets/new)[Privacy policy (opens in new tab)](https://www.pigment.com/pigment-platform-privacy-and-data-protection-policy)
 
 Analyze data from your Pigment workspace without leaving Claude. Query metrics, surface insights, generate forecasts, and create reports. All requests respect your existing permissions and access controls. Ideal for finance teams, analysts, and planners who need quick insights from their planning data to make informed decisions.
 
-You can use Pigment to:
+## Tools
 
-**Query Metrics:**
-"Show me Q4 revenue metrics from our financial model"
+* GetApplications
+* FindAiMetrics
+* QueryData
 
-**Generate Insights:**
-"Analyze our budget variance and identify key drivers"
-
-**Create Forecasts:**
-"Generate a forecast for next quarter based on current trends"
-
-**Access Applications:**
-"List all available applications and their data sources"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 22, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Affinity
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+Manage your schedule and coordinate meetings effortlessly
 
-Financial services
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-February 11, 2026
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+Access Jira & Confluence from Claude
 
-### Aiera
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Financial services
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Claude
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude Code
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-February 26, 2026
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+### [Notion](https://claude.com/connectors/notion)
 
-### Airwallex
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Claude
+### [Slack](https://claude.com/connectors/slack)
 
-Claude Code
+Send messages, create canvases, and fetch Slack data
 
-April 8, 2026
-
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

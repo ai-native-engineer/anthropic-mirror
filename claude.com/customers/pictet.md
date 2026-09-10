@@ -171,6 +171,14 @@ Head of Group Technology Strategy and Innovation, Pictet
 
 ## Related stories
 
+[How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock](https://claude.com/customers/qonto) How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+
+How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+
+Customer story
+
+[Customer story](https://claude.com/customers/qonto)Customer story
+
 [How Satispay's engineers write 75% of their code with Claude](https://claude.com/customers/satispay)How Satispay's engineers write 75% of their code with Claude
 
 How Satispay's engineers write 75% of their code with Claude
@@ -194,11 +202,3 @@ Money Forward builds an AI-native engineering organization with Claude Code
 Customer story
 
 [Customer story](https://claude.com/customers/money-forward)Customer story
-
-[Nevis accelerates advisor productivity with Claude](https://claude.com/customers/nevis)Nevis accelerates advisor productivity with Claude
-
-Nevis accelerates advisor productivity with Claude
-
-Customer story
-
-[Customer story](https://claude.com/customers/nevis)Customer story

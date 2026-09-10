@@ -44,6 +44,8 @@ Use current teaching tools
 
 ![thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a4ef88e7161b262509a5e17_teachers-tutorial-1.jpg)
 
+[Play video](#)Play video
+
 Claude works across the tools you already use to give you faster, more in depth feedback.
 
 Learn more
@@ -425,7 +427,7 @@ Claude connects to trusted curriculum sources so you can build lesson plans grou
 
 Explore connectors
 
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/archive/connectors)Explore connectors
 
 AI fluency for pK-12 teachers
 

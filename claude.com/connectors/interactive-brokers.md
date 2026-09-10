@@ -1,99 +1,76 @@
 <!-- source: https://claude.com/connectors/interactive-brokers -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a17de9ab9f7310475a507c8_ib2.jpg)
+[Skip to main content](#main-content)
 
-# Interactive Brokers (IBKR)
+Connector URL`https://api.ibkr.com/v1/api/mcp`
 
-Trade, invest, analyze, and manage global markets
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Interactive Brokers](https://www.interactivebrokers.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://www.interactivebrokers.com/lib/cstools/faq/#/content/1442566213)[Privacy Policy](https://gdcdyn.interactivebrokers.com/Universal/servlet/Registration_v2.formSampleView?formdb=2192)[Support](https://www.interactivebrokers.com/en/support/individuals.php)
+More[Documentation (opens in new tab)](https://www.interactivebrokers.com/lib/cstools/faq/#/content/1442566213)[Support (opens in new tab)](https://www.interactivebrokers.com/en/support/individuals.php)[Privacy policy (opens in new tab)](https://gdcdyn.interactivebrokers.com/Universal/servlet/Registration_v2.formSampleView?formdb=2192)
 
 Connect your Interactive Brokers account to Claude and manage your portfolio through natural language. Ask about positions, balances, P&L, allocations, and open orders, or request real-time quotes and historical market data. You can also prompt Claude to draft trade instructions — for example, "Buy 100 shares of AAPL at a limit of $200" — which are sent to your IBKR account for your review and approval. Claude never submits orders directly to the market. Any trading symbols displayed or discussed are for illustrative purposes only and are not intended to portray recommendations. Member SIPC.
 
-You can use Interactive Brokers to:
+## Tools
 
-**Check your portfolio:**
-"What are my current positions and unrealized P&L?"
+* get\_account\_balances
+* get\_account\_positions
+* get\_account\_summary
+* get\_order\_instructions
+* get\_orders
+* get\_portfolio\_allocation
+* get\_price\_history
+* get\_price\_snapshot
+* get\_trades
+* search\_contracts
 
-**Review account balances:**
-"Show my cash balances and buying power across all accounts."
-
-**Get market data:**
-"Give me a price snapshot and 30-day history for AAPL."
-
-**Review activity:**
-"List my trades from the past week and any open orders."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-### Airwallex
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Deterministic access to S&P Global data
 
-Financial services
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=vibeprospecting.ai&sz=96)
 
-Claude Code
+### [Vibe Prospecting](https://claude.com/connectors/vibeprospecting)
 
-April 8, 2026
+Find and enrich company and contact data in Claude for prospecting, lead generation, recruiting, and CRM enrichment across 150M+ companies and 800M+ contacts
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")

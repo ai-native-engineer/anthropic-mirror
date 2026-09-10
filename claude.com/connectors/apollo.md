@@ -1,99 +1,77 @@
 <!-- source: https://claude.com/connectors/apollo -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699cc5c8e115b1bc6e58cb4c_Apollo.svg)
+[Skip to main content](#main-content)
 
-# Apollo.io
+Connector URL`https://mcp.apollo.io/mcp`
 
-Find buyers. Book more meetings. Close more deals.
+More[Documentation (opens in new tab)](https://knowledge.apollo.io/hc/en-us/articles/43827318678541-Integrate-Apollo-with-Claude)[Support (opens in new tab)](https://www.apollo.io/submit-a-request)[Privacy policy (opens in new tab)](https://www.apollo.io/privacy-policy)
 
-* Category
+Apollo is a sales intelligence and engagement platform, connected to Claude so your team can research, enrich, and reach your ideal prospects from a single conversation, with no copy-paste between tools. Search Apollo's database of people and companies to find prospects that match your ideal customer profile. Enrich individual records or bulk-enrich entire lists to reveal verified emails, phone numbers, and firmographic data, and pull company job postings to spot hiring signals and buying intent. Then build an outbound sequence with personalized messaging and push it straight to Apollo, all without leaving Claude.
 
-  Sales and marketing
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/8fd555a4-ea5f-49cf-9335-582dd6760597)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* apollo\_enrich\_organization
+* apollo\_enrich\_person
+* apollo\_bulk\_enrich\_people
+* apollo\_search\_people
+* apollo\_search\_organizations
+* apollo\_search\_contacts
+* apollo\_get\_job\_postings
+* apollo\_create\_contacts
+* apollo\_update\_contacts
+* apollo\_search\_sequences
+* apollo\_add\_contacts\_to\_sequence
+* apollo\_remove\_contacts\_from\_sequence
+* apollo\_list\_email\_accounts
 
-  [Apollo.io](https://www.apollo.io)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://knowledge.apollo.io/hc/en-us/articles/43827318678541-Integrate-Apollo-with-Claude)[Privacy Policy](https://www.apollo.io/privacy-policy)[Support](https://www.apollo.io/submit-a-request)
-
-Connect Apollo to Claude so you can prospect and take action from a single conversation. Search Apollo's database to find the right people and companies, then enrich records to reveal verified contact details when you're ready. Create or update contacts, and add or remove contacts from existing sequences to keep outbound moving.
-
-You can use Apollo.io for:
-
-**Prospecting:**
-"Find 200 US B2B SaaS companies with RevOps leadership. Rank accounts by fit and available signals."
-
-**Account Research:**
-"Research in Apollo: summarize firmographics, org structure signals, and buying indicators."
-
-**CRM Enrichment:**
-"Match CSV to existing Apollo accounts. Flag duplicates and enrich missing data."
-
-**Sequence Management:**
-"Add contacts to sequences while excluding anyone already active."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### ActiveCampaign
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Manage your schedule and coordinate meetings effortlessly
 
-Sales and marketing
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 2, 2026
+Access Jira & Confluence from Claude
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Sales and marketing
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-May 26, 2026
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Notion](https://claude.com/connectors/notion)
 
-### Adobe Journey Optimizer
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Claude
+### [Slack](https://claude.com/connectors/slack)
 
-Claude Code
+Send messages, create canvases, and fetch Slack data
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

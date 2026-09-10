@@ -7,11 +7,14 @@ Connect to Jira & Confluence. Search/create issues, access docs, manage sprints,
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Atlassian](https://atlassian.com)
 * Installs
 
   92289
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

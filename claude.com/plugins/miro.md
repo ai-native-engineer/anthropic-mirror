@@ -7,11 +7,14 @@ Secure access to Miro boards. Read board context, create new boards, generate di
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Miro](https://miro.com/)
 * Installs
 
   4092
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

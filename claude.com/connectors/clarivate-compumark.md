@@ -1,96 +1,77 @@
 <!-- source: https://claude.com/connectors/clarivate-compumark -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63df5f340c3434d3089b04_icon_Clarivate.jpg)
+[Skip to main content](#main-content)
 
-# Clarivate IPOne CompuMark Trademarks
+Connector URL`https://ipone.clarivate.com/trademarks/mcp`
 
-Trusted Trademark Intelligence from Clarivate CompuMark
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/d68d9615-8525-4b27-94c0-2497a64ee6d0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Clarivate](https://clarivate.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://ipone.clarivate.com/trademarks/mcp/docs)[Privacy Policy](https://clarivate.com/privacy-center/notices-policies/)[Support](mailto:compumark.api.support@clarivate.com)
+More[Documentation (opens in new tab)](https://ipone.clarivate.com/trademarks/mcp/docs)[Support (opens in new tab)](mailto:compumark.api.support@clarivate.com)[Privacy policy (opens in new tab)](https://clarivate.com/privacy-center/notices-policies/)
 
 Clarivate IPOne CompuMark Trademark MCP helps teams search, review, and validate trademarks faster across global trademark registers. It combines broad jurisdiction coverage with flexible search options for mark names, phonetic variations, applicants, classes, goods and services, and filing details. Users can quickly assess result volumes, retrieve record details, access goods text, and open full-text records—making the server a strong fit for brand clearance, watch support, and trademark research workflows.
 
-You can use Clarivate IPOne CompuMark Trademarks to:
+## Tools
 
-**Prelim screening search:**
-"Conduct a trademark screening search for trademarks in France, EU and WIPO designating France that contain 'LLAMALUSH' in class 3 (include plurals and phonetic variations) or are exact matches in any class. Highlight the closest conflicts."
+* ip-one\_\_\_trademark-content
+* ip-one\_\_\_trademark-count
+* ip-one\_\_\_trademark-fulltext
+* ip-one\_\_\_trademark-goods
+* ip-one\_\_\_trademark-knockout-search
+* ip-one\_\_\_trademark-search-field-names
+* ip-one\_\_\_trademark-search-field-operators
+* ip-one\_\_\_trademark-search-register-office-codes
+* ip-one\_\_\_trademark-search
 
-**Knock-out searching:**
-"Run a knock-out search for VELORA in France, Germany, the EU, and WIPO designating France and Germany. Identify any exact-match or highly similar marks that would be immediate filing obstacles."
-
-**Portfolio review:**
-"Review the first 20 active records for applicant name containing NOVA in the UK. Group by status."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

@@ -1,101 +1,88 @@
 <!-- source: https://claude.com/connectors/smartsheet -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697bea45f7bb423e2320333e_Smartsheet_ids5IEP7cO_0.svg)
+[Skip to main content](#main-content)
 
-# Smartsheet
-
-Analyze and manage Smartsheet data with Claude
-
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/688b7b3f-efc4-45a6-83af-d2760ef9e96f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Smartsheet Inc.](https://www.smartsheet.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://help.smartsheet.com/articles/2483656-install-smartsheet-connector-claude#toc-get-started)[Privacy Policy](https://www.smartsheet.com/legal/privacy)[Support](https://help.smartsheet.com/contact)
+More[Documentation (opens in new tab)](https://help.smartsheet.com/articles/2483663-use-smartsheet-connector-claude)[Support (opens in new tab)](https://help.smartsheet.com/contact)[Privacy policy (opens in new tab)](https://www.smartsheet.com/legal/privacy)
 
 Make Smartsheet a native part of your AI workflow. Ask Claude to analyze project timelines, create graphs to summarize your sheet information, all through conversation. The Smartsheet connector eliminates manual data entry and repetitive updates, letting you focus on decisions while Claude handles the details. Transform how you manage projects with AI that understands your Smartsheet data and can act on it.
 
-You can use Smartsheet to:
+## Tools
 
-**Search and explore your data:**
-"Search for all sheets related to the Q2 marketing campaign and summarize their status"
+* search
+* list\_workspaces
+* get\_sheet\_summary
+* add\_rows
+* update\_rows
+* delete\_rows
+* get\_columns
+* add\_columns
+* update\_column
+* delete\_column
+* browse\_workspace
+* browse\_folder
+* create\_workspace
+* get\_cell\_history
+* get\_sheet\_version
+* add\_comment
+* update\_comment
+* delete\_comment
+* get\_discussion
+* delete\_discussion
+* list\_discussions
+* create\_discussion
+* list\_dashboards
+* get\_dashboard
 
-**Manage sheet structure:**
-"Add a new column called Priority to my project tracker sheet"
+Show all 42 tools
 
-**Update project data:**
-"Update the status of all overdue tasks in my project plan to At Risk"
-
-**Create new sheets:**
-"Create a new sheet in my Marketing workspace with columns for Task, Owner, Due Date, and Status"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### Adobe Experience Manager
+### [Gmail](https://claude.com/connectors/gmail)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Draft replies, summarize threads, & search your inbox
 
-Productivity
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 9, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Productivity
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-June 22, 2026
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-### Agentic Presentations by SlidesGPT
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Productivity
+### [Notion](https://claude.com/connectors/notion)
 
-Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

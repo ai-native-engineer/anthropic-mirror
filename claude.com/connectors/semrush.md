@@ -1,101 +1,82 @@
 <!-- source: https://claude.com/connectors/semrush -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a04e3451d1cf61726524a07_semrush.svg)
+[Skip to main content](#main-content)
 
-# Semrush
+Connector URL`https://mcp.semrush.com/claude/v1/mcp`
 
-SEO, competitor research, and traffic analysis
+More[Documentation (opens in new tab)](https://developer.semrush.com/api/introduction/semrush-mcp/)[Support (opens in new tab)](https://www.semrush.com/company/contacts/)[Privacy policy (opens in new tab)](https://www.semrush.com/company/legal/privacy-policy/)
 
-* Category
+Semrush gives you access to 28.6B keywords, 808M domain profiles, 142 geo databases, and 43T backlinks: the data behind every SEO, competitor, and market decision worth making. Target the right keywords, audit domains, track competitor performance, close backlink gaps, and fix technical issues. Track paid search moves and catch market shifts early. All in natural language: ask a question, get a structured answer built on real data. Built for SEO analysts, content strategists, marketers, and growth teams.
 
-  Sales and marketing
+## Tools
 
-  Data
-* Used in
+* execute\_report
+* get\_report\_schema
+* audience\_research
+* backlinks\_research
+* competitors\_research
+* domain\_overview
+* keyword\_research
+* organic\_research
+* paid\_search\_research
+* position\_tracking
+* projects
+* shopping\_research
+* site\_audit
+* traffic\_overview
 
-  [Claude](https://claude.ai/directory/8194f7ea-e733-4e80-bd77-e504fd4ed5e5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Semrush Holdings, Inc.](https://www.semrush.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://developer.semrush.com/api/introduction/semrush-mcp/)[Privacy Policy](https://www.semrush.com/company/legal/privacy-policy/)[Support](https://www.semrush.com/company/contacts/)
-
-Semrush data helps you plan and improve SEO, uncover competitor strategies, find keyword opportunities, research backlinks, audit websites, and reveal paid tactics.
-
-Use Semrush in Claude:
-
-**Find keyword opportunities:**
-"Find keyword opportunities for [your topic] with search volume over 1,000 and low difficulty. Group them by intent."
-
-**Surface competitor gaps:**
-"Find keywords where [competitor] ranks in the top 5 but we do not appear at all. Prioritize by volume."
-
-**Audit a site:**
-"Run a technical SEO audit on [domain] and list the top issues blocking crawlability or indexation."
-
-**Uncover paid gaps:**
-"Find high-intent keywords in [niche] with good search volume that competitors are running ads on but we are not."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-### ActiveCampaign
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Trending
 
-Sales and marketing
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-June 2, 2026
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+Trending
 
-### Actively
+An AI Concierge that turns forms into conversations
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Data
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-Claude
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-Claude Code
+CRM context for every answer, insight, and action
 
-June 4, 2026
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-### Adobe Customer Journey Analytics
+### [Supabase](https://claude.com/connectors/supabase)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Manage databases, authentication, and storage
 
-Sales and marketing
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-May 26, 2026
+### [monday.com](https://claude.com/connectors/monday)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-### Adobe Journey Optimizer
-
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")

@@ -1,96 +1,92 @@
 <!-- source: https://claude.com/connectors/qonto -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35b3fd5224b51b6f79af28_Qonto_Black.svg)
+[Skip to main content](#main-content)
 
-# Qonto
+Connector URL`https://mcp.qonto.com/mcp`
 
-Manage your Qonto business finances from Claude
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/56de4854-49c8-4f8f-a53a-4badef6a472f)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Qonto](https://qonto.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://mcp.qonto.com/explorer)[Privacy Policy](https://qonto.pactsafe.io/en-de#template-6uiwuhdde)[Support](mailto:support@qonto.com)
+More[Documentation (opens in new tab)](https://mcp.qonto.com/explorer)[Support (opens in new tab)](mailto:support@qonto.com)[Privacy policy (opens in new tab)](https://qonto.pactsafe.io/en-de#template-6uiwuhdde)
 
 Qonto MCP brings your business account into Claude. Once connected, Claude can browse your transactions, statements, and bank accounts; manage clients, products, and quotes; issue and track client invoices and credit notes; review pending supplier invoices; manage debit, virtual, and flash cards; and handle team expense requests. Every action runs with the same access you already have in the Qonto app.
 
-You can use Qonto to:
+## Tools
 
-**Issue a client invoice and follow up on unpaid ones:**
-"Issue a EUR 4,800 invoice to Acme GmbH for October consulting, 30-day payment terms, and email it to ap@acme.com. Then list every other unpaid Acme invoice so I know what to chase next."
+* approve\_request
+* change\_card\_status
+* change\_client\_invoice\_status
+* change\_supplier\_invoice\_status
+* create\_card
+* create\_card\_request
+* create\_client
+* create\_client\_invoice
+* create\_credit\_note
+* create\_membership
+* create\_multi\_transfer\_request
+* create\_product
+* create\_quote
+* create\_team
+* decline\_request
+* delete\_client
+* delete\_client\_invoice
+* delete\_quote
+* get\_attachment
+* get\_authenticated\_membership
+* get\_card\_iframe\_url
+* get\_client
+* get\_client\_invoice
+* get\_credit\_note
 
-**Reconcile cash flow and spot what's outstanding:**
-"What's the balance on my main account right now? Pull this month's biggest outflows by counterparty, and flag any supplier invoices that are due but haven't been marked paid yet."
+Show all 52 tools
 
-**Manage cards on the go:**
-"Show me which company cards are still live. Lock the one Pierre lost on the train yesterday, and create a virtual-card for Marie."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-Claude Code
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-April 8, 2026
+Deterministic access to S&P Global data
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

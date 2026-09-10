@@ -29,6 +29,8 @@ Try Claude Code
 
 [Try Claude Code](https://claude.ai/code)Try Claude Code
 
+[Play video](#)Play video
+
 [](https://cdn.sanity.io/files/4zrzovbb/website/7d63624bedf03e6feb9946dec4752ea422315071.webm)
 
 ## Trusted by leading engineering teams
@@ -341,10 +343,6 @@ FAQ
 ### Is Claude Code secure?
 
 Yes. Claude Code runs locally in your terminal and talks directly to model APIs without requiring a backend server or remote code index. It also asks for permission before making changes to your files or running commands.
-
-### Which models does Claude Code use?
-
-Claude Code works with the Fable 5, Opus 4.6, Sonnet 4.6, and Haiku 4.5 models. Enterprise users can run Claude Code using models in existing Amazon Bedrock or Google Cloud Vertex AI instances.
 
 ### How does Claude Code integrate with our existing security infrastructure?
 

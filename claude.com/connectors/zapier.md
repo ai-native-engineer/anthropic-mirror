@@ -1,158 +1,59 @@
 <!-- source: https://claude.com/connectors/zapier -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac18581a191dea79db82d_Zapier.jpg)
+[Skip to main content](#main-content)
 
-# Zapier
+Connector URL`https://mcp.zapier.com/api/v1/connect`
 
-Automate workflows across thousands of apps via conversation
+More[Documentation (opens in new tab)](https://docs.zapier.com/mcp/home?utm_source=claude_directory)[Support (opens in new tab)](https://docs.zapier.com/mcp/home?utm_source=claude_directory)[Privacy policy (opens in new tab)](https://zapier.com/privacy?utm_source=claude_directory)
 
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](http://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Zapier](https://zapier.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.zapier.com/mcp/home)[Privacy Policy](https://zapier.com/privacy)[Support](https://docs.zapier.com/mcp/home)
-
-Search knowledge across your apps and execute real-world actions by connecting Claude with the 8,000 apps on Zapier. Run workflows like sending emails, updating CRMs, scheduling meetings, and more, all within Claude.
-
-You can use the Zapier connector to:
-
-Prepare for meetings with context:
-"Based on my calendar and my CRM, prepare me for who I'm meeting with today"
-
-Turn conversations into actionable tasks:
-"Take the insights from this conversation, add them to my database, and turn them into tickets"
-
-Manage email communications:
-"Help me answer and reply to the latest email from [leo@example.com](mailto:leo@example.com)"
-
-Skills
-
-Code Review
-
-Performs comprehensive code reviews of git branches, analyzing code quality, security, performance, and best practices.
-
-Learn more
-
-[Learn more](https://github.com/zapier/zapier-mcp/tree/main/dist/skills)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Git Commit
-
-Generates storytelling-focused Conventional Commits messages with Jira context integration, then commits and pushes changes.
-
-Learn more
-
-[Learn more](https://github.com/zapier/zapier-mcp/tree/main/dist/skills)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Work on Ticket
-
-Fetches Jira ticket details, creates an appropriately named branch, and initiates the task planning workflow.
-
-Learn more
-
-[Learn more](https://github.com/zapier/zapier-mcp/tree/main/dist/skills)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Zapier Skills in Claude Code
-
-Access Zapier skills in the Claude Code Plugin Directory.
-
-Learn more
-
-[Learn more](https://github.com/zapier/zapier-mcp/tree/main/dist/plugins)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
+Search knowledge across your apps and execute real-world actions by connecting Claude with the 9,000 apps on Zapier. Run workflows like sending emails, updating CRMs, scheduling meetings, and more, all within Claude.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### Adobe Experience Manager
+### [Gmail](https://claude.com/connectors/gmail)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Draft replies, summarize threads, & search your inbox
 
-Productivity
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 9, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Productivity
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-June 22, 2026
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-### Agentic Presentations by SlidesGPT
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Productivity
+### [Notion](https://claude.com/connectors/notion)
 
-Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

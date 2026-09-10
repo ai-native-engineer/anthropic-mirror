@@ -1,105 +1,94 @@
 <!-- source: https://claude.com/connectors/felt-maps -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35af67f438ba1844fa0324_felt-maps.svg)
+[Skip to main content](#main-content)
 
-# Felt Maps
+Connector URL`https://felt.com/mcp`
 
-Map and analyze your geospatial data
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/9133bf4a-0a23-402b-8b04-bd0a400fd5f9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Felt Maps](https://felt.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://help.felt.com/felt-ai/mcp)[Privacy Policy](https://help.felt.com/other/privacy-policy)[Support](mailto:support@felt.com)
+More[Documentation (opens in new tab)](https://help.felt.com/felt-ai/mcp)[Support (opens in new tab)](mailto:support@felt.com)[Privacy policy (opens in new tab)](https://help.felt.com/other/privacy-policy)
 
 Felt is a modern GIS platform for creating, analyzing, and sharing interactive maps. The Felt MCP server lets Claude run geospatial analysis end-to-end: query connected databases and storage (Databricks, Snowflake, BigQuery, PostgreSQL, S3) with spatial SQL, build and style map layers with Felt Style Language (FSL), upload files, manage annotations like pins and polygons, share maps, and tap into Felt's curated library of public datasets covering boundaries, demographics, infrastructure, and climate.
 
-You can use Felt Maps to:
+## Tools
 
-**Style a layer by an attribute:**
-"Map all electric transmission lines in the US and color them by voltage."
+* who\_am\_i
+* create\_map
+* get\_map
+* update\_map
+* delete\_map
+* list\_maps
+* share\_map
+* get\_map\_layers
+* get\_layer\_properties
+* update\_layer\_properties
+* delete\_layer
+* duplicate\_layer\_to\_map
+* inspect\_layer\_columns
+* poll\_layer\_processing\_status
+* upload\_contents\_to\_map
+* prepare\_file\_upload
+* import\_layer\_from\_url
+* refresh\_url\_layer
+* browse\_data\_sources
+* browse\_data\_source\_tables
+* inspect\_data\_source\_table\_columns
+* get\_tabular\_data\_from\_data\_source
+* add\_data\_source\_table\_to\_map
+* create\_layer\_from\_data\_source
 
-**Pull in live data from a URL:**
-"Map the live USGS earthquake feed for the past day, sized by magnitude."
+Show all 34 tools
 
-**Add a raster layer:**
-"Map what crops are planted across the US."
-
-**Upload your own data:**
-"Here's a CSV of our customer addresses — map them and color the pins by revenue."
-
-**Query a connected database with spatial filters:**
-"From our PostgreSQL data source, map agricultural fields within 25 miles of Champaign, IL, colored by yield."
-
-**Run a spatial join in your data warehouse:**
-"From our Databricks source, map the count of public bike-share stations per London borough using a spatial join."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

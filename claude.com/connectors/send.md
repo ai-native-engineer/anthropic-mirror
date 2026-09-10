@@ -1,93 +1,84 @@
 <!-- source: https://claude.com/connectors/send -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f14afcfae4b6a0b0d56710_send-icon-square%20-%20Neil%20Gandhi.svg)
+[Skip to main content](#main-content)
 
-# Send
+Connector URL`https://www.send.co/mcp`
 
-Create shareable documents, one-pagers, and decks
+More[Documentation (opens in new tab)](https://www.send.co/mcp/docs)[Support (opens in new tab)](mailto:support@send.co)[Privacy policy (opens in new tab)](https://www.send.co/legal/privacy-policy)
 
-* Category
+Create any HTML in Claude and Send publishes it as a sharable link. Get direct upload hosting on your domain, custom HTML templates, and create from mobile. Get notified in Gmail when your web site is opened.
 
-  Sales and marketing
-* Used in
+Craft docs, slides, proposals, presentations, visuals, explainers, diagrams. Bring PowerPoint (PPT) and PDF artifacts to life, without managing hosting on Netlify/Vercel/S3. Build sales pitch decks, prototypes and widgets (Lovable/Bolt/v0 alternative); develop websites; write supporting code for Web applications. It's an Artifacts & Gamma alternative with zero Claude branding.
 
-  [Claude](https://claude.ai/directory/d4b6d94e-8fd7-4936-a525-a1852acd3bb4)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+Sales & sales engineers: deliver technical presentations that explain products or services to customers; request for proposal (RFP) responses; write technical documentation for products; quote prices, credit terms, bid specifications.
 
-  [Send](https://www.send.co/)
+Founders: develop communications materials, advertisements, presentations, and public relations initiatives; offering documents; marketing materials.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Consultants: document findings and prepare recommendations; create client presentations of plan details; draw charts and graphs to illustrate technical reports.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Agencies: develop graphics and layouts for product illustrations, company logos; write slogans on packaging, brochures, promotional material; develop advertising campaigns; write press releases.
 
-* Capabilities
+Educators: develop teaching or training materials (handouts, study materials, quizzes); develop instructional materials (lesson plans); develop curricula.
 
-  Read & write
-* More
+Real estate: prepare representation contracts, purchase agreements, closing statements, deeds, leases; advise on market conditions, prices, mortgages.
 
-  [Documentation](https://www.send.co/mcp/docs)[Privacy Policy](https://www.send.co/legal/privacy-policy)[Support](mailto:support@send.co)
+Creators: write stories, articles, editorials, newsletters; edit copy for clients; develop story or content ideas; maintain online help documentation; write online blog entries.
 
-Create documents, one-pagers, decks, and presentations directly inside Claude. No extra subscriptions, no switching tabs. Tell Claude what you want built and Send publishes it as a shareable link in seconds. Recipients get a beautiful interactive webpage instead of a stale PowerPoint (ppt) attachment. You get notified when they open it, and can capture their name, email, and phone right from the page. Host it all on your own domain and track your top viewers.
+Capture leads, export via webhook to Slack, HubSpot, Clay, Apollo, Salesforce, Attio, CRM, and password protect. Get analytics and use with with Notion, Dropbox, Figma, Drive.
 
-You can use Send to:
+## Tools
 
-**Ask a question:**
-"What can you help me do with Send?"
+* CreateDocument
+* EditDocument
 
-**Explore your data:**
-"Summarize the most recent activity in Send."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### ActiveCampaign
+### [Gmail](https://claude.com/connectors/gmail)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Draft replies, summarize threads, & search your inbox
 
-Sales and marketing
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 2, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Canva](https://claude.com/connectors/canva)
 
-Sales and marketing
+Search, create, autofill, and export Canva designs
 
-Claude
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-May 26, 2026
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-### Adobe Journey Optimizer
+Access Jira & Confluence from Claude
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Claude
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Claude Code
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")

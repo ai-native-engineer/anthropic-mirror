@@ -7,11 +7,14 @@ Trace, evaluate, improve AI agents with MLflow. Full loop: instrument → trace 
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [MLflow Team](https://mlflow.org)
 * Installs
 
   60
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

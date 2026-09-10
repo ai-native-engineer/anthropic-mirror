@@ -7,11 +7,14 @@ Fastly development tools and platform skills
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Fastly](https://www.fastly.com)
 * Installs
 
   3141
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -93,7 +93,7 @@ Your personal GitHub token is verified to confirm you have access, then Cowork u
 
 An initial sync runs automatically when you connect a repository. After that, organization owners can opt-in to continued automatic updates per marketplace by going to **[Organization settings > Plugins](https://claude.ai/admin-settings/plugins)**, clicking the menu button in the upper right corner of the marketplace, then toggling "Sync automatically" on:
 
-[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1788913800&signature=5a08cbdeaf3cab35a271c910d776ed9b80668ff2355a08448e1e8dbf5293027e&req=diEuFct%2BnYFeXPMW1HO4zUYv5tXwwHwcRDH%2FtUo5ov5PAXN1kuwnluFRSd8Z%0ApTRKQOv7zHK44bU9VEk%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1788913800&signature=5a08cbdeaf3cab35a271c910d776ed9b80668ff2355a08448e1e8dbf5293027e&req=diEuFct%2BnYFeXPMW1HO4zUYv5tXwwHwcRDH%2FtUo5ov5PAXN1kuwnluFRSd8Z%0ApTRKQOv7zHK44bU9VEk%3D%0A)
+[![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1789000200&signature=264e9fc7b837f0107be80b546141defafa5531288043c2a3b6981fe90fd0feaa&req=diEuFct%2BnYFeXPMW1HO4zUYv5tT5wX8WRDH%2FtUo5ov7xIwSXCcTOkiLmahkm%0AqAVls35RgHO9H%2BXwDQ0%3D%0A)](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1789000200&signature=264e9fc7b837f0107be80b546141defafa5531288043c2a3b6981fe90fd0feaa&req=diEuFct%2BnYFeXPMW1HO4zUYv5tT5wX8WRDH%2FtUo5ov7xIwSXCcTOkiLmahkm%0AqAVls35RgHO9H%2BXwDQ0%3D%0A)
 
 Enabling automatic sync creates a webhook on the connected repository. The person turning the toggle on must have admin-level access to that repository on GitHub. This is checked through their personal GitHub connection, which is separate from the Claude GitHub App installation. Without admin access, the page shows "Cannot access repository. Ensure the repository exists and the Claude GitHub App is installed," even when the App is installed correctly and manual updates work.
 
@@ -276,5 +276,5 @@ If manual updates work but turning on "Sync automatically" shows "Cannot access 
 * [Use the GitHub integration](https://support.claude.com/en/articles/10167454-use-the-github-integration)
 * [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 * [Set up Code Review for Claude Code](https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code)
-* [Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)
 * [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
+* [Get started with skill and plugin scanning](https://support.claude.com/en/articles/15927065-get-started-with-skill-and-plugin-scanning)

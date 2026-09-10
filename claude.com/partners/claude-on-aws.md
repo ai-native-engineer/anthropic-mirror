@@ -145,6 +145,8 @@ Claude Chat
 
 Active
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fcfdb277363bbe323dfd39_maxresdefault.jpg)
 
 ### Delegate tasks to Claude Cowork
@@ -155,6 +157,8 @@ Explore Claude Cowork
 
 [Explore Claude Cowork](https://claude.com/product/cowork)Explore Claude Cowork
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0c0c347227f56f59139f_maxresdefault.jpg)
 
 ### Take on more engineering work
@@ -164,6 +168,8 @@ Claude Code helps engineers move faster on the work they already do, in any IDE 
 Explore Claude Code
 
 [Explore Claude Code](https://claude.com/product/claude-code/enterprise)Explore Claude Code
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0ca45e705644001aa5c1_maxresdefault-1.jpg)
 

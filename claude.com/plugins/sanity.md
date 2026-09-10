@@ -7,11 +7,14 @@ Sanity content platform integration with MCP server, agent skills, and slash com
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Sanity](https://www.sanity.io)
 * Installs
 
   2165
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -1,30 +1,10 @@
 <!-- source: https://claude.com/connectors/clarify -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd6f571cd5d197faf3c4_icon_Clarify.jpg)
+[Skip to main content](#main-content)
 
-# Clarify
+Connector URL`https://api.clarify.ai/mcp`
 
-Query your CRM. Create records. Ask anything.
-
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/27a89255-1541-408d-bb03-d003ae5d1481)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Clarify](https://www.clarify.ai)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.clarify.ai/en/articles/13367278-clarify-mcp)[Privacy Policy](https://www.clarify.ai/privacy)[Support](mailto:support@clarify.ai)
+More[Documentation (opens in new tab)](https://docs.clarify.ai/en/articles/13367278-clarify-mcp)[Support (opens in new tab)](mailto:support@clarify.ai)[Privacy policy (opens in new tab)](https://www.clarify.ai/privacy)
 
 Connect Clarify and work with your CRM using natural language. Retrieve, create, and update records, analyze your pipeline, and generate insights—all through conversation.
 
@@ -36,80 +16,83 @@ Your Clarify data is retrieved in real-time, and permissions are respected.
 
 Stop clicking through interfaces. Just ask what you need.
 
-You can use Clarify to:
+## Tools
 
-**Query your pipeline:**
-"Show me all deals closing this month over $25k"
+* get-current-user
+* get-schema
+* get-records
+* create-records
+* update-records
+* merge-records
+* query-data
+* add-comment
+* find-leads
+* import-leads
+* get-lists
+* create-list
+* update-list
+* create-campaign
+* get-campaign
+* list-campaigns
+* update-campaign
+* create-custom-object
+* update-custom-object
+* create-or-update-fields
+* delete-fields
+* create-or-update-agent
+* delete-agent
+* get-agents
 
-**Prep for meetings:**
-"I'm meeting with Acme Corp tomorrow—tell me everything about them and our open deals"
+Show all 26 tools
 
-**Analyze performance:**
-"What's my win rate this quarter vs last quarter?"
-
-**Create records:**
-"Create a new company called Rocket Labs in the aerospace industry with 50 employees"
-
-**Update records:**
-"Mark the Acme Corp deal as closed-won with final value of $50k"
-
-**Create and update lists:**
-"Create a list of contacts at companies with more than 500 employees in San Francisco"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Experience Manager
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Manage your schedule and coordinate meetings effortlessly
 
-Productivity
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 9, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Productivity
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-June 22, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### Agentic Presentations by SlidesGPT
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

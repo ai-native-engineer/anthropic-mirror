@@ -8,9 +8,12 @@ Salesforce's official plugin for building apps and agents on the Salesforce Plat
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Salesforce](https://www.salesforce.com)
 * Installs
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

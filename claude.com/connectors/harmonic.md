@@ -1,99 +1,87 @@
 <!-- source: https://claude.com/connectors/harmonic -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697d4a1ac4c3c5105f7dc970_harmonic.png)
+[Skip to main content](#main-content)
 
-# Harmonic
+Connector URL`https://mcp.api.harmonic.ai/`
 
-Discover, research, and enrich companies and people
-
-* Category
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/27e16103-e402-4223-b8b2-a7324bfdebab)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Harmonic](https://harmonic.ai)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide)[Privacy Policy](https://harmonic.ai/legal/privacy-policy)[Support](https://support.harmonic.ai)
+More[Documentation (opens in new tab)](https://support.harmonic.ai/en/articles/12785899-harmonic-mcp-server-getting-started-guide)[Support (opens in new tab)](https://support.harmonic.ai)[Privacy policy (opens in new tab)](https://harmonic.ai/legal/privacy-policy)
 
 Search, enrich, and research startups and companies using Harmonic's proprietary data on millions of companies and the people behind them. Get detailed company profiles with funding, location, founders, and network connections. Use natural language to find companies matching specific criteria. Create and manage lists of companies and people. Access your team's network mapping and saved searches. Discover startups earlier, research them faster, and act with confidence—an AI-powered research agent built into your workflow.
 
-You can use Harmonic to:
+## Tools
 
-**Company Research:**
-"Find all Series A startups in fintech with 10-50 employees"
+* enrich\_company
+* enrich\_person
+* get\_saved\_search\_companies\_results
+* get\_saved\_search\_companies\_net\_new
+* get\_saved\_search\_people\_results
+* get\_saved\_search\_people\_net\_new
+* get\_saved\_search\_investors\_results
+* get\_saved\_search\_investors\_net\_new
+* search\_companies\_natural\_language
+* typeahead\_company\_name
+* get\_company\_user\_connections
+* list\_people\_in\_team\_network
+* list\_companies\_in\_team\_network
+* get\_company\_list\_entries
+* create\_company\_list
+* add\_companies\_to\_list
+* get\_people\_list\_entries
+* create\_people\_list
+* add\_people\_to\_list
+* get\_investor\_by\_canonical
+* get\_companies\_by\_id
+* get\_persons\_by\_id
+* list\_saved\_searches
 
-**People Enrichment:**
-"Get contact details and background for John Smith, CEO at TechCorp"
-
-**Network Analysis:**
-"Show me which companies in our portfolio have connections to our team"
-
-**List Management:**
-"Create a list of AI startups we've researched and add new prospects"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### ActiveCampaign
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Manage your schedule and coordinate meetings effortlessly
 
-Sales and marketing
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 2, 2026
+Access Jira & Confluence from Claude
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Sales and marketing
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-May 26, 2026
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Notion](https://claude.com/connectors/notion)
 
-### Adobe Journey Optimizer
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Claude
+### [Slack](https://claude.com/connectors/slack)
 
-Claude Code
+Send messages, create canvases, and fetch Slack data
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

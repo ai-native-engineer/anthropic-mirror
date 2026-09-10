@@ -34,7 +34,7 @@ Click "Request a review" on the affected organization to ask our Safeguards team
 
 As part of our safety process, we warn users if we believe their prompts are violating our **[Usage Policy](https://www.anthropic.com/legal/aup)**. For API customers, these warnings are linked to ongoing thresholds of violative behavior across their entire API account.
 
-If you believe we’ve made a mistake in issuing you a warning, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#245157415657454241505d64454a504c564b544d470a474b49)** with the details of your situation and your account information.
+If you believe we’ve made a mistake in issuing you a warning, please email **[[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#106563756263717675646950717e6478627f6079733e737f7d)** with the details of your situation and your account information.
 
 * [API Safeguards Tools](https://support.claude.com/en/articles/9199617-api-safeguards-tools)
 * [Updates to our Acceptable Use Policy (now “Usage Policy”), Consumer Terms of Service, and Privacy Policy](https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy)

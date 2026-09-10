@@ -1,103 +1,71 @@
 <!-- source: https://claude.com/connectors/pophive -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d8a3e48f90e3acedd53ac_pophive_logo_square.svg)
+[Skip to main content](#main-content)
 
-# PopHIVE
+Connector URL`https://mcp.pophive.org/mcp`
 
-Yale's harmonized US public health surveillance data
-
-* Category
-
-  Life sciences and healthcare
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/cd7d9174-5546-440a-822d-1e9026e7334c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Yale School of Public Health](https://www.pophive.org)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://www.pophive.org/docs/mcp)[Privacy Policy](https://www.pophive.org/privacy/mcp)[Support](https://www.pophive.org/docs/mcp)
+More[Documentation (opens in new tab)](https://www.pophive.org/docs/mcp)[Support (opens in new tab)](https://www.pophive.org/docs/mcp)[Privacy policy (opens in new tab)](https://www.pophive.org/privacy/mcp)
 
 PopHIVE provides harmonized US public health surveillance data from the Yale School of Public Health. Ask about respiratory disease activity (RSV, flu, COVID, measles), chronic disease prevalence (diabetes, obesity), injury trends (overdose, firearm, heat illness), and childhood vaccination coverage across US states and counties. Signals are synthesized from CDC systems, Epic Cosmos, wastewater monitoring, Google Health Trends, and more. Every level, trend, rank, and correlation is computed server-side with full provenance, caveats, and a deep link to the matching pophive.org chart. All data is public, aggregate, and de-identified.
 
-You can use PopHIVE to:
+## Tools
 
-**Track respiratory disease activity:**
-"How is flu trending in the US right now?"
+* get\_overview
+* get\_current\_status
+* get\_trend
+* get\_map
+* compare
+* get\_coverage
+* get\_data
 
-**Compare chronic disease prevalence by geography:**
-"Which US states have the highest diabetes prevalence?"
-
-**Monitor injury trends:**
-"Show overdose trends in Ohio counties over the last year."
-
-**Check childhood vaccination coverage:**
-"What's MMR vaccination coverage by state?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-Claude Code
+Analyze, summarize, and explore your Strava data
 
-February 11, 2026
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### 10x Genomics Cloud
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-Claude Code
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-May 1, 2026
+Access US National Provider Identifier (NPI) Registry
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-### AdisInsight
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-Data
+Access ICD-10-CM and ICD-10-PCS code sets
 
-Claude
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-June 4, 2026
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Find your next hike
 
-### Adobe Customer Journey Analytics
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-Data
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-Claude
+Access the CMS Coverage Database
 
-Claude Code
-
-May 11, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
-
-### Airtable
-
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")

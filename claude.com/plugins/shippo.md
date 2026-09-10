@@ -7,11 +7,14 @@ Shippo connects 40+ carriers to Claude—rate-shop, buy labels, validate address
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Shippo](#)
 * Installs
 
   6
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

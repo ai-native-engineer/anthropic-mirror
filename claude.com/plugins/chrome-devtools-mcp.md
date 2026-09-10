@@ -7,11 +7,14 @@ Control and inspect a live Chrome browser from your coding agent. Record perform
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Google](https://github.com/ChromeDevTools)
 * Installs
 
   102569
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

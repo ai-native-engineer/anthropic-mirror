@@ -7,11 +7,14 @@ Manage the Carta CRM conversationally — search, add, update, and enrich invest
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Carta Engineering](#)
 * Installs
 
   411
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

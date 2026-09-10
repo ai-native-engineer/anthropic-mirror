@@ -8,6 +8,8 @@ Customer story
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69df9498fd8d8a7e34a27808_video_notion-thumbnail.webp)
 
+[Play video](#)Play video
+
 Notion is building a workspace for teams and agents
 
 Read story
@@ -21,6 +23,8 @@ Read story
 Customer story
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69dea34b803ab98b71539ca6_video_slack-thumbnail.webp)
+
+[Play video](#)Play video
 
 How Slack uses Claude for AI search and summaries
 
@@ -36,6 +40,8 @@ Customer story
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69dea1ef52f156afef43963d_video_figma-thumbnail.webp)
 
+[Play video](#)Play video
+
 Figma transforms ideas into interactive software
 
 Read story
@@ -49,6 +55,8 @@ Read story
 Customer story
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69dea445a6326b7dde9637fd_video_hubspot-thumbnail.webp)
+
+[Play video](#)Play video
 
 HubSpot reclaims time for creativity with Claude
 
@@ -107,6 +115,28 @@ Claude Tag
 Retail Services
 
 Claude Tag
+
+[View story](https://claude.com/customers/qonto)View story
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a976300464881549da1554c_logo_qonto-light-mode.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a97630545064ce67663c89b_logo_qonto-dark-mode.svg)
+
+How Qonto delegates financial admin for small businesses with Claude on Amazon Bedrock
+
+Qonto
+
+Medium
+
+AWS
+
+EMEA
+
+September 3, 2026
+
+Claude Platform
+
+Financial services
+
+Claude Platform
 
 [View story](https://claude.com/customers/pictet)View story
 
@@ -396,24 +426,6 @@ Software
 
 Claude Code
 
-[View story](https://claude.com/customers/spotify-boris-office-hours)View story
-
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4fac9a204dd3aef4556_spotify-logo-black.svg)![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a18b4f8664ebf9777fd1955_spotify-logo-white.svg)
-
-Office Hours: Asynchronous coding and the end of the IDE with Spotify
-
-Spotify Boris Office Hours
-
-Large
-
-North America
-
-August 12, 2026
-
-Software
-
-Claude Code
-
 [View more](https://claude.com/customers?fcdaa149_page=2)
 
 1 / 19
@@ -427,6 +439,38 @@ Product
 Location
 
 Partner
+
+[View story](https://claude.com/customers/qonto)View story
+
+### Qonto
+
+Industry
+
+Financial services
+
+Company size
+
+Medium
+
+Product
+
+Claude Platform
+
+Claude Platform
+
+Location
+
+EMEA
+
+Partner
+
+AWS
+
+September 3, 2026
+
+Read customer story
+
+[Read customer story](https://claude.com/customers/qonto)Read customer story
 
 [View story](https://claude.com/customers/carvana)View story
 
@@ -1031,38 +1075,6 @@ August 7, 2026
 Read customer story
 
 [Read customer story](https://claude.com/customers/wondr-health)Read customer story
-
-[View story](https://claude.com/customers/mercy-corps-qa)View story
-
-### Mercy Corps Q&A
-
-Industry
-
-Beneficial Deployments
-
-Company size
-
-Large
-
-Product
-
-Claude Enterprise
-
-Claude for Nonprofits
-
-Claude Enterprise
-
-Location
-
-North America
-
-Partner
-
-August 4, 2026
-
-Read customer story
-
-[Read customer story](https://claude.com/customers/mercy-corps-qa)Read customer story
 
 [See more](https://claude.com/customers?38d7aa68_page=2)
 

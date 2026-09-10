@@ -120,6 +120,8 @@ Remember to be thorough in your analysis and clear in your explanation. Your goa
 
 ## See what customer experience teams are saying
 
+[Play video](#)Play video
+
 [](https://cdn.sanity.io/files/4zrzovbb/website/74bba9c1cb62edbe0a86f93a937b4553f1ee2b64.webm)
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69df9bdf814b30f55161a777_lyft-logo.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69df9bdf814b30f55161a777_lyft-logo.svg)

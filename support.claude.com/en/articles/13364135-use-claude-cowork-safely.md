@@ -139,7 +139,7 @@ If your organization manages your computer, note that connecting local folders m
 
 **10. Report suspicious behavior immediately**
 
-If Claude suddenly starts discussing unrelated topics, attempts to access unexpected resources, or requests sensitive information unprompted, stop the task and report it to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#acd9dfc9dedfcdcac9d8d5eccdc2d8c4dec3dcc5cf82cfc3c1) or use the in-app feedback button. Your reports help us improve our defenses.
+If Claude suddenly starts discussing unrelated topics, attempts to access unexpected resources, or requests sensitive information unprompted, stop the task and report it to [[email protected]](https://support.claude.com/cdn-cgi/l/email-protection#3e4b4d5b4c4d5f585b4a477e5f504a564c514e575d105d5153) or use the in-app feedback button. Your reports help us improve our defenses.
 
 ---
 

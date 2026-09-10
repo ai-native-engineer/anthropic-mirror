@@ -1,101 +1,83 @@
 <!-- source: https://claude.com/connectors/motherduck -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6972aeacfd96f311a3714191_duck_feet_square.svg)
+[Skip to main content](#main-content)
 
-# MotherDuck
+Connector URL`https://api.motherduck.com/mcp`
 
-Get answers from your data
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/0929a5c7-38ce-40ab-8aad-af9ce34553c7)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [MotherDuck Corporation](https://motherduck.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-
-  Read & write
-* More
-
-  [Documentation](https://motherduck.com/docs/sql-reference/mcp/)[Privacy Policy](https://motherduck.com/privacy-policy/)[Support](https://motherduck.com/docs/troubleshooting/support/)
+More[Documentation (opens in new tab)](https://motherduck.com/docs/sql-reference/mcp/)[Support (opens in new tab)](https://motherduck.com/docs/troubleshooting/support/)[Privacy policy (opens in new tab)](https://motherduck.com/privacy-policy/)
 
 Connect AI assistants to your MotherDuck data warehouse. Explore, visualize, and manage data using natural language–no SQL skills required. Create Dives: interactive visualizations that let you save and share answers with your team, staying up-to-date with your latest data. Works with real-world data without requiring semantic models or pre-configuration. Your AI assistant acts like a data analyst, exploring, validating, analyzing, and visualizing data iteratively to answer your questions.
 
-You can use MotherDuck to:
+## Tools
 
-**Answer Questions:** "Show me the top 10 customers by revenue last quarter"
+* list\_databases
+* list\_shares
+* list\_tables
+* list\_columns
+* search\_catalog
+* query
+* ask\_docs\_question
+* query\_rw
+* get\_dive\_guide
+* save\_dive
+* read\_dive
+* update\_dive
+* delete\_dive
+* list\_dives
+* share\_dive\_data
 
-**Create Visualizations:** "Create a Dive showing monthly revenue trends by product category"
-
-**Iterate and Refine:** "Add a filter for US region only and change it to a stacked bar chart"
-
-**Prepare Data:** "Create a view that shows active customers with their lifetime value"
-
-**Data Exploration:** "What tables do I have in my sales database and what columns do they contain?"
-
-**Get Help:** "How do I create a time-series analysis in MotherDuck?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

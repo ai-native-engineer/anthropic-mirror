@@ -1,98 +1,67 @@
 <!-- source: https://claude.com/connectors/courtroom5 -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a02b7c9fe9d6c948b934dda_C5-Icons-Outline-Orange%20-%20Sonja%20Ebron.svg)
+[Skip to main content](#main-content)
 
-# Courtroom5
+Connector URL`https://mcp.courtroom5.com/v1`
 
-Civil legal guidance for self-represented litigants
+More[Documentation (opens in new tab)](https://courtroom5.com/claude)[Support (opens in new tab)](mailto:support@courtroom5.com)[Privacy policy (opens in new tab)](https://courtroom5.com/privacy)
 
-* Category
+Courtroom5 provides legal guidance to the 80% of civil litigants who appear in court without an attorney. Three jurisdiction-aware tools cover serious civil matters across all 50 US states: a case intake assessment that identifies viable claims and first steps; a deadline calculator that returns precise procedural deadlines and miss-consequences by state and court level; and next-step guidance for users mid-litigation. Built for self-represented homeowners facing foreclosure, employees fired in retaliation, defendants in debt collection lawsuits, and others priced out of legal representation.
 
-  Productivity
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/295eaac1-7469-4c28-8fda-dbd2a0f76219)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* case\_intake\_assessment
+* deadline\_calculator
+* next\_step\_guidance
 
-  [Courtroom5](https://courtroom5.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://courtroom5.com/claude)[Privacy Policy](https://courtroom5.com/privacy)[Support](mailto:support@courtroom5.com)
-
-Courtroom5 provides legal guidance to the 80% of civil litigants who appear in court without an attorney. Three jurisdiction-aware tools cover serious civil matters across all 50 US states: a case intake assessment that identifies viable claims and first steps; a deadline calculator that returns precise procedural deadlines and miss-consequences by state and court level; and next-step guidance for users mid-litigation.
-
-You can use Courtroom5 to:
-
-**Case intake for a self-represented worker:**
-"I was fired from my job in Texas three weeks ago, two days after I reported safety violations to OSHA. My employer says I was terminated for 'performance issues' but my last review six months ago was excellent. I think this is retaliation. I can't afford a lawyer — what are my options?"
-
-**Multi-tool guidance for a homeowner facing foreclosure:**
-"My mortgage company in Florida filed a foreclosure lawsuit against me last month after I fell behind on payments during a medical emergency. I got served two weeks ago and I'm panicking. What can I even do at this point?"
-
-**Next-step guidance for a defendant mid-discovery:**
-"I'm a defendant in a contract dispute in North Carolina. I filed my answer two weeks ago. What should I be doing right now to prepare?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Experience Manager
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Manage your schedule and coordinate meetings effortlessly
 
-Productivity
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 9, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Productivity
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-June 22, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### Agentic Presentations by SlidesGPT
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

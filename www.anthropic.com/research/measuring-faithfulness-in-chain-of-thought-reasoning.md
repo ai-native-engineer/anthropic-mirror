@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning -->
 
-# Measuring Faithfulness in Chain-of-Thought Reasoning
+# Measuring faithfulness in Chain-of-Thought reasoning
 
 Jul 18, 2023
 
@@ -8,7 +8,13 @@ Jul 18, 2023
 
 ## Abstract
 
-Large language models (LLMs) perform better when they produce step-by-step, “Chain-ofThought” (CoT) reasoning before answering a question, but it is unclear if the stated reasoning is a faithful explanation of the model’s actual reasoning (i.e., its process for answering the question). We investigate hypotheses for how CoT reasoning may be unfaithful, by examining how the model predictions change when we intervene on the CoT (e.g., by adding mistakes or paraphrasing it). Models show large variation across tasks in how strongly they condition on the CoT when predicting their answer, sometimes relying heavily on the CoT and other times primarily ignoring it. CoT’s performance boost does not seem to come from CoT’s added test-time compute alone or from information encoded via the particular phrasing of the CoT. As models become larger and more capable, they produce less faithful reasoning on most tasks we study. Overall, our results suggest that CoT can be faithful if the circumstances such as the model size and task are carefully chosen.
+Large language models (LLMs) perform better when they produce step-by-step, “Chain-of-Thought” (CoT) reasoning before answering a question, but it is unclear if the stated reasoning is a faithful explanation of the model’s actual reasoning (i.e., its process for answering the question). We investigate hypotheses for how CoT reasoning may be unfaithful, by examining how the model predictions change when we intervene on the CoT (e.g., by adding mistakes or paraphrasing it). Models show large variation across tasks in how strongly they condition on the CoT when predicting their answer, sometimes relying heavily on the CoT and other times primarily ignoring it. CoT’s performance boost does not seem to come from CoT’s added test-time compute alone or from information encoded via the particular phrasing of the CoT. As models become larger and more capable, they produce less faithful reasoning on most tasks we study. Overall, our results suggest that CoT can be faithful if the circumstances such as the model size and task are carefully chosen.
+
+### An alignment assessment of recent cybersecurity incidents
+
+We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+
+[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
 
 ### Formalizing Fermat's Last Theorem
 
@@ -21,9 +27,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
 
 [Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-
-### Enabling independent research on how people use Claude
-
-Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
-
-[Read more](https://www.anthropic.com/research/enabling-independent-research)

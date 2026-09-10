@@ -1,98 +1,83 @@
 <!-- source: https://claude.com/connectors/phoenix -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a14d5985292ca8fe00ff102_HGInsights%20-%20Francis%20Brero%20(1).svg)
+[Skip to main content](#main-content)
 
-# Phoenix by HG Insights
+Connector URL`https://phoenix.hginsights.com/api/ai/mcp`
 
-AI-powered B2B data intelligence & analytics
-
-* Category
-
-  Data
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/0796df0d-3911-42f6-b47d-9b1c8b259300)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [HG Insights](https://hginsights.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://phoenix.hginsights.com/docs/intro)[Privacy Policy](https://hginsights.com/privacy-policy)[Support](mailto:phoenix@hginsights.com)
+More[Documentation (opens in new tab)](https://phoenix.hginsights.com/docs/intro)[Support (opens in new tab)](mailto:phoenix@hginsights.com)[Privacy policy (opens in new tab)](https://hginsights.com/privacy-policy)
 
 Phoenix by HG Insights gives Claude access to rich B2B technographic and firmographic data, enabling intelligent analysis of technology adoption, competitive intelligence, and market insights. Query detailed data on what technologies companies use, their spending patterns, and firmographic profiles. Phoenix uses agent-based automation to answer complex business questions, helping sales, marketing, and strategy teams make data-driven decisions about target accounts, market sizing, and competitive positioning.
 
-You can use Phoenix by HG Insights to:
+## Tools
 
-**Technology Adoption Research:**
-"Which Fortune 500 companies in the financial services sector are using Salesforce CRM, and what is their estimated spend?"
+* company\_technographic
+* company\_firmographic
+* company\_search
+* company\_intent
+* company\_spend
+* company\_cloud\_spend
+* company\_contracts
+* company\_fai
+* company\_operating\_signals
+* company\_install\_time\_series
+* company\_gov\_opportunities
+* company\_gov\_relationships
+* contact\_search
+* contact\_enrich
+* web\_search
 
-**Competitive Intelligence:**
-"Show me companies that recently adopted a competitor's product and might be open to switching."
-
-**Market Sizing & TAM Analysis:**
-"How many mid-market companies in North America use cloud infrastructure?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-### ActiveCampaign
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Trending
 
-Sales and marketing
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-June 2, 2026
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+Trending
 
-### Actively
+An AI Concierge that turns forms into conversations
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Data
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-Claude
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-Claude Code
+CRM context for every answer, insight, and action
 
-June 4, 2026
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-### Adobe Customer Journey Analytics
+### [Supabase](https://claude.com/connectors/supabase)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Manage databases, authentication, and storage
 
-Sales and marketing
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-May 26, 2026
+### [monday.com](https://claude.com/connectors/monday)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-### Adobe Journey Optimizer
-
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")

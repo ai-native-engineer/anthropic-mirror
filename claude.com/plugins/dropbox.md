@@ -8,11 +8,14 @@ The Dropbox plugin for Claude connects your Dropbox files directly to Claude, so
 * Install in
 
   [Claude Cowork](https://claude.ai/directory/plugins/dropbox%40knowledge-work-plugins)[Claude Code](#)
+* Made by
 
   [Dropbox](https://www.dropbox.com/)
 * Installs
 
   220
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

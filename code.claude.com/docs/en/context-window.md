@@ -1584,7 +1584,7 @@ Claude Code's context window holds everything Claude knows about your session: y
 
 The session walks through a realistic flow with representative token counts:
 
-* **Before you type anything**: CLAUDE.md, auto memory, MCP tool names, and skill descriptions all load into context. Your own setup may add more here, like an [output style](/docs/en/output-styles) or text from [`--append-system-prompt`](/docs/en/cli-reference), which both go into the system prompt the same way.
+* **Before you type anything**: CLAUDE.md, auto memory, MCP tool names, and skill descriptions all load into context. Your own setup may add more here, like an [output style](/docs/en/output-styles) or text from [`--append-system-prompt`](/docs/en/cli-reference).
 * **As Claude works**: each file read adds to context, [path-scoped rules](/docs/en/memory#path-specific-rules) load automatically alongside matching files, and a [PostToolUse hook](/docs/en/hooks-guide) fires after each edit.
 * **The follow-up prompt**: a [subagent](/docs/en/sub-agents) handles the research in its own separate context window, so the large file reads stay out of yours. Only the summary and a small metadata trailer come back.
 * **At the end**: `/compact` replaces the conversation with a structured summary. Most startup content reloads automatically; the table below shows what happens to each mechanism.
@@ -1595,7 +1595,7 @@ When a long session compacts, Claude Code summarizes the conversation history to
 
 | Mechanism                                                                                                | After compaction                                                                            |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------ |
-| System prompt and output style                                                                           | Unchanged; not part of message history                                                      |
+| System prompt and output style                                                                           | Both still apply                                                                            |
 | Project-root CLAUDE.md and unscoped rules                                                                | Re-injected from disk                                                                       |
 | Auto memory                                                                                              | Re-injected from disk                                                                       |
 | The plan Claude wrote in [plan mode](/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode)        | Re-injected from disk                                                                       |
@@ -1622,7 +1622,9 @@ You can also act before the automatic pass runs:
 * **Clear between tasks**: run `/clear` when switching to unrelated work. Old conversation crowds out the files you need next and costs tokens on every message.
 * **Delegate large reads**: send research to a [subagent](/docs/en/sub-agents) so the file contents stay in its context window, not yours.
 
-If you need a larger window rather than a smaller conversation, Fable 5.1, Fable 5, Sonnet 5, Opus 4.6 and later, and Sonnet 4.6 support a 1 million token context window. See [Extended context](/docs/en/model-config#extended-context) for availability by plan and how to select a `[1m]` model variant. Sonnet 5 runs at 1M with no `[1m]` variant to select; see [Sonnet 5 context window](/docs/en/model-config#sonnet-5-context-window) for its auto-compaction thresholds and the LLM gateway exception. Compaction works the same way at the larger limit.
+If you need a larger window rather than a smaller conversation, Fable models, Sonnet 5, Opus 4.6 and later, and Sonnet 4.6 support a 1 million token context window. See [Extended context](/docs/en/model-config#extended-context) for availability by plan and how to select a `[1m]` model variant. Compaction works the same way at the larger limit.
+
+Sonnet 5 runs with the 1M context window and has no `[1m]` variant to select. See [Sonnet 5 context window](/docs/en/model-config#sonnet-5-context-window) for its auto-compaction thresholds and the LLM gateway exception.
 
 The point where automatic compaction runs depends on your model and configuration. See [Default auto-compact thresholds](/docs/en/model-config#default-auto-compact-thresholds) for the boundaries per model, and [Correct the window for a gateway or custom model ID](/docs/en/model-config#correct-the-window-for-a-gateway-or-custom-model-id) if Claude Code assumes the wrong window for your model ID, such as an [LLM gateway](/docs/en/llm-gateway) alias.
 

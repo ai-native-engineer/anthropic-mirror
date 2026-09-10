@@ -1,99 +1,88 @@
 <!-- source: https://claude.com/connectors/s-p-global -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0ed02d4106f1281e6e2_S%26P%20Global.jpg)
+[Skip to main content](#main-content)
 
-# S&P Global
+Connector URL`https://kfinance.kensho.com/integrations/mcp`
 
-Query a range of S&P Global datasets, like Financials
+More[Documentation (opens in new tab)](https://docs.kensho.com/llmreadyapi/mcp)[Support (opens in new tab)](mailto:support.datafeed.mi@spglobal.com)[Privacy policy (opens in new tab)](https://www.spglobal.com/en/privacy/privacy-policy-english#sharing-of-personal-information)
 
-* Category
+Deterministic Retrieval provides structured, API-driven access to S&P Global data for LLMs and agent-based systems that know exactly what they need. Using defined parameters and structured queries, it returns fast, predictable, cited results, with full customer control over orchestration, tool selection, and execution. Built by Kensho, S&P Global's AI innovation engine, the solution is ideal for company-specific research, financial analysis, transcript intelligence, and multi-entity comparisons. Can be used alongside S&P Global - Adaptive Retrieval for teams that need both structured and flexible data access.
 
-  Financial services
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* get\_latest
+* get\_n\_quarters\_ago
+* get\_business\_relationship\_from\_identifiers
+* get\_capitalization\_from\_identifiers
+* get\_info\_from\_identifiers
+* get\_company\_other\_names\_from\_identifiers
+* get\_company\_summary\_from\_identifiers
+* get\_company\_description\_from\_identifiers
+* get\_competitors\_from\_identifiers
+* get\_next\_earnings\_from\_identifiers
+* get\_cusip\_from\_identifiers
+* get\_isin\_from\_identifiers
+* get\_earnings\_from\_identifiers
+* get\_latest\_earnings\_from\_identifiers
+* get\_transcript\_from\_key\_dev\_id
+* get\_financial\_line\_item\_from\_identifiers
+* get\_prices\_from\_identifiers
+* get\_segments\_from\_identifiers
+* get\_financial\_statement\_from\_identifiers
+* get\_advisors\_for\_company\_in\_transactions
+* get\_merger\_info\_from\_transaction\_id
+* get\_mergers\_from\_identifiers
 
-  [S&P Global](https://www.spglobal.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.kensho.com/llmreadyapi/mcp)[Privacy Policy](https://www.spglobal.com/en/privacy/privacy-policy-english#sharing-of-personal-information)[Support](mailto:support.datafeed.mi@spglobal.com)
-
-Query a range of S&P Global datasets, including S&P Capital IQ Financials, Market Data, transcripts, and more. Designed to save time and resources for engineering, product, and business teams in financial services, this server streamlines access to company information, financial statements, historical market data, and global securities.
-
-You can use the S&P Global connector to:
-
-Compare company financials:
-"Compare the gross margins and EBITDA trends for Amazon, Google, and Meta over the past 5 years"
-
-Summarize earnings calls:
-"Summarize the key takeaways from Apple's latest earnings call, focusing on guidance and capital allocation"
-
-Create pitch books and research reports:
-"Generate a comp table for software companies with $1B+ revenue and 20%+ growth rates"
-
-Develop due diligence briefs:
-"Pull key financials for Tesla, generate a peer benchmark analysis, and flag potential risks for an investment committee presentation"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=vibeprospecting.ai&sz=96)
 
-Claude Code
+### [Vibe Prospecting](https://claude.com/connectors/vibeprospecting)
 
-April 8, 2026
+Find and enrich company and contact data in Claude for prospecting, lead generation, recruiting, and CRM enrichment across 150M+ companies and 800M+ contacts
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add Vibe Prospecting in Claude (opens in new tab)](https://claude.ai/directory/1bdcb159-b6f0-4f13-bc08-fdb40b007828 "Add in Claude")

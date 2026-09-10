@@ -40,7 +40,7 @@ We’ve made substantial upgrades to [Claude in Excel](https://claude.com/claude
 
 ![Video thumbnail](https://cdn.sanity.io/images/4zrzovbb/website/810008fad362e0ba3c984c3de094f4527541bb89-3840x2160.png)
 
-Claude Opus 4.6 is available today on [claude.ai](https://claude.ai/redirect/website.v1.6b7fdab0-73a9-42b1-a4f3-05a1fe85b1d9), our API, and all major cloud platforms. If you’re a developer, use `claude-opus-4-6` via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview). Pricing remains the same at $5/$25 per million tokens; for full details, see our [pricing page](https://claude.com/pricing#api).
+Claude Opus 4.6 is available today on [claude.ai](https://claude.ai/redirect/website.v1.39c56ae7-f988-4fe8-9a70-ddf716f558de), our API, and all major cloud platforms. If you’re a developer, use `claude-opus-4-6` via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview). Pricing remains the same at $5/$25 per million tokens; for full details, see our [pricing page](https://claude.com/pricing#api).
 
 We cover the model, our new product updates, our evaluations, and our extensive safety testing in depth below.
 
@@ -100,7 +100,7 @@ Here are some of the things our Early Access partners told us about Claude Opus 
 
 > Claude Opus 4.6 is an uplift in design quality. It works beautifully with our design systems and it’s more autonomous, which is core to Lovable’s values. People should be creating things that matter, not micromanaging AI.
 
-![Box logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/49b99af78924f43f878d39a25d574da293c68596-60x32.svg)
+![Box logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/bf162513ba017e72d4e07b0cd7683b86c4c5bc88-60x64.svg)
 
 > Claude Opus 4.6 excels in high-reasoning tasks like multi-source analysis across legal, financial, and technical content. Box’s eval showed a 10% lift in performance, reaching 68% vs. a 58% baseline, and near-perfect scores in technical domains.
 

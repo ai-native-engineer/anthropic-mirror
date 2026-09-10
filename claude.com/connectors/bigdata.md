@@ -1,99 +1,92 @@
 <!-- source: https://claude.com/connectors/bigdata -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6983d643ae1a792dcbdae54c_Bigdata.com.svg)
+[Skip to main content](#main-content)
 
-# Bigdata.com
+Connector URL`https://mcp.bigdata.com/`
 
-Access real-time financial data
+More[Documentation (opens in new tab)](https://docs.bigdata.com/mcp-reference)[Support (opens in new tab)](mailto:support@bigdata.com)[Privacy policy (opens in new tab)](https://bigdata.com/mcp-terms-and-conditions)
 
-* Category
+Bigdata.com is the AI grounding layer for finance — it stops agents from hallucinating by grounding every answer in real, cited sources instead of guesses. Ask in plain language and get back cited, source-linked answers instead of a wall of raw data to parse yourself.
 
-  Financial services
-* Used in
+Query stocks, market data, portfolio holdings and fundamentals alongside SEC filings, earnings calls, broker and analyst research, press releases, and sentiment signals across billions of documents spanning 25+ years: 10M+ new public news documents monthly, 200+ premium news sources (Financial Times, Benzinga, MT Newswires and more), filings across 50+ countries, 30+ years of fundamentals, expert interviews, and podcasts.
 
-  [Claude](https://claude.ai/directory/e463df16-b3d7-4bb9-953d-b652a073c764)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+RavenPack's financial knowledge graph resolves company and entity names automatically, so a single query surfaces the right filings, transcripts, and news without manual ticker-matching. Every claim traces back to a real, citable source — no fabricated numbers, no invented quotes.
 
-  [RavenPack](https://www.ravenpack.com)
+Beyond public content, search and upload your own private documents — notes, research, and internal files — side-by-side with public filings and market data, so proprietary research and public sources answer from the same query.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Because retrieval returns only the cited excerpts that matter instead of stuffing whole documents into context, typical queries use around 90% fewer input tokens than an ungrounded approach.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Built for anyone making a financial decision — from individual investors sizing up a trade to analysts at hedge funds, asset managers and investment banks. Run an initiation report, compare two 10-Ks, prep a pre-earnings or pre-FOMC briefing, track a competitor, catch a sentiment shift before consensus does, or build a sourced brief before a call — all from one grounded search.
 
-* Capabilities
+Connect in seconds inside Claude — no setup, no glue code. You're searching cited financial data from your first prompt.
 
-  Read
-* More
+## Tools
 
-  [Documentation](https://docs.bigdata.com/mcp-reference)[Privacy Policy](https://bigdata.com/mcp-terms-and-conditions)[Support](mailto:support@bigdata.com)
+* bigdata\_company\_tearsheet
+* bigdata\_country\_tearsheet
+* bigdata\_events\_calendar
+* bigdata\_market\_tearsheet
+* bigdata\_search
+* bigdata\_etf\_tearsheet
+* bigdata\_fetch\_document
+* bigdata\_help
+* bigdata\_list\_connectors
+* bigdata\_list\_documents
+* bigdata\_list\_tags
+* bigdata\_mcp\_instructions
+* bigdata\_sentiment\_tearsheet
+* bigdata\_upload\_document
+* find\_securities
+* get\_securities
 
-The Bigdata.com MCP server integrates institutional-grade data directly into your AI workflow, covering global news, transcripts, and regulatory filings directly in Claude. By combining Claude's reasoning with Bigdata.com's entity-aware search, you can automate complex due diligence and produce hallucination-free reports with full citation trails. Empower your decision-making with the only AI connector that is Grounded by Design for professional finance.
-
-You can use Bigdata.com to:
-
-**Monitor Market Events:**
-"Get me the earnings calendar for major banks this week and analyze any sentiment changes in recent news coverage."
-
-**Research Companies:**
-"Find all private fintech companies that raised Series B funding in the last quarter and provide key financial metrics."
-
-**Due Diligence Analysis:**
-"Generate a comprehensive tearsheet for Tesla including recent regulatory filings, analyst reports, and management commentary from earnings calls."
-
-**Track Financial Insights:**
-"Search for all mentions of cryptocurrency regulations in recent SEC filings and summarize the key compliance requirements."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 22, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Affinity
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+Manage your schedule and coordinate meetings effortlessly
 
-Financial services
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-February 11, 2026
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+Access Jira & Confluence from Claude
 
-### Aiera
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Financial services
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Claude
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude Code
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-February 26, 2026
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+### [Notion](https://claude.com/connectors/notion)
 
-### Airwallex
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Claude
+### [Slack](https://claude.com/connectors/slack)
 
-Claude Code
+Send messages, create canvases, and fetch Slack data
 
-April 8, 2026
-
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

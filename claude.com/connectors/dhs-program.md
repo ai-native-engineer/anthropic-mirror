@@ -1,107 +1,78 @@
 <!-- source: https://claude.com/connectors/dhs-program -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3d8c2f2a61bee173049292_dhs%20(1).png)
+[Skip to main content](#main-content)
 
-# Demographic and Health Surveys
+Connector URL`https://api.dhsprogram.com/mcp`
 
-Data from The Demographic and Health Surveys Program
-
-* Category
-
-  Life sciences and healthcare
-* Used in
-
-  [Claude](https://claude.ai/directory/9e5b81c6-d26f-43bb-9425-2d132ccdea40)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [ICF](https://dhsprogram.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://api.dhsprogram.com/#/mcp-overview.html)[Privacy Policy](https://dhsprogram.com/Privacy-Policy.cfm)[Support](mailto:mcp@dhsprogram.com)
+More[Documentation (opens in new tab)](https://api.dhsprogram.com/#/mcp-overview.html)[Support (opens in new tab)](mailto:mcp@dhsprogram.com)[Privacy policy (opens in new tab)](https://dhsprogram.com/Privacy-Policy.cfm)
 
 The Demographic and Health Surveys (DHS) Program spans more than 90 countries and 450+ nationally representative household surveys on population, health, and nutrition. This MCP enables AI tools to query the DHS Program's public aggregate-indicator API to answer questions on fertility, mortality, maternal and child health, nutrition, family planning, and more. Results can be disaggregated by sex, age, residence, and wealth. No individual-level survey records are exposed; microdata access remains governed by DHS's existing registration flow. All results include appropriate citation (survey, country, year).
 
-You can use Demographic and Health Surveys to:
+## Tools
 
-**Example Use Case 1:**
-"For any DHS Program data this session, always retrieve via the Demographic and Health Surveys MCP — discover with the list tools first, never paraphrase figures from memory, and cite country + survey year on every number."
+* list\_dhs\_countries
+* list\_dhs\_surveys
+* list\_dhs\_indicators
+* search\_dhs\_indicators\_by\_text
+* get\_dhs\_indicator\_profile
+* list\_dhs\_tags
+* list\_dhs\_survey\_characteristics
+* resolve\_dhs\_filters
+* search\_dhs\_indicator\_data
+* get\_dhs\_data\_availability
+* list\_dhs\_datasets
+* list\_dhs\_publications
+* list\_dhs\_geometry
+* list\_dhs\_data\_updates
 
-**Country health profile (single-country, multi-indicator synthesis):**
-"Give me a public health dashboard for Mozambique from the most recent DHS: maternal mortality ratio, neonatal mortality, under-5 mortality, modern-contraceptive use among married women, basic vaccination coverage, and child stunting."
-
-**Cross-country benchmarking at scale:**
-"Compare household electricity access across West African countries."
-
-**Disaggregated equity analysis:**
-"Is there an urban-rural difference in unmet need for family planning in Senegal?"
-
-**Survey discovery (workflow front-end):**
-"Show me a list of all DHS Program surveys from the last 10 years."
-
-**Domain-specific indicator bundling:**
-"Pull a malaria table for Uganda: ITN ownership, IRS coverage, fever care-seeking, parasitemia."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-Claude Code
+Analyze, summarize, and explore your Strava data
 
-February 11, 2026
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### 10x Genomics Cloud
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-Claude Code
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-May 1, 2026
+Access US National Provider Identifier (NPI) Registry
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-### AdisInsight
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-Life sciences and healthcare
+Access ICD-10-CM and ICD-10-PCS code sets
 
-Claude
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-February 11, 2026
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdfc622a31cabb4ed418_Benchling.jpg)
+Find your next hike
 
-### Benchling
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-Life sciences and healthcare
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-Claude
+Access the CMS Coverage Database
 
-Claude Code
-
-June 30, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
-
-### Biomni Lab
-
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")

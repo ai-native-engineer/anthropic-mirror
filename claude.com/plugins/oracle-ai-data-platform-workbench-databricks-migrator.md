@@ -7,11 +7,14 @@ Databricks→AIDP migration: Automate notebooks, jobs, schedules, DDL via two-pa
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Oracle](#)
 * Installs
 
   131
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -1,98 +1,69 @@
 <!-- source: https://claude.com/connectors/alltrails -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+[Skip to main content](#main-content)
 
-# AllTrails
+Connector URL`https://www.alltrails.com/mcp`
 
-Find your next hike
-
-* Category
-
-  Health and wellness
-* Used in
-
-  [Claude](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [AllTrails](https://www.alltrails.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-
-  Interactive
-* More
-
-  [Documentation](https://support.alltrails.com/hc/en-us/articles/47343827423764-AllTrails-integrations-with-AI-services)[Privacy Policy](https://privacy.alltrails.com/policies)[Support](https://support.alltrails.com/hc)
+More[Documentation (opens in new tab)](https://support.alltrails.com/hc/en-us/articles/47343827423764-AllTrails-integrations-with-AI-services)[Support (opens in new tab)](https://support.alltrails.com/hc)[Privacy policy (opens in new tab)](https://privacy.alltrails.com/policies)
 
 Find your next outdoor adventure with AllTrails, directly in Claude. AllTrails is the world's most popular and trusted outdoor exploration platform, with more than 500,000 curated trails — complete with reviews, photos, and ratings from a community of over 90+ million trail-goers. From local walks to bucket-list adventures, AllTrails helps you discover new places and connect with the outdoors.
 
-You can use AllTrails to:
+## Tools
 
-**Find nearby trails:**
-"Find moderate hiking trails within 30 minutes of Boulder with waterfalls"
+* find\_trails\_near\_location
+* get\_trail\_weather\_overview
+* find\_trails\_within\_bounds
+* search\_trails\_by\_name
+* get\_trail\_details
 
-**Check trail conditions:**
-"What's the weather and trail status for the Mist Trail in Yosemite this weekend?"
-
-**Plan a route:**
-"Suggest a dog-friendly loop trail under 5 miles near Asheville"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Health and wellness
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-Claude Code
+Analyze, summarize, and explore your Strava data
 
-May 26, 2026
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### Alma
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Health and wellness
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-Claude
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-Claude Code
+Access US National Provider Identifier (NPI) Registry
 
-May 20, 2026
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e9e884bd175dbadbf06_cms.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-### CMS Coverage
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
+Access ICD-10-CM and ICD-10-PCS code sets
 
-Health and wellness
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-February 24, 2026
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
+Access the CMS Coverage Database
 
-### Function (beta)
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")
 
-View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)
+![](https://www.google.com/s2/favicons?domain=functionhealth.com&sz=96)
 
-Health and wellness
+### [Function Health](https://claude.com/connectors/function)
 
-Claude
+Lab test insights, health answers, nutrition plans
 
-January 26, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e7cb91804401037ccb4_healthEx.jpg)
-
-### HealthEx (beta)
-
-Connect your health records for personalized insights](https://claude.com/connectors/healthex)
+[Add Function Health in Claude (opens in new tab)](https://claude.ai/directory/48527e54-fe84-4dc6-b97f-c8e0763bca97 "Add in Claude")

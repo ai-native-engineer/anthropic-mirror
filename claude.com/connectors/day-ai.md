@@ -1,99 +1,90 @@
 <!-- source: https://claude.com/connectors/day-ai -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a881c53b0a0800bff6afc8_day-ai.png)
+[Skip to main content](#main-content)
 
-# Day AI
+Connector URL`https://day.ai/api/mcp`
 
-Know everything about your prospects & customers with CRMx
-
-* Category
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/87d31b20-90c3-42ca-94a7-51270953869d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Day AI](https://day.ai)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://day.ai/mcp)[Privacy Policy](https://day.ai/privacy)[Support](mailto:support@day.ai)
+More[Documentation (opens in new tab)](https://day.ai/mcp)[Support (opens in new tab)](mailto:support@day.ai)[Privacy policy (opens in new tab)](https://day.ai/privacy)
 
 Day AI is an AI-Native CRM that transforms emails, chats and meetings into richly-structured CRM data, stored in an LLM-optimized format for seamless and deep, relevant context retrieval. Use this Connector to give Claude direct access to your richly-structured customer data, enabling intelligent automation and decision-making grounded in real customer context.
 
-You can use Day AI to:
+## Tools
 
-**Analyze sales interactions:**
-"Analyze my recent sales calls and update the corresponding opportunities"
+* open\_sidebar
+* get\_share\_url
+* analyze\_before\_create\_or\_update
+* create\_or\_update\_person\_organization
+* create\_or\_update\_opportunity
+* create\_or\_update\_pipeline\_stage
+* update\_property\_definition
+* read\_crm\_schema
+* read\_object\_history
+* search\_related\_objects
+* create\_email\_draft
+* send\_email
+* create\_page
+* update\_page
+* create\_view
+* keyword\_search
+* create\_action
+* get\_assistant\_actions
+* web\_search
+* send\_notification
+* dismiss\_objects
+* update\_assistant
+* create\_custom\_property
+* create\_chart
 
-**Create CRM records:**
-"Create a new person in my CRM from this email thread"
+Show all 25 tools
 
-**Manage pipeline stages:**
-"Show me the pipeline stages for our Q1 deals"
-
-**Send follow-up communications:**
-"Send a follow-up email to leads from last week's demo"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### ActiveCampaign
+### [Gmail](https://claude.com/connectors/gmail)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Draft replies, summarize threads, & search your inbox
 
-Sales and marketing
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 2, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Sales and marketing
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-May 26, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Adobe Journey Optimizer
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Sales and marketing
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Claude
+### [Notion](https://claude.com/connectors/notion)
 
-Claude Code
+Connect your Notion workspace to search, update, and power workflows across tools
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

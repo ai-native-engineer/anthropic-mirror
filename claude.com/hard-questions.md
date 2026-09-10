@@ -10,13 +10,13 @@ Listento the audio experience.
 
 “Will AI help with quicker medical diagnosis?”
 
-[](https://cdn.sanity.io/files/4zrzovbb/claude-com/09b040acaa5e4a32069ff18225136ea98a1eb500.webm)
+[](https://assets.claude.com/09b040acaa5e4a32069ff18225136ea98a1eb500.webm)
 
 “I’m someone diagnosed with a chronic illness, and it took six years to figure out what I had.”
 
 # Kamille
 
-![Portrait of Kamille](https://cdn.sanity.io/images/4zrzovbb/claude-com/2b6c723812866fd89c22727fc515a2d7d9e4efc8-1600x1067.jpg?rect=581,0,854,1067&w=1120&h=1400&fit=crop&auto=format)
+![Portrait of Kamille](https://assets.claude.com/2b6c723812866fd89c22727fc515a2d7d9e4efc8.jpg?rect=581%2C0%2C854%2C1067&w=1120&h=1400&fit=crop&fm=webp)
 
 Kamille is a substitute teacher and tattoo artist.
 
@@ -36,4 +36,4 @@ Anthropic was born from hard questions. We address them through what we build, f
 
 [See our progress so far (opens in new tab)](https://www.anthropic.com/path-to-hope)
 
-[![](https://cdn.sanity.io/images/4zrzovbb/claude-com/b4ebe89edc118d0aab8c755afbf6a38ea6339b85-1920x1080.jpg)](https://cdn.sanity.io/files/4zrzovbb/claude-com/ab84f6971c24922701b06cdbf80f85af5cbabf4b.mp4)
+[![](https://assets.claude.com/b4ebe89edc118d0aab8c755afbf6a38ea6339b85.jpg)](https://assets.claude.com/ab84f6971c24922701b06cdbf80f85af5cbabf4b.mp4)

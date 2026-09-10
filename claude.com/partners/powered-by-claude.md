@@ -10,7 +10,7 @@ A curated list of businesses that use Claude to build better, faster, and safer.
 
 Build with Claude
 
-[Build with Claude](https://claude.com/platform/api-v2)Build with Claude
+[Build with Claude](https://claude.com/platform/api)Build with Claude
 
 Thank you! Your submission has been received!
 

@@ -1,101 +1,82 @@
 <!-- source: https://claude.com/connectors/amplitude -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+[Skip to main content](#main-content)
 
-# Amplitude
+Connector URLUnited States`https://mcp.amplitude.com/mcp`EU`https://mcp.eu.amplitude.com/mcp`
 
-Give your teams powerful behavioral insights
+More[Documentation (opens in new tab)](https://amplitude.com/docs/analytics/amplitude-mcp)[Support (opens in new tab)](http://support.amplitude.com)[Privacy policy (opens in new tab)](https://amplitude.com/privacy)
 
-* Category
+Connect your AI workflows to Amplitude's powerful behavior analytics and experimentation platform. The Amplitude MCP server enables seamless integration between AI assistants and your product data, allowing you to search, analyze, and query charts, dashboards, experiments, feature flags, and metrics directly from your AI interface.
 
-  Data
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/8e40fa13-4654-4387-bbad-12b8ecc81351)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* get\_charts
+* get\_context
+* get\_dashboard
+* get\_experiments
+* get\_notebook
+* query\_dataset
+* query\_charts
+* query\_metric
+* query\_experiment
+* search
+* get\_events
+* get\_event\_properties
+* get\_user\_properties
+* get\_flags
 
-  [Amplitude](https://amplitude.com/)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/1447b85d6d59735d51aabb1ffb1ebb24202df727.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://amplitude.com/docs/analytics/amplitude-mcp)[Privacy Policy](https://amplitude.com/privacy)[Support](mailto:mcp+feedback@amplitude.com)
-
-Connect your workflows to Amplitude's powerful behavior analytics and experimentation platform. The Amplitude connector enables seamless integration between Claude and your product data, allowing you to search, analyze, and query charts, dashboards, experiments, feature flags, and metrics directly from your chat interface—then build new charts and explore trends interactively to uncover hidden insights.
-
-You can use Amplitude in Claude to:
-
-Build and explore analytics charts:
-"Create a chart showing weekly active users over the last 90 days" or "Adjust this chart to break down by user segment"
-
-Search for popular events:
-"Search for the most popular events in Amplitude"
-
-Retrieve chart results:
-"Give me the results of the most popular chart in Amplitude"
-
-View active experiments:
-"Give me all active experiments in Amplitude"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-June 4, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### Adobe Customer Journey Analytics
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Data
+Trending
 
-Claude
+An AI Concierge that turns forms into conversations
 
-Claude Code
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-May 11, 2026
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-### Airtable
+CRM context for every answer, insight, and action
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-Data
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Claude
+### [monday.com](https://claude.com/connectors/monday)
 
-Claude Code
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-June 22, 2026
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
 
-### alphaXiv
+### [Gamma](https://claude.com/connectors/gamma)
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+Create presentations, docs, socials, and sites with AI
 
-Data
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
-Claude Code
+### [Shopify](https://claude.com/connectors/shopify)
 
-February 11, 2026
+Build, manage, and analyze your Shopify store
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b2a2eb3325e73b42b98c_icon_Aura.jpg)
-
-### Aura
-
-Company intelligence & workforce analytics](https://claude.com/connectors/aura)
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

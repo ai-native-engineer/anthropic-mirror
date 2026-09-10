@@ -28,6 +28,8 @@ Asana
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf7dba8289651c9b83cb2_claude-managed-agents.webp)
 
 Anthropic's developer conference, recorded

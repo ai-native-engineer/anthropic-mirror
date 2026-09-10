@@ -7,11 +7,14 @@ Set up endorctl and use Endor Labs to scan, prioritize, and fix security risks a
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Endor Labs](https://github.com/endorlabs)
 * Installs
 
   4627
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

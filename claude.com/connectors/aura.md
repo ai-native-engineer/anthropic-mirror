@@ -1,98 +1,74 @@
 <!-- source: https://claude.com/connectors/aura -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b2a2eb3325e73b42b98c_icon_Aura.jpg)
+[Skip to main content](#main-content)
 
-# Aura
+Connector URL`https://mcp.auraintelligence.com/mcp`
 
-Company intelligence & workforce analytics
+More[Documentation (opens in new tab)](https://docs.getaura.ai/)[Support (opens in new tab)](mailto:support@auraintel.com)[Privacy policy (opens in new tab)](https://aura-public-assets.s3.us-east-1.amazonaws.com/policies/privacy/aura-privacy-policy-v1.0-20250218.pdf)
 
-* Category
+Enables users to search company databases, analyze employee headcount trends, track hiring and attrition rates, explore corporate structures, and benchmark workforce metrics across industries
 
-  Data
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/d5415d15-420c-45ee-a45c-2dc56d4ccad6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* find\_companies
+* get\_company\_subsidiaries
+* get\_monthly\_headcount
+* analyze\_employee\_growth
+* breakdown\_by\_job\_function
+* analyze\_seniority\_levels
 
-  [Aura](https://auraintel.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.getaura.ai/)[Privacy Policy](https://aura-public-assets.s3.us-east-1.amazonaws.com/policies/privacy/aura-privacy-policy-v1.0-20250218.pdf)[Support](mailto:support@auraintel.com)
-
-Enable users to search company databases, analyze employee headcount trends, track hiring and attrition rates, explore corporate structures, and benchmark workforce metrics across industries.
-
-You can use the Aura connector to do:
-
-Investment Due Diligence:
-"Analyze Salesforce’s workforce growth over the past 12 months. Break down their employee distribution by department and compare their hiring velocity to other major SaaS companies like HubSpot and Zendesk."
-‍
-
-Competitive Sales Intelligence:
-“Find detailed information about JPMorgan Chase, including their subsidiary structure, current workforce size, and recent hiring trends in their technology divisions.”
-‍
-
-Talent Market Analysis:
-“Compare employee growth rates and attrition patterns between Google, Meta, and Amazon over the last 6 months, focusing on engineering and product management functions.”
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

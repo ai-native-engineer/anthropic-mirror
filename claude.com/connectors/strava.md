@@ -1,96 +1,72 @@
 <!-- source: https://claude.com/connectors/strava -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1baf5c8def5a8ce06c91fc_Strava%20Echelon%20Orange.svg)
+[Skip to main content](#main-content)
 
-# Strava
+Connector URL`https://mcp.strava.com/mcp`
 
-Analyze, summarize, and explore your Strava data
-
-* Category
-
-  Health and wellness
-* Used in
-
-  [Claude](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Strava, Inc.](https://strava.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://support.strava.com/hc/en-us/articles/46190267796237)[Privacy Policy](https://www.strava.com/legal/privacy)[Support](https://support.strava.com/hc/en-us/articles/216917777-Contact-Strava-Support)
+More[Documentation (opens in new tab)](https://support.strava.com/hc/en-us/articles/46190267796237)[Support (opens in new tab)](https://support.strava.com/hc/en-us/articles/216917777-Contact-Strava-Support)[Privacy policy (opens in new tab)](https://www.strava.com/legal/privacy)
 
 You'll be able to ask questions about your Strava performance. Use it to help spot training patterns, suggest improvements, cheer you on, or whatever else you can dream up.
 
-You can use Strava to:
+## Tools
 
-**Review a workout:**
-"Tell me how my last workout went?"
+* health
+* get\_athlete\_profile
+* list\_activities
+* get\_athlete\_zones
+* get\_activity\_streams
+* get\_activity\_performance
+* get\_club\_info
+* get\_gear
 
-**Track fitness over time:**
-"I want to understand how my fitness changed over the last 6 months?"
-
-**Compare training periods:**
-"How does my training compare to last year during this month?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Health and wellness
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-Claude
+### [PubMed](https://claude.com/connectors/pubmed)
 
-May 1, 2026
+Search biomedical literature from PubMed
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-### AllTrails
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-Find your next hike](https://claude.com/connectors/alltrails)
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-Health and wellness
+Access US National Provider Identifier (NPI) Registry
 
-Claude
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-Claude Code
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-May 26, 2026
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
+Access ICD-10-CM and ICD-10-PCS code sets
 
-### Alma
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-Life sciences and healthcare
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-Health and wellness
+Find your next hike
 
-Claude
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-May 20, 2026
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e9e884bd175dbadbf06_cms.jpg)
+Access the CMS Coverage Database
 
-### CMS Coverage
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")
 
-Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
+![](https://www.google.com/s2/favicons?domain=functionhealth.com&sz=96)
 
-Health and wellness
+### [Function Health](https://claude.com/connectors/function)
 
-Claude
+Lab test insights, health answers, nutrition plans
 
-February 24, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
-
-### Function (beta)
-
-View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)
+[Add Function Health in Claude (opens in new tab)](https://claude.ai/directory/48527e54-fe84-4dc6-b97f-c8e0763bca97 "Add in Claude")

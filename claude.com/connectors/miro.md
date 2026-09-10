@@ -1,101 +1,102 @@
 <!-- source: https://claude.com/connectors/miro -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69825d400692311462b4a241_Miro_Miro_Icon_0.svg)
+[Skip to main content](#main-content)
 
-# Miro
+Connector URL`https://mcp.miro.com/`
 
-From a single prompt, build workshops, visualize complex ideas, search across boards, and act on feedback agentically
-
-* Category
-
-  Code
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Miro](https://miro.com/?utm_campaign=glb-27q1-nsp-pn-c2_akc-miro-mcp-launch-no-sl&utm_source=partner-sourced&utm_medium=partner&utm_term=claude-connectors&src=-partner_glb)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/a1186b0c4bab9b1de10ab3421936e46fcfd9dd42.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developers.miro.com/docs/miro-mcp/?utm_campaign=glb-27q1-nsp-pn-c2_akc-miro-mcp-launch-no-sl&utm_source=partner-sourced&utm_medium=partner&utm_term=claude-connectors&src=-partner_glb)[Privacy Policy](https://miro.com/legal/customer-data-processing-addendum/?utm_campaign=glb-27q1-nsp-pn-c2_akc-miro-mcp-launch-no-sl&utm_source=partner-sourced&utm_medium=partner&utm_term=claude-connectors&src=-partner_glb)[Support](https://help.miro.com/hc/en-us/?utm_campaign=glb-27q1-nsp-pn-c2_akc-miro-mcp-launch-no-sl&utm_source=partner-sourced&utm_medium=partner&utm_term=claude-connectors&src=-partner_glb)
+More[Documentation (opens in new tab)](https://developers.miro.com/docs/miro-mcp)[Support (opens in new tab)](https://help.miro.com/hc/en-us/)[Privacy policy (opens in new tab)](https://miro.com/legal/customer-data-processing-addendum/)
 
 Connect Claude to Miro to summarize existing boards or build new ones from scratch. Run sharper workshops, sprint planning, and product strategy sessions with Claude-generated layouts, frames, sticky notes, images, docs, diagrams, tables, and more.
 
 Key use cases:
 
-**• Summarize and search boards:** Drop a board URL into Claude to pull out themes, decisions, and open questions from retros, planning sessions, and strategy maps. Search across every board you have access to.
+• Summarize and search boards: Drop a board URL into Claude to pull out themes, decisions, and open questions from retros, planning sessions, and strategy maps. Search across every board you have access to.
 
-**• Build new boards from scratch:** Generate ready-to-run layouts for retros, sprint planning, and product strategy with frames, sticky notes, cards, tables, docs, and images
+• Build new boards from scratch: Generate ready-to-run layouts for retros, sprint planning, and product strategy with frames, sticky notes, cards, tables, docs, and images.
 
-‍• **Bring research onto the canvas:** Have Claude research a topic — competitors, user feedback, market trends, prior art — and lay the findings out on a fresh board as diagrams, sticky notes, tables, docs, and images, ready to share with your team.
+• Bring research onto the canvas: Have Claude research a topic — competitors, user feedback, market trends, prior art — and lay the findings out on a fresh board as diagrams, sticky notes, tables, docs, and images, ready to share with your team.
 
-• **Visualize complex ideas:** Turn a prompt, PR, or spec into architecture, sequence-flow, ERD, or user-journey diagrams directly on the canvas.**‍**
+• Visualize complex ideas: Turn a prompt, PR, or spec into architecture, sequence-flow, ERD, or user-journey diagrams directly on the canvas.
 
-‍• **Act on feedback agentically:** Read and resolve comments, reply in-thread, and convert scattered team discussion into a clear list of action items right on the board.
+• Act on feedback agentically: Read and resolve comments, reply in-thread, and convert scattered team discussion into a clear list of action items right on the board.
+
+## Tools
+
+* board\_list\_items
+* context\_explore
+* context\_get
+* diagram\_create
+* diagram\_get\_dsl
+* doc\_create
+* doc\_get
+* doc\_update
+* image\_get\_data
+* image\_get\_upload\_url
+* image\_get\_url
+* table\_create
+* table\_list\_rows
+* table\_sync\_rows
+* board\_create
+* board\_search\_boards
+* code\_widget\_create
+* code\_widget\_delete
+* code\_widget\_get
+* code\_widget\_list\_items
+* code\_widget\_update
+* comment\_list\_comments
+* comment\_reply
+* comment\_resolve
+
+Show all 31 tools
+
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### Adobe Experience Manager
+### [Gmail](https://claude.com/connectors/gmail)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Draft replies, summarize threads, & search your inbox
 
-Productivity
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 9, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Canva](https://claude.com/connectors/canva)
 
-Productivity
+Search, create, autofill, and export Canva designs
 
-Claude
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-June 22, 2026
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Access Jira & Confluence from Claude
 
-### Agentic Presentations by SlidesGPT
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Productivity
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Claude
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")

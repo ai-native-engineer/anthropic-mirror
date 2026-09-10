@@ -14,15 +14,17 @@ We build the empirical foundation for understanding AI's economic impact. Our fl
 
 Economic transitions create both opportunity and disruption. The speed of AI development means the stakes are unusually high. We need reliable data to inform the decisions that workers, employers, and policymakers make about the future. Our research provides evidence to address uncertainty and helps society navigate this transition in ways that are broadly beneficial.
 
-![Anthropic Economic Index report: Cadences](https://www-cdn.anthropic.com/images/4zrzovbb/website/1c3e87fd90491089b2971dc34f9f75bb8a80f713-1000x1000.svg)
+![Scenarios for our Economic Future](https://www-cdn.anthropic.com/images/4zrzovbb/website/b6e2c934b704f4856d361d842c9cec237465b5c6-1920x1080.webp)
 
-[## Anthropic Economic Index report: Cadences
+[## Scenarios for our Economic Future
 
-EconomicsJun 26, 2026
+[Anthropic’s Economics team is sharing a new model of how AI may affect economic growth, jobs, wages, and more by 2030. The model lets you explore the scenarios, tell us what you think will happen, and see how your answers compare to +10,000 Americans.](https://www.anthropic.com/institute/econ-scenarios)](https://www.anthropic.com/institute/econ-scenarios)
 
-In our latest Economic Index report, we sample hourly for the first time to ask: When do people come to Claude? What do they produce with it? And how do they perceive AI's impact on their work?](https://www.anthropic.com/research/economic-index-june-2026-report)
+[EconomicsJun 26, 2026
 
-[EconomicsMar 24, 2026
+#### Anthropic Economic Index report: Cadences
+
+In our latest Economic Index report, we sample hourly for the first time to ask: When do people come to Claude? What do they produce with it? And how do they perceive AI's impact on their work?](https://www.anthropic.com/research/economic-index-june-2026-report)[EconomicsMar 24, 2026
 
 #### Anthropic Economic Index report: Learning curves
 
@@ -34,11 +36,7 @@ Our recent survey study with 81,000 Claude users provides a way to connect peopl
 
 #### Labor market impacts of AI: A new measure and early evidence
 
-In this paper, we present a new framework for understanding AI’s labor market impacts, and test it against early data.](https://www.anthropic.com/research/labor-market-impacts)[EconomicsJan 15, 2026
-
-#### Anthropic Economic Index report: Economic primitives
-
-This report introduces new metrics of AI usage to provide a rich portrait of interactions with Claude in November 2025, just prior to the release of Opus 4.5.](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)
+In this paper, we present a new framework for understanding AI’s labor market impacts, and test it against early data.](https://www.anthropic.com/research/labor-market-impacts)
 
 ## Publications
 
@@ -69,7 +67,7 @@ DateCategoryTitle
   What 81,000 people told us about the economics of AI](https://www.anthropic.com/research/81k-economics)
 * [Mar 31, 2026Economics
 
-  How Australia Uses Claude: Findings from the Anthropic Economic Index](https://www.anthropic.com/research/how-australia-uses-claude)
+  How Australia uses Claude: Findings from the Anthropic Economic Index](https://www.anthropic.com/research/how-australia-uses-claude)
 * [Mar 24, 2026Economics
 
   Anthropic Economic Index report: Learning curves](https://www.anthropic.com/research/economic-index-march-2026-report)

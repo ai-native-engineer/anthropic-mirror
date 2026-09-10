@@ -22,6 +22,8 @@ Contact sales
 
 Download the Claude app, navigate to the toggle at the top of the app, and click "Cowork". Support is not available for Windows (arm64) at this time. Open to all paid users. Not on a paid plan? [Upgrade now](https://claude.com/pricing)
 
+[Play video](#)Play video
+
 [](https://cdn.sanity.io/files/4zrzovbb/website/032a2abc20d7be25555ccbfbdf0a6a98082156ad.webm)
 
 ## Why product teams choose Cowork
@@ -144,7 +146,7 @@ Cowork ships with plugins built for product workflows, including writing PRDs, s
 
 Explore connectors
 
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/archive/connectors)Explore connectors
 
 Browse plugins
 

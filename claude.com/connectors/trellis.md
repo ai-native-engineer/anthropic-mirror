@@ -1,108 +1,88 @@
 <!-- source: https://claude.com/connectors/trellis -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a02b79fc767d70218166a22_trellis%20(1).svg)
+[Skip to main content](#main-content)
 
-# Trellis
+Connector URL`https://mcp.trellis.law/anthropic`
 
-Claude for Trial Court Litigators
+More[Documentation (opens in new tab)](https://support.trellis.law/)[Support (opens in new tab)](https://support.trellis.law)[Privacy policy (opens in new tab)](https://trellis.law/privacy-policy)
 
-* Category
+Trellis - Claude for Trial Court Litigators gives Claude direct access to the largest state trial court dataset in the U.S. — including dockets, rulings, verdicts, and filings — enabling legal research, judge and opposing counsel analytics, expert witness vetting, and motion drafting grounded in real precedent.
 
-  Productivity
+## Tools
 
-  Data
-* Used in
+* get\_server\_instructions
+* list\_skills
+* get\_skill
+* Search-get\_server\_instructions
+* Analytics-get\_server\_instructions
+* Search-search\_cases
+* Search-get\_case
+* Search-get\_case\_complaints
+* Search-search\_documents
+* Search-get\_document
+* Search-search\_rulings
+* Search-get\_ruling
+* Search-search\_verdicts
+* Search-search\_judges
+* Search-get\_judge\_profile
+* Search-search\_experts
+* Search-get\_specialties
+* Search-get\_matter\_types
+* Search-search\_parties
+* Search-search\_attorneys
+* Analytics-get\_judge\_analytics
+* Analytics-get\_lawfirm\_analytics
+* Analytics-get\_verdict\_stats
+* Analytics-get\_verdict\_stats\_by\_attorney
 
-  [Claude](https://claude.ai/directory/0a45d87b-7a46-4e43-a0ce-113eb0e9f002)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Trellis](https://trellis.law)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-
-  Interactive
-* More
-
-  [Documentation](https://support.trellis.law)[Privacy Policy](https://trellis.law/privacy-policy)[Support](https://support.trellis.law)
-
-Trellis — Claude for Trial Court Litigators gives Claude direct access to the largest state trial court dataset in the U.S. — including dockets, rulings, verdicts, and filings — enabling legal research, judge and opposing counsel analytics, expert witness vetting, and motion drafting grounded in real precedent.
-
-You can use Trellis to:
-
-**Judge Research:**
-"Pull a report on Judge Schulman's ruling history on summary judgment motions in employment cases."
-
-**Opposing Counsel Profiling:**
-"Profile opposing counsel at Wilson Elser — what types of cases do they take and how do they typically litigate?"
-
-**Expert Witness Vetting:**
-"Find expert witnesses commonly used in insurance bad faith cases in California and flag any Daubert challenges."
-
-**Motion Drafting:**
-"Draft a motion to dismiss for a breach of contract case before Judge Torres, based on how similar motions have succeeded in this jurisdiction."
-
-**Early Case Assessment:**
-"Give me a case strategy report for a newly filed slip-and-fall case in Cook County."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Customer Journey Analytics
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Manage your schedule and coordinate meetings effortlessly
 
-Productivity
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-April 29, 2026
+Access Jira & Confluence from Claude
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Adobe Experience Manager
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Productivity
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-June 9, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### Adobe Workfront
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
-
-### Agentic Presentations by SlidesGPT
-
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

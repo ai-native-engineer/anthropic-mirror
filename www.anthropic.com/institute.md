@@ -10,6 +10,10 @@ The Anthropic Institute exists to understand and shape the consequences of power
 
 ## Projects
 
+[### Scenarios for our Economic Future
+
+Anthropic’s Economics team is sharing a new model of how AI may affect economic growth, jobs, wages, and more by 2030. The model lets you explore the scenarios, tell us what you think will happen, and see how your answers compare to +10,000 Americans.](https://www.anthropic.com/institute/econ-scenarios)
+
 [### When AI builds itself
 
 Our progress toward recursive self-improvement, and its implications.](https://www.anthropic.com/institute/recursive-self-improvement)
@@ -22,9 +26,9 @@ We invited Claude.ai users to share how they use AI, what they dream it could ma
 
 The Anthropic Economic Index reveals the shape of AI adoption across the world. Here, you can explore the data behind our research to understand how people are using Claude across every US state and hundreds of occupations.](https://www.anthropic.com/economic-index)
 
-01 / 03
+01 / 04
 
-![When AI builds itself](https://cdn.sanity.io/images/4zrzovbb/website/2435e0d6ca08097bb051d73bd6fbf295582827f7-1920x1080.webp?w=1600&q=85)
+![Scenarios for our Economic Future](https://cdn.sanity.io/images/4zrzovbb/website/fccf43cf4e36b0c26b4215861d909aadabbc32ce-1920x1080.png?w=1600&q=85)
 
 ## Problems we're working on
 

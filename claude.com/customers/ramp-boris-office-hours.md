@@ -16,6 +16,8 @@ Office Hours with Boris Cherny
 
 [Office Hours with Boris Cherny](https://claude.com/office-hours)Office Hours with Boris Cherny
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a7d059559429dfbc08f0905_OfficeHours-YT-Thumbnail-Ramp-F2.jpg)
 
 Office Hours with Boris Cherny

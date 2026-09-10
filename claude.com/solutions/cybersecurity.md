@@ -206,6 +206,8 @@ Claude Developer Platform
 
 Active
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/cc-security-thumbnail.webm)
 
 ### Find and fix vulnerabilities with Claude Security
@@ -282,7 +284,7 @@ Ship defender tools and custom security agents with sandboxed execution, credent
 
 Start building
 
-[Start building](https://claude.com/platform/api-v2)Start building
+[Start building](https://claude.com/platform/api)Start building
 
 ![Palo Alto Networks](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf53e6bbf7c52e005a1176_palo-alto-ventures-light-mode.svg)![Palo Alto Networks](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68bf5812aa32ad62ff26a1a6_palo-alto-ventures-light-mode-1.svg)
 

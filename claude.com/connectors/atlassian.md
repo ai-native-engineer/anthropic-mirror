@@ -1,187 +1,92 @@
 <!-- source: https://claude.com/connectors/atlassian -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abde7cfa24b799acf7fc9_Atlassian.jpg)
+[Skip to main content](#main-content)
 
-# Atlassian Rovo
+Connector URL`https://mcp.atlassian.com/v1/mcp/authv2`
 
-Access Jira & Confluence from Claude
+More[Documentation (opens in new tab)](https://community.atlassian.com/forums/Atlassian-Platform-articles/Using-the-Atlassian-Remote-MCP-Server-beta/ba-p/3005104)[Enterprise setup guide (opens in new tab)](https://support.atlassian.com/security-and-access-policies/docs/configuring-enterprise-managed-authentication/)[Support (opens in new tab)](https://support.atlassian.com/contact)[Privacy policy (opens in new tab)](https://www.atlassian.com/legal/privacy-policy)
 
-* Category
+Atlassian’s Rovo MCP Server enables secure, permission-aware access to Jira and Confluence from external AI tools like Claude. It supports summarization, creation, and multi-step actions, helping teams tap into structured enterprise knowledge wherever they work—all while preserving data privacy and leveraging Atlassian’s open, interoperable Teamwork Graph foundation.
 
-  Productivity
-* Used in
+## Tools
 
-  [Claude](http://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* atlassianUserInfo
+* getAccessibleAtlassianResources
+* getConfluenceSpaces
+* getConfluencePage
+* getPagesInConfluenceSpace
+* getConfluencePageAncestors
+* getConfluencePageFooterComments
+* getConfluencePageInlineComments
+* getConfluencePageDescendants
+* createConfluencePage
+* updateConfluencePage
+* createConfluenceFooterComment
+* createConfluenceInlineComment
+* searchConfluenceUsingCql
+* getJiraIssue
+* editJiraIssue
+* createJiraIssue
+* getTransitionsForJiraIssue
+* transitionJiraIssue
+* lookupJiraAccountId
+* searchJiraIssuesUsingJql
+* addCommentToJiraIssue
+* getJiraIssueRemoteIssueLinks
+* getVisibleJiraProjects
 
-  [Atlassian](https://www.atlassian.com/)
+Show all 31 tools
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://www.atlassian.com/platform/remote-mcp-server)[Privacy Policy](https://www.atlassian.com/legal/privacy-policy)[Support](https://customerfeedback.atlassian.net/servicedesk/customer/portal/1701/group/1762/create/11360)
-
-Connect to Jira, Confluence, and other Atlassian apps to manage issues, access documentation, track sprints, create tickets, update project status, and coordinate development workflows. Streamline project management and knowledge sharing across your development and collaboration tools through conversational interactions.
-
-You can use the Atlassian Rovo connector to:
-
-‍
-
-Summarize Jira issues:
-
-"Summarize all Jira issues assigned to me in the 'Q3 Planning' project that are still marked as 'In Progress'"
-
-‍
-
-Create Confluence pages:
-
-"Create a new Confluence page titled 'Post-Mortem: Sprint 24' in the 'Engineering/Incidents' space. Include a summary of key takeaways and assign action items to team members"
-
-‍
-
-Perform bulk Jira actions:
-
-"Create five Jira issues in the 'Mobile App' project for the following tasks: fix login bug, update onboarding flow, test Android push notifications, redesign settings page, and review user analytics dashboard"
-
-‍
-
-Users must have a Confluence account to use the server if 'User Installed Apps' setting is blocked.
-
-Skills
-
-Capture Tasks from Meeting Notes
-
-[](https://www-cdn.anthropic.com/8999999a18c98edc2908dee7f482a0d5c81b278a.mp4)
-
-Analyze meeting notes to find action items and create Jira tasks for assigned work.
-
-Learn more
-
-[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Generate Status Reports
-
-Generate project status reports from Jira issues and publish to Confluence.
-
-Learn more
-
-[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Search Company Knowledge
-
-Search company knowledge bases (Confluence, Jira, internal docs) to find and explain internal concepts, processes, and technical details.
-
-Learn more
-
-[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Spec to Backlog
-
-Automatically convert Confluence specification documents into structured Jira backlogs with Epics and implementation tickets.
-
-Learn more
-
-[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Triage Issue
-
-Triage bug reports and error messages by searching for duplicates in Jira and offering to create new issues or add comments to existing ones.
-
-Learn more
-
-[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Experience Manager
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Manage your schedule and coordinate meetings effortlessly
 
-Productivity
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Claude Code
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-June 9, 2026
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Notion](https://claude.com/connectors/notion)
 
-Productivity
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-June 22, 2026
+### [Slack](https://claude.com/connectors/slack)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Send messages, create canvases, and fetch Slack data
 
-### Agentic Presentations by SlidesGPT
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Productivity
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude
+Trending
 
-Claude Code
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")

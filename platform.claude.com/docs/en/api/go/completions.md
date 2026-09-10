@@ -311,8 +311,6 @@ Future models and features will not be compatible with Text Completions. See our
 
     default: completion
 
-- `type Completion struct{…}`
-
 ### Example
 
 ```go

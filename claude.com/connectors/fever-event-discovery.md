@@ -1,47 +1,66 @@
 <!-- source: https://claude.com/connectors/fever-event-discovery -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b4bb49b243700a3cd55721_fever.svg)
+[Skip to main content](#main-content)
 
-# Fever Event Discovery
+Connector URL`https://data-search.apigw.feverup.com/mcp`
 
-Discover live entertainment events worldwide
-
-* Category
-
-  No items found.
-* Used in
-
-  [Claude](https://claude.ai/directory/6e1be2c2-7237-4f8e-bf16-486799ec42a1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Fever](https://feverup.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://developer.feverup.com/)[Privacy Policy](https://feverup.com/legal/privacy_en.html)[Support](mailto:data-ai@feverup.com)
+More[Documentation (opens in new tab)](https://developer.feverup.com/)[Support (opens in new tab)](mailto:data-ai@feverup.com)[Privacy policy (opens in new tab)](https://feverup.com/legal/privacy_en.html)
 
 Discover and explore live entertainment experiences worldwide through Fever. Search events by city, date, location, or keyword across concerts, shows, festivals, immersive experiences, and more. Filter by popularity, price, rating, or proximity. Get event details including schedules, venues, ratings, and pricing.
 
-You can use Fever Event Discovery to:
+## Tools
 
-**Plan a night out:**
-"What are the best things to do in New York this weekend?"
+* search\_cities
+* search\_events
 
-**Find specific experiences:**
-"Find immersive theater experiences in London under €50"
-
-**Explore events nearby:**
-"What's happening within 5km of me this evening?"
-
-**Discover a new city:**
-"I'm traveling to Barcelona next month. What are the must-see experiences?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-No items found.
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
+
+### [Google Drive](https://claude.com/connectors/google-drive)
+
+Search, read, and upload files instantly
+
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
+
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
+
+### [Google Calendar](https://claude.com/connectors/google-calendar)
+
+Manage your schedule and coordinate meetings effortlessly
+
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
+
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
+
+Access Jira & Confluence from Claude
+
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
+
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
+
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
+
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
+
+![](https://www.notion.so/images/notion-logo-block-main.svg)
+
+### [Notion](https://claude.com/connectors/notion)
+
+Connect your Notion workspace to search, update, and power workflows across tools
+
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
+
+### [Slack](https://claude.com/connectors/slack)
+
+Send messages, create canvases, and fetch Slack data
+
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

@@ -175,7 +175,7 @@ Build AI directly into your own research tools, course platforms, or campus syst
 
 Learn more
 
-[Learn more](https://claude.com/platform/api-v2)Learn more
+[Learn more](https://claude.com/platform/api)Learn more
 
 ### Claude Cowork
 
@@ -208,14 +208,6 @@ Collaborate on rigorous scientific research with the Claude Science app. It runs
 Learn more
 
 [Learn more](https://claude.com/product/claude-science)Learn more
-
-## Connected to your educational ecosystem
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a9cd09ce6c436c1336f1_Canvas_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5a9c89eb6ea720e4dd70f_Canvas_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae7de61bbb363f4c684d_Wiley_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ae790b0d8576223ba772_Wiley_dark.svg)
-
-![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ac909d3cb836048cfb7c_Panopto_light.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68b5ac8b6c2824c6159baa61_Panopto_dark.svg)
 
 ## Try Claude
 

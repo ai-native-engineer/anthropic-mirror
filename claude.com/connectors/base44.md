@@ -1,105 +1,71 @@
 <!-- source: https://claude.com/connectors/base44 -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
+[Skip to main content](#main-content)
 
-# Base44
+Connector URL`https://app.base44.com/mcp`
 
-Build and manage Base44 apps
-
-* Category
-
-  Code
-* Used in
-
-  [Claude](https://claude.ai/directory/16ebc92d-b1db-473a-82ef-015426940c4c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Base44](https://base44.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.base44.com/developers/backend/overview/mcp-server)[Privacy Policy](https://base44.com/privacy-policy)[Support](https://app.base44.com/support)
+More[Documentation (opens in new tab)](https://docs.base44.com/developers/backend/overview/mcp-server)[Support (opens in new tab)](https://app.base44.com/support)[Privacy policy (opens in new tab)](https://base44.com/privacy-policy)
 
 Create, edit, and manage Base44 apps directly from Claude. Describe what you want to build and Base44 will generate a full-stack project for you — with data models, backend logic, and a working UI. Query your app's data, update entity schemas, and iterate on existing projects without ever leaving Claude. Make Base44 a native part of your AI workflow — an AI-powered app builder that turns ideas into production-ready apps, faster.
 
-You can use Base44 to:
+## Tools
 
-**Build New Apps:**
-"Create a project management app with tasks, assignees, due dates, and a status tracker"
+* create\_base44\_app
+* edit\_base44\_app
+* list\_user\_apps
+* list\_entity\_schemas
+* query\_entities
 
-**Edit Existing Apps:**
-"Add a revenue field to the Clients entity in my CRM app"
-
-**Query App Data:**
-"Get the first 10 pending orders from my e-commerce app"
-
-**Prototype Fast:**
-"Build a simple employee directory with name, role, department, and contact info"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Code
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692ddfcc3b71a55bb1993c71_amazon.jpg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### AWS Marketplace
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
+### [Supabase](https://claude.com/connectors/supabase)
 
-Code
+Manage databases, authentication, and storage
 
-Claude
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-March 2, 2026
+### [monday.com](https://claude.com/connectors/monday)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-### Clerk
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+![](https://www.google.com/s2/favicons?domain=vercel.com&sz=96)
 
-Code
+### [Vercel](https://claude.com/connectors/vercel)
 
-Claude
+Analyze, debug, and manage projects and deployments
 
-Claude Code
+[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
 
-Skills
+![](https://www.google.com/s2/favicons?domain=miro.com&sz=96)
 
-February 11, 2026
+### [Miro](https://claude.com/connectors/miro)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abeb765f2d57005074b8f_Cloudflare%20Developer%20Platform.jpg)
+Access and create new content on Miro boards
 
-### Cloudflare
+[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-Data
+### [Zapier](https://claude.com/connectors/zapier)
 
-Code
+Automate workflows across thousands of apps via conversation
 
-Claude
-
-Claude Code
-
-February 11, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abec2b389536b0797f344_Cloudinary.jpg)
-
-### Cloudinary
-
-Manage, transform and deliver your images & videos](https://claude.com/connectors/cloudinary)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

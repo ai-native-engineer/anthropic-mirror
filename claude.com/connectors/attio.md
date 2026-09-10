@@ -1,103 +1,87 @@
 <!-- source: https://claude.com/connectors/attio -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698f6e4682ca2652393057da_attio-rounded.svg)
+[Skip to main content](#main-content)
 
-# Attio
+Connector URL`https://mcp.attio.com/mcp`
 
-Search, manage, and update your Attio CRM from Claude
+More[Documentation (opens in new tab)](https://docs.attio.com/mcp/overview)[Support (opens in new tab)](mailto:support@attio.com)[Privacy policy (opens in new tab)](https://attio.com/legal/privacy)
 
-* Category
+Access your entire CRM directly from Claude. Look up contacts and companies, find decision makers, and discover email addresses. Log notes from calls and meetings, track engagement history, and create follow-up tasks with deadlines. Search and filter your pipeline by stage, funding round, role, or location. Tap into meeting intelligence—search call recordings, access transcripts, and surface key insights. Make Attio a seamless part of your AI workflow, so you can manage relationships and close deals faster without switching tools.
 
-  Sales and marketing
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/ae5afdb9-e3c6-4b64-a13a-420e7a8d8124)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* create-note
+* create-record
+* create-task
+* get-call-recording
+* get-email-content
+* get-note-body
+* get-records-by-ids
+* list-attribute-definitions
+* list-records
+* list-workspace-members
+* list-workspace-teams
+* search-call-recordings-by-metadata
+* search-emails-by-metadata
+* search-meetings
+* search-notes-by-metadata
+* search-records
+* semantic-search-emails
+* semantic-search-notes
+* update-task
+* update-record
+* upsert-record
+* whoami
+* list-tasks
 
-  [Attio](https://attio.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.attio.com/mcp/overview)[Privacy Policy](https://attio.com/legal/privacy)[Support](mailto:support@attio.com)
-
-Access your entire CRM directly from Claude. Look up contacts and companies, find decision makers, and discover email addresses. Log notes from calls and meetings, track engagement history, and create follow-up tasks with deadlines. Search and filter your pipeline by stage, funding round, role, or location. Tap into meeting intelligence — search call recordings, access transcripts, and surface key insights. Manage relationships and close deals faster without switching tools.
-
-You can use the Attio connector to:
-
-**Contact & Company Lookup:**"Find all the decision makers at Stripe and show me their email addresses"
-
-**Pipeline Search & Filtering:**"Show me all Series B companies in our pipeline that are based in New York"
-
-**Activity Tracking & Notes:**"Log a note on the Acme Corp record summarizing today's discovery call — they're interested in enterprise pricing"
-
-**Task Management:**"Create a follow-up task for next Tuesday to send the proposal to Sarah at Notion"
-
-**Meeting Intelligence:**"Search my recent call recordings for any discussions about pricing objections"
-
-**Interaction History:**"What's our full interaction history with Linear? Show me all notes, emails, and meetings"
-
-**Record Updates:**"Update the deal stage for Figma to 'Negotiation' and set the expected close date to end of Q2"
-
-‍
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### ActiveCampaign
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Manage your schedule and coordinate meetings effortlessly
 
-Sales and marketing
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 2, 2026
+Access Jira & Confluence from Claude
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Sales and marketing
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-May 26, 2026
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Notion](https://claude.com/connectors/notion)
 
-### Adobe Journey Optimizer
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Claude
+### [Slack](https://claude.com/connectors/slack)
 
-Claude Code
+Send messages, create canvases, and fetch Slack data
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

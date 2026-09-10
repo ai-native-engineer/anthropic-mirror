@@ -1,97 +1,72 @@
 <!-- source: https://claude.com/connectors/open-targets -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3f34a5d8bf093e154de4_open-targets.jpg)
+[Skip to main content](#main-content)
 
-# Open Targets
+Connector URL`https://mcp.platform.opentargets.org/mcp`
 
-Drug target discovery and prioritisation platform
+More[Documentation (opens in new tab)](https://github.com/opentargets/open-targets-platform-mcp)[Support (opens in new tab)](https://github.com/opentargets/open-targets-platform-mcp/issues)[Privacy policy (opens in new tab)](https://github.com/opentargets/open-targets-platform-mcp/blob/main/PRIVACY.md)
 
-* Category
+This MCP provides a purpose-built interface and instructions to access and interpret the data and analyses in the Open Targets Platform. The Open Targets Platform is a comprehensive tool that supports systematic identification and prioritisation of potential therapeutic drug targets, integrating publicly available datasets to build and score target-disease associations. It also integrates relevant annotation information about targets, diseases/phenotypes, drugs, variants, GWAS and molecular QTL studies, and credible sets, as well as their most relevant relationships.
 
-  Life sciences and healthcare
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/097ab77c-338a-421c-8ba7-3960c928a540)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-open-targets-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
+* get\_open\_targets\_graphql\_schema
+* search\_entities
+* query\_open\_targets\_graphql
+* batch\_query\_open\_targets\_graphql
 
-  [Open Targets](https://www.opentargets.org)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  No items found.
-* More
-
-  [Documentation](https://github.com/opentargets/open-targets-platform-mcp)[Privacy Policy](https://github.com/opentargets/open-targets-platform-mcp/blob/main/PRIVACY.md)[Support](https://github.com/opentargets/open-targets-platform-mcp/issues)
-
-The Open Targets Platform connector provides a purpose-built interface to access and interpret data for systematic identification and prioritisation of potential therapeutic drug targets. It integrates publicly available datasets to build and score target-disease associations, along with relevant annotation information about targets, diseases/phenotypes, drugs, variants, GWAS and molecular QTL studies, and credible sets.
-
-You can use the Open Targets Platform connector to:
-
-**Discover Drug Targets for a Disease:** "What are the top five targets associated with Alzheimer's disease?"
-
-**Explore GWAS Colocalization:** "I have a GWAS lead variant 16\_50712015\_C\_T associated with Crohn's disease, does it colocalise with any other traits?"
-
-**Assess Target Safety Profiles:** "Are there known safety events associated with targeting PTGS2?"
-
-**Research Target-Disease Associations:** "What evidence supports the association between BRCA2 and breast cancer?
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-February 11, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### 10x Genomics Cloud
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Trending
 
-Life sciences and healthcare
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 1, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+Manage databases, authentication, and storage
 
-### AdisInsight
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Life sciences and healthcare
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-February 11, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdfc622a31cabb4ed418_Benchling.jpg)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### Benchling
+Trending
 
-Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Life sciences and healthcare
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-Claude Code
+### [Zapier](https://claude.com/connectors/zapier)
 
-June 30, 2026
+Automate workflows across thousands of apps via conversation
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
-
-### Biomni Lab
-
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

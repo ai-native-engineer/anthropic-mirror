@@ -1,95 +1,92 @@
 <!-- source: https://claude.com/connectors/klaviyo -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69710feadd4fbcdc9202b732_klaviyo-poppy%20(1).png)
+[Skip to main content](#main-content)
 
-# Klaviyo
+Connector URL`https://mcp.klaviyo.com/mcp?include-mcp-app=true`
 
-Report, strategize & create with real-time Klaviyo data
+More[Documentation (opens in new tab)](https://developers.klaviyo.com/en/docs/klaviyo_mcp_server)[Support (opens in new tab)](https://www.klaviyo.com/support)[Privacy policy (opens in new tab)](https://privacy.klaviyo.com/policies/en/)
 
-* Category
+Chat directly with Klaviyo to report, strategize, and launch faster. Ask for performance summaries, content and copy, optimization opportunities, and profile insights – AI responds with the full context of your Klaviyo data.
 
-  Sales and marketing
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/b1a89151-dc5f-4d75-baa7-9da291b81a0c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* get\_account\_details
+* get\_campaigns
+* get\_campaign
+* create\_campaign
+* assign\_template\_to\_campaign\_message
+* get\_catalog\_items
+* get\_events
+* get\_metrics
+* get\_metric
+* query\_metric\_aggregates
+* get\_flows
+* get\_flow
+* get\_lists
+* get\_list
+* get\_segments
+* get\_segment
+* upload\_image\_from\_url
+* get\_profiles
+* get\_profile
+* create\_profile
+* update\_profile
+* subscribe\_profile\_to\_marketing
+* unsubscribe\_profile\_from\_marketing
+* get\_campaign\_report
 
-  [Klaviyo](https://klaviyo.com/)
+Show all 27 tools
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developers.klaviyo.com/en/docs/klaviyo_mcp_server)[Privacy Policy](https://privacy.klaviyo.com/policies/en/)[Support](https://www.klaviyo.com/support)
-
-Chat directly with Klaviyo to report, strategize, and launch faster. Ask for performance summaries, content and copy, optimization opportunities, and profile insights—AI responds with the full context of your Klaviyo data.
-
-You can use Klaviyo to:
-
-**Campaign Performance:**"Show me the performance report for my Black Friday email campaign"
-
-**Profile Insights:**"Find customers who haven't purchased in 90 days but opened emails recently"
-
-**Campaign Creation:**"Create a new email campaign for our spring sale targeting VIP customers"
-
-**Flow Analysis:**"How is my abandoned cart flow performing compared to last month?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### ActiveCampaign
+### [Gmail](https://claude.com/connectors/gmail)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Draft replies, summarize threads, & search your inbox
 
-Sales and marketing
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Claude Code
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-June 2, 2026
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Slack](https://claude.com/connectors/slack)
 
-Sales and marketing
+Send messages, create canvases, and fetch Slack data
 
-Claude
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-May 26, 2026
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-### Adobe Journey Optimizer
+Trending
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Sales and marketing
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-Claude Code
+### [Asana](https://claude.com/connectors/asana)
 
-April 29, 2026
+Connect to Asana to coordinate tasks, projects, and goals
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")

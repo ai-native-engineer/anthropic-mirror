@@ -28,6 +28,8 @@ Google Cloud
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d29ad83274f2ec57e1aa_building-with-claude-on-google-cloud.webp)
 
 Anthropic's developer conference, recorded

@@ -1,98 +1,80 @@
 <!-- source: https://claude.com/connectors/eden-basecamp-research -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a4372cdd88a66a89d564e2e_basecamp.png)
+[Skip to main content](#main-content)
 
-# EDEN by Basecamp Research
+Connector URL`https://mcp-public.basecamp-research.com/mcp`
 
-Design antibiotics and prioritise vaccine targets against drug-resistant pathogens using EDEN, Basecamp Research's biological foundation model.
+More[Documentation (opens in new tab)](https://basecamp-research.com/wp-content/uploads/2026/06/BCR-EDEN-MCP-documentation.pdf)[Support (opens in new tab)](mailto:support@basecamp-research.com)[Privacy policy (opens in new tab)](https://basecamp-research.com/wp-content/uploads/2026/06/BCR-online-privacy-notice.pdf)
 
-* Category
+EDEN is Basecamp Research's frontier biological foundation model, trained on BaseData — the
 
-  Life sciences and healthcare
-* Used in
+world's largest biological dataset, encompassing over 10 billion novel genes from more than a million species collected across 200+ sampling expeditions in 30+ countries.
 
-  [Claude](https://claude.ai/directory/a93abec3-44cb-47e2-a35f-ab87ba8e4a86)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+This connector gives Claude access to two EDEN capabilities:
 
-  [Basecamp Research](https://basecamp-research.com/)
+Antibiotic design (EDEN-AMP): Generate novel antimicrobial peptide candidates with predicted
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+potency against 11 drug-resistant bacterial strains, including MRSA, Acinetobacter baumannii, and Pseudomonas aeruginosa. 97% of EDEN-designed AMPs are active in the lab; one candidate showed efficacy in mice comparable to last-resort antibiotics.
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+Vaccine target prioritisation (EDEN-Immunogenicity): Predict the probability that a protein-coding antigen will trigger an immune response, using EDEN embeddings with AUROC 0.85 on external validation data. Reduces weeks of empirical target selection to a single workflow. Every BaseData sequence is collected under informed-consent and benefit-sharing agreements, with each sequence traceable to country-specific collection permits. For research use only.
 
-* Capabilities
+## Tools
 
-  Read & write
-* More
+* create\_dataset\_upload
+* delete\_dataset
+* generate\_antimicrobial\_peptides
+* list\_datasets
+* predict\_immunogenicity
+* create\_dataset\_download
 
-  [Documentation](https://basecamp-research.com/wp-content/uploads/2026/06/BCR-EDEN-MCP-documentation.pdf)[Privacy Policy](https://basecamp-research.com/wp-content/uploads/2026/06/BCR-online-privacy-notice.pdf)[Support](mailto:support@basecamp-research.com)
-
-EDEN is Basecamp Research's frontier biological foundation model, trained on BaseData — the world's largest biological dataset, encompassing over 10 billion novel genes from more than a million species. This connector gives Claude access to two EDEN capabilities: antibiotic design (EDEN-AMP) generating novel antimicrobial peptide candidates against drug-resistant strains, and vaccine target prioritisation (EDEN-Immunogenicity) predicting whether a protein-coding antigen will trigger an immune response. For research use only.
-
-You can use EDEN by Basecamp Research to:
-
-**Generate antimicrobial peptide candidates:**
-"Generate antimicrobial peptide candidates targeting MRSA (S. aureus ATCC BAA-1556)."
-
-**Predict immunogenicity:**
-"Predict immunogenicity for this nucleotide coding sequence."
-
-**Manage uploaded datasets:**
-"List my uploaded sequence datasets and download the latest one."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/20/99/8f/20998fe7-dd23-ba49-aa02-8d0d939c5d7e/AppIcon-0-0-1x_U007emarketing-0-0-0-2-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/1200x630wa.png)
 
-Claude
+### [Cortellis CMC Intelligence](https://claude.com/connectors/cortellis-cmc-intelligence)
 
-Claude Code
+Trusted regulatory CMC insights, powered by Clarivate’s Cortellis CMC Intelligence.
 
-February 11, 2026
+[Add Cortellis CMC Intelligence in Claude (opens in new tab)](https://claude.ai/directory/6d85e32b-e41b-44bc-b451-aa020b7640b1 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### 10x Genomics Cloud
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=consensus.app&sz=96)
 
-Claude Code
+### [Consensus](https://claude.com/connectors/consensus)
 
-May 1, 2026
+Explore scientific research
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add Consensus in Claude (opens in new tab)](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6 "Add in Claude")
 
-### AdisInsight
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/clinical-trials.png)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [Clinical Trials](https://claude.com/connectors/clinical-trials)
 
-Life sciences and healthcare
+Access ClinicalTrials.gov data
 
-Claude
+[Add Clinical Trials in Claude (opens in new tab)](https://claude.ai/directory/c1754944-3ad1-49ab-bec5-9aeae3a6a9a3 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=scholargateway.ai&sz=96)
 
-February 11, 2026
+### [Scholar Gateway](https://claude.com/connectors/scholar-gateway)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdfc622a31cabb4ed418_Benchling.jpg)
+Enhance responses with scholarly research and citations
 
-### Benchling
+[Add Scholar Gateway in Claude (opens in new tab)](https://claude.ai/directory/ff091334-0f12-4d0e-a973-c00467dd3818 "Add in Claude")
 
-Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/biorxiv.png)
 
-Life sciences and healthcare
+### [bioRxiv](https://claude.com/connectors/biorxiv)
 
-Claude
+Access bioRxiv and medRxiv preprint data
 
-Claude Code
-
-June 30, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
-
-### Biomni Lab
-
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)
+[Add bioRxiv in Claude (opens in new tab)](https://claude.ai/directory/7f750eb6-c3cb-47d7-9269-d35c43fe9925 "Add in Claude")

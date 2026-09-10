@@ -1,102 +1,72 @@
 <!-- source: https://claude.com/connectors/grasshopper-bank -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1d12328da5ef5b90783f4b_grasshopper-bank.jpeg)
+[Skip to main content](#main-content)
 
-# Grasshopper Bank
+Connector URL`https://grasshopper-mcp.prd.narmitech.com/mcp`
 
-Query and analyze your financial data
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/2bd58a48-6693-4964-9a00-b95861911928)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Grasshopper Bank](https://www.grasshopper.bank/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.narmi.com/docs/narmi-developer-docs/bc6e7tqtatpvz-about-narmi-mcp-server)[Privacy Policy](https://www.grasshopper.bank/legal/ai-connector-beta-program-agreement/)[Support](mailto:support@grasshopper.bank)
+More[Documentation (opens in new tab)](https://docs.narmi.com/docs/narmi-developer-docs/bc6e7tqtatpvz-about-narmi-mcp-server)[Support (opens in new tab)](mailto:support@grasshopper.bank)[Privacy policy (opens in new tab)](https://www.grasshopper.bank/legal/ai-connector-beta-program-agreement/)
 
 The Grasshopper Bank MCP server connects Claude to your banking data, enabling AI-powered access to account information, transactions, and other insights. Query balances, analyze spending patterns, retrieve transaction history, and surface financial trends — all through natural language. Purpose-built for Grasshopper Bank customers, this connector brings your banking data into Claude workflows without switching tools. Accelerate routine analysis, support financial decisions, and unlock deeper visibility into your banking operations.
 
-You can use Grasshopper Bank to:
+## Tools
 
-**Review and categorize transactions:**
-"Categorize my transactions from last month."
+* accounts\_list
+* documents\_list
+* external\_accounts\_list
+* products\_list
+* scheduled\_transfers\_list
+* transactions\_list
 
-**Check scheduled transfers:**
-"Has my scheduled transfer cleared?"
-
-**Understand your cash position:**
-"Create a cash flow forecast for next month."
-
-**Keep track of your accounts:**
-"Which of my CDs pays the highest interest rate?"
-
-**Retrieve documents fast:**
-"Could you get my account statements from last month?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-Claude Code
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-April 8, 2026
+Deterministic access to S&P Global data
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

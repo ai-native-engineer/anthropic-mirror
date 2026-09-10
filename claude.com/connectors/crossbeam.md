@@ -1,96 +1,78 @@
 <!-- source: https://claude.com/connectors/crossbeam -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f587fda5ed6a14574a0a_crossbeam.svg)
+[Skip to main content](#main-content)
 
-# Crossbeam
+Connector URL`https://mcp.crossbeam.com/`
 
-Explore partner data and ecosystem insights in Claude
+More[Documentation (opens in new tab)](https://help.crossbeam.com/en/articles/12601327-crossbeam-mcp-server-beta)[Support (opens in new tab)](mailto:support@crossbeam.com)[Privacy policy (opens in new tab)](https://www.crossbeam.com/legal/crossbeam-privacy-policy)
 
-* Category
+Connect your Claude workspace to Crossbeam and bring Ecosystem Intelligence into every AI workflow. The Crossbeam MCP Server lets Claude securely access your partner and account data — surfacing overlaps, partner activity, and warm paths directly in chat. Use it to enrich AI responses with real-time ecosystem context, power smarter prioritization, and uncover co-sell opportunities without leaving your conversation.
 
-  Sales and marketing
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/42ce667a-962d-432c-b667-35f0266ac6b5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* find\_overlapping\_accounts\_and\_leads
+* find\_overlapping\_partners
+* get\_account\_context
+* get\_partner\_context
+* get\_ecosystem\_activity
+* find\_partner\_recommendations
+* find\_partner\_shared\_contacts
+* get\_partner\_suggestions
+* search\_crossbeam\_knowledge
+* get\_overlap\_list\_link
+* get\_ecosystem\_list\_link
+* get\_deal\_navigator\_close\_deals\_link
+* find\_new\_accounts
+* get\_partner\_overlaps\_shared\_context
 
-  [Crossbeam](https://crossbeam.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://help.crossbeam.com/en/articles/12601327-crossbeam-mcp-server-beta)[Privacy Policy](https://www.crossbeam.com/legal/crossbeam-privacy-policy)[Support](mailto:support@crossbeam.com)
-
-Connect your Claude workspace to Crossbeam and bring Ecosystem Intelligence into every AI workflow. The Crossbeam connector lets Claude securely access your partner and account data — surfacing overlaps, partner activity, and warm paths directly in chat. Use it to enrich AI responses with real-time ecosystem context, power smarter prioritization, and uncover co-sell opportunities without leaving your conversation.
-
-You can use the Crossbeam connector to:
-
-Analyze partner ecosystem overlaps:
-"Which partners do we share the most overlaps with?"
-
-Prioritize partners by revenue potential:
-"Who are my top 5 partners by potential revenue?"
-
-Track new partner relationships:
-"Who are my 3 newest partners?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### ActiveCampaign
+### [Gmail](https://claude.com/connectors/gmail)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Draft replies, summarize threads, & search your inbox
 
-Sales and marketing
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 2, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Sales and marketing
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-May 26, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Adobe Journey Optimizer
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Sales and marketing
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Claude
+### [Notion](https://claude.com/connectors/notion)
 
-Claude Code
+Connect your Notion workspace to search, update, and power workflows across tools
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

@@ -1,93 +1,70 @@
 <!-- source: https://claude.com/connectors/candid -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6921eaf57e1729586a4611fe_candid.jpg)
+[Skip to main content](#main-content)
 
-# Candid
+Connector URL`https://mcp.candid.org/mcp`
 
-Research nonprofits and funders using Candid's data
-
-* Category
-
-  Nonprofit
-* Used in
-
-  [Claude](https://claude.ai/directory/875faf93-08c4-469c-980f-6f79f70f10d3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Candid](https://candid.org/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://learning.candid.org/getting-started-with-the-candid-mcp-connector/375441)[Privacy Policy](https://candid.org/privacy-policy/)[Support](mailto:onlinelibrarian@candid.org)
+More[Documentation (opens in new tab)](https://support.claude.com/en/articles/12923235-using-the-candid-connector-in-claude)[Support (opens in new tab)](mailto:onlinelibrarian@candid.org)[Privacy policy (opens in new tab)](https://candid.org/privacy-policy/)
 
 Bring the power of Candid's comprehensive nonprofit and funder data directly into Claude. Search millions of organizations, discover funding opportunities, and access expert knowledge and social sector news—all through natural conversation.
 
-You can use the Candid connector to:
+## Tools
 
-Find organizations—search for nonprofits and foundations by name, mission, location, leadership demographics, or area of work:
-“Help me find nonprofits working on food access in Seattle that are highly transparent”
+* knowledge\_resources
+* identify\_mentioned\_organizations
+* search\_organizations
+* taxonomy\_terms
+* identify\_locations
+* current\_date
 
-Explore profiles—access basic organizational information including mission, location, and focus areas, and get links to Candid profiles for deeper research
-
-“Show me the EINs for homeless shelters in Brooklyn, NYC”
-
-Discover connections—identify funders and nonprofits working in specific issue areas or geographic regions
-
-“Who is most likely to fund my nonprofit’s educational support programs?”
-
-Access expert knowledge—search Candid's library of research reports, training materials, blog posts, and curated news
-
-“How do I write an effective grant proposal?”
-
-Understand the sector—get insights on taxonomic classifications relevant to social impact work:
-“Show me taxonomy codes for climate change work”
-
-Requires a Candid account (register for free candid.org)
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Nonprofit
+![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
 
-Claude
+### [Salesforce - Beta](https://claude.com/connectors/salesforce-headless-360)
 
-March 19, 2026
+Sell, serve, and operate at scale with Salesforce.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692e4c057216b17022e9dc17_benevity.svg)
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-### Benevity
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
 
-Find and engage with verified nonprofits](https://claude.com/connectors/benevity)
+### [Jotform Apps](https://claude.com/connectors/jotform-apps)
 
-Nonprofit
+Build and manage no-code apps
 
-Claude
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
-March 19, 2026
+![](https://mcp.givebutter.com/mcp/icon.svg)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63da42a12ab716a04a1bb4_icon_Blackbaud.jpg)
+### [Givebutter](https://claude.com/connectors/givebutter)
 
-### Blackbaud
+Manage your fundraising
 
-Search, explore, and query Blackbaud data](https://claude.com/connectors/blackbaud)
+[Add Givebutter in Claude (opens in new tab)](https://claude.ai/directory/d4d95e77-c166-4ee8-b2e5-fae34743cfe3 "Add in Claude")
 
-Nonprofit
+![](https://www.google.com/s2/favicons?domain=grantedai.com&sz=96)
 
-Financial services
+### [Granted](https://claude.com/connectors/granted)
 
-Claude
+Discover every grant opportunity in existence.
 
-Claude Code
+[Add Granted in Claude (opens in new tab)](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad "Add in Claude")
 
-March 19, 2026
+![](https://www.google.com/s2/favicons?domain=kindora.co&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69badf81ee3313955f22b01c_granted.png)
+### [Kindora Funder Discovery](https://claude.com/connectors/kindora-funder-discovery)
 
-### Granted
+Find funders who support causes like yours
 
-Discover every grant opportunity in existence.](https://claude.com/connectors/granted)
+[Add Kindora Funder Discovery in Claude (opens in new tab)](https://claude.ai/directory/df363d23-97ef-4ccd-a36e-5369846f5506 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=benevity.com&sz=96)
+
+### [Benevity](https://claude.com/connectors/benevity)
+
+Find and engage with verified nonprofits
+
+[Add Benevity in Claude (opens in new tab)](https://claude.ai/directory/de72cab2-21e3-486f-b774-b35b6dded1d8 "Add in Claude")

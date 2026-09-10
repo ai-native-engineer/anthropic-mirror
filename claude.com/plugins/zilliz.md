@@ -7,11 +7,14 @@ Zilliz Cloud management plugin with 14 skills covering cluster lifecycle, collec
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Zilliz](#)
 * Installs
 
   774
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

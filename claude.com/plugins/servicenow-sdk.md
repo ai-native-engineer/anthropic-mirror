@@ -7,11 +7,14 @@ Create, edit, and deploy ServiceNow applications with the Fluent SDK effortlessl
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [ServiceNow](#)
 * Installs
 
   1028
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

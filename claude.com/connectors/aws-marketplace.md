@@ -1,104 +1,75 @@
 <!-- source: https://claude.com/connectors/aws-marketplace -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692ddfcc3b71a55bb1993c71_amazon.jpg)
+[Skip to main content](#main-content)
 
-# AWS Marketplace
+Connector URL`https://marketplace-mcp.us-east-1.api.aws/mcp`
 
-Discover, evaluate, and buy solutions for the cloud
+More[Documentation (opens in new tab)](https://docs.aws.amazon.com/marketplace/latest/APIReference/marketplace-mcp-server.html)[Support (opens in new tab)](mailto:aws-marketplace-mcp-support@amazon.com)[Privacy policy (opens in new tab)](https://aws.amazon.com/privacy/)
 
-* Category
+Access AWS Marketplace directly from Claude to discover, evaluate, and procure cloud solutions. AWS Marketplace MCP helps you find the ideal technology solution from over 30K software, data, and services on AWS Marketplace, compare alternatives, and request private offers from sellers. Get contextual suggestions, relevant insights, and next best action suggestions as your explore AWS Marketplace catalog - all within Claude.
 
-  Code
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/2ed43e1e-f547-48a3-85cc-b9baa412d06b)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* ask\_aws\_marketplace
+* generate\_aws\_marketplace\_file\_upload\_url
+* get\_aws\_marketplace\_uploaded\_files
+* delete\_aws\_marketplace\_uploaded\_file
+* get\_aws\_marketplace\_recommendations\_report
+* get\_aws\_marketplace\_comparisons\_report
+* get\_aws\_marketplace\_evaluation\_report
+* delete\_aws\_marketplace\_conversation
+* get\_aws\_marketplace\_solution
+* get\_aws\_marketplace\_related\_solutions
+* search\_aws\_marketplace\_solutions
 
-  [AWS Marketplace](https://aws.amazon.com/marketplace)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.aws.amazon.com/marketplace/latest/APIReference/marketplace-mcp-server.html)[Privacy Policy](https://aws.amazon.com/privacy/)[Support](mailto:aws-marketplace-mcp-support@amazon.com)
-
-AWS Marketplace connector lets software buyers discover, evaluate, and procure over 30,000 cloud solutions within the AWS Marketplace catalog from within Claude.
-
-AWS customers can access specialized AWS Marketplace agents and tools to request solution recommendations based on their business needs, shortlist consideration set, compare options, while receive contextual insights aggregated from real-time market intelligence and specialized AWS Marketplace content.
-
-You can use the AWS Marketplace connector to:
-
-Discover software, data, and services based on business needs and requirements:
-"Can you provide me with a security solution for my Kubernetes environment?"
-
-Conduct in-depth evaluations and continue to procure from AWS Marketplace
-"Which AI tools are best for documentation summarization in healthcare? Help me estimate annual cost for a small healthcare provider with 100 employees"
-
-Compare alternatives to assess fit and reach confident buying decisions
-"I'm considering [vendor 1] and [vendor 2] for observability. Create a detailed comparison of these two options including feature summary, review sentiment analysis from other customers, their compliance information, key differentiators, and potential pitfalls that I should watch out for."
-
-All features and insights are free for all AWS customers, with no authentication required.
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Code
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-March 9, 2026
+Search, read, and upload files instantly
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-### Base44
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Build and manage Base44 apps](https://claude.com/connectors/base44)
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Code
+Manage your schedule and coordinate meetings effortlessly
 
-Claude
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-March 2, 2026
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
+Access Jira & Confluence from Claude
 
-### Clerk
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Code
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Claude
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude Code
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Skills
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-February 11, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abeb765f2d57005074b8f_Cloudflare%20Developer%20Platform.jpg)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### Cloudflare
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Data
+### [Slack](https://claude.com/connectors/slack)
 
-Code
+Send messages, create canvases, and fetch Slack data
 
-Claude
-
-Claude Code
-
-February 11, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abec2b389536b0797f344_Cloudinary.jpg)
-
-### Cloudinary
-
-Manage, transform and deliver your images & videos](https://claude.com/connectors/cloudinary)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

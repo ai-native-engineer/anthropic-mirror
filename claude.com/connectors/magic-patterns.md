@@ -1,102 +1,67 @@
 <!-- source: https://claude.com/connectors/magic-patterns -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6983b706c57aa5fd1fd7a2d2_magicpatterns.jpeg)
+[Skip to main content](#main-content)
 
-# Magic Patterns
+Connector URL`https://mcp.magicpatterns.com/mcp`
 
-Discuss and iterate on Magic Patterns designs
-
-* Category
-
-  Design
-* Used in
-
-  [Claude](https://claude.ai/directory/088e0355-cb01-44fa-ba0b-23525fde8d5a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Magic Patterns](https://www.magicpatterns.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://www.magicpatterns.com/docs/documentation/features/mcp-server/overview)[Privacy Policy](https://www.magicpatterns.com/docs/documentation/legal/privacy)[Support](mailto:support@magicpatterns.com)
+More[Documentation (opens in new tab)](https://www.magicpatterns.com/docs/documentation/features/mcp-server/overview)[Support (opens in new tab)](mailto:support@magicpatterns.com)[Privacy policy (opens in new tab)](https://www.magicpatterns.com/docs/documentation/legal/privacy)
 
 Discuss and iterate on Magic Patterns designs directly from Claude. Magic Patterns is an AI agent specialized in frontend design.
 
-You can use Magic Patterns to:
+## Tools
 
-**Iterate on a design:**
-"Get my latest design from Magic Patterns and suggest improvements to the layout"
+* get\_design
+* read\_files
+* update\_design
 
-**Review design files:**
-"Read the files in my Magic Patterns project and summarize the component structure"
-
-**Update a design:**
-"Update my Magic Patterns design to use a dark color scheme with rounded corners"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Design
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-May 7, 2026
+Search, read, and upload files instantly
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-### Adobe for creativity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Productivity
+Manage your schedule and coordinate meetings effortlessly
 
-Design
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-May 1, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Autodesk Product Help
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Design
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Skills
+### [Notion](https://claude.com/connectors/notion)
 
-February 11, 2026
+Connect your Notion workspace to search, update, and power workflows across tools
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-### Canva
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
+### [Slack](https://claude.com/connectors/slack)
 
-Design
+Send messages, create canvases, and fetch Slack data
 
-Productivity
-
-Claude
-
-Claude Code
-
-May 28, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154ac9a3dd67012fe91a0a_descript.svg)
-
-### Descript
-
-Import, edit, or create video with prompts](https://claude.com/connectors/descript)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

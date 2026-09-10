@@ -7,11 +7,14 @@ Connect Claude Code to PostHog. Query analytics, manage flags, run A/B tests, tr
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [PostHog](https://posthog.com)
 * Installs
 
   13453
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

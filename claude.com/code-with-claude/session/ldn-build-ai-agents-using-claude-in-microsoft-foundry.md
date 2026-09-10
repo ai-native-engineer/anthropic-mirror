@@ -32,6 +32,8 @@ Microsoft
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d2c45ef1d748bb5fada5_build-ai-agents-using-claude.webp)
 
 Anthropic's developer conference, recorded

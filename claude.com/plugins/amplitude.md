@@ -7,9 +7,12 @@ Use Amplitude as an expert analyst — instrument Amplitude, discover product op
 * Install in
 
   [Claude Code](#)
+* Made by
 * Installs
 
   2318
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

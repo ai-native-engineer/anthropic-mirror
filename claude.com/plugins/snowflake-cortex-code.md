@@ -7,11 +7,14 @@ Automatically route Snowflake prompts from Claude Code to Cortex Code for execut
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Snowflake](#)
 * Installs
 
   1784
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

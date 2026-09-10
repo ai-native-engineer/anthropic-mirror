@@ -1,105 +1,73 @@
 <!-- source: https://claude.com/connectors/common-room -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699ba7b8c5276533a063fed7_common-room-logo-inverted%20(1).svg)
+[Skip to main content](#main-content)
 
-# Common Room
+Connector URL`https://mcp.commonroom.io/mcp`
 
-Your GTM Copilot
-
-* Category
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/e56221b4-925f-48bb-9176-6cd6e8fae3c1)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Common Room](https://commonroom.io)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://www.commonroom.io/docs/using-common-room/common-room-for-claude-connector-and-plugin/)[Privacy Policy](https://www.commonroom.io/privacy-policy/)[Support](mailto:support@commonroom.io)
+More[Documentation (opens in new tab)](https://www.commonroom.io/docs/using-common-room/common-room-for-claude-connector-and-plugin/)[Support (opens in new tab)](mailto:support@commonroom.io)[Privacy policy (opens in new tab)](https://www.commonroom.io/privacy-policy/)
 
 Embed complete buyer intelligence directly within Claude. Research accounts and contacts, surface buying signals, and browse activity history - all through natural language. Build prospect lists of net-new companies by industry, size, tech stack, or location. Filter and sort contacts by segment, role, lead score, or website visits. Every result is grounded in real context, real prioritization, and real revenue opportunity directly from your CRM fields, scores, enrichment, and signals - so you always know what's actually happening in your accounts.
 
-You can use the Common Room Connector for:
+## Tools
 
-**Account Research:**
-"Tell me about Datadog and create a plan on how to approach the account"
+* commonroom\_get\_catalog
+* commonroom\_list\_objects
+* commonroom\_create\_object
+* commonroom\_update\_object
+* commonroom\_submit\_feedback
 
-**Contact Lookup:**
-"Research jane.doe@company.com using Common Room"
-
-**Prospect:**
-"Find SaaS companies in the US using Snowflake with 200–1000 employees"
-
-**Filter by Segment and Role:**
-"Show me all Economic Buyers in my 'Champions changing jobs' segment"
-
-**Surface High-Intent Contacts:**
-"Find contacts at ICP companies who have visited our pricing page this week"
-
-**Track Website Visitors:**
-"Who visited our pricing page in the last 7 days?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### ActiveCampaign
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Sales and marketing
+Trending
 
-Claude
+An AI Concierge that turns forms into conversations
 
-Claude Code
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-June 2, 2026
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-### Actively
+CRM context for every answer, insight, and action
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Claude
+### [monday.com](https://claude.com/connectors/monday)
 
-May 26, 2026
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-### Adobe Journey Optimizer
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+### [Gamma](https://claude.com/connectors/gamma)
 
-Sales and marketing
+Create presentations, docs, socials, and sites with AI
 
-Claude
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
-April 29, 2026
+### [Shopify](https://claude.com/connectors/shopify)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Build, manage, and analyze your Shopify store
 
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

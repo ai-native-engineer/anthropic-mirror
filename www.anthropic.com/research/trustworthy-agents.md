@@ -4,7 +4,7 @@
 
 Apr 9, 2026
 
-![Trustworthy agents in practice](https://www-cdn.anthropic.com/images/4zrzovbb/website/589b94b913c4cee1c3c1ce2cb04f638d09c465b1-1000x1000.svg)
+![Trustworthy agents in practice](https://www-cdn.anthropic.com/images/4zrzovbb/website/8661c2e36375dd20b7910c4c26f0b8b17481337d-2000x1125.png)
 
 AI “agents” represent the latest major shift in how people and organizations are using AI. A couple of years ago, AI models were only broadly available as chatbots—simple question-and-answer machines. Now, through products like [Claude Code](https://claude.com/product/claude-code) and [Claude Cowork](https://claude.com/product/cowork), AI models can do much more: they can write and execute code, manage files, and complete tasks that span multiple applications. This represents a new frontier for governance.
 
@@ -69,6 +69,12 @@ None of these measures replace the work that model developers have to do to buil
 
 Agents will reshape how people work, and whether that happens on a foundation that is secure and open depends on how industry, civil society, and government build it together.
 
+### An alignment assessment of recent cybersecurity incidents
+
+We present an alignment assessment of four incidents in which Claude models gained unauthorized access to real third-party systems.
+
+[Read more](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
+
 ### Formalizing Fermat's Last Theorem
 
 We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.
@@ -80,9 +86,3 @@ We are sharing the first complete computer-checked proof of Fermat’s Last Theo
 We had Claude autonomously train models to improve their performance on several public benchmarks that measure 10 categories of alignment failure. For all 10, Claude found fixes that improved the target benchmarks without degrading capabilities.
 
 [Read more](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
-
-### Enabling independent research on how people use Claude
-
-Earlier this year, we ran a pilot giving external researchers access to aggregate, real-world Claude usage data. Three research groups designed their own studies for Anthropic Insights, our privacy-preserving analysis tool. In this post, we share high-level results from those studies and what we learned running this pilot.
-
-[Read more](https://www.anthropic.com/research/enabling-independent-research)

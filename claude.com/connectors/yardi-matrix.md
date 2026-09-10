@@ -1,96 +1,94 @@
 <!-- source: https://claude.com/connectors/yardi-matrix -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aeaffd4f8718f8d983c8_Yardi%20(1).png)
+[Skip to main content](#main-content)
 
-# Yardi Matrix
+Connector URL`https://matrixmcp.virtuoso.ai/mcp`
 
-Real estate market intelligence from Yardi Matrix
-
-* Category
-
-  Data
-* Used in
-
-  [Claude](https://claude.ai/directory/2b245db2-8a73-491a-9849-8f44b9ce9488)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Yardi Systems Inc](https://www.yardi.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://help.virtuoso.ai/en/articles/14894191-yardi-matrix-mcp-technical-documentation-guide)[Privacy Policy](https://resources.yardi.com/legal/privacy-statement/)[Support](https://www.yardi.com/company/contact-us/)
+More[Documentation (opens in new tab)](https://help.virtuoso.ai/en/articles/14894191-yardi-matrix-mcp-technical-documentation-guide)[Support (opens in new tab)](https://www.yardi.com/company/contact-us/)[Privacy policy (opens in new tab)](https://resources.yardi.com/legal/privacy-statement/)
 
 Ask straightforward questions about properties, markets and portfolios to get the answers you need from Yardi Matrix. Search properties by location, owner or risk profile; pull rent trends and occupancy metrics; benchmark portfolios against their markets; surface distressed assets and acquisition opportunities; and generate data-rich market intelligence reports. Yardi Matrix is designed for analysts, investors and asset managers who need reliable real estate data quickly to make informed decisions.
 
-You can use Yardi Matrix to:
+## Tools
 
-**Property research:**
-"What are the rent comps for multifamily properties within 3 miles of downtown Austin?"
+* get\_dataset\_summary
+* validate\_data\_quality
+* get\_schema\_info
+* get\_query\_guidance
+* search\_data\_types
+* get\_property\_ids
+* search\_properties
+* search\_by\_owner
+* fetch\_property\_unit\_mix
+* fetch\_property\_demographics
+* fetch\_financial\_forecast
+* find\_distressed\_assets
+* calculate\_risk\_scores
+* loan\_maturity\_analysis
+* market\_analysis
+* portfolio\_market\_comparison
+* best\_demonstrated\_practice
+* Portfolio\_Performance\_Benchmark\_Comparison
+* Rent\_Growth\_Submarket\_Comparison
+* Role\_1\_Distressed\_Asset
+* Role\_1\_GSE\_Loan\_Watch
+* Role\_1\_Late\_Cycle\_Construction
+* Role\_1\_Low\_DSCR\_Identifier
+* Role\_1\_Maturing\_Loans\_Next\_2yr
 
-**Market trends:**
-"Show occupancy and rent growth trends for the Phoenix industrial market over the last 8 quarters."
+Show all 33 tools
 
-**Portfolio analysis:**
-"Pull supply pipeline and lease-up data for office properties in the Dallas-Fort Worth metro."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Data
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 11, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Manage databases, authentication, and storage
 
-### Airtable
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 22, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35aa9ef047454b35027cd2_alphaxiv_logo.png)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### alphaXiv
+Trending
 
-Fast search and full-text access over arXiv pre-prints](https://claude.com/connectors/alphaxiv)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-February 3, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdac9a60d37ccbb9f396_Amplitude.jpg)
+Automate workflows across thousands of apps via conversation
 
-### Amplitude
-
-Give your teams powerful behavioral insights](https://claude.com/connectors/amplitude)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

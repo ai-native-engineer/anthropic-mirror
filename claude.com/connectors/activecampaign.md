@@ -1,99 +1,92 @@
 <!-- source: https://claude.com/connectors/activecampaign -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+[Skip to main content](#main-content)
 
-# ActiveCampaign
+More[Documentation (opens in new tab)](https://developers.activecampaign.com/page/mcp)[Support (opens in new tab)](https://help.activecampaign.com/hc/en-us)[Privacy policy (opens in new tab)](https://www.activecampaign.com/legal/privacy-policy)
 
-Autonomous marketing to transform how you work
+Connect ActiveCampaign to Claude for autonomous marketing at your fingertips. Get real-time marketing insights and then take action, instantly. With this secure connection, you can manage lists, tags, contacts, and automations just by chatting with Claude. Ask Claude to pull yesterday’s email performance, get a contact’s phone number, create a new tag, or start an automation. All of that and more, fueled by the ActiveCampaign MCP Server.
 
-* Category
+## Tools
 
-  Sales and marketing
-* Used in
+* list\_contacts
+* get\_contact
+* create\_or\_update\_contact
+* list\_tags
+* get\_tag
+* create\_contact\_tag
+* add\_tag\_to\_contact
+* list\_lists
+* get\_list
+* create\_list
+* update\_list
+* add\_contact\_to\_list
+* list\_contact\_custom\_fields
+* get\_contact\_custom\_field
+* create\_contact\_custom\_field
+* create\_field\_options
+* create\_contact\_field\_relationship
+* list\_contact\_field\_values
+* get\_contact\_field\_value
+* create\_contact\_field\_value
+* update\_contact\_field\_value
+* list\_email\_activities
+* list\_campaigns
+* get\_campaign
 
-  [Claude](https://claude.ai/directory/adf5273a-9e9f-414c-a213-2b64a4aa36ae)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+Show all 32 tools
 
-  [ActiveCampaign](https://activecampaign.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developers.activecampaign.com/page/mcp)[Privacy Policy](https://www.activecampaign.com/legal/privacy-policy)[Support](https://help.activecampaign.com/hc/en-us)
-
-Connect ActiveCampaign to Claude for autonomous marketing at your fingertips. Get real-time marketing insights and then take action, instantly. With this secure connection, you can manage lists, tags, contacts, and automations just by chatting with Claude. Ask Claude to pull yesterday’s email performance, get a contact’s phone number, create a new tag, or start an automation. All of that and more, fueled by the ActiveCampaign connector.
-
-You can use the ActiveCampaign connector to:
-
-Update contact information:
-"Update ActiveCampaign contact [charlie.brown@example.com](mailto:charlie.brown@example.com) to change their phone number to 312-555-0123"
-
-Review campaign performance:
-"List all my ActiveCampaign campaigns and their performance metrics from this month"
-
-Manage automations:
-"Add Phillip Fry to the 'Welcome Series' automation in ActiveCampaign"
-
-Query list subscriptions:
-"Show me all ActiveCampaign contacts subscribed to the Weekly Newsletter list"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-Claude
+### [Gmail](https://claude.com/connectors/gmail)
 
-Claude Code
+Draft replies, summarize threads, & search your inbox
 
-June 2, 2026
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-### Actively
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Sales and marketing
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-May 26, 2026
+### [Slack](https://claude.com/connectors/slack)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Send messages, create canvases, and fetch Slack data
 
-### Adobe Journey Optimizer
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Sales and marketing
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude
+Trending
 
-Claude Code
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-April 29, 2026
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-### Adobe Marketing Agent
+### [Asana](https://claude.com/connectors/asana)
 
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+Connect to Asana to coordinate tasks, projects, and goals
 
-Sales and marketing
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-Claude
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Claude Code
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-January 30, 2026
+Trending
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697d489e3a9d195da9e8d2e8_ahrefs-logo.svg)
+An AI Concierge that turns forms into conversations
 
-### Ahrefs
-
-SEO & AI search analytics](https://claude.com/connectors/ahrefs)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")

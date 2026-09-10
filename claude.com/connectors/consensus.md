@@ -1,32 +1,10 @@
 <!-- source: https://claude.com/connectors/consensus -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ad9aca0a7df8e686e29_consensus-logo.svg)
+[Skip to main content](#main-content)
 
-# Consensus
+Connector URL`https://mcp.consensus.app/mcp`
 
-Explore scientific research
-
-* Category
-
-  Data
-
-  Life sciences and healthcare
-* Used in
-
-  [Claude](https://claude.ai/directory/65247229-f0c7-49df-9044-fcbb8b3894c6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Consensus](https://consensus.app/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.consensus.app/docs/mcp)[Privacy Policy](https://consensus.app/home/privacy-policy/)[Support](https://consensus.app/home/contact/)
+More[Documentation (opens in new tab)](https://docs.consensus.app/docs/mcp)[Support (opens in new tab)](mailto:support@consensus.app)[Privacy policy (opens in new tab)](https://consensus.app/home/privacy-policy/)
 
 Consensus is the go-to MCP for academic research. Connect directly to 220M+ peer-reviewed papers to search, synthesize, and build structured research outputs from within your conversation.
 
@@ -34,74 +12,62 @@ Run literature reviews, build boolean search strategies, generate bibliographies
 
 Built for researchers, students, faculty, and clinicians across biomedical, social science, STEM, and all academic disciplines.
 
-You can use Consensus to:
+## Tools
 
-**Evidence-Based Health Research:**
-"Use Consensus to find out what research say about the effectiveness of intermittent fasting for weight loss?"
+* search
 
-**Academic Literature Review:**
-"Find recent studies from 2022-2024 on Consensus regarding machine learning in drug discovery from top-tier journals"
-
-**Policy and Decision Support:**
-"Ask Consensus about what peer-reviewed research exists on carbon pricing effectiveness?"
-
-**Clinical Research:**
-"Search for human studies on CBT for insomnia with at least 50 participants using Consensus"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-February 11, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### 10x Genomics Cloud
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Trending
 
-Life sciences and healthcare
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-May 1, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+Manage databases, authentication, and storage
 
-### AdisInsight
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Data
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-Claude Code
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-June 4, 2026
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-### Adobe Customer Journey Analytics
+Trending
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Data
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-Claude Code
+### [Zapier](https://claude.com/connectors/zapier)
 
-May 11, 2026
+Automate workflows across thousands of apps via conversation
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
-
-### Airtable
-
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

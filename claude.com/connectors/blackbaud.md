@@ -1,86 +1,74 @@
 <!-- source: https://claude.com/connectors/blackbaud -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63da42a12ab716a04a1bb4_icon_Blackbaud.jpg)
+[Skip to main content](#main-content)
 
-# Blackbaud
+Connector URL`https://mcp.sky.blackbaud.com/`
 
-Search, explore, and query Blackbaud data
-
-* Category
-
-  Nonprofit
-* Used in
-
-  [Claude](https://claude.ai/directory/69f8fe1e-e212-41e5-9080-ce703bf39c66)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Blackbaud](https://blackbaud.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://support.claude.com/en/articles/12923221-using-the-blackbaud-connector-in-claude)[Privacy Policy](https://www.blackbaud.com/company/privacy-policy)[Support](https://www.blackbaud.com/training-support/support/howto)
+More[Documentation (opens in new tab)](https://support.claude.com/en/articles/12923221-using-the-blackbaud-connector-in-claude)[Support (opens in new tab)](https://www.blackbaud.com/training-support/support/howto)[Privacy policy (opens in new tab)](https://www.blackbaud.com/company/privacy-policy)
 
 Query, explore, and combine Blackbaud data directly from Claude. The Blackbaud MCP server brings your nonprofit data into Claude's AI workspace—securely surfacing constituent details, event records, and donation insights without writing a single line of code. Ask natural questions and get live answers, powered by Blackbaud's SKY API and MCP integration.
 
-You can use the Blackbaud connector to:
+## Tools
 
-Look up donor profiles and giving history:
-"I'm about to call Robert Hernandez. Can you give me a quick summary of his recent engagement with us?"
+* get\_constituent\_details
+* search\_for\_constituent\_by\_name
+* search\_for\_event\_by\_name
+* get\_event\_details
+* get\_gift\_details
+* generate\_content
 
-Access and report on event details:
-"Tell me who is going to the golf tournament"
-
-Generate outreach content using live data:
-"Write an email for the attendees of the 2004 golf tournament to tell them we're going to do it again"
-
-Available on Teams and Enterprise plans only
-Requires users to install the Blackbaud for Claude Marketplace application
-Requires AI features to be enabled within Blackbaud
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Nonprofit
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-March 19, 2026
+Search, read, and upload files instantly
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692e4c057216b17022e9dc17_benevity.svg)
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-### Benevity
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Find and engage with verified nonprofits](https://claude.com/connectors/benevity)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Nonprofit
+Trending
 
-Claude
+An AI Concierge that turns forms into conversations
 
-March 19, 2026
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6921eaf57e1729586a4611fe_candid.jpg)
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-### Candid
+### [Supabase](https://claude.com/connectors/supabase)
 
-Research nonprofits and funders using Candid's data](https://claude.com/connectors/candid)
+Manage databases, authentication, and storage
 
-Nonprofit
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Claude
+### [Box](https://claude.com/connectors/box)
 
-Claude Code
+Search, edit and get insights on your Box content
 
-March 19, 2026
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69badf81ee3313955f22b01c_granted.png)
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-### Granted
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-Discover every grant opportunity in existence.](https://claude.com/connectors/granted)
+Trending
+
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
+
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
+
+### [Zapier](https://claude.com/connectors/zapier)
+
+Automate workflows across thousands of apps via conversation
+
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

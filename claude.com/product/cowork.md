@@ -46,6 +46,8 @@ Talk to sales
 
 Works with a paid plan. Rolling out on web, mobile (beta). Not on a paid plan? [Upgrade now](https://claude.com/pricing)
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/cowork/hero%20thumbnail/sizzle_v012_750k_852KB-V2.webm)
 
 ## Core capabilities
@@ -280,7 +282,7 @@ Claude connects to the tools you already use
 
 Learn more
 
-[Learn more](https://claude.com/connectors)Learn more
+[Learn more](https://claude.com/archive/connectors)Learn more
 
 ### Sub-agents
 
@@ -386,6 +388,8 @@ Legal
 
 Active
 
+[Play video](#)Play video
+
 ![marketing thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac21c45fd1a5c3fb1ed7c_marketing.webp)
 
 ### Claude Cowork for marketing
@@ -396,6 +400,8 @@ Learn more
 
 [Learn more](https://claude.com/resources/tutorials/using-claude-cowork-for-marketing-ops-review)Learn more
 
+[Play video](#)Play video
+
 ![sales thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac22356fc915f8ef66f85_sales.webp)
 
 Claude Cowork for sales
@@ -405,6 +411,8 @@ See how Anthropic uses Claude Cowork to research any account before the first ca
 Learn more
 
 [Learn more](https://claude.com/resources/tutorials/using-claude-cowork-for-sales-account-research)Learn more
+
+[Play video](#)Play video
 
 ![legal thumbnail](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a3ac2232033d66d13fa34e5_legal.webp)
 
@@ -544,7 +552,7 @@ Get Team plan
 
 ### Enterprise
 
-Claude Cowork is included in your Enterprise plan. Admin controls, usage analytics, Analytics API and OpenTelemetry observability available. Cowork activity is not yet captured in audit logs or Compliance API.
+Claude Cowork is included in your Enterprise plan. Admin controls, usage analytics, Analytics API and OpenTelemetry observability available.
 
 ‍
 

@@ -4,7 +4,7 @@
 
 Work with Claude directly in your codebase. Build, debug, and ship from your terminal, IDE, Slack, web, and more.
 
-[Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)[Read documentation (opens in new tab)](https://code.claude.com/docs/en/overview)
+[Download for macOS](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)[Read documentation (opens in new tab)](https://code.claude.com/docs/en/quickstart#step-1-install-claude-code)
 
 Available for macOS, Linux, and Windows.
 
@@ -452,3 +452,5 @@ Or read the [documentation](https://code.claude.com/docs/en/overview)
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
+
+Claude Code by Anthropic | AI Coding Agent, Terminal, IDE

@@ -7,11 +7,14 @@ GitLab integration for repositories, merge requests, CI/CD pipelines, issues, an
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [GitLab](https://gitlab.com)
 * Installs
 
   40805
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

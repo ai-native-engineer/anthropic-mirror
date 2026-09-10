@@ -34,6 +34,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d39b1f2190a1d3a59a95_how-to-get-to-production-faster.webp)
 
 Anthropic's developer conference, recorded

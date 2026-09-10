@@ -1,100 +1,73 @@
 <!-- source: https://claude.com/connectors/healthex -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e7cb91804401037ccb4_healthEx.jpg)
+[Skip to main content](#main-content)
 
-# HealthEx (beta)
+Connector URL`https://api.healthex.io/mcp`
 
-Connect your health records for personalized insights
+More[Documentation (opens in new tab)](https://docs.healthex.io/category/healthex-mcp-server)[Support (opens in new tab)](mailto:support@healthex.io)[Privacy policy (opens in new tab)](https://www.healthex.io/privacy-policy)
 
-* Category
+HealthEx connects Claude to your health records, enabling personalized insights and proactive health management through secure data access.
 
-  Health and wellness
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/17f8e2cd-5ca5-4563-a43b-81073b4f65eb)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* get\_health\_records
+* get\_medications
+* get\_lab\_results
+* get\_vitals
+* get\_allergies
+* get\_immunizations
+* get\_conditions
+* get\_care\_plan
+* search\_health\_data
 
-  [HDX Labs, Inc. (dba HealthEx)](https://healthex.io)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://docs.healthex.io/category/healthex-mcp-server)[Privacy Policy](https://www.healthex.io/privacy-policy)[Support](mailto:support@healthex.io)
-
-The HealthEx connector connects Claude to your health records, securely pulling data from all your care providers into one place. Ask Claude to summarize your health, understand lab results, help prep for your next doctor's visit, and guide your daily routine.
-
-Setup takes minutes: Verify your identity using biometrics and a government ID to ensure only you are getting access to your own health data, then connect your healthcare portal logins.
-
-You can use the HealthEx connector to:
-**Get an Overview:** "Show me a summary of my health records."
-
-**Learn About Your Health:** "Help me understand my most recent lab results."
-
-**Plan Your Care:** "What questions should I ask my doctor at my next visit?"
-
-**Guide Your Daily Routine:** "What types of exercise would be best for me?"
-
-HealthEx is only available in the United States on pro and max Claude accounts. See guide for connecting to HealthEx [here](http://claude.com/resources/tutorials/using-the-healthex-connector-in-claude).
-
-HealthEx is a Patient-First Privacy platform that follows the HIPAA Privacy Rule and is SOC2 compliant. Anthropic does not train its models on your HealthEx data.
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Health and wellness
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-May 1, 2026
+Analyze, summarize, and explore your Strava data
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-### AllTrails
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-Find your next hike](https://claude.com/connectors/alltrails)
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Health and wellness
+Search biomedical literature from PubMed
 
-Claude
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude Code
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-May 26, 2026
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
+Access US National Provider Identifier (NPI) Registry
 
-### Alma
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-Life sciences and healthcare
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-Health and wellness
+Access ICD-10-CM and ICD-10-PCS code sets
 
-Claude
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-May 20, 2026
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e9e884bd175dbadbf06_cms.jpg)
+Find your next hike
 
-### CMS Coverage
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Access the CMS Coverage Database](https://claude.com/connectors/cms-coverage)
+![](https://www.google.com/s2/favicons?domain=cms.gov&sz=96)
 
-Health and wellness
+### [CMS Coverage](https://claude.com/connectors/cms-coverage)
 
-Claude
+Access the CMS Coverage Database
 
-February 24, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b65491867dfbfc64b0a4_icon_function-health.jpg)
-
-### Function (beta)
-
-View lab test results summaries, get nutrition plans](https://claude.com/connectors/function)
+[Add CMS Coverage in Claude (opens in new tab)](https://claude.ai/directory/57dd8e8a-f030-4bb7-a9ed-4098933bd70b "Add in Claude")

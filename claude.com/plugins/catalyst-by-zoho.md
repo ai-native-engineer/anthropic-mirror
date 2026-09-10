@@ -7,11 +7,14 @@ Official Claude Code plugin for Catalyst by Zoho — full-stack serverless cloud
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Catalyst by Zoho](#)
 * Installs
 
   25
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

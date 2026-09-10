@@ -1,105 +1,73 @@
 <!-- source: https://claude.com/connectors/splice -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f22435597957163fe5646c_SpliceGlyph-Black%20-%20Kevin%20Stewart.svg)
+[Skip to main content](#main-content)
 
-# Splice
+Connector URL`https://mcp.splice.com/mcp`
 
-Search Splice's sounds catalog, build stacks & more!
+More[Documentation (opens in new tab)](https://support.splice.com/en/articles/14442749-getting-started-with-the-splice-mcp-server-beta)[Support (opens in new tab)](https://support.splice.com/)[Privacy policy (opens in new tab)](https://splice.com/privacy-policy)
 
-* Category
+Splice MCP Server provides access to discovery and ideation tools that empower music creators with the power of Splices's extensive catalog of royalty-free samples. The Describe a Sound (Beta) tool enables search via natural language to find just the right sound. The Create tool builds stacks of complementary sounds that can inspire your next project. More tools will be added over time to the Splice MCP Server that bring more of the capabilities of Splice to your workflows.
 
-  Design
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/0c501c77-e4a2-40a6-8fe9-f386595a7976)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* describe\_a\_sound
+* create\_stack
+* prompt\_to\_stack
+* share\_stack
+* download\_asset
 
-  [Splice](https://splice.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://support.splice.com/en/articles/14442749-getting-started-with-the-splice-mcp-server-beta)[Privacy Policy](https://splice.com/privacy-policy)[Support](https://support.splice.com/)
-
-Splice MCP Server provides access to discovery and ideation tools that empower music creators with the power of Splice's extensive catalog of royalty-free samples. The Describe a Sound (Beta) tool enables search via natural language to find just the right sound. The Create tool builds stacks of complementary sounds that can inspire your next project. More tools will be added over time to the Splice MCP Server that bring more of the capabilities of Splice to your workflows.
-
-You can use Splice to:
-
-**Find a sound by describing it:**
-"Find me a warm, vinyl-textured lo-fi drum loop around 80 BPM in Splice."
-
-**Build a stack from a vibe:**
-"Create a Splice stack of complementary sounds for a dark synthwave track in C minor."
-
-**Kick off a project from a prompt:**
-"Turn 'rainy late-night coffee shop beat' into a Splice stack I can start producing with."
-
-**Share and download:**
-"Share that stack and download the kick and bass samples for me."
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Design
+![](https://www.google.com/s2/favicons?domain=canva.com&sz=96)
 
-Claude
+### [Canva](https://claude.com/connectors/canva)
 
-May 7, 2026
+Search, create, autofill, and export Canva designs
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add Canva in Claude (opens in new tab)](https://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c "Add in Claude")
 
-### Adobe for creativity
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Productivity
+Trending
 
-Design
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-Claude
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=figma.com&sz=96)
 
-May 1, 2026
+### [Figma](https://claude.com/connectors/figma)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
+Generate diagrams and better code from Figma context
 
-### Autodesk Product Help
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
-Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Design
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude
+Trending
 
-Claude Code
+An AI Concierge that turns forms into conversations
 
-Skills
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
+### [Adobe for creativity](https://claude.com/connectors/adobe-creativity)
 
-### Canva
+Ideate, create, and deliver with Adobe pro tools
 
-Search, create, autofill, and export Canva designs from a prompt](https://claude.com/connectors/canva)
+[Add Adobe for creativity in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
-Design
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Productivity
+### [monday.com](https://claude.com/connectors/monday)
 
-Claude
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-Claude Code
-
-May 28, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154ac9a3dd67012fe91a0a_descript.svg)
-
-### Descript
-
-Import, edit, or create video with prompts](https://claude.com/connectors/descript)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")

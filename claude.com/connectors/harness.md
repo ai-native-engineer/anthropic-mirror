@@ -1,98 +1,77 @@
 <!-- source: https://claude.com/connectors/harness -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154c1e3a6e3484a258bfa8_harness.svg)
+[Skip to main content](#main-content)
 
-# Harness.io
+Connector URL`https://mcp.harness.io/mcp`
 
-Build, Ship and Secure your apps on Harness Platform
-
-* Category
-
-  Code
-* Used in
-
-  [Claude](https://claude.ai/directory/b98c06f8-3945-46ff-a81d-14233c0bc9a6)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Harness.io](https://www.harness.io)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://github.com/harness/mcp-server)[Privacy Policy](https://www.harness.io/legal/privacy)[Support](mailto:support@harness.io)
+More[Documentation (opens in new tab)](https://github.com/harness/mcp-server)[Support (opens in new tab)](mailto:support@harness.io)[Privacy policy (opens in new tab)](https://www.harness.io/legal/privacy)
 
 Ask Claude to ship a build, trace a failed deployment, toggle a feature flag, or check cloud costs. It acts directly on Harness, no tab switching required. Numerous resource types across CI/CD, GitOps, security, and FinOps, all through conversation.
 
-You can use Harness to:
+## Tools
 
-**Ship a build:**
-"Trigger the staging deploy for the api-gateway pipeline"
+* harness\_list
+* harness\_get
+* harness\_create
+* harness\_update
+* harness\_delete
+* harness\_execute
+* harness\_search
+* harness\_diagnose
+* harness\_describe
+* harness\_status
+* harness\_schema
 
-**Trace a failure:**
-"Why did the last prod deployment fail?"
-
-**Check costs:**
-"What's our cloud spend this month vs last?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Code
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/692ddfcc3b71a55bb1993c71_amazon.jpg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### AWS Marketplace
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-Discover, evaluate, and buy solutions for the cloud](https://claude.com/connectors/aws-marketplace)
+### [Supabase](https://claude.com/connectors/supabase)
 
-Code
+Manage databases, authentication, and storage
 
-Claude
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-March 9, 2026
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dab482d8b581739e57a7_icon_Base44.jpg)
+### [monday.com](https://claude.com/connectors/monday)
 
-### Base44
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-Build and manage Base44 apps](https://claude.com/connectors/base44)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-Code
+![](https://www.google.com/s2/favicons?domain=vercel.com&sz=96)
 
-Claude
+### [Vercel](https://claude.com/connectors/vercel)
 
-Claude Code
+Analyze, debug, and manage projects and deployments
 
-March 2, 2026
+[Add Vercel in Claude (opens in new tab)](https://claude.ai/directory/7eb42afe-0087-4493-a105-da2b021d5c03 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfa6bc4ff18a740c59aa_icon_Clerk.jpg)
+![](https://www.google.com/s2/favicons?domain=miro.com&sz=96)
 
-### Clerk
+### [Miro](https://claude.com/connectors/miro)
 
-Add authentication, organizations, and billing](https://claude.com/connectors/clerk)
+Access and create new content on Miro boards
 
-Code
+[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-Claude Code
+### [Zapier](https://claude.com/connectors/zapier)
 
-Skills
+Automate workflows across thousands of apps via conversation
 
-February 11, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abeb765f2d57005074b8f_Cloudflare%20Developer%20Platform.jpg)
-
-### Cloudflare
-
-Build applications with compute, storage, and AI](https://claude.com/connectors/cloudflare)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

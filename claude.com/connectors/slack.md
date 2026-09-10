@@ -1,104 +1,75 @@
 <!-- source: https://claude.com/connectors/slack -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac11074040a8d303e83a5_Slack.jpg)
+[Skip to main content](#main-content)
 
-# Slack
+Connector URL`https://mcp.slack.com/mcp`
 
-Send messages, create canvases, and fetch Slack data!
+More[Documentation (opens in new tab)](https://docs.slack.dev/ai/mcp-server)[Enterprise setup guide (opens in new tab)](https://slack.com/help/articles/54548358406419/)[Support (opens in new tab)](mailto:feedback@slack.com)[Privacy policy (opens in new tab)](https://slack.com/trust/privacy/privacy-policy)
 
-* Category
+Connect to Slack to share messages and create canvases directly to simplify collaboration and boost productivity. Search and retrieve messages, channels, threads, files, and users, giving Claude the context to streamline your work.
 
-  Communication
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* slack\_send\_message
+* slack\_search\_public\_and\_private
+* slack\_search\_users
+* slack\_search\_channels
+* slack\_search\_public
+* slack\_read\_channel
+* slack\_read\_thread
+* slack\_create\_canvas
+* slack\_update\_canvas
+* slack\_read\_canvas
+* slack\_read\_user\_profile
 
-  [Slack](https://slack.com/)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/811f5c6ea862d183844ff4b24ac755d28a8363a2.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://docs.slack.dev/ai/mcp-server)[Privacy Policy](https://slack.com/trust/privacy/privacy-policy)[Support](mailto:feedback@slack.com)
-
-Connect to Slack to share messages and create canvases directly to simplify collaboration and boost productivity. Search and retrieve messages, channels, threads, files, and users, giving Claude the context to streamline your work. Generate message drafts, format them your way, and review before you post.
-‍
-You can use Slack in Claude to:
-
-Create and share canvases:
-"Create a canvas in Slack and share it to #acme-project"
-
-Draft and refine messages:
-"Draft a message for Jason asking him to review and leave comments" → then edit inline before sending
-
-Schedule messages for later:
-"Schedule a message to #marketing for tomorrow at 9am about the product launch" → message will be posted at the specified time (note: once scheduled, use Slack's "Drafts and sent" feature to edit or reschedule)
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Communication
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude
+Search, read, and upload files instantly
 
-Claude Code
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-February 11, 2026
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Gmail](https://claude.com/connectors/gmail)
 
-### Asana
+Draft replies, summarize threads, & search your inbox
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Communication
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Productivity
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Claude
+Manage your schedule and coordinate meetings effortlessly
 
-February 21, 2026
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-### Circleback
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Access Jira & Confluence from Claude
 
-Productivity
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Communication
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Code
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Claude
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-May 1, 2026
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-### Computer by DevRev
+### [Notion](https://claude.com/connectors/notion)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Productivity
-
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

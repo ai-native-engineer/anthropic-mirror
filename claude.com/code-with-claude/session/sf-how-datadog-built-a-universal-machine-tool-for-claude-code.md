@@ -28,6 +28,8 @@ Datadog
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9ce26f894c3ca635b226_datadog-universal-tool.webp)
 
 Anthropic's developer conference, recorded

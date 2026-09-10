@@ -1,0 +1,94 @@
+<!-- source: https://claude.com/connectors/wingify -->
+
+[Skip to main content](#main-content)
+
+Connector URLhttps://mcp.wingify.ai/mcp`https://mcp.wingify.ai/mcp`https://mcp-eu.wingify.ai/mcp`https://mcp-eu.wingify.ai/mcp`https://mcp-as.wingify.ai/mcp`https://mcp-as.wingify.ai/mcp`
+
+More[Documentation (opens in new tab)](https://help.wingify.com/hc/en-us/articles/58792565345305-Connect-Wingify-with-AI-Tools-using-Wingify-s-MCP-Server)[Support (opens in new tab)](mailto:support@wingify.com)[Privacy policy (opens in new tab)](https://vwo.com/privacy-policy/)
+
+Wingify helps teams analyze experimentation performance, review behavior insights, and manage testing campaigns directly from Claude.
+
+## Tools
+
+* calculate\_sample\_size\_tool
+* clone\_wingify\_campaign\_tool
+* create\_ab\_campaign
+* create\_split\_url\_campaign
+* fe\_create\_feature\_flag\_rules\_tool
+* fe\_create\_feature\_flag\_tool
+* fe\_create\_feature\_flag\_with\_defaults\_tool
+* fe\_delete\_feature\_flag\_rule\_tool
+* fe\_delete\_feature\_flag\_tool
+* fe\_get\_feature\_flag\_rule\_tool
+* fe\_get\_feature\_flag\_tool
+* fe\_get\_fme\_metrics\_tool
+* fe\_list\_feature\_flag\_rules\_tool
+* fe\_list\_feature\_flags\_tool
+* fe\_list\_projects\_and\_environments\_tool
+* fe\_toggle\_feature\_flag\_rules\_tool
+* fe\_toggle\_feature\_flag\_tool
+* fe\_update\_feature\_flag\_rule\_tool
+* fe\_update\_feature\_flag\_tool
+* fetch\_campaign\_daywise\_data\_report\_tool
+* fetch\_campaign\_report\_tool
+* get\_account\_details\_tool
+* get\_campaign\_variation\_code\_tool
+* get\_campaigns\_overview\_tool
+
+Show all 29 tools
+
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
+
+## Related connectors
+
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
+
+### [Google Drive](https://claude.com/connectors/google-drive)
+
+Search, read, and upload files instantly
+
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
+
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
+
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
+
+Trending
+
+An AI Concierge that turns forms into conversations
+
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
+
+### [Supabase](https://claude.com/connectors/supabase)
+
+Manage databases, authentication, and storage
+
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
+
+### [Box](https://claude.com/connectors/box)
+
+Search, edit and get insights on your Box content
+
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
+
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
+
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
+
+Trending
+
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
+
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
+
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
+
+### [Zapier](https://claude.com/connectors/zapier)
+
+Automate workflows across thousands of apps via conversation
+
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

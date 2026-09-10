@@ -28,6 +28,8 @@ Anthropic
 
 ## Watch recording
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a10d3b9355d70e504e7da3f_designing-with-claude.webp)
 
 Anthropic's developer conference, recorded

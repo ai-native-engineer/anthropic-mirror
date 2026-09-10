@@ -1,107 +1,71 @@
 <!-- source: https://claude.com/connectors/medidata -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6963241073e3facf8ccc4053_medidata.svg)
+[Skip to main content](#main-content)
 
-# Medidata
+Connector URL`https://mcp.imedidata.com/mcp`
 
-Medidata provides clinical trial software solutions
+More[Documentation (opens in new tab)](https://learn.medidata.com/en-US/bundle/mcp-server-documentation/page/medidata_mcp_server_documentation.html)[Support (opens in new tab)](mailto:helpdesk@mdsol.com)[Privacy policy (opens in new tab)](https://learn.medidata.com/en-US/bundle/imedidata/page/medidata_privacy_policy.html)
 
-* Category
+Medidata's MCP Connector for Claude provides two tools for Medidata users: Platform Help and Predictive Site Ranking.
 
-  Life sciences and healthcare
-* Used in
+Platform Help allows users to query Medidata's platform documentation for answers about products like Rave EDC, Data Connect, and Clinical Data Studio.
 
-  [Claude](https://claude.ai/directory/2011b8ca-e6e5-4eed-b954-2249e521a3a9)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
+Predictive Site Ranking enables Intelligent Trials customers to predict which clinical trial sites align with enrollment goals during protocol planning, ranking sites based on indication, past performance, and various study criteria.
 
-  [Medidata Solutions](https://www.medidata.com/)
+## Tools
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+* search\_support\_documentation
+* get\_ranked\_sites
+* get\_supported\_disease\_areas
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](http://claude.com/resources/tutorials/using-the-clinicaltrialsgov-connector-in-claude)[Privacy Policy](https://learn.medidata.com/en-US/bundle/imedidata/page/medidata_privacy_policy.html)[Support](mailto:helpdesk@mdsol.com)
-
-The Medidata connector provides two tools for Medidata users: Platform Help and Predictive Site Ranking. Platform Help allows users to query Medidata's platform documentation. Predictive Site Ranking allows users to rank candidate study sites based on indication, past performance, and a variety of contexts.
-
-You can use the Medidata connector to:
-
-Get platform documentation answers:
-"How do I create a derived dataset in Data Connect?"
-
-Configure clinical data tools:
-"How do I configure edit checks for Rave EDC?"
-
-Research product updates:
-"When was the last release of Clinical Data Studio and what features did it include?"
-
-Integrate platform guidance with internal policies:
-"We need to import external lab data into Data Connect. How do I do this and ensure alignment with our SOPs?"
-
-Predict top-performing clinical trial sites:
-"What are the top 10 predicted high performing sites for Phase 3 oncology trials?"
-
-Analyze site geographical distribution:
-"What is the geographical distribution of the top performing sites by country for indication X?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-February 11, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### 10x Genomics Cloud
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Manage your schedule and coordinate meetings effortlessly
 
-Life sciences and healthcare
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-May 1, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### AdisInsight
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Life sciences and healthcare
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-February 11, 2026
+### [Notion](https://claude.com/connectors/notion)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdfc622a31cabb4ed418_Benchling.jpg)
+Connect your Notion workspace to search, update, and power workflows across tools
 
-### Benchling
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")
 
-Connect to R&D data, source experiments, and notebooks](https://claude.com/connectors/benchling)
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Life sciences and healthcare
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-Claude Code
-
-June 30, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43716940e4a2c2f530fb2c_biomni.jpeg)
-
-### Biomni Lab
-
-Biomni Lab by Phylo — the Integrated Biology Environment for AI-native research](https://claude.com/connectors/biomni-lab)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")

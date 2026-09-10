@@ -7,11 +7,14 @@ NightVision: DAST/API Discovery platform finding exploitable vulnerabilities in 
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [NightVision Engineering](https://www.nightvision.net)
 * Installs
 
   2064
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

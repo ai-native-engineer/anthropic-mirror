@@ -1,187 +1,79 @@
 <!-- source: https://claude.com/connectors/notion -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac085f91d777702ff6935_Notion%20MCP.jpg)
+[Skip to main content](#main-content)
 
-# Notion
+Connector URL`https://mcp.notion.com/mcp`
 
-Connect your Notion workspace to search, update, and power workflows across tools
+More[Documentation (opens in new tab)](https://developers.notion.com/docs/mcp)[Enterprise setup guide (opens in new tab)](https://www.notion.com/help/set-up-enterprise-managed-connections-for-notion-mcp)[Support (opens in new tab)](mailto:developers@makenotion.com)[Privacy policy (opens in new tab)](https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091)
 
-* Category
+Notion MCP helps you plug tools into your Notion workspace, allowing you to create, edit, search and organize content directly from Claude. Get contextual and relevant assistance from Claude, while keeping knowledge organized in Notion.
 
-  Productivity
-* Used in
+## Tools
 
-  [Claude](http://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* search
+* fetch
+* create-pages
+* update-page
+* move-pages
+* duplicate-page
+* create-database
+* update-database
+* create-comment
+* get-comments
+* get-users
+* get-self
+* get-user
 
-  [Notion](https://notion.com)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/5a520c2349640aa2e64105cfa1398a0da575ddd6.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://developers.notion.com/docs/mcp)[Privacy Policy](https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091)[Support](mailto:developers@makenotion.com)
-
-Create, edit, search and organize Notion content directly from Claude. Get contextual and relevant assistance from Claude, while keeping knowledge organized in Notion.
-
-You can use the Notion connector to:
-
-Create pages with structured content:
-"Create a meeting notes page for today's standup with action items"
-
-Check workspace connections:
-"Which Notion workspace am I currently connected to?"
-
-Search across pages:
-"Find all project pages that mention 'ready for dev'"
-
-Update page properties:
-"Change the status of this task from 'In Progress' to 'Complete'"
-
-You also combine the Notion Connector with [Skills](https://www.claude.com/blog/skills) to help with:
-‍
-• Meeting intelligence: Prepare meeting materials by gathering context from Notion, enriching with Claude research, and creating both an internal pre-read and external agenda saved to Notion.
-
-• Research & Documentation: Search across your Notion workspace, synthesize findings from multiple pages, and create a comprehensive research documentation saved as new Notion pages.
-‍
-• Knowledge Capture: Turn discussions into durable knowledge in Notion. Capture insights and decisions from chat, format them clearly, and file them to the right wiki or database with smart linking.
-‍
-• Spec to Implementation: Turn product or tech specs into concrete Notion tasks that Claude Code can implement.
-
-See [here](https://notiondevs.notion.site/notion-skills-for-claude) for details on how to use Skills with Notion's connector.
-
-Skills
-
-Meeting Intelligence
-
-Prepare meeting materials by gathering context from Notion and enriching with Claude research.
-
-Learn more
-
-[Learn more](https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Research & Documentation
-
-Search your Notion workspace, synthesize findings, and create comprehensive research.
-
-Learn more
-
-[Learn more](https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Knowledge Capture
-
-Capture insights and decisions from chat to turn discussions into durable knowledge in Notion.
-
-Learn more
-
-[Learn more](https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Spec to Implementation
-
-Turn product or tech specs into concrete Notion tasks that Claude Code can implement.
-
-Learn more
-
-[Learn more](https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Notion Skills in Claude Code
-
-Access Notion skills in the Claude Code Plugin Directory.
-
-Learn more
-
-[Learn more](https://github.com/makenotion/claude-code-notion-plugin)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-### Adobe Experience Manager
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Manage your schedule and coordinate meetings effortlessly
 
-Productivity
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Claude Code
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-June 9, 2026
+Access Jira & Confluence from Claude
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Productivity
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-June 22, 2026
+### [Slack](https://claude.com/connectors/slack)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Send messages, create canvases, and fetch Slack data
 
-### Agentic Presentations by SlidesGPT
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Productivity
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude
+Trending
 
-Claude Code
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")

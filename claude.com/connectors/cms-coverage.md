@@ -1,99 +1,72 @@
 <!-- source: https://claude.com/connectors/cms-coverage -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/695f3e9e884bd175dbadbf06_cms.jpg)
+[Skip to main content](#main-content)
 
-# CMS Coverage
+Connector URL`https://hcls.mcp.claude.com/cms_coverage/mcp`
 
-Access the CMS Coverage Database
+More[Documentation (opens in new tab)](https://claude.com/resources/tutorials/using-the-cms-coverage-connector-in-claude)[Support (opens in new tab)](https://support.anthropic.com)[Privacy policy (opens in new tab)](https://www.anthropic.com/privacy)
 
-* Category
+The CMS Coverage Connector gives Claude access to Medicare Part B coverage policies from the CMS Coverage Database, including National Coverage Determinations (NCDs) and Local Coverage Determinations (LCDs).
 
-  Life sciences and healthcare
+This server may return data governed by third-party license agreements, including those available here: https://api.coverage.cms.gov/v1/metadata/license-agreement/. By connecting to this server, you understand and agree to abide by any applicable agreements.
 
-  Health and wellness
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/directory/2526be5d-ad2a-4441-9a4f-f728812631bf)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](http://claude.com/resources/tutorials/using-the-cms-connector-in-claude)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Anthropic](https://anthropic.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  No items found.
-* More
-
-  [Documentation](https://claude.com/resources/tutorials/using-the-cms-coverage-connector-in-claude)[Privacy Policy](https://www.anthropic.com/privacy)[Support](https://support.anthropic.com)
-
-The CMS Coverage connector gives Claude access to Medicare Part B coverage policies from the CMS Coverage Database, including National Coverage Determinations (NCDs) and Local Coverage Determinations (LCDs). Check coverage criteria for medical services, review documentation requirements for prior authorization, and stay current on policy changes that affect your practice.
-
-You can use the CMS Coverage connector to:
-
-**Check Coverage for a Procedure:** "Does Medicare Part B cover genetic testing for breast cancer?"
-
-**Prepare Prior Authorization:** "I need to prepare a prior authorization for a PET scan in California. What documentation does Medicare require?"
-
-**Stay Current on Policy Changes:** "Have there been any Medicare coverage changes in the last month that affect my practice?"
-
-**Review Local Coverage Policies:** "What are the LCD requirements for continuous glucose monitoring in my region?"
-
-Disclaimer: This server may return data governed by third-party license agreements, including those available [here](https://api.coverage.cms.gov/v1/metadata/license-agreement/). By connecting to this server, you understand and agree to abide by any applicable agreements.
+* get\_contractors
+* get\_ncd
+* sad\_exclusion\_list
+* search\_articles
+* search\_lcds
+* search\_nca\_cals
+* search\_ncds
+* whats\_new\_national
 
 ## Related connectors
 
-Life sciences and healthcare
+![](https://www.google.com/s2/favicons?domain=strava.com&sz=96)
 
-Claude
+### [Strava](https://claude.com/connectors/strava)
 
-Claude Code
+Analyze, summarize, and explore your Strava data
 
-February 11, 2026
+[Add Strava in Claude (opens in new tab)](https://claude.ai/directory/135cc9eb-d5aa-4e24-81b0-6e78a3cff862 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abd7406980b388be9ed4e_10x%20Genomics%20Cloud.jpg)
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/pubmed.svg)
 
-### 10x Genomics Cloud
+### [PubMed](https://claude.com/connectors/pubmed)
 
-Interact with 10x Genomics Cloud platform](https://claude.com/connectors/10x-genomics-cloud)
+Search biomedical literature from PubMed
 
-Life sciences and healthcare
+[Add PubMed in Claude (opens in new tab)](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8721 "Add in Claude")
 
-Claude
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/npi-registry.svg)
 
-Claude Code
+### [NPI Registry](https://claude.com/connectors/npi-registry)
 
-May 1, 2026
+Access US National Provider Identifier (NPI) Registry
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fa2ac6f0eef6e0d2b6c052_adisinsight_logo.png)
+[Add NPI Registry in Claude (opens in new tab)](https://claude.ai/directory/e3b3e96f-6b4d-468d-a4b6-89f484b7e21c "Add in Claude")
 
-### AdisInsight
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/icd-10-codes.svg)
 
-Pharmaceutical drug & clinical trial intelligence](https://claude.com/connectors/adisinsight)
+### [ICD-10 Codes](https://claude.com/connectors/icd-10-codes)
 
-Health and wellness
+Access ICD-10-CM and ICD-10-PCS code sets
 
-Claude
+[Add ICD-10 Codes in Claude (opens in new tab)](https://claude.ai/directory/bd8c051d-df35-44c0-a8b8-084b700e1f21 "Add in Claude")
 
-May 1, 2026
+![](https://www.google.com/s2/favicons?domain=alltrails.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517432a0d2180dc70610b_alltrails.svg)
+### [AllTrails](https://claude.com/connectors/alltrails)
 
-### AllTrails
+Find your next hike
 
-Find your next hike](https://claude.com/connectors/alltrails)
+[Add AllTrails in Claude (opens in new tab)](https://claude.ai/directory/2aab1516-4acf-49b3-a85f-ff16c5d8fbb0 "Add in Claude")
 
-Health and wellness
+![](https://www.google.com/s2/favicons?domain=functionhealth.com&sz=96)
 
-Claude
+### [Function Health](https://claude.com/connectors/function)
 
-Claude Code
+Lab test insights, health answers, nutrition plans
 
-May 26, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154caf79bc4b6557f10e20_alma-logo%20-%20Rami%20Alhamad.svg)
-
-### Alma
-
-Your nutrition data, inside every Claude conversation.](https://claude.com/connectors/alma)
+[Add Function Health in Claude (opens in new tab)](https://claude.ai/directory/48527e54-fe84-4dc6-b97f-c8e0763bca97 "Add in Claude")

@@ -7,11 +7,14 @@ Shift-left code review skills that bring Qodo's quality standards and code revie
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Qodo.ai](https://www.qodo.ai)
 * Installs
 
   11807
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

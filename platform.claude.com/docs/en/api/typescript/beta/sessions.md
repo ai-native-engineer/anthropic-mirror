@@ -17437,10 +17437,6 @@ Stream Events
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
 
-- `BetaManagedAgentsStreamSessionEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
-
-  Server-sent event in the session stream.
-
 #### Example
 
 ```typescript
@@ -25761,10 +25757,6 @@ Stream Session Thread Events
     - `budget?: BetaManagedAgentsBudgetLimit | null`
 
       A hard spend ceiling. The session stops issuing new model requests once the tracked list cost reaches `max_list_cost`.
-
-- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 34 more`
-
-  Server-sent event in a single thread's stream.
 
 #### Example
 

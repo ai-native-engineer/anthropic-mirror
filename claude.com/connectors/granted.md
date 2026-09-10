@@ -1,104 +1,69 @@
 <!-- source: https://claude.com/connectors/granted -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69badf81ee3313955f22b01c_granted.png)
+[Skip to main content](#main-content)
 
-# Granted
+Connector URL`https://grantedai.com/api/mcp/mcp`
 
-Discover every grant opportunity in existence.
-
-* Category
-
-  Nonprofit
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/59156499-2b9f-42b9-8438-8994d7ce5dad)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Granted AI](https://grantedai.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://grantedai.com/mcp)[Privacy Policy](https://grantedai.com/privacy)[Support](mailto:info@grantedai.com)
+More[Documentation (opens in new tab)](https://grantedai.com/mcp)[Support (opens in new tab)](mailto:info@grantedai.com)[Privacy policy (opens in new tab)](https://grantedai.com/privacy)
 
 Search virtually every grant opportunity in existence - federal, state, and private foundation - using natural language. Most databases cover the big programs. Granted also surfaces the long tail: niche state grants, small family foundations, and hyper-local opportunities that nonprofits never find because no single database indexes them all. Research 133,000 US foundations with IRS 990 financials and key officers. Analyze 7 million federal award records to see who's actually winning.
 
-You can use Granted to:
+## Tools
 
-**Discover Grants by Need:**
-"I run a small nonprofit and want to start a mobile health clinic for pregnant women in a rural area. What grants can I apply for?"
+* search\_grants
+* get\_grant
+* search\_funders
+* get\_funder
+* get\_past\_winners
 
-**Research Funders:**
-"Tell me everything about the Gates Foundation - financials, recent grants, key people, and how to apply."
-
-**Analyze Competition:**
-"We're applying for a Department of Energy grant. Who's actually winning these awards?"
-
-**Find Niche Local Funding:**
-"Our community has no grocery store within 10 miles. We want to build a community kitchen and urban farm. What funding exists?"
-
-**Search by State:**
-"I run an after-school music program for kids in Mississippi. Are there grants for youth arts in our state?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=salesforce.com&sz=96)
 
-Claude
+### [Salesforce - Beta](https://claude.com/connectors/salesforce-headless-360)
 
-Claude Code
+Sell, serve, and operate at scale with Salesforce.
 
-June 22, 2026
+[Add Salesforce - Beta in Claude (opens in new tab)](https://claude.ai/directory/a352dbf6-c732-43d4-84c1-0bbb389d3921 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+![](https://jotform.com/assets/img/portal/jotformAppsLogo.png)
 
-### Affinity
+### [Jotform Apps](https://claude.com/connectors/jotform-apps)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+Build and manage no-code apps
 
-Financial services
+[Add Jotform Apps in Claude (opens in new tab)](https://claude.ai/directory/47f4bce8-bac1-4872-be7e-b296a1e6f707 "Add in Claude")
 
-Claude
+![](https://mcp.givebutter.com/mcp/icon.svg)
 
-February 11, 2026
+### [Givebutter](https://claude.com/connectors/givebutter)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+Manage your fundraising
 
-### Aiera
+[Add Givebutter in Claude (opens in new tab)](https://claude.ai/directory/d4d95e77-c166-4ee8-b2e5-fae34743cfe3 "Add in Claude")
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+![](https://cdn.candid.org/images/candid-logo/candid-icon.svg)
 
-Financial services
+### [Candid](https://claude.com/connectors/candid)
 
-Claude
+Research nonprofits and funders using Candid's data
 
-Claude Code
+[Add Candid in Claude (opens in new tab)](https://claude.ai/directory/875faf93-08c4-469c-980f-6f79f70f10d3 "Add in Claude")
 
-February 26, 2026
+![](https://www.google.com/s2/favicons?domain=kindora.co&sz=96)
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+### [Kindora Funder Discovery](https://claude.com/connectors/kindora-funder-discovery)
 
-### Airwallex
+Find funders who support causes like yours
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+[Add Kindora Funder Discovery in Claude (opens in new tab)](https://claude.ai/directory/df363d23-97ef-4ccd-a36e-5369846f5506 "Add in Claude")
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=benevity.com&sz=96)
 
-Claude
+### [Benevity](https://claude.com/connectors/benevity)
 
-Claude Code
+Find and engage with verified nonprofits
 
-April 8, 2026
-
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add Benevity in Claude (opens in new tab)](https://claude.ai/directory/de72cab2-21e3-486f-b774-b35b6dded1d8 "Add in Claude")

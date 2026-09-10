@@ -1,153 +1,85 @@
 <!-- source: https://claude.com/connectors/canva -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abe745ff5e30a03edd1cc_Canva%20MCP%20Server.jpg)
+[Skip to main content](#main-content)
 
-# Canva
+Connector URL`https://mcp.canva.com/mcp`
 
-Search, create, autofill, and export Canva designs from a prompt
+More[Documentation (opens in new tab)](https://www.canva.dev/docs/connect/canva-mcp-server-setup/)[Enterprise setup guide (opens in new tab)](https://www.canva.com/help/manage-cross-app-access)[Support (opens in new tab)](https://www.canva.com/en_au/help/)[Privacy policy (opens in new tab)](https://www.canva.com/policies/privacy-policy/)
 
-* Category
+Browse, summarize, autofill, and even generate new Canva designs directly from Claude. Make Canva a native part of your AI workflow—an AI-powered design agent that helps you create polished visuals faster, with less friction.
 
-  Design
-* Used in
+## Tools
 
-  [Claude](http://claude.ai/directory/eb9240f2-e1c1-43c1-828f-0fda40c22e4c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* search-designs
+* get-design
+* get-design-pages
+* get-design-content
+* search
+* fetch
+* import-design-from-url
+* get-design-import-from-url-status
+* export-design
+* get-export-formats
+* get-design-export-status
+* create-folder
+* move-item-to-folder
+* list-folder-items
+* add-comment-thread-to-design
+* generate-design
+* get-design-generation-job
 
-  [Canva](https://canva.com/)
-
-[](https://cdn.sanity.io/files/4zrzovbb/website/9d837188e22623f02af1d1e0fe1b1cf0ac485bf4.mp4)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Interactive
-* More
-
-  [Documentation](https://www.canva.dev/docs/connect/canva-mcp-server-setup/)[Privacy Policy](https://www.canva.com/policies/privacy-policy/)[Support](https://www.canva.com/en_au/help/)
-
-Browse, summarize, autofill, and even generate new Canva designs directly from Claude. Make Canva a native part of your workflow—helping you create polished visuals faster, with less friction. You can also create presentation outlines and customize branding and design in real-time to produce client-ready decks.
-
-You can use Canva in Claude to:
-‍
-Browse, Search & Summarize:
-"Summarize my Q2 product strategy doc"
-
-Create New Designs from Conversation:
-"Generate a pitch deck for our AI launch with 5 slides and a bold tone"
-
-Autofill Charts:
-"Add a chart showing monthly signups in NZ for Q1"
-
-Autofill Brand Templates:
-"Populate our branded template with content for a product launch presentation, 8 slides, professional tone"
-
-Import Files via Link:
-"Import this PDF [insert URL] into Canva"
-
-Resize or Export:
-"Resize my Instagram post for LinkedIn and export as a PNG"
-
-Skills
-
-Branded Presentation
-
-Create on-brand Canva presentations from an outline or brief.
-
-Learn more
-
-[Learn more](https://github.com/canva-sdks/canva-claude-skills)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Design Translation
-
-Translate all text in a Canva design to another language, creating a translated copy.
-
-Learn more
-
-[Learn more](https://github.com/canva-sdks/canva-claude-skills)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-Social Media Resize
-
-Resize a Canva design into multiple social media formats (Facebook post or story, Instagram post or story, LinkedIn post) and export all as PNGs.
-
-Learn more
-
-[Learn more](https://github.com/canva-sdks/canva-claude-skills)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Design
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-May 7, 2026
+Trending
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-### Adobe for creativity
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-Ideate, create, and deliver with Adobe pro tools](https://claude.com/connectors/adobe-creativity)
+![](https://www.google.com/s2/favicons?domain=figma.com&sz=96)
 
-Productivity
+### [Figma](https://claude.com/connectors/figma)
 
-Design
+Generate diagrams and better code from Figma context
 
-Claude
+[Add Figma in Claude (opens in new tab)](https://claude.ai/directory/c758d038-d8eb-4421-b426-9dd68dc7f84a "Add in Claude")
 
-Claude Code
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-May 1, 2026
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d316ce38ed7af0f88414_icon_Autodesk.jpg)
+Trending
 
-### Autodesk Product Help
+An AI Concierge that turns forms into conversations
 
-Securely access Autodesk's help documentation](https://claude.com/connectors/autodesk-product-help)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Design
+![](https://www.google.com/s2/favicons?domain=adobe.com&sz=96)
 
-Productivity
+### [Adobe for creativity](https://claude.com/connectors/adobe-creativity)
 
-Claude
+Ideate, create, and deliver with Adobe pro tools
 
-Claude Code
+[Add Adobe for creativity in Claude (opens in new tab)](https://claude.ai/directory/22854937-9510-4b57-9230-62c820102d8f "Add in Claude")
 
-May 28, 2026
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a154ac9a3dd67012fe91a0a_descript.svg)
+### [monday.com](https://claude.com/connectors/monday)
 
-### Descript
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-Import, edit, or create video with prompts](https://claude.com/connectors/descript)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-Design
+![](https://agent.enrichlabs.ai/avatars/helena.png)
 
-Claude
+### [Helena by Enrich Labs](https://claude.com/connectors/helena-by-enrich-labs)
 
-February 10, 2026
+Your AI marketer for paid ads, SEO, email, social, and analytics
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698b6d382644a53ecb859c9b_idJpJtW9KY_logos.png)
-
-### Excalidraw
-
-MCP for creating interactive hand-drawn diagrams in Excalidraw](https://claude.com/connectors/excalidraw-app-demo)
+[Add Helena by Enrich Labs in Claude (opens in new tab)](https://claude.ai/directory/0da6abdc-62c3-4272-940b-898189371a48 "Add in Claude")

@@ -7,11 +7,14 @@ Build AI applications with real-time web data using Tavily's search, extract, cr
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Tavily](https://www.tavily.com/)
 * Installs
 
   403
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

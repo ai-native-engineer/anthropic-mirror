@@ -1,107 +1,90 @@
 <!-- source: https://claude.com/connectors/clickup -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dfc9e48cdc864ea924f3_icon_Clickup.jpg)
+[Skip to main content](#main-content)
 
-# ClickUp
+Connector URL`https://mcp.clickup.com/mcp`
 
-Project management & collaboration for teams & agents
-
-* Category
-
-  Productivity
-* Used in
-
-  [Claude](https://claude.ai/directory/aa5a2bca-4004-49ea-bc2b-978162587a3a)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [ClickUp](https://clickup.com/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://help.clickup.com/hc/en-us/articles/33335772678423-What-is-ClickUp-MCP)[Privacy Policy](https://clickup.com/terms/privacy)[Support](https://help.clickup.com/hc/en-us)
+More[Documentation (opens in new tab)](https://help.clickup.com/hc/en-us/articles/33335772678423-What-is-ClickUp-MCP)[Support (opens in new tab)](https://help.clickup.com/hc/en-us)[Privacy policy (opens in new tab)](https://clickup.com/terms/privacy)
 
 The ClickUp connector enables secure, real-time interaction between AI agents like Claude and your ClickUp workspace. Unlock powerful AI-driven automation by connecting your favorite AI tools directly to ClickUp tasks, docs, Chat, and more.
 
-You can use the ClickUp connector to:
+## Tools
 
-Find workspace members:
-"List all people in the workspace"
+* clickup\_search
+* clickup\_get\_workspace\_hierarchy
+* clickup\_create\_task
+* clickup\_get\_task
+* clickup\_update\_task
+* clickup\_get\_task\_comments
+* clickup\_create\_task\_comment
+* clickup\_attach\_task\_file
+* clickup\_create\_bulk\_tasks
+* clickup\_update\_bulk\_tasks
+* clickup\_get\_workspace\_tasks
+* clickup\_get\_task\_time\_entries
+* clickup\_start\_time\_tracking
+* clickup\_stop\_time\_tracking
+* clickup\_add\_time\_entry
+* clickup\_get\_current\_time\_entry
+* clickup\_create\_list
+* clickup\_create\_list\_in\_folder
+* clickup\_get\_list
+* clickup\_update\_list
+* clickup\_create\_folder
+* clickup\_get\_folder
+* clickup\_update\_folder
+* clickup\_add\_tag\_to\_task
 
-Create and organize tasks:
-"Create a task 'Add logout button' in Web App → Sprint Backlog"
+Show all 35 tools
 
-Update task details:
-"Add 'High' priority to 'Add logout button' task"
-
-Track time automatically:
-"Start tracking time on the current task I'm working on"
-
-Manage documents:"
-Create a new document page for our Q1 planning notes"
-
-Send team messages:
-"Send a message in the Engineering chat channel about the deployment schedule"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-April 29, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### Adobe Experience Manager
+### [Gmail](https://claude.com/connectors/gmail)
 
-Manage your Adobe Experience Manager content](https://claude.com/connectors/adobe-experience-manager)
+Draft replies, summarize threads, & search your inbox
 
-Productivity
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 9, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a265e26106713f929cf8e36_adobe_workfront.png)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Adobe Workfront
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-Manage planning, projects, tasks, and approvals](https://claude.com/connectors/adobe-workfront)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Productivity
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-June 22, 2026
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d398f01656149a07994e_icon_SlidesGPT.jpg)
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-### Agentic Presentations by SlidesGPT
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Make presentations and slides, export to PowerPoint](https://claude.com/connectors/slidesgpt)
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Productivity
+### [Notion](https://claude.com/connectors/notion)
 
-Claude
+Connect your Notion workspace to search, update, and power workflows across tools
 
-Claude Code
-
-June 22, 2026
-
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63d2544e6bc05cde790c47_icon_Appfolio.jpg)
-
-### AppFolio Realm-X
-
-Operate your portfolio directly from Claude](https://claude.com/connectors/appfolio-realm-x)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

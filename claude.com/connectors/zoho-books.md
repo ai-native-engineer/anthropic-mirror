@@ -1,99 +1,92 @@
 <!-- source: https://claude.com/connectors/zoho-books -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69c31afedbdd4be602880b5d_zoho_books.png)
+[Skip to main content](#main-content)
 
-# Zoho Books
+Connector URLUnited States`https://claude-zohobooks.zohomcp.com/mcp/message`Europe`https://claude-zohobooks.zohomcp.eu/mcp/message`India`https://claude-zohobooks.zohomcp.in/mcp/message`Australia`https://claude-zohobooks.zohomcp.com.au/mcp/message`Canada`https://claude-zohobooks.zohomcp.ca/mcp/message`Saudi Arabia`https://claude-zohobooks.zohomcp.sa/mcp/message`Japan`https://claude-zohobooks.zohomcp.jp/mcp/message`UAE`https://claude-zohobooks.zohomcp.ae/mcp/message`
 
-Zoho Books MCP for Smart Finance Ops
-
-* Category
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/9e4a3416-f5b4-4a89-8e3a-a4955fa17475)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Zoho](https://www.zoho.com/mcp/)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Privacy Policy](https://www.zoho.com/privacy.html)[Support](mailto:support@zohomcp.com)
+More[Documentation (opens in new tab)](https://help.zoho.com/portal/en/kb/mcp/getting-started/articles/zoho-mcp-help-documentation-29-9-2025)[Support (opens in new tab)](mailto:support@zohomcp.com)[Privacy policy (opens in new tab)](https://www.zoho.com/privacy.html)
 
 Connect MCP to Zoho Books for automated billing and finance workflows.
 
-You can use Zoho Books to:
+## Tools
 
-**Create and manage invoices:**
-"Create an invoice for customer Acme Inc for 5 units of Product A at $120 each"
+* get\_item
+* list\_contacts
+* list\_taxes
+* delete\_contact
+* get\_expense
+* get\_invoice
+* get\_user
+* create\_item
+* delete\_sales\_order
+* delete\_item
+* update\_tax
+* delete\_estimate
+* list\_invoices
+* update\_estimate
+* create\_purchase\_order
+* update\_purchase\_order
+* create\_sales\_order
+* get\_customer\_payment
+* get\_contact
+* list\_purchase\_orders
+* list\_users
+* delete\_customer\_payment
+* list\_sales\_orders
+* get\_purchase\_order
 
-**Track receivables:**
-"Show all unpaid invoices older than 30 days with customer contact details"
+Show all 49 tools
 
-**Expense management:**
-"Record a $75 travel expense under Sales department for today with receipt"
-
-**Financial reporting:**
-"Generate a summary of total revenue and expenses for this quarter by category"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Financial services
+![](https://www.google.com/s2/favicons?domain=pinelabs.com&sz=96)
 
-Claude
+### [Pine Labs Payments Assistant](https://claude.com/connectors/pine-labs-payments-assistant)
 
-Claude Code
+Trending
 
-June 22, 2026
+Query your Pine Labs payments data in plain language — orders, transactions, settlements, subscriptions and success rates, plus integration help for developers.
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+[Add Pine Labs Payments Assistant in Claude (opens in new tab)](https://claude.ai/directory/b20c4865-4ef3-4a57-8f8f-7e36f4fe4e89 "Add in Claude")
 
-### Affinity
+![](https://www.google.com/s2/favicons?domain=stripe.com&sz=96)
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+### [Stripe](https://claude.com/connectors/stripe)
 
-Financial services
+Payment processing and financial infrastructure tools
 
-Claude
+[Add Stripe in Claude (opens in new tab)](https://claude.ai/directory/de127013-63f1-43d0-8dd2-b6cb5b4e5d1b "Add in Claude")
 
-February 11, 2026
+![](https://ai.zacksdata.com/connector-icon-512.png)
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+### [Zacks Data](https://claude.com/connectors/zacks-data)
 
-### Aiera
+Trusted Financial Data from Zacks Investment Research
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+[Add Zacks Data in Claude (opens in new tab)](https://claude.ai/directory/2823d140-e557-491a-a7fc-bc95b67c2ce2 "Add in Claude")
 
-Financial services
+![](https://storage.googleapis.com/media-assets-299d7136-cb52-d546-ee02-34bc1307c35f/mcp-directory/icons/quickbooks.svg)
 
-Claude
+### [Intuit QuickBooks](https://claude.com/connectors/quickbooks)
 
-Claude Code
+Business Finances made simple
 
-February 26, 2026
+[Add Intuit QuickBooks in Claude (opens in new tab)](https://claude.ai/directory/a933e343-3389-4a82-beeb-7d5f5c2c4f25 "Add in Claude")
 
-[![Airwallex logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b18541e790600c33b929_icon_airwallex.jpg)
+![](https://www.google.com/s2/favicons?domain=interactivebrokers.com&sz=96)
 
-### Airwallex
+### [Interactive Brokers (IBKR)](https://claude.com/connectors/interactive-brokers)
 
-Integrate with the Airwallex Platform using Claude](https://claude.com/connectors/airwallex)
+Trade, invest, analyze, and manage global markets
 
-Financial services
+[Add Interactive Brokers (IBKR) in Claude (opens in new tab)](https://claude.ai/directory/d445461d-2337-4e00-b285-b43d111d2912 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=spglobal.com&sz=96)
 
-Claude Code
+### [S&P - Deterministic Retrieval](https://claude.com/connectors/s-p-global)
 
-April 8, 2026
+Deterministic access to S&P Global data
 
-[![Aiwyn Tax logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b24ebcfc46808b961d9c_AiwynTax.jpg)
-
-### Aiwyn Tax
-
-Estimate your federal & state taxes with Aiwyn's tax engine](https://claude.com/connectors/aiwyn-tax)
+[Add S&P - Deterministic Retrieval in Claude (opens in new tab)](https://claude.ai/directory/d965405c-3467-4046-b5b3-e8fb8ed235eb "Add in Claude")

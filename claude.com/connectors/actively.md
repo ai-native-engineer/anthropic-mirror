@@ -1,96 +1,81 @@
 <!-- source: https://claude.com/connectors/actively -->
 
-![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Skip to main content](#main-content)
 
-# Actively
+Connector URL`https://api.actively.ai/mcp`
 
-1:1 account agents for GTM teams
-
-* Category
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/ce5e0577-7004-470c-91f8-5abdc9335ae3)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Taurus Labs, Inc.](https://www.actively.ai)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://app.actively.ai/docs/mcp)[Privacy Policy](https://www.actively.ai/privacy)[Support](mailto:support@actively.ai)
+More[Documentation (opens in new tab)](https://app.actively.ai/docs/mcp)[Support (opens in new tab)](mailto:support@actively.ai)[Privacy policy (opens in new tab)](https://www.actively.ai/privacy)
 
 Win more deals with Actively inside Claude by directly accessing your always-on per account agents that help you drive the next best action. Actively AI's per-account agents are synthesizing across all of your internal context (ex. CRM data, call transcripts, emails) and external signals to drive actionable intelligence. Designed for SDRs, AEs, AMs, and revenue leaders who need deep, contextual account knowledge, from meeting prep and deal strategy to territory prioritization, directly inside Claude.
 
-You can use Actively to:
+## Tools
 
-**Account Research & Meeting Prep:**
-"Give me an overview of Snowflake — what are their pain points, key contacts, and any recent activity?"
+* generate\_smart\_fields
+* get\_agent\_decisions
+* get\_agent\_decisions\_sections
+* get\_agent\_memory
+* get\_agent\_memory\_sections
+* get\_bulk\_agent\_decisions
+* get\_bulk\_agent\_memory
+* get\_recent\_account\_activity
+* get\_smart\_field\_schemas
+* get\_workflow\_instructions
+* list\_workflows
+* lookup\_accounts
+* search\_agent\_memory
 
-**Strategic Next Steps on a Deal:**
-"What's the recommended outreach strategy for Ramp, and who should I contact first?"
-
-**Portfolio Prioritization:**
-"Across my top 10 accounts, which ones have the most recent activity and what should I focus on?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### ActiveCampaign
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Sales and marketing
+Trending
 
-Claude
+An AI Concierge that turns forms into conversations
 
-May 26, 2026
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-### Adobe Journey Optimizer
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+CRM context for every answer, insight, and action
 
-Sales and marketing
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-Claude
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Claude Code
+### [monday.com](https://claude.com/connectors/monday)
 
-April 29, 2026
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-### Adobe Marketing Agent
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
 
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+### [Gamma](https://claude.com/connectors/gamma)
 
-Sales and marketing
+Create presentations, docs, socials, and sites with AI
 
-Claude
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
-January 30, 2026
+### [Shopify](https://claude.com/connectors/shopify)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/697d489e3a9d195da9e8d2e8_ahrefs-logo.svg)
+Build, manage, and analyze your Shopify store
 
-### Ahrefs
-
-SEO & AI search analytics](https://claude.com/connectors/ahrefs)
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

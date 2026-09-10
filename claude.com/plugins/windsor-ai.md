@@ -7,11 +7,14 @@ Connect Claude Code to 325+ business data sources via Windsor.ai. Query marketin
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Windsor.ai](#)
 * Installs
 
   1773
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

@@ -1,99 +1,83 @@
 <!-- source: https://claude.com/connectors/outreach -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69964daf5dfec668f0dc6049_outreach.png)
+[Skip to main content](#main-content)
 
-# Outreach
+Connector URL`https://api.outreach.io/mcp/`
 
-Unleash your team's best performance with Outreach AI
-
-* Category
-
-  Sales and marketing
-* Used in
-
-  [Claude](https://claude.ai/directory/7b2bdb34-e318-4d50-893f-330a8e41d78c)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Outreach](https://outreach.io)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://support.outreach.io/hc/en-us/articles/46370115253403-Outreach-MCP-Server)[Privacy Policy](https://www.outreach.io/privacy-statement)[Support](https://support.outreach.io/)
+More[Documentation (opens in new tab)](https://support.outreach.io/hc/en-us/articles/46370115253403-Outreach-MCP-Server)[Support (opens in new tab)](https://support.outreach.io/)[Privacy policy (opens in new tab)](https://www.outreach.io/privacy-statement)
 
 Bring Outreach knowledge and actions into Claude so your teams can move faster, combine insights across systems, and complete advanced revenue tasks without switching tools. Outreach is an end-to-end AI Revenue Platform for all go-to-market teams. By embedding agentic AI across every revenue workflow, Outreach increases sales productivity, boosts pipeline, and gives leaders the visibility and predictability they need to grow revenue at scale.
 
-You can use Outreach to:
+## Tools
 
-**Prepare for meetings:**
-"Help me prepare for my next call with Acme"
+* fetch\_kaia\_meetings
+* emails\_search
+* sequence\_search\_by\_name
+* prospect\_get\_by\_id
+* prospect\_search\_by\_name
+* prospect\_search\_by\_ext\_id
+* account\_get\_by\_id
+* account\_search\_by\_name
+* account\_search\_by\_ext\_id
+* opportunity\_get\_by\_id
+* opportunity\_search\_by\_name
+* opportunity\_search\_by\_ext\_id
+* user\_get\_by\_id
+* user\_search\_by\_nam
+* user\_search\_by\_ext\_id
 
-**Create content referencing conversations:**
-"Generate a best practice guide for each feature discussed in the last meeting with Acme"
-
-**Analyze what's working and why:**
-"What sequences from our customer conference have the best reactions, and what are they?"
-
-**Plan smarter objection-handling:**
-"Tell me Contoso's concerns around our solution and how I should combat that?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://cdn.b12.io/branding/b12-logo-purple.png)
 
-Claude
+### [Website Generator by B12](https://claude.com/connectors/website-generator-by-b12)
 
-Claude Code
+Trending
 
-January 26, 2026
+Build a website or web app in minutes! Generate, design, write code, and create copy for your website. Powered by B12. Contact: hello@b12.io
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+[Add Website Generator by B12 in Claude (opens in new tab)](https://claude.ai/directory/e25b319d-9c6a-4baa-90a3-0bb8eb5e25b0 "Add in Claude")
 
-### ActiveCampaign
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Sales and marketing
+Trending
 
-Claude
+An AI Concierge that turns forms into conversations
 
-Claude Code
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-June 2, 2026
+![](https://www.google.com/s2/favicons?domain=hubspot.com&sz=96)
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+### [HubSpot](https://claude.com/connectors/hubspot)
 
-### Actively
+CRM context for every answer, insight, and action
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+[Add HubSpot in Claude (opens in new tab)](https://claude.ai/directory/875dee50-9b3f-452b-af8c-fbc839966273 "Add in Claude")
 
-Sales and marketing
+![](https://www.google.com/s2/favicons?domain=monday.com&sz=96)
 
-Claude
+### [monday.com](https://claude.com/connectors/monday)
 
-May 26, 2026
+Manage projects, tasks, portfolios, boards, workflows, milestones, dependencies, forms and dashboards with monday.com project management & CRM.
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+[Add monday.com in Claude (opens in new tab)](https://claude.ai/directory/49e0f9ba-7d45-4fb6-b098-55eec956fbc6 "Add in Claude")
 
-### Adobe Journey Optimizer
+![](https://www.google.com/s2/favicons?domain=gamma.app&sz=96)
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+### [Gamma](https://claude.com/connectors/gamma)
 
-Sales and marketing
+Create presentations, docs, socials, and sites with AI
 
-Claude
+[Add Gamma in Claude (opens in new tab)](https://claude.ai/directory/ba1eef5a-c510-416e-b5fa-c34d523d81a1 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=shopify.com&sz=96)
 
-April 29, 2026
+### [Shopify](https://claude.com/connectors/shopify)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+Build, manage, and analyze your Shopify store
 
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Shopify in Claude (opens in new tab)](https://claude.ai/directory/80917cb7-3071-4fca-b053-a4262d356c60 "Add in Claude")

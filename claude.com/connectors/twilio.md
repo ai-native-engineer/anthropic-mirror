@@ -1,110 +1,68 @@
 <!-- source: https://claude.com/connectors/twilio -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fb8c4285eb468adb2e974e_twilio.png)
+[Skip to main content](#main-content)
 
-# Twilio
+Connector URL`https://mcp.twilio.com/docs`
 
-Build powerful communications and customer engagement
-
-* Category
-
-  Communication
-* Used in
-
-  [Claude](https://claude.ai/directory/0f28b719-ce6a-4597-83a6-ff5b2d5b17c5)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Twilio](https://twilio.com)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read
-* More
-
-  [Documentation](https://www.twilio.com/docs/ai/mcp)[Privacy Policy](https://twilio.com/en-us/privacy)[Support](https://help.twilio.com/)
+More[Documentation (opens in new tab)](https://www.twilio.com/docs/ai/mcp)[Support (opens in new tab)](https://help.twilio.com/)[Privacy policy (opens in new tab)](https://twilio.com/en-us/privacy)
 
 Search Twilio’s APIs and build customer engagement experiences directly from Claude. Across more than 1,800 endpoints, Twilio MCP surfaces the exact specs and code patterns you need for channels like voice, email, and SMS/RCS, as well as user identity, customer data, contact center, and conversational AI. Get straight to the right API details and implementation guidance without loading full API docs into context or leaving your IDE.
 
-You can use Twilio to:
+## Tools
 
-**Search & Discover APIs:**
-"What is the endpoint for sending a WhatsApp message?"
+* twilio\_\_search
+* twilio\_\_retrieve
 
-**Generate Integration Code:**
-"Write me a Python snippet to search for and purchase a phone number"
-
-**Explore Latest API Capabilities:**
-"How do I set up status callbacks for voice calls?"
-
-**Compare & Contrast APIs:**
-"Is there a Conversations v2 API? How does it differ from v1?"
-
-**Debug & Troubleshoot:**
-"What does error code 14107 mean?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-Communication
+### [Gmail](https://claude.com/connectors/gmail)
 
-Claude
+Draft replies, summarize threads, & search your inbox
 
-Claude Code
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Asana
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Communication
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-Productivity
+### [Slack](https://claude.com/connectors/slack)
 
-Claude
+Send messages, create canvases, and fetch Slack data
 
-February 21, 2026
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-### Circleback
+### [Asana](https://claude.com/connectors/asana)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Connect to Asana to coordinate tasks, projects, and goals
 
-Productivity
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-Communication
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-Code
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Claude
+Trending
 
-May 1, 2026
+An AI Concierge that turns forms into conversations
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-### Computer by DevRev
+![](https://www.google.com/s2/favicons?domain=intercom.com&sz=96)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+### [Intercom](https://claude.com/connectors/intercom)
 
-Productivity
+Access to Intercom data for better customer insights
 
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")

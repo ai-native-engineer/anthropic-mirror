@@ -26,15 +26,17 @@ The mission of the Interpretability team is to understand how large language mod
 
 Working closely with the Anthropic Policy and Safeguards teams, Societal Impacts is a technical research team that explores how AI is used in the real world.
 
-![Formalizing Fermat's Last Theorem ](https://www-cdn.anthropic.com/images/4zrzovbb/website/eacf5d2fb944719a16b73b8b11729c0d8fda3df0-1200x630.jpg)
+![Scenarios for our Economic Future](https://www-cdn.anthropic.com/images/4zrzovbb/website/b6e2c934b704f4856d361d842c9cec237465b5c6-1920x1080.webp)
 
-[## Formalizing Fermat's Last Theorem
+[## Scenarios for our Economic Future
 
-ScienceSep 4, 2026
+[Anthropic’s Economics team is sharing a new model of how AI may affect economic growth, jobs, wages, and more by 2030. The model lets you explore the scenarios, tell us what you think will happen, and see how your answers compare to +10,000 Americans.](https://www.anthropic.com/institute/econ-scenarios)](https://www.anthropic.com/institute/econ-scenarios)
 
-We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+[ScienceSep 4, 2026
 
-[ScienceAug 10, 2026
+#### Formalizing Fermat's Last Theorem
+
+We are sharing the first complete computer-checked proof of Fermat’s Last Theorem. Claude worked largely autonomously over 11 days to write the proof in the Lean programming language. Below, we describe how the formalization was done and share some thoughts about what this work could mean for research mathematics.](https://www.anthropic.com/research/formalizing-fermats-last-theorem)[ScienceAug 10, 2026
 
 #### Learning more about Claude's mathematical capabilities
 
@@ -46,11 +48,7 @@ In this post, we share two results that show how Claude can help life scientists
 
 #### Reviewing the evidence on worker retraining programs
 
-We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)[InterpretabilityJul 6, 2026
-
-#### A global workspace in language models
-
-New interpretability research reveals an emergent mental workspace in Claude that holds internal thoughts that don’t appear in the model’s output.](https://www.anthropic.com/research/global-workspace)
+We're sharing a review of the evidence on worker retraining programs, coauthored by independent researcher David Roodman and Anthropic's Maxim Massenkoff.](https://www.anthropic.com/research/reviewing-the-evidence-on-worker-retraining-programs)
 
 ## Publications
 
@@ -58,6 +56,9 @@ Search
 
 DateCategoryTitle
 
+* [Sep 9, 2026Alignment
+
+  An alignment assessment of recent cybersecurity incidents](https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents)
 * [Sep 4, 2026Science
 
   Formalizing Fermat's Last Theorem](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
@@ -85,9 +86,6 @@ DateCategoryTitle
 * [Jul 24, 2026Frontier Red Team
 
   Project Pilot: Can AI control a drone?](https://www.anthropic.com/research/project-pilot)
-* [Jul 14, 2026Economics
-
-  How Canada uses Claude: Findings from the Anthropic Economic Index](https://www.anthropic.com/research/how-canada-uses-claude)
 
 [See more](#)
 

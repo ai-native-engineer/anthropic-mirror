@@ -12,7 +12,7 @@ Get Enterprise plan
 
 Build on Claude Platform
 
-[Build on Claude Platform](https://claude.com/platform/api-v2)Build on Claude Platform
+[Build on Claude Platform](https://claude.com/platform/api)Build on Claude Platform
 
 ## Trusted by the world’s leading organizations
 
@@ -192,7 +192,7 @@ Access the Claude API to power new experiences, ship production-grade agents, an
 
 Explore the platform
 
-[Explore the platform](https://claude.com/platform/api-v2)Explore the platform
+[Explore the platform](https://claude.com/platform/api)Explore the platform
 
 Results with Claude Code
 
@@ -214,6 +214,8 @@ Claude Security
 
 Active
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0c0c347227f56f59139f_maxresdefault.jpg)
 
 ### Code faster across your enterprise stack
@@ -223,6 +225,8 @@ Build, debug, and ship using natural language from your terminal, IDE, Slack, or
 Learn more
 
 [Learn more](https://claude.com/product/claude-code/enterprise)Learn more
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fcfdb277363bbe323dfd39_maxresdefault.jpg)
 
@@ -234,6 +238,8 @@ Learn more
 
 [Learn more](https://claude.com/product/cowork)Learn more
 
+[Play video](#)Play video
+
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fd0ca45e705644001aa5c1_maxresdefault-1.jpg)
 
 ### Chat: A thinking partner for everyday work
@@ -243,6 +249,8 @@ Chat with Claude to develop ideas, draft content, tighten reports, work through 
 Learn more
 
 [Learn more](https://claude.com/product/overview)Learn more
+
+[Play video](#)Play video
 
 ![claude security
 ](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6a0f3ed6261932e5de835422_claude-security-thumbnail.png)
@@ -261,7 +269,7 @@ Connect to Gmail, Google Drive, Slack and more to give Claude context from acros
 
 Learn more
 
-[Learn more](https://claude.com/connectors)Learn more
+[Learn more](https://claude.com/archive/connectors)Learn more
 
 ## Real work, across every function
 
@@ -633,7 +641,7 @@ Launch your own generative AI-enabled products with:
 
 Start building
 
-[Start building](https://claude.com/platform/api-v2)Start building
+[Start building](https://claude.com/platform/api)Start building
 
 ### Get extra support
 
@@ -819,7 +827,7 @@ Get Enterprise plan
 
 Build on Claude Platform
 
-[Build on Claude Platform](https://claude.com/platform/api-v2)Build on Claude Platform
+[Build on Claude Platform](https://claude.com/platform/api)Build on Claude Platform
 
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a3df6f37b772965a5c4_uber.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68c47a4368d48e57ad911656_uber-1.svg)
 

@@ -7,11 +7,14 @@ Semgrep catches security vulnerabilities in real-time and guides Claude to write
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Semgrep](https://semgrep.dev)
 * Installs
 
   19548
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

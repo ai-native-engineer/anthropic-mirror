@@ -1,6 +1,6 @@
 <!-- source: https://www.anthropic.com/news/claudes-constitution -->
 
-# Claude’s Constitution
+# Claude’s constitution
 
 May 9, 2023
 

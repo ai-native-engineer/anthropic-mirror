@@ -7,11 +7,14 @@ Agent skills for working with Resend to send and receive emails — email API in
 * Install in
 
   [Claude Code](#)
+* Made by
 
   [Resend](#)
 * Installs
 
   3577
+
+[Play video](#)Play video
 
 ![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
 

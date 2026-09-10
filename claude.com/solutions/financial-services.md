@@ -26,6 +26,8 @@ Try Claude
 
 [Try Claude](https://claude.ai)Try Claude
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/fsi-thumbnail.webm)
 
 ![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8f2c296e72da5d0c16c64_walleye-capital-light.svg)![Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f8f2c707f624aa6506e323_walleye-capital-dark.svg)
@@ -344,7 +346,7 @@ Integrate Claude’s AI directly into bespoke trading platforms, risk systems, K
 
 Learn more
 
-[Learn more](https://claude.com/platform/api-v2)Learn more
+[Learn more](https://claude.com/platform/api)Learn more
 
 Webinar
 

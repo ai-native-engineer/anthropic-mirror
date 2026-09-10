@@ -1,96 +1,89 @@
 <!-- source: https://claude.com/connectors/zoominfo -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac18e80e00e4418bf54c8_ZoomInfo.jpg)
+[Skip to main content](#main-content)
 
-# ZoomInfo
+Connector URL`https://mcp.zoominfo.com/mcp`
 
-Enrich contacts & accounts with GTM intelligence
+More[Documentation (opens in new tab)](https://docs.zoominfo.com/docs/zi-api-mcp-overview/)[Support (opens in new tab)](mailto:integrationsupport@zoominfo.com)[Privacy policy (opens in new tab)](https://www.zoominfo.com/legal/privacy-policy)
 
-* Category
+Bring ZoomInfo's verified B2B company and professional intelligence into every conversation. Search 100M+ companies and 500M+ professionals with natural language, track job changes and employment history, build targeted prospect and account lists, and enrich contacts and companies with 300+ data points, including verified work emails, direct dials, firmographics, technographics, and org structure.
 
-  Sales and marketing
-* Used in
+Go beyond static data. Surface buying intent signals, funding events, hiring trends, and executive-change scoops to know which accounts are in market right now. Run deep account and contact research that combines ZoomInfo's market data with your own CRM and conversation history, built for meeting prep, deal reviews, stakeholder mapping, and relationship intelligence. Find lookalikes of your best customers, get ML-ranked contact recommendations tuned to prospecting, deal acceleration, or renewal motions, and save any result set as an audience in ZoomInfo for activation.
 
-  [Claude](https://claude.ai/directory/f2cdf1b8-2f75-48a4-8d8c-8d9cce1b8643)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+From first touch to renewal, ZoomInfo grounds your AI workflows in the GTM intelligence layer revenue teams already trust. Know who to target, when to reach out, and why.
 
-  [ZoomInfo Technologies Inc.](https://www.zoominfo.com/)
+## Tools
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+* search\_contacts
+* enrich\_contact
+* search\_companies
+* enrich\_company
+* enrich\_company\_signals
+* account\_research
+* contact\_research
+* conversation\_intelligence
+* get\_recommended\_contacts
+* find\_similar\_contacts
+* find\_similar\_companies
+* browse\_audiences
+* get\_audience
+* browse\_engagements
+* get\_gtm\_context
+* update\_gtm\_context
+* search\_scoops
+* search\_news
+* search\_intent\_signals
+* lookup
+* submit\_feedback
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://docs.zoominfo.com/docs/zi-api-mcp-overview/)[Privacy Policy](https://www.zoominfo.com/legal/privacy-policy)[Support](mailto:integrationsupport@zoominfo.com)
-
-Access ZoomInfo's GTM intelligence to ground your AI workflows with verified B2B data. Search companies and identify key stakeholders with natural language. Enrich with 300+ data points, build targeted account lists, and drive momentum from first touch to renewal.
-
-You can use the ZoomInfo connector to:
-
-Search for target companies:
-"Find publicly listed tech companies in the USA with over $1B in revenue, selling primarily to revenue operations and sales leadership"
-
-Find specific contacts at companies:
-"Find me product operations managers at Acme Co who have been with the company more than one year, and enrich with their email addresses"
-
-Build enriched prospect lists:
-"Search for Chief Revenue Officers at fintech companies in the Bay Area between $50M-$250M in revenue, then enrich the top ten candidates with verified email and phone"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Sales and marketing
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-January 26, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f44f36966b0154800214_logo_activecampaign.svg)
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://mail.google.com&size=64)
 
-### ActiveCampaign
+### [Gmail](https://claude.com/connectors/gmail)
 
-Autonomous marketing to transform how you work](https://claude.com/connectors/activecampaign)
+Draft replies, summarize threads, & search your inbox
 
-Sales and marketing
+[Add Gmail in Claude (opens in new tab)](https://claude.ai/directory/2701e52f-b826-4aaf-8b25-11f2a97c98b0 "Add in Claude")
 
-Claude
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://calendar.google.com&size=64)
 
-Claude Code
+### [Google Calendar](https://claude.com/connectors/google-calendar)
 
-June 2, 2026
+Manage your schedule and coordinate meetings effortlessly
 
-[![Actively logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0ba4ce742af3f63ddef_icon_actively.jpg)
+[Add Google Calendar in Claude (opens in new tab)](https://claude.ai/directory/2a838eaa-f7b4-4bc2-bd47-c326f3c813c5 "Add in Claude")
 
-### Actively
+![](https://www.google.com/s2/favicons?domain=atlassian.com&sz=96)
 
-1:1 account agents for GTM teams](https://claude.com/connectors/actively)
+### [Atlassian Rovo](https://claude.com/connectors/atlassian)
 
-Sales and marketing
+Access Jira & Confluence from Claude
 
-Claude
+[Add Atlassian Rovo in Claude (opens in new tab)](https://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1 "Add in Claude")
 
-May 26, 2026
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-### Adobe Journey Optimizer
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Understand and troubleshoot your Journeys and Campaigns](https://claude.com/connectors/adobe-journey-optimizer)
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-Sales and marketing
+![](https://www.notion.so/images/notion-logo-block-main.svg)
 
-Claude
+### [Notion](https://claude.com/connectors/notion)
 
-Claude Code
+Connect your Notion workspace to search, update, and power workflows across tools
 
-April 29, 2026
-
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
-
-### Adobe Marketing Agent
-
-Marketing campaign and audience insights from Adobe](https://claude.com/connectors/adobe-marketing-agent)
+[Add Notion in Claude (opens in new tab)](https://claude.ai/directory/69f3a300-cc60-48c4-b237-dfac56530dbf "Add in Claude")

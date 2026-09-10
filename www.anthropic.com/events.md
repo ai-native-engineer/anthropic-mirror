@@ -330,6 +330,22 @@ Recurring
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-foundations-series)
 
+AI as an Engineering Leadership Multiplier
+
+Oct 8, 2026
+
+2026-10-08
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/ai-as-an-engineering-leadership-multiplier)
+
+How to Roadmap With Decisions Rather Than Dates
+
+Sep 21, 2026
+
+2026-09-21
+
+[Learn more about this webinar](https://www.anthropic.com/webinars/how-to-roadmap-with-decisions-rather-than-dates)
+
 Enterprise Readiness: A CISO's Guide to Deploying Claude
 
 Sep 18, 2026
@@ -354,25 +370,9 @@ Sep 10, 2026
 
 [Learn more about this webinar](https://www.anthropic.com/webinars/building-claude-commerce-agents)
 
-Enterprise Transformation with Claude on AWS: Paths to Production
-
-Sep 16, 2026
-
-2026-09-16
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/enterprise-transformation-with-claude-on-aws-three-paths-to-production)
-
-Maximizing Value from Claude Code
-
-Sep 10, 2026
-
-2026-09-10
-
-[Learn more about this webinar](https://www.anthropic.com/webinars/claude-code-maximizing-value)
-
 [Show more](https://www.anthropic.com/events?e45d281a_page=2)
 
-1 / 11
+1 / 12
 
 ## Webinar series
 
@@ -392,33 +392,15 @@ Sep 10, 2026
 
 [View series](https://www.anthropic.com/webinar-series/claude-on-google-cloud)View series
 
-## What’s new
+![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/688a1d1df9b6c1e8ef0058d9_solutions.svg)
 
-[View more news](https://www.anthropic.com/news)
+### Join a Claude Workshop
 
-![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/67ed7b8c9984ff61d7894ebc_Objects-LightningBolt.svg)
+Whether you’re technical or new to AI tooling, there is a session for you.
 
-Product
+[Browse workshops](https://www.anthropic.com/events/build-with-claude)Browse workshops
 
-### Introducing: Cowork
-
-[Learn more](https://www.anthropic.com/news/claude-for-financial-services)Learn more
-
-![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/69a1dc44eefb48d107a8b8a9_60a35c504cedb3e3f581b211e4b8aef372ffe031-1000x1000.svg)
-
-Announcement
-
-### Claude Sonnet 4.6
-
-[Learn more](https://www.anthropic.com/news/claude-sonnet-4-6)Learn more
-
-![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/680268b1c5c214a0769c37be_Nodes-PlantGrowth.svg)
-
-Product
-
-Introducing the Max plan
-
-[Learn more](https://www.anthropic.com/news/max-plan)Learn more
+Browse workshops
 
 ![](https://cdn.prod.website-files.com/67ce28cfec624e2b733f8a52/6892041a22121dadb0e34d89_Object-Envelope.svg)
 

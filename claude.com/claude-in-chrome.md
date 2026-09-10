@@ -26,6 +26,8 @@ Add to Chrome
 
 Available on all paid plans. Not on a paid plan? [Upgrade now](https://claude.com/pricing)
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/chrome/sizzle_950k_942KB.webm)
 
 ## A refreshing way to work on the web
@@ -41,6 +43,8 @@ Everyday tools
 Background tasks
 
 Active
+
+[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/cowork-thumbnail.webm)
 

@@ -16,6 +16,8 @@ Building for the model that doesn’t exist yet
 
 Ramp runs agents across its entire engineering lifecycle: writing code, reviewing it, monitoring production, and root-causing incidents. Boris Cherny sat down with CTO Rahul Sengottuvelu and Staff Software Engineer Austin Ray to talk Claude Code setups, loops versus dynamic workflows, and building with future models in mind.
 
+[Play video](#)Play video
+
 [](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/ramp-supercut-cc.webm)
 
 **“We’ve tried to build for what comes three to six months down the line, because when you're building for what's available today, it might already be too late by the time you ship.”**
@@ -31,6 +33,8 @@ Chief Technology Officer
 Niklas Gustavsson
 
 Chief Architect and VP of Engineering
+
+[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/spotify-supercut-cc.webm)
 
@@ -55,6 +59,8 @@ Co-founder and CTO
 ![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)![logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a43da4a5ba20a23a30861c7_logo_doordash-dark.svg)
 
 DoorDash runs Claude Code across their entire company and recently gave every one of their 4,000 employees access to Cowork. Boris Cherny, who created Claude Code at Anthropic, sat down with DoorDash co-founder Andy Fang to talk about how he’s delivering customer value faster by raising AI fluency across the company.
+
+[Play video](#)Play video
 
 [](https://assets.claude.ai/brand/videos/campaign/boris-office-hours/doordash-supercut-cc.webm)
 

@@ -63,6 +63,7 @@ No commitment · Cancel anytime
 * Includes Claude Design
 * Includes Claude Science
 * Access to unlimited projects to organize chats and documents
+* Access to Research
 * Ability to use more Claude models
 * Claude for Microsoft 365
 

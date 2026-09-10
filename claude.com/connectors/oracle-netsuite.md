@@ -1,132 +1,83 @@
 <!-- source: https://claude.com/connectors/oracle-netsuite -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac0797fb7905db81f0c5f_NetSuite%20AI%20Connector%20for%20Claude.jpg)
+[Skip to main content](#main-content)
 
-# Oracle NetSuite
-
-Connect Claude to NetSuite data for analysis & insights
-
-* Category
-
-  Data
-
-  Financial services
-* Used in
-
-  [Claude](https://claude.ai/directory/d7733f53-723c-477a-a87b-41926580ef7d)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
-
-  [Oracle NetSuite](https://www.netsuite.com/portal/home.shtml)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-
-  Interactive
-* More
-
-  [Documentation](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_7200233106.html)[Privacy Policy](https://www.oracle.com/legal/privacy/services-privacy-policy/)[Support](https://suiteanswers.custhelp.com/app/home)
+More[Documentation (opens in new tab)](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_7200233106.html)[Support (opens in new tab)](https://suiteanswers.custhelp.com/app/home)[Privacy policy (opens in new tab)](https://www.oracle.com/legal/privacy/services-privacy-policy/)
 
 A flexible and scalable way to connect Claude to NetSuite and use AI to query and analyze NetSuite data.
 
-You can use the NetSuite connector to:
+## Tools
 
-Query sales data:
-"How much did American Meats Inc buy from us in August?"
+* ns\_createRecord
+* ns\_getRecord
+* ns\_getRecordTypeMetadata
+* ns\_updateRecord
+* ns\_getSubsidiaries
+* ns\_listAllReports
+* ns\_runReport
+* ns\_listSavedSearches
+* ns\_runSavedSearch
+* ns\_runCustomSuiteQL
+* ns\_getAccountingBooks
+* ns\_getAccountingContexts
+* ns\_getNexusIds
+* ns\_getSuiteQLMetadata
+* ns\_selector\_app
+* ns\_report\_filters\_app
+* ns\_prompt\_library\_app
 
-Run comprehensive account analysis:
-"Provide a detailed full account analysis"
-
-Filter and retrieve sales orders:
-"Show me all sales orders from Q3 with a value over $50,000"
-
-Skills
-
-NetSuite AI Connector Instructions
-
-Teaches Claude the right tool-selection order, output formatting, multi-subsidiary and currency handling, and SuiteQL safety checks for NetSuite AI Connector sessions.
-
-Learn more
-
-[Learn more](https://github.com/oracle/netsuite-suitecloud-sdk/blob/master/packages/agent-skills/netsuite-ai-connector-instructions/SKILL.md)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-Skills
-
-NetSuite Finance Analyst
-
-Finance analysis grounded in NetSuite data — period-close support, variance and reconciliation review, cash reporting, and executive-ready financial narratives.
-
-Learn more
-
-[Learn more](https://github.com/oracle/netsuite-suitecloud-sdk/blob/master/packages/agent-skills/netsuite-finance-analyst/SKILL.md)Learn more
-
-[Next](#)Next
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-[Prev](#)Prev
-
-[Next](#)Next
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Data
+![](https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://drive.google.com&size=64)
 
-Claude
+### [Google Drive](https://claude.com/connectors/google-drive)
 
-Claude Code
+Search, read, and upload files instantly
 
-June 4, 2026
+[Add Google Drive in Claude (opens in new tab)](https://claude.ai/directory/b89f7865-a755-4f86-8062-c3bd651740ce "Add in Claude")
 
-[![Adobe logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62af2afe2ca56b96c9a034_icon_Adobe.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Adobe Customer Journey Analytics
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Run reports using your metrics, dimensions, and segments](https://claude.com/connectors/adobe-cja)
+Trending
 
-Financial services
+An AI Concierge that turns forms into conversations
 
-Claude
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=supabase.com&sz=96)
 
-June 22, 2026
+### [Supabase](https://claude.com/connectors/supabase)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a35ac9e71083683198fc43b_Affinity%20Icon%20-%20Ben%20Docksteader.svg)
+Manage databases, authentication, and storage
 
-### Affinity
+[Add Supabase in Claude (opens in new tab)](https://claude.ai/directory/11ca66fc-1e98-49d5-ab9b-7cb4672a8f10 "Add in Claude")
 
-Search, update, and prep deals without switching tabs.](https://claude.com/connectors/affinity)
+![](https://www.google.com/s2/favicons?domain=box.com&sz=96)
 
-Financial services
+### [Box](https://claude.com/connectors/box)
 
-Claude
+Search, edit and get insights on your Box content
 
-February 11, 2026
+[Add Box in Claude (opens in new tab)](https://claude.ai/directory/a5380429-c773-4180-b642-301418240c8c "Add in Claude")
 
-[![Aiera Logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a62b0e3e4bf41b66b001130_icon_Aiera.jpg)
+![](https://ask.cna.com.tw/ask/fav_icon_256x256.png)
 
-### Aiera
+### [中央社 CNA](https://claude.com/connectors/cna-mcp)
 
-Live events, filings, company publications, and more](https://claude.com/connectors/aiera)
+Trending
 
-Data
+把中央社可信新聞接進你的 AI｜Taiwan CNA news, sourced answers
 
-Claude
+[Add 中央社 CNA in Claude (opens in new tab)](https://claude.ai/directory/3e388e4c-9cd4-427d-a200-c533d39f92f8 "Add in Claude")
 
-Claude Code
+![](https://www.google.com/s2/favicons?domain=zapier.com&sz=96)
 
-May 11, 2026
+### [Zapier](https://claude.com/connectors/zapier)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a0384c4c40ef2c2b9c03d42_square%20logo%20with%20white%20background.png)
+Automate workflows across thousands of apps via conversation
 
-### Airtable
-
-Bring your structured data to Claude](https://claude.com/connectors/airtable)
+[Add Zapier in Claude (opens in new tab)](https://claude.ai/directory/1f6f271e-3d29-4241-b35e-8abe6def4891 "Add in Claude")

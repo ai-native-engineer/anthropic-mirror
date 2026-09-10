@@ -24,6 +24,8 @@ Download the Claude app, navigate to the toggle at the top of the app, and click
 
 ‍
 
+[Play video](#)Play video
+
 [](https://cdn.sanity.io/files/4zrzovbb/website/032a2abc20d7be25555ccbfbdf0a6a98082156ad.webm)
 
 ## Why legal teams choose Cowork
@@ -146,7 +148,7 @@ Cowork ships with plugins built for legal workflows, including NDA review agains
 
 Explore connectors
 
-[Explore connectors](https://claude.com/connectors)Explore connectors
+[Explore connectors](https://claude.com/archive/connectors)Explore connectors
 
 Browse plugins
 

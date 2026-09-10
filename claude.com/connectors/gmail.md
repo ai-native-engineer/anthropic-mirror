@@ -1,107 +1,92 @@
 <!-- source: https://claude.com/connectors/gmail -->
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a3ac4a4b5df309b6fb48e4f_Gmail.jpg)
+[Skip to main content](#main-content)
 
-# Gmail
+Connector URL`https://gmailmcp.googleapis.com/mcp/v1`
 
-Search your emails, surface insights, and send replies
+More[Documentation (opens in new tab)](https://developers.google.com/workspace/gmail)[Support (opens in new tab)](https://developers.google.com/workspace/support)[Privacy policy (opens in new tab)](https://policies.google.com/privacy)
 
-* Category
+Connect Gmail to Claude to quickly find important emails and understand long conversations. Claude can search through your messages, read entire email threads to give you context, and help you stay on top of your inbox. Perfect for finding that message you remember sending, catching up on email chains you missed, or preparing for meetings.
 
-  Communication
-* Used in
+## Tools
 
-  [Claude](https://claude.ai/settings/connectors)[Claude desktop app](#)[Claude mobile app](#)[Claude Code](#)[Claude Code](#)[Claude API](#)[Claude API](#)
+* apply\_sensitive\_message\_label
+* apply\_sensitive\_thread\_label
+* create\_draft
+* create\_filter
+* create\_label
+* delete\_label
+* forward
+* get\_message
+* get\_thread
+* label\_message
+* label\_thread
+* list\_drafts
+* list\_filters
+* list\_labels
+* mark\_message\_spam
+* mark\_thread\_spam
+* reply
+* search\_threads
+* send\_message
+* trash\_message
+* trash\_thread
+* unlabel\_message
+* unlabel\_thread
+* unmark\_message\_spam
 
-  [Google](https://google.com)
+Show all 29 tools
 
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-* Capabilities
-
-  Read & write
-* More
-
-  [Documentation](https://support.claude.com/en/articles/11088742-using-the-gmail-and-google-calendar-integrations)[Privacy Policy](https://policies.google.com/privacy)[Support](https://support.claude.com/en/articles/11088742-using-the-gmail-and-google-calendar-integrations)
-
-Connect Gmail to Claude so it can search your emails, surface the information you need, and handle replies — without manually copying or forwarding anything. Claude retrieves the minimum information needed to answer your question and provides citations linking back to the original emails. It can also draft, send, reply to, and forward emails, and asks for your approval by default before anything goes out.
-
-You can use Gmail to:
-
-**Find key information in email threads:** "What did the client say about the revised timeline in their last email?"
-
-**Summarize recent communications:** "Summarize the emails I've received from the marketing team this week"
-
-**Reply and send:** "Draft a response to the vendor's pricing proposal, pushing back on the timeline but agreeing to the budget — then send it"
-
-**Forward with context:** "Forward the signed contract to legal with a short summary of what changed"
-
-**Prepare for meetings:** "Pull together any emails related to the product launch so I can prepare for tomorrow's meeting"
-
-**Track follow-ups:** "Are there any unanswered emails from last week that I should follow up on?"
+Only use connectors from developers you trust. Anthropic does not control which tools developers make available and cannot verify that they will work as intended or that they won’t change.
 
 ## Related connectors
 
-Productivity
+![](https://www.google.com/s2/favicons?domain=microsoft.com&sz=96)
 
-Communication
+### [Microsoft 365](https://claude.com/connectors/microsoft-365)
 
-Claude
+Access your company's SharePoint, OneDrive, Outlook, and Teams directly in Claude
 
-Claude Code
+[Add Microsoft 365 in Claude (opens in new tab)](https://claude.ai/directory/ce0c9cda-5ea5-44c5-9cf2-40810dfa6582 "Add in Claude")
 
-February 11, 2026
+![](https://www.google.com/s2/favicons?domain=slack.com&sz=96)
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a39b31598b765419e5cee20_Asana.jpg)
+### [Slack](https://claude.com/connectors/slack)
 
-### Asana
+Send messages, create canvases, and fetch Slack data
 
-Connect to Asana to coordinate tasks, projects, and goals](https://claude.com/connectors/asana)
+[Add Slack in Claude (opens in new tab)](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe "Add in Claude")
 
-Communication
+![](https://www.google.com/s2/favicons?domain=asana.com&sz=96)
 
-Productivity
+### [Asana](https://claude.com/connectors/asana)
 
-Claude
+Connect to Asana to coordinate tasks, projects, and goals
 
-February 21, 2026
+[Add Asana in Claude (opens in new tab)](https://claude.ai/directory/41aefcf3-a829-45eb-8cee-d90b93912f57 "Add in Claude")
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a63dd9120cb996c95c73b28_icon_Circleback.jpg)
+![](https://raw.githubusercontent.com/Perspective-AI/mcp/main/icon.png)
 
-### Circleback
+### [Perspective AI](https://claude.com/connectors/perspective-ai)
 
-Search and access context from meetings](https://claude.com/connectors/circleback)
+Trending
 
-Productivity
+An AI Concierge that turns forms into conversations
 
-Communication
+[Add Perspective AI in Claude (opens in new tab)](https://claude.ai/directory/ac16a66e-c876-4447-a723-cfa55a3bce1b "Add in Claude")
 
-Code
+![](https://www.google.com/s2/favicons?domain=intercom.com&sz=96)
 
-Claude
+### [Intercom](https://claude.com/connectors/intercom)
 
-May 1, 2026
+Access to Intercom data for better customer insights
 
-[![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69797d31d1e2debf8a87f5a7_DevRev_logo_2.svg)
+[Add Intercom in Claude (opens in new tab)](https://claude.ai/directory/b2def8dc-ae47-4d46-877a-19b6a6ebb771 "Add in Claude")
 
-### Computer by DevRev
+![](https://www.google.com/s2/favicons?domain=miro.com&sz=96)
 
-Manage your workspace, issues, tickets, customers, and more without leaving Claude.](https://claude.com/connectors/devrev)
+### [Miro](https://claude.com/connectors/miro)
 
-Productivity
+Access and create new content on Miro boards
 
-Communication
-
-Claude
-
-Claude Code
-
-August 24, 2026
-
-[![DeepL logo](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a888330a9942904ecedb210_deepl-logo-blue.svg)
-
-### DeepL
-
-Translate text and documents across 100+ languages, with your style applied](https://claude.com/connectors/deepl)
+[Add Miro in Claude (opens in new tab)](https://claude.ai/directory/72480fb8-32ed-4075-b1c4-79e09c858b29 "Add in Claude")

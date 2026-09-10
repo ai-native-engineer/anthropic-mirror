@@ -82,7 +82,7 @@ You can access Claude through multiple platforms to suit your needs:
 
 ### Mobile applications
 
-* **iOS**: **[Download from the App Store](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)** (requires iOS 17.0 or later).
+* **iOS**: **[Download from the App Store](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684)** (requires iOS 18.0 or later).
 * **Android**: **[Download from Google Play Store](https://play.google.com/store/apps/details?id=com.anthropic.claude)** (requires Android 8.0 Oreo or later).
 * Sign in with the same university account you use on the web version.
 * See our **[Claude Mobile apps section](https://support.claude.com/en/collections/9387080-claude-mobile-apps)** for more information.
